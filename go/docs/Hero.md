@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AssignedPlayersOnly** | **bool** |  | 
+**AssignedPlayersOnly** | **bool** | &#x60;m_bAssignedPlayersOnly&#x60; was removed in build 6711; always &#x60;false&#x60; since. | 
 **ClassName** | **string** |  | 
 **Colors** | [**HeroColors**](HeroColors.md) |  | 
 **Complexity** | **int64** |  | 
 **CostBonuses** | Pointer to [**map[string][]HashMapItemSlotTypeVecMapModCostBonusValueInner**](array.md) |  | [optional] 
 **Description** | [**HeroDescription**](HeroDescription.md) |  | 
+**DevelopmentState** | Pointer to [**NullableHeroDevelopmentState**](HeroDevelopmentState.md) | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one. | [optional] 
 **Disabled** | **bool** |  | 
 **GunTag** | Pointer to **NullableString** |  | [optional] 
 **HeroStatsUi** | [**HeroStatsUI**](HeroStatsUI.md) |  | 
@@ -27,9 +28,9 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **NeedsTesting** | **bool** |  | 
 **Physics** | [**HeroPhysics**](HeroPhysics.md) |  | 
-**PlayerSelectable** | **bool** |  | 
-**PrereleaseOnly** | Pointer to **NullableBool** |  | [optional] 
-**PurchaseBonuses** | [**map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner**](array.md) |  | 
+**PlayerSelectable** | **bool** | Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;. | 
+**PrereleaseOnly** | Pointer to **NullableBool** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] 
+**PurchaseBonuses** | [**map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner**](array.md) | Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds. | 
 **ScalingStats** | [**map[string]HashMapStringScalingStatValue**](HashMapStringScalingStatValue.md) |  | 
 **ShopStatDisplay** | [**ShopStatDisplay**](ShopStatDisplay.md) |  | 
 **Skin** | **int64** |  | 
@@ -192,6 +193,41 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
+### GetDevelopmentState
+
+`func (o *Hero) GetDevelopmentState() HeroDevelopmentState`
+
+GetDevelopmentState returns the DevelopmentState field if non-nil, zero value otherwise.
+
+### GetDevelopmentStateOk
+
+`func (o *Hero) GetDevelopmentStateOk() (*HeroDevelopmentState, bool)`
+
+GetDevelopmentStateOk returns a tuple with the DevelopmentState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDevelopmentState
+
+`func (o *Hero) SetDevelopmentState(v HeroDevelopmentState)`
+
+SetDevelopmentState sets DevelopmentState field to given value.
+
+### HasDevelopmentState
+
+`func (o *Hero) HasDevelopmentState() bool`
+
+HasDevelopmentState returns a boolean if a field has been set.
+
+### SetDevelopmentStateNil
+
+`func (o *Hero) SetDevelopmentStateNil(b bool)`
+
+ SetDevelopmentStateNil sets the value for DevelopmentState to be an explicit nil
+
+### UnsetDevelopmentState
+`func (o *Hero) UnsetDevelopmentState()`
+
+UnsetDevelopmentState ensures that no value is present for DevelopmentState, not even an explicit nil
 ### GetDisabled
 
 `func (o *Hero) GetDisabled() bool`

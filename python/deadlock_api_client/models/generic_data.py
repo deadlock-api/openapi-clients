@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.damage_flash import DamageFlash
@@ -39,6 +39,10 @@ class GenericData(BaseModel):
     """ # noqa: E501
     aim_spring_strength: List[Union[StrictFloat, StrictInt]]
     armor_groups: List[ItemGroup]
+    color_enemy: Optional[Color] = Field(default=None, description="Build 6711+.")
+    color_friend: Optional[Color] = Field(default=None, description="Build 6711+.")
+    color_team1: Optional[Color] = Field(default=None, description="Build 6711+.")
+    color_team2: Optional[Color] = Field(default=None, description="Build 6711+.")
     damage_flash: DamageFlash
     enemy_objectives_and_zipline_color: Optional[Color] = None
     enemy_objectives_color: Optional[Color] = None
@@ -58,7 +62,7 @@ class GenericData(BaseModel):
     targeting_spring_strength: List[Union[StrictFloat, StrictInt]]
     trooper_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     weapon_groups: List[ItemGroup]
-    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_price_per_tier", "lane_info", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
+    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "color_enemy", "color_friend", "color_team1", "color_team2", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_price_per_tier", "lane_info", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,6 +109,18 @@ class GenericData(BaseModel):
             for _item_armor_groups in self.armor_groups:
                 _items.append(_item_armor_groups.to_dict() if _item_armor_groups is not None else None)
             _dict['armor_groups'] = _items
+        # override the default output from pydantic by calling `to_dict()` of color_enemy
+        if self.color_enemy:
+            _dict['color_enemy'] = self.color_enemy.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of color_friend
+        if self.color_friend:
+            _dict['color_friend'] = self.color_friend.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of color_team1
+        if self.color_team1:
+            _dict['color_team1'] = self.color_team1.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of color_team2
+        if self.color_team2:
+            _dict['color_team2'] = self.color_team2.to_dict()
         # override the default output from pydantic by calling `to_dict()` of damage_flash
         if self.damage_flash:
             _dict['damage_flash'] = self.damage_flash.to_dict()
@@ -165,6 +181,26 @@ class GenericData(BaseModel):
             for _item_weapon_groups in self.weapon_groups:
                 _items.append(_item_weapon_groups.to_dict() if _item_weapon_groups is not None else None)
             _dict['weapon_groups'] = _items
+        # set to None if color_enemy (nullable) is None
+        # and model_fields_set contains the field
+        if self.color_enemy is None and "color_enemy" in self.model_fields_set:
+            _dict['color_enemy'] = None
+
+        # set to None if color_friend (nullable) is None
+        # and model_fields_set contains the field
+        if self.color_friend is None and "color_friend" in self.model_fields_set:
+            _dict['color_friend'] = None
+
+        # set to None if color_team1 (nullable) is None
+        # and model_fields_set contains the field
+        if self.color_team1 is None and "color_team1" in self.model_fields_set:
+            _dict['color_team1'] = None
+
+        # set to None if color_team2 (nullable) is None
+        # and model_fields_set contains the field
+        if self.color_team2 is None and "color_team2" in self.model_fields_set:
+            _dict['color_team2'] = None
+
         # set to None if enemy_objectives_and_zipline_color (nullable) is None
         # and model_fields_set contains the field
         if self.enemy_objectives_and_zipline_color is None and "enemy_objectives_and_zipline_color" in self.model_fields_set:
@@ -209,6 +245,10 @@ class GenericData(BaseModel):
         _obj = cls.model_validate({
             "aim_spring_strength": obj.get("aim_spring_strength"),
             "armor_groups": [ItemGroup.from_dict(_item) for _item in obj["armor_groups"]] if obj.get("armor_groups") is not None else None,
+            "color_enemy": Color.from_dict(obj["color_enemy"]) if obj.get("color_enemy") is not None else None,
+            "color_friend": Color.from_dict(obj["color_friend"]) if obj.get("color_friend") is not None else None,
+            "color_team1": Color.from_dict(obj["color_team1"]) if obj.get("color_team1") is not None else None,
+            "color_team2": Color.from_dict(obj["color_team2"]) if obj.get("color_team2") is not None else None,
             "damage_flash": DamageFlash.from_dict(obj["damage_flash"]) if obj.get("damage_flash") is not None else None,
             "enemy_objectives_and_zipline_color": Color.from_dict(obj["enemy_objectives_and_zipline_color"]) if obj.get("enemy_objectives_and_zipline_color") is not None else None,
             "enemy_objectives_color": Color.from_dict(obj["enemy_objectives_color"]) if obj.get("enemy_objectives_color") is not None else None,

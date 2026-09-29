@@ -4,11 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Background** | **string** |  | 
+**Background** | **string** | Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. | 
 **Frame** | **string** |  | 
-**Mid** | **string** |  | 
-**Minimap** | **string** |  | 
-**Plain** | **string** |  | 
+**Mid** | **string** | Midtown base layer. | 
+**MidTunnels** | Pointer to **NullableString** | Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+). | [optional] 
+**Minimap** | **string** | Full minimap. From build 6711 on this is the midtown base layer. | 
+**Plain** | **string** | Minimap without overlays. From build 6711 on this is the midtown base layer. | 
+**RatTunnels** | Pointer to **NullableString** | Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+). | [optional] 
 
 ## Methods
 
@@ -89,6 +91,41 @@ and a boolean to check if the value has been set.
 SetMid sets Mid field to given value.
 
 
+### GetMidTunnels
+
+`func (o *MapImages) GetMidTunnels() string`
+
+GetMidTunnels returns the MidTunnels field if non-nil, zero value otherwise.
+
+### GetMidTunnelsOk
+
+`func (o *MapImages) GetMidTunnelsOk() (*string, bool)`
+
+GetMidTunnelsOk returns a tuple with the MidTunnels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMidTunnels
+
+`func (o *MapImages) SetMidTunnels(v string)`
+
+SetMidTunnels sets MidTunnels field to given value.
+
+### HasMidTunnels
+
+`func (o *MapImages) HasMidTunnels() bool`
+
+HasMidTunnels returns a boolean if a field has been set.
+
+### SetMidTunnelsNil
+
+`func (o *MapImages) SetMidTunnelsNil(b bool)`
+
+ SetMidTunnelsNil sets the value for MidTunnels to be an explicit nil
+
+### UnsetMidTunnels
+`func (o *MapImages) UnsetMidTunnels()`
+
+UnsetMidTunnels ensures that no value is present for MidTunnels, not even an explicit nil
 ### GetMinimap
 
 `func (o *MapImages) GetMinimap() string`
@@ -129,6 +166,41 @@ and a boolean to check if the value has been set.
 SetPlain sets Plain field to given value.
 
 
+### GetRatTunnels
+
+`func (o *MapImages) GetRatTunnels() string`
+
+GetRatTunnels returns the RatTunnels field if non-nil, zero value otherwise.
+
+### GetRatTunnelsOk
+
+`func (o *MapImages) GetRatTunnelsOk() (*string, bool)`
+
+GetRatTunnelsOk returns a tuple with the RatTunnels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRatTunnels
+
+`func (o *MapImages) SetRatTunnels(v string)`
+
+SetRatTunnels sets RatTunnels field to given value.
+
+### HasRatTunnels
+
+`func (o *MapImages) HasRatTunnels() bool`
+
+HasRatTunnels returns a boolean if a field has been set.
+
+### SetRatTunnelsNil
+
+`func (o *MapImages) SetRatTunnelsNil(b bool)`
+
+ SetRatTunnelsNil sets the value for RatTunnels to be an explicit nil
+
+### UnsetRatTunnels
+`func (o *MapImages) UnsetRatTunnels()`
+
+UnsetRatTunnels ensures that no value is present for RatTunnels, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

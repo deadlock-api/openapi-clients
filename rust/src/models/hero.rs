@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Hero {
+    /// `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
     #[serde(rename = "assigned_players_only")]
     pub assigned_players_only: bool,
     #[serde(rename = "class_name")]
@@ -25,6 +26,9 @@ pub struct Hero {
     pub cost_bonuses: Option<Option<std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecMapModCostBonusValueInner>>>>,
     #[serde(rename = "description")]
     pub description: Box<models::HeroDescription>,
+    /// Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
+    #[serde(rename = "development_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub development_state: Option<Option<models::HeroDevelopmentState>>,
     #[serde(rename = "disabled")]
     pub disabled: bool,
     #[serde(rename = "gun_tag", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -59,10 +63,13 @@ pub struct Hero {
     pub needs_testing: bool,
     #[serde(rename = "physics")]
     pub physics: Box<models::HeroPhysics>,
+    /// Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
     #[serde(rename = "player_selectable")]
     pub player_selectable: bool,
+    /// Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
     #[serde(rename = "prerelease_only", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub prerelease_only: Option<Option<bool>>,
+    /// Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
     #[serde(rename = "purchase_bonuses")]
     pub purchase_bonuses: std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>,
     #[serde(rename = "scaling_stats")]
@@ -91,6 +98,7 @@ impl Hero {
             complexity,
             cost_bonuses: None,
             description: Box::new(description),
+            development_state: None,
             disabled,
             gun_tag: None,
             hero_stats_ui: Box::new(hero_stats_ui),

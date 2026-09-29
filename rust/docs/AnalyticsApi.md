@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 ## ability_order_stats
 
-> Vec<models::AnalyticsAbilityOrderStats> ability_order_stats(hero_id, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_ability_upgrades, max_ability_upgrades, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_id, account_ids, include_item_ids, exclude_item_ids)
+> Vec<models::AnalyticsAbilityOrderStats> ability_order_stats(hero_id, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_ability_upgrades, max_ability_upgrades, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_id, account_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix)
 Ability Order Stats
 
  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -42,7 +42,7 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -59,6 +59,8 @@ Name | Type | Description  | Required | Notes
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 
 ### Return type
 
@@ -90,7 +92,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -129,7 +131,7 @@ Build Item Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
 ### Return type
@@ -150,7 +152,7 @@ No authorization required
 
 ## game_stats
 
-> Vec<models::AnalyticsGameStats> game_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, min_networth, max_networth, hero_ids, include_item_ids, exclude_item_ids, account_ids)
+> Vec<models::AnalyticsGameStats> game_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, min_networth, max_networth, hero_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids)
 Game Stats
 
  Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -163,7 +165,7 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -176,6 +178,8 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
@@ -208,7 +212,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -235,7 +239,7 @@ No authorization required
 
 ## hero_build_stats
 
-> Vec<models::HeroBuildStats> hero_build_stats(hero_id, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, min_matches, account_id, account_ids)
+> Vec<models::HeroBuildStats> hero_build_stats(hero_id, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, min_matches, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix)
 Hero Build Stats
 
  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -247,7 +251,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | **u32** | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -259,6 +263,8 @@ Name | Type | Description  | Required | Notes
 **min_matches** | Option<**u64**> | The minimum number of matches played for a build to be included in the response. |  |[default to 20]
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 
 ### Return type
 
@@ -290,7 +296,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -340,7 +346,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -391,7 +397,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -422,7 +428,7 @@ No authorization required
 
 ## hero_stats
 
-> Vec<models::AnalyticsHeroStats> hero_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_hero_matches, max_hero_matches, min_hero_matches_total, max_hero_matches_total, include_item_ids, exclude_item_ids, account_id, account_ids)
+> Vec<models::AnalyticsHeroStats> hero_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_hero_matches, max_hero_matches, min_hero_matches_total, max_hero_matches_total, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_id, account_ids)
 Hero Stats
 
  Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -435,7 +441,7 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -451,6 +457,8 @@ Name | Type | Description  | Required | Notes
 **max_hero_matches_total** | Option<**u64**> | Filter players based on the number of matches they have played with a specific hero in their entire history. |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
@@ -484,7 +492,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -518,7 +526,7 @@ No authorization required
 
 ## item_flow_stats
 
-> models::ItemFlowStats item_flow_stats(phase_interval_s, phase_count, game_mode, match_mode, hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_ids, include_item_ids, exclude_item_ids, locked_item_ids, locked_columns)
+> models::ItemFlowStats item_flow_stats(phase_interval_s, phase_count, game_mode, match_mode, hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, locked_item_ids, locked_columns)
 Item Flow Stats
 
  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -533,7 +541,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -547,6 +555,8 @@ Name | Type | Description  | Required | Notes
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **locked_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **locked_columns** | Option<[**Vec<u32>**](U32.md)> | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`. |  |
 
@@ -568,7 +578,7 @@ No authorization required
 
 ## item_permutation_stats
 
-> Vec<models::ItemPermutationStats> item_permutation_stats(item_ids, comb_size, min_matches, max_matches, game_mode, match_mode, hero_ids, hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, account_id, account_ids)
+> Vec<models::ItemPermutationStats> item_permutation_stats(item_ids, comb_size, min_matches, max_matches, game_mode, match_mode, hero_ids, hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix)
 Item Permutation Stats
 
  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -586,7 +596,7 @@ Name | Type | Description  | Required | Notes
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -598,6 +608,8 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 
 ### Return type
 
@@ -617,7 +629,7 @@ No authorization required
 
 ## item_stats
 
-> Vec<models::ItemStats> item_stats(bucket, game_mode, match_mode, hero_ids, hero_id, enemy_hero_ids, enemy_hero_ids_all_match, min_enemy_networth, max_enemy_networth, same_lane_filter, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_item_ids, exclude_item_ids, min_matches, max_matches, account_id, account_ids, min_bought_at_s, max_bought_at_s, item_order)
+> Vec<models::ItemStats> item_stats(bucket, game_mode, match_mode, hero_ids, hero_id, enemy_hero_ids, enemy_hero_ids_all_match, min_enemy_networth, max_enemy_networth, same_lane_filter, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, min_matches, max_matches, account_id, account_ids, min_bought_at_s, max_bought_at_s, item_order)
 Item Stats
 
  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -637,7 +649,7 @@ Name | Type | Description  | Required | Notes
 **min_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **max_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **same_lane_filter** | Option<**bool**> | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -649,6 +661,8 @@ Name | Type | Description  | Required | Notes
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **min_matches** | Option<**u32**> | The minimum number of matches played for an item to be included in the response. |  |[default to 20]
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
@@ -688,7 +702,7 @@ Name | Type | Description  | Required | Notes
 **team** | Option<**u32**> | Filter by team number. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -740,7 +754,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -788,7 +802,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -825,7 +839,7 @@ No authorization required
 
 ## player_performance_curve
 
-> Vec<models::PlayerPerformanceCurvePoint> player_performance_curve(resolution, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_ids, include_item_ids, exclude_item_ids, account_ids)
+> Vec<models::PlayerPerformanceCurvePoint> player_performance_curve(resolution, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids)
 Player Performance Curve
 
  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -838,7 +852,7 @@ Name | Type | Description  | Required | Notes
 **resolution** | Option<**u32**> | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). |  |[default to 10]
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -851,6 +865,8 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type
@@ -920,7 +936,7 @@ No authorization required
 
 ## player_stats_metrics
 
-> std::collections::HashMap<String, models::HashMapValue> player_stats_metrics(hero_ids, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, max_matches, include_item_ids, exclude_item_ids, account_ids)
+> std::collections::HashMap<String, models::HashMapValue> player_stats_metrics(hero_ids, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, max_matches, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids)
 Player Stats Metrics
 
  Returns comprehensive statistical analysis of player performance.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -933,7 +949,7 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1787961600]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1788048000]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -946,6 +962,8 @@ Name | Type | Description  | Required | Notes
 **max_matches** | Option<**u32**> | The maximum number of matches to analyze. |  |
 **include_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
 **exclude_item_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> |  |
+**ability_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> |  |
+**ability_unlock_order_prefix** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
 
 ### Return type

@@ -127,6 +127,7 @@ declare const _default: {
             name: number[];
             description: number[];
             player_selectable: number[];
+            development_state: number[];
             disabled: number[];
             in_development: number[];
             needs_testing: number[];
@@ -180,6 +181,7 @@ declare const _default: {
             playstyle: number[];
             __typename: number[];
         };
+        HeroDevelopmentState: {};
         HeroImages: {
             icon_hero_card: number[];
             icon_hero_card_webp: number[];
@@ -279,6 +281,7 @@ declare const _default: {
             not_scored: number[];
             ranked_type: number[];
             rank_interval: number[];
+            corrupted_penalty_seed: number[];
             rewards_eligible: number[];
             earned_holiday_award_2025: number[];
             objectives_mask_team_0: number[];
@@ -447,6 +450,7 @@ declare const _default: {
             player_tracked_stats: number[];
             stats_type_stat: number[];
             hero_xp_rewards: number[];
+            hero_release_votes: number[];
             hero: number[];
             steam: number[];
             hero_build: number[];

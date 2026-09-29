@@ -29,6 +29,8 @@ type NpcUnit struct {
 	BackdoorBulletResistModifier NullableSubclassBulletResistModifier `json:"backdoor_bullet_resist_modifier,omitempty"`
 	BarrackBossDps NullableFloat64 `json:"barrack_boss_dps,omitempty"`
 	BarrackGuardianDamageResistPct NullableFloat64 `json:"barrack_guardian_damage_resist_pct,omitempty"`
+	// Secondary weapon the unit uses against bosses (builds 6711+).
+	BossWeaponInfo NullableWeaponInfo `json:"boss_weapon_info,omitempty"`
 	BoundAbilities map[string]string `json:"bound_abilities,omitempty"`
 	ClassName string `json:"class_name"`
 	EmpoweredModifierLevel1 NullableSubclassEmpoweredModifierLevel `json:"empowered_modifier_level1,omitempty"`
@@ -444,6 +446,48 @@ func (o *NpcUnit) SetBarrackGuardianDamageResistPctNil() {
 // UnsetBarrackGuardianDamageResistPct ensures that no value is present for BarrackGuardianDamageResistPct, not even an explicit nil
 func (o *NpcUnit) UnsetBarrackGuardianDamageResistPct() {
 	o.BarrackGuardianDamageResistPct.Unset()
+}
+
+// GetBossWeaponInfo returns the BossWeaponInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetBossWeaponInfo() WeaponInfo {
+	if o == nil || IsNil(o.BossWeaponInfo.Get()) {
+		var ret WeaponInfo
+		return ret
+	}
+	return *o.BossWeaponInfo.Get()
+}
+
+// GetBossWeaponInfoOk returns a tuple with the BossWeaponInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetBossWeaponInfoOk() (*WeaponInfo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BossWeaponInfo.Get(), o.BossWeaponInfo.IsSet()
+}
+
+// HasBossWeaponInfo returns a boolean if a field has been set.
+func (o *NpcUnit) HasBossWeaponInfo() bool {
+	if o != nil && o.BossWeaponInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBossWeaponInfo gets a reference to the given NullableWeaponInfo and assigns it to the BossWeaponInfo field.
+func (o *NpcUnit) SetBossWeaponInfo(v WeaponInfo) {
+	o.BossWeaponInfo.Set(&v)
+}
+// SetBossWeaponInfoNil sets the value for BossWeaponInfo to be an explicit nil
+func (o *NpcUnit) SetBossWeaponInfoNil() {
+	o.BossWeaponInfo.Set(nil)
+}
+
+// UnsetBossWeaponInfo ensures that no value is present for BossWeaponInfo, not even an explicit nil
+func (o *NpcUnit) UnsetBossWeaponInfo() {
+	o.BossWeaponInfo.Unset()
 }
 
 // GetBoundAbilities returns the BoundAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2861,6 +2905,9 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BarrackGuardianDamageResistPct.IsSet() {
 		toSerialize["barrack_guardian_damage_resist_pct"] = o.BarrackGuardianDamageResistPct.Get()
+	}
+	if o.BossWeaponInfo.IsSet() {
+		toSerialize["boss_weapon_info"] = o.BossWeaponInfo.Get()
 	}
 	if o.BoundAbilities != nil {
 		toSerialize["bound_abilities"] = o.BoundAbilities

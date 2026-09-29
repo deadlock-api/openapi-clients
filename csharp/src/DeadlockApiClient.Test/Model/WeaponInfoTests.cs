@@ -90,6 +90,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BulletHandlerType'
+        /// </summary>
+        [Fact]
+        public void BulletHandlerTypeTest()
+        {
+            // TODO unit test for the property 'BulletHandlerType'
+        }
+
+        /// <summary>
         /// Test the property 'BulletInheritShooterVelocityScale'
         /// </summary>
         [Fact]
@@ -474,6 +483,15 @@ namespace DeadlockApiClient.Test.Model
         public void RecoilSpeedTest()
         {
             // TODO unit test for the property 'RecoilSpeed'
+        }
+
+        /// <summary>
+        /// Test the property 'RecycleTime'
+        /// </summary>
+        [Fact]
+        public void RecycleTimeTest()
+        {
+            // TODO unit test for the property 'RecycleTime'
         }
 
         /// <summary>

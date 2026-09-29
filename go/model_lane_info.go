@@ -21,10 +21,17 @@ var _ MappedNullable = &LaneInfo{}
 
 // LaneInfo struct for LaneInfo
 type LaneInfo struct {
-	Color Color `json:"color"`
+	// Absent for unused lane slots (build 6711+).
+	Color NullableColor `json:"color,omitempty"`
 	CssClass NullableString `json:"css_class,omitempty"`
+	IsEnemyLane bool `json:"is_enemy_lane"`
+	// Localized lane name. Unused lane slots are named `Unused`.
 	LaneName string `json:"lane_name"`
+	// Build 6711+.
+	MinimapColor NullableColor `json:"minimap_color,omitempty"`
+	// Only present up to build 6701.
 	MinimapZiplineColorOverride NullableColor `json:"minimap_zipline_color_override,omitempty"`
+	// Only present up to build 6701.
 	ObjectiveColor NullableColor `json:"objective_color,omitempty"`
 }
 
@@ -34,9 +41,9 @@ type _LaneInfo LaneInfo
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLaneInfo(color Color, laneName string) *LaneInfo {
+func NewLaneInfo(isEnemyLane bool, laneName string) *LaneInfo {
 	this := LaneInfo{}
-	this.Color = color
+	this.IsEnemyLane = isEnemyLane
 	this.LaneName = laneName
 	return &this
 }
@@ -49,28 +56,46 @@ func NewLaneInfoWithDefaults() *LaneInfo {
 	return &this
 }
 
-// GetColor returns the Color field value
+// GetColor returns the Color field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LaneInfo) GetColor() Color {
-	if o == nil {
+	if o == nil || IsNil(o.Color.Get()) {
 		var ret Color
 		return ret
 	}
-
-	return o.Color
+	return *o.Color.Get()
 }
 
-// GetColorOk returns a tuple with the Color field value
+// GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *LaneInfo) GetColorOk() (*Color, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Color, true
+	return o.Color.Get(), o.Color.IsSet()
 }
 
-// SetColor sets field value
+// HasColor returns a boolean if a field has been set.
+func (o *LaneInfo) HasColor() bool {
+	if o != nil && o.Color.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColor gets a reference to the given NullableColor and assigns it to the Color field.
 func (o *LaneInfo) SetColor(v Color) {
-	o.Color = v
+	o.Color.Set(&v)
+}
+// SetColorNil sets the value for Color to be an explicit nil
+func (o *LaneInfo) SetColorNil() {
+	o.Color.Set(nil)
+}
+
+// UnsetColor ensures that no value is present for Color, not even an explicit nil
+func (o *LaneInfo) UnsetColor() {
+	o.Color.Unset()
 }
 
 // GetCssClass returns the CssClass field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -115,6 +140,30 @@ func (o *LaneInfo) UnsetCssClass() {
 	o.CssClass.Unset()
 }
 
+// GetIsEnemyLane returns the IsEnemyLane field value
+func (o *LaneInfo) GetIsEnemyLane() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsEnemyLane
+}
+
+// GetIsEnemyLaneOk returns a tuple with the IsEnemyLane field value
+// and a boolean to check if the value has been set.
+func (o *LaneInfo) GetIsEnemyLaneOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsEnemyLane, true
+}
+
+// SetIsEnemyLane sets field value
+func (o *LaneInfo) SetIsEnemyLane(v bool) {
+	o.IsEnemyLane = v
+}
+
 // GetLaneName returns the LaneName field value
 func (o *LaneInfo) GetLaneName() string {
 	if o == nil {
@@ -137,6 +186,48 @@ func (o *LaneInfo) GetLaneNameOk() (*string, bool) {
 // SetLaneName sets field value
 func (o *LaneInfo) SetLaneName(v string) {
 	o.LaneName = v
+}
+
+// GetMinimapColor returns the MinimapColor field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LaneInfo) GetMinimapColor() Color {
+	if o == nil || IsNil(o.MinimapColor.Get()) {
+		var ret Color
+		return ret
+	}
+	return *o.MinimapColor.Get()
+}
+
+// GetMinimapColorOk returns a tuple with the MinimapColor field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LaneInfo) GetMinimapColorOk() (*Color, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinimapColor.Get(), o.MinimapColor.IsSet()
+}
+
+// HasMinimapColor returns a boolean if a field has been set.
+func (o *LaneInfo) HasMinimapColor() bool {
+	if o != nil && o.MinimapColor.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimapColor gets a reference to the given NullableColor and assigns it to the MinimapColor field.
+func (o *LaneInfo) SetMinimapColor(v Color) {
+	o.MinimapColor.Set(&v)
+}
+// SetMinimapColorNil sets the value for MinimapColor to be an explicit nil
+func (o *LaneInfo) SetMinimapColorNil() {
+	o.MinimapColor.Set(nil)
+}
+
+// UnsetMinimapColor ensures that no value is present for MinimapColor, not even an explicit nil
+func (o *LaneInfo) UnsetMinimapColor() {
+	o.MinimapColor.Unset()
 }
 
 // GetMinimapZiplineColorOverride returns the MinimapZiplineColorOverride field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -233,11 +324,17 @@ func (o LaneInfo) MarshalJSON() ([]byte, error) {
 
 func (o LaneInfo) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["color"] = o.Color
+	if o.Color.IsSet() {
+		toSerialize["color"] = o.Color.Get()
+	}
 	if o.CssClass.IsSet() {
 		toSerialize["css_class"] = o.CssClass.Get()
 	}
+	toSerialize["is_enemy_lane"] = o.IsEnemyLane
 	toSerialize["lane_name"] = o.LaneName
+	if o.MinimapColor.IsSet() {
+		toSerialize["minimap_color"] = o.MinimapColor.Get()
+	}
 	if o.MinimapZiplineColorOverride.IsSet() {
 		toSerialize["minimap_zipline_color_override"] = o.MinimapZiplineColorOverride.Get()
 	}
@@ -252,7 +349,7 @@ func (o *LaneInfo) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"color",
+		"is_enemy_lane",
 		"lane_name",
 	}
 

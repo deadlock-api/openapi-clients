@@ -19,6 +19,10 @@
 | **targetingSpringStrength** | **kotlin.collections.List&lt;kotlin.Double&gt;** |  |  |
 | **trooperKillGoldShareFrac** | **kotlin.collections.List&lt;kotlin.Double&gt;** |  |  |
 | **weaponGroups** | [**kotlin.collections.List&lt;ItemGroup&gt;**](ItemGroup.md) |  |  |
+| **colorEnemy** | [**Color**](Color.md) | Build 6711+. |  [optional] |
+| **colorFriend** | [**Color**](Color.md) | Build 6711+. |  [optional] |
+| **colorTeam1** | [**Color**](Color.md) | Build 6711+. |  [optional] |
+| **colorTeam2** | [**Color**](Color.md) | Build 6711+. |  [optional] |
 | **enemyObjectivesAndZiplineColor** | [**Color**](Color.md) |  |  [optional] |
 | **enemyObjectivesColor** | [**Color**](Color.md) |  |  [optional] |
 | **enemyZiplineColor** | [**Color**](Color.md) |  |  [optional] |

@@ -7,6 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aim_spring_strength** | **List[float]** |  | 
 **armor_groups** | [**List[ItemGroup]**](ItemGroup.md) |  | 
+**color_enemy** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**color_friend** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**color_team1** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**color_team2** | [**Color**](Color.md) | Build 6711+. | [optional] 
 **damage_flash** | [**DamageFlash**](DamageFlash.md) |  | 
 **enemy_objectives_and_zipline_color** | [**Color**](Color.md) |  | [optional] 
 **enemy_objectives_color** | [**Color**](Color.md) |  | [optional] 

@@ -42,23 +42,25 @@ namespace DeadlockApiClient.Api
         /// List Loot Tables
         /// </summary>
         /// <remarks>
-        /// Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+        /// Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLootTablesApiResponse"/>&gt;</returns>
+        [Obsolete]
         Task<IListLootTablesApiResponse> ListLootTablesAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Loot Tables
         /// </summary>
         /// <remarks>
-        /// Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+        /// Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
         /// </remarks>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListLootTablesApiResponse"/>?&gt;</returns>
+        [Obsolete]
         Task<IListLootTablesApiResponse?> ListLootTablesOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
@@ -202,7 +204,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorListLootTables(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
 
         /// <summary>
-        /// List Loot Tables Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+        /// List Loot Tables Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
         /// </summary>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -220,7 +222,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// List Loot Tables Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+        /// List Loot Tables Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>

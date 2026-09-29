@@ -55,6 +55,24 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.breakOnDodgeTouch shouldBe ("TODO")
         }
 
+        // to test the property `buffTypeGraphColor` - Permanent pickups: color used for the buff in the stat graph.
+        should("test buffTypeGraphColor") {
+            // uncomment below to test the property
+            //modelInstance.buffTypeGraphColor shouldBe ("TODO")
+        }
+
+        // to test the property `buffTypeLocString` - Permanent pickups: localization token of the stat the buff raises.
+        should("test buffTypeLocString") {
+            // uncomment below to test the property
+            //modelInstance.buffTypeLocString shouldBe ("TODO")
+        }
+
+        // to test the property `buffTypeValueUnit` - Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+        should("test buffTypeValueUnit") {
+            // uncomment below to test the property
+            //modelInstance.buffTypeValueUnit shouldBe ("TODO")
+        }
+
         // to test the property `collisionRadius`
         should("test collisionRadius") {
             // uncomment below to test the property
@@ -85,6 +103,12 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.damagedByMelee shouldBe ("TODO")
         }
 
+        // to test the property `damagedBySlide`
+        should("test damagedBySlide") {
+            // uncomment below to test the property
+            //modelInstance.damagedBySlide shouldBe ("TODO")
+        }
+
         // to test the property `expirationDuration`
         should("test expirationDuration") {
             // uncomment below to test the property
@@ -107,6 +131,18 @@ class MiscEntityTest : ShouldSpec() {
         should("test health") {
             // uncomment below to test the property
             //modelInstance.health shouldBe ("TODO")
+        }
+
+        // to test the property `heavyMeleeHitCount`
+        should("test heavyMeleeHitCount") {
+            // uncomment below to test the property
+            //modelInstance.heavyMeleeHitCount shouldBe ("TODO")
+        }
+
+        // to test the property `heavyMeleeOnly`
+        should("test heavyMeleeOnly") {
+            // uncomment below to test the property
+            //modelInstance.heavyMeleeOnly shouldBe ("TODO")
         }
 
         // to test the property `initialSpawnDelayInSeconds`
@@ -187,13 +223,25 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.orbSpawnDelayMin shouldBe ("TODO")
         }
 
+        // to test the property `pickupChances` - Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
+        should("test pickupChances") {
+            // uncomment below to test the property
+            //modelInstance.pickupChances shouldBe ("TODO")
+        }
+
         // to test the property `pickupRadius`
         should("test pickupRadius") {
             // uncomment below to test the property
             //modelInstance.pickupRadius shouldBe ("TODO")
         }
 
-        // to test the property `primaryDropChance`
+        // to test the property `powerupDropChance` - Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+        should("test powerupDropChance") {
+            // uncomment below to test the property
+            //modelInstance.powerupDropChance shouldBe ("TODO")
+        }
+
+        // to test the property `primaryDropChance` - Pre-6711 builds only; see `powerup_drop_chance`.
         should("test primaryDropChance") {
             // uncomment below to test the property
             //modelInstance.primaryDropChance shouldBe ("TODO")

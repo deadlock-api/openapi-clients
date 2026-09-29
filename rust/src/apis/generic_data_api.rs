@@ -17,6 +17,8 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`get_generic_data`]
 #[derive(Clone, Debug)]
 pub struct GetGenericDataParams {
+    /// Language code. Defaults to `english`.
+    pub language: Option<String>,
     /// Client/game version (e.g. `6518`). Defaults to the latest known version.
     pub client_version: Option<u32>
 }
@@ -32,12 +34,15 @@ pub enum GetGenericDataError {
 }
 
 
-/// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+/// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 pub async fn get_generic_data(configuration: &configuration::Configuration, params: GetGenericDataParams) -> Result<models::GenericData, Error<GetGenericDataError>> {
 
     let uri_str = format!("{}/v1/assets/generic-data", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.client_version {
         req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }

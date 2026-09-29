@@ -36,15 +36,21 @@ namespace DeadlockApiClient.Model
         /// <param name="className">className</param>
         /// <param name="id">id</param>
         /// <param name="breakOnDodgeTouch">breakOnDodgeTouch</param>
+        /// <param name="buffTypeGraphColor">Permanent pickups: color used for the buff in the stat graph.</param>
+        /// <param name="buffTypeLocString">Permanent pickups: localization token of the stat the buff raises.</param>
+        /// <param name="buffTypeValueUnit">Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).</param>
         /// <param name="collisionRadius">collisionRadius</param>
         /// <param name="color">color</param>
         /// <param name="damagedByAbilities">damagedByAbilities</param>
         /// <param name="damagedByBullets">damagedByBullets</param>
         /// <param name="damagedByMelee">damagedByMelee</param>
+        /// <param name="damagedBySlide">damagedBySlide</param>
         /// <param name="expirationDuration">expirationDuration</param>
         /// <param name="goldAmount">goldAmount</param>
         /// <param name="goldPerMinuteAmount">goldPerMinuteAmount</param>
         /// <param name="health">health</param>
+        /// <param name="heavyMeleeHitCount">heavyMeleeHitCount</param>
+        /// <param name="heavyMeleeOnly">heavyMeleeOnly</param>
         /// <param name="initialSpawnDelayInSeconds">initialSpawnDelayInSeconds</param>
         /// <param name="initialSpawnDelaySeconds">Duplicate of &#x60;initial_spawn_delay_in_seconds&#x60; for shape parity.</param>
         /// <param name="initialSpawnTime">initialSpawnTime</param>
@@ -58,8 +64,10 @@ namespace DeadlockApiClient.Model
         /// <param name="modifier">modifier</param>
         /// <param name="orbSpawnDelayMax">orbSpawnDelayMax</param>
         /// <param name="orbSpawnDelayMin">orbSpawnDelayMin</param>
+        /// <param name="pickupChances">Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists.</param>
         /// <param name="pickupRadius">pickupRadius</param>
-        /// <param name="primaryDropChance">primaryDropChance</param>
+        /// <param name="powerupDropChance">Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;.</param>
+        /// <param name="primaryDropChance">Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;.</param>
         /// <param name="primaryPickups">primaryPickups</param>
         /// <param name="renderAfterDeath">renderAfterDeath</param>
         /// <param name="respawnTime">respawnTime</param>
@@ -69,20 +77,26 @@ namespace DeadlockApiClient.Model
         /// <param name="spawnInterval">spawnInterval</param>
         /// <param name="spawnIntervalInSeconds">spawnIntervalInSeconds</param>
         [JsonConstructor]
-        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<SubclassModifierDefinition?> modifier = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default)
+        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<Color?> buffTypeGraphColor = default, Option<string?> buffTypeLocString = default, Option<string?> buffTypeValueUnit = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<bool?> damagedBySlide = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> heavyMeleeHitCount = default, Option<bool?> heavyMeleeOnly = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<SubclassModifierDefinition?> modifier = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<Dictionary<string, double>?> pickupChances = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> powerupDropChance = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default)
         {
             ClassName = className;
             Id = id;
             BreakOnDodgeTouchOption = breakOnDodgeTouch;
+            BuffTypeGraphColorOption = buffTypeGraphColor;
+            BuffTypeLocStringOption = buffTypeLocString;
+            BuffTypeValueUnitOption = buffTypeValueUnit;
             CollisionRadiusOption = collisionRadius;
             ColorOption = color;
             DamagedByAbilitiesOption = damagedByAbilities;
             DamagedByBulletsOption = damagedByBullets;
             DamagedByMeleeOption = damagedByMelee;
+            DamagedBySlideOption = damagedBySlide;
             ExpirationDurationOption = expirationDuration;
             GoldAmountOption = goldAmount;
             GoldPerMinuteAmountOption = goldPerMinuteAmount;
             HealthOption = health;
+            HeavyMeleeHitCountOption = heavyMeleeHitCount;
+            HeavyMeleeOnlyOption = heavyMeleeOnly;
             InitialSpawnDelayInSecondsOption = initialSpawnDelayInSeconds;
             InitialSpawnDelaySecondsOption = initialSpawnDelaySeconds;
             InitialSpawnTimeOption = initialSpawnTime;
@@ -96,7 +110,9 @@ namespace DeadlockApiClient.Model
             ModifierOption = modifier;
             OrbSpawnDelayMaxOption = orbSpawnDelayMax;
             OrbSpawnDelayMinOption = orbSpawnDelayMin;
+            PickupChancesOption = pickupChances;
             PickupRadiusOption = pickupRadius;
+            PowerupDropChanceOption = powerupDropChance;
             PrimaryDropChanceOption = primaryDropChance;
             PrimaryPickupsOption = primaryPickups;
             RenderAfterDeathOption = renderAfterDeath;
@@ -135,6 +151,48 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("break_on_dodge_touch")]
         public bool? BreakOnDodgeTouch { get { return this.BreakOnDodgeTouchOption.Value; } set { this.BreakOnDodgeTouchOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BuffTypeGraphColor
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> BuffTypeGraphColorOption { get; private set; }
+
+        /// <summary>
+        /// Permanent pickups: color used for the buff in the stat graph.
+        /// </summary>
+        /// <value>Permanent pickups: color used for the buff in the stat graph.</value>
+        [JsonPropertyName("buff_type_graph_color")]
+        public Color? BuffTypeGraphColor { get { return this.BuffTypeGraphColorOption.Value; } set { this.BuffTypeGraphColorOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BuffTypeLocString
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BuffTypeLocStringOption { get; private set; }
+
+        /// <summary>
+        /// Permanent pickups: localization token of the stat the buff raises.
+        /// </summary>
+        /// <value>Permanent pickups: localization token of the stat the buff raises.</value>
+        [JsonPropertyName("buff_type_loc_string")]
+        public string? BuffTypeLocString { get { return this.BuffTypeLocStringOption.Value; } set { this.BuffTypeLocStringOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BuffTypeValueUnit
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BuffTypeValueUnitOption { get; private set; }
+
+        /// <summary>
+        /// Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).
+        /// </summary>
+        /// <value>Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).</value>
+        [JsonPropertyName("buff_type_value_unit")]
+        public string? BuffTypeValueUnit { get { return this.BuffTypeValueUnitOption.Value; } set { this.BuffTypeValueUnitOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionRadius
@@ -202,6 +260,19 @@ namespace DeadlockApiClient.Model
         public bool? DamagedByMelee { get { return this.DamagedByMeleeOption.Value; } set { this.DamagedByMeleeOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of DamagedBySlide
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> DamagedBySlideOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets DamagedBySlide
+        /// </summary>
+        [JsonPropertyName("damaged_by_slide")]
+        public bool? DamagedBySlide { get { return this.DamagedBySlideOption.Value; } set { this.DamagedBySlideOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of ExpirationDuration
         /// </summary>
         [JsonIgnore]
@@ -252,6 +323,32 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("health")]
         public long? Health { get { return this.HealthOption.Value; } set { this.HealthOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of HeavyMeleeHitCount
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> HeavyMeleeHitCountOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets HeavyMeleeHitCount
+        /// </summary>
+        [JsonPropertyName("heavy_melee_hit_count")]
+        public long? HeavyMeleeHitCount { get { return this.HeavyMeleeHitCountOption.Value; } set { this.HeavyMeleeHitCountOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of HeavyMeleeOnly
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> HeavyMeleeOnlyOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets HeavyMeleeOnly
+        /// </summary>
+        [JsonPropertyName("heavy_melee_only")]
+        public bool? HeavyMeleeOnly { get { return this.HeavyMeleeOnlyOption.Value; } set { this.HeavyMeleeOnlyOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of InitialSpawnDelayInSeconds
@@ -424,6 +521,20 @@ namespace DeadlockApiClient.Model
         public double? OrbSpawnDelayMin { get { return this.OrbSpawnDelayMinOption.Value; } set { this.OrbSpawnDelayMinOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of PickupChances
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, double>?> PickupChancesOption { get; private set; }
+
+        /// <summary>
+        /// Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists.
+        /// </summary>
+        /// <value>Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists.</value>
+        [JsonPropertyName("pickup_chances")]
+        public Dictionary<string, double>? PickupChances { get { return this.PickupChancesOption.Value; } set { this.PickupChancesOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of PickupRadius
         /// </summary>
         [JsonIgnore]
@@ -437,6 +548,20 @@ namespace DeadlockApiClient.Model
         public CurveOrFloat? PickupRadius { get { return this.PickupRadiusOption.Value; } set { this.PickupRadiusOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of PowerupDropChance
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> PowerupDropChanceOption { get; private set; }
+
+        /// <summary>
+        /// Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;.
+        /// </summary>
+        /// <value>Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;.</value>
+        [JsonPropertyName("powerup_drop_chance")]
+        public double? PowerupDropChance { get { return this.PowerupDropChanceOption.Value; } set { this.PowerupDropChanceOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of PrimaryDropChance
         /// </summary>
         [JsonIgnore]
@@ -444,8 +569,9 @@ namespace DeadlockApiClient.Model
         public Option<double?> PrimaryDropChanceOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets PrimaryDropChance
+        /// Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;.
         /// </summary>
+        /// <value>Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;.</value>
         [JsonPropertyName("primary_drop_chance")]
         public double? PrimaryDropChance { get { return this.PrimaryDropChanceOption.Value; } set { this.PrimaryDropChanceOption = new(value); } }
 
@@ -565,15 +691,21 @@ namespace DeadlockApiClient.Model
             sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  BreakOnDodgeTouch: ").Append(BreakOnDodgeTouch).Append("\n");
+            sb.Append("  BuffTypeGraphColor: ").Append(BuffTypeGraphColor).Append("\n");
+            sb.Append("  BuffTypeLocString: ").Append(BuffTypeLocString).Append("\n");
+            sb.Append("  BuffTypeValueUnit: ").Append(BuffTypeValueUnit).Append("\n");
             sb.Append("  CollisionRadius: ").Append(CollisionRadius).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  DamagedByAbilities: ").Append(DamagedByAbilities).Append("\n");
             sb.Append("  DamagedByBullets: ").Append(DamagedByBullets).Append("\n");
             sb.Append("  DamagedByMelee: ").Append(DamagedByMelee).Append("\n");
+            sb.Append("  DamagedBySlide: ").Append(DamagedBySlide).Append("\n");
             sb.Append("  ExpirationDuration: ").Append(ExpirationDuration).Append("\n");
             sb.Append("  GoldAmount: ").Append(GoldAmount).Append("\n");
             sb.Append("  GoldPerMinuteAmount: ").Append(GoldPerMinuteAmount).Append("\n");
             sb.Append("  Health: ").Append(Health).Append("\n");
+            sb.Append("  HeavyMeleeHitCount: ").Append(HeavyMeleeHitCount).Append("\n");
+            sb.Append("  HeavyMeleeOnly: ").Append(HeavyMeleeOnly).Append("\n");
             sb.Append("  InitialSpawnDelayInSeconds: ").Append(InitialSpawnDelayInSeconds).Append("\n");
             sb.Append("  InitialSpawnDelaySeconds: ").Append(InitialSpawnDelaySeconds).Append("\n");
             sb.Append("  InitialSpawnTime: ").Append(InitialSpawnTime).Append("\n");
@@ -587,7 +719,9 @@ namespace DeadlockApiClient.Model
             sb.Append("  Modifier: ").Append(Modifier).Append("\n");
             sb.Append("  OrbSpawnDelayMax: ").Append(OrbSpawnDelayMax).Append("\n");
             sb.Append("  OrbSpawnDelayMin: ").Append(OrbSpawnDelayMin).Append("\n");
+            sb.Append("  PickupChances: ").Append(PickupChances).Append("\n");
             sb.Append("  PickupRadius: ").Append(PickupRadius).Append("\n");
+            sb.Append("  PowerupDropChance: ").Append(PowerupDropChance).Append("\n");
             sb.Append("  PrimaryDropChance: ").Append(PrimaryDropChance).Append("\n");
             sb.Append("  PrimaryPickups: ").Append(PrimaryPickups).Append("\n");
             sb.Append("  RenderAfterDeath: ").Append(RenderAfterDeath).Append("\n");
@@ -653,15 +787,21 @@ namespace DeadlockApiClient.Model
             Option<string?> className = default;
             Option<int?> id = default;
             Option<bool?> breakOnDodgeTouch = default;
+            Option<Color?> buffTypeGraphColor = default;
+            Option<string?> buffTypeLocString = default;
+            Option<string?> buffTypeValueUnit = default;
             Option<double?> collisionRadius = default;
             Option<Color?> color = default;
             Option<bool?> damagedByAbilities = default;
             Option<bool?> damagedByBullets = default;
             Option<bool?> damagedByMelee = default;
+            Option<bool?> damagedBySlide = default;
             Option<CurveOrFloat?> expirationDuration = default;
             Option<double?> goldAmount = default;
             Option<double?> goldPerMinuteAmount = default;
             Option<long?> health = default;
+            Option<long?> heavyMeleeHitCount = default;
+            Option<bool?> heavyMeleeOnly = default;
             Option<long?> initialSpawnDelayInSeconds = default;
             Option<long?> initialSpawnDelaySeconds = default;
             Option<double?> initialSpawnTime = default;
@@ -675,7 +815,9 @@ namespace DeadlockApiClient.Model
             Option<SubclassModifierDefinition?> modifier = default;
             Option<double?> orbSpawnDelayMax = default;
             Option<double?> orbSpawnDelayMin = default;
+            Option<Dictionary<string, double>?> pickupChances = default;
             Option<CurveOrFloat?> pickupRadius = default;
+            Option<double?> powerupDropChance = default;
             Option<double?> primaryDropChance = default;
             Option<List<Pickup>?> primaryPickups = default;
             Option<bool?> renderAfterDeath = default;
@@ -710,6 +852,15 @@ namespace DeadlockApiClient.Model
                         case "break_on_dodge_touch":
                             breakOnDodgeTouch = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "buff_type_graph_color":
+                            buffTypeGraphColor = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "buff_type_loc_string":
+                            buffTypeLocString = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "buff_type_value_unit":
+                            buffTypeValueUnit = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "collision_radius":
                             collisionRadius = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -725,6 +876,9 @@ namespace DeadlockApiClient.Model
                         case "damaged_by_melee":
                             damagedByMelee = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "damaged_by_slide":
+                            damagedBySlide = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
                         case "expiration_duration":
                             expirationDuration = new Option<CurveOrFloat?>(JsonSerializer.Deserialize<CurveOrFloat>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
@@ -736,6 +890,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "health":
                             health = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "heavy_melee_hit_count":
+                            heavyMeleeHitCount = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "heavy_melee_only":
+                            heavyMeleeOnly = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "initial_spawn_delay_in_seconds":
                             initialSpawnDelayInSeconds = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -776,8 +936,14 @@ namespace DeadlockApiClient.Model
                         case "orb_spawn_delay_min":
                             orbSpawnDelayMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "pickup_chances":
+                            pickupChances = new Option<Dictionary<string, double>?>(JsonSerializer.Deserialize<Dictionary<string, double>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "pickup_radius":
                             pickupRadius = new Option<CurveOrFloat?>(JsonSerializer.Deserialize<CurveOrFloat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "powerup_drop_chance":
+                            powerupDropChance = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "primary_drop_chance":
                             primaryDropChance = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -824,7 +990,7 @@ namespace DeadlockApiClient.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class MiscEntity.");
 
-            return new MiscEntity(className.Value!, id.Value!.Value!, breakOnDodgeTouch, collisionRadius, color, damagedByAbilities, damagedByBullets, damagedByMelee, expirationDuration, goldAmount, goldPerMinuteAmount, health, initialSpawnDelayInSeconds, initialSpawnDelaySeconds, initialSpawnTime, isMantleable, lifetime, lootListDeckSize, mVecPickupsLv2, mVecPickupsLv3, matchTimeMinsForLevel2Pickups, matchTimeMinsForLevel3Pickups, modifier, orbSpawnDelayMax, orbSpawnDelayMin, pickupRadius, primaryDropChance, primaryPickups, renderAfterDeath, respawnTime, rollType, showOnMinimap, solidAfterDeath, spawnInterval, spawnIntervalInSeconds);
+            return new MiscEntity(className.Value!, id.Value!.Value!, breakOnDodgeTouch, buffTypeGraphColor, buffTypeLocString, buffTypeValueUnit, collisionRadius, color, damagedByAbilities, damagedByBullets, damagedByMelee, damagedBySlide, expirationDuration, goldAmount, goldPerMinuteAmount, health, heavyMeleeHitCount, heavyMeleeOnly, initialSpawnDelayInSeconds, initialSpawnDelaySeconds, initialSpawnTime, isMantleable, lifetime, lootListDeckSize, mVecPickupsLv2, mVecPickupsLv3, matchTimeMinsForLevel2Pickups, matchTimeMinsForLevel3Pickups, modifier, orbSpawnDelayMax, orbSpawnDelayMin, pickupChances, pickupRadius, powerupDropChance, primaryDropChance, primaryPickups, renderAfterDeath, respawnTime, rollType, showOnMinimap, solidAfterDeath, spawnInterval, spawnIntervalInSeconds);
         }
 
         /// <summary>
@@ -864,6 +1030,26 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("break_on_dodge_touch");
 
+            if (miscEntity.BuffTypeGraphColorOption.IsSet)
+                if (miscEntity.BuffTypeGraphColorOption.Value != null)
+                {
+                    writer.WritePropertyName("buff_type_graph_color");
+                    JsonSerializer.Serialize(writer, miscEntity.BuffTypeGraphColor, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("buff_type_graph_color");
+            if (miscEntity.BuffTypeLocStringOption.IsSet)
+                if (miscEntity.BuffTypeLocStringOption.Value != null)
+                    writer.WriteString("buff_type_loc_string", miscEntity.BuffTypeLocString);
+                else
+                    writer.WriteNull("buff_type_loc_string");
+
+            if (miscEntity.BuffTypeValueUnitOption.IsSet)
+                if (miscEntity.BuffTypeValueUnitOption.Value != null)
+                    writer.WriteString("buff_type_value_unit", miscEntity.BuffTypeValueUnit);
+                else
+                    writer.WriteNull("buff_type_value_unit");
+
             if (miscEntity.CollisionRadiusOption.IsSet)
                 if (miscEntity.CollisionRadiusOption.Value != null)
                     writer.WriteNumber("collision_radius", miscEntity.CollisionRadiusOption.Value!.Value);
@@ -896,6 +1082,12 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("damaged_by_melee");
 
+            if (miscEntity.DamagedBySlideOption.IsSet)
+                if (miscEntity.DamagedBySlideOption.Value != null)
+                    writer.WriteBoolean("damaged_by_slide", miscEntity.DamagedBySlideOption.Value!.Value);
+                else
+                    writer.WriteNull("damaged_by_slide");
+
             if (miscEntity.ExpirationDurationOption.IsSet)
                 if (miscEntity.ExpirationDurationOption.Value != null)
                 {
@@ -921,6 +1113,18 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("health", miscEntity.HealthOption.Value!.Value);
                 else
                     writer.WriteNull("health");
+
+            if (miscEntity.HeavyMeleeHitCountOption.IsSet)
+                if (miscEntity.HeavyMeleeHitCountOption.Value != null)
+                    writer.WriteNumber("heavy_melee_hit_count", miscEntity.HeavyMeleeHitCountOption.Value!.Value);
+                else
+                    writer.WriteNull("heavy_melee_hit_count");
+
+            if (miscEntity.HeavyMeleeOnlyOption.IsSet)
+                if (miscEntity.HeavyMeleeOnlyOption.Value != null)
+                    writer.WriteBoolean("heavy_melee_only", miscEntity.HeavyMeleeOnlyOption.Value!.Value);
+                else
+                    writer.WriteNull("heavy_melee_only");
 
             if (miscEntity.InitialSpawnDelayInSecondsOption.IsSet)
                 if (miscEntity.InitialSpawnDelayInSecondsOption.Value != null)
@@ -1006,6 +1210,14 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("orb_spawn_delay_min");
 
+            if (miscEntity.PickupChancesOption.IsSet)
+                if (miscEntity.PickupChancesOption.Value != null)
+                {
+                    writer.WritePropertyName("pickup_chances");
+                    JsonSerializer.Serialize(writer, miscEntity.PickupChances, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("pickup_chances");
             if (miscEntity.PickupRadiusOption.IsSet)
                 if (miscEntity.PickupRadiusOption.Value != null)
                 {
@@ -1014,6 +1226,12 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("pickup_radius");
+            if (miscEntity.PowerupDropChanceOption.IsSet)
+                if (miscEntity.PowerupDropChanceOption.Value != null)
+                    writer.WriteNumber("powerup_drop_chance", miscEntity.PowerupDropChanceOption.Value!.Value);
+                else
+                    writer.WriteNull("powerup_drop_chance");
+
             if (miscEntity.PrimaryDropChanceOption.IsSet)
                 if (miscEntity.PrimaryDropChanceOption.Value != null)
                     writer.WriteNumber("primary_drop_chance", miscEntity.PrimaryDropChanceOption.Value!.Value);

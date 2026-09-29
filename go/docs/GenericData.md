@@ -6,6 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AimSpringStrength** | **[]float64** |  | 
 **ArmorGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
+**ColorEnemy** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**ColorFriend** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**ColorTeam1** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**ColorTeam2** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **DamageFlash** | [**DamageFlash**](DamageFlash.md) |  | 
 **EnemyObjectivesAndZiplineColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **EnemyObjectivesColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
@@ -85,6 +89,146 @@ and a boolean to check if the value has been set.
 SetArmorGroups sets ArmorGroups field to given value.
 
 
+### GetColorEnemy
+
+`func (o *GenericData) GetColorEnemy() Color`
+
+GetColorEnemy returns the ColorEnemy field if non-nil, zero value otherwise.
+
+### GetColorEnemyOk
+
+`func (o *GenericData) GetColorEnemyOk() (*Color, bool)`
+
+GetColorEnemyOk returns a tuple with the ColorEnemy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorEnemy
+
+`func (o *GenericData) SetColorEnemy(v Color)`
+
+SetColorEnemy sets ColorEnemy field to given value.
+
+### HasColorEnemy
+
+`func (o *GenericData) HasColorEnemy() bool`
+
+HasColorEnemy returns a boolean if a field has been set.
+
+### SetColorEnemyNil
+
+`func (o *GenericData) SetColorEnemyNil(b bool)`
+
+ SetColorEnemyNil sets the value for ColorEnemy to be an explicit nil
+
+### UnsetColorEnemy
+`func (o *GenericData) UnsetColorEnemy()`
+
+UnsetColorEnemy ensures that no value is present for ColorEnemy, not even an explicit nil
+### GetColorFriend
+
+`func (o *GenericData) GetColorFriend() Color`
+
+GetColorFriend returns the ColorFriend field if non-nil, zero value otherwise.
+
+### GetColorFriendOk
+
+`func (o *GenericData) GetColorFriendOk() (*Color, bool)`
+
+GetColorFriendOk returns a tuple with the ColorFriend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorFriend
+
+`func (o *GenericData) SetColorFriend(v Color)`
+
+SetColorFriend sets ColorFriend field to given value.
+
+### HasColorFriend
+
+`func (o *GenericData) HasColorFriend() bool`
+
+HasColorFriend returns a boolean if a field has been set.
+
+### SetColorFriendNil
+
+`func (o *GenericData) SetColorFriendNil(b bool)`
+
+ SetColorFriendNil sets the value for ColorFriend to be an explicit nil
+
+### UnsetColorFriend
+`func (o *GenericData) UnsetColorFriend()`
+
+UnsetColorFriend ensures that no value is present for ColorFriend, not even an explicit nil
+### GetColorTeam1
+
+`func (o *GenericData) GetColorTeam1() Color`
+
+GetColorTeam1 returns the ColorTeam1 field if non-nil, zero value otherwise.
+
+### GetColorTeam1Ok
+
+`func (o *GenericData) GetColorTeam1Ok() (*Color, bool)`
+
+GetColorTeam1Ok returns a tuple with the ColorTeam1 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorTeam1
+
+`func (o *GenericData) SetColorTeam1(v Color)`
+
+SetColorTeam1 sets ColorTeam1 field to given value.
+
+### HasColorTeam1
+
+`func (o *GenericData) HasColorTeam1() bool`
+
+HasColorTeam1 returns a boolean if a field has been set.
+
+### SetColorTeam1Nil
+
+`func (o *GenericData) SetColorTeam1Nil(b bool)`
+
+ SetColorTeam1Nil sets the value for ColorTeam1 to be an explicit nil
+
+### UnsetColorTeam1
+`func (o *GenericData) UnsetColorTeam1()`
+
+UnsetColorTeam1 ensures that no value is present for ColorTeam1, not even an explicit nil
+### GetColorTeam2
+
+`func (o *GenericData) GetColorTeam2() Color`
+
+GetColorTeam2 returns the ColorTeam2 field if non-nil, zero value otherwise.
+
+### GetColorTeam2Ok
+
+`func (o *GenericData) GetColorTeam2Ok() (*Color, bool)`
+
+GetColorTeam2Ok returns a tuple with the ColorTeam2 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorTeam2
+
+`func (o *GenericData) SetColorTeam2(v Color)`
+
+SetColorTeam2 sets ColorTeam2 field to given value.
+
+### HasColorTeam2
+
+`func (o *GenericData) HasColorTeam2() bool`
+
+HasColorTeam2 returns a boolean if a field has been set.
+
+### SetColorTeam2Nil
+
+`func (o *GenericData) SetColorTeam2Nil(b bool)`
+
+ SetColorTeam2Nil sets the value for ColorTeam2 to be an explicit nil
+
+### UnsetColorTeam2
+`func (o *GenericData) UnsetColorTeam2()`
+
+UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
 ### GetDamageFlash
 
 `func (o *GenericData) GetDamageFlash() DamageFlash`

@@ -60,6 +60,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         'brightness' => 'float',
         'brightness_in_light_sensitivity_mode' => 'float',
         'color' => '\OpenAPI\Client\Model\Color',
+        'color_gradient' => '\OpenAPI\Client\Model\ColorGradientStop[]',
         'coverage' => 'float',
         'duration' => 'float',
         'hardness' => 'float'
@@ -76,6 +77,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         'brightness' => 'double',
         'brightness_in_light_sensitivity_mode' => 'double',
         'color' => null,
+        'color_gradient' => null,
         'coverage' => 'double',
         'duration' => 'double',
         'hardness' => 'double'
@@ -87,12 +89,13 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'brightness' => false,
+        'brightness' => true,
         'brightness_in_light_sensitivity_mode' => true,
         'color' => false,
-        'coverage' => false,
+        'color_gradient' => true,
+        'coverage' => true,
         'duration' => false,
-        'hardness' => false
+        'hardness' => true
     ];
 
     /**
@@ -184,6 +187,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         'brightness' => 'brightness',
         'brightness_in_light_sensitivity_mode' => 'brightness_in_light_sensitivity_mode',
         'color' => 'color',
+        'color_gradient' => 'color_gradient',
         'coverage' => 'coverage',
         'duration' => 'duration',
         'hardness' => 'hardness'
@@ -198,6 +202,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         'brightness' => 'setBrightness',
         'brightness_in_light_sensitivity_mode' => 'setBrightnessInLightSensitivityMode',
         'color' => 'setColor',
+        'color_gradient' => 'setColorGradient',
         'coverage' => 'setCoverage',
         'duration' => 'setDuration',
         'hardness' => 'setHardness'
@@ -212,6 +217,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         'brightness' => 'getBrightness',
         'brightness_in_light_sensitivity_mode' => 'getBrightnessInLightSensitivityMode',
         'color' => 'getColor',
+        'color_gradient' => 'getColorGradient',
         'coverage' => 'getCoverage',
         'duration' => 'getDuration',
         'hardness' => 'getHardness'
@@ -277,6 +283,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('brightness', $data ?? [], null);
         $this->setIfExists('brightness_in_light_sensitivity_mode', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
+        $this->setIfExists('color_gradient', $data ?? [], null);
         $this->setIfExists('coverage', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
         $this->setIfExists('hardness', $data ?? [], null);
@@ -309,20 +316,11 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['brightness'] === null) {
-            $invalidProperties[] = "'brightness' can't be null";
-        }
         if ($this->container['color'] === null) {
             $invalidProperties[] = "'color' can't be null";
         }
-        if ($this->container['coverage'] === null) {
-            $invalidProperties[] = "'coverage' can't be null";
-        }
         if ($this->container['duration'] === null) {
             $invalidProperties[] = "'duration' can't be null";
-        }
-        if ($this->container['hardness'] === null) {
-            $invalidProperties[] = "'hardness' can't be null";
         }
         return $invalidProperties;
     }
@@ -342,7 +340,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets brightness
      *
-     * @return float
+     * @return float|null
      */
     public function getBrightness()
     {
@@ -352,14 +350,21 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets brightness
      *
-     * @param float $brightness brightness
+     * @param float|null $brightness brightness
      *
      * @return self
      */
     public function setBrightness($brightness)
     {
         if (is_null($brightness)) {
-            throw new \InvalidArgumentException('non-nullable brightness cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'brightness');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('brightness', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['brightness'] = $brightness;
 
@@ -413,7 +418,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets color
      *
-     * @param \OpenAPI\Client\Model\Color $color color
+     * @param \OpenAPI\Client\Model\Color $color Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
      *
      * @return self
      */
@@ -428,9 +433,43 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets color_gradient
+     *
+     * @return \OpenAPI\Client\Model\ColorGradientStop[]|null
+     */
+    public function getColorGradient()
+    {
+        return $this->container['color_gradient'];
+    }
+
+    /**
+     * Sets color_gradient
+     *
+     * @param \OpenAPI\Client\Model\ColorGradientStop[]|null $color_gradient Color gradient over the flash's lifetime (build 6711+).
+     *
+     * @return self
+     */
+    public function setColorGradient($color_gradient)
+    {
+        if (is_null($color_gradient)) {
+            array_push($this->openAPINullablesSetToNull, 'color_gradient');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color_gradient', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color_gradient'] = $color_gradient;
+
+        return $this;
+    }
+
+    /**
      * Gets coverage
      *
-     * @return float
+     * @return float|null
      */
     public function getCoverage()
     {
@@ -440,14 +479,21 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets coverage
      *
-     * @param float $coverage coverage
+     * @param float|null $coverage Only present up to build 6701.
      *
      * @return self
      */
     public function setCoverage($coverage)
     {
         if (is_null($coverage)) {
-            throw new \InvalidArgumentException('non-nullable coverage cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'coverage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('coverage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['coverage'] = $coverage;
 
@@ -484,7 +530,7 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets hardness
      *
-     * @return float
+     * @return float|null
      */
     public function getHardness()
     {
@@ -494,14 +540,21 @@ class FlashData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets hardness
      *
-     * @param float $hardness hardness
+     * @param float|null $hardness Only present up to build 6701.
      *
      * @return self
      */
     public function setHardness($hardness)
     {
         if (is_null($hardness)) {
-            throw new \InvalidArgumentException('non-nullable hardness cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'hardness');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hardness', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['hardness'] = $hardness;
 

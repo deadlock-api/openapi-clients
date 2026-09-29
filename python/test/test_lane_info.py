@@ -41,7 +41,13 @@ class TestLaneInfo(unittest.TestCase):
                     green = 0, 
                     red = 0, ),
                 css_class = '',
+                is_enemy_lane = True,
                 lane_name = '',
+                minimap_color = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
                 minimap_zipline_color_override = deadlock_api_client.models.color.Color(
                     alpha = 0, 
                     blue = 0, 
@@ -55,11 +61,7 @@ class TestLaneInfo(unittest.TestCase):
             )
         else:
             return LaneInfo(
-                color = deadlock_api_client.models.color.Color(
-                    alpha = 0, 
-                    blue = 0, 
-                    green = 0, 
-                    red = 0, ),
+                is_enemy_lane = True,
                 lane_name = '',
         )
         """

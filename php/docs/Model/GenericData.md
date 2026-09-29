@@ -6,6 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aim_spring_strength** | **float[]** |  |
 **armor_groups** | [**\OpenAPI\Client\Model\ItemGroup[]**](ItemGroup.md) |  |
+**color_enemy** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
+**color_friend** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
+**color_team1** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
+**color_team2** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
 **damage_flash** | [**\OpenAPI\Client\Model\DamageFlash**](DamageFlash.md) |  |
 **enemy_objectives_and_zipline_color** | [**\OpenAPI\Client\Model\Color**](Color.md) |  | [optional]
 **enemy_objectives_color** | [**\OpenAPI\Client\Model\Color**](Color.md) |  | [optional]

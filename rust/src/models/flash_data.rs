@@ -13,29 +13,36 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FlashData {
-    #[serde(rename = "brightness")]
-    pub brightness: f64,
+    #[serde(rename = "brightness", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub brightness: Option<Option<f64>>,
     #[serde(rename = "brightness_in_light_sensitivity_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub brightness_in_light_sensitivity_mode: Option<Option<f64>>,
+    /// Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
     #[serde(rename = "color")]
     pub color: Box<models::Color>,
-    #[serde(rename = "coverage")]
-    pub coverage: f64,
+    /// Color gradient over the flash's lifetime (build 6711+).
+    #[serde(rename = "color_gradient", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color_gradient: Option<Option<Vec<models::ColorGradientStop>>>,
+    /// Only present up to build 6701.
+    #[serde(rename = "coverage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub coverage: Option<Option<f64>>,
     #[serde(rename = "duration")]
     pub duration: f64,
-    #[serde(rename = "hardness")]
-    pub hardness: f64,
+    /// Only present up to build 6701.
+    #[serde(rename = "hardness", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hardness: Option<Option<f64>>,
 }
 
 impl FlashData {
-    pub fn new(brightness: f64, color: models::Color, coverage: f64, duration: f64, hardness: f64) -> FlashData {
+    pub fn new(color: models::Color, duration: f64) -> FlashData {
         FlashData {
-            brightness,
+            brightness: None,
             brightness_in_light_sensitivity_mode: None,
             color: Box::new(color),
-            coverage,
+            color_gradient: None,
+            coverage: None,
             duration,
-            hardness,
+            hardness: None,
         }
     }
 }

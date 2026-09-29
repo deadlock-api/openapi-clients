@@ -31,7 +31,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `abilityOrderStats()`
 
 ```php
-abilityOrderStats($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids): \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]
+abilityOrderStats($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix): \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]
 ```
 
 Ability Order Stats
@@ -54,7 +54,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $hero_id = 56; // int | See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -71,9 +71,11 @@ $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
-    $result = $apiInstance->abilityOrderStats($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids);
+    $result = $apiInstance->abilityOrderStats($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->abilityOrderStats: ', $e->getMessage(), PHP_EOL;
@@ -87,7 +89,7 @@ try {
 | **hero_id** | **int**| See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -104,6 +106,8 @@ try {
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -147,7 +151,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -171,7 +175,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -222,7 +226,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client()
 );
 $hero_id = 56; // int | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-$min_last_updated_unix_timestamp = 1787961600; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
+$min_last_updated_unix_timestamp = 1788048000; // int | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago.
 $max_last_updated_unix_timestamp = 56; // int | Filter builds based on their last updated time (Unix timestamp).
 
 try {
@@ -238,7 +242,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_last_updated_unix_timestamp** | **int**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -261,7 +265,7 @@ No authorization required
 ## `gameStats()`
 
 ```php
-gameStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids): \OpenAPI\Client\Model\AnalyticsGameStats[]
+gameStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids): \OpenAPI\Client\Model\AnalyticsGameStats[]
 ```
 
 Game Stats
@@ -284,7 +288,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -297,10 +301,12 @@ $max_networth = 56; // int | Filter players based on their final net worth.
 $hero_ids = array(56); // int[] | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->gameStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids);
+    $result = $apiInstance->gameStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->gameStats: ', $e->getMessage(), PHP_EOL;
@@ -314,7 +320,7 @@ try {
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -327,6 +333,8 @@ try {
 | **hero_ids** | [**int[]**](../Model/int.md)| Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -371,7 +379,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -394,7 +402,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -423,7 +431,7 @@ No authorization required
 ## `heroBuildStats()`
 
 ```php
-heroBuildStats($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids): \OpenAPI\Client\Model\HeroBuildStats[]
+heroBuildStats($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix): \OpenAPI\Client\Model\HeroBuildStats[]
 ```
 
 Hero Build Stats
@@ -445,7 +453,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $hero_id = 56; // int | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -457,9 +465,11 @@ $hero_build_id = 56; // int | Filter results for a specific hero build.
 $min_matches = 20; // int | The minimum number of matches played for a build to be included in the response.
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
-    $result = $apiInstance->heroBuildStats($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids);
+    $result = $apiInstance->heroBuildStats($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroBuildStats: ', $e->getMessage(), PHP_EOL;
@@ -472,7 +482,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **hero_id** | **int**| The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -484,6 +494,8 @@ try {
 | **min_matches** | **int**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -527,7 +539,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -561,7 +573,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -623,7 +635,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -655,7 +667,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -718,7 +730,7 @@ $sort_direction = 'sort_direction_example'; // string | The direction to sort he
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 $min_matches = 56; // int | Filter by min number of matches played.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -748,7 +760,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **min_matches** | **int**| Filter by min number of matches played. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -781,7 +793,7 @@ No authorization required
 ## `heroStats()`
 
 ```php
-heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids): \OpenAPI\Client\Model\AnalyticsHeroStats[]
+heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids): \OpenAPI\Client\Model\AnalyticsHeroStats[]
 ```
 
 Hero Stats
@@ -804,7 +816,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -820,11 +832,13 @@ $min_hero_matches_total = 56; // int | Filter players based on the number of mat
 $max_hero_matches_total = 56; // int | Filter players based on the number of matches they have played with a specific hero in their entire history.
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $account_id, $account_ids);
+    $result = $apiInstance->heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroStats: ', $e->getMessage(), PHP_EOL;
@@ -838,7 +852,7 @@ try {
 | **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -854,6 +868,8 @@ try {
 | **max_hero_matches_total** | **int**| Filter players based on the number of matches they have played with a specific hero in their entire history. | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
@@ -899,7 +915,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -929,7 +945,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -965,7 +981,7 @@ No authorization required
 ## `itemFlowStats()`
 
 ```php
-itemFlowStats($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $locked_item_ids, $locked_columns): \OpenAPI\Client\Model\ItemFlowStats
+itemFlowStats($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns): \OpenAPI\Client\Model\ItemFlowStats
 ```
 
 Item Flow Stats
@@ -990,7 +1006,7 @@ $phase_count = 4; // int | Number of columns for `street_brawl` (rounds). Ignore
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1004,11 +1020,13 @@ $min_matches = 20; // int | The minimum number of matches for a node or edge to 
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $locked_item_ids = array(56); // int[] | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
 $locked_columns = array(56); // int[] | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
 
 try {
-    $result = $apiInstance->itemFlowStats($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $locked_item_ids, $locked_columns);
+    $result = $apiInstance->itemFlowStats($phase_interval_s, $phase_count, $game_mode, $match_mode, $hero_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $locked_item_ids, $locked_columns);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->itemFlowStats: ', $e->getMessage(), PHP_EOL;
@@ -1024,7 +1042,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1038,6 +1056,8 @@ try {
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **locked_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **locked_columns** | [**int[]**](../Model/int.md)| Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;. | [optional] |
 
@@ -1061,7 +1081,7 @@ No authorization required
 ## `itemPermutationStats()`
 
 ```php
-itemPermutationStats($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids): \OpenAPI\Client\Model\ItemPermutationStats[]
+itemPermutationStats($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix): \OpenAPI\Client\Model\ItemPermutationStats[]
 ```
 
 Item Permutation Stats
@@ -1089,7 +1109,7 @@ $game_mode = 'game_mode_example'; // string | Filter matches based on their game
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1101,9 +1121,11 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
-    $result = $apiInstance->itemPermutationStats($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids);
+    $result = $apiInstance->itemPermutationStats($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->itemPermutationStats: ', $e->getMessage(), PHP_EOL;
@@ -1122,7 +1144,7 @@ try {
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1134,6 +1156,8 @@ try {
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -1155,7 +1179,7 @@ No authorization required
 ## `itemStats()`
 
 ```php
-itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order): \OpenAPI\Client\Model\ItemStats[]
+itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order): \OpenAPI\Client\Model\ItemStats[]
 ```
 
 Item Stats
@@ -1185,7 +1209,7 @@ $enemy_hero_ids_all_match = True; // bool | When `true`, requires *all* of the s
 $min_enemy_networth = 56; // int | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
 $max_enemy_networth = 56; // int | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset.
 $same_lane_filter = True; // bool | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1197,6 +1221,8 @@ $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $min_matches = 20; // int | The minimum number of matches played for an item to be included in the response.
 $max_matches = 56; // int | The maximum number of matches played for a hero combination to be included in the response.
 $account_id = 56; // int | Filter for matches with a specific player account ID.
@@ -1206,7 +1232,7 @@ $max_bought_at_s = 56; // int | Filter items bought before this game time (secon
 $item_order = array('item_order_example'); // string[] | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
 
 try {
-    $result = $apiInstance->itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order);
+    $result = $apiInstance->itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->itemStats: ', $e->getMessage(), PHP_EOL;
@@ -1227,7 +1253,7 @@ try {
 | **min_enemy_networth** | **int**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **max_enemy_networth** | **int**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **same_lane_filter** | **bool**| When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1239,6 +1265,8 @@ try {
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **min_matches** | **int**| The minimum number of matches played for an item to be included in the response. | [optional] [default to 20] |
 | **max_matches** | **int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
@@ -1290,7 +1318,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $team = 56; // int | Filter by team number.
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1327,7 +1355,7 @@ try {
 | **team** | **int**| Filter by team number. | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1391,7 +1419,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1423,7 +1451,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1483,7 +1511,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 );
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1516,7 +1544,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1555,7 +1583,7 @@ No authorization required
 ## `playerPerformanceCurve()`
 
 ```php
-playerPerformanceCurve($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids): \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]
+playerPerformanceCurve($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids): \OpenAPI\Client\Model\PlayerPerformanceCurvePoint[]
 ```
 
 Player Performance Curve
@@ -1578,7 +1606,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $resolution = 10; // int | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1591,10 +1619,12 @@ $max_match_id = 56; // int | Filter matches based on their ID.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->playerPerformanceCurve($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $account_ids);
+    $result = $apiInstance->playerPerformanceCurve($resolution, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerPerformanceCurve: ', $e->getMessage(), PHP_EOL;
@@ -1608,7 +1638,7 @@ try {
 | **resolution** | **int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1621,6 +1651,8 @@ try {
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -1737,7 +1769,7 @@ No authorization required
 ## `playerStatsMetrics()`
 
 ```php
-playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids): array<string,\OpenAPI\Client\Model\HashMapValue>
+playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids): array<string,\OpenAPI\Client\Model\HashMapValue>
 ```
 
 Player Stats Metrics
@@ -1760,7 +1792,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
-$min_unix_timestamp = 1787961600; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -1773,10 +1805,12 @@ $max_match_id = 56; // int | Filter matches based on their ID.
 $max_matches = 56; // int | The maximum number of matches to analyze.
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+$ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+$ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $account_ids);
+    $result = $apiInstance->playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerStatsMetrics: ', $e->getMessage(), PHP_EOL;
@@ -1790,7 +1824,7 @@ try {
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1803,6 +1837,8 @@ try {
 | **max_matches** | **int**| The maximum number of matches to analyze. | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type

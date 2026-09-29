@@ -14,6 +14,7 @@
 | **backdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  |  [optional] |
 | **barrackBossDps** | **kotlin.Double** |  |  [optional] |
 | **barrackGuardianDamageResistPct** | **kotlin.Double** |  |  [optional] |
+| **bossWeaponInfo** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). |  [optional] |
 | **boundAbilities** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  [optional] |
 | **empoweredModifierLevel1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |
 | **empoweredModifierLevel2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |

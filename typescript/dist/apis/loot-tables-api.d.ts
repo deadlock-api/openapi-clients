@@ -18,10 +18,11 @@ import type { LootTable } from '../models/index.js';
  */
 export declare const LootTablesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
      * @summary List Loot Tables
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     listLootTables: (clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
@@ -31,10 +32,11 @@ export declare const LootTablesApiAxiosParamCreator: (configuration?: Configurat
  */
 export declare const LootTablesApiFp: (configuration?: Configuration) => {
     /**
-     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
      * @summary List Loot Tables
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     listLootTables(clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
@@ -46,10 +48,11 @@ export declare const LootTablesApiFp: (configuration?: Configuration) => {
  */
 export declare const LootTablesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
      * @summary List Loot Tables
      * @param {LootTablesApiListLootTablesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     listLootTables(requestParameters?: LootTablesApiListLootTablesRequest, options?: RawAxiosRequestConfig): AxiosPromise<{
@@ -70,10 +73,11 @@ export interface LootTablesApiListLootTablesRequest {
  */
 export declare class LootTablesApi extends BaseAPI {
     /**
-     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
      * @summary List Loot Tables
      * @param {LootTablesApiListLootTablesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     listLootTables(requestParameters?: LootTablesApiListLootTablesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{

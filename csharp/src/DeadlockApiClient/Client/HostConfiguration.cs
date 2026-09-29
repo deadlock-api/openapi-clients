@@ -83,6 +83,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ClickhouseMatchInfoJsonConverter());
             _jsonOptions.Converters.Add(new ClickhouseSaltsJsonConverter());
             _jsonOptions.Converters.Add(new ColorJsonConverter());
+            _jsonOptions.Converters.Add(new ColorGradientStopJsonConverter());
             _jsonOptions.Converters.Add(new ColumnSchemaJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomRequestJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
@@ -127,6 +128,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HeroCombStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroCounterStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroDescriptionJsonConverter());
+            _jsonOptions.Converters.Add(new HeroDevelopmentStateJsonConverter());
+            _jsonOptions.Converters.Add(new HeroDevelopmentStateNullableJsonConverter());
             _jsonOptions.Converters.Add(new HeroEntryJsonConverter());
             _jsonOptions.Converters.Add(new HeroImagesJsonConverter());
             _jsonOptions.Converters.Add(new HeroPhysicsJsonConverter());

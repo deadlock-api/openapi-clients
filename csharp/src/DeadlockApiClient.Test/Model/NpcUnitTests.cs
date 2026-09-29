@@ -144,6 +144,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BossWeaponInfo'
+        /// </summary>
+        [Fact]
+        public void BossWeaponInfoTest()
+        {
+            // TODO unit test for the property 'BossWeaponInfo'
+        }
+
+        /// <summary>
         /// Test the property 'BoundAbilities'
         /// </summary>
         [Fact]

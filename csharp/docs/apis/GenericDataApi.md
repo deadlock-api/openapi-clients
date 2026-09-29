@@ -8,17 +8,18 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getgenericdata"></a>
 # **GetGenericData**
-> GenericData GetGenericData (int clientVersion = null)
+> GenericData GetGenericData (string language = null, int clientVersion = null)
 
 Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
 | **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type

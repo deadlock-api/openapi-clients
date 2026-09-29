@@ -37,6 +37,9 @@ import {
     HeroDescription,
     HeroDescriptionFromJSON,
     HeroDescriptionToJSON,
+    HeroDevelopmentState,
+    HeroDevelopmentStateFromJSON,
+    HeroDevelopmentStateToJSON,
     HeroImages,
     HeroImagesFromJSON,
     HeroImagesToJSON,
@@ -67,7 +70,7 @@ import {
  */
 export interface Hero  {
     /**
-     * 
+     * `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
      * @type {boolean}
      * @memberof Hero
      */
@@ -102,6 +105,12 @@ export interface Hero  {
      * @memberof Hero
      */
     description: HeroDescription;
+    /**
+     * Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don\'t declare one.
+     * @type {HeroDevelopmentState}
+     * @memberof Hero
+     */
+    developmentState?: HeroDevelopmentState;
     /**
      * 
      * @type {boolean}
@@ -205,19 +214,19 @@ export interface Hero  {
      */
     physics: HeroPhysics;
     /**
-     * 
+     * Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
      * @type {boolean}
      * @memberof Hero
      */
     playerSelectable: boolean;
     /**
-     * 
+     * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
      * @type {boolean}
      * @memberof Hero
      */
     prereleaseOnly?: boolean;
     /**
-     * 
+     * Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
      * @type {{ [key: string]: Array<HashMapItemSlotTypeVecPurchaseBonusValueInner>; }}
      * @memberof Hero
      */
@@ -274,6 +283,7 @@ export function HeroFromJSON(json: any): Hero {
         'complexity': json['complexity'],
         'costBonuses': !exists(json, 'cost_bonuses') ? undefined : json['cost_bonuses'],
         'description': HeroDescriptionFromJSON(json['description']),
+        'developmentState': !exists(json, 'development_state') ? undefined : HeroDevelopmentStateFromJSON(json['development_state']),
         'disabled': json['disabled'],
         'gunTag': !exists(json, 'gun_tag') ? undefined : json['gun_tag'],
         'heroStatsUi': HeroStatsUIFromJSON(json['hero_stats_ui']),
@@ -315,6 +325,7 @@ export function HeroToJSON(value?: Hero): any {
         'complexity': value.complexity,
         'cost_bonuses': value.costBonuses,
         'description': HeroDescriptionToJSON(value.description),
+        'development_state': HeroDevelopmentStateToJSON(value.developmentState),
         'disabled': value.disabled,
         'gun_tag': value.gunTag,
         'hero_stats_ui': HeroStatsUIToJSON(value.heroStatsUi),

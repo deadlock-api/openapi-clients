@@ -21,6 +21,8 @@ pub struct WeaponInfo {
     pub bullet_damage: Option<Option<f64>>,
     #[serde(rename = "bullet_gravity_scale", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bullet_gravity_scale: Option<Option<f64>>,
+    #[serde(rename = "bullet_handler_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub bullet_handler_type: Option<Option<String>>,
     #[serde(rename = "bullet_inherit_shooter_velocity_scale", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bullet_inherit_shooter_velocity_scale: Option<Option<f64>>,
     #[serde(rename = "bullet_lifetime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -107,6 +109,8 @@ pub struct WeaponInfo {
     pub recoil_shot_index_recovery_time_factor: Option<Option<f64>>,
     #[serde(rename = "recoil_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub recoil_speed: Option<Option<f64>>,
+    #[serde(rename = "recycle_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub recycle_time: Option<Option<f64>>,
     #[serde(rename = "reload_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub reload_duration: Option<Option<f64>>,
     #[serde(rename = "reload_move_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -164,6 +168,7 @@ impl WeaponInfo {
             build_up_rate: None,
             bullet_damage: None,
             bullet_gravity_scale: None,
+            bullet_handler_type: None,
             bullet_inherit_shooter_velocity_scale: None,
             bullet_lifetime: None,
             bullet_radius: None,
@@ -207,6 +212,7 @@ impl WeaponInfo {
             recoil_seed: None,
             recoil_shot_index_recovery_time_factor: None,
             recoil_speed: None,
+            recycle_time: None,
             reload_duration: None,
             reload_move_speed: None,
             reload_single_bullets: None,

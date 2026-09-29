@@ -17,6 +17,7 @@ import type { HashMapStringOptionDraftBucketingValue } from './hash-map-string-o
 import type { HashMapStringScalingStatValue } from './hash-map-string-scaling-stat-value.js';
 import type { HeroColors } from './hero-colors.js';
 import type { HeroDescription } from './hero-description.js';
+import type { HeroDevelopmentState } from './hero-development-state.js';
 import type { HeroImages } from './hero-images.js';
 import type { HeroPhysics } from './hero-physics.js';
 import type { HeroStatsUI } from './hero-stats-ui.js';
@@ -25,6 +26,9 @@ import type { ShopStatDisplay } from './shop-stat-display.js';
 import type { StartingStats } from './starting-stats.js';
 import type { StatsDisplay } from './stats-display.js';
 export interface Hero {
+    /**
+     * `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
+     */
     'assigned_players_only': boolean;
     'class_name': string;
     'colors': HeroColors;
@@ -33,6 +37,10 @@ export interface Hero {
         [key: string]: Array<HashMapItemSlotTypeVecMapModCostBonusValueInner>;
     } | null;
     'description': HeroDescription;
+    /**
+     * Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don\'t declare one.
+     */
+    'development_state'?: HeroDevelopmentState | null;
     'disabled': boolean;
     'gun_tag'?: string | null;
     'hero_stats_ui': HeroStatsUI;
@@ -60,8 +68,17 @@ export interface Hero {
     'name': string;
     'needs_testing': boolean;
     'physics': HeroPhysics;
+    /**
+     * Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
+     */
     'player_selectable': boolean;
+    /**
+     * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
+     */
     'prerelease_only'?: boolean | null;
+    /**
+     * Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
+     */
     'purchase_bonuses': {
         [key: string]: Array<HashMapItemSlotTypeVecPurchaseBonusValueInner>;
     };

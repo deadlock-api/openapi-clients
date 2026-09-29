@@ -38,6 +38,7 @@ import java.io.Serializable
  * @param buildUpRate 
  * @param bulletDamage 
  * @param bulletGravityScale 
+ * @param bulletHandlerType 
  * @param bulletInheritShooterVelocityScale 
  * @param bulletLifetime 
  * @param bulletRadius 
@@ -81,6 +82,7 @@ import java.io.Serializable
  * @param recoilSeed 
  * @param recoilShotIndexRecoveryTimeFactor 
  * @param recoilSpeed 
+ * @param recycleTime 
  * @param reloadDuration 
  * @param reloadMoveSpeed 
  * @param reloadSingleBullets 
@@ -121,6 +123,9 @@ data class WeaponInfo (
 
     @Json(name = "bullet_gravity_scale")
     val bulletGravityScale: kotlin.Double? = null,
+
+    @Json(name = "bullet_handler_type")
+    val bulletHandlerType: kotlin.String? = null,
 
     @Json(name = "bullet_inherit_shooter_velocity_scale")
     val bulletInheritShooterVelocityScale: kotlin.Double? = null,
@@ -250,6 +255,9 @@ data class WeaponInfo (
 
     @Json(name = "recoil_speed")
     val recoilSpeed: kotlin.Double? = null,
+
+    @Json(name = "recycle_time")
+    val recycleTime: kotlin.Double? = null,
 
     @Json(name = "reload_duration")
     val reloadDuration: kotlin.Double? = null,

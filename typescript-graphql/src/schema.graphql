@@ -61,6 +61,7 @@ enum AbilityType {
   WEAPON
   MELEE
   COSMETIC
+  HELD
 }
 
 type AbilityVideos {
@@ -184,10 +185,25 @@ type Hero {
   class_name: String!
   name: String!
   description: HeroDescription!
+
+  """
+  Read from `m_bPlayerSelectable` on older builds; since build 6711 it is
+  derived as `development_state == release`.
+  """
   player_selectable: Boolean!
+
+  """
+  Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null`
+  on older builds and on heroes that don't declare one.
+  """
+  development_state: HeroDevelopmentState
   disabled: Boolean!
   in_development: Boolean!
   needs_testing: Boolean!
+
+  """
+  `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
+  """
   assigned_players_only: Boolean!
 
   """Always emitted (empty if the hero declares no `m_vecHeroTags`)."""
@@ -195,6 +211,11 @@ type Hero {
   gun_tag: String
   hideout_rich_presence: String
   hero_type: HeroType
+
+  """
+  Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
+  derived as `development_state == pre_release`.
+  """
   prerelease_only: Boolean
   limited_testing: Boolean!
   complexity: Int!
@@ -212,7 +233,7 @@ type Hero {
   cost_bonuses: JSON!
   level_info: JSON!
   scaling_stats: JSON!
-  purchase_bonuses: JSON!
+  purchase_bonuses: JSON! @deprecated(reason: "Removed from the game in build 6711; always empty for newer builds.")
   standard_level_up_upgrades: JSON!
   item_draft_bucketing: JSON!
 }
@@ -259,6 +280,12 @@ type HeroDescription {
   lore: String
   role: String
   playstyle: String
+}
+
+enum HeroDevelopmentState {
+  RELEASE
+  PRE_RELEASE
+  DEBUG_ONLY
 }
 
 type HeroImages {
@@ -420,6 +447,9 @@ type Match {
   not_scored: Boolean
   ranked_type: String
   rank_interval: Int
+
+  """Seed the Broker's random corrupted-item penalties were rolled from."""
+  corrupted_penalty_seed: Int
   rewards_eligible: Boolean
   earned_holiday_award_2025: Boolean
   objectives_mask_team_0: Int
@@ -640,6 +670,7 @@ type MatchPlayer {
   player_tracked_stats: JsonScalar
   stats_type_stat: JsonScalar
   hero_xp_rewards: JsonScalar
+  hero_release_votes: JsonScalar
 
   """
   Hero asset metadata for this player's `hero_id` (latest version, English).

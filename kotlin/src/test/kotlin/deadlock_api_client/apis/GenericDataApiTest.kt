@@ -37,8 +37,9 @@ class GenericDataApiTest : ShouldSpec() {
         // to test getGenericData
         should("test getGenericData") {
             // uncomment below to test getGenericData
+            //val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
             //val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
-            //val result : GenericData = apiInstance.getGenericData(clientVersion)
+            //val result : GenericData = apiInstance.getGenericData(language, clientVersion)
             //result shouldBe ("TODO")
         }
 

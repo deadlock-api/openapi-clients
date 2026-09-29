@@ -17,6 +17,18 @@ pub struct GenericData {
     pub aim_spring_strength: Vec<f64>,
     #[serde(rename = "armor_groups")]
     pub armor_groups: Vec<models::ItemGroup>,
+    /// Build 6711+.
+    #[serde(rename = "color_enemy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color_enemy: Option<Option<Box<models::Color>>>,
+    /// Build 6711+.
+    #[serde(rename = "color_friend", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color_friend: Option<Option<Box<models::Color>>>,
+    /// Build 6711+.
+    #[serde(rename = "color_team1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color_team1: Option<Option<Box<models::Color>>>,
+    /// Build 6711+.
+    #[serde(rename = "color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color_team2: Option<Option<Box<models::Color>>>,
     #[serde(rename = "damage_flash")]
     pub damage_flash: Box<models::DamageFlash>,
     #[serde(rename = "enemy_objectives_and_zipline_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -62,6 +74,10 @@ impl GenericData {
         GenericData {
             aim_spring_strength,
             armor_groups,
+            color_enemy: None,
+            color_friend: None,
+            color_team1: None,
+            color_team2: None,
             damage_flash: Box::new(damage_flash),
             enemy_objectives_and_zipline_color: None,
             enemy_objectives_color: None,

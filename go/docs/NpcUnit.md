@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **BackdoorBulletResistModifier** | Pointer to [**NullableSubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **BarrackBossDps** | Pointer to **NullableFloat64** |  | [optional] 
 **BarrackGuardianDamageResistPct** | Pointer to **NullableFloat64** |  | [optional] 
+**BossWeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **BoundAbilities** | Pointer to **map[string]string** |  | [optional] 
 **ClassName** | **string** |  | 
 **EmpoweredModifierLevel1** | Pointer to [**NullableSubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
@@ -370,6 +371,41 @@ HasBarrackGuardianDamageResistPct returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetBarrackGuardianDamageResistPct()`
 
 UnsetBarrackGuardianDamageResistPct ensures that no value is present for BarrackGuardianDamageResistPct, not even an explicit nil
+### GetBossWeaponInfo
+
+`func (o *NpcUnit) GetBossWeaponInfo() WeaponInfo`
+
+GetBossWeaponInfo returns the BossWeaponInfo field if non-nil, zero value otherwise.
+
+### GetBossWeaponInfoOk
+
+`func (o *NpcUnit) GetBossWeaponInfoOk() (*WeaponInfo, bool)`
+
+GetBossWeaponInfoOk returns a tuple with the BossWeaponInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBossWeaponInfo
+
+`func (o *NpcUnit) SetBossWeaponInfo(v WeaponInfo)`
+
+SetBossWeaponInfo sets BossWeaponInfo field to given value.
+
+### HasBossWeaponInfo
+
+`func (o *NpcUnit) HasBossWeaponInfo() bool`
+
+HasBossWeaponInfo returns a boolean if a field has been set.
+
+### SetBossWeaponInfoNil
+
+`func (o *NpcUnit) SetBossWeaponInfoNil(b bool)`
+
+ SetBossWeaponInfoNil sets the value for BossWeaponInfo to be an explicit nil
+
+### UnsetBossWeaponInfo
+`func (o *NpcUnit) UnsetBossWeaponInfo()`
+
+UnsetBossWeaponInfo ensures that no value is present for BossWeaponInfo, not even an explicit nil
 ### GetBoundAbilities
 
 `func (o *NpcUnit) GetBoundAbilities() map[string]string`

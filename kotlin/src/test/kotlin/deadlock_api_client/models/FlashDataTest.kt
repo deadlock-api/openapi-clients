@@ -28,28 +28,17 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.FlashData
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.ColorGradientStop
 
 class FlashDataTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of FlashData
         //val modelInstance = FlashData()
 
-        // to test the property `brightness`
-        should("test brightness") {
-            // uncomment below to test the property
-            //modelInstance.brightness shouldBe ("TODO")
-        }
-
-        // to test the property `color`
+        // to test the property `color` - Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
         should("test color") {
             // uncomment below to test the property
             //modelInstance.color shouldBe ("TODO")
-        }
-
-        // to test the property `coverage`
-        should("test coverage") {
-            // uncomment below to test the property
-            //modelInstance.coverage shouldBe ("TODO")
         }
 
         // to test the property `duration`
@@ -58,16 +47,34 @@ class FlashDataTest : ShouldSpec() {
             //modelInstance.duration shouldBe ("TODO")
         }
 
-        // to test the property `hardness`
-        should("test hardness") {
+        // to test the property `brightness`
+        should("test brightness") {
             // uncomment below to test the property
-            //modelInstance.hardness shouldBe ("TODO")
+            //modelInstance.brightness shouldBe ("TODO")
         }
 
         // to test the property `brightnessInLightSensitivityMode`
         should("test brightnessInLightSensitivityMode") {
             // uncomment below to test the property
             //modelInstance.brightnessInLightSensitivityMode shouldBe ("TODO")
+        }
+
+        // to test the property `colorGradient` - Color gradient over the flash's lifetime (build 6711+).
+        should("test colorGradient") {
+            // uncomment below to test the property
+            //modelInstance.colorGradient shouldBe ("TODO")
+        }
+
+        // to test the property `coverage` - Only present up to build 6701.
+        should("test coverage") {
+            // uncomment below to test the property
+            //modelInstance.coverage shouldBe ("TODO")
+        }
+
+        // to test the property `hardness` - Only present up to build 6701.
+        should("test hardness") {
+            // uncomment below to test the property
+            //modelInstance.hardness shouldBe ("TODO")
         }
 
     }

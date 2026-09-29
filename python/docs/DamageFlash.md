@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bullet_damage** | [**FlashData**](FlashData.md) |  | 
 **crit_damage** | [**FlashData**](FlashData.md) |  | 
+**generic_damage** | [**FlashData**](FlashData.md) | Build 6711+. | [optional] 
 **healing_damage** | [**FlashData**](FlashData.md) |  | 
 **melee_damage** | [**FlashData**](FlashData.md) |  | 
 **tech_damage** | [**FlashData**](FlashData.md) |  | 

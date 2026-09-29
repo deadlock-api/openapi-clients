@@ -107,6 +107,15 @@ class FlashDataTest extends TestCase
     }
 
     /**
+     * Test attribute "color_gradient"
+     */
+    public function testPropertyColorGradient()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "coverage"
      */
     public function testPropertyCoverage()

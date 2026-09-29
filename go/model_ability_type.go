@@ -27,6 +27,7 @@ const (
 	ABILITYTYPE_WEAPON AbilityType = "weapon"
 	ABILITYTYPE_MELEE AbilityType = "melee"
 	ABILITYTYPE_COSMETIC AbilityType = "cosmetic"
+	ABILITYTYPE_HELD AbilityType = "held"
 )
 
 // All allowed values of AbilityType enum
@@ -38,6 +39,7 @@ var AllowedAbilityTypeEnumValues = []AbilityType{
 	"weapon",
 	"melee",
 	"cosmetic",
+	"held",
 }
 
 func (v *AbilityType) UnmarshalJSON(src []byte) error {

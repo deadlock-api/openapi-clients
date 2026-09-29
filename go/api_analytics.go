@@ -47,6 +47,8 @@ type ApiAbilityOrderStatsRequest struct {
 	accountIds *[]int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 }
 
 // See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -170,6 +172,18 @@ func (r ApiAbilityOrderStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiA
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiAbilityOrderStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiAbilityOrderStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiAbilityOrderStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiAbilityOrderStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 func (r ApiAbilityOrderStatsRequest) Execute() ([]AnalyticsAbilityOrderStats, *http.Response, error) {
 	return r.ApiService.AbilityOrderStatsExecute(r)
 }
@@ -237,7 +251,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -315,6 +329,28 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -520,7 +556,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -687,7 +723,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -767,6 +803,8 @@ type ApiGameStatsRequest struct {
 	heroIds *[]int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	accountIds *[]int32
 }
 
@@ -866,6 +904,18 @@ func (r ApiGameStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiGameStats
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiGameStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiGameStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiGameStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiGameStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // Comma separated list of account ids to include
 func (r ApiGameStatsRequest) AccountIds(accountIds []int32) ApiGameStatsRequest {
 	r.accountIds = &accountIds
@@ -935,7 +985,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -997,6 +1047,28 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.accountIds != nil {
@@ -1203,7 +1275,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1299,6 +1371,8 @@ type ApiHeroBuildStatsRequest struct {
 	minMatches *int64
 	accountId *int32
 	accountIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 }
 
 // Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
@@ -1380,6 +1454,18 @@ func (r ApiHeroBuildStatsRequest) AccountIds(accountIds []int32) ApiHeroBuildSta
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiHeroBuildStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiHeroBuildStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiHeroBuildStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiHeroBuildStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 func (r ApiHeroBuildStatsRequest) Execute() ([]HeroBuildStats, *http.Response, error) {
 	return r.ApiService.HeroBuildStatsExecute(r)
 }
@@ -1449,7 +1535,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1496,6 +1582,28 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -1767,7 +1875,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2130,7 +2238,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2447,7 +2555,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2568,6 +2676,8 @@ type ApiHeroStatsRequest struct {
 	maxHeroMatchesTotal *int64
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	accountId *int32
 	accountIds *[]int32
 }
@@ -2686,6 +2796,18 @@ func (r ApiHeroStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiHeroStats
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiHeroStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiHeroStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiHeroStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiHeroStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // Filter for matches with a specific player account ID.
 // Deprecated
 func (r ApiHeroStatsRequest) AccountId(accountId int32) ApiHeroStatsRequest {
@@ -2762,7 +2884,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2825,6 +2947,28 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.accountId != nil {
@@ -3084,7 +3228,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3222,6 +3366,8 @@ type ApiItemFlowStatsRequest struct {
 	accountIds *[]int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	lockedItemIds *[]int32
 	lockedColumns *[]int32
 }
@@ -3340,6 +3486,18 @@ func (r ApiItemFlowStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiItemF
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiItemFlowStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemFlowStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiItemFlowStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemFlowStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiItemFlowStatsRequest) LockedItemIds(lockedItemIds []int32) ApiItemFlowStatsRequest {
 	r.lockedItemIds = &lockedItemIds
@@ -3445,7 +3603,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3514,6 +3672,28 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.lockedItemIds != nil {
@@ -3615,6 +3795,8 @@ type ApiItemPermutationStatsRequest struct {
 	maxMatchId *int64
 	accountId *int32
 	accountIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 }
 
 // Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
@@ -3739,6 +3921,18 @@ func (r ApiItemPermutationStatsRequest) AccountIds(accountIds []int32) ApiItemPe
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiItemPermutationStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemPermutationStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiItemPermutationStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemPermutationStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 func (r ApiItemPermutationStatsRequest) Execute() ([]ItemPermutationStats, *http.Response, error) {
 	return r.ApiService.ItemPermutationStatsExecute(r)
 }
@@ -3835,7 +4029,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3878,6 +4072,28 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	// to determine the Content-Type header
@@ -3959,6 +4175,8 @@ type ApiItemStatsRequest struct {
 	maxMatchId *int64
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	minMatches *int32
 	maxMatches *int32
 	accountId *int32
@@ -4101,6 +4319,18 @@ func (r ApiItemStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiItemStats
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiItemStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiItemStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiItemStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // The minimum number of matches played for an item to be included in the response.
 func (r ApiItemStatsRequest) MinMatches(minMatches int32) ApiItemStatsRequest {
 	r.minMatches = &minMatches
@@ -4230,7 +4460,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4281,6 +4511,28 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.minMatches != nil {
@@ -4614,7 +4866,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4950,7 +5202,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5307,7 +5559,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5467,6 +5719,8 @@ type ApiPlayerPerformanceCurveRequest struct {
 	heroIds *string
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	accountIds *[]int32
 }
 
@@ -5566,6 +5820,18 @@ func (r ApiPlayerPerformanceCurveRequest) ExcludeItemIds(excludeItemIds []int32)
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiPlayerPerformanceCurveRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiPlayerPerformanceCurveRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiPlayerPerformanceCurveRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiPlayerPerformanceCurveRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // Comma separated list of account ids to include
 func (r ApiPlayerPerformanceCurveRequest) AccountIds(accountIds []int32) ApiPlayerPerformanceCurveRequest {
 	r.accountIds = &accountIds
@@ -5641,7 +5907,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5695,6 +5961,28 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.accountIds != nil {
@@ -6108,6 +6396,8 @@ type ApiPlayerStatsMetricsRequest struct {
 	maxMatches *int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
 	accountIds *[]int32
 }
 
@@ -6207,6 +6497,18 @@ func (r ApiPlayerStatsMetricsRequest) ExcludeItemIds(excludeItemIds []int32) Api
 	return r
 }
 
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiPlayerStatsMetricsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiPlayerStatsMetricsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiPlayerStatsMetricsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiPlayerStatsMetricsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
 // Comma separated list of account ids to include
 func (r ApiPlayerStatsMetricsRequest) AccountIds(accountIds []int32) ApiPlayerStatsMetricsRequest {
 	r.accountIds = &accountIds
@@ -6280,7 +6582,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1787961600
+		var defaultValue int64 = 1788048000
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6334,6 +6636,28 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 			}
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		t := *r.abilityOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
+		}
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		t := *r.abilityUnlockOrderPrefix
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
 	if r.accountIds != nil {

@@ -35,7 +35,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * MapImages Class Doc Comment
  *
  * @category Class
- * @description Fixed CDN URLs for the minimap image layers.
+ * @description CDN URLs for the minimap image layers.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -61,8 +61,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => 'string',
         'frame' => 'string',
         'mid' => 'string',
+        'mid_tunnels' => 'string',
         'minimap' => 'string',
-        'plain' => 'string'
+        'plain' => 'string',
+        'rat_tunnels' => 'string'
     ];
 
     /**
@@ -76,8 +78,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => null,
         'frame' => null,
         'mid' => null,
+        'mid_tunnels' => null,
         'minimap' => null,
-        'plain' => null
+        'plain' => null,
+        'rat_tunnels' => null
     ];
 
     /**
@@ -89,8 +93,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => false,
         'frame' => false,
         'mid' => false,
+        'mid_tunnels' => true,
         'minimap' => false,
-        'plain' => false
+        'plain' => false,
+        'rat_tunnels' => true
     ];
 
     /**
@@ -182,8 +188,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => 'background',
         'frame' => 'frame',
         'mid' => 'mid',
+        'mid_tunnels' => 'mid_tunnels',
         'minimap' => 'minimap',
-        'plain' => 'plain'
+        'plain' => 'plain',
+        'rat_tunnels' => 'rat_tunnels'
     ];
 
     /**
@@ -195,8 +203,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => 'setBackground',
         'frame' => 'setFrame',
         'mid' => 'setMid',
+        'mid_tunnels' => 'setMidTunnels',
         'minimap' => 'setMinimap',
-        'plain' => 'setPlain'
+        'plain' => 'setPlain',
+        'rat_tunnels' => 'setRatTunnels'
     ];
 
     /**
@@ -208,8 +218,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'background' => 'getBackground',
         'frame' => 'getFrame',
         'mid' => 'getMid',
+        'mid_tunnels' => 'getMidTunnels',
         'minimap' => 'getMinimap',
-        'plain' => 'getPlain'
+        'plain' => 'getPlain',
+        'rat_tunnels' => 'getRatTunnels'
     ];
 
     /**
@@ -272,8 +284,10 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('background', $data ?? [], null);
         $this->setIfExists('frame', $data ?? [], null);
         $this->setIfExists('mid', $data ?? [], null);
+        $this->setIfExists('mid_tunnels', $data ?? [], null);
         $this->setIfExists('minimap', $data ?? [], null);
         $this->setIfExists('plain', $data ?? [], null);
+        $this->setIfExists('rat_tunnels', $data ?? [], null);
     }
 
     /**
@@ -346,7 +360,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets background
      *
-     * @param string $background background
+     * @param string $background Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
      *
      * @return self
      */
@@ -400,7 +414,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mid
      *
-     * @param string $mid mid
+     * @param string $mid Midtown base layer.
      *
      * @return self
      */
@@ -410,6 +424,40 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable mid cannot be null');
         }
         $this->container['mid'] = $mid;
+
+        return $this;
+    }
+
+    /**
+     * Gets mid_tunnels
+     *
+     * @return string|null
+     */
+    public function getMidTunnels()
+    {
+        return $this->container['mid_tunnels'];
+    }
+
+    /**
+     * Sets mid_tunnels
+     *
+     * @param string|null $mid_tunnels Mid tunnels overlay, drawn above `mid` (build 6711+).
+     *
+     * @return self
+     */
+    public function setMidTunnels($mid_tunnels)
+    {
+        if (is_null($mid_tunnels)) {
+            array_push($this->openAPINullablesSetToNull, 'mid_tunnels');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mid_tunnels', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mid_tunnels'] = $mid_tunnels;
 
         return $this;
     }
@@ -427,7 +475,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets minimap
      *
-     * @param string $minimap minimap
+     * @param string $minimap Full minimap. From build 6711 on this is the midtown base layer.
      *
      * @return self
      */
@@ -454,7 +502,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plain
      *
-     * @param string $plain plain
+     * @param string $plain Minimap without overlays. From build 6711 on this is the midtown base layer.
      *
      * @return self
      */
@@ -464,6 +512,40 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable plain cannot be null');
         }
         $this->container['plain'] = $plain;
+
+        return $this;
+    }
+
+    /**
+     * Gets rat_tunnels
+     *
+     * @return string|null
+     */
+    public function getRatTunnels()
+    {
+        return $this->container['rat_tunnels'];
+    }
+
+    /**
+     * Sets rat_tunnels
+     *
+     * @param string|null $rat_tunnels Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+     *
+     * @return self
+     */
+    public function setRatTunnels($rat_tunnels)
+    {
+        if (is_null($rat_tunnels)) {
+            array_push($this->openAPINullablesSetToNull, 'rat_tunnels');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rat_tunnels', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['rat_tunnels'] = $rat_tunnels;
 
         return $this;
     }

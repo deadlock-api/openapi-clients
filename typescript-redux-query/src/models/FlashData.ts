@@ -16,6 +16,9 @@ import {
     Color,
     ColorFromJSON,
     ColorToJSON,
+    ColorGradientStop,
+    ColorGradientStopFromJSON,
+    ColorGradientStopToJSON,
 } from './';
 
 /**
@@ -29,7 +32,7 @@ export interface FlashData  {
      * @type {number}
      * @memberof FlashData
      */
-    brightness: number;
+    brightness?: number;
     /**
      * 
      * @type {number}
@@ -37,17 +40,23 @@ export interface FlashData  {
      */
     brightnessInLightSensitivityMode?: number;
     /**
-     * 
+     * Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
      * @type {Color}
      * @memberof FlashData
      */
     color: Color;
     /**
-     * 
+     * Color gradient over the flash\'s lifetime (build 6711+).
+     * @type {Array<ColorGradientStop>}
+     * @memberof FlashData
+     */
+    colorGradient?: Array<ColorGradientStop>;
+    /**
+     * Only present up to build 6701.
      * @type {number}
      * @memberof FlashData
      */
-    coverage: number;
+    coverage?: number;
     /**
      * 
      * @type {number}
@@ -55,21 +64,22 @@ export interface FlashData  {
      */
     duration: number;
     /**
-     * 
+     * Only present up to build 6701.
      * @type {number}
      * @memberof FlashData
      */
-    hardness: number;
+    hardness?: number;
 }
 
 export function FlashDataFromJSON(json: any): FlashData {
     return {
-        'brightness': json['brightness'],
+        'brightness': !exists(json, 'brightness') ? undefined : json['brightness'],
         'brightnessInLightSensitivityMode': !exists(json, 'brightness_in_light_sensitivity_mode') ? undefined : json['brightness_in_light_sensitivity_mode'],
         'color': ColorFromJSON(json['color']),
-        'coverage': json['coverage'],
+        'colorGradient': !exists(json, 'color_gradient') ? undefined : (json['color_gradient'] as Array<any>).map(ColorGradientStopFromJSON),
+        'coverage': !exists(json, 'coverage') ? undefined : json['coverage'],
         'duration': json['duration'],
-        'hardness': json['hardness'],
+        'hardness': !exists(json, 'hardness') ? undefined : json['hardness'],
     };
 }
 
@@ -81,6 +91,7 @@ export function FlashDataToJSON(value?: FlashData): any {
         'brightness': value.brightness,
         'brightness_in_light_sensitivity_mode': value.brightnessInLightSensitivityMode,
         'color': ColorToJSON(value.color),
+        'color_gradient': value.colorGradient === undefined ? undefined : (value.colorGradient as Array<any>).map(ColorGradientStopToJSON),
         'coverage': value.coverage,
         'duration': value.duration,
         'hardness': value.hardness,

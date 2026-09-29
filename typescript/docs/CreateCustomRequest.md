@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callback_url** | **string** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] [default to undefined]
 **cheats_enabled** | **boolean** |  | [optional] [default to undefined]
+**corrupted_item_shop_spawn_minutes** | **number** | Minute of the match at which the Broker\&#39;s corrupted item shop first spawns. | [optional] [default to undefined]
 **disable_auto_ready** | **boolean** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] [default to undefined]
 **duplicate_heroes_enabled** | **boolean** |  | [optional] [default to undefined]
 **game_mode** | [**GameMode**](GameMode.md) |  | [optional] [default to undefined]
@@ -23,6 +24,7 @@ import { CreateCustomRequest } from 'deadlock_api_client';
 const instance: CreateCustomRequest = {
     callback_url,
     cheats_enabled,
+    corrupted_item_shop_spawn_minutes,
     disable_auto_ready,
     duplicate_heroes_enabled,
     game_mode,

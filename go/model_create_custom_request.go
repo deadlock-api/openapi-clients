@@ -22,6 +22,8 @@ type CreateCustomRequest struct {
 	// If a callback url is provided, we will send a POST request to this url when the match starts.
 	CallbackUrl NullableString `json:"callback_url,omitempty"`
 	CheatsEnabled NullableBool `json:"cheats_enabled,omitempty"`
+	// Minute of the match at which the Broker's corrupted item shop first spawns.
+	CorruptedItemShopSpawnMinutes NullableInt32 `json:"corrupted_item_shop_spawn_minutes,omitempty"`
 	// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
 	DisableAutoReady NullableBool `json:"disable_auto_ready,omitempty"`
 	DuplicateHeroesEnabled NullableBool `json:"duplicate_heroes_enabled,omitempty"`
@@ -131,6 +133,48 @@ func (o *CreateCustomRequest) SetCheatsEnabledNil() {
 // UnsetCheatsEnabled ensures that no value is present for CheatsEnabled, not even an explicit nil
 func (o *CreateCustomRequest) UnsetCheatsEnabled() {
 	o.CheatsEnabled.Unset()
+}
+
+// GetCorruptedItemShopSpawnMinutes returns the CorruptedItemShopSpawnMinutes field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutes() int32 {
+	if o == nil || IsNil(o.CorruptedItemShopSpawnMinutes.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.CorruptedItemShopSpawnMinutes.Get()
+}
+
+// GetCorruptedItemShopSpawnMinutesOk returns a tuple with the CorruptedItemShopSpawnMinutes field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutesOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CorruptedItemShopSpawnMinutes.Get(), o.CorruptedItemShopSpawnMinutes.IsSet()
+}
+
+// HasCorruptedItemShopSpawnMinutes returns a boolean if a field has been set.
+func (o *CreateCustomRequest) HasCorruptedItemShopSpawnMinutes() bool {
+	if o != nil && o.CorruptedItemShopSpawnMinutes.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCorruptedItemShopSpawnMinutes gets a reference to the given NullableInt32 and assigns it to the CorruptedItemShopSpawnMinutes field.
+func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutes(v int32) {
+	o.CorruptedItemShopSpawnMinutes.Set(&v)
+}
+// SetCorruptedItemShopSpawnMinutesNil sets the value for CorruptedItemShopSpawnMinutes to be an explicit nil
+func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutesNil() {
+	o.CorruptedItemShopSpawnMinutes.Set(nil)
+}
+
+// UnsetCorruptedItemShopSpawnMinutes ensures that no value is present for CorruptedItemShopSpawnMinutes, not even an explicit nil
+func (o *CreateCustomRequest) UnsetCorruptedItemShopSpawnMinutes() {
+	o.CorruptedItemShopSpawnMinutes.Unset()
 }
 
 // GetDisableAutoReady returns the DisableAutoReady field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -442,6 +486,9 @@ func (o CreateCustomRequest) ToMap() (map[string]interface{}, error) {
 	}
 	if o.CheatsEnabled.IsSet() {
 		toSerialize["cheats_enabled"] = o.CheatsEnabled.Get()
+	}
+	if o.CorruptedItemShopSpawnMinutes.IsSet() {
+		toSerialize["corrupted_item_shop_spawn_minutes"] = o.CorruptedItemShopSpawnMinutes.Get()
 	}
 	if o.DisableAutoReady.IsSet() {
 		toSerialize["disable_auto_ready"] = o.DisableAutoReady.Get()

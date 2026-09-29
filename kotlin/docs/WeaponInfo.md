@@ -8,6 +8,7 @@
 | **buildUpRate** | **kotlin.Double** |  |  [optional] |
 | **bulletDamage** | **kotlin.Double** |  |  [optional] |
 | **bulletGravityScale** | **kotlin.Double** |  |  [optional] |
+| **bulletHandlerType** | **kotlin.String** |  |  [optional] |
 | **bulletInheritShooterVelocityScale** | **kotlin.Double** |  |  [optional] |
 | **bulletLifetime** | **kotlin.Double** |  |  [optional] |
 | **bulletRadius** | **kotlin.Double** |  |  [optional] |
@@ -51,6 +52,7 @@
 | **recoilSeed** | **kotlin.Double** |  |  [optional] |
 | **recoilShotIndexRecoveryTimeFactor** | **kotlin.Double** |  |  [optional] |
 | **recoilSpeed** | **kotlin.Double** |  |  [optional] |
+| **recycleTime** | **kotlin.Double** |  |  [optional] |
 | **reloadDuration** | **kotlin.Double** |  |  [optional] |
 | **reloadMoveSpeed** | **kotlin.Double** |  |  [optional] |
 | **reloadSingleBullets** | **kotlin.Boolean** |  |  [optional] |

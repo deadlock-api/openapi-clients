@@ -9,6 +9,7 @@ Accept: application/json
 {
  "callback_url": "<string>",
  "cheats_enabled": "<string>",
+ "corrupted_item_shop_spawn_minutes": "<number>",
  "disable_auto_ready": "<string>",
  "duplicate_heroes_enabled": "<string>",
  "game_mode": "<string>",

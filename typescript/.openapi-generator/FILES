@@ -75,6 +75,7 @@ docs/ClickhouseMatchInfo.md
 docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
+docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
@@ -123,6 +124,7 @@ docs/HeroColors.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
 docs/HeroDescription.md
+docs/HeroDevelopmentState.md
 docs/HeroEntry.md
 docs/HeroImages.md
 docs/HeroPhysics.md
@@ -316,6 +318,7 @@ models/build-tag.ts
 models/build.ts
 models/clickhouse-match-info.ts
 models/clickhouse-salts.ts
+models/color-gradient-stop.ts
 models/color.ts
 models/column-schema.ts
 models/create-custom-request.ts
@@ -358,6 +361,7 @@ models/hero-colors.ts
 models/hero-comb-stats.ts
 models/hero-counter-stats.ts
 models/hero-description.ts
+models/hero-development-state.ts
 models/hero-entry.ts
 models/hero-images.ts
 models/hero-physics.ts

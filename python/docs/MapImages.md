@@ -1,16 +1,18 @@
 # MapImages
 
-Fixed CDN URLs for the minimap image layers.
+CDN URLs for the minimap image layers.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**background** | **str** |  | 
+**background** | **str** | Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. | 
 **frame** | **str** |  | 
-**mid** | **str** |  | 
-**minimap** | **str** |  | 
-**plain** | **str** |  | 
+**mid** | **str** | Midtown base layer. | 
+**mid_tunnels** | **str** | Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+). | [optional] 
+**minimap** | **str** | Full minimap. From build 6711 on this is the midtown base layer. | 
+**plain** | **str** | Minimap without overlays. From build 6711 on this is the midtown base layer. | 
+**rat_tunnels** | **str** | Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+). | [optional] 
 
 ## Example
 

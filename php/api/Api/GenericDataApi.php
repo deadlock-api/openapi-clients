@@ -130,6 +130,7 @@ class GenericDataApi
      *
      * Get Generic Data
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericData'] to see the possible values for this operation
      *
@@ -137,9 +138,9 @@ class GenericDataApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\GenericData
      */
-    public function getGenericData($client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
+    public function getGenericData($language = null, $client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
     {
-        list($response) = $this->getGenericDataWithHttpInfo($client_version, $contentType);
+        list($response) = $this->getGenericDataWithHttpInfo($language, $client_version, $contentType);
         return $response;
     }
 
@@ -148,6 +149,7 @@ class GenericDataApi
      *
      * Get Generic Data
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericData'] to see the possible values for this operation
      *
@@ -155,9 +157,9 @@ class GenericDataApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\GenericData, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getGenericDataWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
+    public function getGenericDataWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
     {
-        $request = $this->getGenericDataRequest($client_version, $contentType);
+        $request = $this->getGenericDataRequest($language, $client_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -233,15 +235,16 @@ class GenericDataApi
      *
      * Get Generic Data
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGenericDataAsync($client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
+    public function getGenericDataAsync($language = null, $client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
     {
-        return $this->getGenericDataAsyncWithHttpInfo($client_version, $contentType)
+        return $this->getGenericDataAsyncWithHttpInfo($language, $client_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -254,16 +257,17 @@ class GenericDataApi
      *
      * Get Generic Data
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getGenericDataAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
+    public function getGenericDataAsyncWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
     {
         $returnType = '\OpenAPI\Client\Model\GenericData';
-        $request = $this->getGenericDataRequest($client_version, $contentType);
+        $request = $this->getGenericDataRequest($language, $client_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -304,14 +308,16 @@ class GenericDataApi
     /**
      * Create request for operation 'getGenericData'
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGenericData'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getGenericDataRequest($client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
+    public function getGenericDataRequest($language = null, $client_version = null, string $contentType = self::contentTypes['getGenericData'][0])
     {
+
 
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling GenericDataApi.getGenericData, must be bigger than or equal to 0.');
@@ -325,6 +331,15 @@ class GenericDataApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,

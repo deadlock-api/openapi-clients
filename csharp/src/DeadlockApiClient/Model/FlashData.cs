@@ -33,43 +33,34 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FlashData" /> class.
         /// </summary>
-        /// <param name="brightness">brightness</param>
-        /// <param name="color">color</param>
-        /// <param name="coverage">coverage</param>
+        /// <param name="color">Flat flash color. From build 6711 on it is derived from the first &#x60;color_gradient&#x60; stop.</param>
         /// <param name="duration">duration</param>
-        /// <param name="hardness">hardness</param>
+        /// <param name="brightness">brightness</param>
         /// <param name="brightnessInLightSensitivityMode">brightnessInLightSensitivityMode</param>
+        /// <param name="colorGradient">Color gradient over the flash&#39;s lifetime (build 6711+).</param>
+        /// <param name="coverage">Only present up to build 6701.</param>
+        /// <param name="hardness">Only present up to build 6701.</param>
         [JsonConstructor]
-        public FlashData(double brightness, Color color, double coverage, double duration, double hardness, Option<double?> brightnessInLightSensitivityMode = default)
+        public FlashData(Color color, double duration, Option<double?> brightness = default, Option<double?> brightnessInLightSensitivityMode = default, Option<List<ColorGradientStop>?> colorGradient = default, Option<double?> coverage = default, Option<double?> hardness = default)
         {
-            Brightness = brightness;
             Color = color;
-            Coverage = coverage;
             Duration = duration;
-            Hardness = hardness;
+            BrightnessOption = brightness;
             BrightnessInLightSensitivityModeOption = brightnessInLightSensitivityMode;
+            ColorGradientOption = colorGradient;
+            CoverageOption = coverage;
+            HardnessOption = hardness;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Brightness
+        /// Flat flash color. From build 6711 on it is derived from the first &#x60;color_gradient&#x60; stop.
         /// </summary>
-        [JsonPropertyName("brightness")]
-        public double Brightness { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Color
-        /// </summary>
+        /// <value>Flat flash color. From build 6711 on it is derived from the first &#x60;color_gradient&#x60; stop.</value>
         [JsonPropertyName("color")]
         public Color Color { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Coverage
-        /// </summary>
-        [JsonPropertyName("coverage")]
-        public double Coverage { get; set; }
 
         /// <summary>
         /// Gets or Sets Duration
@@ -78,10 +69,17 @@ namespace DeadlockApiClient.Model
         public double Duration { get; set; }
 
         /// <summary>
-        /// Gets or Sets Hardness
+        /// Used to track the state of Brightness
         /// </summary>
-        [JsonPropertyName("hardness")]
-        public double Hardness { get; set; }
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> BrightnessOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Brightness
+        /// </summary>
+        [JsonPropertyName("brightness")]
+        public double? Brightness { get { return this.BrightnessOption.Value; } set { this.BrightnessOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BrightnessInLightSensitivityMode
@@ -97,6 +95,48 @@ namespace DeadlockApiClient.Model
         public double? BrightnessInLightSensitivityMode { get { return this.BrightnessInLightSensitivityModeOption.Value; } set { this.BrightnessInLightSensitivityModeOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of ColorGradient
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<ColorGradientStop>?> ColorGradientOption { get; private set; }
+
+        /// <summary>
+        /// Color gradient over the flash&#39;s lifetime (build 6711+).
+        /// </summary>
+        /// <value>Color gradient over the flash&#39;s lifetime (build 6711+).</value>
+        [JsonPropertyName("color_gradient")]
+        public List<ColorGradientStop>? ColorGradient { get { return this.ColorGradientOption.Value; } set { this.ColorGradientOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Coverage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> CoverageOption { get; private set; }
+
+        /// <summary>
+        /// Only present up to build 6701.
+        /// </summary>
+        /// <value>Only present up to build 6701.</value>
+        [JsonPropertyName("coverage")]
+        public double? Coverage { get { return this.CoverageOption.Value; } set { this.CoverageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Hardness
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> HardnessOption { get; private set; }
+
+        /// <summary>
+        /// Only present up to build 6701.
+        /// </summary>
+        /// <value>Only present up to build 6701.</value>
+        [JsonPropertyName("hardness")]
+        public double? Hardness { get { return this.HardnessOption.Value; } set { this.HardnessOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,12 +144,13 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class FlashData {\n");
-            sb.Append("  Brightness: ").Append(Brightness).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
-            sb.Append("  Coverage: ").Append(Coverage).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
-            sb.Append("  Hardness: ").Append(Hardness).Append("\n");
+            sb.Append("  Brightness: ").Append(Brightness).Append("\n");
             sb.Append("  BrightnessInLightSensitivityMode: ").Append(BrightnessInLightSensitivityMode).Append("\n");
+            sb.Append("  ColorGradient: ").Append(ColorGradient).Append("\n");
+            sb.Append("  Coverage: ").Append(Coverage).Append("\n");
+            sb.Append("  Hardness: ").Append(Hardness).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,12 +198,13 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<double?> brightness = default;
             Option<Color?> color = default;
-            Option<double?> coverage = default;
             Option<double?> duration = default;
-            Option<double?> hardness = default;
+            Option<double?> brightness = default;
             Option<double?> brightnessInLightSensitivityMode = default;
+            Option<List<ColorGradientStop>?> colorGradient = default;
+            Option<double?> coverage = default;
+            Option<double?> hardness = default;
 
             while (utf8JsonReader.Read())
             {
@@ -179,23 +221,26 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "brightness":
-                            brightness = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
-                            break;
                         case "color":
                             color = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
-                        case "coverage":
-                            coverage = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "duration":
                             duration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
-                        case "hardness":
-                            hardness = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                        case "brightness":
+                            brightness = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "brightness_in_light_sensitivity_mode":
                             brightnessInLightSensitivityMode = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "color_gradient":
+                            colorGradient = new Option<List<ColorGradientStop>?>(JsonSerializer.Deserialize<List<ColorGradientStop>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "coverage":
+                            coverage = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "hardness":
+                            hardness = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         default:
                             break;
@@ -203,37 +248,19 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (!brightness.IsSet)
-                throw new ArgumentException("Property is required for class FlashData.", nameof(brightness));
-
             if (!color.IsSet)
                 throw new ArgumentException("Property is required for class FlashData.", nameof(color));
-
-            if (!coverage.IsSet)
-                throw new ArgumentException("Property is required for class FlashData.", nameof(coverage));
 
             if (!duration.IsSet)
                 throw new ArgumentException("Property is required for class FlashData.", nameof(duration));
 
-            if (!hardness.IsSet)
-                throw new ArgumentException("Property is required for class FlashData.", nameof(hardness));
-
-            if (brightness.IsSet && brightness.Value == null)
-                throw new ArgumentNullException(nameof(brightness), "Property is not nullable for class FlashData.");
-
             if (color.IsSet && color.Value == null)
                 throw new ArgumentNullException(nameof(color), "Property is not nullable for class FlashData.");
-
-            if (coverage.IsSet && coverage.Value == null)
-                throw new ArgumentNullException(nameof(coverage), "Property is not nullable for class FlashData.");
 
             if (duration.IsSet && duration.Value == null)
                 throw new ArgumentNullException(nameof(duration), "Property is not nullable for class FlashData.");
 
-            if (hardness.IsSet && hardness.Value == null)
-                throw new ArgumentNullException(nameof(hardness), "Property is not nullable for class FlashData.");
-
-            return new FlashData(brightness.Value!.Value!, color.Value!, coverage.Value!.Value!, duration.Value!.Value!, hardness.Value!.Value!, brightnessInLightSensitivityMode);
+            return new FlashData(color.Value!, duration.Value!.Value!, brightness, brightnessInLightSensitivityMode, colorGradient, coverage, hardness);
         }
 
         /// <summary>
@@ -263,21 +290,41 @@ namespace DeadlockApiClient.Model
             if (flashData.Color == null)
                 throw new ArgumentNullException(nameof(flashData.Color), "Property is required for class FlashData.");
 
-            writer.WriteNumber("brightness", flashData.Brightness);
-
             writer.WritePropertyName("color");
             JsonSerializer.Serialize(writer, flashData.Color, jsonSerializerOptions);
-            writer.WriteNumber("coverage", flashData.Coverage);
-
             writer.WriteNumber("duration", flashData.Duration);
 
-            writer.WriteNumber("hardness", flashData.Hardness);
+            if (flashData.BrightnessOption.IsSet)
+                if (flashData.BrightnessOption.Value != null)
+                    writer.WriteNumber("brightness", flashData.BrightnessOption.Value!.Value);
+                else
+                    writer.WriteNull("brightness");
 
             if (flashData.BrightnessInLightSensitivityModeOption.IsSet)
                 if (flashData.BrightnessInLightSensitivityModeOption.Value != null)
                     writer.WriteNumber("brightness_in_light_sensitivity_mode", flashData.BrightnessInLightSensitivityModeOption.Value!.Value);
                 else
                     writer.WriteNull("brightness_in_light_sensitivity_mode");
+
+            if (flashData.ColorGradientOption.IsSet)
+                if (flashData.ColorGradientOption.Value != null)
+                {
+                    writer.WritePropertyName("color_gradient");
+                    JsonSerializer.Serialize(writer, flashData.ColorGradient, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color_gradient");
+            if (flashData.CoverageOption.IsSet)
+                if (flashData.CoverageOption.Value != null)
+                    writer.WriteNumber("coverage", flashData.CoverageOption.Value!.Value);
+                else
+                    writer.WriteNull("coverage");
+
+            if (flashData.HardnessOption.IsSet)
+                if (flashData.HardnessOption.Value != null)
+                    writer.WriteNumber("hardness", flashData.HardnessOption.Value!.Value);
+                else
+                    writer.WriteNull("hardness");
         }
     }
 }

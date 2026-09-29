@@ -56,6 +56,8 @@ class AbilityType
 
     public const COSMETIC = 'cosmetic';
 
+    public const HELD = 'held';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -69,7 +71,8 @@ class AbilityType
             self::ULTIMATE,
             self::WEAPON,
             self::MELEE,
-            self::COSMETIC
+            self::COSMETIC,
+            self::HELD
         ];
     }
 }

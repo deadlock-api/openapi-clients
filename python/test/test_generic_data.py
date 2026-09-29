@@ -45,29 +45,51 @@ class TestGenericData(unittest.TestCase):
                             ''
                             ], )
                     ],
+                color_enemy = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
+                color_friend = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
+                color_team1 = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
+                color_team2 = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
                 damage_flash = deadlock_api_client.models.damage_flash.DamageFlash(
                     bullet_damage = deadlock_api_client.models.flash_data.FlashData(
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
                     crit_damage = deadlock_api_client.models.flash_data.FlashData(
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
+                    generic_damage = null, 
                     healing_damage = , 
                     melee_damage = , 
                     tech_damage = , ),
@@ -106,13 +128,11 @@ class TestGenericData(unittest.TestCase):
                     ],
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
                         css_class = '', 
+                        is_enemy_lane = True, 
                         lane_name = '', 
+                        minimap_color = null, 
                         minimap_zipline_color_override = null, 
                         objective_color = null, )
                     ],
@@ -287,25 +307,27 @@ class TestGenericData(unittest.TestCase):
                     bullet_damage = deadlock_api_client.models.flash_data.FlashData(
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
                     crit_damage = deadlock_api_client.models.flash_data.FlashData(
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
+                    generic_damage = null, 
                     healing_damage = , 
                     melee_damage = , 
                     tech_damage = , ),
@@ -329,13 +351,11 @@ class TestGenericData(unittest.TestCase):
                     ],
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
-                        color = deadlock_api_client.models.color.Color(
-                            alpha = 0, 
-                            blue = 0, 
-                            green = 0, 
-                            red = 0, ), 
+                        color = null, 
                         css_class = '', 
+                        is_enemy_lane = True, 
                         lane_name = '', 
+                        minimap_color = null, 
                         minimap_zipline_color_override = null, 
                         objective_color = null, )
                     ],

@@ -58,16 +58,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'break_on_dodge_touch' => 'bool',
+        'buff_type_graph_color' => '\OpenAPI\Client\Model\Color',
+        'buff_type_loc_string' => 'string',
+        'buff_type_value_unit' => 'string',
         'class_name' => 'string',
         'collision_radius' => 'float',
         'color' => '\OpenAPI\Client\Model\Color',
         'damaged_by_abilities' => 'bool',
         'damaged_by_bullets' => 'bool',
         'damaged_by_melee' => 'bool',
+        'damaged_by_slide' => 'bool',
         'expiration_duration' => '\OpenAPI\Client\Model\CurveOrFloat',
         'gold_amount' => 'float',
         'gold_per_minute_amount' => 'float',
         'health' => 'int',
+        'heavy_melee_hit_count' => 'int',
+        'heavy_melee_only' => 'bool',
         'id' => 'int',
         'initial_spawn_delay_in_seconds' => 'int',
         'initial_spawn_delay_seconds' => 'int',
@@ -82,7 +88,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => '\OpenAPI\Client\Model\SubclassModifierDefinition',
         'orb_spawn_delay_max' => 'float',
         'orb_spawn_delay_min' => 'float',
+        'pickup_chances' => 'array<string,float>',
         'pickup_radius' => '\OpenAPI\Client\Model\CurveOrFloat',
+        'powerup_drop_chance' => 'float',
         'primary_drop_chance' => 'float',
         'primary_pickups' => '\OpenAPI\Client\Model\Pickup[]',
         'render_after_death' => 'bool',
@@ -103,16 +111,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'break_on_dodge_touch' => null,
+        'buff_type_graph_color' => null,
+        'buff_type_loc_string' => null,
+        'buff_type_value_unit' => null,
         'class_name' => null,
         'collision_radius' => 'double',
         'color' => null,
         'damaged_by_abilities' => null,
         'damaged_by_bullets' => null,
         'damaged_by_melee' => null,
+        'damaged_by_slide' => null,
         'expiration_duration' => null,
         'gold_amount' => 'double',
         'gold_per_minute_amount' => 'double',
         'health' => 'int64',
+        'heavy_melee_hit_count' => 'int64',
+        'heavy_melee_only' => null,
         'id' => 'int32',
         'initial_spawn_delay_in_seconds' => 'int64',
         'initial_spawn_delay_seconds' => 'int64',
@@ -127,7 +141,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => null,
         'orb_spawn_delay_max' => 'double',
         'orb_spawn_delay_min' => 'double',
+        'pickup_chances' => 'double',
         'pickup_radius' => null,
+        'powerup_drop_chance' => 'double',
         'primary_drop_chance' => 'double',
         'primary_pickups' => null,
         'render_after_death' => null,
@@ -146,16 +162,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'break_on_dodge_touch' => true,
+        'buff_type_graph_color' => true,
+        'buff_type_loc_string' => true,
+        'buff_type_value_unit' => true,
         'class_name' => false,
         'collision_radius' => true,
         'color' => true,
         'damaged_by_abilities' => true,
         'damaged_by_bullets' => true,
         'damaged_by_melee' => true,
+        'damaged_by_slide' => true,
         'expiration_duration' => true,
         'gold_amount' => true,
         'gold_per_minute_amount' => true,
         'health' => true,
+        'heavy_melee_hit_count' => true,
+        'heavy_melee_only' => true,
         'id' => false,
         'initial_spawn_delay_in_seconds' => true,
         'initial_spawn_delay_seconds' => true,
@@ -170,7 +192,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => true,
         'orb_spawn_delay_max' => true,
         'orb_spawn_delay_min' => true,
+        'pickup_chances' => true,
         'pickup_radius' => true,
+        'powerup_drop_chance' => true,
         'primary_drop_chance' => true,
         'primary_pickups' => true,
         'render_after_death' => true,
@@ -269,16 +293,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'break_on_dodge_touch' => 'break_on_dodge_touch',
+        'buff_type_graph_color' => 'buff_type_graph_color',
+        'buff_type_loc_string' => 'buff_type_loc_string',
+        'buff_type_value_unit' => 'buff_type_value_unit',
         'class_name' => 'class_name',
         'collision_radius' => 'collision_radius',
         'color' => 'color',
         'damaged_by_abilities' => 'damaged_by_abilities',
         'damaged_by_bullets' => 'damaged_by_bullets',
         'damaged_by_melee' => 'damaged_by_melee',
+        'damaged_by_slide' => 'damaged_by_slide',
         'expiration_duration' => 'expiration_duration',
         'gold_amount' => 'gold_amount',
         'gold_per_minute_amount' => 'gold_per_minute_amount',
         'health' => 'health',
+        'heavy_melee_hit_count' => 'heavy_melee_hit_count',
+        'heavy_melee_only' => 'heavy_melee_only',
         'id' => 'id',
         'initial_spawn_delay_in_seconds' => 'initial_spawn_delay_in_seconds',
         'initial_spawn_delay_seconds' => 'initial_spawn_delay_seconds',
@@ -293,7 +323,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => 'modifier',
         'orb_spawn_delay_max' => 'orb_spawn_delay_max',
         'orb_spawn_delay_min' => 'orb_spawn_delay_min',
+        'pickup_chances' => 'pickup_chances',
         'pickup_radius' => 'pickup_radius',
+        'powerup_drop_chance' => 'powerup_drop_chance',
         'primary_drop_chance' => 'primary_drop_chance',
         'primary_pickups' => 'primary_pickups',
         'render_after_death' => 'render_after_death',
@@ -312,16 +344,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'break_on_dodge_touch' => 'setBreakOnDodgeTouch',
+        'buff_type_graph_color' => 'setBuffTypeGraphColor',
+        'buff_type_loc_string' => 'setBuffTypeLocString',
+        'buff_type_value_unit' => 'setBuffTypeValueUnit',
         'class_name' => 'setClassName',
         'collision_radius' => 'setCollisionRadius',
         'color' => 'setColor',
         'damaged_by_abilities' => 'setDamagedByAbilities',
         'damaged_by_bullets' => 'setDamagedByBullets',
         'damaged_by_melee' => 'setDamagedByMelee',
+        'damaged_by_slide' => 'setDamagedBySlide',
         'expiration_duration' => 'setExpirationDuration',
         'gold_amount' => 'setGoldAmount',
         'gold_per_minute_amount' => 'setGoldPerMinuteAmount',
         'health' => 'setHealth',
+        'heavy_melee_hit_count' => 'setHeavyMeleeHitCount',
+        'heavy_melee_only' => 'setHeavyMeleeOnly',
         'id' => 'setId',
         'initial_spawn_delay_in_seconds' => 'setInitialSpawnDelayInSeconds',
         'initial_spawn_delay_seconds' => 'setInitialSpawnDelaySeconds',
@@ -336,7 +374,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => 'setModifier',
         'orb_spawn_delay_max' => 'setOrbSpawnDelayMax',
         'orb_spawn_delay_min' => 'setOrbSpawnDelayMin',
+        'pickup_chances' => 'setPickupChances',
         'pickup_radius' => 'setPickupRadius',
+        'powerup_drop_chance' => 'setPowerupDropChance',
         'primary_drop_chance' => 'setPrimaryDropChance',
         'primary_pickups' => 'setPrimaryPickups',
         'render_after_death' => 'setRenderAfterDeath',
@@ -355,16 +395,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'break_on_dodge_touch' => 'getBreakOnDodgeTouch',
+        'buff_type_graph_color' => 'getBuffTypeGraphColor',
+        'buff_type_loc_string' => 'getBuffTypeLocString',
+        'buff_type_value_unit' => 'getBuffTypeValueUnit',
         'class_name' => 'getClassName',
         'collision_radius' => 'getCollisionRadius',
         'color' => 'getColor',
         'damaged_by_abilities' => 'getDamagedByAbilities',
         'damaged_by_bullets' => 'getDamagedByBullets',
         'damaged_by_melee' => 'getDamagedByMelee',
+        'damaged_by_slide' => 'getDamagedBySlide',
         'expiration_duration' => 'getExpirationDuration',
         'gold_amount' => 'getGoldAmount',
         'gold_per_minute_amount' => 'getGoldPerMinuteAmount',
         'health' => 'getHealth',
+        'heavy_melee_hit_count' => 'getHeavyMeleeHitCount',
+        'heavy_melee_only' => 'getHeavyMeleeOnly',
         'id' => 'getId',
         'initial_spawn_delay_in_seconds' => 'getInitialSpawnDelayInSeconds',
         'initial_spawn_delay_seconds' => 'getInitialSpawnDelaySeconds',
@@ -379,7 +425,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'modifier' => 'getModifier',
         'orb_spawn_delay_max' => 'getOrbSpawnDelayMax',
         'orb_spawn_delay_min' => 'getOrbSpawnDelayMin',
+        'pickup_chances' => 'getPickupChances',
         'pickup_radius' => 'getPickupRadius',
+        'powerup_drop_chance' => 'getPowerupDropChance',
         'primary_drop_chance' => 'getPrimaryDropChance',
         'primary_pickups' => 'getPrimaryPickups',
         'render_after_death' => 'getRenderAfterDeath',
@@ -449,16 +497,22 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('break_on_dodge_touch', $data ?? [], null);
+        $this->setIfExists('buff_type_graph_color', $data ?? [], null);
+        $this->setIfExists('buff_type_loc_string', $data ?? [], null);
+        $this->setIfExists('buff_type_value_unit', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('collision_radius', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('damaged_by_abilities', $data ?? [], null);
         $this->setIfExists('damaged_by_bullets', $data ?? [], null);
         $this->setIfExists('damaged_by_melee', $data ?? [], null);
+        $this->setIfExists('damaged_by_slide', $data ?? [], null);
         $this->setIfExists('expiration_duration', $data ?? [], null);
         $this->setIfExists('gold_amount', $data ?? [], null);
         $this->setIfExists('gold_per_minute_amount', $data ?? [], null);
         $this->setIfExists('health', $data ?? [], null);
+        $this->setIfExists('heavy_melee_hit_count', $data ?? [], null);
+        $this->setIfExists('heavy_melee_only', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('initial_spawn_delay_in_seconds', $data ?? [], null);
         $this->setIfExists('initial_spawn_delay_seconds', $data ?? [], null);
@@ -473,7 +527,9 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('modifier', $data ?? [], null);
         $this->setIfExists('orb_spawn_delay_max', $data ?? [], null);
         $this->setIfExists('orb_spawn_delay_min', $data ?? [], null);
+        $this->setIfExists('pickup_chances', $data ?? [], null);
         $this->setIfExists('pickup_radius', $data ?? [], null);
+        $this->setIfExists('powerup_drop_chance', $data ?? [], null);
         $this->setIfExists('primary_drop_chance', $data ?? [], null);
         $this->setIfExists('primary_pickups', $data ?? [], null);
         $this->setIfExists('render_after_death', $data ?? [], null);
@@ -567,6 +623,108 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['break_on_dodge_touch'] = $break_on_dodge_touch;
+
+        return $this;
+    }
+
+    /**
+     * Gets buff_type_graph_color
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getBuffTypeGraphColor()
+    {
+        return $this->container['buff_type_graph_color'];
+    }
+
+    /**
+     * Sets buff_type_graph_color
+     *
+     * @param \OpenAPI\Client\Model\Color|null $buff_type_graph_color Permanent pickups: color used for the buff in the stat graph.
+     *
+     * @return self
+     */
+    public function setBuffTypeGraphColor($buff_type_graph_color)
+    {
+        if (is_null($buff_type_graph_color)) {
+            array_push($this->openAPINullablesSetToNull, 'buff_type_graph_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buff_type_graph_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buff_type_graph_color'] = $buff_type_graph_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets buff_type_loc_string
+     *
+     * @return string|null
+     */
+    public function getBuffTypeLocString()
+    {
+        return $this->container['buff_type_loc_string'];
+    }
+
+    /**
+     * Sets buff_type_loc_string
+     *
+     * @param string|null $buff_type_loc_string Permanent pickups: localization token of the stat the buff raises.
+     *
+     * @return self
+     */
+    public function setBuffTypeLocString($buff_type_loc_string)
+    {
+        if (is_null($buff_type_loc_string)) {
+            array_push($this->openAPINullablesSetToNull, 'buff_type_loc_string');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buff_type_loc_string', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buff_type_loc_string'] = $buff_type_loc_string;
+
+        return $this;
+    }
+
+    /**
+     * Gets buff_type_value_unit
+     *
+     * @return string|null
+     */
+    public function getBuffTypeValueUnit()
+    {
+        return $this->container['buff_type_value_unit'];
+    }
+
+    /**
+     * Sets buff_type_value_unit
+     *
+     * @param string|null $buff_type_value_unit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     *
+     * @return self
+     */
+    public function setBuffTypeValueUnit($buff_type_value_unit)
+    {
+        if (is_null($buff_type_value_unit)) {
+            array_push($this->openAPINullablesSetToNull, 'buff_type_value_unit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buff_type_value_unit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buff_type_value_unit'] = $buff_type_value_unit;
 
         return $this;
     }
@@ -769,6 +927,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets damaged_by_slide
+     *
+     * @return bool|null
+     */
+    public function getDamagedBySlide()
+    {
+        return $this->container['damaged_by_slide'];
+    }
+
+    /**
+     * Sets damaged_by_slide
+     *
+     * @param bool|null $damaged_by_slide damaged_by_slide
+     *
+     * @return self
+     */
+    public function setDamagedBySlide($damaged_by_slide)
+    {
+        if (is_null($damaged_by_slide)) {
+            array_push($this->openAPINullablesSetToNull, 'damaged_by_slide');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('damaged_by_slide', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['damaged_by_slide'] = $damaged_by_slide;
+
+        return $this;
+    }
+
+    /**
      * Gets expiration_duration
      *
      * @return \OpenAPI\Client\Model\CurveOrFloat|null
@@ -900,6 +1092,74 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['health'] = $health;
+
+        return $this;
+    }
+
+    /**
+     * Gets heavy_melee_hit_count
+     *
+     * @return int|null
+     */
+    public function getHeavyMeleeHitCount()
+    {
+        return $this->container['heavy_melee_hit_count'];
+    }
+
+    /**
+     * Sets heavy_melee_hit_count
+     *
+     * @param int|null $heavy_melee_hit_count heavy_melee_hit_count
+     *
+     * @return self
+     */
+    public function setHeavyMeleeHitCount($heavy_melee_hit_count)
+    {
+        if (is_null($heavy_melee_hit_count)) {
+            array_push($this->openAPINullablesSetToNull, 'heavy_melee_hit_count');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('heavy_melee_hit_count', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['heavy_melee_hit_count'] = $heavy_melee_hit_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets heavy_melee_only
+     *
+     * @return bool|null
+     */
+    public function getHeavyMeleeOnly()
+    {
+        return $this->container['heavy_melee_only'];
+    }
+
+    /**
+     * Sets heavy_melee_only
+     *
+     * @param bool|null $heavy_melee_only heavy_melee_only
+     *
+     * @return self
+     */
+    public function setHeavyMeleeOnly($heavy_melee_only)
+    {
+        if (is_null($heavy_melee_only)) {
+            array_push($this->openAPINullablesSetToNull, 'heavy_melee_only');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('heavy_melee_only', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['heavy_melee_only'] = $heavy_melee_only;
 
         return $this;
     }
@@ -1378,6 +1638,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets pickup_chances
+     *
+     * @return array<string,float>|null
+     */
+    public function getPickupChances()
+    {
+        return $this->container['pickup_chances'];
+    }
+
+    /**
+     * Sets pickup_chances
+     *
+     * @param array<string,float>|null $pickup_chances Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
+     *
+     * @return self
+     */
+    public function setPickupChances($pickup_chances)
+    {
+        if (is_null($pickup_chances)) {
+            array_push($this->openAPINullablesSetToNull, 'pickup_chances');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pickup_chances', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['pickup_chances'] = $pickup_chances;
+
+        return $this;
+    }
+
+    /**
      * Gets pickup_radius
      *
      * @return \OpenAPI\Client\Model\CurveOrFloat|null
@@ -1412,6 +1706,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets powerup_drop_chance
+     *
+     * @return float|null
+     */
+    public function getPowerupDropChance()
+    {
+        return $this->container['powerup_drop_chance'];
+    }
+
+    /**
+     * Sets powerup_drop_chance
+     *
+     * @param float|null $powerup_drop_chance Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+     *
+     * @return self
+     */
+    public function setPowerupDropChance($powerup_drop_chance)
+    {
+        if (is_null($powerup_drop_chance)) {
+            array_push($this->openAPINullablesSetToNull, 'powerup_drop_chance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('powerup_drop_chance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['powerup_drop_chance'] = $powerup_drop_chance;
+
+        return $this;
+    }
+
+    /**
      * Gets primary_drop_chance
      *
      * @return float|null
@@ -1424,7 +1752,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets primary_drop_chance
      *
-     * @param float|null $primary_drop_chance primary_drop_chance
+     * @param float|null $primary_drop_chance Pre-6711 builds only; see `powerup_drop_chance`.
      *
      * @return self
      */

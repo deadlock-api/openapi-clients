@@ -56,7 +56,7 @@ open class LootTablesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * GET /v1/assets/loot-tables
      * List Loot Tables
-     * Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return kotlin.collections.Map<kotlin.String, LootTable>
      * @throws IllegalStateException If the request is not correctly configured
@@ -67,7 +67,9 @@ open class LootTablesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun listLootTables(clientVersion: kotlin.Int? = null) : kotlin.collections.Map<kotlin.String, LootTable> {
+        @Suppress("DEPRECATION")
         val localVarResponse = listLootTablesWithHttpInfo(clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
@@ -88,7 +90,7 @@ open class LootTablesApi(basePath: kotlin.String = defaultBasePath, client: Call
     /**
      * GET /v1/assets/loot-tables
      * List Loot Tables
-     * Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+     * Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, LootTable>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -96,7 +98,9 @@ open class LootTablesApi(basePath: kotlin.String = defaultBasePath, client: Call
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
+    @Deprecated(message = "This operation is deprecated.")
     fun listLootTablesWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.Map<kotlin.String, LootTable>?> {
+        @Suppress("DEPRECATION")
         val localVariableConfig = listLootTablesRequestConfig(clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, LootTable>>(
@@ -110,6 +114,7 @@ open class LootTablesApi(basePath: kotlin.String = defaultBasePath, client: Call
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
+    @Deprecated(message = "This operation is deprecated.")
     fun listLootTablesRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()

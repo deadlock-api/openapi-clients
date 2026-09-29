@@ -23,7 +23,8 @@ export enum AbilityType {
     Ultimate = 'ultimate',
     Weapon = 'weapon',
     Melee = 'melee',
-    Cosmetic = 'cosmetic'
+    Cosmetic = 'cosmetic',
+    Held = 'held'
 }
 
 export function AbilityTypeFromJSON(json: any): AbilityType {

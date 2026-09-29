@@ -98,9 +98,27 @@ class LaneInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "is_enemy_lane"
+     */
+    public function testPropertyIsEnemyLane()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "lane_name"
      */
     public function testPropertyLaneName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "minimap_color"
+     */
+    public function testPropertyMinimapColor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

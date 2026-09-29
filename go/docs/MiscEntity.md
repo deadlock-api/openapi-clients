@@ -5,16 +5,22 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BreakOnDodgeTouch** | Pointer to **NullableBool** |  | [optional] 
+**BuffTypeGraphColor** | Pointer to [**NullableColor**](Color.md) | Permanent pickups: color used for the buff in the stat graph. | [optional] 
+**BuffTypeLocString** | Pointer to **NullableString** | Permanent pickups: localization token of the stat the buff raises. | [optional] 
+**BuffTypeValueUnit** | Pointer to **NullableString** | Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). | [optional] 
 **ClassName** | **string** |  | 
 **CollisionRadius** | Pointer to **NullableFloat64** |  | [optional] 
 **Color** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **DamagedByAbilities** | Pointer to **NullableBool** |  | [optional] 
 **DamagedByBullets** | Pointer to **NullableBool** |  | [optional] 
 **DamagedByMelee** | Pointer to **NullableBool** |  | [optional] 
+**DamagedBySlide** | Pointer to **NullableBool** |  | [optional] 
 **ExpirationDuration** | Pointer to [**NullableCurveOrFloat**](CurveOrFloat.md) |  | [optional] 
 **GoldAmount** | Pointer to **NullableFloat64** |  | [optional] 
 **GoldPerMinuteAmount** | Pointer to **NullableFloat64** |  | [optional] 
 **Health** | Pointer to **NullableInt64** |  | [optional] 
+**HeavyMeleeHitCount** | Pointer to **NullableInt64** |  | [optional] 
+**HeavyMeleeOnly** | Pointer to **NullableBool** |  | [optional] 
 **Id** | **int32** |  | 
 **InitialSpawnDelayInSeconds** | Pointer to **NullableInt64** |  | [optional] 
 **InitialSpawnDelaySeconds** | Pointer to **NullableInt64** | Duplicate of &#x60;initial_spawn_delay_in_seconds&#x60; for shape parity. | [optional] 
@@ -29,8 +35,10 @@ Name | Type | Description | Notes
 **Modifier** | Pointer to [**NullableSubclassModifierDefinition**](SubclassModifierDefinition.md) |  | [optional] 
 **OrbSpawnDelayMax** | Pointer to **NullableFloat64** |  | [optional] 
 **OrbSpawnDelayMin** | Pointer to **NullableFloat64** |  | [optional] 
+**PickupChances** | Pointer to **map[string]float64** | Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists. | [optional] 
 **PickupRadius** | Pointer to [**NullableCurveOrFloat**](CurveOrFloat.md) |  | [optional] 
-**PrimaryDropChance** | Pointer to **NullableFloat64** |  | [optional] 
+**PowerupDropChance** | Pointer to **NullableFloat64** | Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;. | [optional] 
+**PrimaryDropChance** | Pointer to **NullableFloat64** | Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;. | [optional] 
 **PrimaryPickups** | Pointer to [**[]Pickup**](Pickup.md) |  | [optional] 
 **RenderAfterDeath** | Pointer to **NullableBool** |  | [optional] 
 **RespawnTime** | Pointer to **NullableFloat64** |  | [optional] 
@@ -94,6 +102,111 @@ HasBreakOnDodgeTouch returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetBreakOnDodgeTouch()`
 
 UnsetBreakOnDodgeTouch ensures that no value is present for BreakOnDodgeTouch, not even an explicit nil
+### GetBuffTypeGraphColor
+
+`func (o *MiscEntity) GetBuffTypeGraphColor() Color`
+
+GetBuffTypeGraphColor returns the BuffTypeGraphColor field if non-nil, zero value otherwise.
+
+### GetBuffTypeGraphColorOk
+
+`func (o *MiscEntity) GetBuffTypeGraphColorOk() (*Color, bool)`
+
+GetBuffTypeGraphColorOk returns a tuple with the BuffTypeGraphColor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuffTypeGraphColor
+
+`func (o *MiscEntity) SetBuffTypeGraphColor(v Color)`
+
+SetBuffTypeGraphColor sets BuffTypeGraphColor field to given value.
+
+### HasBuffTypeGraphColor
+
+`func (o *MiscEntity) HasBuffTypeGraphColor() bool`
+
+HasBuffTypeGraphColor returns a boolean if a field has been set.
+
+### SetBuffTypeGraphColorNil
+
+`func (o *MiscEntity) SetBuffTypeGraphColorNil(b bool)`
+
+ SetBuffTypeGraphColorNil sets the value for BuffTypeGraphColor to be an explicit nil
+
+### UnsetBuffTypeGraphColor
+`func (o *MiscEntity) UnsetBuffTypeGraphColor()`
+
+UnsetBuffTypeGraphColor ensures that no value is present for BuffTypeGraphColor, not even an explicit nil
+### GetBuffTypeLocString
+
+`func (o *MiscEntity) GetBuffTypeLocString() string`
+
+GetBuffTypeLocString returns the BuffTypeLocString field if non-nil, zero value otherwise.
+
+### GetBuffTypeLocStringOk
+
+`func (o *MiscEntity) GetBuffTypeLocStringOk() (*string, bool)`
+
+GetBuffTypeLocStringOk returns a tuple with the BuffTypeLocString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuffTypeLocString
+
+`func (o *MiscEntity) SetBuffTypeLocString(v string)`
+
+SetBuffTypeLocString sets BuffTypeLocString field to given value.
+
+### HasBuffTypeLocString
+
+`func (o *MiscEntity) HasBuffTypeLocString() bool`
+
+HasBuffTypeLocString returns a boolean if a field has been set.
+
+### SetBuffTypeLocStringNil
+
+`func (o *MiscEntity) SetBuffTypeLocStringNil(b bool)`
+
+ SetBuffTypeLocStringNil sets the value for BuffTypeLocString to be an explicit nil
+
+### UnsetBuffTypeLocString
+`func (o *MiscEntity) UnsetBuffTypeLocString()`
+
+UnsetBuffTypeLocString ensures that no value is present for BuffTypeLocString, not even an explicit nil
+### GetBuffTypeValueUnit
+
+`func (o *MiscEntity) GetBuffTypeValueUnit() string`
+
+GetBuffTypeValueUnit returns the BuffTypeValueUnit field if non-nil, zero value otherwise.
+
+### GetBuffTypeValueUnitOk
+
+`func (o *MiscEntity) GetBuffTypeValueUnitOk() (*string, bool)`
+
+GetBuffTypeValueUnitOk returns a tuple with the BuffTypeValueUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuffTypeValueUnit
+
+`func (o *MiscEntity) SetBuffTypeValueUnit(v string)`
+
+SetBuffTypeValueUnit sets BuffTypeValueUnit field to given value.
+
+### HasBuffTypeValueUnit
+
+`func (o *MiscEntity) HasBuffTypeValueUnit() bool`
+
+HasBuffTypeValueUnit returns a boolean if a field has been set.
+
+### SetBuffTypeValueUnitNil
+
+`func (o *MiscEntity) SetBuffTypeValueUnitNil(b bool)`
+
+ SetBuffTypeValueUnitNil sets the value for BuffTypeValueUnit to be an explicit nil
+
+### UnsetBuffTypeValueUnit
+`func (o *MiscEntity) UnsetBuffTypeValueUnit()`
+
+UnsetBuffTypeValueUnit ensures that no value is present for BuffTypeValueUnit, not even an explicit nil
 ### GetClassName
 
 `func (o *MiscEntity) GetClassName() string`
@@ -289,6 +402,41 @@ HasDamagedByMelee returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetDamagedByMelee()`
 
 UnsetDamagedByMelee ensures that no value is present for DamagedByMelee, not even an explicit nil
+### GetDamagedBySlide
+
+`func (o *MiscEntity) GetDamagedBySlide() bool`
+
+GetDamagedBySlide returns the DamagedBySlide field if non-nil, zero value otherwise.
+
+### GetDamagedBySlideOk
+
+`func (o *MiscEntity) GetDamagedBySlideOk() (*bool, bool)`
+
+GetDamagedBySlideOk returns a tuple with the DamagedBySlide field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDamagedBySlide
+
+`func (o *MiscEntity) SetDamagedBySlide(v bool)`
+
+SetDamagedBySlide sets DamagedBySlide field to given value.
+
+### HasDamagedBySlide
+
+`func (o *MiscEntity) HasDamagedBySlide() bool`
+
+HasDamagedBySlide returns a boolean if a field has been set.
+
+### SetDamagedBySlideNil
+
+`func (o *MiscEntity) SetDamagedBySlideNil(b bool)`
+
+ SetDamagedBySlideNil sets the value for DamagedBySlide to be an explicit nil
+
+### UnsetDamagedBySlide
+`func (o *MiscEntity) UnsetDamagedBySlide()`
+
+UnsetDamagedBySlide ensures that no value is present for DamagedBySlide, not even an explicit nil
 ### GetExpirationDuration
 
 `func (o *MiscEntity) GetExpirationDuration() CurveOrFloat`
@@ -429,6 +577,76 @@ HasHealth returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetHealth()`
 
 UnsetHealth ensures that no value is present for Health, not even an explicit nil
+### GetHeavyMeleeHitCount
+
+`func (o *MiscEntity) GetHeavyMeleeHitCount() int64`
+
+GetHeavyMeleeHitCount returns the HeavyMeleeHitCount field if non-nil, zero value otherwise.
+
+### GetHeavyMeleeHitCountOk
+
+`func (o *MiscEntity) GetHeavyMeleeHitCountOk() (*int64, bool)`
+
+GetHeavyMeleeHitCountOk returns a tuple with the HeavyMeleeHitCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHeavyMeleeHitCount
+
+`func (o *MiscEntity) SetHeavyMeleeHitCount(v int64)`
+
+SetHeavyMeleeHitCount sets HeavyMeleeHitCount field to given value.
+
+### HasHeavyMeleeHitCount
+
+`func (o *MiscEntity) HasHeavyMeleeHitCount() bool`
+
+HasHeavyMeleeHitCount returns a boolean if a field has been set.
+
+### SetHeavyMeleeHitCountNil
+
+`func (o *MiscEntity) SetHeavyMeleeHitCountNil(b bool)`
+
+ SetHeavyMeleeHitCountNil sets the value for HeavyMeleeHitCount to be an explicit nil
+
+### UnsetHeavyMeleeHitCount
+`func (o *MiscEntity) UnsetHeavyMeleeHitCount()`
+
+UnsetHeavyMeleeHitCount ensures that no value is present for HeavyMeleeHitCount, not even an explicit nil
+### GetHeavyMeleeOnly
+
+`func (o *MiscEntity) GetHeavyMeleeOnly() bool`
+
+GetHeavyMeleeOnly returns the HeavyMeleeOnly field if non-nil, zero value otherwise.
+
+### GetHeavyMeleeOnlyOk
+
+`func (o *MiscEntity) GetHeavyMeleeOnlyOk() (*bool, bool)`
+
+GetHeavyMeleeOnlyOk returns a tuple with the HeavyMeleeOnly field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHeavyMeleeOnly
+
+`func (o *MiscEntity) SetHeavyMeleeOnly(v bool)`
+
+SetHeavyMeleeOnly sets HeavyMeleeOnly field to given value.
+
+### HasHeavyMeleeOnly
+
+`func (o *MiscEntity) HasHeavyMeleeOnly() bool`
+
+HasHeavyMeleeOnly returns a boolean if a field has been set.
+
+### SetHeavyMeleeOnlyNil
+
+`func (o *MiscEntity) SetHeavyMeleeOnlyNil(b bool)`
+
+ SetHeavyMeleeOnlyNil sets the value for HeavyMeleeOnly to be an explicit nil
+
+### UnsetHeavyMeleeOnly
+`func (o *MiscEntity) UnsetHeavyMeleeOnly()`
+
+UnsetHeavyMeleeOnly ensures that no value is present for HeavyMeleeOnly, not even an explicit nil
 ### GetId
 
 `func (o *MiscEntity) GetId() int32`
@@ -904,6 +1122,41 @@ HasOrbSpawnDelayMin returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetOrbSpawnDelayMin()`
 
 UnsetOrbSpawnDelayMin ensures that no value is present for OrbSpawnDelayMin, not even an explicit nil
+### GetPickupChances
+
+`func (o *MiscEntity) GetPickupChances() map[string]float64`
+
+GetPickupChances returns the PickupChances field if non-nil, zero value otherwise.
+
+### GetPickupChancesOk
+
+`func (o *MiscEntity) GetPickupChancesOk() (*map[string]float64, bool)`
+
+GetPickupChancesOk returns a tuple with the PickupChances field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPickupChances
+
+`func (o *MiscEntity) SetPickupChances(v map[string]float64)`
+
+SetPickupChances sets PickupChances field to given value.
+
+### HasPickupChances
+
+`func (o *MiscEntity) HasPickupChances() bool`
+
+HasPickupChances returns a boolean if a field has been set.
+
+### SetPickupChancesNil
+
+`func (o *MiscEntity) SetPickupChancesNil(b bool)`
+
+ SetPickupChancesNil sets the value for PickupChances to be an explicit nil
+
+### UnsetPickupChances
+`func (o *MiscEntity) UnsetPickupChances()`
+
+UnsetPickupChances ensures that no value is present for PickupChances, not even an explicit nil
 ### GetPickupRadius
 
 `func (o *MiscEntity) GetPickupRadius() CurveOrFloat`
@@ -939,6 +1192,41 @@ HasPickupRadius returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetPickupRadius()`
 
 UnsetPickupRadius ensures that no value is present for PickupRadius, not even an explicit nil
+### GetPowerupDropChance
+
+`func (o *MiscEntity) GetPowerupDropChance() float64`
+
+GetPowerupDropChance returns the PowerupDropChance field if non-nil, zero value otherwise.
+
+### GetPowerupDropChanceOk
+
+`func (o *MiscEntity) GetPowerupDropChanceOk() (*float64, bool)`
+
+GetPowerupDropChanceOk returns a tuple with the PowerupDropChance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPowerupDropChance
+
+`func (o *MiscEntity) SetPowerupDropChance(v float64)`
+
+SetPowerupDropChance sets PowerupDropChance field to given value.
+
+### HasPowerupDropChance
+
+`func (o *MiscEntity) HasPowerupDropChance() bool`
+
+HasPowerupDropChance returns a boolean if a field has been set.
+
+### SetPowerupDropChanceNil
+
+`func (o *MiscEntity) SetPowerupDropChanceNil(b bool)`
+
+ SetPowerupDropChanceNil sets the value for PowerupDropChance to be an explicit nil
+
+### UnsetPowerupDropChance
+`func (o *MiscEntity) UnsetPowerupDropChance()`
+
+UnsetPowerupDropChance ensures that no value is present for PowerupDropChance, not even an explicit nil
 ### GetPrimaryDropChance
 
 `func (o *MiscEntity) GetPrimaryDropChance() float64`

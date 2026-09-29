@@ -48,6 +48,10 @@ namespace DeadlockApiClient.Model
         /// <param name="targetingSpringStrength">targetingSpringStrength</param>
         /// <param name="trooperKillGoldShareFrac">trooperKillGoldShareFrac</param>
         /// <param name="weaponGroups">weaponGroups</param>
+        /// <param name="colorEnemy">Build 6711+.</param>
+        /// <param name="colorFriend">Build 6711+.</param>
+        /// <param name="colorTeam1">Build 6711+.</param>
+        /// <param name="colorTeam2">Build 6711+.</param>
         /// <param name="enemyObjectivesAndZiplineColor">enemyObjectivesAndZiplineColor</param>
         /// <param name="enemyObjectivesColor">enemyObjectivesColor</param>
         /// <param name="enemyZiplineColor">enemyZiplineColor</param>
@@ -55,7 +59,7 @@ namespace DeadlockApiClient.Model
         /// <param name="minimapTeamRebelsColor">minimapTeamRebelsColor</param>
         /// <param name="streetBrawl">streetBrawl</param>
         [JsonConstructor]
-        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<StreetBrawl?> streetBrawl = default)
+        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<Color?> colorEnemy = default, Option<Color?> colorFriend = default, Option<Color?> colorTeam1 = default, Option<Color?> colorTeam2 = default, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<StreetBrawl?> streetBrawl = default)
         {
             AimSpringStrength = aimSpringStrength;
             ArmorGroups = armorGroups;
@@ -72,6 +76,10 @@ namespace DeadlockApiClient.Model
             TargetingSpringStrength = targetingSpringStrength;
             TrooperKillGoldShareFrac = trooperKillGoldShareFrac;
             WeaponGroups = weaponGroups;
+            ColorEnemyOption = colorEnemy;
+            ColorFriendOption = colorFriend;
+            ColorTeam1Option = colorTeam1;
+            ColorTeam2Option = colorTeam2;
             EnemyObjectivesAndZiplineColorOption = enemyObjectivesAndZiplineColor;
             EnemyObjectivesColorOption = enemyObjectivesColor;
             EnemyZiplineColorOption = enemyZiplineColor;
@@ -174,6 +182,62 @@ namespace DeadlockApiClient.Model
         public List<ItemGroup> WeaponGroups { get; set; }
 
         /// <summary>
+        /// Used to track the state of ColorEnemy
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> ColorEnemyOption { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("color_enemy")]
+        public Color? ColorEnemy { get { return this.ColorEnemyOption.Value; } set { this.ColorEnemyOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ColorFriend
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> ColorFriendOption { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("color_friend")]
+        public Color? ColorFriend { get { return this.ColorFriendOption.Value; } set { this.ColorFriendOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ColorTeam1
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> ColorTeam1Option { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("color_team1")]
+        public Color? ColorTeam1 { get { return this.ColorTeam1Option.Value; } set { this.ColorTeam1Option = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ColorTeam2
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> ColorTeam2Option { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("color_team2")]
+        public Color? ColorTeam2 { get { return this.ColorTeam2Option.Value; } set { this.ColorTeam2Option = new(value); } }
+
+        /// <summary>
         /// Used to track the state of EnemyObjectivesAndZiplineColor
         /// </summary>
         [JsonIgnore]
@@ -274,6 +338,10 @@ namespace DeadlockApiClient.Model
             sb.Append("  TargetingSpringStrength: ").Append(TargetingSpringStrength).Append("\n");
             sb.Append("  TrooperKillGoldShareFrac: ").Append(TrooperKillGoldShareFrac).Append("\n");
             sb.Append("  WeaponGroups: ").Append(WeaponGroups).Append("\n");
+            sb.Append("  ColorEnemy: ").Append(ColorEnemy).Append("\n");
+            sb.Append("  ColorFriend: ").Append(ColorFriend).Append("\n");
+            sb.Append("  ColorTeam1: ").Append(ColorTeam1).Append("\n");
+            sb.Append("  ColorTeam2: ").Append(ColorTeam2).Append("\n");
             sb.Append("  EnemyObjectivesAndZiplineColor: ").Append(EnemyObjectivesAndZiplineColor).Append("\n");
             sb.Append("  EnemyObjectivesColor: ").Append(EnemyObjectivesColor).Append("\n");
             sb.Append("  EnemyZiplineColor: ").Append(EnemyZiplineColor).Append("\n");
@@ -342,6 +410,10 @@ namespace DeadlockApiClient.Model
             Option<List<double>?> targetingSpringStrength = default;
             Option<List<double>?> trooperKillGoldShareFrac = default;
             Option<List<ItemGroup>?> weaponGroups = default;
+            Option<Color?> colorEnemy = default;
+            Option<Color?> colorFriend = default;
+            Option<Color?> colorTeam1 = default;
+            Option<Color?> colorTeam2 = default;
             Option<Color?> enemyObjectivesAndZiplineColor = default;
             Option<Color?> enemyObjectivesColor = default;
             Option<Color?> enemyZiplineColor = default;
@@ -408,6 +480,18 @@ namespace DeadlockApiClient.Model
                             break;
                         case "weapon_groups":
                             weaponGroups = new Option<List<ItemGroup>?>(JsonSerializer.Deserialize<List<ItemGroup>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "color_enemy":
+                            colorEnemy = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "color_friend":
+                            colorFriend = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "color_team1":
+                            colorTeam1 = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "color_team2":
+                            colorTeam2 = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "enemy_objectives_and_zipline_color":
                             enemyObjectivesAndZiplineColor = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
@@ -523,7 +607,7 @@ namespace DeadlockApiClient.Model
             if (weaponGroups.IsSet && weaponGroups.Value == null)
                 throw new ArgumentNullException(nameof(weaponGroups), "Property is not nullable for class GenericData.");
 
-            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, minimapTeamCombineColor, minimapTeamRebelsColor, streetBrawl);
+            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, colorEnemy, colorFriend, colorTeam1, colorTeam2, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, minimapTeamCombineColor, minimapTeamRebelsColor, streetBrawl);
         }
 
         /// <summary>
@@ -625,6 +709,38 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, genericData.TrooperKillGoldShareFrac, jsonSerializerOptions);
             writer.WritePropertyName("weapon_groups");
             JsonSerializer.Serialize(writer, genericData.WeaponGroups, jsonSerializerOptions);
+            if (genericData.ColorEnemyOption.IsSet)
+                if (genericData.ColorEnemyOption.Value != null)
+                {
+                    writer.WritePropertyName("color_enemy");
+                    JsonSerializer.Serialize(writer, genericData.ColorEnemy, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color_enemy");
+            if (genericData.ColorFriendOption.IsSet)
+                if (genericData.ColorFriendOption.Value != null)
+                {
+                    writer.WritePropertyName("color_friend");
+                    JsonSerializer.Serialize(writer, genericData.ColorFriend, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color_friend");
+            if (genericData.ColorTeam1Option.IsSet)
+                if (genericData.ColorTeam1Option.Value != null)
+                {
+                    writer.WritePropertyName("color_team1");
+                    JsonSerializer.Serialize(writer, genericData.ColorTeam1, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color_team1");
+            if (genericData.ColorTeam2Option.IsSet)
+                if (genericData.ColorTeam2Option.Value != null)
+                {
+                    writer.WritePropertyName("color_team2");
+                    JsonSerializer.Serialize(writer, genericData.ColorTeam2, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color_team2");
             if (genericData.EnemyObjectivesAndZiplineColorOption.IsSet)
                 if (genericData.EnemyObjectivesAndZiplineColorOption.Value != null)
                 {

@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**brightness** | **float** |  | 
+**brightness** | **float** |  | [optional] 
 **brightness_in_light_sensitivity_mode** | **float** |  | [optional] 
-**color** | [**Color**](Color.md) |  | 
-**coverage** | **float** |  | 
+**color** | [**Color**](Color.md) | Flat flash color. From build 6711 on it is derived from the first &#x60;color_gradient&#x60; stop. | 
+**color_gradient** | [**List[ColorGradientStop]**](ColorGradientStop.md) | Color gradient over the flash&#39;s lifetime (build 6711+). | [optional] 
+**coverage** | **float** | Only present up to build 6701. | [optional] 
 **duration** | **float** |  | 
-**hardness** | **float** |  | 
+**hardness** | **float** | Only present up to build 6701. | [optional] 
 
 ## Example
 

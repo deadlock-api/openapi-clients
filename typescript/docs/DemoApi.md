@@ -122,6 +122,7 @@ No authorization required
 |**404** | No demo / salts available for the match |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Reading the demo schema failed |  -  |
+|**502** | Valve\&#39;s replay server failed to serve the demo |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

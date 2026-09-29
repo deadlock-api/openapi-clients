@@ -27,6 +27,10 @@ export interface CreateCustomRequest {
     'callback_url'?: string | null;
     'cheats_enabled'?: boolean | null;
     /**
+     * Minute of the match at which the Broker\'s corrupted item shop first spawns.
+     */
+    'corrupted_item_shop_spawn_minutes'?: number | null;
+    /**
      * If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
      */
     'disable_auto_ready'?: boolean | null;

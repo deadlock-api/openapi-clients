@@ -33,16 +33,22 @@ class MiscEntity(BaseModel):
     MiscEntity
     """ # noqa: E501
     break_on_dodge_touch: Optional[StrictBool] = None
+    buff_type_graph_color: Optional[Color] = Field(default=None, description="Permanent pickups: color used for the buff in the stat graph.")
+    buff_type_loc_string: Optional[StrictStr] = Field(default=None, description="Permanent pickups: localization token of the stat the buff raises.")
+    buff_type_value_unit: Optional[StrictStr] = Field(default=None, description="Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).")
     class_name: StrictStr
     collision_radius: Optional[Union[StrictFloat, StrictInt]] = None
     color: Optional[Color] = None
     damaged_by_abilities: Optional[StrictBool] = None
     damaged_by_bullets: Optional[StrictBool] = None
     damaged_by_melee: Optional[StrictBool] = None
+    damaged_by_slide: Optional[StrictBool] = None
     expiration_duration: Optional[CurveOrFloat] = None
     gold_amount: Optional[Union[StrictFloat, StrictInt]] = None
     gold_per_minute_amount: Optional[Union[StrictFloat, StrictInt]] = None
     health: Optional[StrictInt] = None
+    heavy_melee_hit_count: Optional[StrictInt] = None
+    heavy_melee_only: Optional[StrictBool] = None
     id: Annotated[int, Field(strict=True, ge=0)]
     initial_spawn_delay_in_seconds: Optional[StrictInt] = None
     initial_spawn_delay_seconds: Optional[StrictInt] = Field(default=None, description="Duplicate of `initial_spawn_delay_in_seconds` for shape parity.")
@@ -57,8 +63,10 @@ class MiscEntity(BaseModel):
     modifier: Optional[SubclassModifierDefinition] = None
     orb_spawn_delay_max: Optional[Union[StrictFloat, StrictInt]] = None
     orb_spawn_delay_min: Optional[Union[StrictFloat, StrictInt]] = None
+    pickup_chances: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(default=None, description="Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.")
     pickup_radius: Optional[CurveOrFloat] = None
-    primary_drop_chance: Optional[Union[StrictFloat, StrictInt]] = None
+    powerup_drop_chance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.")
+    primary_drop_chance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Pre-6711 builds only; see `powerup_drop_chance`.")
     primary_pickups: Optional[List[Pickup]] = None
     render_after_death: Optional[StrictBool] = None
     respawn_time: Optional[Union[StrictFloat, StrictInt]] = None
@@ -67,7 +75,7 @@ class MiscEntity(BaseModel):
     solid_after_death: Optional[StrictBool] = None
     spawn_interval: Optional[Union[StrictFloat, StrictInt]] = None
     spawn_interval_in_seconds: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["break_on_dodge_touch", "class_name", "collision_radius", "color", "damaged_by_abilities", "damaged_by_bullets", "damaged_by_melee", "expiration_duration", "gold_amount", "gold_per_minute_amount", "health", "id", "initial_spawn_delay_in_seconds", "initial_spawn_delay_seconds", "initial_spawn_time", "is_mantleable", "lifetime", "loot_list_deck_size", "m_vecPickups_lv2", "m_vecPickups_lv3", "match_time_mins_for_level2_pickups", "match_time_mins_for_level3_pickups", "modifier", "orb_spawn_delay_max", "orb_spawn_delay_min", "pickup_radius", "primary_drop_chance", "primary_pickups", "render_after_death", "respawn_time", "roll_type", "show_on_minimap", "solid_after_death", "spawn_interval", "spawn_interval_in_seconds"]
+    __properties: ClassVar[List[str]] = ["break_on_dodge_touch", "buff_type_graph_color", "buff_type_loc_string", "buff_type_value_unit", "class_name", "collision_radius", "color", "damaged_by_abilities", "damaged_by_bullets", "damaged_by_melee", "damaged_by_slide", "expiration_duration", "gold_amount", "gold_per_minute_amount", "health", "heavy_melee_hit_count", "heavy_melee_only", "id", "initial_spawn_delay_in_seconds", "initial_spawn_delay_seconds", "initial_spawn_time", "is_mantleable", "lifetime", "loot_list_deck_size", "m_vecPickups_lv2", "m_vecPickups_lv3", "match_time_mins_for_level2_pickups", "match_time_mins_for_level3_pickups", "modifier", "orb_spawn_delay_max", "orb_spawn_delay_min", "pickup_chances", "pickup_radius", "powerup_drop_chance", "primary_drop_chance", "primary_pickups", "render_after_death", "respawn_time", "roll_type", "show_on_minimap", "solid_after_death", "spawn_interval", "spawn_interval_in_seconds"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -108,6 +116,9 @@ class MiscEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of buff_type_graph_color
+        if self.buff_type_graph_color:
+            _dict['buff_type_graph_color'] = self.buff_type_graph_color.to_dict()
         # override the default output from pydantic by calling `to_dict()` of color
         if self.color:
             _dict['color'] = self.color.to_dict()
@@ -143,6 +154,21 @@ class MiscEntity(BaseModel):
         if self.break_on_dodge_touch is None and "break_on_dodge_touch" in self.model_fields_set:
             _dict['break_on_dodge_touch'] = None
 
+        # set to None if buff_type_graph_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.buff_type_graph_color is None and "buff_type_graph_color" in self.model_fields_set:
+            _dict['buff_type_graph_color'] = None
+
+        # set to None if buff_type_loc_string (nullable) is None
+        # and model_fields_set contains the field
+        if self.buff_type_loc_string is None and "buff_type_loc_string" in self.model_fields_set:
+            _dict['buff_type_loc_string'] = None
+
+        # set to None if buff_type_value_unit (nullable) is None
+        # and model_fields_set contains the field
+        if self.buff_type_value_unit is None and "buff_type_value_unit" in self.model_fields_set:
+            _dict['buff_type_value_unit'] = None
+
         # set to None if collision_radius (nullable) is None
         # and model_fields_set contains the field
         if self.collision_radius is None and "collision_radius" in self.model_fields_set:
@@ -168,6 +194,11 @@ class MiscEntity(BaseModel):
         if self.damaged_by_melee is None and "damaged_by_melee" in self.model_fields_set:
             _dict['damaged_by_melee'] = None
 
+        # set to None if damaged_by_slide (nullable) is None
+        # and model_fields_set contains the field
+        if self.damaged_by_slide is None and "damaged_by_slide" in self.model_fields_set:
+            _dict['damaged_by_slide'] = None
+
         # set to None if expiration_duration (nullable) is None
         # and model_fields_set contains the field
         if self.expiration_duration is None and "expiration_duration" in self.model_fields_set:
@@ -187,6 +218,16 @@ class MiscEntity(BaseModel):
         # and model_fields_set contains the field
         if self.health is None and "health" in self.model_fields_set:
             _dict['health'] = None
+
+        # set to None if heavy_melee_hit_count (nullable) is None
+        # and model_fields_set contains the field
+        if self.heavy_melee_hit_count is None and "heavy_melee_hit_count" in self.model_fields_set:
+            _dict['heavy_melee_hit_count'] = None
+
+        # set to None if heavy_melee_only (nullable) is None
+        # and model_fields_set contains the field
+        if self.heavy_melee_only is None and "heavy_melee_only" in self.model_fields_set:
+            _dict['heavy_melee_only'] = None
 
         # set to None if initial_spawn_delay_in_seconds (nullable) is None
         # and model_fields_set contains the field
@@ -253,10 +294,20 @@ class MiscEntity(BaseModel):
         if self.orb_spawn_delay_min is None and "orb_spawn_delay_min" in self.model_fields_set:
             _dict['orb_spawn_delay_min'] = None
 
+        # set to None if pickup_chances (nullable) is None
+        # and model_fields_set contains the field
+        if self.pickup_chances is None and "pickup_chances" in self.model_fields_set:
+            _dict['pickup_chances'] = None
+
         # set to None if pickup_radius (nullable) is None
         # and model_fields_set contains the field
         if self.pickup_radius is None and "pickup_radius" in self.model_fields_set:
             _dict['pickup_radius'] = None
+
+        # set to None if powerup_drop_chance (nullable) is None
+        # and model_fields_set contains the field
+        if self.powerup_drop_chance is None and "powerup_drop_chance" in self.model_fields_set:
+            _dict['powerup_drop_chance'] = None
 
         # set to None if primary_drop_chance (nullable) is None
         # and model_fields_set contains the field
@@ -316,16 +367,22 @@ class MiscEntity(BaseModel):
 
         _obj = cls.model_validate({
             "break_on_dodge_touch": obj.get("break_on_dodge_touch"),
+            "buff_type_graph_color": Color.from_dict(obj["buff_type_graph_color"]) if obj.get("buff_type_graph_color") is not None else None,
+            "buff_type_loc_string": obj.get("buff_type_loc_string"),
+            "buff_type_value_unit": obj.get("buff_type_value_unit"),
             "class_name": obj.get("class_name"),
             "collision_radius": obj.get("collision_radius"),
             "color": Color.from_dict(obj["color"]) if obj.get("color") is not None else None,
             "damaged_by_abilities": obj.get("damaged_by_abilities"),
             "damaged_by_bullets": obj.get("damaged_by_bullets"),
             "damaged_by_melee": obj.get("damaged_by_melee"),
+            "damaged_by_slide": obj.get("damaged_by_slide"),
             "expiration_duration": CurveOrFloat.from_dict(obj["expiration_duration"]) if obj.get("expiration_duration") is not None else None,
             "gold_amount": obj.get("gold_amount"),
             "gold_per_minute_amount": obj.get("gold_per_minute_amount"),
             "health": obj.get("health"),
+            "heavy_melee_hit_count": obj.get("heavy_melee_hit_count"),
+            "heavy_melee_only": obj.get("heavy_melee_only"),
             "id": obj.get("id"),
             "initial_spawn_delay_in_seconds": obj.get("initial_spawn_delay_in_seconds"),
             "initial_spawn_delay_seconds": obj.get("initial_spawn_delay_seconds"),
@@ -340,7 +397,9 @@ class MiscEntity(BaseModel):
             "modifier": SubclassModifierDefinition.from_dict(obj["modifier"]) if obj.get("modifier") is not None else None,
             "orb_spawn_delay_max": obj.get("orb_spawn_delay_max"),
             "orb_spawn_delay_min": obj.get("orb_spawn_delay_min"),
+            "pickup_chances": obj.get("pickup_chances"),
             "pickup_radius": CurveOrFloat.from_dict(obj["pickup_radius"]) if obj.get("pickup_radius") is not None else None,
+            "powerup_drop_chance": obj.get("powerup_drop_chance"),
             "primary_drop_chance": obj.get("primary_drop_chance"),
             "primary_pickups": [Pickup.from_dict(_item) for _item in obj["primary_pickups"]] if obj.get("primary_pickups") is not None else None,
             "render_after_death": obj.get("render_after_death"),

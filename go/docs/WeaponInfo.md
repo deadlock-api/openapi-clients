@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **BuildUpRate** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletDamage** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletGravityScale** | Pointer to **NullableFloat64** |  | [optional] 
+**BulletHandlerType** | Pointer to **NullableString** |  | [optional] 
 **BulletInheritShooterVelocityScale** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletLifetime** | Pointer to **NullableFloat64** |  | [optional] 
 **BulletRadius** | Pointer to **NullableFloat64** |  | [optional] 
@@ -51,6 +52,7 @@ Name | Type | Description | Notes
 **RecoilSeed** | Pointer to **NullableFloat64** |  | [optional] 
 **RecoilShotIndexRecoveryTimeFactor** | Pointer to **NullableFloat64** |  | [optional] 
 **RecoilSpeed** | Pointer to **NullableFloat64** |  | [optional] 
+**RecycleTime** | Pointer to **NullableFloat64** |  | [optional] 
 **ReloadDuration** | Pointer to **NullableFloat64** |  | [optional] 
 **ReloadMoveSpeed** | Pointer to **NullableFloat64** |  | [optional] 
 **ReloadSingleBullets** | Pointer to **NullableBool** |  | [optional] 
@@ -235,6 +237,41 @@ HasBulletGravityScale returns a boolean if a field has been set.
 `func (o *WeaponInfo) UnsetBulletGravityScale()`
 
 UnsetBulletGravityScale ensures that no value is present for BulletGravityScale, not even an explicit nil
+### GetBulletHandlerType
+
+`func (o *WeaponInfo) GetBulletHandlerType() string`
+
+GetBulletHandlerType returns the BulletHandlerType field if non-nil, zero value otherwise.
+
+### GetBulletHandlerTypeOk
+
+`func (o *WeaponInfo) GetBulletHandlerTypeOk() (*string, bool)`
+
+GetBulletHandlerTypeOk returns a tuple with the BulletHandlerType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBulletHandlerType
+
+`func (o *WeaponInfo) SetBulletHandlerType(v string)`
+
+SetBulletHandlerType sets BulletHandlerType field to given value.
+
+### HasBulletHandlerType
+
+`func (o *WeaponInfo) HasBulletHandlerType() bool`
+
+HasBulletHandlerType returns a boolean if a field has been set.
+
+### SetBulletHandlerTypeNil
+
+`func (o *WeaponInfo) SetBulletHandlerTypeNil(b bool)`
+
+ SetBulletHandlerTypeNil sets the value for BulletHandlerType to be an explicit nil
+
+### UnsetBulletHandlerType
+`func (o *WeaponInfo) UnsetBulletHandlerType()`
+
+UnsetBulletHandlerType ensures that no value is present for BulletHandlerType, not even an explicit nil
 ### GetBulletInheritShooterVelocityScale
 
 `func (o *WeaponInfo) GetBulletInheritShooterVelocityScale() float64`
@@ -1740,6 +1777,41 @@ HasRecoilSpeed returns a boolean if a field has been set.
 `func (o *WeaponInfo) UnsetRecoilSpeed()`
 
 UnsetRecoilSpeed ensures that no value is present for RecoilSpeed, not even an explicit nil
+### GetRecycleTime
+
+`func (o *WeaponInfo) GetRecycleTime() float64`
+
+GetRecycleTime returns the RecycleTime field if non-nil, zero value otherwise.
+
+### GetRecycleTimeOk
+
+`func (o *WeaponInfo) GetRecycleTimeOk() (*float64, bool)`
+
+GetRecycleTimeOk returns a tuple with the RecycleTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecycleTime
+
+`func (o *WeaponInfo) SetRecycleTime(v float64)`
+
+SetRecycleTime sets RecycleTime field to given value.
+
+### HasRecycleTime
+
+`func (o *WeaponInfo) HasRecycleTime() bool`
+
+HasRecycleTime returns a boolean if a field has been set.
+
+### SetRecycleTimeNil
+
+`func (o *WeaponInfo) SetRecycleTimeNil(b bool)`
+
+ SetRecycleTimeNil sets the value for RecycleTime to be an explicit nil
+
+### UnsetRecycleTime
+`func (o *WeaponInfo) UnsetRecycleTime()`
+
+UnsetRecycleTime ensures that no value is present for RecycleTime, not even an explicit nil
 ### GetReloadDuration
 
 `func (o *WeaponInfo) GetReloadDuration() float64`

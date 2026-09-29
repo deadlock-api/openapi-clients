@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assigned_players_only** | **bool** |  | 
+**assigned_players_only** | **bool** | `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since. | 
 **class_name** | **String** |  | 
 **colors** | [**models::HeroColors**](HeroColors.md) |  | 
 **complexity** | **i64** |  | 
 **cost_bonuses** | Option<[**std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecMapModCostBonusValueInner>>**](Vec.md)> |  | [optional]
 **description** | [**models::HeroDescription**](HeroDescription.md) |  | 
+**development_state** | Option<[**models::HeroDevelopmentState**](HeroDevelopmentState.md)> | Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one. | [optional]
 **disabled** | **bool** |  | 
 **gun_tag** | Option<**String**> |  | [optional]
 **hero_stats_ui** | [**models::HeroStatsUi**](HeroStatsUI.md) |  | 
@@ -27,9 +28,9 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **needs_testing** | **bool** |  | 
 **physics** | [**models::HeroPhysics**](HeroPhysics.md) |  | 
-**player_selectable** | **bool** |  | 
-**prerelease_only** | Option<**bool**> |  | [optional]
-**purchase_bonuses** | [**std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>**](Vec.md) |  | 
+**player_selectable** | **bool** | Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`. | 
+**prerelease_only** | Option<**bool**> | Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`. | [optional]
+**purchase_bonuses** | [**std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>**](Vec.md) | Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds. | 
 **scaling_stats** | [**std::collections::HashMap<String, models::HashMapStringScalingStatValue>**](HashMapStringScalingStatValue.md) |  | 
 **shop_stat_display** | [**models::ShopStatDisplay**](ShopStatDisplay.md) |  | 
 **skin** | **i64** |  | 

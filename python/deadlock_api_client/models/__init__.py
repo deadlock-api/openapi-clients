@@ -46,6 +46,7 @@ from deadlock_api_client.models.build_tag import BuildTag
 from deadlock_api_client.models.clickhouse_match_info import ClickhouseMatchInfo
 from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts
 from deadlock_api_client.models.color import Color
+from deadlock_api_client.models.color_gradient_stop import ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
@@ -88,6 +89,7 @@ from deadlock_api_client.models.hero_colors import HeroColors
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats
 from deadlock_api_client.models.hero_description import HeroDescription
+from deadlock_api_client.models.hero_development_state import HeroDevelopmentState
 from deadlock_api_client.models.hero_entry import HeroEntry
 from deadlock_api_client.models.hero_images import HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics

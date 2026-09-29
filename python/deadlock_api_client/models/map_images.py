@@ -17,22 +17,24 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
 class MapImages(BaseModel):
     """
-    Fixed CDN URLs for the minimap image layers.
+    CDN URLs for the minimap image layers.
     """ # noqa: E501
-    background: StrictStr
+    background: StrictStr = Field(description="Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.")
     frame: StrictStr
-    mid: StrictStr
-    minimap: StrictStr
-    plain: StrictStr
-    __properties: ClassVar[List[str]] = ["background", "frame", "mid", "minimap", "plain"]
+    mid: StrictStr = Field(description="Midtown base layer.")
+    mid_tunnels: Optional[StrictStr] = Field(default=None, description="Mid tunnels overlay, drawn above `mid` (build 6711+).")
+    minimap: StrictStr = Field(description="Full minimap. From build 6711 on this is the midtown base layer.")
+    plain: StrictStr = Field(description="Minimap without overlays. From build 6711 on this is the midtown base layer.")
+    rat_tunnels: Optional[StrictStr] = Field(default=None, description="Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).")
+    __properties: ClassVar[List[str]] = ["background", "frame", "mid", "mid_tunnels", "minimap", "plain", "rat_tunnels"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -73,6 +75,16 @@ class MapImages(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if mid_tunnels (nullable) is None
+        # and model_fields_set contains the field
+        if self.mid_tunnels is None and "mid_tunnels" in self.model_fields_set:
+            _dict['mid_tunnels'] = None
+
+        # set to None if rat_tunnels (nullable) is None
+        # and model_fields_set contains the field
+        if self.rat_tunnels is None and "rat_tunnels" in self.model_fields_set:
+            _dict['rat_tunnels'] = None
+
         return _dict
 
     @classmethod
@@ -88,8 +100,10 @@ class MapImages(BaseModel):
             "background": obj.get("background"),
             "frame": obj.get("frame"),
             "mid": obj.get("mid"),
+            "mid_tunnels": obj.get("mid_tunnels"),
             "minimap": obj.get("minimap"),
-            "plain": obj.get("plain")
+            "plain": obj.get("plain"),
+            "rat_tunnels": obj.get("rat_tunnels")
         })
         return _obj
 

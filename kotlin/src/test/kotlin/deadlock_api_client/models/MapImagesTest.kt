@@ -33,7 +33,7 @@ class MapImagesTest : ShouldSpec() {
         // uncomment below to create an instance of MapImages
         //val modelInstance = MapImages()
 
-        // to test the property `background`
+        // to test the property `background` - Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
         should("test background") {
             // uncomment below to test the property
             //modelInstance.background shouldBe ("TODO")
@@ -45,22 +45,34 @@ class MapImagesTest : ShouldSpec() {
             //modelInstance.frame shouldBe ("TODO")
         }
 
-        // to test the property `mid`
+        // to test the property `mid` - Midtown base layer.
         should("test mid") {
             // uncomment below to test the property
             //modelInstance.mid shouldBe ("TODO")
         }
 
-        // to test the property `minimap`
+        // to test the property `minimap` - Full minimap. From build 6711 on this is the midtown base layer.
         should("test minimap") {
             // uncomment below to test the property
             //modelInstance.minimap shouldBe ("TODO")
         }
 
-        // to test the property `plain`
+        // to test the property `plain` - Minimap without overlays. From build 6711 on this is the midtown base layer.
         should("test plain") {
             // uncomment below to test the property
             //modelInstance.plain shouldBe ("TODO")
+        }
+
+        // to test the property `midTunnels` - Mid tunnels overlay, drawn above `mid` (build 6711+).
+        should("test midTunnels") {
+            // uncomment below to test the property
+            //modelInstance.midTunnels shouldBe ("TODO")
+        }
+
+        // to test the property `ratTunnels` - Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+        should("test ratTunnels") {
+            // uncomment below to test the property
+            //modelInstance.ratTunnels shouldBe ("TODO")
         }
 
     }

@@ -45,6 +45,7 @@ class NpcUnit(BaseModel):
     backdoor_bullet_resist_modifier: Optional[SubclassBulletResistModifier] = None
     barrack_boss_dps: Optional[Union[StrictFloat, StrictInt]] = None
     barrack_guardian_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
+    boss_weapon_info: Optional[WeaponInfo] = Field(default=None, description="Secondary weapon the unit uses against bosses (builds 6711+).")
     bound_abilities: Optional[Dict[str, StrictStr]] = None
     class_name: StrictStr
     empowered_modifier_level1: Optional[SubclassEmpoweredModifierLevel] = None
@@ -103,7 +104,7 @@ class NpcUnit(BaseModel):
     trooper_dps: Optional[Union[StrictFloat, StrictInt]] = None
     walk_speed: Optional[Union[StrictFloat, StrictInt]] = None
     weapon_info: Optional[WeaponInfo] = None
-    __properties: ClassVar[List[str]] = ["acceleration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "backdoor_bullet_resist_modifier", "barrack_boss_dps", "barrack_guardian_damage_resist_pct", "bound_abilities", "class_name", "empowered_modifier_level1", "empowered_modifier_level2", "enemy_trooper_damage_reduction", "enemy_trooper_protection_range", "generator_boss_dps", "gold_reward", "gold_reward_bonus_percent_per_minute", "health_bar_color_enemy", "health_bar_color_friend", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id", "intrinsic_modifiers", "laser_dps_max_health", "laser_dps_to_players", "max_health", "max_health_final", "max_health_generator", "melee_attempt_range", "melee_damage", "melee_duration", "melee_hit_range", "near_death_duration", "no_shield_laser_dps_to_players", "objective_health_growth_phase1", "objective_health_growth_phase2", "objective_regen", "phase2_health", "player_damage_resist_pct", "player_dps", "ranged_armor_modifier", "run_speed", "sight_range_npcs", "sight_range_players", "spawn_breakables_on_death", "stomp_damage", "stomp_damage_max_health_percent", "stomp_impact_radius", "stun_duration", "t1_boss_damage_resist_pct", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_damage_resist_pct", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_damage_resist_pct", "t3_boss_dps", "trooper_damage_resist_pct", "trooper_dps", "walk_speed", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["acceleration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "backdoor_bullet_resist_modifier", "barrack_boss_dps", "barrack_guardian_damage_resist_pct", "boss_weapon_info", "bound_abilities", "class_name", "empowered_modifier_level1", "empowered_modifier_level2", "enemy_trooper_damage_reduction", "enemy_trooper_protection_range", "generator_boss_dps", "gold_reward", "gold_reward_bonus_percent_per_minute", "health_bar_color_enemy", "health_bar_color_friend", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id", "intrinsic_modifiers", "laser_dps_max_health", "laser_dps_to_players", "max_health", "max_health_final", "max_health_generator", "melee_attempt_range", "melee_damage", "melee_duration", "melee_hit_range", "near_death_duration", "no_shield_laser_dps_to_players", "objective_health_growth_phase1", "objective_health_growth_phase2", "objective_regen", "phase2_health", "player_damage_resist_pct", "player_dps", "ranged_armor_modifier", "run_speed", "sight_range_npcs", "sight_range_players", "spawn_breakables_on_death", "stomp_damage", "stomp_damage_max_health_percent", "stomp_impact_radius", "stun_duration", "t1_boss_damage_resist_pct", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_damage_resist_pct", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_damage_resist_pct", "t3_boss_dps", "trooper_damage_resist_pct", "trooper_dps", "walk_speed", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -147,6 +148,9 @@ class NpcUnit(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of backdoor_bullet_resist_modifier
         if self.backdoor_bullet_resist_modifier:
             _dict['backdoor_bullet_resist_modifier'] = self.backdoor_bullet_resist_modifier.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of boss_weapon_info
+        if self.boss_weapon_info:
+            _dict['boss_weapon_info'] = self.boss_weapon_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of empowered_modifier_level1
         if self.empowered_modifier_level1:
             _dict['empowered_modifier_level1'] = self.empowered_modifier_level1.to_dict()
@@ -231,6 +235,11 @@ class NpcUnit(BaseModel):
         # and model_fields_set contains the field
         if self.barrack_guardian_damage_resist_pct is None and "barrack_guardian_damage_resist_pct" in self.model_fields_set:
             _dict['barrack_guardian_damage_resist_pct'] = None
+
+        # set to None if boss_weapon_info (nullable) is None
+        # and model_fields_set contains the field
+        if self.boss_weapon_info is None and "boss_weapon_info" in self.model_fields_set:
+            _dict['boss_weapon_info'] = None
 
         # set to None if bound_abilities (nullable) is None
         # and model_fields_set contains the field
@@ -532,6 +541,7 @@ class NpcUnit(BaseModel):
             "backdoor_bullet_resist_modifier": SubclassBulletResistModifier.from_dict(obj["backdoor_bullet_resist_modifier"]) if obj.get("backdoor_bullet_resist_modifier") is not None else None,
             "barrack_boss_dps": obj.get("barrack_boss_dps"),
             "barrack_guardian_damage_resist_pct": obj.get("barrack_guardian_damage_resist_pct"),
+            "boss_weapon_info": WeaponInfo.from_dict(obj["boss_weapon_info"]) if obj.get("boss_weapon_info") is not None else None,
             "bound_abilities": obj.get("bound_abilities"),
             "class_name": obj.get("class_name"),
             "empowered_modifier_level1": SubclassEmpoweredModifierLevel.from_dict(obj["empowered_modifier_level1"]) if obj.get("empowered_modifier_level1") is not None else None,

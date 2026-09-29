@@ -43,8 +43,12 @@ ListLootTables List Loot Tables
 
 Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
 
+**Deprecated:** the game dropped `loot_tables.vdata` in build 6711 ("City Never Sleeps"); for those and later versions this endpoint returns 404.
+
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListLootTablesRequest
+
+Deprecated
 */
 func (a *LootTablesAPIService) ListLootTables(ctx context.Context) ApiListLootTablesRequest {
 	return ApiListLootTablesRequest{
@@ -55,6 +59,7 @@ func (a *LootTablesAPIService) ListLootTables(ctx context.Context) ApiListLootTa
 
 // Execute executes the request
 //  @return map[string]LootTable
+// Deprecated
 func (a *LootTablesAPIService) ListLootTablesExecute(r ApiListLootTablesRequest) (*map[string]LootTable, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet

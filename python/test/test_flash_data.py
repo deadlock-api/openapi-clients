@@ -42,21 +42,27 @@ class TestFlashData(unittest.TestCase):
                     blue = 0, 
                     green = 0, 
                     red = 0, ),
+                color_gradient = [
+                    deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                        color = deadlock_api_client.models.color.Color(
+                            alpha = 0, 
+                            blue = 0, 
+                            green = 0, 
+                            red = 0, ), 
+                        position = 1.337, )
+                    ],
                 coverage = 1.337,
                 duration = 1.337,
                 hardness = 1.337
             )
         else:
             return FlashData(
-                brightness = 1.337,
                 color = deadlock_api_client.models.color.Color(
                     alpha = 0, 
                     blue = 0, 
                     green = 0, 
                     red = 0, ),
-                coverage = 1.337,
                 duration = 1.337,
-                hardness = 1.337,
         )
         """
 

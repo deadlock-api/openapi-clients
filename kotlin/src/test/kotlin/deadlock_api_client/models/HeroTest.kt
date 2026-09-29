@@ -35,6 +35,7 @@ import deadlock_api_client.models.HashMapStringOptionDraftBucketingValue
 import deadlock_api_client.models.HashMapStringScalingStatValue
 import deadlock_api_client.models.HeroColors
 import deadlock_api_client.models.HeroDescription
+import deadlock_api_client.models.HeroDevelopmentState
 import deadlock_api_client.models.HeroImages
 import deadlock_api_client.models.HeroPhysics
 import deadlock_api_client.models.HeroStatsUI
@@ -48,7 +49,7 @@ class HeroTest : ShouldSpec() {
         // uncomment below to create an instance of Hero
         //val modelInstance = Hero()
 
-        // to test the property `assignedPlayersOnly`
+        // to test the property `assignedPlayersOnly` - `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
         should("test assignedPlayersOnly") {
             // uncomment below to test the property
             //modelInstance.assignedPlayersOnly shouldBe ("TODO")
@@ -150,13 +151,13 @@ class HeroTest : ShouldSpec() {
             //modelInstance.physics shouldBe ("TODO")
         }
 
-        // to test the property `playerSelectable`
+        // to test the property `playerSelectable` - Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
         should("test playerSelectable") {
             // uncomment below to test the property
             //modelInstance.playerSelectable shouldBe ("TODO")
         }
 
-        // to test the property `purchaseBonuses`
+        // to test the property `purchaseBonuses` - Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
         should("test purchaseBonuses") {
             // uncomment below to test the property
             //modelInstance.purchaseBonuses shouldBe ("TODO")
@@ -210,6 +211,12 @@ class HeroTest : ShouldSpec() {
             //modelInstance.costBonuses shouldBe ("TODO")
         }
 
+        // to test the property `developmentState` - Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
+        should("test developmentState") {
+            // uncomment below to test the property
+            //modelInstance.developmentState shouldBe ("TODO")
+        }
+
         // to test the property `gunTag`
         should("test gunTag") {
             // uncomment below to test the property
@@ -240,7 +247,7 @@ class HeroTest : ShouldSpec() {
             //modelInstance.itemDraftWeights shouldBe ("TODO")
         }
 
-        // to test the property `prereleaseOnly`
+        // to test the property `prereleaseOnly` - Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
         should("test prereleaseOnly") {
             // uncomment below to test the property
             //modelInstance.prereleaseOnly shouldBe ("TODO")

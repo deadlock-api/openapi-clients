@@ -11,10 +11,27 @@
  */
 import type { Color } from './color.js';
 export interface LaneInfo {
-    'color': Color;
+    /**
+     * Absent for unused lane slots (build 6711+).
+     */
+    'color'?: Color | null;
     'css_class'?: string | null;
+    'is_enemy_lane': boolean;
+    /**
+     * Localized lane name. Unused lane slots are named `Unused`.
+     */
     'lane_name': string;
+    /**
+     * Build 6711+.
+     */
+    'minimap_color'?: Color | null;
+    /**
+     * Only present up to build 6701.
+     */
     'minimap_zipline_color_override'?: Color | null;
+    /**
+     * Only present up to build 6701.
+     */
     'objective_color'?: Color | null;
 }
 //# sourceMappingURL=lane-info.d.ts.map

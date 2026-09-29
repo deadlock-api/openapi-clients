@@ -4,17 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Color** | [**Color**](Color.md) |  | 
+**Color** | Pointer to [**NullableColor**](Color.md) | Absent for unused lane slots (build 6711+). | [optional] 
 **CssClass** | Pointer to **NullableString** |  | [optional] 
-**LaneName** | **string** |  | 
-**MinimapZiplineColorOverride** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
-**ObjectiveColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
+**IsEnemyLane** | **bool** |  | 
+**LaneName** | **string** | Localized lane name. Unused lane slots are named &#x60;Unused&#x60;. | 
+**MinimapColor** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**MinimapZiplineColorOverride** | Pointer to [**NullableColor**](Color.md) | Only present up to build 6701. | [optional] 
+**ObjectiveColor** | Pointer to [**NullableColor**](Color.md) | Only present up to build 6701. | [optional] 
 
 ## Methods
 
 ### NewLaneInfo
 
-`func NewLaneInfo(color Color, laneName string, ) *LaneInfo`
+`func NewLaneInfo(isEnemyLane bool, laneName string, ) *LaneInfo`
 
 NewLaneInfo instantiates a new LaneInfo object
 This constructor will assign default values to properties that have it defined,
@@ -48,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetColor sets Color field to given value.
 
+### HasColor
 
+`func (o *LaneInfo) HasColor() bool`
+
+HasColor returns a boolean if a field has been set.
+
+### SetColorNil
+
+`func (o *LaneInfo) SetColorNil(b bool)`
+
+ SetColorNil sets the value for Color to be an explicit nil
+
+### UnsetColor
+`func (o *LaneInfo) UnsetColor()`
+
+UnsetColor ensures that no value is present for Color, not even an explicit nil
 ### GetCssClass
 
 `func (o *LaneInfo) GetCssClass() string`
@@ -84,6 +101,26 @@ HasCssClass returns a boolean if a field has been set.
 `func (o *LaneInfo) UnsetCssClass()`
 
 UnsetCssClass ensures that no value is present for CssClass, not even an explicit nil
+### GetIsEnemyLane
+
+`func (o *LaneInfo) GetIsEnemyLane() bool`
+
+GetIsEnemyLane returns the IsEnemyLane field if non-nil, zero value otherwise.
+
+### GetIsEnemyLaneOk
+
+`func (o *LaneInfo) GetIsEnemyLaneOk() (*bool, bool)`
+
+GetIsEnemyLaneOk returns a tuple with the IsEnemyLane field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsEnemyLane
+
+`func (o *LaneInfo) SetIsEnemyLane(v bool)`
+
+SetIsEnemyLane sets IsEnemyLane field to given value.
+
+
 ### GetLaneName
 
 `func (o *LaneInfo) GetLaneName() string`
@@ -104,6 +141,41 @@ and a boolean to check if the value has been set.
 SetLaneName sets LaneName field to given value.
 
 
+### GetMinimapColor
+
+`func (o *LaneInfo) GetMinimapColor() Color`
+
+GetMinimapColor returns the MinimapColor field if non-nil, zero value otherwise.
+
+### GetMinimapColorOk
+
+`func (o *LaneInfo) GetMinimapColorOk() (*Color, bool)`
+
+GetMinimapColorOk returns a tuple with the MinimapColor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinimapColor
+
+`func (o *LaneInfo) SetMinimapColor(v Color)`
+
+SetMinimapColor sets MinimapColor field to given value.
+
+### HasMinimapColor
+
+`func (o *LaneInfo) HasMinimapColor() bool`
+
+HasMinimapColor returns a boolean if a field has been set.
+
+### SetMinimapColorNil
+
+`func (o *LaneInfo) SetMinimapColorNil(b bool)`
+
+ SetMinimapColorNil sets the value for MinimapColor to be an explicit nil
+
+### UnsetMinimapColor
+`func (o *LaneInfo) UnsetMinimapColor()`
+
+UnsetMinimapColor ensures that no value is present for MinimapColor, not even an explicit nil
 ### GetMinimapZiplineColorOverride
 
 `func (o *LaneInfo) GetMinimapZiplineColorOverride() Color`

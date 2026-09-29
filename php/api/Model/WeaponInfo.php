@@ -61,6 +61,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => 'float',
         'bullet_damage' => 'float',
         'bullet_gravity_scale' => 'float',
+        'bullet_handler_type' => 'string',
         'bullet_inherit_shooter_velocity_scale' => 'float',
         'bullet_lifetime' => 'float',
         'bullet_radius' => 'float',
@@ -104,6 +105,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => 'float',
         'recoil_shot_index_recovery_time_factor' => 'float',
         'recoil_speed' => 'float',
+        'recycle_time' => 'float',
         'reload_duration' => 'float',
         'reload_move_speed' => 'float',
         'reload_single_bullets' => 'bool',
@@ -142,6 +144,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => 'double',
         'bullet_damage' => 'double',
         'bullet_gravity_scale' => 'double',
+        'bullet_handler_type' => null,
         'bullet_inherit_shooter_velocity_scale' => 'double',
         'bullet_lifetime' => 'double',
         'bullet_radius' => 'double',
@@ -185,6 +188,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => 'double',
         'recoil_shot_index_recovery_time_factor' => 'double',
         'recoil_speed' => 'double',
+        'recycle_time' => 'double',
         'reload_duration' => 'double',
         'reload_move_speed' => 'double',
         'reload_single_bullets' => null,
@@ -221,6 +225,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => true,
         'bullet_damage' => true,
         'bullet_gravity_scale' => true,
+        'bullet_handler_type' => true,
         'bullet_inherit_shooter_velocity_scale' => true,
         'bullet_lifetime' => true,
         'bullet_radius' => true,
@@ -264,6 +269,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => true,
         'recoil_shot_index_recovery_time_factor' => true,
         'recoil_speed' => true,
+        'recycle_time' => true,
         'reload_duration' => true,
         'reload_move_speed' => true,
         'reload_single_bullets' => true,
@@ -380,6 +386,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => 'build_up_rate',
         'bullet_damage' => 'bullet_damage',
         'bullet_gravity_scale' => 'bullet_gravity_scale',
+        'bullet_handler_type' => 'bullet_handler_type',
         'bullet_inherit_shooter_velocity_scale' => 'bullet_inherit_shooter_velocity_scale',
         'bullet_lifetime' => 'bullet_lifetime',
         'bullet_radius' => 'bullet_radius',
@@ -423,6 +430,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => 'recoil_seed',
         'recoil_shot_index_recovery_time_factor' => 'recoil_shot_index_recovery_time_factor',
         'recoil_speed' => 'recoil_speed',
+        'recycle_time' => 'recycle_time',
         'reload_duration' => 'reload_duration',
         'reload_move_speed' => 'reload_move_speed',
         'reload_single_bullets' => 'reload_single_bullets',
@@ -459,6 +467,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => 'setBuildUpRate',
         'bullet_damage' => 'setBulletDamage',
         'bullet_gravity_scale' => 'setBulletGravityScale',
+        'bullet_handler_type' => 'setBulletHandlerType',
         'bullet_inherit_shooter_velocity_scale' => 'setBulletInheritShooterVelocityScale',
         'bullet_lifetime' => 'setBulletLifetime',
         'bullet_radius' => 'setBulletRadius',
@@ -502,6 +511,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => 'setRecoilSeed',
         'recoil_shot_index_recovery_time_factor' => 'setRecoilShotIndexRecoveryTimeFactor',
         'recoil_speed' => 'setRecoilSpeed',
+        'recycle_time' => 'setRecycleTime',
         'reload_duration' => 'setReloadDuration',
         'reload_move_speed' => 'setReloadMoveSpeed',
         'reload_single_bullets' => 'setReloadSingleBullets',
@@ -538,6 +548,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'build_up_rate' => 'getBuildUpRate',
         'bullet_damage' => 'getBulletDamage',
         'bullet_gravity_scale' => 'getBulletGravityScale',
+        'bullet_handler_type' => 'getBulletHandlerType',
         'bullet_inherit_shooter_velocity_scale' => 'getBulletInheritShooterVelocityScale',
         'bullet_lifetime' => 'getBulletLifetime',
         'bullet_radius' => 'getBulletRadius',
@@ -581,6 +592,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'recoil_seed' => 'getRecoilSeed',
         'recoil_shot_index_recovery_time_factor' => 'getRecoilShotIndexRecoveryTimeFactor',
         'recoil_speed' => 'getRecoilSpeed',
+        'recycle_time' => 'getRecycleTime',
         'reload_duration' => 'getReloadDuration',
         'reload_move_speed' => 'getReloadMoveSpeed',
         'reload_single_bullets' => 'getReloadSingleBullets',
@@ -668,6 +680,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('build_up_rate', $data ?? [], null);
         $this->setIfExists('bullet_damage', $data ?? [], null);
         $this->setIfExists('bullet_gravity_scale', $data ?? [], null);
+        $this->setIfExists('bullet_handler_type', $data ?? [], null);
         $this->setIfExists('bullet_inherit_shooter_velocity_scale', $data ?? [], null);
         $this->setIfExists('bullet_lifetime', $data ?? [], null);
         $this->setIfExists('bullet_radius', $data ?? [], null);
@@ -711,6 +724,7 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('recoil_seed', $data ?? [], null);
         $this->setIfExists('recoil_shot_index_recovery_time_factor', $data ?? [], null);
         $this->setIfExists('recoil_speed', $data ?? [], null);
+        $this->setIfExists('recycle_time', $data ?? [], null);
         $this->setIfExists('reload_duration', $data ?? [], null);
         $this->setIfExists('reload_move_speed', $data ?? [], null);
         $this->setIfExists('reload_single_bullets', $data ?? [], null);
@@ -923,6 +937,40 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['bullet_gravity_scale'] = $bullet_gravity_scale;
+
+        return $this;
+    }
+
+    /**
+     * Gets bullet_handler_type
+     *
+     * @return string|null
+     */
+    public function getBulletHandlerType()
+    {
+        return $this->container['bullet_handler_type'];
+    }
+
+    /**
+     * Sets bullet_handler_type
+     *
+     * @param string|null $bullet_handler_type bullet_handler_type
+     *
+     * @return self
+     */
+    public function setBulletHandlerType($bullet_handler_type)
+    {
+        if (is_null($bullet_handler_type)) {
+            array_push($this->openAPINullablesSetToNull, 'bullet_handler_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('bullet_handler_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['bullet_handler_type'] = $bullet_handler_type;
 
         return $this;
     }
@@ -2397,6 +2445,40 @@ class WeaponInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['recoil_speed'] = $recoil_speed;
+
+        return $this;
+    }
+
+    /**
+     * Gets recycle_time
+     *
+     * @return float|null
+     */
+    public function getRecycleTime()
+    {
+        return $this->container['recycle_time'];
+    }
+
+    /**
+     * Sets recycle_time
+     *
+     * @param float|null $recycle_time recycle_time
+     *
+     * @return self
+     */
+    public function setRecycleTime($recycle_time)
+    {
+        if (is_null($recycle_time)) {
+            array_push($this->openAPINullablesSetToNull, 'recycle_time');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('recycle_time', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['recycle_time'] = $recycle_time;
 
         return $this;
     }

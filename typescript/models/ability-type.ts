@@ -23,6 +23,7 @@ export const AbilityType = {
     Weapon: 'weapon',
     Melee: 'melee',
     Cosmetic: 'cosmetic',
+    Held: 'held',
 } as const;
 
 export type AbilityType = typeof AbilityType[keyof typeof AbilityType];

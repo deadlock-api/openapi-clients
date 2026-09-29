@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **build_up_rate** | **number** |  | [optional] [default to undefined]
 **bullet_damage** | **number** |  | [optional] [default to undefined]
 **bullet_gravity_scale** | **number** |  | [optional] [default to undefined]
+**bullet_handler_type** | **string** |  | [optional] [default to undefined]
 **bullet_inherit_shooter_velocity_scale** | **number** |  | [optional] [default to undefined]
 **bullet_lifetime** | **number** |  | [optional] [default to undefined]
 **bullet_radius** | **number** |  | [optional] [default to undefined]
@@ -52,6 +53,7 @@ Name | Type | Description | Notes
 **recoil_seed** | **number** |  | [optional] [default to undefined]
 **recoil_shot_index_recovery_time_factor** | **number** |  | [optional] [default to undefined]
 **recoil_speed** | **number** |  | [optional] [default to undefined]
+**recycle_time** | **number** |  | [optional] [default to undefined]
 **reload_duration** | **number** |  | [optional] [default to undefined]
 **reload_move_speed** | **number** |  | [optional] [default to undefined]
 **reload_single_bullets** | **boolean** |  | [optional] [default to undefined]
@@ -87,6 +89,7 @@ const instance: WeaponInfo = {
     build_up_rate,
     bullet_damage,
     bullet_gravity_scale,
+    bullet_handler_type,
     bullet_inherit_shooter_velocity_scale,
     bullet_lifetime,
     bullet_radius,
@@ -130,6 +133,7 @@ const instance: WeaponInfo = {
     recoil_seed,
     recoil_shot_index_recovery_time_factor,
     recoil_speed,
+    recycle_time,
     reload_duration,
     reload_move_speed,
     reload_single_bullets,

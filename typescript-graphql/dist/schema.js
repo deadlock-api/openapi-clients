@@ -245,7 +245,8 @@ export const enumAbilityType = {
     ULTIMATE: 'ULTIMATE',
     WEAPON: 'WEAPON',
     MELEE: 'MELEE',
-    COSMETIC: 'COSMETIC'
+    COSMETIC: 'COSMETIC',
+    HELD: 'HELD'
 };
 export const enumBuildLanguage = {
     ENGLISH: 'ENGLISH',
@@ -266,6 +267,11 @@ export const enumBuildLanguage = {
     UKRAINIAN: 'UKRAINIAN',
     SPANISH_LATIN_AMERICA: 'SPANISH_LATIN_AMERICA',
     VIETNAMESE: 'VIETNAMESE'
+};
+export const enumHeroDevelopmentState = {
+    RELEASE: 'RELEASE',
+    PRE_RELEASE: 'PRE_RELEASE',
+    DEBUG_ONLY: 'DEBUG_ONLY'
 };
 export const enumHeroType = {
     ASSASSIN: 'ASSASSIN',

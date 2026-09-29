@@ -40,6 +40,12 @@ export interface CreateCustomRequest  {
      */
     cheatsEnabled?: boolean;
     /**
+     * Minute of the match at which the Broker\'s corrupted item shop first spawns.
+     * @type {number}
+     * @memberof CreateCustomRequest
+     */
+    corruptedItemShopSpawnMinutes?: number;
+    /**
      * If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
      * @type {boolean}
      * @memberof CreateCustomRequest
@@ -87,6 +93,7 @@ export function CreateCustomRequestFromJSON(json: any): CreateCustomRequest {
     return {
         'callbackUrl': !exists(json, 'callback_url') ? undefined : json['callback_url'],
         'cheatsEnabled': !exists(json, 'cheats_enabled') ? undefined : json['cheats_enabled'],
+        'corruptedItemShopSpawnMinutes': !exists(json, 'corrupted_item_shop_spawn_minutes') ? undefined : json['corrupted_item_shop_spawn_minutes'],
         'disableAutoReady': !exists(json, 'disable_auto_ready') ? undefined : json['disable_auto_ready'],
         'duplicateHeroesEnabled': !exists(json, 'duplicate_heroes_enabled') ? undefined : json['duplicate_heroes_enabled'],
         'gameMode': !exists(json, 'game_mode') ? undefined : GameModeFromJSON(json['game_mode']),
@@ -104,6 +111,7 @@ export function CreateCustomRequestToJSON(value?: CreateCustomRequest): any {
     return {
         'callback_url': value.callbackUrl,
         'cheats_enabled': value.cheatsEnabled,
+        'corrupted_item_shop_spawn_minutes': value.corruptedItemShopSpawnMinutes,
         'disable_auto_ready': value.disableAutoReady,
         'duplicate_heroes_enabled': value.duplicateHeroesEnabled,
         'game_mode': GameModeToJSON(value.gameMode),

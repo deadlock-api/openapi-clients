@@ -54,12 +54,12 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Color'
+        /// Test the property 'IsEnemyLane'
         /// </summary>
         [Fact]
-        public void ColorTest()
+        public void IsEnemyLaneTest()
         {
-            // TODO unit test for the property 'Color'
+            // TODO unit test for the property 'IsEnemyLane'
         }
 
         /// <summary>
@@ -72,12 +72,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Color'
+        /// </summary>
+        [Fact]
+        public void ColorTest()
+        {
+            // TODO unit test for the property 'Color'
+        }
+
+        /// <summary>
         /// Test the property 'CssClass'
         /// </summary>
         [Fact]
         public void CssClassTest()
         {
             // TODO unit test for the property 'CssClass'
+        }
+
+        /// <summary>
+        /// Test the property 'MinimapColor'
+        /// </summary>
+        [Fact]
+        public void MinimapColorTest()
+        {
+            // TODO unit test for the property 'MinimapColor'
         }
 
         /// <summary>

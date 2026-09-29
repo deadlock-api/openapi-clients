@@ -13,13 +13,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * Fixed CDN URLs for the minimap image layers.
+ * CDN URLs for the minimap image layers.
  * @export
  * @interface MapImages
  */
 export interface MapImages  {
     /**
-     * 
+     * Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
      * @type {string}
      * @memberof MapImages
      */
@@ -31,23 +31,35 @@ export interface MapImages  {
      */
     frame: string;
     /**
-     * 
+     * Midtown base layer.
      * @type {string}
      * @memberof MapImages
      */
     mid: string;
     /**
-     * 
+     * Mid tunnels overlay, drawn above `mid` (build 6711+).
+     * @type {string}
+     * @memberof MapImages
+     */
+    midTunnels?: string;
+    /**
+     * Full minimap. From build 6711 on this is the midtown base layer.
      * @type {string}
      * @memberof MapImages
      */
     minimap: string;
     /**
-     * 
+     * Minimap without overlays. From build 6711 on this is the midtown base layer.
      * @type {string}
      * @memberof MapImages
      */
     plain: string;
+    /**
+     * Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+     * @type {string}
+     * @memberof MapImages
+     */
+    ratTunnels?: string;
 }
 
 export function MapImagesFromJSON(json: any): MapImages {
@@ -55,8 +67,10 @@ export function MapImagesFromJSON(json: any): MapImages {
         'background': json['background'],
         'frame': json['frame'],
         'mid': json['mid'],
+        'midTunnels': !exists(json, 'mid_tunnels') ? undefined : json['mid_tunnels'],
         'minimap': json['minimap'],
         'plain': json['plain'],
+        'ratTunnels': !exists(json, 'rat_tunnels') ? undefined : json['rat_tunnels'],
     };
 }
 
@@ -68,8 +82,10 @@ export function MapImagesToJSON(value?: MapImages): any {
         'background': value.background,
         'frame': value.frame,
         'mid': value.mid,
+        'mid_tunnels': value.midTunnels,
         'minimap': value.minimap,
         'plain': value.plain,
+        'rat_tunnels': value.ratTunnels,
     };
 }
 

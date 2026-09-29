@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BulletDamage** | [**FlashData**](FlashData.md) |  | 
 **CritDamage** | [**FlashData**](FlashData.md) |  | 
+**GenericDamage** | Pointer to [**NullableFlashData**](FlashData.md) | Build 6711+. | [optional] 
 **HealingDamage** | [**FlashData**](FlashData.md) |  | 
 **MeleeDamage** | [**FlashData**](FlashData.md) |  | 
 **TechDamage** | [**FlashData**](FlashData.md) |  | 
@@ -69,6 +70,41 @@ and a boolean to check if the value has been set.
 SetCritDamage sets CritDamage field to given value.
 
 
+### GetGenericDamage
+
+`func (o *DamageFlash) GetGenericDamage() FlashData`
+
+GetGenericDamage returns the GenericDamage field if non-nil, zero value otherwise.
+
+### GetGenericDamageOk
+
+`func (o *DamageFlash) GetGenericDamageOk() (*FlashData, bool)`
+
+GetGenericDamageOk returns a tuple with the GenericDamage field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGenericDamage
+
+`func (o *DamageFlash) SetGenericDamage(v FlashData)`
+
+SetGenericDamage sets GenericDamage field to given value.
+
+### HasGenericDamage
+
+`func (o *DamageFlash) HasGenericDamage() bool`
+
+HasGenericDamage returns a boolean if a field has been set.
+
+### SetGenericDamageNil
+
+`func (o *DamageFlash) SetGenericDamageNil(b bool)`
+
+ SetGenericDamageNil sets the value for GenericDamage to be an explicit nil
+
+### UnsetGenericDamage
+`func (o *DamageFlash) UnsetGenericDamage()`
+
+UnsetGenericDamage ensures that no value is present for GenericDamage, not even an explicit nil
 ### GetHealingDamage
 
 `func (o *DamageFlash) GetHealingDamage() FlashData`

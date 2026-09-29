@@ -297,6 +297,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DevelopmentState'
+        /// </summary>
+        [Fact]
+        public void DevelopmentStateTest()
+        {
+            // TODO unit test for the property 'DevelopmentState'
+        }
+
+        /// <summary>
         /// Test the property 'GunTag'
         /// </summary>
         [Fact]

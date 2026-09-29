@@ -10,13 +10,33 @@
  * Do not edit the class manually.
  */
 /**
- * Fixed CDN URLs for the minimap image layers.
+ * CDN URLs for the minimap image layers.
  */
 export interface MapImages {
+    /**
+     * Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
+     */
     'background': string;
     'frame': string;
+    /**
+     * Midtown base layer.
+     */
     'mid': string;
+    /**
+     * Mid tunnels overlay, drawn above `mid` (build 6711+).
+     */
+    'mid_tunnels'?: string | null;
+    /**
+     * Full minimap. From build 6711 on this is the midtown base layer.
+     */
     'minimap': string;
+    /**
+     * Minimap without overlays. From build 6711 on this is the midtown base layer.
+     */
     'plain': string;
+    /**
+     * Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+     */
+    'rat_tunnels'?: string | null;
 }
 //# sourceMappingURL=map-images.d.ts.map

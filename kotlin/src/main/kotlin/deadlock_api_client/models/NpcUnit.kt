@@ -50,6 +50,7 @@ import java.io.Serializable
  * @param backdoorBulletResistModifier 
  * @param barrackBossDps 
  * @param barrackGuardianDamageResistPct 
+ * @param bossWeaponInfo Secondary weapon the unit uses against bosses (builds 6711+).
  * @param boundAbilities 
  * @param empoweredModifierLevel1 
  * @param empoweredModifierLevel2 
@@ -140,6 +141,10 @@ data class NpcUnit (
 
     @Json(name = "barrack_guardian_damage_resist_pct")
     val barrackGuardianDamageResistPct: kotlin.Double? = null,
+
+    /* Secondary weapon the unit uses against bosses (builds 6711+). */
+    @Json(name = "boss_weapon_info")
+    val bossWeaponInfo: WeaponInfo? = null,
 
     @Json(name = "bound_abilities")
     val boundAbilities: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,

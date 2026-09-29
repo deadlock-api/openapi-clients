@@ -55,7 +55,7 @@ export interface AbilityDescription {
 
 export type AbilityImbue = 'ACTIVE' | 'ACTIVE_NON_ULT' | 'MODIFIER_VALUE'
 
-export type AbilityType = 'INNATE' | 'ITEM' | 'SIGNATURE' | 'ULTIMATE' | 'WEAPON' | 'MELEE' | 'COSMETIC'
+export type AbilityType = 'INNATE' | 'ITEM' | 'SIGNATURE' | 'ULTIMATE' | 'WEAPON' | 'MELEE' | 'COSMETIC' | 'HELD'
 
 export interface AbilityVideos {
     webm: (Scalars['String'] | null)
@@ -149,16 +149,30 @@ export interface Hero {
     class_name: Scalars['String']
     name: Scalars['String']
     description: HeroDescription
+    /**
+     * Read from `m_bPlayerSelectable` on older builds; since build 6711 it is
+     * derived as `development_state == release`.
+     */
     player_selectable: Scalars['Boolean']
+    /**
+     * Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null`
+     * on older builds and on heroes that don't declare one.
+     */
+    development_state: (HeroDevelopmentState | null)
     disabled: Scalars['Boolean']
     in_development: Scalars['Boolean']
     needs_testing: Scalars['Boolean']
+    /** `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since. */
     assigned_players_only: Scalars['Boolean']
     /** Always emitted (empty if the hero declares no `m_vecHeroTags`). */
     tags: Scalars['String'][]
     gun_tag: (Scalars['String'] | null)
     hideout_rich_presence: (Scalars['String'] | null)
     hero_type: (HeroType | null)
+    /**
+     * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
+     * derived as `development_state == pre_release`.
+     */
     prerelease_only: (Scalars['Boolean'] | null)
     limited_testing: Scalars['Boolean']
     complexity: Scalars['Int']
@@ -176,6 +190,7 @@ export interface Hero {
     cost_bonuses: Scalars['JSON']
     level_info: Scalars['JSON']
     scaling_stats: Scalars['JSON']
+    /** @deprecated Removed from the game in build 6711; always empty for newer builds. */
     purchase_bonuses: Scalars['JSON']
     standard_level_up_upgrades: Scalars['JSON']
     item_draft_bucketing: Scalars['JSON']
@@ -188,6 +203,8 @@ export interface HeroDescription {
     playstyle: (Scalars['String'] | null)
     __typename: 'HeroDescription'
 }
+
+export type HeroDevelopmentState = 'RELEASE' | 'PRE_RELEASE' | 'DEBUG_ONLY'
 
 export interface HeroImages {
     icon_hero_card: (Scalars['String'] | null)
@@ -279,6 +296,8 @@ export interface Match {
     not_scored: (Scalars['Boolean'] | null)
     ranked_type: (Scalars['String'] | null)
     rank_interval: (Scalars['Int'] | null)
+    /** Seed the Broker's random corrupted-item penalties were rolled from. */
+    corrupted_penalty_seed: (Scalars['Int'] | null)
     rewards_eligible: (Scalars['Boolean'] | null)
     earned_holiday_award_2025: (Scalars['Boolean'] | null)
     objectives_mask_team_0: (Scalars['Int'] | null)
@@ -449,6 +468,7 @@ export interface MatchPlayer {
     player_tracked_stats: (Scalars['JsonScalar'] | null)
     stats_type_stat: (Scalars['JsonScalar'] | null)
     hero_xp_rewards: (Scalars['JsonScalar'] | null)
+    hero_release_votes: (Scalars['JsonScalar'] | null)
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero: (Hero | null)
     /**
@@ -990,16 +1010,30 @@ export interface HeroGenqlSelection{
     class_name?: boolean | number
     name?: boolean | number
     description?: HeroDescriptionGenqlSelection
+    /**
+     * Read from `m_bPlayerSelectable` on older builds; since build 6711 it is
+     * derived as `development_state == release`.
+     */
     player_selectable?: boolean | number
+    /**
+     * Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null`
+     * on older builds and on heroes that don't declare one.
+     */
+    development_state?: boolean | number
     disabled?: boolean | number
     in_development?: boolean | number
     needs_testing?: boolean | number
+    /** `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since. */
     assigned_players_only?: boolean | number
     /** Always emitted (empty if the hero declares no `m_vecHeroTags`). */
     tags?: boolean | number
     gun_tag?: boolean | number
     hideout_rich_presence?: boolean | number
     hero_type?: boolean | number
+    /**
+     * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
+     * derived as `development_state == pre_release`.
+     */
     prerelease_only?: boolean | number
     limited_testing?: boolean | number
     complexity?: boolean | number
@@ -1017,6 +1051,7 @@ export interface HeroGenqlSelection{
     cost_bonuses?: boolean | number
     level_info?: boolean | number
     scaling_stats?: boolean | number
+    /** @deprecated Removed from the game in build 6711; always empty for newer builds. */
     purchase_bonuses?: boolean | number
     standard_level_up_upgrades?: boolean | number
     item_draft_bucketing?: boolean | number
@@ -1144,6 +1179,8 @@ export interface MatchGenqlSelection{
     not_scored?: boolean | number
     ranked_type?: boolean | number
     rank_interval?: boolean | number
+    /** Seed the Broker's random corrupted-item penalties were rolled from. */
+    corrupted_penalty_seed?: boolean | number
     rewards_eligible?: boolean | number
     earned_holiday_award_2025?: boolean | number
     objectives_mask_team_0?: boolean | number
@@ -1320,6 +1357,7 @@ export interface MatchPlayerGenqlSelection{
     player_tracked_stats?: boolean | number
     stats_type_stat?: boolean | number
     hero_xp_rewards?: boolean | number
+    hero_release_votes?: boolean | number
     /** Hero asset metadata for this player's `hero_id` (latest version, English). */
     hero?: HeroGenqlSelection
     /**
@@ -2066,7 +2104,8 @@ export const enumAbilityType = {
    ULTIMATE: 'ULTIMATE' as const,
    WEAPON: 'WEAPON' as const,
    MELEE: 'MELEE' as const,
-   COSMETIC: 'COSMETIC' as const
+   COSMETIC: 'COSMETIC' as const,
+   HELD: 'HELD' as const
 }
 
 export const enumBuildLanguage = {
@@ -2088,6 +2127,12 @@ export const enumBuildLanguage = {
    UKRAINIAN: 'UKRAINIAN' as const,
    SPANISH_LATIN_AMERICA: 'SPANISH_LATIN_AMERICA' as const,
    VIETNAMESE: 'VIETNAMESE' as const
+}
+
+export const enumHeroDevelopmentState = {
+   RELEASE: 'RELEASE' as const,
+   PRE_RELEASE: 'PRE_RELEASE' as const,
+   DEBUG_ONLY: 'DEBUG_ONLY' as const
 }
 
 export const enumHeroType = {

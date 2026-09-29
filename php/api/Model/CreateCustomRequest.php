@@ -59,6 +59,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPITypes = [
         'callback_url' => 'string',
         'cheats_enabled' => 'bool',
+        'corrupted_item_shop_spawn_minutes' => 'int',
         'disable_auto_ready' => 'bool',
         'duplicate_heroes_enabled' => 'bool',
         'game_mode' => '\OpenAPI\Client\Model\GameMode',
@@ -78,6 +79,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $openAPIFormats = [
         'callback_url' => null,
         'cheats_enabled' => null,
+        'corrupted_item_shop_spawn_minutes' => 'int32',
         'disable_auto_ready' => null,
         'duplicate_heroes_enabled' => null,
         'game_mode' => null,
@@ -95,6 +97,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static array $openAPINullables = [
         'callback_url' => true,
         'cheats_enabled' => true,
+        'corrupted_item_shop_spawn_minutes' => true,
         'disable_auto_ready' => true,
         'duplicate_heroes_enabled' => true,
         'game_mode' => true,
@@ -192,6 +195,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $attributeMap = [
         'callback_url' => 'callback_url',
         'cheats_enabled' => 'cheats_enabled',
+        'corrupted_item_shop_spawn_minutes' => 'corrupted_item_shop_spawn_minutes',
         'disable_auto_ready' => 'disable_auto_ready',
         'duplicate_heroes_enabled' => 'duplicate_heroes_enabled',
         'game_mode' => 'game_mode',
@@ -209,6 +213,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $setters = [
         'callback_url' => 'setCallbackUrl',
         'cheats_enabled' => 'setCheatsEnabled',
+        'corrupted_item_shop_spawn_minutes' => 'setCorruptedItemShopSpawnMinutes',
         'disable_auto_ready' => 'setDisableAutoReady',
         'duplicate_heroes_enabled' => 'setDuplicateHeroesEnabled',
         'game_mode' => 'setGameMode',
@@ -226,6 +231,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     protected static $getters = [
         'callback_url' => 'getCallbackUrl',
         'cheats_enabled' => 'getCheatsEnabled',
+        'corrupted_item_shop_spawn_minutes' => 'getCorruptedItemShopSpawnMinutes',
         'disable_auto_ready' => 'getDisableAutoReady',
         'duplicate_heroes_enabled' => 'getDuplicateHeroesEnabled',
         'game_mode' => 'getGameMode',
@@ -294,6 +300,7 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $this->setIfExists('callback_url', $data ?? [], null);
         $this->setIfExists('cheats_enabled', $data ?? [], null);
+        $this->setIfExists('corrupted_item_shop_spawn_minutes', $data ?? [], null);
         $this->setIfExists('disable_auto_ready', $data ?? [], null);
         $this->setIfExists('duplicate_heroes_enabled', $data ?? [], null);
         $this->setIfExists('game_mode', $data ?? [], null);
@@ -329,6 +336,10 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['corrupted_item_shop_spawn_minutes']) && ($this->container['corrupted_item_shop_spawn_minutes'] < 0)) {
+            $invalidProperties[] = "invalid value for 'corrupted_item_shop_spawn_minutes', must be bigger than or equal to 0.";
+        }
 
         if (!is_null($this->container['min_roster_size']) && ($this->container['min_roster_size'] < 0)) {
             $invalidProperties[] = "invalid value for 'min_roster_size', must be bigger than or equal to 0.";
@@ -413,6 +424,44 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['cheats_enabled'] = $cheats_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets corrupted_item_shop_spawn_minutes
+     *
+     * @return int|null
+     */
+    public function getCorruptedItemShopSpawnMinutes()
+    {
+        return $this->container['corrupted_item_shop_spawn_minutes'];
+    }
+
+    /**
+     * Sets corrupted_item_shop_spawn_minutes
+     *
+     * @param int|null $corrupted_item_shop_spawn_minutes Minute of the match at which the Broker's corrupted item shop first spawns.
+     *
+     * @return self
+     */
+    public function setCorruptedItemShopSpawnMinutes($corrupted_item_shop_spawn_minutes)
+    {
+        if (is_null($corrupted_item_shop_spawn_minutes)) {
+            array_push($this->openAPINullablesSetToNull, 'corrupted_item_shop_spawn_minutes');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('corrupted_item_shop_spawn_minutes', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($corrupted_item_shop_spawn_minutes) && ($corrupted_item_shop_spawn_minutes < 0)) {
+            throw new \InvalidArgumentException('invalid value for $corrupted_item_shop_spawn_minutes when calling CreateCustomRequest., must be bigger than or equal to 0.');
+        }
+
+        $this->container['corrupted_item_shop_spawn_minutes'] = $corrupted_item_shop_spawn_minutes;
 
         return $this;
     }

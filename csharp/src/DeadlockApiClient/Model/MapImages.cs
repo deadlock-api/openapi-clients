@@ -26,34 +26,39 @@ using DeadlockApiClient.Client;
 namespace DeadlockApiClient.Model
 {
     /// <summary>
-    /// Fixed CDN URLs for the minimap image layers.
+    /// CDN URLs for the minimap image layers.
     /// </summary>
     public partial class MapImages : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MapImages" /> class.
         /// </summary>
-        /// <param name="background">background</param>
+        /// <param name="background">Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.</param>
         /// <param name="frame">frame</param>
-        /// <param name="mid">mid</param>
-        /// <param name="minimap">minimap</param>
-        /// <param name="plain">plain</param>
+        /// <param name="mid">Midtown base layer.</param>
+        /// <param name="minimap">Full minimap. From build 6711 on this is the midtown base layer.</param>
+        /// <param name="plain">Minimap without overlays. From build 6711 on this is the midtown base layer.</param>
+        /// <param name="midTunnels">Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+).</param>
+        /// <param name="ratTunnels">Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+).</param>
         [JsonConstructor]
-        public MapImages(string background, string frame, string mid, string minimap, string plain)
+        public MapImages(string background, string frame, string mid, string minimap, string plain, Option<string?> midTunnels = default, Option<string?> ratTunnels = default)
         {
             Background = background;
             Frame = frame;
             Mid = mid;
             Minimap = minimap;
             Plain = plain;
+            MidTunnelsOption = midTunnels;
+            RatTunnelsOption = ratTunnels;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Background
+        /// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
         /// </summary>
+        /// <value>Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.</value>
         [JsonPropertyName("background")]
         public string Background { get; set; }
 
@@ -64,22 +69,53 @@ namespace DeadlockApiClient.Model
         public string Frame { get; set; }
 
         /// <summary>
-        /// Gets or Sets Mid
+        /// Midtown base layer.
         /// </summary>
+        /// <value>Midtown base layer.</value>
         [JsonPropertyName("mid")]
         public string Mid { get; set; }
 
         /// <summary>
-        /// Gets or Sets Minimap
+        /// Full minimap. From build 6711 on this is the midtown base layer.
         /// </summary>
+        /// <value>Full minimap. From build 6711 on this is the midtown base layer.</value>
         [JsonPropertyName("minimap")]
         public string Minimap { get; set; }
 
         /// <summary>
-        /// Gets or Sets Plain
+        /// Minimap without overlays. From build 6711 on this is the midtown base layer.
         /// </summary>
+        /// <value>Minimap without overlays. From build 6711 on this is the midtown base layer.</value>
         [JsonPropertyName("plain")]
         public string Plain { get; set; }
+
+        /// <summary>
+        /// Used to track the state of MidTunnels
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> MidTunnelsOption { get; private set; }
+
+        /// <summary>
+        /// Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+).
+        /// </summary>
+        /// <value>Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+).</value>
+        [JsonPropertyName("mid_tunnels")]
+        public string? MidTunnels { get { return this.MidTunnelsOption.Value; } set { this.MidTunnelsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RatTunnels
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> RatTunnelsOption { get; private set; }
+
+        /// <summary>
+        /// Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+).
+        /// </summary>
+        /// <value>Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+).</value>
+        [JsonPropertyName("rat_tunnels")]
+        public string? RatTunnels { get { return this.RatTunnelsOption.Value; } set { this.RatTunnelsOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,6 +130,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  Mid: ").Append(Mid).Append("\n");
             sb.Append("  Minimap: ").Append(Minimap).Append("\n");
             sb.Append("  Plain: ").Append(Plain).Append("\n");
+            sb.Append("  MidTunnels: ").Append(MidTunnels).Append("\n");
+            sb.Append("  RatTunnels: ").Append(RatTunnels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +184,8 @@ namespace DeadlockApiClient.Model
             Option<string?> mid = default;
             Option<string?> minimap = default;
             Option<string?> plain = default;
+            Option<string?> midTunnels = default;
+            Option<string?> ratTunnels = default;
 
             while (utf8JsonReader.Read())
             {
@@ -176,6 +216,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "plain":
                             plain = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "mid_tunnels":
+                            midTunnels = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "rat_tunnels":
+                            ratTunnels = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -213,7 +259,7 @@ namespace DeadlockApiClient.Model
             if (plain.IsSet && plain.Value == null)
                 throw new ArgumentNullException(nameof(plain), "Property is not nullable for class MapImages.");
 
-            return new MapImages(background.Value!, frame.Value!, mid.Value!, minimap.Value!, plain.Value!);
+            return new MapImages(background.Value!, frame.Value!, mid.Value!, minimap.Value!, plain.Value!, midTunnels, ratTunnels);
         }
 
         /// <summary>
@@ -264,6 +310,18 @@ namespace DeadlockApiClient.Model
             writer.WriteString("minimap", mapImages.Minimap);
 
             writer.WriteString("plain", mapImages.Plain);
+
+            if (mapImages.MidTunnelsOption.IsSet)
+                if (mapImages.MidTunnelsOption.Value != null)
+                    writer.WriteString("mid_tunnels", mapImages.MidTunnels);
+                else
+                    writer.WriteNull("mid_tunnels");
+
+            if (mapImages.RatTunnelsOption.IsSet)
+                if (mapImages.RatTunnelsOption.Value != null)
+                    writer.WriteString("rat_tunnels", mapImages.RatTunnels);
+                else
+                    writer.WriteNull("rat_tunnels");
         }
     }
 }

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from deadlock_api_client.models.raw_item_weapon_info_bullet_speed_curve import RawItemWeaponInfoBulletSpeedCurve
@@ -35,6 +35,7 @@ class WeaponInfo(BaseModel):
     build_up_rate: Optional[Union[StrictFloat, StrictInt]] = None
     bullet_damage: Optional[Union[StrictFloat, StrictInt]] = None
     bullet_gravity_scale: Optional[Union[StrictFloat, StrictInt]] = None
+    bullet_handler_type: Optional[StrictStr] = None
     bullet_inherit_shooter_velocity_scale: Optional[Union[StrictFloat, StrictInt]] = None
     bullet_lifetime: Optional[Union[StrictFloat, StrictInt]] = None
     bullet_radius: Optional[Union[StrictFloat, StrictInt]] = None
@@ -78,6 +79,7 @@ class WeaponInfo(BaseModel):
     recoil_seed: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_shot_index_recovery_time_factor: Optional[Union[StrictFloat, StrictInt]] = None
     recoil_speed: Optional[Union[StrictFloat, StrictInt]] = None
+    recycle_time: Optional[Union[StrictFloat, StrictInt]] = None
     reload_duration: Optional[Union[StrictFloat, StrictInt]] = None
     reload_move_speed: Optional[Union[StrictFloat, StrictInt]] = None
     reload_single_bullets: Optional[StrictBool] = None
@@ -102,7 +104,7 @@ class WeaponInfo(BaseModel):
     vertical_recoil: Optional[RawWeaponInfoVerticalRecoil] = None
     zoom_fov: Optional[Union[StrictFloat, StrictInt]] = None
     zoom_move_speed_percent: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["aiming_shot_spread_penalty", "build_up_rate", "bullet_damage", "bullet_gravity_scale", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_speed", "bullet_speed_curve", "bullet_whiz_distance", "bullets", "bullets_per_second", "bullets_per_second_with_reload", "burst_shot_cooldown", "burst_shot_count", "can_zoom", "clip_size", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "damage_per_magazine", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "horizontal_punch", "horizontal_recoil", "intra_burst_cycle_time", "is_semi_auto", "low_ammo_indicator_threshold", "max_spin_cycle_time", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_seed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "reload_duration", "reload_move_speed", "reload_single_bullets", "reload_single_bullets_allow_cancel", "reload_single_bullets_initial_delay", "scatter_yaw_scale", "semi_auto_cycle_rate", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "shots_per_second", "shots_per_second_with_reload", "spin_decay_rate", "spin_increase_rate", "spins_up", "spread", "standing_shot_spread_penalty", "standing_spread", "vertical_punch", "vertical_recoil", "zoom_fov", "zoom_move_speed_percent"]
+    __properties: ClassVar[List[str]] = ["aiming_shot_spread_penalty", "build_up_rate", "bullet_damage", "bullet_gravity_scale", "bullet_handler_type", "bullet_inherit_shooter_velocity_scale", "bullet_lifetime", "bullet_radius", "bullet_radius_vs_world", "bullet_reflect_amount", "bullet_reflect_scale", "bullet_speed", "bullet_speed_curve", "bullet_whiz_distance", "bullets", "bullets_per_second", "bullets_per_second_with_reload", "burst_shot_cooldown", "burst_shot_count", "can_zoom", "clip_size", "crit_bonus_against_npcs", "crit_bonus_end", "crit_bonus_end_range", "crit_bonus_start", "crit_bonus_start_range", "cycle_time", "damage_falloff_bias", "damage_falloff_end_range", "damage_falloff_end_scale", "damage_falloff_start_range", "damage_falloff_start_scale", "damage_per_magazine", "damage_per_second", "damage_per_second_with_reload", "damage_per_shot", "horizontal_punch", "horizontal_recoil", "intra_burst_cycle_time", "is_semi_auto", "low_ammo_indicator_threshold", "max_spin_cycle_time", "range", "recoil_recovery_delay_factor", "recoil_recovery_speed", "recoil_seed", "recoil_shot_index_recovery_time_factor", "recoil_speed", "recycle_time", "reload_duration", "reload_move_speed", "reload_single_bullets", "reload_single_bullets_allow_cancel", "reload_single_bullets_initial_delay", "scatter_yaw_scale", "semi_auto_cycle_rate", "shoot_move_speed_percent", "shoot_spread_penalty_decay", "shoot_spread_penalty_decay_delay", "shoot_spread_penalty_per_shot", "shooting_up_spread_penalty", "shots_per_second", "shots_per_second_with_reload", "spin_decay_rate", "spin_increase_rate", "spins_up", "spread", "standing_shot_spread_penalty", "standing_spread", "vertical_punch", "vertical_recoil", "zoom_fov", "zoom_move_speed_percent"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -171,6 +173,11 @@ class WeaponInfo(BaseModel):
         # and model_fields_set contains the field
         if self.bullet_gravity_scale is None and "bullet_gravity_scale" in self.model_fields_set:
             _dict['bullet_gravity_scale'] = None
+
+        # set to None if bullet_handler_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.bullet_handler_type is None and "bullet_handler_type" in self.model_fields_set:
+            _dict['bullet_handler_type'] = None
 
         # set to None if bullet_inherit_shooter_velocity_scale (nullable) is None
         # and model_fields_set contains the field
@@ -387,6 +394,11 @@ class WeaponInfo(BaseModel):
         if self.recoil_speed is None and "recoil_speed" in self.model_fields_set:
             _dict['recoil_speed'] = None
 
+        # set to None if recycle_time (nullable) is None
+        # and model_fields_set contains the field
+        if self.recycle_time is None and "recycle_time" in self.model_fields_set:
+            _dict['recycle_time'] = None
+
         # set to None if reload_duration (nullable) is None
         # and model_fields_set contains the field
         if self.reload_duration is None and "reload_duration" in self.model_fields_set:
@@ -523,6 +535,7 @@ class WeaponInfo(BaseModel):
             "build_up_rate": obj.get("build_up_rate"),
             "bullet_damage": obj.get("bullet_damage"),
             "bullet_gravity_scale": obj.get("bullet_gravity_scale"),
+            "bullet_handler_type": obj.get("bullet_handler_type"),
             "bullet_inherit_shooter_velocity_scale": obj.get("bullet_inherit_shooter_velocity_scale"),
             "bullet_lifetime": obj.get("bullet_lifetime"),
             "bullet_radius": obj.get("bullet_radius"),
@@ -566,6 +579,7 @@ class WeaponInfo(BaseModel):
             "recoil_seed": obj.get("recoil_seed"),
             "recoil_shot_index_recovery_time_factor": obj.get("recoil_shot_index_recovery_time_factor"),
             "recoil_speed": obj.get("recoil_speed"),
+            "recycle_time": obj.get("recycle_time"),
             "reload_duration": obj.get("reload_duration"),
             "reload_move_speed": obj.get("reload_move_speed"),
             "reload_single_bullets": obj.get("reload_single_bullets"),

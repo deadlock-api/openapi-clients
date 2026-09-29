@@ -32,28 +32,41 @@ import java.io.Serializable
 /**
  * 
  *
- * @param color 
- * @param laneName 
+ * @param isEnemyLane 
+ * @param laneName Localized lane name. Unused lane slots are named `Unused`.
+ * @param color Absent for unused lane slots (build 6711+).
  * @param cssClass 
- * @param minimapZiplineColorOverride 
- * @param objectiveColor 
+ * @param minimapColor Build 6711+.
+ * @param minimapZiplineColorOverride Only present up to build 6701.
+ * @param objectiveColor Only present up to build 6701.
  */
 
 
 data class LaneInfo (
 
-    @Json(name = "color")
-    val color: Color,
+    @Json(name = "is_enemy_lane")
+    val isEnemyLane: kotlin.Boolean,
 
+    /* Localized lane name. Unused lane slots are named `Unused`. */
     @Json(name = "lane_name")
     val laneName: kotlin.String,
+
+    /* Absent for unused lane slots (build 6711+). */
+    @Json(name = "color")
+    val color: Color? = null,
 
     @Json(name = "css_class")
     val cssClass: kotlin.String? = null,
 
+    /* Build 6711+. */
+    @Json(name = "minimap_color")
+    val minimapColor: Color? = null,
+
+    /* Only present up to build 6701. */
     @Json(name = "minimap_zipline_color_override")
     val minimapZiplineColorOverride: Color? = null,
 
+    /* Only present up to build 6701. */
     @Json(name = "objective_color")
     val objectiveColor: Color? = null
 

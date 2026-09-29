@@ -36,6 +36,13 @@ class TestMiscEntity(unittest.TestCase):
         if include_optional:
             return MiscEntity(
                 break_on_dodge_touch = True,
+                buff_type_graph_color = deadlock_api_client.models.color.Color(
+                    alpha = 0, 
+                    blue = 0, 
+                    green = 0, 
+                    red = 0, ),
+                buff_type_loc_string = '',
+                buff_type_value_unit = '',
                 class_name = '',
                 collision_radius = 1.337,
                 color = deadlock_api_client.models.color.Color(
@@ -46,10 +53,13 @@ class TestMiscEntity(unittest.TestCase):
                 damaged_by_abilities = True,
                 damaged_by_bullets = True,
                 damaged_by_melee = True,
+                damaged_by_slide = True,
                 expiration_duration = None,
                 gold_amount = 1.337,
                 gold_per_minute_amount = 1.337,
                 health = 56,
+                heavy_melee_hit_count = 56,
+                heavy_melee_only = True,
                 id = 0,
                 initial_spawn_delay_in_seconds = 56,
                 initial_spawn_delay_seconds = 56,
@@ -95,7 +105,11 @@ class TestMiscEntity(unittest.TestCase):
                         time_min = 1.337, ), ),
                 orb_spawn_delay_max = 1.337,
                 orb_spawn_delay_min = 1.337,
+                pickup_chances = {
+                    'key' : 1.337
+                    },
                 pickup_radius = None,
+                powerup_drop_chance = 1.337,
                 primary_drop_chance = 1.337,
                 primary_pickups = [
                     deadlock_api_client.models.pickup.Pickup(

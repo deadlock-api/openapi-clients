@@ -65,6 +65,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => '\OpenAPI\Client\Model\SubclassBulletResistModifier',
         'barrack_boss_dps' => 'float',
         'barrack_guardian_damage_resist_pct' => 'float',
+        'boss_weapon_info' => '\OpenAPI\Client\Model\WeaponInfo',
         'bound_abilities' => 'array<string,string>',
         'class_name' => 'string',
         'empowered_modifier_level1' => '\OpenAPI\Client\Model\SubclassEmpoweredModifierLevel',
@@ -141,6 +142,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => null,
         'barrack_boss_dps' => 'double',
         'barrack_guardian_damage_resist_pct' => 'double',
+        'boss_weapon_info' => null,
         'bound_abilities' => null,
         'class_name' => null,
         'empowered_modifier_level1' => null,
@@ -215,6 +217,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => true,
         'barrack_boss_dps' => true,
         'barrack_guardian_damage_resist_pct' => true,
+        'boss_weapon_info' => true,
         'bound_abilities' => true,
         'class_name' => false,
         'empowered_modifier_level1' => true,
@@ -369,6 +372,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => 'backdoor_bullet_resist_modifier',
         'barrack_boss_dps' => 'barrack_boss_dps',
         'barrack_guardian_damage_resist_pct' => 'barrack_guardian_damage_resist_pct',
+        'boss_weapon_info' => 'boss_weapon_info',
         'bound_abilities' => 'bound_abilities',
         'class_name' => 'class_name',
         'empowered_modifier_level1' => 'empowered_modifier_level1',
@@ -443,6 +447,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => 'setBackdoorBulletResistModifier',
         'barrack_boss_dps' => 'setBarrackBossDps',
         'barrack_guardian_damage_resist_pct' => 'setBarrackGuardianDamageResistPct',
+        'boss_weapon_info' => 'setBossWeaponInfo',
         'bound_abilities' => 'setBoundAbilities',
         'class_name' => 'setClassName',
         'empowered_modifier_level1' => 'setEmpoweredModifierLevel1',
@@ -517,6 +522,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => 'getBackdoorBulletResistModifier',
         'barrack_boss_dps' => 'getBarrackBossDps',
         'barrack_guardian_damage_resist_pct' => 'getBarrackGuardianDamageResistPct',
+        'boss_weapon_info' => 'getBossWeaponInfo',
         'bound_abilities' => 'getBoundAbilities',
         'class_name' => 'getClassName',
         'empowered_modifier_level1' => 'getEmpoweredModifierLevel1',
@@ -642,6 +648,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('backdoor_bullet_resist_modifier', $data ?? [], null);
         $this->setIfExists('barrack_boss_dps', $data ?? [], null);
         $this->setIfExists('barrack_guardian_damage_resist_pct', $data ?? [], null);
+        $this->setIfExists('boss_weapon_info', $data ?? [], null);
         $this->setIfExists('bound_abilities', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('empowered_modifier_level1', $data ?? [], null);
@@ -1022,6 +1029,40 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['barrack_guardian_damage_resist_pct'] = $barrack_guardian_damage_resist_pct;
+
+        return $this;
+    }
+
+    /**
+     * Gets boss_weapon_info
+     *
+     * @return \OpenAPI\Client\Model\WeaponInfo|null
+     */
+    public function getBossWeaponInfo()
+    {
+        return $this->container['boss_weapon_info'];
+    }
+
+    /**
+     * Sets boss_weapon_info
+     *
+     * @param \OpenAPI\Client\Model\WeaponInfo|null $boss_weapon_info Secondary weapon the unit uses against bosses (builds 6711+).
+     *
+     * @return self
+     */
+    public function setBossWeaponInfo($boss_weapon_info)
+    {
+        if (is_null($boss_weapon_info)) {
+            array_push($this->openAPINullablesSetToNull, 'boss_weapon_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('boss_weapon_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['boss_weapon_info'] = $boss_weapon_info;
 
         return $this;
     }

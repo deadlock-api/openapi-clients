@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callback_url** | **str** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] 
 **cheats_enabled** | **bool** |  | [optional] 
+**corrupted_item_shop_spawn_minutes** | **int** | Minute of the match at which the Broker&#39;s corrupted item shop first spawns. | [optional] 
 **disable_auto_ready** | **bool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] 
 **duplicate_heroes_enabled** | **bool** |  | [optional] 
 **game_mode** | [**GameMode**](GameMode.md) |  | [optional] 

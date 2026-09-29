@@ -9,11 +9,11 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getGenericData"></a>
 # **getGenericData**
-> GenericData getGenericData(clientVersion)
+> GenericData getGenericData(language, clientVersion)
 
 Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
 
 ### Example
 ```kotlin
@@ -22,9 +22,10 @@ Returns the game-wide generic configuration (street brawl, lane info, glitch set
 //import deadlock_api_client.models.*
 
 val apiInstance = GenericDataApi()
+val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
 val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
-    val result : GenericData = apiInstance.getGenericData(clientVersion)
+    val result : GenericData = apiInstance.getGenericData(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling GenericDataApi#getGenericData")
@@ -38,6 +39,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type

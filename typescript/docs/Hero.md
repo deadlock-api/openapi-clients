@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**assigned_players_only** | **boolean** |  | [default to undefined]
+**assigned_players_only** | **boolean** | &#x60;m_bAssignedPlayersOnly&#x60; was removed in build 6711; always &#x60;false&#x60; since. | [default to undefined]
 **class_name** | **string** |  | [default to undefined]
 **colors** | [**HeroColors**](HeroColors.md) |  | [default to undefined]
 **complexity** | **number** |  | [default to undefined]
 **cost_bonuses** | **{ [key: string]: Array&lt;HashMapItemSlotTypeVecMapModCostBonusValueInner&gt;; }** |  | [optional] [default to undefined]
 **description** | [**HeroDescription**](HeroDescription.md) |  | [default to undefined]
+**development_state** | [**HeroDevelopmentState**](HeroDevelopmentState.md) | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don\&#39;t declare one. | [optional] [default to undefined]
 **disabled** | **boolean** |  | [default to undefined]
 **gun_tag** | **string** |  | [optional] [default to undefined]
 **hero_stats_ui** | [**HeroStatsUI**](HeroStatsUI.md) |  | [default to undefined]
@@ -28,9 +29,9 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to undefined]
 **needs_testing** | **boolean** |  | [default to undefined]
 **physics** | [**HeroPhysics**](HeroPhysics.md) |  | [default to undefined]
-**player_selectable** | **boolean** |  | [default to undefined]
-**prerelease_only** | **boolean** |  | [optional] [default to undefined]
-**purchase_bonuses** | **{ [key: string]: Array&lt;HashMapItemSlotTypeVecPurchaseBonusValueInner&gt;; }** |  | [default to undefined]
+**player_selectable** | **boolean** | Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;. | [default to undefined]
+**prerelease_only** | **boolean** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] [default to undefined]
+**purchase_bonuses** | **{ [key: string]: Array&lt;HashMapItemSlotTypeVecPurchaseBonusValueInner&gt;; }** | Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds. | [default to undefined]
 **scaling_stats** | [**{ [key: string]: HashMapStringScalingStatValue; }**](HashMapStringScalingStatValue.md) |  | [default to undefined]
 **shop_stat_display** | [**ShopStatDisplay**](ShopStatDisplay.md) |  | [default to undefined]
 **skin** | **number** |  | [default to undefined]
@@ -51,6 +52,7 @@ const instance: Hero = {
     complexity,
     cost_bonuses,
     description,
+    development_state,
     disabled,
     gun_tag,
     hero_stats_ui,

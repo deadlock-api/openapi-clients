@@ -17,6 +17,7 @@ export declare const AbilityType: {
     readonly Weapon: "weapon";
     readonly Melee: "melee";
     readonly Cosmetic: "cosmetic";
+    readonly Held: "held";
 };
 export type AbilityType = typeof AbilityType[keyof typeof AbilityType];
 //# sourceMappingURL=ability-type.d.ts.map

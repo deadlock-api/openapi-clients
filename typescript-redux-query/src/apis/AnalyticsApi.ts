@@ -98,6 +98,8 @@ export interface AbilityOrderStatsRequest {
     accountIds?: Array<number>;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
 }
 
 export interface BadgeDistributionRequest {
@@ -137,6 +139,8 @@ export interface GameStatsRequest {
     heroIds?: Array<number>;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     accountIds?: Array<number>;
 }
 
@@ -168,6 +172,8 @@ export interface HeroBuildStatsRequest {
     minMatches?: number;
     accountId?: number;
     accountIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
 }
 
 export interface HeroCombStatsRequest {
@@ -256,6 +262,8 @@ export interface HeroStatsRequest {
     maxHeroMatchesTotal?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     accountId?: number;
     accountIds?: Array<number>;
 }
@@ -300,6 +308,8 @@ export interface ItemFlowStatsRequest {
     accountIds?: Array<number>;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     lockedItemIds?: Array<number>;
     lockedColumns?: Array<number>;
 }
@@ -325,6 +335,8 @@ export interface ItemPermutationStatsRequest {
     maxMatchId?: number;
     accountId?: number;
     accountIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
 }
 
 export interface ItemStatsRequest {
@@ -350,6 +362,8 @@ export interface ItemStatsRequest {
     maxMatchId?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     minMatches?: number;
     maxMatches?: number;
     accountId?: number;
@@ -448,6 +462,8 @@ export interface PlayerPerformanceCurveRequest {
     heroIds?: string;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     accountIds?: Array<number>;
 }
 
@@ -491,6 +507,8 @@ export interface PlayerStatsMetricsRequest {
     maxMatches?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
     accountIds?: Array<number>;
 }
 
@@ -606,6 +624,16 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 
     if (requestParameters.excludeItemIds) {
         queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -894,6 +922,16 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
     }
 
 
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+    }
+
+
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
     }
@@ -1105,6 +1143,16 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -1672,6 +1720,16 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
     }
 
 
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+    }
+
+
     if (requestParameters.accountId !== undefined) {
         queryParameters['account_id'] = requestParameters.accountId;
     }
@@ -1952,6 +2010,16 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
     }
 
 
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+    }
+
+
     if (requestParameters.lockedItemIds) {
         queryParameters['locked_item_ids'] = requestParameters.lockedItemIds;
     }
@@ -2104,6 +2172,16 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -2259,6 +2337,16 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.excludeItemIds) {
         queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
     }
 
 
@@ -2872,6 +2960,16 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
     }
 
 
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+    }
+
+
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
     }
@@ -3148,6 +3246,16 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 
     if (requestParameters.excludeItemIds) {
         queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
     }
 
 

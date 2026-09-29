@@ -37,6 +37,7 @@ namespace DeadlockApiClient.Model
         /// <param name="buildUpRate">buildUpRate</param>
         /// <param name="bulletDamage">bulletDamage</param>
         /// <param name="bulletGravityScale">bulletGravityScale</param>
+        /// <param name="bulletHandlerType">bulletHandlerType</param>
         /// <param name="bulletInheritShooterVelocityScale">bulletInheritShooterVelocityScale</param>
         /// <param name="bulletLifetime">bulletLifetime</param>
         /// <param name="bulletRadius">bulletRadius</param>
@@ -80,6 +81,7 @@ namespace DeadlockApiClient.Model
         /// <param name="recoilSeed">recoilSeed</param>
         /// <param name="recoilShotIndexRecoveryTimeFactor">recoilShotIndexRecoveryTimeFactor</param>
         /// <param name="recoilSpeed">recoilSpeed</param>
+        /// <param name="recycleTime">recycleTime</param>
         /// <param name="reloadDuration">reloadDuration</param>
         /// <param name="reloadMoveSpeed">reloadMoveSpeed</param>
         /// <param name="reloadSingleBullets">reloadSingleBullets</param>
@@ -105,12 +107,13 @@ namespace DeadlockApiClient.Model
         /// <param name="zoomFov">zoomFov</param>
         /// <param name="zoomMoveSpeedPercent">zoomMoveSpeedPercent</param>
         [JsonConstructor]
-        public WeaponInfo(Option<Object?> aimingShotSpreadPenalty = default, Option<double?> buildUpRate = default, Option<double?> bulletDamage = default, Option<double?> bulletGravityScale = default, Option<double?> bulletInheritShooterVelocityScale = default, Option<double?> bulletLifetime = default, Option<double?> bulletRadius = default, Option<double?> bulletRadiusVsWorld = default, Option<double?> bulletReflectAmount = default, Option<double?> bulletReflectScale = default, Option<double?> bulletSpeed = default, Option<RawItemWeaponInfoBulletSpeedCurve?> bulletSpeedCurve = default, Option<double?> bulletWhizDistance = default, Option<int?> bullets = default, Option<double?> bulletsPerSecond = default, Option<double?> bulletsPerSecondWithReload = default, Option<double?> burstShotCooldown = default, Option<int?> burstShotCount = default, Option<bool?> canZoom = default, Option<int?> clipSize = default, Option<double?> critBonusAgainstNpcs = default, Option<double?> critBonusEnd = default, Option<double?> critBonusEndRange = default, Option<double?> critBonusStart = default, Option<double?> critBonusStartRange = default, Option<double?> cycleTime = default, Option<double?> damageFalloffBias = default, Option<double?> damageFalloffEndRange = default, Option<double?> damageFalloffEndScale = default, Option<double?> damageFalloffStartRange = default, Option<double?> damageFalloffStartScale = default, Option<double?> damagePerMagazine = default, Option<double?> damagePerSecond = default, Option<double?> damagePerSecondWithReload = default, Option<double?> damagePerShot = default, Option<double?> horizontalPunch = default, Option<RawWeaponInfoHorizontalRecoil?> horizontalRecoil = default, Option<double?> intraBurstCycleTime = default, Option<bool?> isSemiAuto = default, Option<double?> lowAmmoIndicatorThreshold = default, Option<double?> maxSpinCycleTime = default, Option<double?> range = default, Option<double?> recoilRecoveryDelayFactor = default, Option<double?> recoilRecoverySpeed = default, Option<double?> recoilSeed = default, Option<double?> recoilShotIndexRecoveryTimeFactor = default, Option<double?> recoilSpeed = default, Option<double?> reloadDuration = default, Option<double?> reloadMoveSpeed = default, Option<bool?> reloadSingleBullets = default, Option<bool?> reloadSingleBulletsAllowCancel = default, Option<double?> reloadSingleBulletsInitialDelay = default, Option<double?> scatterYawScale = default, Option<double?> semiAutoCycleRate = default, Option<double?> shootMoveSpeedPercent = default, Option<double?> shootSpreadPenaltyDecay = default, Option<double?> shootSpreadPenaltyDecayDelay = default, Option<double?> shootSpreadPenaltyPerShot = default, Option<double?> shootingUpSpreadPenalty = default, Option<double?> shotsPerSecond = default, Option<double?> shotsPerSecondWithReload = default, Option<double?> spinDecayRate = default, Option<double?> spinIncreaseRate = default, Option<bool?> spinsUp = default, Option<double?> spread = default, Option<Object?> standingShotSpreadPenalty = default, Option<double?> standingSpread = default, Option<double?> verticalPunch = default, Option<RawWeaponInfoVerticalRecoil?> verticalRecoil = default, Option<double?> zoomFov = default, Option<double?> zoomMoveSpeedPercent = default)
+        public WeaponInfo(Option<Object?> aimingShotSpreadPenalty = default, Option<double?> buildUpRate = default, Option<double?> bulletDamage = default, Option<double?> bulletGravityScale = default, Option<string?> bulletHandlerType = default, Option<double?> bulletInheritShooterVelocityScale = default, Option<double?> bulletLifetime = default, Option<double?> bulletRadius = default, Option<double?> bulletRadiusVsWorld = default, Option<double?> bulletReflectAmount = default, Option<double?> bulletReflectScale = default, Option<double?> bulletSpeed = default, Option<RawItemWeaponInfoBulletSpeedCurve?> bulletSpeedCurve = default, Option<double?> bulletWhizDistance = default, Option<int?> bullets = default, Option<double?> bulletsPerSecond = default, Option<double?> bulletsPerSecondWithReload = default, Option<double?> burstShotCooldown = default, Option<int?> burstShotCount = default, Option<bool?> canZoom = default, Option<int?> clipSize = default, Option<double?> critBonusAgainstNpcs = default, Option<double?> critBonusEnd = default, Option<double?> critBonusEndRange = default, Option<double?> critBonusStart = default, Option<double?> critBonusStartRange = default, Option<double?> cycleTime = default, Option<double?> damageFalloffBias = default, Option<double?> damageFalloffEndRange = default, Option<double?> damageFalloffEndScale = default, Option<double?> damageFalloffStartRange = default, Option<double?> damageFalloffStartScale = default, Option<double?> damagePerMagazine = default, Option<double?> damagePerSecond = default, Option<double?> damagePerSecondWithReload = default, Option<double?> damagePerShot = default, Option<double?> horizontalPunch = default, Option<RawWeaponInfoHorizontalRecoil?> horizontalRecoil = default, Option<double?> intraBurstCycleTime = default, Option<bool?> isSemiAuto = default, Option<double?> lowAmmoIndicatorThreshold = default, Option<double?> maxSpinCycleTime = default, Option<double?> range = default, Option<double?> recoilRecoveryDelayFactor = default, Option<double?> recoilRecoverySpeed = default, Option<double?> recoilSeed = default, Option<double?> recoilShotIndexRecoveryTimeFactor = default, Option<double?> recoilSpeed = default, Option<double?> recycleTime = default, Option<double?> reloadDuration = default, Option<double?> reloadMoveSpeed = default, Option<bool?> reloadSingleBullets = default, Option<bool?> reloadSingleBulletsAllowCancel = default, Option<double?> reloadSingleBulletsInitialDelay = default, Option<double?> scatterYawScale = default, Option<double?> semiAutoCycleRate = default, Option<double?> shootMoveSpeedPercent = default, Option<double?> shootSpreadPenaltyDecay = default, Option<double?> shootSpreadPenaltyDecayDelay = default, Option<double?> shootSpreadPenaltyPerShot = default, Option<double?> shootingUpSpreadPenalty = default, Option<double?> shotsPerSecond = default, Option<double?> shotsPerSecondWithReload = default, Option<double?> spinDecayRate = default, Option<double?> spinIncreaseRate = default, Option<bool?> spinsUp = default, Option<double?> spread = default, Option<Object?> standingShotSpreadPenalty = default, Option<double?> standingSpread = default, Option<double?> verticalPunch = default, Option<RawWeaponInfoVerticalRecoil?> verticalRecoil = default, Option<double?> zoomFov = default, Option<double?> zoomMoveSpeedPercent = default)
         {
             AimingShotSpreadPenaltyOption = aimingShotSpreadPenalty;
             BuildUpRateOption = buildUpRate;
             BulletDamageOption = bulletDamage;
             BulletGravityScaleOption = bulletGravityScale;
+            BulletHandlerTypeOption = bulletHandlerType;
             BulletInheritShooterVelocityScaleOption = bulletInheritShooterVelocityScale;
             BulletLifetimeOption = bulletLifetime;
             BulletRadiusOption = bulletRadius;
@@ -154,6 +157,7 @@ namespace DeadlockApiClient.Model
             RecoilSeedOption = recoilSeed;
             RecoilShotIndexRecoveryTimeFactorOption = recoilShotIndexRecoveryTimeFactor;
             RecoilSpeedOption = recoilSpeed;
+            RecycleTimeOption = recycleTime;
             ReloadDurationOption = reloadDuration;
             ReloadMoveSpeedOption = reloadMoveSpeed;
             ReloadSingleBulletsOption = reloadSingleBullets;
@@ -234,6 +238,19 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("bullet_gravity_scale")]
         public double? BulletGravityScale { get { return this.BulletGravityScaleOption.Value; } set { this.BulletGravityScaleOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BulletHandlerType
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BulletHandlerTypeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets BulletHandlerType
+        /// </summary>
+        [JsonPropertyName("bullet_handler_type")]
+        public string? BulletHandlerType { get { return this.BulletHandlerTypeOption.Value; } set { this.BulletHandlerTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BulletInheritShooterVelocityScale
@@ -795,6 +812,19 @@ namespace DeadlockApiClient.Model
         public double? RecoilSpeed { get { return this.RecoilSpeedOption.Value; } set { this.RecoilSpeedOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of RecycleTime
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> RecycleTimeOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets RecycleTime
+        /// </summary>
+        [JsonPropertyName("recycle_time")]
+        public double? RecycleTime { get { return this.RecycleTimeOption.Value; } set { this.RecycleTimeOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of ReloadDuration
         /// </summary>
         [JsonIgnore]
@@ -1118,6 +1148,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  BuildUpRate: ").Append(BuildUpRate).Append("\n");
             sb.Append("  BulletDamage: ").Append(BulletDamage).Append("\n");
             sb.Append("  BulletGravityScale: ").Append(BulletGravityScale).Append("\n");
+            sb.Append("  BulletHandlerType: ").Append(BulletHandlerType).Append("\n");
             sb.Append("  BulletInheritShooterVelocityScale: ").Append(BulletInheritShooterVelocityScale).Append("\n");
             sb.Append("  BulletLifetime: ").Append(BulletLifetime).Append("\n");
             sb.Append("  BulletRadius: ").Append(BulletRadius).Append("\n");
@@ -1161,6 +1192,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  RecoilSeed: ").Append(RecoilSeed).Append("\n");
             sb.Append("  RecoilShotIndexRecoveryTimeFactor: ").Append(RecoilShotIndexRecoveryTimeFactor).Append("\n");
             sb.Append("  RecoilSpeed: ").Append(RecoilSpeed).Append("\n");
+            sb.Append("  RecycleTime: ").Append(RecycleTime).Append("\n");
             sb.Append("  ReloadDuration: ").Append(ReloadDuration).Append("\n");
             sb.Append("  ReloadMoveSpeed: ").Append(ReloadMoveSpeed).Append("\n");
             sb.Append("  ReloadSingleBullets: ").Append(ReloadSingleBullets).Append("\n");
@@ -1254,6 +1286,7 @@ namespace DeadlockApiClient.Model
             Option<double?> buildUpRate = default;
             Option<double?> bulletDamage = default;
             Option<double?> bulletGravityScale = default;
+            Option<string?> bulletHandlerType = default;
             Option<double?> bulletInheritShooterVelocityScale = default;
             Option<double?> bulletLifetime = default;
             Option<double?> bulletRadius = default;
@@ -1297,6 +1330,7 @@ namespace DeadlockApiClient.Model
             Option<double?> recoilSeed = default;
             Option<double?> recoilShotIndexRecoveryTimeFactor = default;
             Option<double?> recoilSpeed = default;
+            Option<double?> recycleTime = default;
             Option<double?> reloadDuration = default;
             Option<double?> reloadMoveSpeed = default;
             Option<bool?> reloadSingleBullets = default;
@@ -1348,6 +1382,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "bullet_gravity_scale":
                             bulletGravityScale = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "bullet_handler_type":
+                            bulletHandlerType = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "bullet_inherit_shooter_velocity_scale":
                             bulletInheritShooterVelocityScale = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -1478,6 +1515,9 @@ namespace DeadlockApiClient.Model
                         case "recoil_speed":
                             recoilSpeed = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "recycle_time":
+                            recycleTime = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "reload_duration":
                             reloadDuration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -1556,7 +1596,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new WeaponInfo(aimingShotSpreadPenalty, buildUpRate, bulletDamage, bulletGravityScale, bulletInheritShooterVelocityScale, bulletLifetime, bulletRadius, bulletRadiusVsWorld, bulletReflectAmount, bulletReflectScale, bulletSpeed, bulletSpeedCurve, bulletWhizDistance, bullets, bulletsPerSecond, bulletsPerSecondWithReload, burstShotCooldown, burstShotCount, canZoom, clipSize, critBonusAgainstNpcs, critBonusEnd, critBonusEndRange, critBonusStart, critBonusStartRange, cycleTime, damageFalloffBias, damageFalloffEndRange, damageFalloffEndScale, damageFalloffStartRange, damageFalloffStartScale, damagePerMagazine, damagePerSecond, damagePerSecondWithReload, damagePerShot, horizontalPunch, horizontalRecoil, intraBurstCycleTime, isSemiAuto, lowAmmoIndicatorThreshold, maxSpinCycleTime, range, recoilRecoveryDelayFactor, recoilRecoverySpeed, recoilSeed, recoilShotIndexRecoveryTimeFactor, recoilSpeed, reloadDuration, reloadMoveSpeed, reloadSingleBullets, reloadSingleBulletsAllowCancel, reloadSingleBulletsInitialDelay, scatterYawScale, semiAutoCycleRate, shootMoveSpeedPercent, shootSpreadPenaltyDecay, shootSpreadPenaltyDecayDelay, shootSpreadPenaltyPerShot, shootingUpSpreadPenalty, shotsPerSecond, shotsPerSecondWithReload, spinDecayRate, spinIncreaseRate, spinsUp, spread, standingShotSpreadPenalty, standingSpread, verticalPunch, verticalRecoil, zoomFov, zoomMoveSpeedPercent);
+            return new WeaponInfo(aimingShotSpreadPenalty, buildUpRate, bulletDamage, bulletGravityScale, bulletHandlerType, bulletInheritShooterVelocityScale, bulletLifetime, bulletRadius, bulletRadiusVsWorld, bulletReflectAmount, bulletReflectScale, bulletSpeed, bulletSpeedCurve, bulletWhizDistance, bullets, bulletsPerSecond, bulletsPerSecondWithReload, burstShotCooldown, burstShotCount, canZoom, clipSize, critBonusAgainstNpcs, critBonusEnd, critBonusEndRange, critBonusStart, critBonusStartRange, cycleTime, damageFalloffBias, damageFalloffEndRange, damageFalloffEndScale, damageFalloffStartRange, damageFalloffStartScale, damagePerMagazine, damagePerSecond, damagePerSecondWithReload, damagePerShot, horizontalPunch, horizontalRecoil, intraBurstCycleTime, isSemiAuto, lowAmmoIndicatorThreshold, maxSpinCycleTime, range, recoilRecoveryDelayFactor, recoilRecoverySpeed, recoilSeed, recoilShotIndexRecoveryTimeFactor, recoilSpeed, recycleTime, reloadDuration, reloadMoveSpeed, reloadSingleBullets, reloadSingleBulletsAllowCancel, reloadSingleBulletsInitialDelay, scatterYawScale, semiAutoCycleRate, shootMoveSpeedPercent, shootSpreadPenaltyDecay, shootSpreadPenaltyDecayDelay, shootSpreadPenaltyPerShot, shootingUpSpreadPenalty, shotsPerSecond, shotsPerSecondWithReload, spinDecayRate, spinIncreaseRate, spinsUp, spread, standingShotSpreadPenalty, standingSpread, verticalPunch, verticalRecoil, zoomFov, zoomMoveSpeedPercent);
         }
 
         /// <summary>
@@ -1608,6 +1648,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("bullet_gravity_scale", weaponInfo.BulletGravityScaleOption.Value!.Value);
                 else
                     writer.WriteNull("bullet_gravity_scale");
+
+            if (weaponInfo.BulletHandlerTypeOption.IsSet)
+                if (weaponInfo.BulletHandlerTypeOption.Value != null)
+                    writer.WriteString("bullet_handler_type", weaponInfo.BulletHandlerType);
+                else
+                    writer.WriteNull("bullet_handler_type");
 
             if (weaponInfo.BulletInheritShooterVelocityScaleOption.IsSet)
                 if (weaponInfo.BulletInheritShooterVelocityScaleOption.Value != null)
@@ -1870,6 +1916,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("recoil_speed", weaponInfo.RecoilSpeedOption.Value!.Value);
                 else
                     writer.WriteNull("recoil_speed");
+
+            if (weaponInfo.RecycleTimeOption.IsSet)
+                if (weaponInfo.RecycleTimeOption.Value != null)
+                    writer.WriteNumber("recycle_time", weaponInfo.RecycleTimeOption.Value!.Value);
+                else
+                    writer.WriteNull("recycle_time");
 
             if (weaponInfo.ReloadDurationOption.IsSet)
                 if (weaponInfo.ReloadDurationOption.Value != null)

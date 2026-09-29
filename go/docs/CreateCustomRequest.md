@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CallbackUrl** | Pointer to **NullableString** | If a callback url is provided, we will send a POST request to this url when the match starts. | [optional] 
 **CheatsEnabled** | Pointer to **NullableBool** |  | [optional] 
+**CorruptedItemShopSpawnMinutes** | Pointer to **NullableInt32** | Minute of the match at which the Broker&#39;s corrupted item shop first spawns. | [optional] 
 **DisableAutoReady** | Pointer to **NullableBool** | If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up. | [optional] 
 **DuplicateHeroesEnabled** | Pointer to **NullableBool** |  | [optional] 
 **GameMode** | Pointer to [**NullableGameMode**](GameMode.md) |  | [optional] 
@@ -103,6 +104,41 @@ HasCheatsEnabled returns a boolean if a field has been set.
 `func (o *CreateCustomRequest) UnsetCheatsEnabled()`
 
 UnsetCheatsEnabled ensures that no value is present for CheatsEnabled, not even an explicit nil
+### GetCorruptedItemShopSpawnMinutes
+
+`func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutes() int32`
+
+GetCorruptedItemShopSpawnMinutes returns the CorruptedItemShopSpawnMinutes field if non-nil, zero value otherwise.
+
+### GetCorruptedItemShopSpawnMinutesOk
+
+`func (o *CreateCustomRequest) GetCorruptedItemShopSpawnMinutesOk() (*int32, bool)`
+
+GetCorruptedItemShopSpawnMinutesOk returns a tuple with the CorruptedItemShopSpawnMinutes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptedItemShopSpawnMinutes
+
+`func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutes(v int32)`
+
+SetCorruptedItemShopSpawnMinutes sets CorruptedItemShopSpawnMinutes field to given value.
+
+### HasCorruptedItemShopSpawnMinutes
+
+`func (o *CreateCustomRequest) HasCorruptedItemShopSpawnMinutes() bool`
+
+HasCorruptedItemShopSpawnMinutes returns a boolean if a field has been set.
+
+### SetCorruptedItemShopSpawnMinutesNil
+
+`func (o *CreateCustomRequest) SetCorruptedItemShopSpawnMinutesNil(b bool)`
+
+ SetCorruptedItemShopSpawnMinutesNil sets the value for CorruptedItemShopSpawnMinutes to be an explicit nil
+
+### UnsetCorruptedItemShopSpawnMinutes
+`func (o *CreateCustomRequest) UnsetCorruptedItemShopSpawnMinutes()`
+
+UnsetCorruptedItemShopSpawnMinutes ensures that no value is present for CorruptedItemShopSpawnMinutes, not even an explicit nil
 ### GetDisableAutoReady
 
 `func (o *CreateCustomRequest) GetDisableAutoReady() bool`

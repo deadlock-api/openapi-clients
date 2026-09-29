@@ -13,7 +13,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 List Loot Tables
 
-Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.
+Returns the per-table loot definitions used by the game client, parsed from the patch&#39;s KV3 source files. Keyed by table &#x60;class_name&#x60;.  **Deprecated:** the game dropped &#x60;loot_tables.vdata&#x60; in build 6711 (\&quot;City Never Sleeps\&quot;); for those and later versions this endpoint returns 404.
 
 ### Example
 ```kotlin

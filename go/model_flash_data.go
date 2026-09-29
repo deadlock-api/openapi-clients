@@ -21,12 +21,17 @@ var _ MappedNullable = &FlashData{}
 
 // FlashData struct for FlashData
 type FlashData struct {
-	Brightness float64 `json:"brightness"`
+	Brightness NullableFloat64 `json:"brightness,omitempty"`
 	BrightnessInLightSensitivityMode NullableFloat64 `json:"brightness_in_light_sensitivity_mode,omitempty"`
+	// Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
 	Color Color `json:"color"`
-	Coverage float64 `json:"coverage"`
+	// Color gradient over the flash's lifetime (build 6711+).
+	ColorGradient []ColorGradientStop `json:"color_gradient,omitempty"`
+	// Only present up to build 6701.
+	Coverage NullableFloat64 `json:"coverage,omitempty"`
 	Duration float64 `json:"duration"`
-	Hardness float64 `json:"hardness"`
+	// Only present up to build 6701.
+	Hardness NullableFloat64 `json:"hardness,omitempty"`
 }
 
 type _FlashData FlashData
@@ -35,13 +40,10 @@ type _FlashData FlashData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewFlashData(brightness float64, color Color, coverage float64, duration float64, hardness float64) *FlashData {
+func NewFlashData(color Color, duration float64) *FlashData {
 	this := FlashData{}
-	this.Brightness = brightness
 	this.Color = color
-	this.Coverage = coverage
 	this.Duration = duration
-	this.Hardness = hardness
 	return &this
 }
 
@@ -53,28 +55,46 @@ func NewFlashDataWithDefaults() *FlashData {
 	return &this
 }
 
-// GetBrightness returns the Brightness field value
+// GetBrightness returns the Brightness field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FlashData) GetBrightness() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Brightness.Get()) {
 		var ret float64
 		return ret
 	}
-
-	return o.Brightness
+	return *o.Brightness.Get()
 }
 
-// GetBrightnessOk returns a tuple with the Brightness field value
+// GetBrightnessOk returns a tuple with the Brightness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FlashData) GetBrightnessOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Brightness, true
+	return o.Brightness.Get(), o.Brightness.IsSet()
 }
 
-// SetBrightness sets field value
+// HasBrightness returns a boolean if a field has been set.
+func (o *FlashData) HasBrightness() bool {
+	if o != nil && o.Brightness.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBrightness gets a reference to the given NullableFloat64 and assigns it to the Brightness field.
 func (o *FlashData) SetBrightness(v float64) {
-	o.Brightness = v
+	o.Brightness.Set(&v)
+}
+// SetBrightnessNil sets the value for Brightness to be an explicit nil
+func (o *FlashData) SetBrightnessNil() {
+	o.Brightness.Set(nil)
+}
+
+// UnsetBrightness ensures that no value is present for Brightness, not even an explicit nil
+func (o *FlashData) UnsetBrightness() {
+	o.Brightness.Unset()
 }
 
 // GetBrightnessInLightSensitivityMode returns the BrightnessInLightSensitivityMode field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -143,28 +163,79 @@ func (o *FlashData) SetColor(v Color) {
 	o.Color = v
 }
 
-// GetCoverage returns the Coverage field value
-func (o *FlashData) GetCoverage() float64 {
+// GetColorGradient returns the ColorGradient field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FlashData) GetColorGradient() []ColorGradientStop {
 	if o == nil {
+		var ret []ColorGradientStop
+		return ret
+	}
+	return o.ColorGradient
+}
+
+// GetColorGradientOk returns a tuple with the ColorGradient field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *FlashData) GetColorGradientOk() ([]ColorGradientStop, bool) {
+	if o == nil || IsNil(o.ColorGradient) {
+		return nil, false
+	}
+	return o.ColorGradient, true
+}
+
+// HasColorGradient returns a boolean if a field has been set.
+func (o *FlashData) HasColorGradient() bool {
+	if o != nil && !IsNil(o.ColorGradient) {
+		return true
+	}
+
+	return false
+}
+
+// SetColorGradient gets a reference to the given []ColorGradientStop and assigns it to the ColorGradient field.
+func (o *FlashData) SetColorGradient(v []ColorGradientStop) {
+	o.ColorGradient = v
+}
+
+// GetCoverage returns the Coverage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *FlashData) GetCoverage() float64 {
+	if o == nil || IsNil(o.Coverage.Get()) {
 		var ret float64
 		return ret
 	}
-
-	return o.Coverage
+	return *o.Coverage.Get()
 }
 
-// GetCoverageOk returns a tuple with the Coverage field value
+// GetCoverageOk returns a tuple with the Coverage field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FlashData) GetCoverageOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Coverage, true
+	return o.Coverage.Get(), o.Coverage.IsSet()
 }
 
-// SetCoverage sets field value
+// HasCoverage returns a boolean if a field has been set.
+func (o *FlashData) HasCoverage() bool {
+	if o != nil && o.Coverage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCoverage gets a reference to the given NullableFloat64 and assigns it to the Coverage field.
 func (o *FlashData) SetCoverage(v float64) {
-	o.Coverage = v
+	o.Coverage.Set(&v)
+}
+// SetCoverageNil sets the value for Coverage to be an explicit nil
+func (o *FlashData) SetCoverageNil() {
+	o.Coverage.Set(nil)
+}
+
+// UnsetCoverage ensures that no value is present for Coverage, not even an explicit nil
+func (o *FlashData) UnsetCoverage() {
+	o.Coverage.Unset()
 }
 
 // GetDuration returns the Duration field value
@@ -191,28 +262,46 @@ func (o *FlashData) SetDuration(v float64) {
 	o.Duration = v
 }
 
-// GetHardness returns the Hardness field value
+// GetHardness returns the Hardness field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *FlashData) GetHardness() float64 {
-	if o == nil {
+	if o == nil || IsNil(o.Hardness.Get()) {
 		var ret float64
 		return ret
 	}
-
-	return o.Hardness
+	return *o.Hardness.Get()
 }
 
-// GetHardnessOk returns a tuple with the Hardness field value
+// GetHardnessOk returns a tuple with the Hardness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *FlashData) GetHardnessOk() (*float64, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Hardness, true
+	return o.Hardness.Get(), o.Hardness.IsSet()
 }
 
-// SetHardness sets field value
+// HasHardness returns a boolean if a field has been set.
+func (o *FlashData) HasHardness() bool {
+	if o != nil && o.Hardness.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHardness gets a reference to the given NullableFloat64 and assigns it to the Hardness field.
 func (o *FlashData) SetHardness(v float64) {
-	o.Hardness = v
+	o.Hardness.Set(&v)
+}
+// SetHardnessNil sets the value for Hardness to be an explicit nil
+func (o *FlashData) SetHardnessNil() {
+	o.Hardness.Set(nil)
+}
+
+// UnsetHardness ensures that no value is present for Hardness, not even an explicit nil
+func (o *FlashData) UnsetHardness() {
+	o.Hardness.Unset()
 }
 
 func (o FlashData) MarshalJSON() ([]byte, error) {
@@ -225,14 +314,23 @@ func (o FlashData) MarshalJSON() ([]byte, error) {
 
 func (o FlashData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["brightness"] = o.Brightness
+	if o.Brightness.IsSet() {
+		toSerialize["brightness"] = o.Brightness.Get()
+	}
 	if o.BrightnessInLightSensitivityMode.IsSet() {
 		toSerialize["brightness_in_light_sensitivity_mode"] = o.BrightnessInLightSensitivityMode.Get()
 	}
 	toSerialize["color"] = o.Color
-	toSerialize["coverage"] = o.Coverage
+	if o.ColorGradient != nil {
+		toSerialize["color_gradient"] = o.ColorGradient
+	}
+	if o.Coverage.IsSet() {
+		toSerialize["coverage"] = o.Coverage.Get()
+	}
 	toSerialize["duration"] = o.Duration
-	toSerialize["hardness"] = o.Hardness
+	if o.Hardness.IsSet() {
+		toSerialize["hardness"] = o.Hardness.Get()
+	}
 	return toSerialize, nil
 }
 
@@ -241,11 +339,8 @@ func (o *FlashData) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"brightness",
 		"color",
-		"coverage",
 		"duration",
-		"hardness",
 	}
 
 	allProperties := make(map[string]interface{})

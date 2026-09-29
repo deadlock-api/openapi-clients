@@ -64,6 +64,30 @@ export interface GenericData  {
      */
     armorGroups: Array<ItemGroup>;
     /**
+     * Build 6711+.
+     * @type {Color}
+     * @memberof GenericData
+     */
+    colorEnemy?: Color;
+    /**
+     * Build 6711+.
+     * @type {Color}
+     * @memberof GenericData
+     */
+    colorFriend?: Color;
+    /**
+     * Build 6711+.
+     * @type {Color}
+     * @memberof GenericData
+     */
+    colorTeam1?: Color;
+    /**
+     * Build 6711+.
+     * @type {Color}
+     * @memberof GenericData
+     */
+    colorTeam2?: Color;
+    /**
      * 
      * @type {DamageFlash}
      * @memberof GenericData
@@ -183,6 +207,10 @@ export function GenericDataFromJSON(json: any): GenericData {
     return {
         'aimSpringStrength': json['aim_spring_strength'],
         'armorGroups': (json['armor_groups'] as Array<any>).map(ItemGroupFromJSON),
+        'colorEnemy': !exists(json, 'color_enemy') ? undefined : ColorFromJSON(json['color_enemy']),
+        'colorFriend': !exists(json, 'color_friend') ? undefined : ColorFromJSON(json['color_friend']),
+        'colorTeam1': !exists(json, 'color_team1') ? undefined : ColorFromJSON(json['color_team1']),
+        'colorTeam2': !exists(json, 'color_team2') ? undefined : ColorFromJSON(json['color_team2']),
         'damageFlash': DamageFlashFromJSON(json['damage_flash']),
         'enemyObjectivesAndZiplineColor': !exists(json, 'enemy_objectives_and_zipline_color') ? undefined : ColorFromJSON(json['enemy_objectives_and_zipline_color']),
         'enemyObjectivesColor': !exists(json, 'enemy_objectives_color') ? undefined : ColorFromJSON(json['enemy_objectives_color']),
@@ -212,6 +240,10 @@ export function GenericDataToJSON(value?: GenericData): any {
     return {
         'aim_spring_strength': value.aimSpringStrength,
         'armor_groups': (value.armorGroups as Array<any>).map(ItemGroupToJSON),
+        'color_enemy': ColorToJSON(value.colorEnemy),
+        'color_friend': ColorToJSON(value.colorFriend),
+        'color_team1': ColorToJSON(value.colorTeam1),
+        'color_team2': ColorToJSON(value.colorTeam2),
         'damage_flash': DamageFlashToJSON(value.damageFlash),
         'enemy_objectives_and_zipline_color': ColorToJSON(value.enemyObjectivesAndZiplineColor),
         'enemy_objectives_color': ColorToJSON(value.enemyObjectivesColor),

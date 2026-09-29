@@ -23,6 +23,14 @@ var _ MappedNullable = &GenericData{}
 type GenericData struct {
 	AimSpringStrength []float64 `json:"aim_spring_strength"`
 	ArmorGroups []ItemGroup `json:"armor_groups"`
+	// Build 6711+.
+	ColorEnemy NullableColor `json:"color_enemy,omitempty"`
+	// Build 6711+.
+	ColorFriend NullableColor `json:"color_friend,omitempty"`
+	// Build 6711+.
+	ColorTeam1 NullableColor `json:"color_team1,omitempty"`
+	// Build 6711+.
+	ColorTeam2 NullableColor `json:"color_team2,omitempty"`
 	DamageFlash DamageFlash `json:"damage_flash"`
 	EnemyObjectivesAndZiplineColor NullableColor `json:"enemy_objectives_and_zipline_color,omitempty"`
 	EnemyObjectivesColor NullableColor `json:"enemy_objectives_color,omitempty"`
@@ -124,6 +132,174 @@ func (o *GenericData) GetArmorGroupsOk() ([]ItemGroup, bool) {
 // SetArmorGroups sets field value
 func (o *GenericData) SetArmorGroups(v []ItemGroup) {
 	o.ArmorGroups = v
+}
+
+// GetColorEnemy returns the ColorEnemy field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetColorEnemy() Color {
+	if o == nil || IsNil(o.ColorEnemy.Get()) {
+		var ret Color
+		return ret
+	}
+	return *o.ColorEnemy.Get()
+}
+
+// GetColorEnemyOk returns a tuple with the ColorEnemy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetColorEnemyOk() (*Color, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ColorEnemy.Get(), o.ColorEnemy.IsSet()
+}
+
+// HasColorEnemy returns a boolean if a field has been set.
+func (o *GenericData) HasColorEnemy() bool {
+	if o != nil && o.ColorEnemy.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColorEnemy gets a reference to the given NullableColor and assigns it to the ColorEnemy field.
+func (o *GenericData) SetColorEnemy(v Color) {
+	o.ColorEnemy.Set(&v)
+}
+// SetColorEnemyNil sets the value for ColorEnemy to be an explicit nil
+func (o *GenericData) SetColorEnemyNil() {
+	o.ColorEnemy.Set(nil)
+}
+
+// UnsetColorEnemy ensures that no value is present for ColorEnemy, not even an explicit nil
+func (o *GenericData) UnsetColorEnemy() {
+	o.ColorEnemy.Unset()
+}
+
+// GetColorFriend returns the ColorFriend field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetColorFriend() Color {
+	if o == nil || IsNil(o.ColorFriend.Get()) {
+		var ret Color
+		return ret
+	}
+	return *o.ColorFriend.Get()
+}
+
+// GetColorFriendOk returns a tuple with the ColorFriend field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetColorFriendOk() (*Color, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ColorFriend.Get(), o.ColorFriend.IsSet()
+}
+
+// HasColorFriend returns a boolean if a field has been set.
+func (o *GenericData) HasColorFriend() bool {
+	if o != nil && o.ColorFriend.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColorFriend gets a reference to the given NullableColor and assigns it to the ColorFriend field.
+func (o *GenericData) SetColorFriend(v Color) {
+	o.ColorFriend.Set(&v)
+}
+// SetColorFriendNil sets the value for ColorFriend to be an explicit nil
+func (o *GenericData) SetColorFriendNil() {
+	o.ColorFriend.Set(nil)
+}
+
+// UnsetColorFriend ensures that no value is present for ColorFriend, not even an explicit nil
+func (o *GenericData) UnsetColorFriend() {
+	o.ColorFriend.Unset()
+}
+
+// GetColorTeam1 returns the ColorTeam1 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetColorTeam1() Color {
+	if o == nil || IsNil(o.ColorTeam1.Get()) {
+		var ret Color
+		return ret
+	}
+	return *o.ColorTeam1.Get()
+}
+
+// GetColorTeam1Ok returns a tuple with the ColorTeam1 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetColorTeam1Ok() (*Color, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ColorTeam1.Get(), o.ColorTeam1.IsSet()
+}
+
+// HasColorTeam1 returns a boolean if a field has been set.
+func (o *GenericData) HasColorTeam1() bool {
+	if o != nil && o.ColorTeam1.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColorTeam1 gets a reference to the given NullableColor and assigns it to the ColorTeam1 field.
+func (o *GenericData) SetColorTeam1(v Color) {
+	o.ColorTeam1.Set(&v)
+}
+// SetColorTeam1Nil sets the value for ColorTeam1 to be an explicit nil
+func (o *GenericData) SetColorTeam1Nil() {
+	o.ColorTeam1.Set(nil)
+}
+
+// UnsetColorTeam1 ensures that no value is present for ColorTeam1, not even an explicit nil
+func (o *GenericData) UnsetColorTeam1() {
+	o.ColorTeam1.Unset()
+}
+
+// GetColorTeam2 returns the ColorTeam2 field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetColorTeam2() Color {
+	if o == nil || IsNil(o.ColorTeam2.Get()) {
+		var ret Color
+		return ret
+	}
+	return *o.ColorTeam2.Get()
+}
+
+// GetColorTeam2Ok returns a tuple with the ColorTeam2 field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetColorTeam2Ok() (*Color, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ColorTeam2.Get(), o.ColorTeam2.IsSet()
+}
+
+// HasColorTeam2 returns a boolean if a field has been set.
+func (o *GenericData) HasColorTeam2() bool {
+	if o != nil && o.ColorTeam2.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetColorTeam2 gets a reference to the given NullableColor and assigns it to the ColorTeam2 field.
+func (o *GenericData) SetColorTeam2(v Color) {
+	o.ColorTeam2.Set(&v)
+}
+// SetColorTeam2Nil sets the value for ColorTeam2 to be an explicit nil
+func (o *GenericData) SetColorTeam2Nil() {
+	o.ColorTeam2.Set(nil)
+}
+
+// UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
+func (o *GenericData) UnsetColorTeam2() {
+	o.ColorTeam2.Unset()
 }
 
 // GetDamageFlash returns the DamageFlash field value
@@ -702,6 +878,18 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["aim_spring_strength"] = o.AimSpringStrength
 	toSerialize["armor_groups"] = o.ArmorGroups
+	if o.ColorEnemy.IsSet() {
+		toSerialize["color_enemy"] = o.ColorEnemy.Get()
+	}
+	if o.ColorFriend.IsSet() {
+		toSerialize["color_friend"] = o.ColorFriend.Get()
+	}
+	if o.ColorTeam1.IsSet() {
+		toSerialize["color_team1"] = o.ColorTeam1.Get()
+	}
+	if o.ColorTeam2.IsSet() {
+		toSerialize["color_team2"] = o.ColorTeam2.Get()
+	}
 	toSerialize["damage_flash"] = o.DamageFlash
 	if o.EnemyObjectivesAndZiplineColor.IsSet() {
 		toSerialize["enemy_objectives_and_zipline_color"] = o.EnemyObjectivesAndZiplineColor.Get()

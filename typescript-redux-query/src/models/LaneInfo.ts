@@ -25,11 +25,11 @@ import {
  */
 export interface LaneInfo  {
     /**
-     * 
+     * Absent for unused lane slots (build 6711+).
      * @type {Color}
      * @memberof LaneInfo
      */
-    color: Color;
+    color?: Color;
     /**
      * 
      * @type {string}
@@ -38,18 +38,30 @@ export interface LaneInfo  {
     cssClass?: string;
     /**
      * 
+     * @type {boolean}
+     * @memberof LaneInfo
+     */
+    isEnemyLane: boolean;
+    /**
+     * Localized lane name. Unused lane slots are named `Unused`.
      * @type {string}
      * @memberof LaneInfo
      */
     laneName: string;
     /**
-     * 
+     * Build 6711+.
+     * @type {Color}
+     * @memberof LaneInfo
+     */
+    minimapColor?: Color;
+    /**
+     * Only present up to build 6701.
      * @type {Color}
      * @memberof LaneInfo
      */
     minimapZiplineColorOverride?: Color;
     /**
-     * 
+     * Only present up to build 6701.
      * @type {Color}
      * @memberof LaneInfo
      */
@@ -58,9 +70,11 @@ export interface LaneInfo  {
 
 export function LaneInfoFromJSON(json: any): LaneInfo {
     return {
-        'color': ColorFromJSON(json['color']),
+        'color': !exists(json, 'color') ? undefined : ColorFromJSON(json['color']),
         'cssClass': !exists(json, 'css_class') ? undefined : json['css_class'],
+        'isEnemyLane': json['is_enemy_lane'],
         'laneName': json['lane_name'],
+        'minimapColor': !exists(json, 'minimap_color') ? undefined : ColorFromJSON(json['minimap_color']),
         'minimapZiplineColorOverride': !exists(json, 'minimap_zipline_color_override') ? undefined : ColorFromJSON(json['minimap_zipline_color_override']),
         'objectiveColor': !exists(json, 'objective_color') ? undefined : ColorFromJSON(json['objective_color']),
     };
@@ -73,7 +87,9 @@ export function LaneInfoToJSON(value?: LaneInfo): any {
     return {
         'color': ColorToJSON(value.color),
         'css_class': value.cssClass,
+        'is_enemy_lane': value.isEnemyLane,
         'lane_name': value.laneName,
+        'minimap_color': ColorToJSON(value.minimapColor),
         'minimap_zipline_color_override': ColorToJSON(value.minimapZiplineColorOverride),
         'objective_color': ColorToJSON(value.objectiveColor),
     };

@@ -31,6 +31,7 @@ import deadlock_api_client.models.HashMapStringOptionDraftBucketingValue
 import deadlock_api_client.models.HashMapStringScalingStatValue
 import deadlock_api_client.models.HeroColors
 import deadlock_api_client.models.HeroDescription
+import deadlock_api_client.models.HeroDevelopmentState
 import deadlock_api_client.models.HeroImages
 import deadlock_api_client.models.HeroPhysics
 import deadlock_api_client.models.HeroStatsUI
@@ -46,7 +47,7 @@ import java.io.Serializable
 /**
  * 
  *
- * @param assignedPlayersOnly 
+ * @param assignedPlayersOnly `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
  * @param className 
  * @param colors 
  * @param complexity 
@@ -63,8 +64,8 @@ import java.io.Serializable
  * @param name 
  * @param needsTesting 
  * @param physics 
- * @param playerSelectable 
- * @param purchaseBonuses 
+ * @param playerSelectable Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
+ * @param purchaseBonuses Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
  * @param scalingStats 
  * @param shopStatDisplay 
  * @param skin 
@@ -73,17 +74,19 @@ import java.io.Serializable
  * @param statsDisplay 
  * @param tags Always emitted (empty if the hero declares no `m_vecHeroTags`).
  * @param costBonuses 
+ * @param developmentState Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
  * @param gunTag 
  * @param heroType 
  * @param hideoutRichPresence 
  * @param itemDraftBucketing 
  * @param itemDraftWeights 
- * @param prereleaseOnly 
+ * @param prereleaseOnly Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
  */
 
 
 data class Hero (
 
+    /* `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since. */
     @Json(name = "assigned_players_only")
     val assignedPlayersOnly: kotlin.Boolean,
 
@@ -135,9 +138,11 @@ data class Hero (
     @Json(name = "physics")
     val physics: HeroPhysics,
 
+    /* Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`. */
     @Json(name = "player_selectable")
     val playerSelectable: kotlin.Boolean,
 
+    /* Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds. */
     @Json(name = "purchase_bonuses")
     val purchaseBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<HashMapItemSlotTypeVecPurchaseBonusValueInner>>,
 
@@ -166,6 +171,10 @@ data class Hero (
     @Json(name = "cost_bonuses")
     val costBonuses: kotlin.collections.Map<kotlin.String, kotlin.collections.List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>? = null,
 
+    /* Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one. */
+    @Json(name = "development_state")
+    val developmentState: HeroDevelopmentState? = null,
+
     @Json(name = "gun_tag")
     val gunTag: kotlin.String? = null,
 
@@ -181,6 +190,7 @@ data class Hero (
     @Json(name = "item_draft_weights")
     val itemDraftWeights: kotlin.collections.Map<kotlin.String, kotlin.Double>? = null,
 
+    /* Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`. */
     @Json(name = "prerelease_only")
     val prereleaseOnly: kotlin.Boolean? = null
 

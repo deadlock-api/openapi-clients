@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **HealingDamage** | [**FlashData**](FlashData.md) |  | 
 **MeleeDamage** | [**FlashData**](FlashData.md) |  | 
 **TechDamage** | [**FlashData**](FlashData.md) |  | 
+**GenericDamage** | [**FlashData**](FlashData.md) | Build 6711+. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

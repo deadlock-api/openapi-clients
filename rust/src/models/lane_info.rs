@@ -13,24 +13,35 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct LaneInfo {
-    #[serde(rename = "color")]
-    pub color: Box<models::Color>,
+    /// Absent for unused lane slots (build 6711+).
+    #[serde(rename = "color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub color: Option<Option<Box<models::Color>>>,
     #[serde(rename = "css_class", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub css_class: Option<Option<String>>,
+    #[serde(rename = "is_enemy_lane")]
+    pub is_enemy_lane: bool,
+    /// Localized lane name. Unused lane slots are named `Unused`.
     #[serde(rename = "lane_name")]
     pub lane_name: String,
+    /// Build 6711+.
+    #[serde(rename = "minimap_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub minimap_color: Option<Option<Box<models::Color>>>,
+    /// Only present up to build 6701.
     #[serde(rename = "minimap_zipline_color_override", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub minimap_zipline_color_override: Option<Option<Box<models::Color>>>,
+    /// Only present up to build 6701.
     #[serde(rename = "objective_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub objective_color: Option<Option<Box<models::Color>>>,
 }
 
 impl LaneInfo {
-    pub fn new(color: models::Color, lane_name: String) -> LaneInfo {
+    pub fn new(is_enemy_lane: bool, lane_name: String) -> LaneInfo {
         LaneInfo {
-            color: Box::new(color),
+            color: None,
             css_class: None,
+            is_enemy_lane,
             lane_name,
+            minimap_color: None,
             minimap_zipline_color_override: None,
             objective_color: None,
         }

@@ -59,7 +59,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'color' => '\OpenAPI\Client\Model\Color',
         'css_class' => 'string',
+        'is_enemy_lane' => 'bool',
         'lane_name' => 'string',
+        'minimap_color' => '\OpenAPI\Client\Model\Color',
         'minimap_zipline_color_override' => '\OpenAPI\Client\Model\Color',
         'objective_color' => '\OpenAPI\Client\Model\Color'
     ];
@@ -74,7 +76,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'color' => null,
         'css_class' => null,
+        'is_enemy_lane' => null,
         'lane_name' => null,
+        'minimap_color' => null,
         'minimap_zipline_color_override' => null,
         'objective_color' => null
     ];
@@ -85,9 +89,11 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'color' => false,
+        'color' => true,
         'css_class' => true,
+        'is_enemy_lane' => false,
         'lane_name' => false,
+        'minimap_color' => true,
         'minimap_zipline_color_override' => true,
         'objective_color' => true
     ];
@@ -180,7 +186,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'color' => 'color',
         'css_class' => 'css_class',
+        'is_enemy_lane' => 'is_enemy_lane',
         'lane_name' => 'lane_name',
+        'minimap_color' => 'minimap_color',
         'minimap_zipline_color_override' => 'minimap_zipline_color_override',
         'objective_color' => 'objective_color'
     ];
@@ -193,7 +201,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'color' => 'setColor',
         'css_class' => 'setCssClass',
+        'is_enemy_lane' => 'setIsEnemyLane',
         'lane_name' => 'setLaneName',
+        'minimap_color' => 'setMinimapColor',
         'minimap_zipline_color_override' => 'setMinimapZiplineColorOverride',
         'objective_color' => 'setObjectiveColor'
     ];
@@ -206,7 +216,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'color' => 'getColor',
         'css_class' => 'getCssClass',
+        'is_enemy_lane' => 'getIsEnemyLane',
         'lane_name' => 'getLaneName',
+        'minimap_color' => 'getMinimapColor',
         'minimap_zipline_color_override' => 'getMinimapZiplineColorOverride',
         'objective_color' => 'getObjectiveColor'
     ];
@@ -270,7 +282,9 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('css_class', $data ?? [], null);
+        $this->setIfExists('is_enemy_lane', $data ?? [], null);
         $this->setIfExists('lane_name', $data ?? [], null);
+        $this->setIfExists('minimap_color', $data ?? [], null);
         $this->setIfExists('minimap_zipline_color_override', $data ?? [], null);
         $this->setIfExists('objective_color', $data ?? [], null);
     }
@@ -302,8 +316,8 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['color'] === null) {
-            $invalidProperties[] = "'color' can't be null";
+        if ($this->container['is_enemy_lane'] === null) {
+            $invalidProperties[] = "'is_enemy_lane' can't be null";
         }
         if ($this->container['lane_name'] === null) {
             $invalidProperties[] = "'lane_name' can't be null";
@@ -326,7 +340,7 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets color
      *
-     * @return \OpenAPI\Client\Model\Color
+     * @return \OpenAPI\Client\Model\Color|null
      */
     public function getColor()
     {
@@ -336,14 +350,21 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets color
      *
-     * @param \OpenAPI\Client\Model\Color $color color
+     * @param \OpenAPI\Client\Model\Color|null $color Absent for unused lane slots (build 6711+).
      *
      * @return self
      */
     public function setColor($color)
     {
         if (is_null($color)) {
-            throw new \InvalidArgumentException('non-nullable color cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['color'] = $color;
 
@@ -385,6 +406,33 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets is_enemy_lane
+     *
+     * @return bool
+     */
+    public function getIsEnemyLane()
+    {
+        return $this->container['is_enemy_lane'];
+    }
+
+    /**
+     * Sets is_enemy_lane
+     *
+     * @param bool $is_enemy_lane is_enemy_lane
+     *
+     * @return self
+     */
+    public function setIsEnemyLane($is_enemy_lane)
+    {
+        if (is_null($is_enemy_lane)) {
+            throw new \InvalidArgumentException('non-nullable is_enemy_lane cannot be null');
+        }
+        $this->container['is_enemy_lane'] = $is_enemy_lane;
+
+        return $this;
+    }
+
+    /**
      * Gets lane_name
      *
      * @return string
@@ -397,7 +445,7 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets lane_name
      *
-     * @param string $lane_name lane_name
+     * @param string $lane_name Localized lane name. Unused lane slots are named `Unused`.
      *
      * @return self
      */
@@ -407,6 +455,40 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable lane_name cannot be null');
         }
         $this->container['lane_name'] = $lane_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets minimap_color
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getMinimapColor()
+    {
+        return $this->container['minimap_color'];
+    }
+
+    /**
+     * Sets minimap_color
+     *
+     * @param \OpenAPI\Client\Model\Color|null $minimap_color Build 6711+.
+     *
+     * @return self
+     */
+    public function setMinimapColor($minimap_color)
+    {
+        if (is_null($minimap_color)) {
+            array_push($this->openAPINullablesSetToNull, 'minimap_color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('minimap_color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['minimap_color'] = $minimap_color;
 
         return $this;
     }
@@ -424,7 +506,7 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets minimap_zipline_color_override
      *
-     * @param \OpenAPI\Client\Model\Color|null $minimap_zipline_color_override minimap_zipline_color_override
+     * @param \OpenAPI\Client\Model\Color|null $minimap_zipline_color_override Only present up to build 6701.
      *
      * @return self
      */
@@ -458,7 +540,7 @@ class LaneInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets objective_color
      *
-     * @param \OpenAPI\Client\Model\Color|null $objective_color objective_color
+     * @param \OpenAPI\Client\Model\Color|null $objective_color Only present up to build 6701.
      *
      * @return self
      */

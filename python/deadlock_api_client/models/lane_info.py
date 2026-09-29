@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from deadlock_api_client.models.color import Color
 from typing import Optional, Set
@@ -28,12 +28,14 @@ class LaneInfo(BaseModel):
     """
     LaneInfo
     """ # noqa: E501
-    color: Color
+    color: Optional[Color] = Field(default=None, description="Absent for unused lane slots (build 6711+).")
     css_class: Optional[StrictStr] = None
-    lane_name: StrictStr
-    minimap_zipline_color_override: Optional[Color] = None
-    objective_color: Optional[Color] = None
-    __properties: ClassVar[List[str]] = ["color", "css_class", "lane_name", "minimap_zipline_color_override", "objective_color"]
+    is_enemy_lane: StrictBool
+    lane_name: StrictStr = Field(description="Localized lane name. Unused lane slots are named `Unused`.")
+    minimap_color: Optional[Color] = Field(default=None, description="Build 6711+.")
+    minimap_zipline_color_override: Optional[Color] = Field(default=None, description="Only present up to build 6701.")
+    objective_color: Optional[Color] = Field(default=None, description="Only present up to build 6701.")
+    __properties: ClassVar[List[str]] = ["color", "css_class", "is_enemy_lane", "lane_name", "minimap_color", "minimap_zipline_color_override", "objective_color"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -77,16 +79,29 @@ class LaneInfo(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of color
         if self.color:
             _dict['color'] = self.color.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of minimap_color
+        if self.minimap_color:
+            _dict['minimap_color'] = self.minimap_color.to_dict()
         # override the default output from pydantic by calling `to_dict()` of minimap_zipline_color_override
         if self.minimap_zipline_color_override:
             _dict['minimap_zipline_color_override'] = self.minimap_zipline_color_override.to_dict()
         # override the default output from pydantic by calling `to_dict()` of objective_color
         if self.objective_color:
             _dict['objective_color'] = self.objective_color.to_dict()
+        # set to None if color (nullable) is None
+        # and model_fields_set contains the field
+        if self.color is None and "color" in self.model_fields_set:
+            _dict['color'] = None
+
         # set to None if css_class (nullable) is None
         # and model_fields_set contains the field
         if self.css_class is None and "css_class" in self.model_fields_set:
             _dict['css_class'] = None
+
+        # set to None if minimap_color (nullable) is None
+        # and model_fields_set contains the field
+        if self.minimap_color is None and "minimap_color" in self.model_fields_set:
+            _dict['minimap_color'] = None
 
         # set to None if minimap_zipline_color_override (nullable) is None
         # and model_fields_set contains the field
@@ -112,7 +127,9 @@ class LaneInfo(BaseModel):
         _obj = cls.model_validate({
             "color": Color.from_dict(obj["color"]) if obj.get("color") is not None else None,
             "css_class": obj.get("css_class"),
+            "is_enemy_lane": obj.get("is_enemy_lane"),
             "lane_name": obj.get("lane_name"),
+            "minimap_color": Color.from_dict(obj["minimap_color"]) if obj.get("minimap_color") is not None else None,
             "minimap_zipline_color_override": Color.from_dict(obj["minimap_zipline_color_override"]) if obj.get("minimap_zipline_color_override") is not None else None,
             "objective_color": Color.from_dict(obj["objective_color"]) if obj.get("objective_color") is not None else None
         })

@@ -28,6 +28,7 @@ from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value imp
 from deadlock_api_client.models.hash_map_string_scaling_stat_value import HashMapStringScalingStatValue
 from deadlock_api_client.models.hero_colors import HeroColors
 from deadlock_api_client.models.hero_description import HeroDescription
+from deadlock_api_client.models.hero_development_state import HeroDevelopmentState
 from deadlock_api_client.models.hero_images import HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI
@@ -43,12 +44,13 @@ class Hero(BaseModel):
     """
     Hero
     """ # noqa: E501
-    assigned_players_only: StrictBool
+    assigned_players_only: StrictBool = Field(description="`m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.")
     class_name: StrictStr
     colors: HeroColors
     complexity: StrictInt
     cost_bonuses: Optional[Dict[str, List[HashMapItemSlotTypeVecMapModCostBonusValueInner]]] = None
     description: HeroDescription
+    development_state: Optional[HeroDevelopmentState] = Field(default=None, description="Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.")
     disabled: StrictBool
     gun_tag: Optional[StrictStr] = None
     hero_stats_ui: HeroStatsUI
@@ -66,9 +68,9 @@ class Hero(BaseModel):
     name: StrictStr
     needs_testing: StrictBool
     physics: HeroPhysics
-    player_selectable: StrictBool
-    prerelease_only: Optional[StrictBool] = None
-    purchase_bonuses: Dict[str, List[HashMapItemSlotTypeVecPurchaseBonusValueInner]]
+    player_selectable: StrictBool = Field(description="Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.")
+    prerelease_only: Optional[StrictBool] = Field(default=None, description="Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.")
+    purchase_bonuses: Dict[str, List[HashMapItemSlotTypeVecPurchaseBonusValueInner]] = Field(description="Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.")
     scaling_stats: Dict[str, HashMapStringScalingStatValue]
     shop_stat_display: ShopStatDisplay
     skin: StrictInt
@@ -76,7 +78,7 @@ class Hero(BaseModel):
     starting_stats: StartingStats
     stats_display: StatsDisplay
     tags: List[StrictStr] = Field(description="Always emitted (empty if the hero declares no `m_vecHeroTags`).")
-    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "disabled", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "name", "needs_testing", "physics", "player_selectable", "prerelease_only", "purchase_bonuses", "scaling_stats", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
+    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "development_state", "disabled", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "name", "needs_testing", "physics", "player_selectable", "prerelease_only", "purchase_bonuses", "scaling_stats", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -186,6 +188,11 @@ class Hero(BaseModel):
         if self.cost_bonuses is None and "cost_bonuses" in self.model_fields_set:
             _dict['cost_bonuses'] = None
 
+        # set to None if development_state (nullable) is None
+        # and model_fields_set contains the field
+        if self.development_state is None and "development_state" in self.model_fields_set:
+            _dict['development_state'] = None
+
         # set to None if gun_tag (nullable) is None
         # and model_fields_set contains the field
         if self.gun_tag is None and "gun_tag" in self.model_fields_set:
@@ -239,6 +246,7 @@ class Hero(BaseModel):
             if obj.get("cost_bonuses") is not None
             else None,
             "description": HeroDescription.from_dict(obj["description"]) if obj.get("description") is not None else None,
+            "development_state": obj.get("development_state"),
             "disabled": obj.get("disabled"),
             "gun_tag": obj.get("gun_tag"),
             "hero_stats_ui": HeroStatsUI.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,

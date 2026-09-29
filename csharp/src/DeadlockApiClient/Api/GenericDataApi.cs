@@ -42,24 +42,26 @@ namespace DeadlockApiClient.Api
         /// Get Generic Data
         /// </summary>
         /// <remarks>
-        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGenericDataApiResponse"/>&gt;</returns>
-        Task<IGetGenericDataApiResponse> GetGenericDataAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGenericDataApiResponse> GetGenericDataAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Generic Data
         /// </summary>
         /// <remarks>
-        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
         /// </remarks>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGenericDataApiResponse"/>?&gt;</returns>
-        Task<IGetGenericDataApiResponse?> GetGenericDataOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetGenericDataApiResponse?> GetGenericDataOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -153,17 +155,18 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetGenericData(ref Option<int?> clientVersion);
+        partial void FormatGetGenericData(ref Option<string?> language, ref Option<int?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetGenericDataDefaultImplementation(IGetGenericDataApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterGetGenericDataDefaultImplementation(IGetGenericDataApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLog = false;
-            AfterGetGenericData(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterGetGenericData(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -173,8 +176,9 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetGenericData(ref bool suppressDefaultLog, IGetGenericDataApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterGetGenericData(ref bool suppressDefaultLog, IGetGenericDataApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -182,11 +186,12 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetGenericDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorGetGenericDataDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetGenericData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorGetGenericData(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -198,20 +203,22 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetGenericData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorGetGenericData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
-        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
         /// </summary>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGenericDataApiResponse"/>&gt;</returns>
-        public async Task<IGetGenericDataApiResponse?> GetGenericDataOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGenericDataApiResponse?> GetGenericDataOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetGenericDataAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetGenericDataAsync(language, clientVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -220,19 +227,20 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetGenericDataApiResponse"/>&gt;</returns>
-        public async Task<IGetGenericDataApiResponse> GetGenericDataAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetGenericDataApiResponse> GetGenericDataAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatGetGenericData(ref clientVersion);
+                FormatGetGenericData(ref language, ref clientVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -244,6 +252,9 @@ namespace DeadlockApiClient.Api
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/assets/generic-data");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (language.IsSet)
+                        parseQueryStringLocalVar["language"] = ClientUtils.ParameterToString(language.Value);
 
                     if (clientVersion.IsSet)
                         parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
@@ -278,7 +289,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetGenericDataDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterGetGenericDataDefaultImplementation(apiResponseLocalVar, language, clientVersion);
 
                         Events.ExecuteOnGetGenericData(apiResponseLocalVar);
 
@@ -288,7 +299,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetGenericDataDefaultImplementation(e, "/v1/assets/generic-data", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorGetGenericDataDefaultImplementation(e, "/v1/assets/generic-data", uriBuilderLocalVar.Path, language, clientVersion);
                 Events.ExecuteOnErrorGetGenericData(e);
                 throw;
             }

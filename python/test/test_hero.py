@@ -58,6 +58,7 @@ class TestHero(unittest.TestCase):
                     lore = '', 
                     playstyle = '', 
                     role = '', ),
+                development_state = 'release',
                 disabled = True,
                 gun_tag = '',
                 hero_stats_ui = deadlock_api_client.models.hero_stats_ui.HeroStatsUI(

@@ -28,7 +28,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="abilityOrderStats"></a>
 # **abilityOrderStats**
-> kotlin.collections.List&lt;AnalyticsAbilityOrderStats&gt; abilityOrderStats(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds)
+> kotlin.collections.List&lt;AnalyticsAbilityOrderStats&gt; abilityOrderStats(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
 
 Ability Order Stats
 
@@ -61,8 +61,10 @@ val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specif
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
-    val result : kotlin.collections.List<AnalyticsAbilityOrderStats> = apiInstance.abilityOrderStats(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds)
+    val result : kotlin.collections.List<AnalyticsAbilityOrderStats> = apiInstance.abilityOrderStats(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#abilityOrderStats")
@@ -79,7 +81,7 @@ try {
 | **heroId** | **kotlin.Int**| See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -96,6 +98,8 @@ try {
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -153,7 +157,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -210,7 +214,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -228,7 +232,7 @@ No authorization required
 
 <a id="gameStats"></a>
 # **gameStats**
-> kotlin.collections.List&lt;AnalyticsGameStats&gt; gameStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, includeItemIds, excludeItemIds, accountIds)
+> kotlin.collections.List&lt;AnalyticsGameStats&gt; gameStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
 
 Game Stats
 
@@ -257,9 +261,11 @@ val maxNetworth : kotlin.Long = 789 // kotlin.Long | Filter players based on the
 val heroIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 try {
-    val result : kotlin.collections.List<AnalyticsGameStats> = apiInstance.gameStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, includeItemIds, excludeItemIds, accountIds)
+    val result : kotlin.collections.List<AnalyticsGameStats> = apiInstance.gameStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#gameStats")
@@ -276,7 +282,7 @@ try {
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -289,6 +295,8 @@ try {
 | **heroIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -346,7 +354,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -370,7 +378,7 @@ No authorization required
 
 <a id="heroBuildStats"></a>
 # **heroBuildStats**
-> kotlin.collections.List&lt;HeroBuildStats&gt; heroBuildStats(heroId, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds)
+> kotlin.collections.List&lt;HeroBuildStats&gt; heroBuildStats(heroId, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
 
 Hero Build Stats
 
@@ -397,8 +405,10 @@ val heroBuildId : kotlin.Long = 789 // kotlin.Long | Filter results for a specif
 val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of matches played for a build to be included in the response.
 val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
-    val result : kotlin.collections.List<HeroBuildStats> = apiInstance.heroBuildStats(heroId, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds)
+    val result : kotlin.collections.List<HeroBuildStats> = apiInstance.heroBuildStats(heroId, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#heroBuildStats")
@@ -414,7 +424,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **heroId** | **kotlin.Int**| The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -426,6 +436,8 @@ try {
 | **minMatches** | **kotlin.Long**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20L] |
 | **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -493,7 +505,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -577,7 +589,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -660,7 +672,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -688,7 +700,7 @@ No authorization required
 
 <a id="heroStats"></a>
 # **heroStats**
-> kotlin.collections.List&lt;AnalyticsHeroStats&gt; heroStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, accountId, accountIds)
+> kotlin.collections.List&lt;AnalyticsHeroStats&gt; heroStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountId, accountIds)
 
 Hero Stats
 
@@ -720,10 +732,12 @@ val minHeroMatchesTotal : kotlin.Long = 789 // kotlin.Long | Filter players base
 val maxHeroMatchesTotal : kotlin.Long = 789 // kotlin.Long | Filter players based on the number of matches they have played with a specific hero in their entire history.
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 try {
-    val result : kotlin.collections.List<AnalyticsHeroStats> = apiInstance.heroStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, accountId, accountIds)
+    val result : kotlin.collections.List<AnalyticsHeroStats> = apiInstance.heroStats(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountId, accountIds)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#heroStats")
@@ -740,7 +754,7 @@ try {
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -756,6 +770,8 @@ try {
 | **maxHeroMatchesTotal** | **kotlin.Long**| Filter players based on the number of matches they have played with a specific hero in their entire history. | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
@@ -821,7 +837,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -852,7 +868,7 @@ No authorization required
 
 <a id="itemFlowStats"></a>
 # **itemFlowStats**
-> ItemFlowStats itemFlowStats(phaseIntervalS, phaseCount, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, lockedItemIds, lockedColumns)
+> ItemFlowStats itemFlowStats(phaseIntervalS, phaseCount, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, lockedItemIds, lockedColumns)
 
 Item Flow Stats
 
@@ -884,10 +900,12 @@ val minMatches : kotlin.Int = 56 // kotlin.Int | The minimum number of matches f
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val lockedItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
 val lockedColumns : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
 try {
-    val result : ItemFlowStats = apiInstance.itemFlowStats(phaseIntervalS, phaseCount, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, lockedItemIds, lockedColumns)
+    val result : ItemFlowStats = apiInstance.itemFlowStats(phaseIntervalS, phaseCount, gameMode, matchMode, heroIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, lockedItemIds, lockedColumns)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#itemFlowStats")
@@ -906,7 +924,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -920,6 +938,8 @@ try {
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **lockedItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **lockedColumns** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;. | [optional] |
 
@@ -938,7 +958,7 @@ No authorization required
 
 <a id="itemPermutationStats"></a>
 # **itemPermutationStats**
-> kotlin.collections.List&lt;ItemPermutationStats&gt; itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
+> kotlin.collections.List&lt;ItemPermutationStats&gt; itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
 
 Item Permutation Stats
 
@@ -971,8 +991,10 @@ val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 try {
-    val result : kotlin.collections.List<ItemPermutationStats> = apiInstance.itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds)
+    val result : kotlin.collections.List<ItemPermutationStats> = apiInstance.itemPermutationStats(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#itemPermutationStats")
@@ -994,7 +1016,7 @@ try {
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1006,6 +1028,8 @@ try {
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 
 ### Return type
 
@@ -1022,7 +1046,7 @@ No authorization required
 
 <a id="itemStats"></a>
 # **itemStats**
-> kotlin.collections.List&lt;ItemStats&gt; itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder)
+> kotlin.collections.List&lt;ItemStats&gt; itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder)
 
 Item Stats
 
@@ -1057,6 +1081,8 @@ val minMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val minMatches : kotlin.Int = 56 // kotlin.Int | The minimum number of matches played for an item to be included in the response.
 val maxMatches : kotlin.Int = 56 // kotlin.Int | The maximum number of matches played for a hero combination to be included in the response.
 val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
@@ -1065,7 +1091,7 @@ val minBoughtAtS : kotlin.Int = 56 // kotlin.Int | Filter items bought after thi
 val maxBoughtAtS : kotlin.Int = 56 // kotlin.Int | Filter items bought before this game time (seconds).
 val itemOrder : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
 try {
-    val result : kotlin.collections.List<ItemStats> = apiInstance.itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder)
+    val result : kotlin.collections.List<ItemStats> = apiInstance.itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#itemStats")
@@ -1089,7 +1115,7 @@ try {
 | **minEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **maxEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1101,6 +1127,8 @@ try {
 | **maxMatchId** | **kotlin.Long**| Filter matches based on their ID. | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **minMatches** | **kotlin.Int**| The minimum number of matches played for an item to be included in the response. | [optional] [default to 20] |
 | **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
 | **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
@@ -1179,7 +1207,7 @@ try {
 | **team** | **kotlin.Int**| Filter by team number. | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1265,7 +1293,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1348,7 +1376,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1382,7 +1410,7 @@ No authorization required
 
 <a id="playerPerformanceCurve"></a>
 # **playerPerformanceCurve**
-> kotlin.collections.List&lt;PlayerPerformanceCurvePoint&gt; playerPerformanceCurve(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds)
+> kotlin.collections.List&lt;PlayerPerformanceCurvePoint&gt; playerPerformanceCurve(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
 
 Player Performance Curve
 
@@ -1411,9 +1439,11 @@ val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 try {
-    val result : kotlin.collections.List<PlayerPerformanceCurvePoint> = apiInstance.playerPerformanceCurve(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, accountIds)
+    val result : kotlin.collections.List<PlayerPerformanceCurvePoint> = apiInstance.playerPerformanceCurve(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#playerPerformanceCurve")
@@ -1430,7 +1460,7 @@ try {
 | **resolution** | **kotlin.Int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1443,6 +1473,8 @@ try {
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type
@@ -1544,7 +1576,7 @@ No authorization required
 
 <a id="playerStatsMetrics"></a>
 # **playerStatsMetrics**
-> kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt; playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
+> kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt; playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
 
 Player Stats Metrics
 
@@ -1573,9 +1605,11 @@ val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on thei
 val maxMatches : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to analyze.
 val includeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 val excludeItemIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+val abilityOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 try {
-    val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, accountIds)
+    val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#playerStatsMetrics")
@@ -1592,7 +1626,7 @@ try {
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1605,6 +1639,8 @@ try {
 | **maxMatches** | **kotlin.Int**| The maximum number of matches to analyze. | [optional] |
 | **includeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **excludeItemIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
+| **abilityOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
+| **abilityUnlockOrderPrefix** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
 
 ### Return type

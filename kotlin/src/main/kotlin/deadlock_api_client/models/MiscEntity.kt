@@ -38,15 +38,21 @@ import java.io.Serializable
  * @param className 
  * @param id 
  * @param breakOnDodgeTouch 
+ * @param buffTypeGraphColor Permanent pickups: color used for the buff in the stat graph.
+ * @param buffTypeLocString Permanent pickups: localization token of the stat the buff raises.
+ * @param buffTypeValueUnit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
  * @param collisionRadius 
  * @param color 
  * @param damagedByAbilities 
  * @param damagedByBullets 
  * @param damagedByMelee 
+ * @param damagedBySlide 
  * @param expirationDuration 
  * @param goldAmount 
  * @param goldPerMinuteAmount 
  * @param health 
+ * @param heavyMeleeHitCount 
+ * @param heavyMeleeOnly 
  * @param initialSpawnDelayInSeconds 
  * @param initialSpawnDelaySeconds Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
  * @param initialSpawnTime 
@@ -60,8 +66,10 @@ import java.io.Serializable
  * @param modifier 
  * @param orbSpawnDelayMax 
  * @param orbSpawnDelayMin 
+ * @param pickupChances Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
  * @param pickupRadius 
- * @param primaryDropChance 
+ * @param powerupDropChance Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+ * @param primaryDropChance Pre-6711 builds only; see `powerup_drop_chance`.
  * @param primaryPickups 
  * @param renderAfterDeath 
  * @param respawnTime 
@@ -84,6 +92,18 @@ data class MiscEntity (
     @Json(name = "break_on_dodge_touch")
     val breakOnDodgeTouch: kotlin.Boolean? = null,
 
+    /* Permanent pickups: color used for the buff in the stat graph. */
+    @Json(name = "buff_type_graph_color")
+    val buffTypeGraphColor: Color? = null,
+
+    /* Permanent pickups: localization token of the stat the buff raises. */
+    @Json(name = "buff_type_loc_string")
+    val buffTypeLocString: kotlin.String? = null,
+
+    /* Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). */
+    @Json(name = "buff_type_value_unit")
+    val buffTypeValueUnit: kotlin.String? = null,
+
     @Json(name = "collision_radius")
     val collisionRadius: kotlin.Double? = null,
 
@@ -99,6 +119,9 @@ data class MiscEntity (
     @Json(name = "damaged_by_melee")
     val damagedByMelee: kotlin.Boolean? = null,
 
+    @Json(name = "damaged_by_slide")
+    val damagedBySlide: kotlin.Boolean? = null,
+
     @Json(name = "expiration_duration")
     val expirationDuration: CurveOrFloat? = null,
 
@@ -110,6 +133,12 @@ data class MiscEntity (
 
     @Json(name = "health")
     val health: kotlin.Long? = null,
+
+    @Json(name = "heavy_melee_hit_count")
+    val heavyMeleeHitCount: kotlin.Long? = null,
+
+    @Json(name = "heavy_melee_only")
+    val heavyMeleeOnly: kotlin.Boolean? = null,
 
     @Json(name = "initial_spawn_delay_in_seconds")
     val initialSpawnDelayInSeconds: kotlin.Long? = null,
@@ -151,9 +180,18 @@ data class MiscEntity (
     @Json(name = "orb_spawn_delay_min")
     val orbSpawnDelayMin: kotlin.Double? = null,
 
+    /* Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists. */
+    @Json(name = "pickup_chances")
+    val pickupChances: kotlin.collections.Map<kotlin.String, kotlin.Double>? = null,
+
     @Json(name = "pickup_radius")
     val pickupRadius: CurveOrFloat? = null,
 
+    /* Drop chance (percent) for build 6711+; replaces `primary_drop_chance`. */
+    @Json(name = "powerup_drop_chance")
+    val powerupDropChance: kotlin.Double? = null,
+
+    /* Pre-6711 builds only; see `powerup_drop_chance`. */
     @Json(name = "primary_drop_chance")
     val primaryDropChance: kotlin.Double? = null,
 

@@ -55,9 +55,9 @@ class LootTablesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Dict[str, LootTable]:
-        """List Loot Tables
+        """(Deprecated) List Loot Tables
 
-        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
+        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
 
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
@@ -82,6 +82,7 @@ class LootTablesApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/assets/loot-tables is deprecated.", DeprecationWarning)
 
         _param = self._list_loot_tables_serialize(
             client_version=client_version,
@@ -124,9 +125,9 @@ class LootTablesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Dict[str, LootTable]]:
-        """List Loot Tables
+        """(Deprecated) List Loot Tables
 
-        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
+        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
 
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
@@ -151,6 +152,7 @@ class LootTablesApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/assets/loot-tables is deprecated.", DeprecationWarning)
 
         _param = self._list_loot_tables_serialize(
             client_version=client_version,
@@ -193,9 +195,9 @@ class LootTablesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """List Loot Tables
+        """(Deprecated) List Loot Tables
 
-        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
+        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
 
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
@@ -220,6 +222,7 @@ class LootTablesApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """ # noqa: E501
+        warnings.warn("GET /v1/assets/loot-tables is deprecated.", DeprecationWarning)
 
         _param = self._list_loot_tables_serialize(
             client_version=client_version,

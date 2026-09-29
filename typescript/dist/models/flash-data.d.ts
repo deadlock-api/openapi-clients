@@ -10,12 +10,26 @@
  * Do not edit the class manually.
  */
 import type { Color } from './color.js';
+import type { ColorGradientStop } from './color-gradient-stop.js';
 export interface FlashData {
-    'brightness': number;
+    'brightness'?: number | null;
     'brightness_in_light_sensitivity_mode'?: number | null;
+    /**
+     * Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
+     */
     'color': Color;
-    'coverage': number;
+    /**
+     * Color gradient over the flash\'s lifetime (build 6711+).
+     */
+    'color_gradient'?: Array<ColorGradientStop> | null;
+    /**
+     * Only present up to build 6701.
+     */
+    'coverage'?: number | null;
     'duration': number;
-    'hardness': number;
+    /**
+     * Only present up to build 6701.
+     */
+    'hardness'?: number | null;
 }
 //# sourceMappingURL=flash-data.d.ts.map

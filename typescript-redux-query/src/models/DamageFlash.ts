@@ -37,6 +37,12 @@ export interface DamageFlash  {
      */
     critDamage: FlashData;
     /**
+     * Build 6711+.
+     * @type {FlashData}
+     * @memberof DamageFlash
+     */
+    genericDamage?: FlashData;
+    /**
      * 
      * @type {FlashData}
      * @memberof DamageFlash
@@ -60,6 +66,7 @@ export function DamageFlashFromJSON(json: any): DamageFlash {
     return {
         'bulletDamage': FlashDataFromJSON(json['bullet_damage']),
         'critDamage': FlashDataFromJSON(json['crit_damage']),
+        'genericDamage': !exists(json, 'generic_damage') ? undefined : FlashDataFromJSON(json['generic_damage']),
         'healingDamage': FlashDataFromJSON(json['healing_damage']),
         'meleeDamage': FlashDataFromJSON(json['melee_damage']),
         'techDamage': FlashDataFromJSON(json['tech_damage']),
@@ -73,6 +80,7 @@ export function DamageFlashToJSON(value?: DamageFlash): any {
     return {
         'bullet_damage': FlashDataToJSON(value.bulletDamage),
         'crit_damage': FlashDataToJSON(value.critDamage),
+        'generic_damage': FlashDataToJSON(value.genericDamage),
         'healing_damage': FlashDataToJSON(value.healingDamage),
         'melee_damage': FlashDataToJSON(value.meleeDamage),
         'tech_damage': FlashDataToJSON(value.techDamage),

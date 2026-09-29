@@ -152,6 +152,15 @@ class NpcUnitTest extends TestCase
     }
 
     /**
+     * Test attribute "boss_weapon_info"
+     */
+    public function testPropertyBossWeaponInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bound_abilities"
      */
     public function testPropertyBoundAbilities()

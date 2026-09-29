@@ -18,5 +18,7 @@
 
     * `cosmetic` (value: `"cosmetic"`)
 
+    * `held` (value: `"held"`)
+
 
 

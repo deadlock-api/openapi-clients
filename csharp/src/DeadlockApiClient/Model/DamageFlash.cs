@@ -38,14 +38,16 @@ namespace DeadlockApiClient.Model
         /// <param name="healingDamage">healingDamage</param>
         /// <param name="meleeDamage">meleeDamage</param>
         /// <param name="techDamage">techDamage</param>
+        /// <param name="genericDamage">Build 6711+.</param>
         [JsonConstructor]
-        public DamageFlash(FlashData bulletDamage, FlashData critDamage, FlashData healingDamage, FlashData meleeDamage, FlashData techDamage)
+        public DamageFlash(FlashData bulletDamage, FlashData critDamage, FlashData healingDamage, FlashData meleeDamage, FlashData techDamage, Option<FlashData?> genericDamage = default)
         {
             BulletDamage = bulletDamage;
             CritDamage = critDamage;
             HealingDamage = healingDamage;
             MeleeDamage = meleeDamage;
             TechDamage = techDamage;
+            GenericDamageOption = genericDamage;
             OnCreated();
         }
 
@@ -82,6 +84,20 @@ namespace DeadlockApiClient.Model
         public FlashData TechDamage { get; set; }
 
         /// <summary>
+        /// Used to track the state of GenericDamage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<FlashData?> GenericDamageOption { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("generic_damage")]
+        public FlashData? GenericDamage { get { return this.GenericDamageOption.Value; } set { this.GenericDamageOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +110,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  HealingDamage: ").Append(HealingDamage).Append("\n");
             sb.Append("  MeleeDamage: ").Append(MeleeDamage).Append("\n");
             sb.Append("  TechDamage: ").Append(TechDamage).Append("\n");
+            sb.Append("  GenericDamage: ").Append(GenericDamage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +163,7 @@ namespace DeadlockApiClient.Model
             Option<FlashData?> healingDamage = default;
             Option<FlashData?> meleeDamage = default;
             Option<FlashData?> techDamage = default;
+            Option<FlashData?> genericDamage = default;
 
             while (utf8JsonReader.Read())
             {
@@ -176,6 +194,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "tech_damage":
                             techDamage = new Option<FlashData?>(JsonSerializer.Deserialize<FlashData>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "generic_damage":
+                            genericDamage = new Option<FlashData?>(JsonSerializer.Deserialize<FlashData>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -213,7 +234,7 @@ namespace DeadlockApiClient.Model
             if (techDamage.IsSet && techDamage.Value == null)
                 throw new ArgumentNullException(nameof(techDamage), "Property is not nullable for class DamageFlash.");
 
-            return new DamageFlash(bulletDamage.Value!, critDamage.Value!, healingDamage.Value!, meleeDamage.Value!, techDamage.Value!);
+            return new DamageFlash(bulletDamage.Value!, critDamage.Value!, healingDamage.Value!, meleeDamage.Value!, techDamage.Value!, genericDamage);
         }
 
         /// <summary>
@@ -265,6 +286,14 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, damageFlash.MeleeDamage, jsonSerializerOptions);
             writer.WritePropertyName("tech_damage");
             JsonSerializer.Serialize(writer, damageFlash.TechDamage, jsonSerializerOptions);
+            if (damageFlash.GenericDamageOption.IsSet)
+                if (damageFlash.GenericDamageOption.Value != null)
+                {
+                    writer.WritePropertyName("generic_damage");
+                    JsonSerializer.Serialize(writer, damageFlash.GenericDamage, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("generic_damage");
         }
     }
 }

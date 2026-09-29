@@ -19,5 +19,6 @@ export const AbilityType = {
     Weapon: 'weapon',
     Melee: 'melee',
     Cosmetic: 'cosmetic',
+    Held: 'held',
 };
 //# sourceMappingURL=ability-type.js.map

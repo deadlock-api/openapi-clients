@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 List Loot Tables
 
-Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
+Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
 
 
 ### Parameters
@@ -39,7 +39,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** |  |  -  |
-| **404** | Requested client_version is not available |  -  |
+| **404** | Requested client_version is not available, or it has no loot tables (build 6711+) |  -  |
 | **500** | Failed to load source assets |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

@@ -90,6 +90,7 @@ __all__ = [
     "ClickhouseMatchInfo",
     "ClickhouseSalts",
     "Color",
+    "ColorGradientStop",
     "ColumnSchema",
     "CreateCustomRequest",
     "CreateCustomResponse",
@@ -132,6 +133,7 @@ __all__ = [
     "HeroCombStats",
     "HeroCounterStats",
     "HeroDescription",
+    "HeroDevelopmentState",
     "HeroEntry",
     "HeroImages",
     "HeroPhysics",
@@ -352,6 +354,7 @@ from deadlock_api_client.models.build_tag import BuildTag as BuildTag
 from deadlock_api_client.models.clickhouse_match_info import ClickhouseMatchInfo as ClickhouseMatchInfo
 from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as ClickhouseSalts
 from deadlock_api_client.models.color import Color as Color
+from deadlock_api_client.models.color_gradient_stop import ColorGradientStop as ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema as ColumnSchema
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
@@ -394,6 +397,7 @@ from deadlock_api_client.models.hero_colors import HeroColors as HeroColors
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats as HeroCombStats
 from deadlock_api_client.models.hero_counter_stats import HeroCounterStats as HeroCounterStats
 from deadlock_api_client.models.hero_description import HeroDescription as HeroDescription
+from deadlock_api_client.models.hero_development_state import HeroDevelopmentState as HeroDevelopmentState
 from deadlock_api_client.models.hero_entry import HeroEntry as HeroEntry
 from deadlock_api_client.models.hero_images import HeroImages as HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics as HeroPhysics

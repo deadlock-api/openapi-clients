@@ -26,7 +26,7 @@ export interface ListLootTablesRequest {
 
 
 /**
- * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+ * Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
  * List Loot Tables
  */
 function listLootTablesRaw<T>(requestParameters: ListLootTablesRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: LootTable; }> = {}): QueryConfig<T> {
@@ -68,7 +68,7 @@ function listLootTablesRaw<T>(requestParameters: ListLootTablesRequest, requestC
 }
 
 /**
-* Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.
+* Returns the per-table loot definitions used by the game client, parsed from the patch\'s KV3 source files. Keyed by table `class_name`.  **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 (\"City Never Sleeps\"); for those and later versions this endpoint returns 404.
 * List Loot Tables
 */
 export function listLootTables<T>(requestParameters: ListLootTablesRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: LootTable; }>): QueryConfig<T> {

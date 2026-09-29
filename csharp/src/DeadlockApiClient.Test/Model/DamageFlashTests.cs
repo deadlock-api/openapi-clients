@@ -97,5 +97,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'TechDamage'
         }
+
+        /// <summary>
+        /// Test the property 'GenericDamage'
+        /// </summary>
+        [Fact]
+        public void GenericDamageTest()
+        {
+            // TODO unit test for the property 'GenericDamage'
+        }
     }
 }

@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field
+from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.generic_data import GenericData
@@ -41,6 +41,7 @@ class GenericDataApi:
     @validate_call
     def get_generic_data(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -57,8 +58,10 @@ class GenericDataApi:
     ) -> GenericData:
         """Get Generic Data
 
-        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -84,6 +87,7 @@ class GenericDataApi:
         """ # noqa: E501
 
         _param = self._get_generic_data_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,6 +114,7 @@ class GenericDataApi:
     @validate_call
     def get_generic_data_with_http_info(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -126,8 +131,10 @@ class GenericDataApi:
     ) -> ApiResponse[GenericData]:
         """Get Generic Data
 
-        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -153,6 +160,7 @@ class GenericDataApi:
         """ # noqa: E501
 
         _param = self._get_generic_data_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -179,6 +187,7 @@ class GenericDataApi:
     @validate_call
     def get_generic_data_without_preload_content(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -195,8 +204,10 @@ class GenericDataApi:
     ) -> RESTResponseType:
         """Get Generic Data
 
-        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+        Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -222,6 +233,7 @@ class GenericDataApi:
         """ # noqa: E501
 
         _param = self._get_generic_data_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,6 +255,7 @@ class GenericDataApi:
 
     def _get_generic_data_serialize(
         self,
+        language,
         client_version,
         _request_auth,
         _content_type,
@@ -266,6 +279,10 @@ class GenericDataApi:
 
         # process the path parameters
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         if client_version is not None:
             
             _query_params.append(('client_version', client_version))

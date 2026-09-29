@@ -165,6 +165,8 @@ namespace DeadlockApiClient.Client
                 return FeedbackKindValueConverter.ToJsonValue(feedbackKind);
             if (obj is GameMode gameMode)
                 return GameModeValueConverter.ToJsonValue(gameMode);
+            if (obj is HeroDevelopmentState heroDevelopmentState)
+                return HeroDevelopmentStateValueConverter.ToJsonValue(heroDevelopmentState);
             if (obj is HeroType heroType)
                 return HeroTypeValueConverter.ToJsonValue(heroType);
             if (obj is ItemSlotType itemSlotType)

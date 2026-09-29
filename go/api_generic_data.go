@@ -25,7 +25,14 @@ type GenericDataAPIService service
 type ApiGetGenericDataRequest struct {
 	ctx context.Context
 	ApiService *GenericDataAPIService
+	language *string
 	clientVersion *int32
+}
+
+// Language code. Defaults to &#x60;english&#x60;.
+func (r ApiGetGenericDataRequest) Language(language string) ApiGetGenericDataRequest {
+	r.language = &language
+	return r
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -41,7 +48,7 @@ func (r ApiGetGenericDataRequest) Execute() (*GenericData, *http.Response, error
 /*
 GetGenericData Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGetGenericDataRequest
@@ -74,6 +81,9 @@ func (a *GenericDataAPIService) GetGenericDataExecute(r ApiGetGenericDataRequest
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.language != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
 	if r.clientVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
 	}

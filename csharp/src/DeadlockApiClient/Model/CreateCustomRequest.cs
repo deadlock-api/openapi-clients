@@ -35,6 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="callbackUrl">If a callback url is provided, we will send a POST request to this url when the match starts.</param>
         /// <param name="cheatsEnabled">cheatsEnabled</param>
+        /// <param name="corruptedItemShopSpawnMinutes">Minute of the match at which the Broker&#39;s corrupted item shop first spawns.</param>
         /// <param name="disableAutoReady">If auto-ready is disabled, the bot will not automatically ready up. You need to call the &#x60;ready&#x60; endpoint to ready up.</param>
         /// <param name="duplicateHeroesEnabled">duplicateHeroesEnabled</param>
         /// <param name="gameMode">gameMode</param>
@@ -43,10 +44,11 @@ namespace DeadlockApiClient.Model
         /// <param name="randomizeLanes">randomizeLanes</param>
         /// <param name="serverRegion">serverRegion</param>
         [JsonConstructor]
-        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<ServerRegion?> serverRegion = default)
+        public CreateCustomRequest(Option<string?> callbackUrl = default, Option<bool?> cheatsEnabled = default, Option<int?> corruptedItemShopSpawnMinutes = default, Option<bool?> disableAutoReady = default, Option<bool?> duplicateHeroesEnabled = default, Option<GameMode?> gameMode = default, Option<bool?> isPubliclyVisible = default, Option<int?> minRosterSize = default, Option<bool?> randomizeLanes = default, Option<ServerRegion?> serverRegion = default)
         {
             CallbackUrlOption = callbackUrl;
             CheatsEnabledOption = cheatsEnabled;
+            CorruptedItemShopSpawnMinutesOption = corruptedItemShopSpawnMinutes;
             DisableAutoReadyOption = disableAutoReady;
             DuplicateHeroesEnabledOption = duplicateHeroesEnabled;
             GameModeOption = gameMode;
@@ -111,6 +113,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("cheats_enabled")]
         public bool? CheatsEnabled { get { return this.CheatsEnabledOption.Value; } set { this.CheatsEnabledOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of CorruptedItemShopSpawnMinutes
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> CorruptedItemShopSpawnMinutesOption { get; private set; }
+
+        /// <summary>
+        /// Minute of the match at which the Broker&#39;s corrupted item shop first spawns.
+        /// </summary>
+        /// <value>Minute of the match at which the Broker&#39;s corrupted item shop first spawns.</value>
+        [JsonPropertyName("corrupted_item_shop_spawn_minutes")]
+        public int? CorruptedItemShopSpawnMinutes { get { return this.CorruptedItemShopSpawnMinutesOption.Value; } set { this.CorruptedItemShopSpawnMinutesOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of DisableAutoReady
@@ -188,6 +204,7 @@ namespace DeadlockApiClient.Model
             sb.Append("class CreateCustomRequest {\n");
             sb.Append("  CallbackUrl: ").Append(CallbackUrl).Append("\n");
             sb.Append("  CheatsEnabled: ").Append(CheatsEnabled).Append("\n");
+            sb.Append("  CorruptedItemShopSpawnMinutes: ").Append(CorruptedItemShopSpawnMinutes).Append("\n");
             sb.Append("  DisableAutoReady: ").Append(DisableAutoReady).Append("\n");
             sb.Append("  DuplicateHeroesEnabled: ").Append(DuplicateHeroesEnabled).Append("\n");
             sb.Append("  GameMode: ").Append(GameMode).Append("\n");
@@ -206,6 +223,12 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CorruptedItemShopSpawnMinutes (int) minimum
+            if (this.CorruptedItemShopSpawnMinutesOption.IsSet && this.CorruptedItemShopSpawnMinutesOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for CorruptedItemShopSpawnMinutes, must be a value greater than or equal to 0.", new [] { "CorruptedItemShopSpawnMinutes" });
+            }
+
             // MinRosterSize (int) minimum
             if (this.MinRosterSizeOption.IsSet && this.MinRosterSizeOption.Value < (int)0)
             {
@@ -250,6 +273,7 @@ namespace DeadlockApiClient.Model
 
             Option<string?> callbackUrl = default;
             Option<bool?> cheatsEnabled = default;
+            Option<int?> corruptedItemShopSpawnMinutes = default;
             Option<bool?> disableAutoReady = default;
             Option<bool?> duplicateHeroesEnabled = default;
             Option<GameMode?> gameMode = default;
@@ -279,6 +303,9 @@ namespace DeadlockApiClient.Model
                         case "cheats_enabled":
                             cheatsEnabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "corrupted_item_shop_spawn_minutes":
+                            corruptedItemShopSpawnMinutes = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         case "disable_auto_ready":
                             disableAutoReady = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
@@ -306,7 +333,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new CreateCustomRequest(callbackUrl, cheatsEnabled, disableAutoReady, duplicateHeroesEnabled, gameMode, isPubliclyVisible, minRosterSize, randomizeLanes, serverRegion);
+            return new CreateCustomRequest(callbackUrl, cheatsEnabled, corruptedItemShopSpawnMinutes, disableAutoReady, duplicateHeroesEnabled, gameMode, isPubliclyVisible, minRosterSize, randomizeLanes, serverRegion);
         }
 
         /// <summary>
@@ -344,6 +371,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteBoolean("cheats_enabled", createCustomRequest.CheatsEnabledOption.Value!.Value);
                 else
                     writer.WriteNull("cheats_enabled");
+
+            if (createCustomRequest.CorruptedItemShopSpawnMinutesOption.IsSet)
+                if (createCustomRequest.CorruptedItemShopSpawnMinutesOption.Value != null)
+                    writer.WriteNumber("corrupted_item_shop_spawn_minutes", createCustomRequest.CorruptedItemShopSpawnMinutesOption.Value!.Value);
+                else
+                    writer.WriteNull("corrupted_item_shop_spawn_minutes");
 
             if (createCustomRequest.DisableAutoReadyOption.IsSet)
                 if (createCustomRequest.DisableAutoReadyOption.Value != null)

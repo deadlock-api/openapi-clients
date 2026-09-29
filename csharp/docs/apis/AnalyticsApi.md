@@ -27,7 +27,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="abilityorderstats"></a>
 # **AbilityOrderStats**
-> List&lt;AnalyticsAbilityOrderStats&gt; AbilityOrderStats (int heroId, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minAbilityUpgrades = null, long maxAbilityUpgrades = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, int accountId = null, List<int> accountIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null)
+> List&lt;AnalyticsAbilityOrderStats&gt; AbilityOrderStats (int heroId, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minAbilityUpgrades = null, long maxAbilityUpgrades = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, int accountId = null, List<int> accountIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Ability Order Stats
 
@@ -41,7 +41,7 @@ Ability Order Stats
 | **heroId** | **int** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -58,6 +58,8 @@ Ability Order Stats
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 
 ### Return type
 
@@ -97,7 +99,7 @@ Badge Distribution
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -144,7 +146,7 @@ Build Item Stats
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **heroId** | **int** | Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
-| **minLastUpdatedUnixTimestamp** | **long** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minLastUpdatedUnixTimestamp** | **long** | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxLastUpdatedUnixTimestamp** | **long** | Filter builds based on their last updated time (Unix timestamp). | [optional]  |
 
 ### Return type
@@ -172,7 +174,7 @@ No authorization required
 
 <a id="gamestats"></a>
 # **GameStats**
-> List&lt;AnalyticsGameStats&gt; GameStats (string bucket = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long minNetworth = null, long maxNetworth = null, List<int> heroIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> accountIds = null)
+> List&lt;AnalyticsGameStats&gt; GameStats (string bucket = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long minNetworth = null, long maxNetworth = null, List<int> heroIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null)
 
 Game Stats
 
@@ -186,7 +188,7 @@ Game Stats
 | **bucket** | **string** | Bucket allows you to group the stats by a specific field. | [optional]  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -199,6 +201,8 @@ Game Stats
 | **heroIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 
 ### Return type
@@ -239,7 +243,7 @@ Hero Ban Stats
 |------|------|-------------|-------|
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **bucket** | **string** | Bucket allows you to group the stats by a specific field. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -273,7 +277,7 @@ No authorization required
 
 <a id="herobuildstats"></a>
 # **HeroBuildStats**
-> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, long minMatches = null, int accountId = null, List<int> accountIds = null)
+> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, long minMatches = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Hero Build Stats
 
@@ -286,7 +290,7 @@ Hero Build Stats
 |------|------|-------------|-------|
 | **heroId** | **int** | The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -298,6 +302,8 @@ Hero Build Stats
 | **minMatches** | **long** | The minimum number of matches played for a build to be included in the response. | [optional] [default to 20] |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 
 ### Return type
 
@@ -337,7 +343,7 @@ Hero Comb Stats
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -395,7 +401,7 @@ Hero Counter Stats
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -454,7 +460,7 @@ Hero Scoreboard
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **minMatches** | **int** | Filter by min number of matches played. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -492,7 +498,7 @@ No authorization required
 
 <a id="herostats"></a>
 # **HeroStats**
-> List&lt;AnalyticsHeroStats&gt; HeroStats (string bucket = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long minHeroMatches = null, long maxHeroMatches = null, long minHeroMatchesTotal = null, long maxHeroMatchesTotal = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, int accountId = null, List<int> accountIds = null)
+> List&lt;AnalyticsHeroStats&gt; HeroStats (string bucket = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long minHeroMatches = null, long maxHeroMatches = null, long minHeroMatchesTotal = null, long maxHeroMatchesTotal = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, int accountId = null, List<int> accountIds = null)
 
 Hero Stats
 
@@ -506,7 +512,7 @@ Hero Stats
 | **bucket** | **string** | Bucket allows you to group the stats by a specific field. | [optional]  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -522,6 +528,8 @@ Hero Stats
 | **maxHeroMatchesTotal** | **long** | Filter players based on the number of matches they have played with a specific hero in their entire history. | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 
@@ -563,7 +571,7 @@ Hero Synergy Stats
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -604,7 +612,7 @@ No authorization required
 
 <a id="itemflowstats"></a>
 # **ItemFlowStats**
-> ItemFlowStats ItemFlowStats (int phaseIntervalS = null, int phaseCount = null, string gameMode = null, string matchMode = null, string heroIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, List<int> accountIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> lockedItemIds = null, List<int> lockedColumns = null)
+> ItemFlowStats ItemFlowStats (int phaseIntervalS = null, int phaseCount = null, string gameMode = null, string matchMode = null, string heroIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, List<int> accountIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> lockedItemIds = null, List<int> lockedColumns = null)
 
 Item Flow Stats
 
@@ -620,7 +628,7 @@ Item Flow Stats
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -634,6 +642,8 @@ Item Flow Stats
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **lockedItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **lockedColumns** | [**List&lt;int&gt;**](int.md) | Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;. | [optional]  |
 
@@ -662,7 +672,7 @@ No authorization required
 
 <a id="itempermutationstats"></a>
 # **ItemPermutationStats**
-> List&lt;ItemPermutationStats&gt; ItemPermutationStats (List<int> itemIds = null, int combSize = null, int minMatches = null, int maxMatches = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int accountId = null, List<int> accountIds = null)
+> List&lt;ItemPermutationStats&gt; ItemPermutationStats (List<int> itemIds = null, int combSize = null, int minMatches = null, int maxMatches = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Item Permutation Stats
 
@@ -681,7 +691,7 @@ Item Permutation Stats
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **heroId** | **int** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -693,6 +703,8 @@ Item Permutation Stats
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 
 ### Return type
 
@@ -719,7 +731,7 @@ No authorization required
 
 <a id="itemstats"></a>
 # **ItemStats**
-> List&lt;ItemStats&gt; ItemStats (string bucket = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, string enemyHeroIds = null, bool enemyHeroIdsAllMatch = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, bool sameLaneFilter = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, int minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null, int minBoughtAtS = null, int maxBoughtAtS = null, List<string> itemOrder = null)
+> List&lt;ItemStats&gt; ItemStats (string bucket = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, string enemyHeroIds = null, bool enemyHeroIdsAllMatch = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, bool sameLaneFilter = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, int minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null, int minBoughtAtS = null, int maxBoughtAtS = null, List<string> itemOrder = null)
 
 Item Stats
 
@@ -740,7 +752,7 @@ Item Stats
 | **minEnemyNetworth** | **long** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional]  |
 | **maxEnemyNetworth** | **long** | Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional]  |
 | **sameLaneFilter** | **bool** | When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -752,6 +764,8 @@ Item Stats
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **minMatches** | **int** | The minimum number of matches played for an item to be included in the response. | [optional] [default to 20] |
 | **maxMatches** | **int** | The maximum number of matches played for a hero combination to be included in the response. | [optional]  |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
@@ -799,7 +813,7 @@ Kill Death Stats
 | **team** | **int** | Filter by team number. | [optional]  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -859,7 +873,7 @@ Lane Matchup Stats (Subject to Change)
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -915,7 +929,7 @@ Lane Soul Curve (Subject to Change)
 |------|------|-------------|-------|
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -959,7 +973,7 @@ No authorization required
 
 <a id="playerperformancecurve"></a>
 # **PlayerPerformanceCurve**
-> List&lt;PlayerPerformanceCurvePoint&gt; PlayerPerformanceCurve (int resolution = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, string heroIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> accountIds = null)
+> List&lt;PlayerPerformanceCurvePoint&gt; PlayerPerformanceCurve (int resolution = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, string heroIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null)
 
 Player Performance Curve
 
@@ -973,7 +987,7 @@ Player Performance Curve
 | **resolution** | **int** | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -986,6 +1000,8 @@ Player Performance Curve
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 
 ### Return type
@@ -1070,7 +1086,7 @@ No authorization required
 
 <a id="playerstatsmetrics"></a>
 # **PlayerStatsMetrics**
-> Dictionary&lt;string, HashMapValue&gt; PlayerStatsMetrics (string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> accountIds = null)
+> Dictionary&lt;string, HashMapValue&gt; PlayerStatsMetrics (string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null)
 
 Player Stats Metrics
 
@@ -1084,7 +1100,7 @@ Player Stats Metrics
 | **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1787961600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -1097,6 +1113,8 @@ Player Stats Metrics
 | **maxMatches** | **int** | The maximum number of matches to analyze. | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
+| **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
+| **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
 
 ### Return type

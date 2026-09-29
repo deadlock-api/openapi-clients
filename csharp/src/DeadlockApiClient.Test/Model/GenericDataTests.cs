@@ -189,6 +189,42 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ColorEnemy'
+        /// </summary>
+        [Fact]
+        public void ColorEnemyTest()
+        {
+            // TODO unit test for the property 'ColorEnemy'
+        }
+
+        /// <summary>
+        /// Test the property 'ColorFriend'
+        /// </summary>
+        [Fact]
+        public void ColorFriendTest()
+        {
+            // TODO unit test for the property 'ColorFriend'
+        }
+
+        /// <summary>
+        /// Test the property 'ColorTeam1'
+        /// </summary>
+        [Fact]
+        public void ColorTeam1Test()
+        {
+            // TODO unit test for the property 'ColorTeam1'
+        }
+
+        /// <summary>
+        /// Test the property 'ColorTeam2'
+        /// </summary>
+        [Fact]
+        public void ColorTeam2Test()
+        {
+            // TODO unit test for the property 'ColorTeam2'
+        }
+
+        /// <summary>
         /// Test the property 'EnemyObjectivesAndZiplineColor'
         /// </summary>
         [Fact]

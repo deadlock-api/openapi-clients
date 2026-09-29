@@ -74,6 +74,7 @@ deadlock_api_client/models/build_tag.py
 deadlock_api_client/models/clickhouse_match_info.py
 deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/color.py
+deadlock_api_client/models/color_gradient_stop.py
 deadlock_api_client/models/column_schema.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
@@ -116,6 +117,7 @@ deadlock_api_client/models/hero_colors.py
 deadlock_api_client/models/hero_comb_stats.py
 deadlock_api_client/models/hero_counter_stats.py
 deadlock_api_client/models/hero_description.py
+deadlock_api_client/models/hero_development_state.py
 deadlock_api_client/models/hero_entry.py
 deadlock_api_client/models/hero_images.py
 deadlock_api_client/models/hero_physics.py
@@ -298,6 +300,7 @@ docs/ClickhouseMatchInfo.md
 docs/ClickhouseSalts.md
 docs/ClientVersionsApi.md
 docs/Color.md
+docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
@@ -346,6 +349,7 @@ docs/HeroColors.md
 docs/HeroCombStats.md
 docs/HeroCounterStats.md
 docs/HeroDescription.md
+docs/HeroDevelopmentState.md
 docs/HeroEntry.md
 docs/HeroImages.md
 docs/HeroPhysics.md
@@ -551,6 +555,7 @@ test/test_clickhouse_match_info.py
 test/test_clickhouse_salts.py
 test/test_client_versions_api.py
 test/test_color.py
+test/test_color_gradient_stop.py
 test/test_colors_api.py
 test/test_column_schema.py
 test/test_commands_api.py
@@ -599,6 +604,7 @@ test/test_hero_colors.py
 test/test_hero_comb_stats.py
 test/test_hero_counter_stats.py
 test/test_hero_description.py
+test/test_hero_development_state.py
 test/test_hero_entry.py
 test/test_hero_images.py
 test/test_hero_physics.py

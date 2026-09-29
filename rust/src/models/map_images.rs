@@ -11,30 +11,42 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// MapImages : Fixed CDN URLs for the minimap image layers.
+/// MapImages : CDN URLs for the minimap image layers.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MapImages {
+    /// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
     #[serde(rename = "background")]
     pub background: String,
     #[serde(rename = "frame")]
     pub frame: String,
+    /// Midtown base layer.
     #[serde(rename = "mid")]
     pub mid: String,
+    /// Mid tunnels overlay, drawn above `mid` (build 6711+).
+    #[serde(rename = "mid_tunnels", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub mid_tunnels: Option<Option<String>>,
+    /// Full minimap. From build 6711 on this is the midtown base layer.
     #[serde(rename = "minimap")]
     pub minimap: String,
+    /// Minimap without overlays. From build 6711 on this is the midtown base layer.
     #[serde(rename = "plain")]
     pub plain: String,
+    /// Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+    #[serde(rename = "rat_tunnels", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub rat_tunnels: Option<Option<String>>,
 }
 
 impl MapImages {
-    /// Fixed CDN URLs for the minimap image layers.
+    /// CDN URLs for the minimap image layers.
     pub fn new(background: String, frame: String, mid: String, minimap: String, plain: String) -> MapImages {
         MapImages {
             background,
             frame,
             mid,
+            mid_tunnels: None,
             minimap,
             plain,
+            rat_tunnels: None,
         }
     }
 }

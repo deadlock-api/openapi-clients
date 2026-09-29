@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List, Optional
 from deadlock_api_client.models.flash_data import FlashData
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,10 +30,11 @@ class DamageFlash(BaseModel):
     """ # noqa: E501
     bullet_damage: FlashData
     crit_damage: FlashData
+    generic_damage: Optional[FlashData] = Field(default=None, description="Build 6711+.")
     healing_damage: FlashData
     melee_damage: FlashData
     tech_damage: FlashData
-    __properties: ClassVar[List[str]] = ["bullet_damage", "crit_damage", "healing_damage", "melee_damage", "tech_damage"]
+    __properties: ClassVar[List[str]] = ["bullet_damage", "crit_damage", "generic_damage", "healing_damage", "melee_damage", "tech_damage"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,6 +81,9 @@ class DamageFlash(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of crit_damage
         if self.crit_damage:
             _dict['crit_damage'] = self.crit_damage.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of generic_damage
+        if self.generic_damage:
+            _dict['generic_damage'] = self.generic_damage.to_dict()
         # override the default output from pydantic by calling `to_dict()` of healing_damage
         if self.healing_damage:
             _dict['healing_damage'] = self.healing_damage.to_dict()
@@ -89,6 +93,11 @@ class DamageFlash(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of tech_damage
         if self.tech_damage:
             _dict['tech_damage'] = self.tech_damage.to_dict()
+        # set to None if generic_damage (nullable) is None
+        # and model_fields_set contains the field
+        if self.generic_damage is None and "generic_damage" in self.model_fields_set:
+            _dict['generic_damage'] = None
+
         return _dict
 
     @classmethod
@@ -103,6 +112,7 @@ class DamageFlash(BaseModel):
         _obj = cls.model_validate({
             "bullet_damage": FlashData.from_dict(obj["bullet_damage"]) if obj.get("bullet_damage") is not None else None,
             "crit_damage": FlashData.from_dict(obj["crit_damage"]) if obj.get("crit_damage") is not None else None,
+            "generic_damage": FlashData.from_dict(obj["generic_damage"]) if obj.get("generic_damage") is not None else None,
             "healing_damage": FlashData.from_dict(obj["healing_damage"]) if obj.get("healing_damage") is not None else None,
             "melee_damage": FlashData.from_dict(obj["melee_damage"]) if obj.get("melee_damage") is not None else None,
             "tech_damage": FlashData.from_dict(obj["tech_damage"]) if obj.get("tech_damage") is not None else None

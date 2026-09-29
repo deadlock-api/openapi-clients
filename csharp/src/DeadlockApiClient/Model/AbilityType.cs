@@ -63,7 +63,12 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum Cosmetic for value: cosmetic
         /// </summary>
-        Cosmetic = 7
+        Cosmetic = 7,
+
+        /// <summary>
+        /// Enum Held for value: held
+        /// </summary>
+        Held = 8
     }
 
     /// <summary>
@@ -99,6 +104,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("cosmetic"))
                 return AbilityType.Cosmetic;
 
+            if (value.Equals("held"))
+                return AbilityType.Held;
+
             throw new NotImplementedException($"Could not convert value to type AbilityType: '{value}'");
         }
 
@@ -129,6 +137,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("cosmetic"))
                 return AbilityType.Cosmetic;
+
+            if (value.Equals("held"))
+                return AbilityType.Held;
 
             return null;
         }
@@ -161,6 +172,9 @@ namespace DeadlockApiClient.Model
 
             if (value == AbilityType.Cosmetic)
                 return "cosmetic";
+
+            if (value == AbilityType.Held)
+                return "held";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

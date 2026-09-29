@@ -39,8 +39,10 @@ class TestMapData(unittest.TestCase):
                     background = '', 
                     frame = '', 
                     mid = '', 
+                    mid_tunnels = '', 
                     minimap = '', 
-                    plain = '', ),
+                    plain = '', 
+                    rat_tunnels = '', ),
                 objective_positions = {
                     'key' : deadlock_api_client.models.objective_position.ObjectivePosition(
                         left_relative = 1.337, 
@@ -81,8 +83,10 @@ class TestMapData(unittest.TestCase):
                     background = '', 
                     frame = '', 
                     mid = '', 
+                    mid_tunnels = '', 
                     minimap = '', 
-                    plain = '', ),
+                    plain = '', 
+                    rat_tunnels = '', ),
                 objective_positions = {
                     'key' : deadlock_api_client.models.objective_position.ObjectivePosition(
                         left_relative = 1.337, 

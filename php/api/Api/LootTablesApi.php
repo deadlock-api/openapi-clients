@@ -136,6 +136,7 @@ class LootTablesApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array<string,\OpenAPI\Client\Model\LootTable>
+     * @deprecated
      */
     public function listLootTables($client_version = null, string $contentType = self::contentTypes['listLootTables'][0])
     {
@@ -154,6 +155,7 @@ class LootTablesApi
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of array<string,\OpenAPI\Client\Model\LootTable>, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function listLootTablesWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listLootTables'][0])
     {
@@ -238,6 +240,7 @@ class LootTablesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listLootTablesAsync($client_version = null, string $contentType = self::contentTypes['listLootTables'][0])
     {
@@ -259,6 +262,7 @@ class LootTablesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function listLootTablesAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listLootTables'][0])
     {
@@ -309,6 +313,7 @@ class LootTablesApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function listLootTablesRequest($client_version = null, string $contentType = self::contentTypes['listLootTables'][0])
     {

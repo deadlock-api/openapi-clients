@@ -60,6 +60,12 @@ class WeaponInfoTest : ShouldSpec() {
             //modelInstance.bulletGravityScale shouldBe ("TODO")
         }
 
+        // to test the property `bulletHandlerType`
+        should("test bulletHandlerType") {
+            // uncomment below to test the property
+            //modelInstance.bulletHandlerType shouldBe ("TODO")
+        }
+
         // to test the property `bulletInheritShooterVelocityScale`
         should("test bulletInheritShooterVelocityScale") {
             // uncomment below to test the property
@@ -316,6 +322,12 @@ class WeaponInfoTest : ShouldSpec() {
         should("test recoilSpeed") {
             // uncomment below to test the property
             //modelInstance.recoilSpeed shouldBe ("TODO")
+        }
+
+        // to test the property `recycleTime`
+        should("test recycleTime") {
+            // uncomment below to test the property
+            //modelInstance.recycleTime shouldBe ("TODO")
         }
 
         // to test the property `reloadDuration`

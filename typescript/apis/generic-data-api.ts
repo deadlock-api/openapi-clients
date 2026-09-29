@@ -29,13 +29,14 @@ import type { GenericData } from '../models/index.js';
 export const GenericDataApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
          * @summary Get Generic Data
+         * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGenericData: async (clientVersion?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGenericData: async (language?: GetGenericDataLanguageEnum, clientVersion?: number | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/assets/generic-data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47,6 +48,10 @@ export const GenericDataApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
 
             if (clientVersion !== undefined) {
                 localVarQueryParameter['client_version'] = clientVersion;
@@ -73,14 +78,15 @@ export const GenericDataApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GenericDataApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
          * @summary Get Generic Data
+         * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGenericData(clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericData(clientVersion, options);
+        async getGenericData(language?: GetGenericDataLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getGenericData(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['GenericDataApi.getGenericData']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -95,14 +101,14 @@ export const GenericDataApiFactory = function (configuration?: Configuration, ba
     const localVarFp = GenericDataApiFp(configuration)
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
          * @summary Get Generic Data
          * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         getGenericData(requestParameters: GenericDataApiGetGenericDataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GenericData> {
-            return localVarFp.getGenericData(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+            return localVarFp.getGenericData(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -111,6 +117,11 @@ export const GenericDataApiFactory = function (configuration?: Configuration, ba
  * Request parameters for getGenericData operation in GenericDataApi.
  */
 export interface GenericDataApiGetGenericDataRequest {
+    /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: GetGenericDataLanguageEnum
+
     /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
@@ -122,14 +133,46 @@ export interface GenericDataApiGetGenericDataRequest {
  */
 export class GenericDataApi extends BaseAPI {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
      * @summary Get Generic Data
      * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     public getGenericData(requestParameters: GenericDataApiGetGenericDataRequest = {}, options?: RawAxiosRequestConfig) {
-        return GenericDataApiFp(this.configuration).getGenericData(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+        return GenericDataApiFp(this.configuration).getGenericData(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
+export const GetGenericDataLanguageEnum = {
+    Brazilian: 'brazilian',
+    Bulgarian: 'bulgarian',
+    Czech: 'czech',
+    Danish: 'danish',
+    Dutch: 'dutch',
+    English: 'english',
+    Finnish: 'finnish',
+    French: 'french',
+    German: 'german',
+    Greek: 'greek',
+    Hungarian: 'hungarian',
+    Indonesian: 'indonesian',
+    Italian: 'italian',
+    Japanese: 'japanese',
+    Koreana: 'koreana',
+    Latam: 'latam',
+    Norwegian: 'norwegian',
+    Polish: 'polish',
+    Portuguese: 'portuguese',
+    Romanian: 'romanian',
+    Russian: 'russian',
+    Schinese: 'schinese',
+    Spanish: 'spanish',
+    Swedish: 'swedish',
+    Tchinese: 'tchinese',
+    Thai: 'thai',
+    Turkish: 'turkish',
+    Ukrainian: 'ukrainian',
+    Vietnamese: 'vietnamese',
+} as const;
+export type GetGenericDataLanguageEnum = typeof GetGenericDataLanguageEnum[keyof typeof GetGenericDataLanguageEnum];

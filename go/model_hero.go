@@ -21,12 +21,15 @@ var _ MappedNullable = &Hero{}
 
 // Hero struct for Hero
 type Hero struct {
+	// `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
 	AssignedPlayersOnly bool `json:"assigned_players_only"`
 	ClassName string `json:"class_name"`
 	Colors HeroColors `json:"colors"`
 	Complexity int64 `json:"complexity"`
 	CostBonuses map[string][]HashMapItemSlotTypeVecMapModCostBonusValueInner `json:"cost_bonuses,omitempty"`
 	Description HeroDescription `json:"description"`
+	// Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
+	DevelopmentState NullableHeroDevelopmentState `json:"development_state,omitempty"`
 	Disabled bool `json:"disabled"`
 	GunTag NullableString `json:"gun_tag,omitempty"`
 	HeroStatsUi HeroStatsUI `json:"hero_stats_ui"`
@@ -44,8 +47,11 @@ type Hero struct {
 	Name string `json:"name"`
 	NeedsTesting bool `json:"needs_testing"`
 	Physics HeroPhysics `json:"physics"`
+	// Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
 	PlayerSelectable bool `json:"player_selectable"`
+	// Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
 	PrereleaseOnly NullableBool `json:"prerelease_only,omitempty"`
+	// Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
 	PurchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner `json:"purchase_bonuses"`
 	ScalingStats map[string]HashMapStringScalingStatValue `json:"scaling_stats"`
 	ShopStatDisplay ShopStatDisplay `json:"shop_stat_display"`
@@ -253,6 +259,48 @@ func (o *Hero) GetDescriptionOk() (*HeroDescription, bool) {
 // SetDescription sets field value
 func (o *Hero) SetDescription(v HeroDescription) {
 	o.Description = v
+}
+
+// GetDevelopmentState returns the DevelopmentState field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Hero) GetDevelopmentState() HeroDevelopmentState {
+	if o == nil || IsNil(o.DevelopmentState.Get()) {
+		var ret HeroDevelopmentState
+		return ret
+	}
+	return *o.DevelopmentState.Get()
+}
+
+// GetDevelopmentStateOk returns a tuple with the DevelopmentState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Hero) GetDevelopmentStateOk() (*HeroDevelopmentState, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DevelopmentState.Get(), o.DevelopmentState.IsSet()
+}
+
+// HasDevelopmentState returns a boolean if a field has been set.
+func (o *Hero) HasDevelopmentState() bool {
+	if o != nil && o.DevelopmentState.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDevelopmentState gets a reference to the given NullableHeroDevelopmentState and assigns it to the DevelopmentState field.
+func (o *Hero) SetDevelopmentState(v HeroDevelopmentState) {
+	o.DevelopmentState.Set(&v)
+}
+// SetDevelopmentStateNil sets the value for DevelopmentState to be an explicit nil
+func (o *Hero) SetDevelopmentStateNil() {
+	o.DevelopmentState.Set(nil)
+}
+
+// UnsetDevelopmentState ensures that no value is present for DevelopmentState, not even an explicit nil
+func (o *Hero) UnsetDevelopmentState() {
+	o.DevelopmentState.Unset()
 }
 
 // GetDisabled returns the Disabled field value
@@ -1011,6 +1059,9 @@ func (o Hero) ToMap() (map[string]interface{}, error) {
 		toSerialize["cost_bonuses"] = o.CostBonuses
 	}
 	toSerialize["description"] = o.Description
+	if o.DevelopmentState.IsSet() {
+		toSerialize["development_state"] = o.DevelopmentState.Get()
+	}
 	toSerialize["disabled"] = o.Disabled
 	if o.GunTag.IsSet() {
 		toSerialize["gun_tag"] = o.GunTag.Get()

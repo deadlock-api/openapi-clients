@@ -97,5 +97,23 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Plain'
         }
+
+        /// <summary>
+        /// Test the property 'MidTunnels'
+        /// </summary>
+        [Fact]
+        public void MidTunnelsTest()
+        {
+            // TODO unit test for the property 'MidTunnels'
+        }
+
+        /// <summary>
+        /// Test the property 'RatTunnels'
+        /// </summary>
+        [Fact]
+        public void RatTunnelsTest()
+        {
+            // TODO unit test for the property 'RatTunnels'
+        }
     }
 }

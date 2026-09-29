@@ -21,18 +21,24 @@ import {
 } from '../models';
 
 export interface GetGenericDataRequest {
+    language?: GetGenericDataLanguageEnum;
     clientVersion?: number;
 }
 
 
 /**
- * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+ * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
  * Get Generic Data
  */
 function getGenericDataRaw<T>(requestParameters: GetGenericDataRequest, requestConfig: runtime.TypedQueryConfig<T, GenericData> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.language !== undefined) {
+        queryParameters['language'] = requestParameters.language;
+    }
 
 
     if (requestParameters.clientVersion !== undefined) {
@@ -68,10 +74,46 @@ function getGenericDataRaw<T>(requestParameters: GetGenericDataRequest, requestC
 }
 
 /**
-* Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+* Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 * Get Generic Data
 */
 export function getGenericData<T>(requestParameters: GetGenericDataRequest, requestConfig?: runtime.TypedQueryConfig<T, GenericData>): QueryConfig<T> {
     return getGenericDataRaw(requestParameters, requestConfig);
 }
 
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GetGenericDataLanguageEnum {
+    Brazilian = 'brazilian',
+    Bulgarian = 'bulgarian',
+    Czech = 'czech',
+    Danish = 'danish',
+    Dutch = 'dutch',
+    English = 'english',
+    Finnish = 'finnish',
+    French = 'french',
+    German = 'german',
+    Greek = 'greek',
+    Hungarian = 'hungarian',
+    Indonesian = 'indonesian',
+    Italian = 'italian',
+    Japanese = 'japanese',
+    Koreana = 'koreana',
+    Latam = 'latam',
+    Norwegian = 'norwegian',
+    Polish = 'polish',
+    Portuguese = 'portuguese',
+    Romanian = 'romanian',
+    Russian = 'russian',
+    Schinese = 'schinese',
+    Spanish = 'spanish',
+    Swedish = 'swedish',
+    Tchinese = 'tchinese',
+    Thai = 'thai',
+    Turkish = 'turkish',
+    Ukrainian = 'ukrainian',
+    Vietnamese = 'vietnamese'
+}

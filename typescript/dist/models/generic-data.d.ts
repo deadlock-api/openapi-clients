@@ -22,6 +22,22 @@ import type { StreetBrawl } from './street-brawl.js';
 export interface GenericData {
     'aim_spring_strength': Array<number>;
     'armor_groups': Array<ItemGroup>;
+    /**
+     * Build 6711+.
+     */
+    'color_enemy'?: Color | null;
+    /**
+     * Build 6711+.
+     */
+    'color_friend'?: Color | null;
+    /**
+     * Build 6711+.
+     */
+    'color_team1'?: Color | null;
+    /**
+     * Build 6711+.
+     */
+    'color_team2'?: Color | null;
     'damage_flash': DamageFlash;
     'enemy_objectives_and_zipline_color'?: Color | null;
     'enemy_objectives_color'?: Color | null;

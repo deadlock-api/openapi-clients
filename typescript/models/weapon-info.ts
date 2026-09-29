@@ -28,6 +28,7 @@ export interface WeaponInfo {
     'build_up_rate'?: number | null;
     'bullet_damage'?: number | null;
     'bullet_gravity_scale'?: number | null;
+    'bullet_handler_type'?: string | null;
     'bullet_inherit_shooter_velocity_scale'?: number | null;
     'bullet_lifetime'?: number | null;
     'bullet_radius'?: number | null;
@@ -71,6 +72,7 @@ export interface WeaponInfo {
     'recoil_seed'?: number | null;
     'recoil_shot_index_recovery_time_factor'?: number | null;
     'recoil_speed'?: number | null;
+    'recycle_time'?: number | null;
     'reload_duration'?: number | null;
     'reload_move_speed'?: number | null;
     'reload_single_bullets'?: boolean | null;

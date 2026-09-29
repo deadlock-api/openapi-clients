@@ -98,6 +98,15 @@ class CreateCustomRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "corrupted_item_shop_spawn_minutes"
+     */
+    public function testPropertyCorruptedItemShopSpawnMinutes()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "disable_auto_ready"
      */
     public function testPropertyDisableAutoReady()

@@ -97,6 +97,12 @@ export interface NpcUnit  {
      */
     barrackGuardianDamageResistPct?: number;
     /**
+     * Secondary weapon the unit uses against bosses (builds 6711+).
+     * @type {WeaponInfo}
+     * @memberof NpcUnit
+     */
+    bossWeaponInfo?: WeaponInfo;
+    /**
      * 
      * @type {{ [key: string]: string; }}
      * @memberof NpcUnit
@@ -456,6 +462,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'backdoorBulletResistModifier': !exists(json, 'backdoor_bullet_resist_modifier') ? undefined : SubclassBulletResistModifierFromJSON(json['backdoor_bullet_resist_modifier']),
         'barrackBossDps': !exists(json, 'barrack_boss_dps') ? undefined : json['barrack_boss_dps'],
         'barrackGuardianDamageResistPct': !exists(json, 'barrack_guardian_damage_resist_pct') ? undefined : json['barrack_guardian_damage_resist_pct'],
+        'bossWeaponInfo': !exists(json, 'boss_weapon_info') ? undefined : WeaponInfoFromJSON(json['boss_weapon_info']),
         'boundAbilities': !exists(json, 'bound_abilities') ? undefined : json['bound_abilities'],
         'className': json['class_name'],
         'empoweredModifierLevel1': !exists(json, 'empowered_modifier_level1') ? undefined : SubclassEmpoweredModifierLevelFromJSON(json['empowered_modifier_level1']),
@@ -530,6 +537,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'backdoor_bullet_resist_modifier': SubclassBulletResistModifierToJSON(value.backdoorBulletResistModifier),
         'barrack_boss_dps': value.barrackBossDps,
         'barrack_guardian_damage_resist_pct': value.barrackGuardianDamageResistPct,
+        'boss_weapon_info': WeaponInfoToJSON(value.bossWeaponInfo),
         'bound_abilities': value.boundAbilities,
         'class_name': value.className,
         'empowered_modifier_level1': SubclassEmpoweredModifierLevelToJSON(value.empoweredModifierLevel1),

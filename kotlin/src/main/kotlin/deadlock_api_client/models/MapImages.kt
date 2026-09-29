@@ -29,32 +29,46 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * Fixed CDN URLs for the minimap image layers.
+ * CDN URLs for the minimap image layers.
  *
- * @param background 
+ * @param background Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
  * @param frame 
- * @param mid 
- * @param minimap 
- * @param plain 
+ * @param mid Midtown base layer.
+ * @param minimap Full minimap. From build 6711 on this is the midtown base layer.
+ * @param plain Minimap without overlays. From build 6711 on this is the midtown base layer.
+ * @param midTunnels Mid tunnels overlay, drawn above `mid` (build 6711+).
+ * @param ratTunnels Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
  */
 
 
 data class MapImages (
 
+    /* Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. */
     @Json(name = "background")
     val background: kotlin.String,
 
     @Json(name = "frame")
     val frame: kotlin.String,
 
+    /* Midtown base layer. */
     @Json(name = "mid")
     val mid: kotlin.String,
 
+    /* Full minimap. From build 6711 on this is the midtown base layer. */
     @Json(name = "minimap")
     val minimap: kotlin.String,
 
+    /* Minimap without overlays. From build 6711 on this is the midtown base layer. */
     @Json(name = "plain")
-    val plain: kotlin.String
+    val plain: kotlin.String,
+
+    /* Mid tunnels overlay, drawn above `mid` (build 6711+). */
+    @Json(name = "mid_tunnels")
+    val midTunnels: kotlin.String? = null,
+
+    /* Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+). */
+    @Json(name = "rat_tunnels")
+    val ratTunnels: kotlin.String? = null
 
 ) : Serializable {
     companion object {

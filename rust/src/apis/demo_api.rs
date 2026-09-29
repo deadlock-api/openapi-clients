@@ -65,6 +65,7 @@ pub enum SchemaError {
     Status404(),
     Status429(),
     Status500(),
+    Status502(),
     UnknownValue(serde_json::Value),
 }
 

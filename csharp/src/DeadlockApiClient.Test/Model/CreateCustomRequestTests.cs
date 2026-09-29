@@ -72,6 +72,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CorruptedItemShopSpawnMinutes'
+        /// </summary>
+        [Fact]
+        public void CorruptedItemShopSpawnMinutesTest()
+        {
+            // TODO unit test for the property 'CorruptedItemShopSpawnMinutes'
+        }
+
+        /// <summary>
         /// Test the property 'DisableAutoReady'
         /// </summary>
         [Fact]

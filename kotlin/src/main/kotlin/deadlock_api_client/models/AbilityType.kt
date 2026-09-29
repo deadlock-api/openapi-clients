@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: innate,item,signature,ultimate,weapon,melee,cosmetic
+ * Values: innate,item,signature,ultimate,weapon,melee,cosmetic,held
  */
 
 @JsonClass(generateAdapter = false)
@@ -55,7 +55,10 @@ enum class AbilityType(val value: kotlin.String) {
     melee("melee"),
 
     @Json(name = "cosmetic")
-    cosmetic("cosmetic");
+    cosmetic("cosmetic"),
+
+    @Json(name = "held")
+    held("held");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

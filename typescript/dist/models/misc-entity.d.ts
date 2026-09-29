@@ -15,16 +15,31 @@ import type { Pickup } from './pickup.js';
 import type { SubclassModifierDefinition } from './subclass-modifier-definition.js';
 export interface MiscEntity {
     'break_on_dodge_touch'?: boolean | null;
+    /**
+     * Permanent pickups: color used for the buff in the stat graph.
+     */
+    'buff_type_graph_color'?: Color | null;
+    /**
+     * Permanent pickups: localization token of the stat the buff raises.
+     */
+    'buff_type_loc_string'?: string | null;
+    /**
+     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     */
+    'buff_type_value_unit'?: string | null;
     'class_name': string;
     'collision_radius'?: number | null;
     'color'?: Color | null;
     'damaged_by_abilities'?: boolean | null;
     'damaged_by_bullets'?: boolean | null;
     'damaged_by_melee'?: boolean | null;
+    'damaged_by_slide'?: boolean | null;
     'expiration_duration'?: CurveOrFloat | null;
     'gold_amount'?: number | null;
     'gold_per_minute_amount'?: number | null;
     'health'?: number | null;
+    'heavy_melee_hit_count'?: number | null;
+    'heavy_melee_only'?: boolean | null;
     'id': number;
     'initial_spawn_delay_in_seconds'?: number | null;
     /**
@@ -42,7 +57,20 @@ export interface MiscEntity {
     'modifier'?: SubclassModifierDefinition | null;
     'orb_spawn_delay_max'?: number | null;
     'orb_spawn_delay_min'?: number | null;
+    /**
+     * Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
+     */
+    'pickup_chances'?: {
+        [key: string]: number;
+    } | null;
     'pickup_radius'?: CurveOrFloat | null;
+    /**
+     * Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+     */
+    'powerup_drop_chance'?: number | null;
+    /**
+     * Pre-6711 builds only; see `powerup_drop_chance`.
+     */
     'primary_drop_chance'?: number | null;
     'primary_pickups'?: Array<Pickup> | null;
     'render_after_death'?: boolean | null;

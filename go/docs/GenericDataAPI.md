@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## GetGenericData
 
-> GenericData GetGenericData(ctx).ClientVersion(clientVersion).Execute()
+> GenericData GetGenericData(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Generic Data
 
@@ -29,11 +29,12 @@ import (
 )
 
 func main() {
+	language := "language_example" // string | Language code. Defaults to `english`. (optional)
 	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.GenericDataAPI.GetGenericData(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.GenericDataAPI.GetGenericData(context.Background()).Language(language).ClientVersion(clientVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GenericDataAPI.GetGenericData``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -54,6 +55,7 @@ Other parameters are passed through a pointer to a apiGetGenericDataRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
  **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type

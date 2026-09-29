@@ -28,6 +28,8 @@ pub enum AbilityType {
     Melee,
     #[serde(rename = "cosmetic")]
     Cosmetic,
+    #[serde(rename = "held")]
+    Held,
 
 }
 
@@ -41,6 +43,7 @@ impl std::fmt::Display for AbilityType {
             Self::Weapon => write!(f, "weapon"),
             Self::Melee => write!(f, "melee"),
             Self::Cosmetic => write!(f, "cosmetic"),
+            Self::Held => write!(f, "held"),
         }
     }
 }

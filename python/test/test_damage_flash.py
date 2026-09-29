@@ -38,55 +38,96 @@ class TestDamageFlash(unittest.TestCase):
                 bullet_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 crit_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
+                    coverage = 1.337, 
+                    duration = 1.337, 
+                    hardness = 1.337, ),
+                generic_damage = deadlock_api_client.models.flash_data.FlashData(
+                    brightness = 1.337, 
+                    brightness_in_light_sensitivity_mode = 1.337, 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 healing_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 melee_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 tech_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, )
@@ -96,55 +137,80 @@ class TestDamageFlash(unittest.TestCase):
                 bullet_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 crit_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 healing_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 melee_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),
                 tech_damage = deadlock_api_client.models.flash_data.FlashData(
                     brightness = 1.337, 
                     brightness_in_light_sensitivity_mode = 1.337, 
-                    color = deadlock_api_client.models.color.Color(
-                        alpha = 0, 
-                        blue = 0, 
-                        green = 0, 
-                        red = 0, ), 
+                    color = null, 
+                    color_gradient = [
+                        deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                            color = deadlock_api_client.models.color.Color(
+                                alpha = 0, 
+                                blue = 0, 
+                                green = 0, 
+                                red = 0, ), 
+                            position = 1.337, )
+                        ], 
                     coverage = 1.337, 
                     duration = 1.337, 
                     hardness = 1.337, ),

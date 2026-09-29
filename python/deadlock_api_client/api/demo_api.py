@@ -100,6 +100,7 @@ class DemoApi:
             '404': None,
             '429': None,
             '500': None,
+            '502': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -171,6 +172,7 @@ class DemoApi:
             '404': None,
             '429': None,
             '500': None,
+            '502': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -242,6 +244,7 @@ class DemoApi:
             '404': None,
             '429': None,
             '500': None,
+            '502': None,
         }
         response_data = self.api_client.call_api(
             *_param,

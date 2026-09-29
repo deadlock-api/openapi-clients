@@ -54,9 +54,54 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
     }
 
     /**
+     * enum for parameter language
+     */
+     enum class LanguageGetGenericData(val value: kotlin.String) {
+         @Json(name = "brazilian") brazilian("brazilian"),
+         @Json(name = "bulgarian") bulgarian("bulgarian"),
+         @Json(name = "czech") czech("czech"),
+         @Json(name = "danish") danish("danish"),
+         @Json(name = "dutch") dutch("dutch"),
+         @Json(name = "english") english("english"),
+         @Json(name = "finnish") finnish("finnish"),
+         @Json(name = "french") french("french"),
+         @Json(name = "german") german("german"),
+         @Json(name = "greek") greek("greek"),
+         @Json(name = "hungarian") hungarian("hungarian"),
+         @Json(name = "indonesian") indonesian("indonesian"),
+         @Json(name = "italian") italian("italian"),
+         @Json(name = "japanese") japanese("japanese"),
+         @Json(name = "koreana") koreana("koreana"),
+         @Json(name = "latam") latam("latam"),
+         @Json(name = "norwegian") norwegian("norwegian"),
+         @Json(name = "polish") polish("polish"),
+         @Json(name = "portuguese") portuguese("portuguese"),
+         @Json(name = "romanian") romanian("romanian"),
+         @Json(name = "russian") russian("russian"),
+         @Json(name = "schinese") schinese("schinese"),
+         @Json(name = "spanish") spanish("spanish"),
+         @Json(name = "swedish") swedish("swedish"),
+         @Json(name = "tchinese") tchinese("tchinese"),
+         @Json(name = "thai") thai("thai"),
+         @Json(name = "turkish") turkish("turkish"),
+         @Json(name = "ukrainian") ukrainian("ukrainian"),
+         @Json(name = "vietnamese") vietnamese("vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/assets/generic-data
      * Get Generic Data
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return GenericData
      * @throws IllegalStateException If the request is not correctly configured
@@ -67,8 +112,8 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getGenericData(clientVersion: kotlin.Int? = null) : GenericData {
-        val localVarResponse = getGenericDataWithHttpInfo(clientVersion = clientVersion)
+    fun getGenericData(language: LanguageGetGenericData? = null, clientVersion: kotlin.Int? = null) : GenericData {
+        val localVarResponse = getGenericDataWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as GenericData
@@ -88,7 +133,8 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * GET /v1/assets/generic-data
      * Get Generic Data
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<GenericData?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -96,8 +142,8 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getGenericDataWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<GenericData?> {
-        val localVariableConfig = getGenericDataRequestConfig(clientVersion = clientVersion)
+    fun getGenericDataWithHttpInfo(language: LanguageGetGenericData?, clientVersion: kotlin.Int?) : ApiResponse<GenericData?> {
+        val localVariableConfig = getGenericDataRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, GenericData>(
             localVariableConfig
@@ -107,13 +153,17 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * To obtain the request config of the operation getGenericData
      *
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getGenericDataRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getGenericDataRequestConfig(language: LanguageGetGenericData?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
                 if (clientVersion != null) {
                     put("client_version", listOf(clientVersion.toString()))
                 }

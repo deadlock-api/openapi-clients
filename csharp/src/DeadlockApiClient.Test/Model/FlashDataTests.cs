@@ -54,30 +54,12 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Brightness'
-        /// </summary>
-        [Fact]
-        public void BrightnessTest()
-        {
-            // TODO unit test for the property 'Brightness'
-        }
-
-        /// <summary>
         /// Test the property 'Color'
         /// </summary>
         [Fact]
         public void ColorTest()
         {
             // TODO unit test for the property 'Color'
-        }
-
-        /// <summary>
-        /// Test the property 'Coverage'
-        /// </summary>
-        [Fact]
-        public void CoverageTest()
-        {
-            // TODO unit test for the property 'Coverage'
         }
 
         /// <summary>
@@ -90,12 +72,12 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Hardness'
+        /// Test the property 'Brightness'
         /// </summary>
         [Fact]
-        public void HardnessTest()
+        public void BrightnessTest()
         {
-            // TODO unit test for the property 'Hardness'
+            // TODO unit test for the property 'Brightness'
         }
 
         /// <summary>
@@ -105,6 +87,33 @@ namespace DeadlockApiClient.Test.Model
         public void BrightnessInLightSensitivityModeTest()
         {
             // TODO unit test for the property 'BrightnessInLightSensitivityMode'
+        }
+
+        /// <summary>
+        /// Test the property 'ColorGradient'
+        /// </summary>
+        [Fact]
+        public void ColorGradientTest()
+        {
+            // TODO unit test for the property 'ColorGradient'
+        }
+
+        /// <summary>
+        /// Test the property 'Coverage'
+        /// </summary>
+        [Fact]
+        public void CoverageTest()
+        {
+            // TODO unit test for the property 'Coverage'
+        }
+
+        /// <summary>
+        /// Test the property 'Hardness'
+        /// </summary>
+        [Fact]
+        public void HardnessTest()
+        {
+            // TODO unit test for the property 'Hardness'
         }
     }
 }

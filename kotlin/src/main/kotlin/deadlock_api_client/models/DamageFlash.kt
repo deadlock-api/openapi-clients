@@ -37,6 +37,7 @@ import java.io.Serializable
  * @param healingDamage 
  * @param meleeDamage 
  * @param techDamage 
+ * @param genericDamage Build 6711+.
  */
 
 
@@ -55,7 +56,11 @@ data class DamageFlash (
     val meleeDamage: FlashData,
 
     @Json(name = "tech_damage")
-    val techDamage: FlashData
+    val techDamage: FlashData,
+
+    /* Build 6711+. */
+    @Json(name = "generic_damage")
+    val genericDamage: FlashData? = null
 
 ) : Serializable {
     companion object {

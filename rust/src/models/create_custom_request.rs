@@ -18,6 +18,9 @@ pub struct CreateCustomRequest {
     pub callback_url: Option<Option<String>>,
     #[serde(rename = "cheats_enabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cheats_enabled: Option<Option<bool>>,
+    /// Minute of the match at which the Broker's corrupted item shop first spawns.
+    #[serde(rename = "corrupted_item_shop_spawn_minutes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub corrupted_item_shop_spawn_minutes: Option<Option<u32>>,
     /// If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
     #[serde(rename = "disable_auto_ready", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub disable_auto_ready: Option<Option<bool>>,
@@ -40,6 +43,7 @@ impl CreateCustomRequest {
         CreateCustomRequest {
             callback_url: None,
             cheats_enabled: None,
+            corrupted_item_shop_spawn_minutes: None,
             disable_auto_ready: None,
             duplicate_heroes_enabled: None,
             game_mode: None,

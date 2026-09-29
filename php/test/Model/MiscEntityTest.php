@@ -89,6 +89,33 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "buff_type_graph_color"
+     */
+    public function testPropertyBuffTypeGraphColor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "buff_type_loc_string"
+     */
+    public function testPropertyBuffTypeLocString()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "buff_type_value_unit"
+     */
+    public function testPropertyBuffTypeValueUnit()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "class_name"
      */
     public function testPropertyClassName()
@@ -143,6 +170,15 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "damaged_by_slide"
+     */
+    public function testPropertyDamagedBySlide()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "expiration_duration"
      */
     public function testPropertyExpirationDuration()
@@ -173,6 +209,24 @@ class MiscEntityTest extends TestCase
      * Test attribute "health"
      */
     public function testPropertyHealth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "heavy_melee_hit_count"
+     */
+    public function testPropertyHeavyMeleeHitCount()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "heavy_melee_only"
+     */
+    public function testPropertyHeavyMeleeOnly()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -305,9 +359,27 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "pickup_chances"
+     */
+    public function testPropertyPickupChances()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "pickup_radius"
      */
     public function testPropertyPickupRadius()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "powerup_drop_chance"
+     */
+    public function testPropertyPowerupDropChance()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

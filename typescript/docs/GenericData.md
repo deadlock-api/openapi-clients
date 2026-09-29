@@ -7,6 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aim_spring_strength** | **Array&lt;number&gt;** |  | [default to undefined]
 **armor_groups** | [**Array&lt;ItemGroup&gt;**](ItemGroup.md) |  | [default to undefined]
+**color_enemy** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
+**color_friend** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
+**color_team1** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
+**color_team2** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
 **damage_flash** | [**DamageFlash**](DamageFlash.md) |  | [default to undefined]
 **enemy_objectives_and_zipline_color** | [**Color**](Color.md) |  | [optional] [default to undefined]
 **enemy_objectives_color** | [**Color**](Color.md) |  | [optional] [default to undefined]
@@ -35,6 +39,10 @@ import { GenericData } from 'deadlock_api_client';
 const instance: GenericData = {
     aim_spring_strength,
     armor_groups,
+    color_enemy,
+    color_friend,
+    color_team1,
+    color_team2,
     damage_flash,
     enemy_objectives_and_zipline_color,
     enemy_objectives_color,

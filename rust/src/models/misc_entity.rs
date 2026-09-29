@@ -15,6 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct MiscEntity {
     #[serde(rename = "break_on_dodge_touch", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub break_on_dodge_touch: Option<Option<bool>>,
+    /// Permanent pickups: color used for the buff in the stat graph.
+    #[serde(rename = "buff_type_graph_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub buff_type_graph_color: Option<Option<Box<models::Color>>>,
+    /// Permanent pickups: localization token of the stat the buff raises.
+    #[serde(rename = "buff_type_loc_string", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub buff_type_loc_string: Option<Option<String>>,
+    /// Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+    #[serde(rename = "buff_type_value_unit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub buff_type_value_unit: Option<Option<String>>,
     #[serde(rename = "class_name")]
     pub class_name: String,
     #[serde(rename = "collision_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -27,6 +36,8 @@ pub struct MiscEntity {
     pub damaged_by_bullets: Option<Option<bool>>,
     #[serde(rename = "damaged_by_melee", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub damaged_by_melee: Option<Option<bool>>,
+    #[serde(rename = "damaged_by_slide", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub damaged_by_slide: Option<Option<bool>>,
     #[serde(rename = "expiration_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub expiration_duration: Option<Option<Box<models::CurveOrFloat>>>,
     #[serde(rename = "gold_amount", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -35,6 +46,10 @@ pub struct MiscEntity {
     pub gold_per_minute_amount: Option<Option<f64>>,
     #[serde(rename = "health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub health: Option<Option<i64>>,
+    #[serde(rename = "heavy_melee_hit_count", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub heavy_melee_hit_count: Option<Option<i64>>,
+    #[serde(rename = "heavy_melee_only", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub heavy_melee_only: Option<Option<bool>>,
     #[serde(rename = "id")]
     pub id: u32,
     #[serde(rename = "initial_spawn_delay_in_seconds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -64,8 +79,15 @@ pub struct MiscEntity {
     pub orb_spawn_delay_max: Option<Option<f64>>,
     #[serde(rename = "orb_spawn_delay_min", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub orb_spawn_delay_min: Option<Option<f64>>,
+    /// Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
+    #[serde(rename = "pickup_chances", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub pickup_chances: Option<Option<std::collections::HashMap<String, f64>>>,
     #[serde(rename = "pickup_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub pickup_radius: Option<Option<Box<models::CurveOrFloat>>>,
+    /// Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+    #[serde(rename = "powerup_drop_chance", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub powerup_drop_chance: Option<Option<f64>>,
+    /// Pre-6711 builds only; see `powerup_drop_chance`.
     #[serde(rename = "primary_drop_chance", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub primary_drop_chance: Option<Option<f64>>,
     #[serde(rename = "primary_pickups", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -91,16 +113,22 @@ impl MiscEntity {
     pub fn new(class_name: String, id: u32) -> MiscEntity {
         MiscEntity {
             break_on_dodge_touch: None,
+            buff_type_graph_color: None,
+            buff_type_loc_string: None,
+            buff_type_value_unit: None,
             class_name,
             collision_radius: None,
             color: None,
             damaged_by_abilities: None,
             damaged_by_bullets: None,
             damaged_by_melee: None,
+            damaged_by_slide: None,
             expiration_duration: None,
             gold_amount: None,
             gold_per_minute_amount: None,
             health: None,
+            heavy_melee_hit_count: None,
+            heavy_melee_only: None,
             id,
             initial_spawn_delay_in_seconds: None,
             initial_spawn_delay_seconds: None,
@@ -115,7 +143,9 @@ impl MiscEntity {
             modifier: None,
             orb_spawn_delay_max: None,
             orb_spawn_delay_min: None,
+            pickup_chances: None,
             pickup_radius: None,
+            powerup_drop_chance: None,
             primary_drop_chance: None,
             primary_pickups: None,
             render_after_death: None,

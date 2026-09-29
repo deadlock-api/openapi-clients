@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **BackdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **BarrackBossDps** | **double** |  | [optional] 
 **BarrackGuardianDamageResistPct** | **double** |  | [optional] 
+**BossWeaponInfo** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **BoundAbilities** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 **EmpoweredModifierLevel1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
 **EmpoweredModifierLevel2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 

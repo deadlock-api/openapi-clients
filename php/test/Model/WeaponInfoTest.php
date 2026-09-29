@@ -116,6 +116,15 @@ class WeaponInfoTest extends TestCase
     }
 
     /**
+     * Test attribute "bullet_handler_type"
+     */
+    public function testPropertyBulletHandlerType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bullet_inherit_shooter_velocity_scale"
      */
     public function testPropertyBulletInheritShooterVelocityScale()
@@ -497,6 +506,15 @@ class WeaponInfoTest extends TestCase
      * Test attribute "recoil_speed"
      */
     public function testPropertyRecoilSpeed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "recycle_time"
+     */
+    public function testPropertyRecycleTime()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

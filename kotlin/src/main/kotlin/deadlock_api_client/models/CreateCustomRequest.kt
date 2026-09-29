@@ -35,6 +35,7 @@ import java.io.Serializable
  *
  * @param callbackUrl If a callback url is provided, we will send a POST request to this url when the match starts.
  * @param cheatsEnabled 
+ * @param corruptedItemShopSpawnMinutes Minute of the match at which the Broker's corrupted item shop first spawns.
  * @param disableAutoReady If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
  * @param duplicateHeroesEnabled 
  * @param gameMode 
@@ -53,6 +54,10 @@ data class CreateCustomRequest (
 
     @Json(name = "cheats_enabled")
     val cheatsEnabled: kotlin.Boolean? = null,
+
+    /* Minute of the match at which the Broker's corrupted item shop first spawns. */
+    @Json(name = "corrupted_item_shop_spawn_minutes")
+    val corruptedItemShopSpawnMinutes: kotlin.Int? = null,
 
     /* If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up. */
     @Json(name = "disable_auto_ready")

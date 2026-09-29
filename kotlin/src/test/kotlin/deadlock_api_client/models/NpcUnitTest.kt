@@ -102,6 +102,12 @@ class NpcUnitTest : ShouldSpec() {
             //modelInstance.barrackGuardianDamageResistPct shouldBe ("TODO")
         }
 
+        // to test the property `bossWeaponInfo` - Secondary weapon the unit uses against bosses (builds 6711+).
+        should("test bossWeaponInfo") {
+            // uncomment below to test the property
+            //modelInstance.bossWeaponInfo shouldBe ("TODO")
+        }
+
         // to test the property `boundAbilities`
         should("test boundAbilities") {
             // uncomment below to test the property

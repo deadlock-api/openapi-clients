@@ -133,6 +133,30 @@ class GenericDataTest : ShouldSpec() {
             //modelInstance.weaponGroups shouldBe ("TODO")
         }
 
+        // to test the property `colorEnemy` - Build 6711+.
+        should("test colorEnemy") {
+            // uncomment below to test the property
+            //modelInstance.colorEnemy shouldBe ("TODO")
+        }
+
+        // to test the property `colorFriend` - Build 6711+.
+        should("test colorFriend") {
+            // uncomment below to test the property
+            //modelInstance.colorFriend shouldBe ("TODO")
+        }
+
+        // to test the property `colorTeam1` - Build 6711+.
+        should("test colorTeam1") {
+            // uncomment below to test the property
+            //modelInstance.colorTeam1 shouldBe ("TODO")
+        }
+
+        // to test the property `colorTeam2` - Build 6711+.
+        should("test colorTeam2") {
+            // uncomment below to test the property
+            //modelInstance.colorTeam2 shouldBe ("TODO")
+        }
+
         // to test the property `enemyObjectivesAndZiplineColor`
         should("test enemyObjectivesAndZiplineColor") {
             // uncomment below to test the property

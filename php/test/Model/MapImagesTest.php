@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MapImagesTest Class Doc Comment
  *
  * @category    Class
- * @description Fixed CDN URLs for the minimap image layers.
+ * @description CDN URLs for the minimap image layers.
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -107,6 +107,15 @@ class MapImagesTest extends TestCase
     }
 
     /**
+     * Test attribute "mid_tunnels"
+     */
+    public function testPropertyMidTunnels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "minimap"
      */
     public function testPropertyMinimap()
@@ -119,6 +128,15 @@ class MapImagesTest extends TestCase
      * Test attribute "plain"
      */
     public function testPropertyPlain()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rat_tunnels"
+     */
+    public function testPropertyRatTunnels()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -4,18 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Brightness** | **float64** |  | 
+**Brightness** | Pointer to **NullableFloat64** |  | [optional] 
 **BrightnessInLightSensitivityMode** | Pointer to **NullableFloat64** |  | [optional] 
-**Color** | [**Color**](Color.md) |  | 
-**Coverage** | **float64** |  | 
+**Color** | [**Color**](Color.md) | Flat flash color. From build 6711 on it is derived from the first &#x60;color_gradient&#x60; stop. | 
+**ColorGradient** | Pointer to [**[]ColorGradientStop**](ColorGradientStop.md) | Color gradient over the flash&#39;s lifetime (build 6711+). | [optional] 
+**Coverage** | Pointer to **NullableFloat64** | Only present up to build 6701. | [optional] 
 **Duration** | **float64** |  | 
-**Hardness** | **float64** |  | 
+**Hardness** | Pointer to **NullableFloat64** | Only present up to build 6701. | [optional] 
 
 ## Methods
 
 ### NewFlashData
 
-`func NewFlashData(brightness float64, color Color, coverage float64, duration float64, hardness float64, ) *FlashData`
+`func NewFlashData(color Color, duration float64, ) *FlashData`
 
 NewFlashData instantiates a new FlashData object
 This constructor will assign default values to properties that have it defined,
@@ -49,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetBrightness sets Brightness field to given value.
 
+### HasBrightness
 
+`func (o *FlashData) HasBrightness() bool`
+
+HasBrightness returns a boolean if a field has been set.
+
+### SetBrightnessNil
+
+`func (o *FlashData) SetBrightnessNil(b bool)`
+
+ SetBrightnessNil sets the value for Brightness to be an explicit nil
+
+### UnsetBrightness
+`func (o *FlashData) UnsetBrightness()`
+
+UnsetBrightness ensures that no value is present for Brightness, not even an explicit nil
 ### GetBrightnessInLightSensitivityMode
 
 `func (o *FlashData) GetBrightnessInLightSensitivityMode() float64`
@@ -105,6 +121,41 @@ and a boolean to check if the value has been set.
 SetColor sets Color field to given value.
 
 
+### GetColorGradient
+
+`func (o *FlashData) GetColorGradient() []ColorGradientStop`
+
+GetColorGradient returns the ColorGradient field if non-nil, zero value otherwise.
+
+### GetColorGradientOk
+
+`func (o *FlashData) GetColorGradientOk() (*[]ColorGradientStop, bool)`
+
+GetColorGradientOk returns a tuple with the ColorGradient field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColorGradient
+
+`func (o *FlashData) SetColorGradient(v []ColorGradientStop)`
+
+SetColorGradient sets ColorGradient field to given value.
+
+### HasColorGradient
+
+`func (o *FlashData) HasColorGradient() bool`
+
+HasColorGradient returns a boolean if a field has been set.
+
+### SetColorGradientNil
+
+`func (o *FlashData) SetColorGradientNil(b bool)`
+
+ SetColorGradientNil sets the value for ColorGradient to be an explicit nil
+
+### UnsetColorGradient
+`func (o *FlashData) UnsetColorGradient()`
+
+UnsetColorGradient ensures that no value is present for ColorGradient, not even an explicit nil
 ### GetCoverage
 
 `func (o *FlashData) GetCoverage() float64`
@@ -124,7 +175,22 @@ and a boolean to check if the value has been set.
 
 SetCoverage sets Coverage field to given value.
 
+### HasCoverage
 
+`func (o *FlashData) HasCoverage() bool`
+
+HasCoverage returns a boolean if a field has been set.
+
+### SetCoverageNil
+
+`func (o *FlashData) SetCoverageNil(b bool)`
+
+ SetCoverageNil sets the value for Coverage to be an explicit nil
+
+### UnsetCoverage
+`func (o *FlashData) UnsetCoverage()`
+
+UnsetCoverage ensures that no value is present for Coverage, not even an explicit nil
 ### GetDuration
 
 `func (o *FlashData) GetDuration() float64`
@@ -164,7 +230,22 @@ and a boolean to check if the value has been set.
 
 SetHardness sets Hardness field to given value.
 
+### HasHardness
 
+`func (o *FlashData) HasHardness() bool`
+
+HasHardness returns a boolean if a field has been set.
+
+### SetHardnessNil
+
+`func (o *FlashData) SetHardnessNil(b bool)`
+
+ SetHardnessNil sets the value for Hardness to be an explicit nil
+
+### UnsetHardness
+`func (o *FlashData) UnsetHardness()`
+
+UnsetHardness ensures that no value is present for Hardness, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

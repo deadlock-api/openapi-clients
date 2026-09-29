@@ -98,6 +98,42 @@ class GenericDataTest extends TestCase
     }
 
     /**
+     * Test attribute "color_enemy"
+     */
+    public function testPropertyColorEnemy()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "color_friend"
+     */
+    public function testPropertyColorFriend()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "color_team1"
+     */
+    public function testPropertyColorTeam1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "color_team2"
+     */
+    public function testPropertyColorTeam2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "damage_flash"
      */
     public function testPropertyDamageFlash()

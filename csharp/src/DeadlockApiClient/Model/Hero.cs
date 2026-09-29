@@ -33,7 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Hero" /> class.
         /// </summary>
-        /// <param name="assignedPlayersOnly">assignedPlayersOnly</param>
+        /// <param name="assignedPlayersOnly">&#x60;m_bAssignedPlayersOnly&#x60; was removed in build 6711; always &#x60;false&#x60; since.</param>
         /// <param name="className">className</param>
         /// <param name="colors">colors</param>
         /// <param name="complexity">complexity</param>
@@ -50,8 +50,8 @@ namespace DeadlockApiClient.Model
         /// <param name="name">name</param>
         /// <param name="needsTesting">needsTesting</param>
         /// <param name="physics">physics</param>
-        /// <param name="playerSelectable">playerSelectable</param>
-        /// <param name="purchaseBonuses">purchaseBonuses</param>
+        /// <param name="playerSelectable">Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;.</param>
+        /// <param name="purchaseBonuses">Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds.</param>
         /// <param name="scalingStats">scalingStats</param>
         /// <param name="shopStatDisplay">shopStatDisplay</param>
         /// <param name="skin">skin</param>
@@ -60,14 +60,15 @@ namespace DeadlockApiClient.Model
         /// <param name="statsDisplay">statsDisplay</param>
         /// <param name="tags">Always emitted (empty if the hero declares no &#x60;m_vecHeroTags&#x60;).</param>
         /// <param name="costBonuses">costBonuses</param>
+        /// <param name="developmentState">Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one.</param>
         /// <param name="gunTag">gunTag</param>
         /// <param name="heroType">heroType</param>
         /// <param name="hideoutRichPresence">hideoutRichPresence</param>
         /// <param name="itemDraftBucketing">itemDraftBucketing</param>
         /// <param name="itemDraftWeights">itemDraftWeights</param>
-        /// <param name="prereleaseOnly">prereleaseOnly</param>
+        /// <param name="prereleaseOnly">Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</param>
         [JsonConstructor]
-        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<bool?> prereleaseOnly = default)
+        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<bool?> prereleaseOnly = default)
         {
             AssignedPlayersOnly = assignedPlayersOnly;
             ClassName = className;
@@ -96,6 +97,7 @@ namespace DeadlockApiClient.Model
             StatsDisplay = statsDisplay;
             Tags = tags;
             CostBonusesOption = costBonuses;
+            DevelopmentStateOption = developmentState;
             GunTagOption = gunTag;
             HeroTypeOption = heroType;
             HideoutRichPresenceOption = hideoutRichPresence;
@@ -106,6 +108,20 @@ namespace DeadlockApiClient.Model
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// Used to track the state of DevelopmentState
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<HeroDevelopmentState?> DevelopmentStateOption { get; private set; }
+
+        /// <summary>
+        /// Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one.
+        /// </summary>
+        /// <value>Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one.</value>
+        [JsonPropertyName("development_state")]
+        public HeroDevelopmentState? DevelopmentState { get { return this.DevelopmentStateOption.Value; } set { this.DevelopmentStateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of HeroType
@@ -121,8 +137,9 @@ namespace DeadlockApiClient.Model
         public HeroType? HeroType { get { return this.HeroTypeOption.Value; } set { this.HeroTypeOption = new(value); } }
 
         /// <summary>
-        /// Gets or Sets AssignedPlayersOnly
+        /// &#x60;m_bAssignedPlayersOnly&#x60; was removed in build 6711; always &#x60;false&#x60; since.
         /// </summary>
+        /// <value>&#x60;m_bAssignedPlayersOnly&#x60; was removed in build 6711; always &#x60;false&#x60; since.</value>
         [JsonPropertyName("assigned_players_only")]
         public bool AssignedPlayersOnly { get; set; }
 
@@ -223,14 +240,16 @@ namespace DeadlockApiClient.Model
         public HeroPhysics Physics { get; set; }
 
         /// <summary>
-        /// Gets or Sets PlayerSelectable
+        /// Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;.
         /// </summary>
+        /// <value>Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;.</value>
         [JsonPropertyName("player_selectable")]
         public bool PlayerSelectable { get; set; }
 
         /// <summary>
-        /// Gets or Sets PurchaseBonuses
+        /// Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds.
         /// </summary>
+        /// <value>Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds.</value>
         [JsonPropertyName("purchase_bonuses")]
         public Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> PurchaseBonuses { get; set; }
 
@@ -350,8 +369,9 @@ namespace DeadlockApiClient.Model
         public Option<bool?> PrereleaseOnlyOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets PrereleaseOnly
+        /// Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.
         /// </summary>
+        /// <value>Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</value>
         [JsonPropertyName("prerelease_only")]
         public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption.Value; } set { this.PrereleaseOnlyOption = new(value); } }
 
@@ -390,6 +410,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  StatsDisplay: ").Append(StatsDisplay).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  CostBonuses: ").Append(CostBonuses).Append("\n");
+            sb.Append("  DevelopmentState: ").Append(DevelopmentState).Append("\n");
             sb.Append("  GunTag: ").Append(GunTag).Append("\n");
             sb.Append("  HeroType: ").Append(HeroType).Append("\n");
             sb.Append("  HideoutRichPresence: ").Append(HideoutRichPresence).Append("\n");
@@ -476,6 +497,7 @@ namespace DeadlockApiClient.Model
             Option<StatsDisplay?> statsDisplay = default;
             Option<List<string>?> tags = default;
             Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default;
+            Option<HeroDevelopmentState?> developmentState = default;
             Option<string?> gunTag = default;
             Option<HeroType?> heroType = default;
             Option<string?> hideoutRichPresence = default;
@@ -578,6 +600,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "cost_bonuses":
                             costBonuses = new Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?>(JsonSerializer.Deserialize<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "development_state":
+                            developmentState = new Option<HeroDevelopmentState?>(JsonSerializer.Deserialize<HeroDevelopmentState?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "gun_tag":
                             gunTag = new Option<string?>(utf8JsonReader.GetString());
@@ -759,7 +784,7 @@ namespace DeadlockApiClient.Model
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class Hero.");
 
-            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, prereleaseOnly);
+            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, prereleaseOnly);
         }
 
         /// <summary>
@@ -897,6 +922,14 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("cost_bonuses");
+            if (hero.DevelopmentStateOption.IsSet)
+                if (hero.DevelopmentStateOption!.Value != null)
+                {
+                    var developmentStateRawValue = HeroDevelopmentStateValueConverter.ToJsonValue(hero.DevelopmentStateOption.Value!.Value);
+                    writer.WriteString("development_state", developmentStateRawValue);
+                }
+                else
+                    writer.WriteNull("development_state");
             if (hero.GunTagOption.IsSet)
                 if (hero.GunTagOption.Value != null)
                     writer.WriteString("gun_tag", hero.GunTag);

@@ -33,17 +33,21 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LaneInfo" /> class.
         /// </summary>
-        /// <param name="color">color</param>
-        /// <param name="laneName">laneName</param>
+        /// <param name="isEnemyLane">isEnemyLane</param>
+        /// <param name="laneName">Localized lane name. Unused lane slots are named &#x60;Unused&#x60;.</param>
+        /// <param name="color">Absent for unused lane slots (build 6711+).</param>
         /// <param name="cssClass">cssClass</param>
-        /// <param name="minimapZiplineColorOverride">minimapZiplineColorOverride</param>
-        /// <param name="objectiveColor">objectiveColor</param>
+        /// <param name="minimapColor">Build 6711+.</param>
+        /// <param name="minimapZiplineColorOverride">Only present up to build 6701.</param>
+        /// <param name="objectiveColor">Only present up to build 6701.</param>
         [JsonConstructor]
-        public LaneInfo(Color color, string laneName, Option<string?> cssClass = default, Option<Color?> minimapZiplineColorOverride = default, Option<Color?> objectiveColor = default)
+        public LaneInfo(bool isEnemyLane, string laneName, Option<Color?> color = default, Option<string?> cssClass = default, Option<Color?> minimapColor = default, Option<Color?> minimapZiplineColorOverride = default, Option<Color?> objectiveColor = default)
         {
-            Color = color;
+            IsEnemyLane = isEnemyLane;
             LaneName = laneName;
+            ColorOption = color;
             CssClassOption = cssClass;
+            MinimapColorOption = minimapColor;
             MinimapZiplineColorOverrideOption = minimapZiplineColorOverride;
             ObjectiveColorOption = objectiveColor;
             OnCreated();
@@ -52,16 +56,31 @@ namespace DeadlockApiClient.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Color
+        /// Gets or Sets IsEnemyLane
         /// </summary>
-        [JsonPropertyName("color")]
-        public Color Color { get; set; }
+        [JsonPropertyName("is_enemy_lane")]
+        public bool IsEnemyLane { get; set; }
 
         /// <summary>
-        /// Gets or Sets LaneName
+        /// Localized lane name. Unused lane slots are named &#x60;Unused&#x60;.
         /// </summary>
+        /// <value>Localized lane name. Unused lane slots are named &#x60;Unused&#x60;.</value>
         [JsonPropertyName("lane_name")]
         public string LaneName { get; set; }
+
+        /// <summary>
+        /// Used to track the state of Color
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> ColorOption { get; private set; }
+
+        /// <summary>
+        /// Absent for unused lane slots (build 6711+).
+        /// </summary>
+        /// <value>Absent for unused lane slots (build 6711+).</value>
+        [JsonPropertyName("color")]
+        public Color? Color { get { return this.ColorOption.Value; } set { this.ColorOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CssClass
@@ -77,6 +96,20 @@ namespace DeadlockApiClient.Model
         public string? CssClass { get { return this.CssClassOption.Value; } set { this.CssClassOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of MinimapColor
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Color?> MinimapColorOption { get; private set; }
+
+        /// <summary>
+        /// Build 6711+.
+        /// </summary>
+        /// <value>Build 6711+.</value>
+        [JsonPropertyName("minimap_color")]
+        public Color? MinimapColor { get { return this.MinimapColorOption.Value; } set { this.MinimapColorOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of MinimapZiplineColorOverride
         /// </summary>
         [JsonIgnore]
@@ -84,8 +117,9 @@ namespace DeadlockApiClient.Model
         public Option<Color?> MinimapZiplineColorOverrideOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets MinimapZiplineColorOverride
+        /// Only present up to build 6701.
         /// </summary>
+        /// <value>Only present up to build 6701.</value>
         [JsonPropertyName("minimap_zipline_color_override")]
         public Color? MinimapZiplineColorOverride { get { return this.MinimapZiplineColorOverrideOption.Value; } set { this.MinimapZiplineColorOverrideOption = new(value); } }
 
@@ -97,8 +131,9 @@ namespace DeadlockApiClient.Model
         public Option<Color?> ObjectiveColorOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets ObjectiveColor
+        /// Only present up to build 6701.
         /// </summary>
+        /// <value>Only present up to build 6701.</value>
         [JsonPropertyName("objective_color")]
         public Color? ObjectiveColor { get { return this.ObjectiveColorOption.Value; } set { this.ObjectiveColorOption = new(value); } }
 
@@ -110,9 +145,11 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class LaneInfo {\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
+            sb.Append("  IsEnemyLane: ").Append(IsEnemyLane).Append("\n");
             sb.Append("  LaneName: ").Append(LaneName).Append("\n");
+            sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  CssClass: ").Append(CssClass).Append("\n");
+            sb.Append("  MinimapColor: ").Append(MinimapColor).Append("\n");
             sb.Append("  MinimapZiplineColorOverride: ").Append(MinimapZiplineColorOverride).Append("\n");
             sb.Append("  ObjectiveColor: ").Append(ObjectiveColor).Append("\n");
             sb.Append("}\n");
@@ -162,9 +199,11 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<Color?> color = default;
+            Option<bool?> isEnemyLane = default;
             Option<string?> laneName = default;
+            Option<Color?> color = default;
             Option<string?> cssClass = default;
+            Option<Color?> minimapColor = default;
             Option<Color?> minimapZiplineColorOverride = default;
             Option<Color?> objectiveColor = default;
 
@@ -183,14 +222,20 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "color":
-                            color = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "is_enemy_lane":
+                            isEnemyLane = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "lane_name":
                             laneName = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
+                        case "color":
+                            color = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "css_class":
                             cssClass = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "minimap_color":
+                            minimapColor = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "minimap_zipline_color_override":
                             minimapZiplineColorOverride = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
@@ -204,19 +249,19 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (!color.IsSet)
-                throw new ArgumentException("Property is required for class LaneInfo.", nameof(color));
+            if (!isEnemyLane.IsSet)
+                throw new ArgumentException("Property is required for class LaneInfo.", nameof(isEnemyLane));
 
             if (!laneName.IsSet)
                 throw new ArgumentException("Property is required for class LaneInfo.", nameof(laneName));
 
-            if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class LaneInfo.");
+            if (isEnemyLane.IsSet && isEnemyLane.Value == null)
+                throw new ArgumentNullException(nameof(isEnemyLane), "Property is not nullable for class LaneInfo.");
 
             if (laneName.IsSet && laneName.Value == null)
                 throw new ArgumentNullException(nameof(laneName), "Property is not nullable for class LaneInfo.");
 
-            return new LaneInfo(color.Value!, laneName.Value!, cssClass, minimapZiplineColorOverride, objectiveColor);
+            return new LaneInfo(isEnemyLane.Value!.Value!, laneName.Value!, color, cssClass, minimapColor, minimapZiplineColorOverride, objectiveColor);
         }
 
         /// <summary>
@@ -243,22 +288,35 @@ namespace DeadlockApiClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneInfo laneInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (laneInfo.Color == null)
-                throw new ArgumentNullException(nameof(laneInfo.Color), "Property is required for class LaneInfo.");
-
             if (laneInfo.LaneName == null)
                 throw new ArgumentNullException(nameof(laneInfo.LaneName), "Property is required for class LaneInfo.");
 
-            writer.WritePropertyName("color");
-            JsonSerializer.Serialize(writer, laneInfo.Color, jsonSerializerOptions);
+            writer.WriteBoolean("is_enemy_lane", laneInfo.IsEnemyLane);
+
             writer.WriteString("lane_name", laneInfo.LaneName);
 
+            if (laneInfo.ColorOption.IsSet)
+                if (laneInfo.ColorOption.Value != null)
+                {
+                    writer.WritePropertyName("color");
+                    JsonSerializer.Serialize(writer, laneInfo.Color, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("color");
             if (laneInfo.CssClassOption.IsSet)
                 if (laneInfo.CssClassOption.Value != null)
                     writer.WriteString("css_class", laneInfo.CssClass);
                 else
                     writer.WriteNull("css_class");
 
+            if (laneInfo.MinimapColorOption.IsSet)
+                if (laneInfo.MinimapColorOption.Value != null)
+                {
+                    writer.WritePropertyName("minimap_color");
+                    JsonSerializer.Serialize(writer, laneInfo.MinimapColor, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("minimap_color");
             if (laneInfo.MinimapZiplineColorOverrideOption.IsSet)
                 if (laneInfo.MinimapZiplineColorOverrideOption.Value != null)
                 {

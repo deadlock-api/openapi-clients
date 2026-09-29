@@ -10,16 +10,17 @@ Method | HTTP request | Description
 
 ## get_generic_data
 
-> models::GenericData get_generic_data(client_version)
+> models::GenericData get_generic_data(language, client_version)
 Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**language** | Option<**String**> | Language code. Defaults to `english`. |  |
 **client_version** | Option<**u32**> | Client/game version (e.g. `6518`). Defaults to the latest known version. |  |
 
 ### Return type

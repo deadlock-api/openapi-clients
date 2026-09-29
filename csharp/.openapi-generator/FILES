@@ -67,6 +67,7 @@ docs/models/BuildTag.md
 docs/models/ClickhouseMatchInfo.md
 docs/models/ClickhouseSalts.md
 docs/models/Color.md
+docs/models/ColorGradientStop.md
 docs/models/ColumnSchema.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
@@ -109,6 +110,7 @@ docs/models/HeroColors.md
 docs/models/HeroCombStats.md
 docs/models/HeroCounterStats.md
 docs/models/HeroDescription.md
+docs/models/HeroDevelopmentState.md
 docs/models/HeroEntry.md
 docs/models/HeroImages.md
 docs/models/HeroPhysics.md
@@ -317,6 +319,7 @@ src/DeadlockApiClient.Test/Model/BuildTagTests.cs
 src/DeadlockApiClient.Test/Model/BuildTests.cs
 src/DeadlockApiClient.Test/Model/ClickhouseMatchInfoTests.cs
 src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
+src/DeadlockApiClient.Test/Model/ColorGradientStopTests.cs
 src/DeadlockApiClient.Test/Model/ColorTests.cs
 src/DeadlockApiClient.Test/Model/ColumnSchemaTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
@@ -359,6 +362,7 @@ src/DeadlockApiClient.Test/Model/HeroColorsTests.cs
 src/DeadlockApiClient.Test/Model/HeroCombStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroCounterStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroDescriptionTests.cs
+src/DeadlockApiClient.Test/Model/HeroDevelopmentStateTests.cs
 src/DeadlockApiClient.Test/Model/HeroEntryTests.cs
 src/DeadlockApiClient.Test/Model/HeroImagesTests.cs
 src/DeadlockApiClient.Test/Model/HeroPhysicsTests.cs
@@ -591,6 +595,7 @@ src/DeadlockApiClient/Model/BuildTag.cs
 src/DeadlockApiClient/Model/ClickhouseMatchInfo.cs
 src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/Color.cs
+src/DeadlockApiClient/Model/ColorGradientStop.cs
 src/DeadlockApiClient/Model/ColumnSchema.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
@@ -633,6 +638,7 @@ src/DeadlockApiClient/Model/HeroColors.cs
 src/DeadlockApiClient/Model/HeroCombStats.cs
 src/DeadlockApiClient/Model/HeroCounterStats.cs
 src/DeadlockApiClient/Model/HeroDescription.cs
+src/DeadlockApiClient/Model/HeroDevelopmentState.cs
 src/DeadlockApiClient/Model/HeroEntry.cs
 src/DeadlockApiClient/Model/HeroImages.cs
 src/DeadlockApiClient/Model/HeroPhysics.cs

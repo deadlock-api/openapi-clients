@@ -23,6 +23,7 @@ type WeaponInfo struct {
 	BuildUpRate NullableFloat64 `json:"build_up_rate,omitempty"`
 	BulletDamage NullableFloat64 `json:"bullet_damage,omitempty"`
 	BulletGravityScale NullableFloat64 `json:"bullet_gravity_scale,omitempty"`
+	BulletHandlerType NullableString `json:"bullet_handler_type,omitempty"`
 	BulletInheritShooterVelocityScale NullableFloat64 `json:"bullet_inherit_shooter_velocity_scale,omitempty"`
 	BulletLifetime NullableFloat64 `json:"bullet_lifetime,omitempty"`
 	BulletRadius NullableFloat64 `json:"bullet_radius,omitempty"`
@@ -66,6 +67,7 @@ type WeaponInfo struct {
 	RecoilSeed NullableFloat64 `json:"recoil_seed,omitempty"`
 	RecoilShotIndexRecoveryTimeFactor NullableFloat64 `json:"recoil_shot_index_recovery_time_factor,omitempty"`
 	RecoilSpeed NullableFloat64 `json:"recoil_speed,omitempty"`
+	RecycleTime NullableFloat64 `json:"recycle_time,omitempty"`
 	ReloadDuration NullableFloat64 `json:"reload_duration,omitempty"`
 	ReloadMoveSpeed NullableFloat64 `json:"reload_move_speed,omitempty"`
 	ReloadSingleBullets NullableBool `json:"reload_single_bullets,omitempty"`
@@ -266,6 +268,48 @@ func (o *WeaponInfo) SetBulletGravityScaleNil() {
 // UnsetBulletGravityScale ensures that no value is present for BulletGravityScale, not even an explicit nil
 func (o *WeaponInfo) UnsetBulletGravityScale() {
 	o.BulletGravityScale.Unset()
+}
+
+// GetBulletHandlerType returns the BulletHandlerType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfo) GetBulletHandlerType() string {
+	if o == nil || IsNil(o.BulletHandlerType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BulletHandlerType.Get()
+}
+
+// GetBulletHandlerTypeOk returns a tuple with the BulletHandlerType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfo) GetBulletHandlerTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BulletHandlerType.Get(), o.BulletHandlerType.IsSet()
+}
+
+// HasBulletHandlerType returns a boolean if a field has been set.
+func (o *WeaponInfo) HasBulletHandlerType() bool {
+	if o != nil && o.BulletHandlerType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBulletHandlerType gets a reference to the given NullableString and assigns it to the BulletHandlerType field.
+func (o *WeaponInfo) SetBulletHandlerType(v string) {
+	o.BulletHandlerType.Set(&v)
+}
+// SetBulletHandlerTypeNil sets the value for BulletHandlerType to be an explicit nil
+func (o *WeaponInfo) SetBulletHandlerTypeNil() {
+	o.BulletHandlerType.Set(nil)
+}
+
+// UnsetBulletHandlerType ensures that no value is present for BulletHandlerType, not even an explicit nil
+func (o *WeaponInfo) UnsetBulletHandlerType() {
+	o.BulletHandlerType.Unset()
 }
 
 // GetBulletInheritShooterVelocityScale returns the BulletInheritShooterVelocityScale field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2074,6 +2118,48 @@ func (o *WeaponInfo) UnsetRecoilSpeed() {
 	o.RecoilSpeed.Unset()
 }
 
+// GetRecycleTime returns the RecycleTime field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *WeaponInfo) GetRecycleTime() float64 {
+	if o == nil || IsNil(o.RecycleTime.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.RecycleTime.Get()
+}
+
+// GetRecycleTimeOk returns a tuple with the RecycleTime field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *WeaponInfo) GetRecycleTimeOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RecycleTime.Get(), o.RecycleTime.IsSet()
+}
+
+// HasRecycleTime returns a boolean if a field has been set.
+func (o *WeaponInfo) HasRecycleTime() bool {
+	if o != nil && o.RecycleTime.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRecycleTime gets a reference to the given NullableFloat64 and assigns it to the RecycleTime field.
+func (o *WeaponInfo) SetRecycleTime(v float64) {
+	o.RecycleTime.Set(&v)
+}
+// SetRecycleTimeNil sets the value for RecycleTime to be an explicit nil
+func (o *WeaponInfo) SetRecycleTimeNil() {
+	o.RecycleTime.Set(nil)
+}
+
+// UnsetRecycleTime ensures that no value is present for RecycleTime, not even an explicit nil
+func (o *WeaponInfo) UnsetRecycleTime() {
+	o.RecycleTime.Unset()
+}
+
 // GetReloadDuration returns the ReloadDuration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WeaponInfo) GetReloadDuration() float64 {
 	if o == nil || IsNil(o.ReloadDuration.Get()) {
@@ -3095,6 +3181,9 @@ func (o WeaponInfo) ToMap() (map[string]interface{}, error) {
 	if o.BulletGravityScale.IsSet() {
 		toSerialize["bullet_gravity_scale"] = o.BulletGravityScale.Get()
 	}
+	if o.BulletHandlerType.IsSet() {
+		toSerialize["bullet_handler_type"] = o.BulletHandlerType.Get()
+	}
 	if o.BulletInheritShooterVelocityScale.IsSet() {
 		toSerialize["bullet_inherit_shooter_velocity_scale"] = o.BulletInheritShooterVelocityScale.Get()
 	}
@@ -3223,6 +3312,9 @@ func (o WeaponInfo) ToMap() (map[string]interface{}, error) {
 	}
 	if o.RecoilSpeed.IsSet() {
 		toSerialize["recoil_speed"] = o.RecoilSpeed.Get()
+	}
+	if o.RecycleTime.IsSet() {
+		toSerialize["recycle_time"] = o.RecycleTime.Get()
 	}
 	if o.ReloadDuration.IsSet() {
 		toSerialize["reload_duration"] = o.ReloadDuration.Get()

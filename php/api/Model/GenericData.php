@@ -59,6 +59,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'aim_spring_strength' => 'float[]',
         'armor_groups' => '\OpenAPI\Client\Model\ItemGroup[]',
+        'color_enemy' => '\OpenAPI\Client\Model\Color',
+        'color_friend' => '\OpenAPI\Client\Model\Color',
+        'color_team1' => '\OpenAPI\Client\Model\Color',
+        'color_team2' => '\OpenAPI\Client\Model\Color',
         'damage_flash' => '\OpenAPI\Client\Model\DamageFlash',
         'enemy_objectives_and_zipline_color' => '\OpenAPI\Client\Model\Color',
         'enemy_objectives_color' => '\OpenAPI\Client\Model\Color',
@@ -90,6 +94,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'aim_spring_strength' => 'double',
         'armor_groups' => null,
+        'color_enemy' => null,
+        'color_friend' => null,
+        'color_team1' => null,
+        'color_team2' => null,
         'damage_flash' => null,
         'enemy_objectives_and_zipline_color' => null,
         'enemy_objectives_color' => null,
@@ -119,6 +127,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'aim_spring_strength' => false,
         'armor_groups' => false,
+        'color_enemy' => true,
+        'color_friend' => true,
+        'color_team1' => true,
+        'color_team2' => true,
         'damage_flash' => false,
         'enemy_objectives_and_zipline_color' => true,
         'enemy_objectives_color' => true,
@@ -228,6 +240,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'aim_spring_strength' => 'aim_spring_strength',
         'armor_groups' => 'armor_groups',
+        'color_enemy' => 'color_enemy',
+        'color_friend' => 'color_friend',
+        'color_team1' => 'color_team1',
+        'color_team2' => 'color_team2',
         'damage_flash' => 'damage_flash',
         'enemy_objectives_and_zipline_color' => 'enemy_objectives_and_zipline_color',
         'enemy_objectives_color' => 'enemy_objectives_color',
@@ -257,6 +273,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'aim_spring_strength' => 'setAimSpringStrength',
         'armor_groups' => 'setArmorGroups',
+        'color_enemy' => 'setColorEnemy',
+        'color_friend' => 'setColorFriend',
+        'color_team1' => 'setColorTeam1',
+        'color_team2' => 'setColorTeam2',
         'damage_flash' => 'setDamageFlash',
         'enemy_objectives_and_zipline_color' => 'setEnemyObjectivesAndZiplineColor',
         'enemy_objectives_color' => 'setEnemyObjectivesColor',
@@ -286,6 +306,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'aim_spring_strength' => 'getAimSpringStrength',
         'armor_groups' => 'getArmorGroups',
+        'color_enemy' => 'getColorEnemy',
+        'color_friend' => 'getColorFriend',
+        'color_team1' => 'getColorTeam1',
+        'color_team2' => 'getColorTeam2',
         'damage_flash' => 'getDamageFlash',
         'enemy_objectives_and_zipline_color' => 'getEnemyObjectivesAndZiplineColor',
         'enemy_objectives_color' => 'getEnemyObjectivesColor',
@@ -366,6 +390,10 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('aim_spring_strength', $data ?? [], null);
         $this->setIfExists('armor_groups', $data ?? [], null);
+        $this->setIfExists('color_enemy', $data ?? [], null);
+        $this->setIfExists('color_friend', $data ?? [], null);
+        $this->setIfExists('color_team1', $data ?? [], null);
+        $this->setIfExists('color_team2', $data ?? [], null);
         $this->setIfExists('damage_flash', $data ?? [], null);
         $this->setIfExists('enemy_objectives_and_zipline_color', $data ?? [], null);
         $this->setIfExists('enemy_objectives_color', $data ?? [], null);
@@ -524,6 +552,142 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable armor_groups cannot be null');
         }
         $this->container['armor_groups'] = $armor_groups;
+
+        return $this;
+    }
+
+    /**
+     * Gets color_enemy
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getColorEnemy()
+    {
+        return $this->container['color_enemy'];
+    }
+
+    /**
+     * Sets color_enemy
+     *
+     * @param \OpenAPI\Client\Model\Color|null $color_enemy Build 6711+.
+     *
+     * @return self
+     */
+    public function setColorEnemy($color_enemy)
+    {
+        if (is_null($color_enemy)) {
+            array_push($this->openAPINullablesSetToNull, 'color_enemy');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color_enemy', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color_enemy'] = $color_enemy;
+
+        return $this;
+    }
+
+    /**
+     * Gets color_friend
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getColorFriend()
+    {
+        return $this->container['color_friend'];
+    }
+
+    /**
+     * Sets color_friend
+     *
+     * @param \OpenAPI\Client\Model\Color|null $color_friend Build 6711+.
+     *
+     * @return self
+     */
+    public function setColorFriend($color_friend)
+    {
+        if (is_null($color_friend)) {
+            array_push($this->openAPINullablesSetToNull, 'color_friend');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color_friend', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color_friend'] = $color_friend;
+
+        return $this;
+    }
+
+    /**
+     * Gets color_team1
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getColorTeam1()
+    {
+        return $this->container['color_team1'];
+    }
+
+    /**
+     * Sets color_team1
+     *
+     * @param \OpenAPI\Client\Model\Color|null $color_team1 Build 6711+.
+     *
+     * @return self
+     */
+    public function setColorTeam1($color_team1)
+    {
+        if (is_null($color_team1)) {
+            array_push($this->openAPINullablesSetToNull, 'color_team1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color_team1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color_team1'] = $color_team1;
+
+        return $this;
+    }
+
+    /**
+     * Gets color_team2
+     *
+     * @return \OpenAPI\Client\Model\Color|null
+     */
+    public function getColorTeam2()
+    {
+        return $this->container['color_team2'];
+    }
+
+    /**
+     * Sets color_team2
+     *
+     * @param \OpenAPI\Client\Model\Color|null $color_team2 Build 6711+.
+     *
+     * @return self
+     */
+    public function setColorTeam2($color_team2)
+    {
+        if (is_null($color_team2)) {
+            array_push($this->openAPINullablesSetToNull, 'color_team2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color_team2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color_team2'] = $color_team2;
 
         return $this;
     }

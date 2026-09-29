@@ -27,6 +27,10 @@ export interface NpcUnit {
     'backdoor_bullet_resist_modifier'?: SubclassBulletResistModifier | null;
     'barrack_boss_dps'?: number | null;
     'barrack_guardian_damage_resist_pct'?: number | null;
+    /**
+     * Secondary weapon the unit uses against bosses (builds 6711+).
+     */
+    'boss_weapon_info'?: WeaponInfo | null;
     'bound_abilities'?: {
         [key: string]: string;
     } | null;

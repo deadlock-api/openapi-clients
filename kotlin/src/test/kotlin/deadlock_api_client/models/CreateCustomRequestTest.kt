@@ -47,6 +47,12 @@ class CreateCustomRequestTest : ShouldSpec() {
             //modelInstance.cheatsEnabled shouldBe ("TODO")
         }
 
+        // to test the property `corruptedItemShopSpawnMinutes` - Minute of the match at which the Broker's corrupted item shop first spawns.
+        should("test corruptedItemShopSpawnMinutes") {
+            // uncomment below to test the property
+            //modelInstance.corruptedItemShopSpawnMinutes shouldBe ("TODO")
+        }
+
         // to test the property `disableAutoReady` - If auto-ready is disabled, the bot will not automatically ready up. You need to call the `ready` endpoint to ready up.
         should("test disableAutoReady") {
             // uncomment below to test the property

@@ -40,6 +40,24 @@ export interface MiscEntity  {
      */
     breakOnDodgeTouch?: boolean;
     /**
+     * Permanent pickups: color used for the buff in the stat graph.
+     * @type {Color}
+     * @memberof MiscEntity
+     */
+    buffTypeGraphColor?: Color;
+    /**
+     * Permanent pickups: localization token of the stat the buff raises.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    buffTypeLocString?: string;
+    /**
+     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    buffTypeValueUnit?: string;
+    /**
      * 
      * @type {string}
      * @memberof MiscEntity
@@ -77,6 +95,12 @@ export interface MiscEntity  {
     damagedByMelee?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof MiscEntity
+     */
+    damagedBySlide?: boolean;
+    /**
+     * 
      * @type {CurveOrFloat}
      * @memberof MiscEntity
      */
@@ -99,6 +123,18 @@ export interface MiscEntity  {
      * @memberof MiscEntity
      */
     health?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    heavyMeleeHitCount?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MiscEntity
+     */
+    heavyMeleeOnly?: boolean;
     /**
      * 
      * @type {number}
@@ -184,13 +220,25 @@ export interface MiscEntity  {
      */
     orbSpawnDelayMin?: number;
     /**
+     * Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
+     * @type {{ [key: string]: number; }}
+     * @memberof MiscEntity
+     */
+    pickupChances?: { [key: string]: number; };
+    /**
      * 
      * @type {CurveOrFloat}
      * @memberof MiscEntity
      */
     pickupRadius?: CurveOrFloat;
     /**
-     * 
+     * Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    powerupDropChance?: number;
+    /**
+     * Pre-6711 builds only; see `powerup_drop_chance`.
      * @type {number}
      * @memberof MiscEntity
      */
@@ -248,16 +296,22 @@ export interface MiscEntity  {
 export function MiscEntityFromJSON(json: any): MiscEntity {
     return {
         'breakOnDodgeTouch': !exists(json, 'break_on_dodge_touch') ? undefined : json['break_on_dodge_touch'],
+        'buffTypeGraphColor': !exists(json, 'buff_type_graph_color') ? undefined : ColorFromJSON(json['buff_type_graph_color']),
+        'buffTypeLocString': !exists(json, 'buff_type_loc_string') ? undefined : json['buff_type_loc_string'],
+        'buffTypeValueUnit': !exists(json, 'buff_type_value_unit') ? undefined : json['buff_type_value_unit'],
         'className': json['class_name'],
         'collisionRadius': !exists(json, 'collision_radius') ? undefined : json['collision_radius'],
         'color': !exists(json, 'color') ? undefined : ColorFromJSON(json['color']),
         'damagedByAbilities': !exists(json, 'damaged_by_abilities') ? undefined : json['damaged_by_abilities'],
         'damagedByBullets': !exists(json, 'damaged_by_bullets') ? undefined : json['damaged_by_bullets'],
         'damagedByMelee': !exists(json, 'damaged_by_melee') ? undefined : json['damaged_by_melee'],
+        'damagedBySlide': !exists(json, 'damaged_by_slide') ? undefined : json['damaged_by_slide'],
         'expirationDuration': !exists(json, 'expiration_duration') ? undefined : CurveOrFloatFromJSON(json['expiration_duration']),
         'goldAmount': !exists(json, 'gold_amount') ? undefined : json['gold_amount'],
         'goldPerMinuteAmount': !exists(json, 'gold_per_minute_amount') ? undefined : json['gold_per_minute_amount'],
         'health': !exists(json, 'health') ? undefined : json['health'],
+        'heavyMeleeHitCount': !exists(json, 'heavy_melee_hit_count') ? undefined : json['heavy_melee_hit_count'],
+        'heavyMeleeOnly': !exists(json, 'heavy_melee_only') ? undefined : json['heavy_melee_only'],
         'id': json['id'],
         'initialSpawnDelayInSeconds': !exists(json, 'initial_spawn_delay_in_seconds') ? undefined : json['initial_spawn_delay_in_seconds'],
         'initialSpawnDelaySeconds': !exists(json, 'initial_spawn_delay_seconds') ? undefined : json['initial_spawn_delay_seconds'],
@@ -272,7 +326,9 @@ export function MiscEntityFromJSON(json: any): MiscEntity {
         'modifier': !exists(json, 'modifier') ? undefined : SubclassModifierDefinitionFromJSON(json['modifier']),
         'orbSpawnDelayMax': !exists(json, 'orb_spawn_delay_max') ? undefined : json['orb_spawn_delay_max'],
         'orbSpawnDelayMin': !exists(json, 'orb_spawn_delay_min') ? undefined : json['orb_spawn_delay_min'],
+        'pickupChances': !exists(json, 'pickup_chances') ? undefined : json['pickup_chances'],
         'pickupRadius': !exists(json, 'pickup_radius') ? undefined : CurveOrFloatFromJSON(json['pickup_radius']),
+        'powerupDropChance': !exists(json, 'powerup_drop_chance') ? undefined : json['powerup_drop_chance'],
         'primaryDropChance': !exists(json, 'primary_drop_chance') ? undefined : json['primary_drop_chance'],
         'primaryPickups': !exists(json, 'primary_pickups') ? undefined : (json['primary_pickups'] as Array<any>).map(PickupFromJSON),
         'renderAfterDeath': !exists(json, 'render_after_death') ? undefined : json['render_after_death'],
@@ -291,16 +347,22 @@ export function MiscEntityToJSON(value?: MiscEntity): any {
     }
     return {
         'break_on_dodge_touch': value.breakOnDodgeTouch,
+        'buff_type_graph_color': ColorToJSON(value.buffTypeGraphColor),
+        'buff_type_loc_string': value.buffTypeLocString,
+        'buff_type_value_unit': value.buffTypeValueUnit,
         'class_name': value.className,
         'collision_radius': value.collisionRadius,
         'color': ColorToJSON(value.color),
         'damaged_by_abilities': value.damagedByAbilities,
         'damaged_by_bullets': value.damagedByBullets,
         'damaged_by_melee': value.damagedByMelee,
+        'damaged_by_slide': value.damagedBySlide,
         'expiration_duration': CurveOrFloatToJSON(value.expirationDuration),
         'gold_amount': value.goldAmount,
         'gold_per_minute_amount': value.goldPerMinuteAmount,
         'health': value.health,
+        'heavy_melee_hit_count': value.heavyMeleeHitCount,
+        'heavy_melee_only': value.heavyMeleeOnly,
         'id': value.id,
         'initial_spawn_delay_in_seconds': value.initialSpawnDelayInSeconds,
         'initial_spawn_delay_seconds': value.initialSpawnDelaySeconds,
@@ -315,7 +377,9 @@ export function MiscEntityToJSON(value?: MiscEntity): any {
         'modifier': SubclassModifierDefinitionToJSON(value.modifier),
         'orb_spawn_delay_max': value.orbSpawnDelayMax,
         'orb_spawn_delay_min': value.orbSpawnDelayMin,
+        'pickup_chances': value.pickupChances,
         'pickup_radius': CurveOrFloatToJSON(value.pickupRadius),
+        'powerup_drop_chance': value.powerupDropChance,
         'primary_drop_chance': value.primaryDropChance,
         'primary_pickups': value.primaryPickups === undefined ? undefined : (value.primaryPickups as Array<any>).map(PickupToJSON),
         'render_after_death': value.renderAfterDeath,

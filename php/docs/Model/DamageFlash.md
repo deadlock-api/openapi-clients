@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bullet_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) |  |
 **crit_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) |  |
+**generic_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) | Build 6711+. | [optional]
 **healing_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) |  |
 **melee_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) |  |
 **tech_damage** | [**\OpenAPI\Client\Model\FlashData**](FlashData.md) |  |

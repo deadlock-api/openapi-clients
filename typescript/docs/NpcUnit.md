@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] [default to undefined]
 **barrack_boss_dps** | **number** |  | [optional] [default to undefined]
 **barrack_guardian_damage_resist_pct** | **number** |  | [optional] [default to undefined]
+**boss_weapon_info** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] [default to undefined]
 **bound_abilities** | **{ [key: string]: string; }** |  | [optional] [default to undefined]
 **class_name** | **string** |  | [default to undefined]
 **empowered_modifier_level1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] [default to undefined]
@@ -86,6 +87,7 @@ const instance: NpcUnit = {
     backdoor_bullet_resist_modifier,
     barrack_boss_dps,
     barrack_guardian_damage_resist_pct,
+    boss_weapon_info,
     bound_abilities,
     class_name,
     empowered_modifier_level1,

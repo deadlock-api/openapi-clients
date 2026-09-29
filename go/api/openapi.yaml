@@ -113,7 +113,10 @@ tags:
 - description: "Item, ability, and weapon definitions parsed from the patch's KV3\
     \ source files."
   name: Items
-- description: Loot table definitions derived from per-version game data files.
+- description: |-
+    Loot table definitions derived from per-version game data files.
+
+    **Deprecated.** The game no longer ships `loot_tables.vdata` from build 6711 on.
   name: Loot Tables
 - description: "Map metadata: minimap radius, image-layer URLs, objective marker positions\
     \ (from per-version `objectives_map.css`), and the zip-line lane splines."
@@ -192,7 +195,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -398,6 +401,39 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       responses:
         "200":
           content:
@@ -463,7 +499,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -597,7 +633,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -685,7 +721,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -840,6 +876,39 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       - description: Comma separated list of account ids to include
         explode: true
         in: query
@@ -918,7 +987,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -1063,7 +1132,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -1202,6 +1271,39 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       responses:
         "200":
           content:
@@ -1263,7 +1365,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -1560,7 +1662,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -1829,7 +1931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -2016,6 +2118,39 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       - deprecated: true
         description: Filter for matches with a specific player account ID.
         explode: true
@@ -2108,7 +2243,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -2394,7 +2529,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -2552,6 +2687,39 @@ paths:
         explode: true
         in: query
         name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
         required: false
         schema:
           items:
@@ -2726,7 +2894,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -2859,6 +3027,39 @@ paths:
             type: integer
           maxItems: 1000
           minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
           nullable: true
           type: array
           default: null
@@ -3026,7 +3227,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -3153,6 +3354,39 @@ paths:
         explode: true
         in: query
         name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
         required: false
         schema:
           items:
@@ -3326,7 +3560,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -3635,7 +3869,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -3922,7 +4156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -4214,7 +4448,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -4362,6 +4596,39 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       - description: Comma separated list of account ids to include
         explode: true
         in: query
@@ -4450,7 +4717,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -4590,6 +4857,39 @@ paths:
         explode: true
         in: query
         name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: true
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: ability_unlock_order_prefix
         required: false
         schema:
           items:
@@ -4764,7 +5064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -5794,9 +6094,51 @@ paths:
     get:
       description: "Returns the game-wide generic configuration (street brawl, lane\
         \ info, glitch settings, damage flash, item draft, etc.) parsed from the patch's\
-        \ `generic_data.vdata` KV3 source file."
+        \ `generic_data.vdata` KV3 source file. Lane names are localized into the\
+        \ requested `language`."
       operationId: get_generic_data
       parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
           version.
         explode: true
@@ -6496,8 +6838,11 @@ paths:
       - Items
   /v1/assets/loot-tables:
     get:
-      description: "Returns the per-table loot definitions used by the game client,\
-        \ parsed from the patch's KV3 source files. Keyed by table `class_name`."
+      deprecated: true
+      description: |-
+        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
+
+        **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 ("City Never Sleeps"); for those and later versions this endpoint returns 404.
       operationId: list_loot_tables
       parameters:
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
@@ -6522,7 +6867,8 @@ paths:
                 type: object
           description: ""
         "404":
-          description: Requested client_version is not available
+          description: "Requested client_version is not available, or it has no loot\
+            \ tables (build 6711+)"
         "500":
           description: Failed to load source assets
       summary: List Loot Tables
@@ -8341,6 +8687,8 @@ paths:
           description: Rate limit exceeded
         "500":
           description: Reading the demo schema failed
+        "502":
+          description: Valve's replay server failed to serve the demo
       summary: Demo Schema
       tags:
       - Demo
@@ -9570,7 +9918,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -9694,7 +10042,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -10016,7 +10364,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1787961600
+          default: 1788048000
           format: int64
           nullable: true
           type: integer
@@ -11477,6 +11825,7 @@ components:
       - weapon
       - melee
       - cosmetic
+      - held
       type: string
     AbilityVideos:
       properties:
@@ -12743,6 +13092,24 @@ components:
       - blue
       - green
       - red
+    ColorGradientStop:
+      example:
+        color:
+          alpha: 0
+          blue: 0
+          green: 0
+          red: 0
+        position: 9.301444243932576
+      properties:
+        color:
+          $ref: "#/components/schemas/Color"
+        position:
+          description: "Position of the stop along the flash's lifetime, `0.0..=1.0`."
+          format: double
+          type: number
+      required:
+      - color
+      - position
     ColumnSchema:
       example:
         data_type: data_type
@@ -12765,6 +13132,7 @@ components:
       example:
         callback_url: callback_url
         cheats_enabled: true
+        corrupted_item_shop_spawn_minutes: 0
         disable_auto_ready: true
         duplicate_heroes_enabled: true
         game_mode: ""
@@ -12781,6 +13149,13 @@ components:
         cheats_enabled:
           nullable: true
           type: boolean
+        corrupted_item_shop_spawn_minutes:
+          description: Minute of the match at which the Broker's corrupted item shop
+            first spawns.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
         disable_auto_ready:
           description: |-
             If auto-ready is disabled, the bot will not automatically ready up.
@@ -12849,63 +13224,114 @@ components:
         bullet_damage:
           brightness: 6.027456183070403
           brightness_in_light_sensitivity_mode: 1.4658129805029452
-          color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
+          color: ""
+          color_gradient:
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          coverage: 3.616076749251911
+          duration: 2.027123023002322
+          hardness: 4.145608029883936
         crit_damage:
           brightness: 6.027456183070403
           brightness_in_light_sensitivity_mode: 1.4658129805029452
-          color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
+          color: ""
+          color_gradient:
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          coverage: 3.616076749251911
+          duration: 2.027123023002322
+          hardness: 4.145608029883936
+        generic_damage: ""
         healing_damage:
           brightness: 6.027456183070403
           brightness_in_light_sensitivity_mode: 1.4658129805029452
-          color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
+          color: ""
+          color_gradient:
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          coverage: 3.616076749251911
+          duration: 2.027123023002322
+          hardness: 4.145608029883936
         melee_damage:
           brightness: 6.027456183070403
           brightness_in_light_sensitivity_mode: 1.4658129805029452
-          color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
+          color: ""
+          color_gradient:
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          coverage: 3.616076749251911
+          duration: 2.027123023002322
+          hardness: 4.145608029883936
         tech_damage:
           brightness: 6.027456183070403
           brightness_in_light_sensitivity_mode: 1.4658129805029452
-          color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
-          coverage: 9.301444243932576
-          duration: 3.616076749251911
-          hardness: 2.027123023002322
+          color: ""
+          color_gradient:
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          - color:
+              alpha: 0
+              blue: 0
+              green: 0
+              red: 0
+            position: 9.301444243932576
+          coverage: 3.616076749251911
+          duration: 2.027123023002322
+          hardness: 4.145608029883936
       properties:
         bullet_damage:
           $ref: "#/components/schemas/FlashData"
         crit_damage:
           $ref: "#/components/schemas/FlashData"
+        generic_damage:
+          allOf:
+          - $ref: "#/components/schemas/FlashData"
+          description: Build 6711+.
+          nullable: true
         healing_damage:
           $ref: "#/components/schemas/FlashData"
         melee_damage:
@@ -13214,39 +13640,61 @@ components:
       example:
         brightness: 6.027456183070403
         brightness_in_light_sensitivity_mode: 1.4658129805029452
-        color:
-          alpha: 0
-          blue: 0
-          green: 0
-          red: 0
-        coverage: 9.301444243932576
-        duration: 3.616076749251911
-        hardness: 2.027123023002322
+        color: ""
+        color_gradient:
+        - color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          position: 9.301444243932576
+        - color:
+            alpha: 0
+            blue: 0
+            green: 0
+            red: 0
+          position: 9.301444243932576
+        coverage: 3.616076749251911
+        duration: 2.027123023002322
+        hardness: 4.145608029883936
       properties:
         brightness:
           format: double
+          nullable: true
           type: number
         brightness_in_light_sensitivity_mode:
           format: double
           nullable: true
           type: number
         color:
-          $ref: "#/components/schemas/Color"
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: |-
+            Flat flash color. From build 6711 on it is derived from the first
+            `color_gradient` stop.
+        color_gradient:
+          description: Color gradient over the flash's lifetime (build 6711+).
+          items:
+            $ref: "#/components/schemas/ColorGradientStop"
+          nullable: true
+          type: array
+          default: null
         coverage:
+          description: Only present up to build 6701.
           format: double
+          nullable: true
           type: number
         duration:
           format: double
           type: number
         hardness:
+          description: Only present up to build 6701.
           format: double
+          nullable: true
           type: number
       required:
-      - brightness
       - color
-      - coverage
       - duration
-      - hardness
     ForumPatch:
       properties:
         category:
@@ -13291,163 +13739,209 @@ components:
           upgrades:
           - upgrades
           - upgrades
+        color_enemy: ""
+        color_friend: ""
+        color_team1: ""
+        color_team2: ""
         damage_flash:
           bullet_damage:
             brightness: 6.027456183070403
             brightness_in_light_sensitivity_mode: 1.4658129805029452
-            color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
+            color: ""
+            color_gradient:
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            coverage: 3.616076749251911
+            duration: 2.027123023002322
+            hardness: 4.145608029883936
           crit_damage:
             brightness: 6.027456183070403
             brightness_in_light_sensitivity_mode: 1.4658129805029452
-            color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
+            color: ""
+            color_gradient:
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            coverage: 3.616076749251911
+            duration: 2.027123023002322
+            hardness: 4.145608029883936
+          generic_damage: ""
           healing_damage:
             brightness: 6.027456183070403
             brightness_in_light_sensitivity_mode: 1.4658129805029452
-            color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
+            color: ""
+            color_gradient:
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            coverage: 3.616076749251911
+            duration: 2.027123023002322
+            hardness: 4.145608029883936
           melee_damage:
             brightness: 6.027456183070403
             brightness_in_light_sensitivity_mode: 1.4658129805029452
-            color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
+            color: ""
+            color_gradient:
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            coverage: 3.616076749251911
+            duration: 2.027123023002322
+            hardness: 4.145608029883936
           tech_damage:
             brightness: 6.027456183070403
             brightness_in_light_sensitivity_mode: 1.4658129805029452
-            color:
-              alpha: 0
-              blue: 0
-              green: 0
-              red: 0
-            coverage: 9.301444243932576
-            duration: 3.616076749251911
-            hardness: 2.027123023002322
+            color: ""
+            color_gradient:
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            - color:
+                alpha: 0
+                blue: 0
+                green: 0
+                red: 0
+              position: 9.301444243932576
+            coverage: 3.616076749251911
+            duration: 2.027123023002322
+            hardness: 4.145608029883936
         enemy_objectives_and_zipline_color: ""
         enemy_objectives_color: ""
         enemy_zipline_color: ""
         glitch_settings:
-          breakup_strength: 4.145608029883936
-          distort_strength: 7.386281948385884
-          frame_rate: 1.2315135367772556
-          jump_strength: 1.0246457001441578
-          quantize_scale: 1.4894159098541704
-          quantize_strength: 6.84685269835264
-          scanline_strength: 7.457744773683766
-          speed: 1.1730742509559433
-          strength: 4.965218492984954
-          uantize_type: 5.025004791520295
-          white_noise_strength: 9.965781217890562
+          breakup_strength: 7.386281948385884
+          distort_strength: 1.2315135367772556
+          frame_rate: 1.0246457001441578
+          jump_strength: 1.4894159098541704
+          quantize_scale: 6.84685269835264
+          quantize_strength: 7.457744773683766
+          scanline_strength: 1.1730742509559433
+          speed: 4.965218492984954
+          strength: 5.025004791520295
+          uantize_type: 9.965781217890562
+          white_noise_strength: 9.369310271410669
         hero_kill_gold_share_frac:
-        - 9.369310271410669
-        - 9.369310271410669
+        - 6.683562403749608
+        - 6.683562403749608
         item_price_per_tier:
-        - 6
-        - 6
+        - 8
+        - 8
         lane_info:
-        - color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+        - color: ""
           css_class: css_class
+          is_enemy_lane: true
           lane_name: lane_name
+          minimap_color: ""
           minimap_zipline_color_override: ""
           objective_color: ""
-        - color:
-            alpha: 0
-            blue: 0
-            green: 0
-            red: 0
+        - color: ""
           css_class: css_class
+          is_enemy_lane: true
           lane_name: lane_name
+          minimap_color: ""
           minimap_zipline_color_override: ""
           objective_color: ""
         mini_map_offsets:
         - entity_class: entity_class
-          lane_index: 8
+          lane_index: 9
           offset_2d:
-          - 9.018348186070783
-          - 9.018348186070783
+          - 6.438423552598547
+          - 6.438423552598547
         - entity_class: entity_class
-          lane_index: 8
+          lane_index: 9
           offset_2d:
-          - 9.018348186070783
-          - 9.018348186070783
+          - 6.438423552598547
+          - 6.438423552598547
         minimap_team_combine_color: ""
         minimap_team_rebels_color: ""
         new_player_metrics:
-        - abilities_upgraded: 6
-          boss_damage: 3
-          damage_taken: 6
-          last_hits: 1
-          mods_purchased: 2
+        - abilities_upgraded: 3
+          boss_damage: 6
+          damage_taken: 1
+          last_hits: 2
+          mods_purchased: 6
           net_worth: 6
-          orbs_denied: 6
-          orbs_secured: 5
-          player_damage: 6
+          orbs_denied: 5
+          orbs_secured: 6
+          player_damage: 3
           skill_tier_name: skill_tier_name
-        - abilities_upgraded: 6
-          boss_damage: 3
-          damage_taken: 6
-          last_hits: 1
-          mods_purchased: 2
+        - abilities_upgraded: 3
+          boss_damage: 6
+          damage_taken: 1
+          last_hits: 2
+          mods_purchased: 6
           net_worth: 6
-          orbs_denied: 6
-          orbs_secured: 5
-          player_damage: 6
+          orbs_denied: 5
+          orbs_secured: 6
+          player_damage: 3
           skill_tier_name: skill_tier_name
         objective_params:
           base_guardians_gold_kill: 3
-          base_guardians_gold_orbs: 3
-          gold_per_orb: 7
-          near_player_split_pct: 0.8851374739011653
-          patron_phase1_gold_kill: 7
-          patron_phase1_gold_orbs: 6
-          shrines_gold_kill: 0
-          shrines_gold_orbs: 4
-          tier1_gold_kill: 8
-          tier1_gold_orbs: 7
+          base_guardians_gold_orbs: 7
+          gold_per_orb: 0
+          near_player_split_pct: 7.058770351582356
+          patron_phase1_gold_kill: 6
+          patron_phase1_gold_orbs: 0
+          shrines_gold_kill: 4
+          shrines_gold_orbs: 8
+          tier1_gold_kill: 7
+          tier1_gold_orbs: 3
           tier2_gold_kill: 3
-          tier2_gold_orbs: 3
+          tier2_gold_orbs: 7
         rejuv_params:
           player_respawn_mult:
-          - 7.04836565559697
-          - 7.04836565559697
-          rejuvinator_buff_duration: 5.533258397034986
-          rejuvinator_drop_duration: 3.2588565619047607
-          rejuvinator_drop_height: 4.078845849666752
-          rejuvinator_expiration_warning_timing: 0.2025324113236393
+          - 5.533258397034986
+          - 5.533258397034986
+          rejuvinator_buff_duration: 3.2588565619047607
+          rejuvinator_drop_duration: 4.078845849666752
+          rejuvinator_drop_height: 0.2025324113236393
+          rejuvinator_expiration_warning_timing: 6.628464275087742
           rejuvinator_rebirth_duration:
-          - 6.628464275087742
-          - 6.628464275087742
+          - 4.258773108174356
+          - 4.258773108174356
           trooper_health_mult:
-          - 4.258773108174356
-          - 4.258773108174356
+          - 1.041444916118296
+          - 1.041444916118296
         spirit_groups:
         - shop_group: shop_group
           upgrades:
@@ -13459,11 +13953,11 @@ components:
           - upgrades
         street_brawl: ""
         targeting_spring_strength:
-        - 1.041444916118296
-        - 1.041444916118296
+        - 4.678947989005849
+        - 4.678947989005849
         trooper_kill_gold_share_frac:
-        - 4.678947989005849
-        - 4.678947989005849
+        - 7.260521264802104
+        - 7.260521264802104
         weapon_groups:
         - shop_group: shop_group
           upgrades:
@@ -13485,6 +13979,26 @@ components:
             $ref: "#/components/schemas/ItemGroup"
           type: array
           default: null
+        color_enemy:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Build 6711+.
+          nullable: true
+        color_friend:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Build 6711+.
+          nullable: true
+        color_team1:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Build 6711+.
+          nullable: true
+        color_team2:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Build 6711+.
+          nullable: true
         damage_flash:
           $ref: "#/components/schemas/DamageFlash"
         enemy_objectives_and_zipline_color:
@@ -13594,17 +14108,17 @@ components:
       - match_id
     GlitchSettings:
       example:
-        breakup_strength: 4.145608029883936
-        distort_strength: 7.386281948385884
-        frame_rate: 1.2315135367772556
-        jump_strength: 1.0246457001441578
-        quantize_scale: 1.4894159098541704
-        quantize_strength: 6.84685269835264
-        scanline_strength: 7.457744773683766
-        speed: 1.1730742509559433
-        strength: 4.965218492984954
-        uantize_type: 5.025004791520295
-        white_noise_strength: 9.965781217890562
+        breakup_strength: 7.386281948385884
+        distort_strength: 1.2315135367772556
+        frame_rate: 1.0246457001441578
+        jump_strength: 1.4894159098541704
+        quantize_scale: 6.84685269835264
+        quantize_strength: 7.457744773683766
+        scanline_strength: 1.1730742509559433
+        speed: 4.965218492984954
+        strength: 5.025004791520295
+        uantize_type: 9.965781217890562
+        white_noise_strength: 9.369310271410669
       properties:
         breakup_strength:
           format: double
@@ -13713,6 +14227,7 @@ components:
           lore: lore
           playstyle: playstyle
           role: role
+        development_state: ""
         disabled: true
         gun_tag: gun_tag
         hero_stats_ui:
@@ -13773,17 +14288,10 @@ components:
           step_sound_time_sprinting: 1.2315135367772556
         player_selectable: true
         prerelease_only: true
-        purchase_bonuses:
-          key:
-          - tier: 1
-            value: value
-            value_type: value_type
-          - tier: 1
-            value: value
-            value_type: value_type
+        purchase_bonuses: ""
         scaling_stats:
           key:
-            scale: 1.4894159098541704
+            scale: 1.0246457001441578
             scaling_stat: scaling_stat
         shop_stat_display:
           spirit_stats_display:
@@ -13809,73 +14317,73 @@ components:
             - weapon_attributes
             weapon_image: weapon_image
             weapon_image_webp: weapon_image_webp
-        skin: 6
+        skin: 1
         standard_level_up_upgrades:
-          key: 7.457744773683766
+          key: 6.84685269835264
         starting_stats:
           ability_resource_max:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           ability_resource_regen_per_second:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           air_dash_distance_in_meters: ""
           air_dash_duration: ""
           base_health_regen:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           bullet_armor_damage_reduction: ""
           crit_damage_received_scale:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           crouch_speed:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           ground_dash_distance_in_meters: ""
           ground_dash_duration: ""
           heavy_melee_damage:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           light_melee_damage:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           max_health:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           max_move_speed:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           move_acceleration:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           proc_build_up_rate_scale:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           reload_speed:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           sprint_speed:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           stamina:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           stamina_regen_per_second:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           tech_armor_damage_reduction: ""
           tech_duration:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           tech_range:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           weapon_power:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
           weapon_power_scale:
             display_stat_name: display_stat_name
-            value: 1.1730742509559433
+            value: 7.457744773683766
         stats_display:
           health_header_stats:
           - health_header_stats
@@ -13900,6 +14408,8 @@ components:
         - tags
       properties:
         assigned_players_only:
+          description: '`m_bAssignedPlayersOnly` was removed in build 6711; always
+            `false` since.'
           type: boolean
         class_name:
           type: string
@@ -13914,6 +14424,13 @@ components:
           nullable: true
         description:
           $ref: "#/components/schemas/HeroDescription"
+        development_state:
+          allOf:
+          - $ref: "#/components/schemas/HeroDevelopmentState"
+          description: |-
+            Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null`
+            on older builds and on heroes that don't declare one.
+          nullable: true
         disabled:
           type: boolean
         gun_tag:
@@ -13965,17 +14482,22 @@ components:
         physics:
           $ref: "#/components/schemas/HeroPhysics"
         player_selectable:
+          description: |-
+            Read from `m_bPlayerSelectable` on older builds; since build 6711 it is
+            derived as `development_state == release`.
           type: boolean
         prerelease_only:
+          description: |-
+            Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
+            derived as `development_state == pre_release`.
           nullable: true
           type: boolean
         purchase_bonuses:
-          additionalProperties:
-            items:
-              $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner"
-            type: array
-            default: null
-          type: object
+          allOf:
+          - $ref: "#/components/schemas/HashMap_ItemSlotType_Vec_PurchaseBonus"
+          description: |-
+            Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is
+            always empty for newer builds.
         scaling_stats:
           additionalProperties:
             $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
@@ -14327,6 +14849,12 @@ components:
         role:
           nullable: true
           type: string
+    HeroDevelopmentState:
+      enum:
+      - release
+      - pre_release
+      - debug_only
+      type: string
     HeroEntry:
       example:
         hero_id: 0
@@ -15436,33 +15964,44 @@ components:
       - position_y
     LaneInfo:
       example:
-        color:
-          alpha: 0
-          blue: 0
-          green: 0
-          red: 0
+        color: ""
         css_class: css_class
+        is_enemy_lane: true
         lane_name: lane_name
+        minimap_color: ""
         minimap_zipline_color_override: ""
         objective_color: ""
       properties:
         color:
-          $ref: "#/components/schemas/Color"
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Absent for unused lane slots (build 6711+).
+          nullable: true
         css_class:
           nullable: true
           type: string
+        is_enemy_lane:
+          type: boolean
         lane_name:
+          description: Localized lane name. Unused lane slots are named `Unused`.
           type: string
+        minimap_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: Build 6711+.
+          nullable: true
         minimap_zipline_color_override:
           allOf:
           - $ref: "#/components/schemas/Color"
+          description: Only present up to build 6701.
           nullable: true
         objective_color:
           allOf:
           - $ref: "#/components/schemas/Color"
+          description: Only present up to build 6701.
           nullable: true
       required:
-      - color
+      - is_enemy_lane
       - lane_name
     LaneMatchupStat:
       description: "One requested stat, read at `sample_time_s` and averaged over\
@@ -16032,8 +16571,10 @@ components:
           background: background
           frame: frame
           mid: mid
+          mid_tunnels: mid_tunnels
           minimap: minimap
           plain: plain
+          rat_tunnels: rat_tunnels
         objective_positions:
           key:
             left_relative: 0.8008281904610115
@@ -16110,23 +16651,40 @@ components:
       - radius
       - zipline_paths
     MapImages:
-      description: Fixed CDN URLs for the minimap image layers.
+      description: CDN URLs for the minimap image layers.
       example:
         background: background
         frame: frame
         mid: mid
+        mid_tunnels: mid_tunnels
         minimap: minimap
         plain: plain
+        rat_tunnels: rat_tunnels
       properties:
         background:
+          description: |-
+            Background layer. No longer shipped by the game from build 6711 on; the
+            last extracted image is kept in the bucket.
           type: string
         frame:
           type: string
         mid:
+          description: Midtown base layer.
+          type: string
+        mid_tunnels:
+          description: "Mid tunnels overlay, drawn above `mid` (build 6711+)."
+          nullable: true
           type: string
         minimap:
+          description: Full minimap. From build 6711 on this is the midtown base layer.
           type: string
         plain:
+          description: Minimap without overlays. From build 6711 on this is the midtown
+            base layer.
+          type: string
+        rat_tunnels:
+          description: "Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+)."
+          nullable: true
           type: string
       required:
       - background
@@ -16230,10 +16788,10 @@ components:
     MiniMapOffsets:
       example:
         entity_class: entity_class
-        lane_index: 8
+        lane_index: 9
         offset_2d:
-        - 9.018348186070783
-        - 9.018348186070783
+        - 6.438423552598547
+        - 6.438423552598547
       properties:
         entity_class:
           type: string
@@ -16253,56 +16811,80 @@ components:
     MiscEntity:
       example:
         break_on_dodge_touch: true
+        buff_type_graph_color: ""
+        buff_type_loc_string: buff_type_loc_string
+        buff_type_value_unit: buff_type_value_unit
         class_name: class_name
         collision_radius: 0.8008281904610115
         color: ""
         damaged_by_abilities: true
         damaged_by_bullets: true
         damaged_by_melee: true
+        damaged_by_slide: true
         expiration_duration: ""
         gold_amount: 6.027456183070403
         gold_per_minute_amount: 1.4658129805029452
         health: 5
+        heavy_melee_hit_count: 5
+        heavy_melee_only: true
         id: 0
-        initial_spawn_delay_in_seconds: 2
-        initial_spawn_delay_seconds: 7
-        initial_spawn_time: 9.301444243932576
+        initial_spawn_delay_in_seconds: 7
+        initial_spawn_delay_seconds: 9
+        initial_spawn_time: 3.616076749251911
         is_mantleable: true
-        lifetime: 3.616076749251911
-        loot_list_deck_size: 2
+        lifetime: 2.027123023002322
+        loot_list_deck_size: 4
         m_vecPickups_lv2:
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
+          pickup_weight: 7.386281948385884
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
+          pickup_weight: 7.386281948385884
         m_vecPickups_lv3:
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
+          pickup_weight: 7.386281948385884
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
-        match_time_mins_for_level2_pickups: 7
+          pickup_weight: 7.386281948385884
+        match_time_mins_for_level2_pickups: 1
         match_time_mins_for_level3_pickups: 1
         modifier: ""
-        orb_spawn_delay_max: 1.0246457001441578
-        orb_spawn_delay_min: 1.4894159098541704
+        orb_spawn_delay_max: 1.4894159098541704
+        orb_spawn_delay_min: 6.84685269835264
+        pickup_chances:
+          key: 7.457744773683766
         pickup_radius: ""
-        primary_drop_chance: 6.84685269835264
+        powerup_drop_chance: 1.1730742509559433
+        primary_drop_chance: 4.965218492984954
         primary_pickups:
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
+          pickup_weight: 7.386281948385884
         - pickup_name: pickup_name
-          pickup_weight: 4.145608029883936
+          pickup_weight: 7.386281948385884
         render_after_death: true
-        respawn_time: 7.457744773683766
+        respawn_time: 5.025004791520295
         roll_type: ""
         show_on_minimap: true
         solid_after_death: true
-        spawn_interval: 1.1730742509559433
-        spawn_interval_in_seconds: 4
+        spawn_interval: 9.965781217890562
+        spawn_interval_in_seconds: 9
       properties:
         break_on_dodge_touch:
           nullable: true
           type: boolean
+        buff_type_graph_color:
+          allOf:
+          - $ref: "#/components/schemas/Color"
+          description: "Permanent pickups: color used for the buff in the stat graph."
+          nullable: true
+        buff_type_loc_string:
+          description: "Permanent pickups: localization token of the stat the buff\
+            \ raises."
+          nullable: true
+          type: string
+        buff_type_value_unit:
+          description: "Permanent pickups: unit of the buff value (e.g. `Percent`,\
+            \ `Meters`)."
+          nullable: true
+          type: string
         class_name:
           type: string
         collision_radius:
@@ -16322,6 +16904,9 @@ components:
         damaged_by_melee:
           nullable: true
           type: boolean
+        damaged_by_slide:
+          nullable: true
+          type: boolean
         expiration_duration:
           allOf:
           - $ref: "#/components/schemas/CurveOrFloat"
@@ -16338,6 +16923,13 @@ components:
           format: int64
           nullable: true
           type: integer
+        heavy_melee_hit_count:
+          format: int64
+          nullable: true
+          type: integer
+        heavy_melee_only:
+          nullable: true
+          type: boolean
         id:
           format: int32
           minimum: 0
@@ -16398,11 +16990,26 @@ components:
           format: double
           nullable: true
           type: number
+        pickup_chances:
+          additionalProperties:
+            format: double
+            type: number
+          description: |-
+            Pickup name to relative weight (build 6711+); replaces the
+            `primary_pickups` / `m_vecPickups_lv*` lists.
+          nullable: true
+          type: object
         pickup_radius:
           allOf:
           - $ref: "#/components/schemas/CurveOrFloat"
           nullable: true
+        powerup_drop_chance:
+          description: Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
+          format: double
+          nullable: true
+          type: number
         primary_drop_chance:
+          description: Pre-6711 builds only; see `powerup_drop_chance`.
           format: double
           nullable: true
           type: number
@@ -16459,15 +17066,15 @@ components:
           type: string
     NewPlayerMetrics:
       example:
-        abilities_upgraded: 6
-        boss_damage: 3
-        damage_taken: 6
-        last_hits: 1
-        mods_purchased: 2
+        abilities_upgraded: 3
+        boss_damage: 6
+        damage_taken: 1
+        last_hits: 2
+        mods_purchased: 6
         net_worth: 6
-        orbs_denied: 6
-        orbs_secured: 5
-        player_damage: 6
+        orbs_denied: 5
+        orbs_secured: 6
+        player_damage: 3
         skill_tier_name: skill_tier_name
       properties:
         abilities_upgraded:
@@ -16520,6 +17127,7 @@ components:
         backdoor_bullet_resist_modifier: ""
         barrack_boss_dps: 2.3021358869347655
         barrack_guardian_damage_resist_pct: 7.061401241503109
+        boss_weapon_info: ""
         bound_abilities:
           key: bound_abilities
         class_name: class_name
@@ -16624,6 +17232,11 @@ components:
           format: double
           nullable: true
           type: number
+        boss_weapon_info:
+          allOf:
+          - $ref: "#/components/schemas/WeaponInfo"
+          description: Secondary weapon the unit uses against bosses (builds 6711+).
+          nullable: true
         bound_abilities:
           additionalProperties:
             type: string
@@ -16862,17 +17475,17 @@ components:
     ObjectiveParams:
       example:
         base_guardians_gold_kill: 3
-        base_guardians_gold_orbs: 3
-        gold_per_orb: 7
-        near_player_split_pct: 0.8851374739011653
-        patron_phase1_gold_kill: 7
-        patron_phase1_gold_orbs: 6
-        shrines_gold_kill: 0
-        shrines_gold_orbs: 4
-        tier1_gold_kill: 8
-        tier1_gold_orbs: 7
+        base_guardians_gold_orbs: 7
+        gold_per_orb: 0
+        near_player_split_pct: 7.058770351582356
+        patron_phase1_gold_kill: 6
+        patron_phase1_gold_orbs: 0
+        shrines_gold_kill: 4
+        shrines_gold_orbs: 8
+        tier1_gold_kill: 7
+        tier1_gold_orbs: 3
         tier2_gold_kill: 3
-        tier2_gold_orbs: 3
+        tier2_gold_orbs: 7
       properties:
         base_guardians_gold_kill:
           format: int64
@@ -17024,7 +17637,7 @@ components:
     Pickup:
       example:
         pickup_name: pickup_name
-        pickup_weight: 4.145608029883936
+        pickup_weight: 7.386281948385884
       properties:
         pickup_name:
           nullable: true
@@ -18210,18 +18823,18 @@ components:
     RejuvParams:
       example:
         player_respawn_mult:
-        - 7.04836565559697
-        - 7.04836565559697
-        rejuvinator_buff_duration: 5.533258397034986
-        rejuvinator_drop_duration: 3.2588565619047607
-        rejuvinator_drop_height: 4.078845849666752
-        rejuvinator_expiration_warning_timing: 0.2025324113236393
+        - 5.533258397034986
+        - 5.533258397034986
+        rejuvinator_buff_duration: 3.2588565619047607
+        rejuvinator_drop_duration: 4.078845849666752
+        rejuvinator_drop_height: 0.2025324113236393
+        rejuvinator_expiration_warning_timing: 6.628464275087742
         rejuvinator_rebirth_duration:
-        - 6.628464275087742
-        - 6.628464275087742
+        - 4.258773108174356
+        - 4.258773108174356
         trooper_health_mult:
-        - 4.258773108174356
-        - 4.258773108174356
+        - 1.041444916118296
+        - 1.041444916118296
       properties:
         player_respawn_mult:
           items:
@@ -18511,7 +19124,7 @@ components:
     StartingStat:
       example:
         display_stat_name: display_stat_name
-        value: 1.1730742509559433
+        value: 7.457744773683766
       properties:
         display_stat_name:
           type: string
@@ -18525,67 +19138,67 @@ components:
       example:
         ability_resource_max:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         ability_resource_regen_per_second:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         air_dash_distance_in_meters: ""
         air_dash_duration: ""
         base_health_regen:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         bullet_armor_damage_reduction: ""
         crit_damage_received_scale:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         crouch_speed:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         ground_dash_distance_in_meters: ""
         ground_dash_duration: ""
         heavy_melee_damage:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         light_melee_damage:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         max_health:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         max_move_speed:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         move_acceleration:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         proc_build_up_rate_scale:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         reload_speed:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         sprint_speed:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         stamina:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         stamina_regen_per_second:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         tech_armor_damage_reduction: ""
         tech_duration:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         tech_range:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         weapon_power:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
         weapon_power_scale:
           display_stat_name: display_stat_name
-          value: 1.1730742509559433
+          value: 7.457744773683766
       properties:
         ability_resource_max:
           $ref: "#/components/schemas/StartingStat"
@@ -19673,6 +20286,9 @@ components:
           format: double
           nullable: true
           type: number
+        bullet_handler_type:
+          nullable: true
+          type: string
         bullet_inherit_shooter_velocity_scale:
           format: double
           nullable: true
@@ -19843,6 +20459,10 @@ components:
           nullable: true
           type: number
         recoil_speed:
+          format: double
+          nullable: true
+          type: number
+        recycle_time:
           format: double
           nullable: true
           type: number
@@ -20117,10 +20737,6 @@ components:
       - gold_threshold
       - percent_on_graph
     HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner:
-      example:
-        tier: 1
-        value: value
-        value_type: value_type
       properties:
         tier:
           format: int64
@@ -20167,7 +20783,7 @@ components:
           type: number
     HashMap_String_ScalingStat_value:
       example:
-        scale: 1.4894159098541704
+        scale: 1.0246457001441578
         scaling_stat: scaling_stat
       properties:
         scale:

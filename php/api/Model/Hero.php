@@ -63,6 +63,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => 'int',
         'cost_bonuses' => 'array<string,\OpenAPI\Client\Model\HashMapItemSlotTypeVecMapModCostBonusValueInner[]>',
         'description' => '\OpenAPI\Client\Model\HeroDescription',
+        'development_state' => '\OpenAPI\Client\Model\HeroDevelopmentState',
         'disabled' => 'bool',
         'gun_tag' => 'string',
         'hero_stats_ui' => '\OpenAPI\Client\Model\HeroStatsUI',
@@ -106,6 +107,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => 'int64',
         'cost_bonuses' => null,
         'description' => null,
+        'development_state' => null,
         'disabled' => null,
         'gun_tag' => null,
         'hero_stats_ui' => null,
@@ -147,6 +149,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => false,
         'cost_bonuses' => true,
         'description' => false,
+        'development_state' => true,
         'disabled' => false,
         'gun_tag' => true,
         'hero_stats_ui' => false,
@@ -268,6 +271,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => 'complexity',
         'cost_bonuses' => 'cost_bonuses',
         'description' => 'description',
+        'development_state' => 'development_state',
         'disabled' => 'disabled',
         'gun_tag' => 'gun_tag',
         'hero_stats_ui' => 'hero_stats_ui',
@@ -309,6 +313,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => 'setComplexity',
         'cost_bonuses' => 'setCostBonuses',
         'description' => 'setDescription',
+        'development_state' => 'setDevelopmentState',
         'disabled' => 'setDisabled',
         'gun_tag' => 'setGunTag',
         'hero_stats_ui' => 'setHeroStatsUi',
@@ -350,6 +355,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'complexity' => 'getComplexity',
         'cost_bonuses' => 'getCostBonuses',
         'description' => 'getDescription',
+        'development_state' => 'getDevelopmentState',
         'disabled' => 'getDisabled',
         'gun_tag' => 'getGunTag',
         'hero_stats_ui' => 'getHeroStatsUi',
@@ -442,6 +448,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('complexity', $data ?? [], null);
         $this->setIfExists('cost_bonuses', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('development_state', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
         $this->setIfExists('gun_tag', $data ?? [], null);
         $this->setIfExists('hero_stats_ui', $data ?? [], null);
@@ -608,7 +615,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets assigned_players_only
      *
-     * @param bool $assigned_players_only assigned_players_only
+     * @param bool $assigned_players_only `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
      *
      * @return self
      */
@@ -760,6 +767,40 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
         $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets development_state
+     *
+     * @return \OpenAPI\Client\Model\HeroDevelopmentState|null
+     */
+    public function getDevelopmentState()
+    {
+        return $this->container['development_state'];
+    }
+
+    /**
+     * Sets development_state
+     *
+     * @param \OpenAPI\Client\Model\HeroDevelopmentState|null $development_state Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
+     *
+     * @return self
+     */
+    public function setDevelopmentState($development_state)
+    {
+        if (is_null($development_state)) {
+            array_push($this->openAPINullablesSetToNull, 'development_state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('development_state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['development_state'] = $development_state;
 
         return $this;
     }
@@ -1275,7 +1316,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets player_selectable
      *
-     * @param bool $player_selectable player_selectable
+     * @param bool $player_selectable Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
      *
      * @return self
      */
@@ -1302,7 +1343,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets prerelease_only
      *
-     * @param bool|null $prerelease_only prerelease_only
+     * @param bool|null $prerelease_only Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
      *
      * @return self
      */
@@ -1336,7 +1377,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets purchase_bonuses
      *
-     * @param array<string,\OpenAPI\Client\Model\HashMapItemSlotTypeVecPurchaseBonusValueInner[]> $purchase_bonuses purchase_bonuses
+     * @param array<string,\OpenAPI\Client\Model\HashMapItemSlotTypeVecPurchaseBonusValueInner[]> $purchase_bonuses Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
      *
      * @return self
      */

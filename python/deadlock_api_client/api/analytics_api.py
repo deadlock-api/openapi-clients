@@ -80,6 +80,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -137,6 +139,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -180,6 +186,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -225,6 +233,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -282,6 +292,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -325,6 +339,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -370,6 +386,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -427,6 +445,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -470,6 +492,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -510,6 +534,8 @@ class AnalyticsApi:
         account_ids,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         _request_auth,
         _content_type,
         _headers,
@@ -522,6 +548,8 @@ class AnalyticsApi:
             'account_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -614,6 +642,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         # process the header parameters
         # process the form parameters
@@ -1410,6 +1446,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -1460,6 +1498,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -1501,6 +1543,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1543,6 +1587,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -1593,6 +1639,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -1634,6 +1684,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1676,6 +1728,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -1726,6 +1780,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -1767,6 +1825,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1804,6 +1864,8 @@ class AnalyticsApi:
         hero_ids,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         account_ids,
         _request_auth,
         _content_type,
@@ -1817,6 +1879,8 @@ class AnalyticsApi:
             'hero_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'account_ids': 'multi',
         }
 
@@ -1894,6 +1958,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         if account_ids is not None:
             
@@ -2373,6 +2445,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2418,6 +2492,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2455,6 +2533,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2494,6 +2574,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2539,6 +2621,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2576,6 +2662,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2615,6 +2703,8 @@ class AnalyticsApi:
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2660,6 +2750,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2697,6 +2791,8 @@ class AnalyticsApi:
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2731,6 +2827,8 @@ class AnalyticsApi:
         min_matches,
         account_id,
         account_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         _request_auth,
         _content_type,
         _headers,
@@ -2741,6 +2839,8 @@ class AnalyticsApi:
 
         _collection_formats: Dict[str, str] = {
             'account_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2807,6 +2907,14 @@ class AnalyticsApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         # process the header parameters
         # process the form parameters
@@ -4595,6 +4703,8 @@ class AnalyticsApi:
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4652,6 +4762,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
@@ -4698,6 +4812,8 @@ class AnalyticsApi:
             max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_id=account_id,
             account_ids=account_ids,
             _request_auth=_request_auth,
@@ -4744,6 +4860,8 @@ class AnalyticsApi:
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4801,6 +4919,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
@@ -4847,6 +4969,8 @@ class AnalyticsApi:
             max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_id=account_id,
             account_ids=account_ids,
             _request_auth=_request_auth,
@@ -4893,6 +5017,8 @@ class AnalyticsApi:
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
@@ -4950,6 +5076,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
@@ -4996,6 +5126,8 @@ class AnalyticsApi:
             max_hero_matches_total=max_hero_matches_total,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_id=account_id,
             account_ids=account_ids,
             _request_auth=_request_auth,
@@ -5037,6 +5169,8 @@ class AnalyticsApi:
         max_hero_matches_total,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         account_id,
         account_ids,
         _request_auth,
@@ -5050,6 +5184,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'account_ids': 'multi',
         }
 
@@ -5139,6 +5275,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         if account_id is not None:
             
@@ -5747,6 +5891,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         locked_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         locked_columns: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.")] = None,
         _request_timeout: Union[
@@ -5804,6 +5950,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param locked_item_ids: Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type locked_item_ids: List[int]
         :param locked_columns: Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
@@ -5850,6 +6000,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             locked_item_ids=locked_item_ids,
             locked_columns=locked_columns,
             _request_auth=_request_auth,
@@ -5896,6 +6048,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         locked_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         locked_columns: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.")] = None,
         _request_timeout: Union[
@@ -5953,6 +6107,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param locked_item_ids: Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type locked_item_ids: List[int]
         :param locked_columns: Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
@@ -5999,6 +6157,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             locked_item_ids=locked_item_ids,
             locked_columns=locked_columns,
             _request_auth=_request_auth,
@@ -6045,6 +6205,8 @@ class AnalyticsApi:
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         locked_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         locked_columns: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.")] = None,
         _request_timeout: Union[
@@ -6102,6 +6264,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param locked_item_ids: Comma separated list of item ids forming a \"locked\" build path. Pairs positionally with `locked_columns`: the i-th item must have been bought in the i-th `locked_columns` stage. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type locked_item_ids: List[int]
         :param locked_columns: Comma separated 0-based stage column indices for each `locked_item_ids` entry (time phase for `normal`, round for `street_brawl`). Must have the same length as `locked_item_ids`.
@@ -6148,6 +6314,8 @@ class AnalyticsApi:
             account_ids=account_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             locked_item_ids=locked_item_ids,
             locked_columns=locked_columns,
             _request_auth=_request_auth,
@@ -6189,6 +6357,8 @@ class AnalyticsApi:
         account_ids,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         locked_item_ids,
         locked_columns,
         _request_auth,
@@ -6203,6 +6373,8 @@ class AnalyticsApi:
             'account_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'locked_item_ids': 'multi',
             'locked_columns': 'multi',
         }
@@ -6294,6 +6466,14 @@ class AnalyticsApi:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
             
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
+            
         if locked_item_ids is not None:
             
             _query_params.append(('locked_item_ids', locked_item_ids))
@@ -6361,6 +6541,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6418,6 +6600,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6461,6 +6647,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6506,6 +6694,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6563,6 +6753,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6606,6 +6800,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6651,6 +6847,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6708,6 +6906,10 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -6751,6 +6953,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             account_id=account_id,
             account_ids=account_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -6791,6 +6995,8 @@ class AnalyticsApi:
         max_match_id,
         account_id,
         account_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         _request_auth,
         _content_type,
         _headers,
@@ -6802,6 +7008,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'item_ids': 'multi',
             'account_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -6895,6 +7103,14 @@ class AnalyticsApi:
             
             _query_params.append(('account_ids', account_ids))
             
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -6956,6 +7172,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -7024,6 +7242,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -7083,6 +7305,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -7137,6 +7361,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -7205,6 +7431,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -7264,6 +7494,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -7318,6 +7550,8 @@ class AnalyticsApi:
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -7386,6 +7620,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -7445,6 +7683,8 @@ class AnalyticsApi:
             max_match_id=max_match_id,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -7494,6 +7734,8 @@ class AnalyticsApi:
         max_match_id,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         min_matches,
         max_matches,
         account_id,
@@ -7512,6 +7754,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'account_ids': 'multi',
             'item_order': 'multi',
         }
@@ -7614,6 +7858,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         if min_matches is not None:
             
@@ -9529,6 +9781,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -9579,6 +9833,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -9620,6 +9878,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9662,6 +9922,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -9712,6 +9974,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -9753,6 +10019,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9795,6 +10063,8 @@ class AnalyticsApi:
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -9845,6 +10115,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -9886,6 +10160,8 @@ class AnalyticsApi:
             hero_ids=hero_ids,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9923,6 +10199,8 @@ class AnalyticsApi:
         hero_ids,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         account_ids,
         _request_auth,
         _content_type,
@@ -9935,6 +10213,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'account_ids': 'multi',
         }
 
@@ -10012,6 +10292,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         if account_ids is not None:
             
@@ -10664,6 +10952,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -10714,6 +11004,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -10755,6 +11049,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10797,6 +11093,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -10847,6 +11145,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -10888,6 +11190,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -10930,6 +11234,8 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         _request_timeout: Union[
             None,
@@ -10980,6 +11286,10 @@ class AnalyticsApi:
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
         :param _request_timeout: timeout setting for this request. If one
@@ -11021,6 +11331,8 @@ class AnalyticsApi:
             max_matches=max_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -11058,6 +11370,8 @@ class AnalyticsApi:
         max_matches,
         include_item_ids,
         exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
         account_ids,
         _request_auth,
         _content_type,
@@ -11070,6 +11384,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'multi',
+            'ability_unlock_order_prefix': 'multi',
             'account_ids': 'multi',
         }
 
@@ -11147,6 +11463,14 @@ class AnalyticsApi:
         if exclude_item_ids is not None:
             
             _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
             
         if account_ids is not None:
             

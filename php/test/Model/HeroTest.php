@@ -134,6 +134,15 @@ class HeroTest extends TestCase
     }
 
     /**
+     * Test attribute "development_state"
+     */
+    public function testPropertyDevelopmentState()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "disabled"
      */
     public function testPropertyDisabled()

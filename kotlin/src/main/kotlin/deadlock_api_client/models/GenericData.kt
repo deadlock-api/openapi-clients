@@ -56,6 +56,10 @@ import java.io.Serializable
  * @param targetingSpringStrength 
  * @param trooperKillGoldShareFrac 
  * @param weaponGroups 
+ * @param colorEnemy Build 6711+.
+ * @param colorFriend Build 6711+.
+ * @param colorTeam1 Build 6711+.
+ * @param colorTeam2 Build 6711+.
  * @param enemyObjectivesAndZiplineColor 
  * @param enemyObjectivesColor 
  * @param enemyZiplineColor 
@@ -111,6 +115,22 @@ data class GenericData (
 
     @Json(name = "weapon_groups")
     val weaponGroups: kotlin.collections.List<ItemGroup>,
+
+    /* Build 6711+. */
+    @Json(name = "color_enemy")
+    val colorEnemy: Color? = null,
+
+    /* Build 6711+. */
+    @Json(name = "color_friend")
+    val colorFriend: Color? = null,
+
+    /* Build 6711+. */
+    @Json(name = "color_team1")
+    val colorTeam1: Color? = null,
+
+    /* Build 6711+. */
+    @Json(name = "color_team2")
+    val colorTeam2: Color? = null,
 
     @Json(name = "enemy_objectives_and_zipline_color")
     val enemyObjectivesAndZiplineColor: Color? = null,

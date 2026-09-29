@@ -19,13 +19,21 @@ import (
 // checks if the MapImages type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MapImages{}
 
-// MapImages Fixed CDN URLs for the minimap image layers.
+// MapImages CDN URLs for the minimap image layers.
 type MapImages struct {
+	// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
 	Background string `json:"background"`
 	Frame string `json:"frame"`
+	// Midtown base layer.
 	Mid string `json:"mid"`
+	// Mid tunnels overlay, drawn above `mid` (build 6711+).
+	MidTunnels NullableString `json:"mid_tunnels,omitempty"`
+	// Full minimap. From build 6711 on this is the midtown base layer.
 	Minimap string `json:"minimap"`
+	// Minimap without overlays. From build 6711 on this is the midtown base layer.
 	Plain string `json:"plain"`
+	// Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
+	RatTunnels NullableString `json:"rat_tunnels,omitempty"`
 }
 
 type _MapImages MapImages
@@ -124,6 +132,48 @@ func (o *MapImages) SetMid(v string) {
 	o.Mid = v
 }
 
+// GetMidTunnels returns the MidTunnels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MapImages) GetMidTunnels() string {
+	if o == nil || IsNil(o.MidTunnels.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MidTunnels.Get()
+}
+
+// GetMidTunnelsOk returns a tuple with the MidTunnels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MapImages) GetMidTunnelsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MidTunnels.Get(), o.MidTunnels.IsSet()
+}
+
+// HasMidTunnels returns a boolean if a field has been set.
+func (o *MapImages) HasMidTunnels() bool {
+	if o != nil && o.MidTunnels.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMidTunnels gets a reference to the given NullableString and assigns it to the MidTunnels field.
+func (o *MapImages) SetMidTunnels(v string) {
+	o.MidTunnels.Set(&v)
+}
+// SetMidTunnelsNil sets the value for MidTunnels to be an explicit nil
+func (o *MapImages) SetMidTunnelsNil() {
+	o.MidTunnels.Set(nil)
+}
+
+// UnsetMidTunnels ensures that no value is present for MidTunnels, not even an explicit nil
+func (o *MapImages) UnsetMidTunnels() {
+	o.MidTunnels.Unset()
+}
+
 // GetMinimap returns the Minimap field value
 func (o *MapImages) GetMinimap() string {
 	if o == nil {
@@ -172,6 +222,48 @@ func (o *MapImages) SetPlain(v string) {
 	o.Plain = v
 }
 
+// GetRatTunnels returns the RatTunnels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MapImages) GetRatTunnels() string {
+	if o == nil || IsNil(o.RatTunnels.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.RatTunnels.Get()
+}
+
+// GetRatTunnelsOk returns a tuple with the RatTunnels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MapImages) GetRatTunnelsOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RatTunnels.Get(), o.RatTunnels.IsSet()
+}
+
+// HasRatTunnels returns a boolean if a field has been set.
+func (o *MapImages) HasRatTunnels() bool {
+	if o != nil && o.RatTunnels.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRatTunnels gets a reference to the given NullableString and assigns it to the RatTunnels field.
+func (o *MapImages) SetRatTunnels(v string) {
+	o.RatTunnels.Set(&v)
+}
+// SetRatTunnelsNil sets the value for RatTunnels to be an explicit nil
+func (o *MapImages) SetRatTunnelsNil() {
+	o.RatTunnels.Set(nil)
+}
+
+// UnsetRatTunnels ensures that no value is present for RatTunnels, not even an explicit nil
+func (o *MapImages) UnsetRatTunnels() {
+	o.RatTunnels.Unset()
+}
+
 func (o MapImages) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -185,8 +277,14 @@ func (o MapImages) ToMap() (map[string]interface{}, error) {
 	toSerialize["background"] = o.Background
 	toSerialize["frame"] = o.Frame
 	toSerialize["mid"] = o.Mid
+	if o.MidTunnels.IsSet() {
+		toSerialize["mid_tunnels"] = o.MidTunnels.Get()
+	}
 	toSerialize["minimap"] = o.Minimap
 	toSerialize["plain"] = o.Plain
+	if o.RatTunnels.IsSet() {
+		toSerialize["rat_tunnels"] = o.RatTunnels.Get()
+	}
 	return toSerialize, nil
 }
 

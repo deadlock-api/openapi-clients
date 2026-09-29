@@ -59,6 +59,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'bullet_damage' => '\OpenAPI\Client\Model\FlashData',
         'crit_damage' => '\OpenAPI\Client\Model\FlashData',
+        'generic_damage' => '\OpenAPI\Client\Model\FlashData',
         'healing_damage' => '\OpenAPI\Client\Model\FlashData',
         'melee_damage' => '\OpenAPI\Client\Model\FlashData',
         'tech_damage' => '\OpenAPI\Client\Model\FlashData'
@@ -74,6 +75,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'bullet_damage' => null,
         'crit_damage' => null,
+        'generic_damage' => null,
         'healing_damage' => null,
         'melee_damage' => null,
         'tech_damage' => null
@@ -87,6 +89,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'bullet_damage' => false,
         'crit_damage' => false,
+        'generic_damage' => true,
         'healing_damage' => false,
         'melee_damage' => false,
         'tech_damage' => false
@@ -180,6 +183,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'bullet_damage' => 'bullet_damage',
         'crit_damage' => 'crit_damage',
+        'generic_damage' => 'generic_damage',
         'healing_damage' => 'healing_damage',
         'melee_damage' => 'melee_damage',
         'tech_damage' => 'tech_damage'
@@ -193,6 +197,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'bullet_damage' => 'setBulletDamage',
         'crit_damage' => 'setCritDamage',
+        'generic_damage' => 'setGenericDamage',
         'healing_damage' => 'setHealingDamage',
         'melee_damage' => 'setMeleeDamage',
         'tech_damage' => 'setTechDamage'
@@ -206,6 +211,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'bullet_damage' => 'getBulletDamage',
         'crit_damage' => 'getCritDamage',
+        'generic_damage' => 'getGenericDamage',
         'healing_damage' => 'getHealingDamage',
         'melee_damage' => 'getMeleeDamage',
         'tech_damage' => 'getTechDamage'
@@ -270,6 +276,7 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('bullet_damage', $data ?? [], null);
         $this->setIfExists('crit_damage', $data ?? [], null);
+        $this->setIfExists('generic_damage', $data ?? [], null);
         $this->setIfExists('healing_damage', $data ?? [], null);
         $this->setIfExists('melee_damage', $data ?? [], null);
         $this->setIfExists('tech_damage', $data ?? [], null);
@@ -382,6 +389,40 @@ class DamageFlash implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable crit_damage cannot be null');
         }
         $this->container['crit_damage'] = $crit_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets generic_damage
+     *
+     * @return \OpenAPI\Client\Model\FlashData|null
+     */
+    public function getGenericDamage()
+    {
+        return $this->container['generic_damage'];
+    }
+
+    /**
+     * Sets generic_damage
+     *
+     * @param \OpenAPI\Client\Model\FlashData|null $generic_damage Build 6711+.
+     *
+     * @return self
+     */
+    public function setGenericDamage($generic_damage)
+    {
+        if (is_null($generic_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'generic_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('generic_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['generic_damage'] = $generic_damage;
 
         return $this;
     }

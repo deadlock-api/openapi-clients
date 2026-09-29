@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **get_generic_data**
-> GenericData get_generic_data(client_version=client_version)
+> GenericData get_generic_data(language=language, client_version=client_version)
 
 Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
 
 ### Example
 
@@ -34,11 +34,12 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.GenericDataApi(api_client)
+    language = 'language_example' # str | Language code. Defaults to `english`. (optional)
     client_version = 56 # int | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
     try:
         # Get Generic Data
-        api_response = api_instance.get_generic_data(client_version=client_version)
+        api_response = api_instance.get_generic_data(language=language, client_version=client_version)
         print("The response of GenericDataApi->get_generic_data:\n")
         pprint(api_response)
     except Exception as e:
@@ -52,6 +53,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **language** | **str**| Language code. Defaults to &#x60;english&#x60;. | [optional] 
  **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] 
 
 ### Return type

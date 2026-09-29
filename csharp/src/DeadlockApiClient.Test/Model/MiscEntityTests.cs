@@ -81,6 +81,33 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BuffTypeGraphColor'
+        /// </summary>
+        [Fact]
+        public void BuffTypeGraphColorTest()
+        {
+            // TODO unit test for the property 'BuffTypeGraphColor'
+        }
+
+        /// <summary>
+        /// Test the property 'BuffTypeLocString'
+        /// </summary>
+        [Fact]
+        public void BuffTypeLocStringTest()
+        {
+            // TODO unit test for the property 'BuffTypeLocString'
+        }
+
+        /// <summary>
+        /// Test the property 'BuffTypeValueUnit'
+        /// </summary>
+        [Fact]
+        public void BuffTypeValueUnitTest()
+        {
+            // TODO unit test for the property 'BuffTypeValueUnit'
+        }
+
+        /// <summary>
         /// Test the property 'CollisionRadius'
         /// </summary>
         [Fact]
@@ -126,6 +153,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DamagedBySlide'
+        /// </summary>
+        [Fact]
+        public void DamagedBySlideTest()
+        {
+            // TODO unit test for the property 'DamagedBySlide'
+        }
+
+        /// <summary>
         /// Test the property 'ExpirationDuration'
         /// </summary>
         [Fact]
@@ -159,6 +195,24 @@ namespace DeadlockApiClient.Test.Model
         public void HealthTest()
         {
             // TODO unit test for the property 'Health'
+        }
+
+        /// <summary>
+        /// Test the property 'HeavyMeleeHitCount'
+        /// </summary>
+        [Fact]
+        public void HeavyMeleeHitCountTest()
+        {
+            // TODO unit test for the property 'HeavyMeleeHitCount'
+        }
+
+        /// <summary>
+        /// Test the property 'HeavyMeleeOnly'
+        /// </summary>
+        [Fact]
+        public void HeavyMeleeOnlyTest()
+        {
+            // TODO unit test for the property 'HeavyMeleeOnly'
         }
 
         /// <summary>
@@ -279,12 +333,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PickupChances'
+        /// </summary>
+        [Fact]
+        public void PickupChancesTest()
+        {
+            // TODO unit test for the property 'PickupChances'
+        }
+
+        /// <summary>
         /// Test the property 'PickupRadius'
         /// </summary>
         [Fact]
         public void PickupRadiusTest()
         {
             // TODO unit test for the property 'PickupRadius'
+        }
+
+        /// <summary>
+        /// Test the property 'PowerupDropChance'
+        /// </summary>
+        [Fact]
+        public void PowerupDropChanceTest()
+        {
+            // TODO unit test for the property 'PowerupDropChance'
         }
 
         /// <summary>

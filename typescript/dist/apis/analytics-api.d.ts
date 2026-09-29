@@ -59,10 +59,12 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    abilityOrderStats: (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    abilityOrderStats: (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Badge Distribution
@@ -110,11 +112,13 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {Array<number> | null} [heroIds] Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    gameStats: (bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minNetworth?: number | null, maxNetworth?: number | null, heroIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    gameStats: (bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minNetworth?: number | null, maxNetworth?: number | null, heroIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Ban Stats
@@ -149,10 +153,12 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats: (heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    heroBuildStats: (heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -253,12 +259,14 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroStats: (bucket?: HeroStatsBucketEnum, gameMode?: HeroStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    heroStats: (bucket?: HeroStatsBucketEnum, gameMode?: HeroStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Synergy Stats
@@ -305,12 +313,14 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [lockedItemIds] Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [lockedColumns] Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemFlowStats: (phaseIntervalS?: number | null, phaseCount?: number | null, gameMode?: ItemFlowStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, lockedItemIds?: Array<number> | null, lockedColumns?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    itemFlowStats: (phaseIntervalS?: number | null, phaseCount?: number | null, gameMode?: ItemFlowStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, lockedItemIds?: Array<number> | null, lockedColumns?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Permutation Stats
@@ -334,10 +344,12 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemPermutationStats: (itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    itemPermutationStats: (itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
@@ -363,6 +375,8 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [minMatches] The minimum number of matches played for an item to be included in the response.
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -373,7 +387,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemStats: (bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, itemOrder?: Array<string> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    itemStats: (bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, itemOrder?: Array<string> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Kill Death Stats
@@ -477,11 +491,13 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerPerformanceCurve: (resolution?: number | null, gameMode?: PlayerPerformanceCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    playerPerformanceCurve: (resolution?: number | null, gameMode?: PlayerPerformanceCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Scoreboard
@@ -528,11 +544,13 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxMatches] The maximum number of matches to analyze.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics: (heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    playerStatsMetrics: (heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
@@ -561,10 +579,12 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>>;
+    abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>>;
     /**
      *  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Badge Distribution
@@ -612,11 +632,13 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {Array<number> | null} [heroIds] Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    gameStats(bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minNetworth?: number | null, maxNetworth?: number | null, heroIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsGameStats>>>;
+    gameStats(bucket?: GameStatsBucketEnum, gameMode?: GameStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minNetworth?: number | null, maxNetworth?: number | null, heroIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsGameStats>>>;
     /**
      *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Ban Stats
@@ -651,10 +673,12 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats(heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
+    heroBuildStats(heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -755,12 +779,14 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxHeroMatchesTotal] Filter players based on the number of matches they have played with a specific hero in their entire history.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroStats(bucket?: HeroStatsBucketEnum, gameMode?: HeroStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>>;
+    heroStats(bucket?: HeroStatsBucketEnum, gameMode?: HeroStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minHeroMatches?: number | null, maxHeroMatches?: number | null, minHeroMatchesTotal?: number | null, maxHeroMatchesTotal?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsHeroStats>>>;
     /**
      *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Synergy Stats
@@ -807,12 +833,14 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [lockedItemIds] Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [lockedColumns] Comma separated 0-based stage column indices for each &#x60;locked_item_ids&#x60; entry (time phase for &#x60;normal&#x60;, round for &#x60;street_brawl&#x60;). Must have the same length as &#x60;locked_item_ids&#x60;.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemFlowStats(phaseIntervalS?: number | null, phaseCount?: number | null, gameMode?: ItemFlowStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, lockedItemIds?: Array<number> | null, lockedColumns?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ItemFlowStats>>;
+    itemFlowStats(phaseIntervalS?: number | null, phaseCount?: number | null, gameMode?: ItemFlowStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, lockedItemIds?: Array<number> | null, lockedColumns?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ItemFlowStats>>;
     /**
      *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Permutation Stats
@@ -836,10 +864,12 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>>;
+    itemPermutationStats(itemIds?: Array<number> | null, combSize?: number | null, minMatches?: number | null, maxMatches?: number | null, gameMode?: ItemPermutationStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemPermutationStats>>>;
     /**
      *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Stats
@@ -865,6 +895,8 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {number | null} [minMatches] The minimum number of matches played for an item to be included in the response.
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
@@ -875,7 +907,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    itemStats(bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, itemOrder?: Array<string> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>>;
+    itemStats(bucket?: ItemStatsBucketEnum, gameMode?: ItemStatsGameModeEnum, matchMode?: string | null, heroIds?: string | null, heroId?: number | null, enemyHeroIds?: string | null, enemyHeroIdsAllMatch?: boolean | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, sameLaneFilter?: boolean | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, minBoughtAtS?: number | null, maxBoughtAtS?: number | null, itemOrder?: Array<string> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ItemStats>>>;
     /**
      *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Kill Death Stats
@@ -979,11 +1011,13 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerPerformanceCurve(resolution?: number | null, gameMode?: PlayerPerformanceCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerPerformanceCurvePoint>>>;
+    playerPerformanceCurve(resolution?: number | null, gameMode?: PlayerPerformanceCurveGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroIds?: string | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerPerformanceCurvePoint>>>;
     /**
      *  This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Scoreboard
@@ -1030,11 +1064,13 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxMatches] The maximum number of matches to analyze.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics(heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    playerStatsMetrics(heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: HashMapValue;
     }>>;
 };
@@ -1289,6 +1325,14 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
 }
 /**
  * Request parameters for badgeDistribution operation in AnalyticsApi.
@@ -1425,6 +1469,14 @@ export interface AnalyticsApiGameStatsRequest {
      */
     readonly excludeItemIds?: Array<number> | null;
     /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+    /**
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
@@ -1534,6 +1586,14 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
 }
 /**
  * Request parameters for heroCombStats operation in AnalyticsApi.
@@ -1859,6 +1919,14 @@ export interface AnalyticsApiHeroStatsRequest {
      */
     readonly excludeItemIds?: Array<number> | null;
     /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+    /**
      * Filter for matches with a specific player account ID.
      */
     readonly accountId?: number | null;
@@ -2021,6 +2089,14 @@ export interface AnalyticsApiItemFlowStatsRequest {
      */
     readonly excludeItemIds?: Array<number> | null;
     /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+    /**
      * Comma separated list of item ids forming a \&quot;locked\&quot; build path. Pairs positionally with &#x60;locked_columns&#x60;: the i-th item must have been bought in the i-th &#x60;locked_columns&#x60; stage. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
     readonly lockedItemIds?: Array<number> | null;
@@ -2113,6 +2189,14 @@ export interface AnalyticsApiItemPermutationStatsRequest {
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
 }
 /**
  * Request parameters for itemStats operation in AnalyticsApi.
@@ -2206,6 +2290,14 @@ export interface AnalyticsApiItemStatsRequest {
      * Comma separated list of item ids to exclude. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
     /**
      * The minimum number of matches played for an item to be included in the response.
      */
@@ -2571,6 +2663,14 @@ export interface AnalyticsApiPlayerPerformanceCurveRequest {
      */
     readonly excludeItemIds?: Array<number> | null;
     /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+    /**
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
@@ -2728,6 +2828,14 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
      * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
     readonly excludeItemIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
     /**
      * Comma separated list of account ids to include
      */

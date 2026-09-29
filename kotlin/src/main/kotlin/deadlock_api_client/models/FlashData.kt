@@ -24,6 +24,7 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.ColorGradientStop
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -32,34 +33,42 @@ import java.io.Serializable
 /**
  * 
  *
- * @param brightness 
- * @param color 
- * @param coverage 
+ * @param color Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
  * @param duration 
- * @param hardness 
+ * @param brightness 
  * @param brightnessInLightSensitivityMode 
+ * @param colorGradient Color gradient over the flash's lifetime (build 6711+).
+ * @param coverage Only present up to build 6701.
+ * @param hardness Only present up to build 6701.
  */
 
 
 data class FlashData (
 
-    @Json(name = "brightness")
-    val brightness: kotlin.Double,
-
+    /* Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop. */
     @Json(name = "color")
     val color: Color,
-
-    @Json(name = "coverage")
-    val coverage: kotlin.Double,
 
     @Json(name = "duration")
     val duration: kotlin.Double,
 
-    @Json(name = "hardness")
-    val hardness: kotlin.Double,
+    @Json(name = "brightness")
+    val brightness: kotlin.Double? = null,
 
     @Json(name = "brightness_in_light_sensitivity_mode")
-    val brightnessInLightSensitivityMode: kotlin.Double? = null
+    val brightnessInLightSensitivityMode: kotlin.Double? = null,
+
+    /* Color gradient over the flash's lifetime (build 6711+). */
+    @Json(name = "color_gradient")
+    val colorGradient: kotlin.collections.List<ColorGradientStop>? = null,
+
+    /* Only present up to build 6701. */
+    @Json(name = "coverage")
+    val coverage: kotlin.Double? = null,
+
+    /* Only present up to build 6701. */
+    @Json(name = "hardness")
+    val hardness: kotlin.Double? = null
 
 ) : Serializable {
     companion object {

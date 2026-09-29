@@ -6,6 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aim_spring_strength** | **Vec<f64>** |  | 
 **armor_groups** | [**Vec<models::ItemGroup>**](ItemGroup.md) |  | 
+**color_enemy** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
+**color_friend** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
+**color_team1** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
+**color_team2** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
 **damage_flash** | [**models::DamageFlash**](DamageFlash.md) |  | 
 **enemy_objectives_and_zipline_color** | Option<[**models::Color**](Color.md)> |  | [optional]
 **enemy_objectives_color** | Option<[**models::Color**](Color.md)> |  | [optional]

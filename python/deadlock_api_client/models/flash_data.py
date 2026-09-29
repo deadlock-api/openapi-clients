@@ -17,9 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from deadlock_api_client.models.color import Color
+from deadlock_api_client.models.color_gradient_stop import ColorGradientStop
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,13 +29,14 @@ class FlashData(BaseModel):
     """
     FlashData
     """ # noqa: E501
-    brightness: Union[StrictFloat, StrictInt]
+    brightness: Optional[Union[StrictFloat, StrictInt]] = None
     brightness_in_light_sensitivity_mode: Optional[Union[StrictFloat, StrictInt]] = None
-    color: Color
-    coverage: Union[StrictFloat, StrictInt]
+    color: Color = Field(description="Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.")
+    color_gradient: Optional[List[ColorGradientStop]] = Field(default=None, description="Color gradient over the flash's lifetime (build 6711+).")
+    coverage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Only present up to build 6701.")
     duration: Union[StrictFloat, StrictInt]
-    hardness: Union[StrictFloat, StrictInt]
-    __properties: ClassVar[List[str]] = ["brightness", "brightness_in_light_sensitivity_mode", "color", "coverage", "duration", "hardness"]
+    hardness: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Only present up to build 6701.")
+    __properties: ClassVar[List[str]] = ["brightness", "brightness_in_light_sensitivity_mode", "color", "color_gradient", "coverage", "duration", "hardness"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -78,10 +80,36 @@ class FlashData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of color
         if self.color:
             _dict['color'] = self.color.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in color_gradient (list)
+        _items = []
+        if self.color_gradient:
+            for _item_color_gradient in self.color_gradient:
+                _items.append(_item_color_gradient.to_dict() if _item_color_gradient is not None else None)
+            _dict['color_gradient'] = _items
+        # set to None if brightness (nullable) is None
+        # and model_fields_set contains the field
+        if self.brightness is None and "brightness" in self.model_fields_set:
+            _dict['brightness'] = None
+
         # set to None if brightness_in_light_sensitivity_mode (nullable) is None
         # and model_fields_set contains the field
         if self.brightness_in_light_sensitivity_mode is None and "brightness_in_light_sensitivity_mode" in self.model_fields_set:
             _dict['brightness_in_light_sensitivity_mode'] = None
+
+        # set to None if color_gradient (nullable) is None
+        # and model_fields_set contains the field
+        if self.color_gradient is None and "color_gradient" in self.model_fields_set:
+            _dict['color_gradient'] = None
+
+        # set to None if coverage (nullable) is None
+        # and model_fields_set contains the field
+        if self.coverage is None and "coverage" in self.model_fields_set:
+            _dict['coverage'] = None
+
+        # set to None if hardness (nullable) is None
+        # and model_fields_set contains the field
+        if self.hardness is None and "hardness" in self.model_fields_set:
+            _dict['hardness'] = None
 
         return _dict
 
@@ -98,6 +126,7 @@ class FlashData(BaseModel):
             "brightness": obj.get("brightness"),
             "brightness_in_light_sensitivity_mode": obj.get("brightness_in_light_sensitivity_mode"),
             "color": Color.from_dict(obj["color"]) if obj.get("color") is not None else None,
+            "color_gradient": [ColorGradientStop.from_dict(_item) for _item in obj["color_gradient"]] if obj.get("color_gradient") is not None else None,
             "coverage": obj.get("coverage"),
             "duration": obj.get("duration"),
             "hardness": obj.get("hardness")

@@ -56,6 +56,12 @@ export interface WeaponInfo  {
     bulletGravityScale?: number;
     /**
      * 
+     * @type {string}
+     * @memberof WeaponInfo
+     */
+    bulletHandlerType?: string;
+    /**
+     * 
      * @type {number}
      * @memberof WeaponInfo
      */
@@ -317,6 +323,12 @@ export interface WeaponInfo  {
      * @type {number}
      * @memberof WeaponInfo
      */
+    recycleTime?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof WeaponInfo
+     */
     reloadDuration?: number;
     /**
      * 
@@ -464,6 +476,7 @@ export function WeaponInfoFromJSON(json: any): WeaponInfo {
         'buildUpRate': !exists(json, 'build_up_rate') ? undefined : json['build_up_rate'],
         'bulletDamage': !exists(json, 'bullet_damage') ? undefined : json['bullet_damage'],
         'bulletGravityScale': !exists(json, 'bullet_gravity_scale') ? undefined : json['bullet_gravity_scale'],
+        'bulletHandlerType': !exists(json, 'bullet_handler_type') ? undefined : json['bullet_handler_type'],
         'bulletInheritShooterVelocityScale': !exists(json, 'bullet_inherit_shooter_velocity_scale') ? undefined : json['bullet_inherit_shooter_velocity_scale'],
         'bulletLifetime': !exists(json, 'bullet_lifetime') ? undefined : json['bullet_lifetime'],
         'bulletRadius': !exists(json, 'bullet_radius') ? undefined : json['bullet_radius'],
@@ -507,6 +520,7 @@ export function WeaponInfoFromJSON(json: any): WeaponInfo {
         'recoilSeed': !exists(json, 'recoil_seed') ? undefined : json['recoil_seed'],
         'recoilShotIndexRecoveryTimeFactor': !exists(json, 'recoil_shot_index_recovery_time_factor') ? undefined : json['recoil_shot_index_recovery_time_factor'],
         'recoilSpeed': !exists(json, 'recoil_speed') ? undefined : json['recoil_speed'],
+        'recycleTime': !exists(json, 'recycle_time') ? undefined : json['recycle_time'],
         'reloadDuration': !exists(json, 'reload_duration') ? undefined : json['reload_duration'],
         'reloadMoveSpeed': !exists(json, 'reload_move_speed') ? undefined : json['reload_move_speed'],
         'reloadSingleBullets': !exists(json, 'reload_single_bullets') ? undefined : json['reload_single_bullets'],
@@ -543,6 +557,7 @@ export function WeaponInfoToJSON(value?: WeaponInfo): any {
         'build_up_rate': value.buildUpRate,
         'bullet_damage': value.bulletDamage,
         'bullet_gravity_scale': value.bulletGravityScale,
+        'bullet_handler_type': value.bulletHandlerType,
         'bullet_inherit_shooter_velocity_scale': value.bulletInheritShooterVelocityScale,
         'bullet_lifetime': value.bulletLifetime,
         'bullet_radius': value.bulletRadius,
@@ -586,6 +601,7 @@ export function WeaponInfoToJSON(value?: WeaponInfo): any {
         'recoil_seed': value.recoilSeed,
         'recoil_shot_index_recovery_time_factor': value.recoilShotIndexRecoveryTimeFactor,
         'recoil_speed': value.recoilSpeed,
+        'recycle_time': value.recycleTime,
         'reload_duration': value.reloadDuration,
         'reload_move_speed': value.reloadMoveSpeed,
         'reload_single_bullets': value.reloadSingleBullets,

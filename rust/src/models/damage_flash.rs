@@ -17,6 +17,9 @@ pub struct DamageFlash {
     pub bullet_damage: Box<models::FlashData>,
     #[serde(rename = "crit_damage")]
     pub crit_damage: Box<models::FlashData>,
+    /// Build 6711+.
+    #[serde(rename = "generic_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub generic_damage: Option<Option<Box<models::FlashData>>>,
     #[serde(rename = "healing_damage")]
     pub healing_damage: Box<models::FlashData>,
     #[serde(rename = "melee_damage")]
@@ -30,6 +33,7 @@ impl DamageFlash {
         DamageFlash {
             bullet_damage: Box::new(bullet_damage),
             crit_damage: Box::new(crit_damage),
+            generic_damage: None,
             healing_damage: Box::new(healing_damage),
             melee_damage: Box::new(melee_damage),
             tech_damage: Box::new(tech_damage),

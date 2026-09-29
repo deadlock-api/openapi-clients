@@ -205,6 +205,12 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 502 BadGateway
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadGateway { get; }
     }
 
     /// <summary>
@@ -908,6 +914,12 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 502 BadGateway
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadGateway => 502 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

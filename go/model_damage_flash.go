@@ -23,6 +23,8 @@ var _ MappedNullable = &DamageFlash{}
 type DamageFlash struct {
 	BulletDamage FlashData `json:"bullet_damage"`
 	CritDamage FlashData `json:"crit_damage"`
+	// Build 6711+.
+	GenericDamage NullableFlashData `json:"generic_damage,omitempty"`
 	HealingDamage FlashData `json:"healing_damage"`
 	MeleeDamage FlashData `json:"melee_damage"`
 	TechDamage FlashData `json:"tech_damage"`
@@ -98,6 +100,48 @@ func (o *DamageFlash) GetCritDamageOk() (*FlashData, bool) {
 // SetCritDamage sets field value
 func (o *DamageFlash) SetCritDamage(v FlashData) {
 	o.CritDamage = v
+}
+
+// GetGenericDamage returns the GenericDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *DamageFlash) GetGenericDamage() FlashData {
+	if o == nil || IsNil(o.GenericDamage.Get()) {
+		var ret FlashData
+		return ret
+	}
+	return *o.GenericDamage.Get()
+}
+
+// GetGenericDamageOk returns a tuple with the GenericDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *DamageFlash) GetGenericDamageOk() (*FlashData, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.GenericDamage.Get(), o.GenericDamage.IsSet()
+}
+
+// HasGenericDamage returns a boolean if a field has been set.
+func (o *DamageFlash) HasGenericDamage() bool {
+	if o != nil && o.GenericDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGenericDamage gets a reference to the given NullableFlashData and assigns it to the GenericDamage field.
+func (o *DamageFlash) SetGenericDamage(v FlashData) {
+	o.GenericDamage.Set(&v)
+}
+// SetGenericDamageNil sets the value for GenericDamage to be an explicit nil
+func (o *DamageFlash) SetGenericDamageNil() {
+	o.GenericDamage.Set(nil)
+}
+
+// UnsetGenericDamage ensures that no value is present for GenericDamage, not even an explicit nil
+func (o *DamageFlash) UnsetGenericDamage() {
+	o.GenericDamage.Unset()
 }
 
 // GetHealingDamage returns the HealingDamage field value
@@ -184,6 +228,9 @@ func (o DamageFlash) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bullet_damage"] = o.BulletDamage
 	toSerialize["crit_damage"] = o.CritDamage
+	if o.GenericDamage.IsSet() {
+		toSerialize["generic_damage"] = o.GenericDamage.Get()
+	}
 	toSerialize["healing_damage"] = o.HealingDamage
 	toSerialize["melee_damage"] = o.MeleeDamage
 	toSerialize["tech_damage"] = o.TechDamage

@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **TargetingSpringStrength** | **List&lt;double&gt;** |  | 
 **TrooperKillGoldShareFrac** | **List&lt;double&gt;** |  | 
 **WeaponGroups** | [**List&lt;ItemGroup&gt;**](ItemGroup.md) |  | 
+**ColorEnemy** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**ColorFriend** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**ColorTeam1** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**ColorTeam2** | [**Color**](Color.md) | Build 6711+. | [optional] 
 **EnemyObjectivesAndZiplineColor** | [**Color**](Color.md) |  | [optional] 
 **EnemyObjectivesColor** | [**Color**](Color.md) |  | [optional] 
 **EnemyZiplineColor** | [**Color**](Color.md) |  | [optional] 

@@ -34,16 +34,22 @@ class LaneInfoTest : ShouldSpec() {
         // uncomment below to create an instance of LaneInfo
         //val modelInstance = LaneInfo()
 
-        // to test the property `color`
-        should("test color") {
+        // to test the property `isEnemyLane`
+        should("test isEnemyLane") {
             // uncomment below to test the property
-            //modelInstance.color shouldBe ("TODO")
+            //modelInstance.isEnemyLane shouldBe ("TODO")
         }
 
-        // to test the property `laneName`
+        // to test the property `laneName` - Localized lane name. Unused lane slots are named `Unused`.
         should("test laneName") {
             // uncomment below to test the property
             //modelInstance.laneName shouldBe ("TODO")
+        }
+
+        // to test the property `color` - Absent for unused lane slots (build 6711+).
+        should("test color") {
+            // uncomment below to test the property
+            //modelInstance.color shouldBe ("TODO")
         }
 
         // to test the property `cssClass`
@@ -52,13 +58,19 @@ class LaneInfoTest : ShouldSpec() {
             //modelInstance.cssClass shouldBe ("TODO")
         }
 
-        // to test the property `minimapZiplineColorOverride`
+        // to test the property `minimapColor` - Build 6711+.
+        should("test minimapColor") {
+            // uncomment below to test the property
+            //modelInstance.minimapColor shouldBe ("TODO")
+        }
+
+        // to test the property `minimapZiplineColorOverride` - Only present up to build 6701.
         should("test minimapZiplineColorOverride") {
             // uncomment below to test the property
             //modelInstance.minimapZiplineColorOverride shouldBe ("TODO")
         }
 
-        // to test the property `objectiveColor`
+        // to test the property `objectiveColor` - Only present up to build 6701.
         should("test objectiveColor") {
             // uncomment below to test the property
             //modelInstance.objectiveColor shouldBe ("TODO")

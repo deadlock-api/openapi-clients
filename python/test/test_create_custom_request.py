@@ -37,6 +37,7 @@ class TestCreateCustomRequest(unittest.TestCase):
             return CreateCustomRequest(
                 callback_url = '',
                 cheats_enabled = True,
+                corrupted_item_shop_spawn_minutes = 0,
                 disable_auto_ready = True,
                 duplicate_heroes_enabled = True,
                 game_mode = 'normal',

@@ -98,6 +98,15 @@ class DamageFlashTest extends TestCase
     }
 
     /**
+     * Test attribute "generic_damage"
+     */
+    public function testPropertyGenericDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "healing_damage"
      */
     public function testPropertyHealingDamage()

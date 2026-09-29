@@ -20,6 +20,10 @@ import type { FlashData } from './flash-data.js';
 export interface DamageFlash {
     'bullet_damage': FlashData;
     'crit_damage': FlashData;
+    /**
+     * Build 6711+.
+     */
+    'generic_damage'?: FlashData | null;
     'healing_damage': FlashData;
     'melee_damage': FlashData;
     'tech_damage': FlashData;

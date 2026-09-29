@@ -18,33 +18,35 @@ import type { GenericData } from '../models/index.js';
  */
 export declare const GenericDataApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
      * @summary Get Generic Data
+     * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGenericData: (clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getGenericData: (language?: GetGenericDataLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * GenericDataApi - functional programming interface
  */
 export declare const GenericDataApiFp: (configuration?: Configuration) => {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
      * @summary Get Generic Data
+     * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGenericData(clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericData>>;
+    getGenericData(language?: GetGenericDataLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GenericData>>;
 };
 /**
  * GenericDataApi - factory interface
  */
 export declare const GenericDataApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
      * @summary Get Generic Data
      * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -57,6 +59,10 @@ export declare const GenericDataApiFactory: (configuration?: Configuration, base
  */
 export interface GenericDataApiGetGenericDataRequest {
     /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: GetGenericDataLanguageEnum;
+    /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
     readonly clientVersion?: number | null;
@@ -66,7 +72,7 @@ export interface GenericDataApiGetGenericDataRequest {
  */
 export declare class GenericDataApi extends BaseAPI {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
      * @summary Get Generic Data
      * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -74,4 +80,36 @@ export declare class GenericDataApi extends BaseAPI {
      */
     getGenericData(requestParameters?: GenericDataApiGetGenericDataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GenericData, any, {}, any>>;
 }
+export declare const GetGenericDataLanguageEnum: {
+    readonly Brazilian: "brazilian";
+    readonly Bulgarian: "bulgarian";
+    readonly Czech: "czech";
+    readonly Danish: "danish";
+    readonly Dutch: "dutch";
+    readonly English: "english";
+    readonly Finnish: "finnish";
+    readonly French: "french";
+    readonly German: "german";
+    readonly Greek: "greek";
+    readonly Hungarian: "hungarian";
+    readonly Indonesian: "indonesian";
+    readonly Italian: "italian";
+    readonly Japanese: "japanese";
+    readonly Koreana: "koreana";
+    readonly Latam: "latam";
+    readonly Norwegian: "norwegian";
+    readonly Polish: "polish";
+    readonly Portuguese: "portuguese";
+    readonly Romanian: "romanian";
+    readonly Russian: "russian";
+    readonly Schinese: "schinese";
+    readonly Spanish: "spanish";
+    readonly Swedish: "swedish";
+    readonly Tchinese: "tchinese";
+    readonly Thai: "thai";
+    readonly Turkish: "turkish";
+    readonly Ukrainian: "ukrainian";
+    readonly Vietnamese: "vietnamese";
+};
+export type GetGenericDataLanguageEnum = typeof GetGenericDataLanguageEnum[keyof typeof GetGenericDataLanguageEnum];
 //# sourceMappingURL=generic-data-api.d.ts.map

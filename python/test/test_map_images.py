@@ -38,8 +38,10 @@ class TestMapImages(unittest.TestCase):
                 background = '',
                 frame = '',
                 mid = '',
+                mid_tunnels = '',
                 minimap = '',
-                plain = ''
+                plain = '',
+                rat_tunnels = ''
             )
         else:
             return MapImages(

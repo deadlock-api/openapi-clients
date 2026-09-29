@@ -64,5 +64,11 @@ class DamageFlashTest : ShouldSpec() {
             //modelInstance.techDamage shouldBe ("TODO")
         }
 
+        // to test the property `genericDamage` - Build 6711+.
+        should("test genericDamage") {
+            // uncomment below to test the property
+            //modelInstance.genericDamage shouldBe ("TODO")
+        }
+
     }
 }

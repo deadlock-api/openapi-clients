@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **backdoor_bullet_resist_modifier** | Option<[**models::SubclassBulletResistModifier**](SubclassBulletResistModifier.md)> |  | [optional]
 **barrack_boss_dps** | Option<**f64**> |  | [optional]
 **barrack_guardian_damage_resist_pct** | Option<**f64**> |  | [optional]
+**boss_weapon_info** | Option<[**models::WeaponInfo**](WeaponInfo.md)> | Secondary weapon the unit uses against bosses (builds 6711+). | [optional]
 **bound_abilities** | Option<**std::collections::HashMap<String, String>**> |  | [optional]
 **class_name** | **String** |  | 
 **empowered_modifier_level1** | Option<[**models::SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md)> |  | [optional]
