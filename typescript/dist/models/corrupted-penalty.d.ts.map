@@ -1,0 +1,1 @@
+{"version":3,"file":"corrupted-penalty.d.ts","sourceRoot":"","sources":["../../models/corrupted-penalty.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,sBAAsB,EAAE,MAAM,+BAA+B,CAAC;AAE5E;;GAEG;AACH,MAAM,WAAW,gBAAgB;IAC7B,SAAS,EAAE,KAAK,CAAC,sBAAsB,CAAC,CAAC;IACzC,MAAM,EAAE,MAAM,CAAC;IACf,aAAa,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;CACjC"}

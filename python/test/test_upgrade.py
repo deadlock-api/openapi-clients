@@ -40,13 +40,30 @@ class TestUpgrade(unittest.TestCase):
                 component_items = [
                     ''
                     ],
+                corrupted_info = deadlock_api_client.models.corrupted_item_info.CorruptedItemInfo(
+                    excluded_penalties = [
+                        ''
+                        ], 
+                    property_upgrades = [
+                        deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
+                            bonus = '', 
+                            fixed_corrupted_bonus = True, 
+                            name = '', 
+                            round_corrupted_bonus = True, 
+                            scale_stat_filter = '', 
+                            upgrade_type = '', )
+                        ], ),
                 cost = 0,
                 description = deadlock_api_client.models.upgrade_description.UpgradeDescription(
                     active = '', 
                     desc = '', 
                     desc2 = '', 
                     passive = '', ),
+                disable_item_target = '',
                 disabled = True,
+                disabled_shop_filters = [
+                    ''
+                    ],
                 hero = 0,
                 heroes = [
                     0
@@ -62,10 +79,14 @@ class TestUpgrade(unittest.TestCase):
                 properties = {
                     'key' : null
                     },
+                shop_filters = [
+                    ''
+                    ],
                 shop_image = '',
                 shop_image_small = '',
                 shop_image_small_webp = '',
                 shop_image_webp = '',
+                shop_version = 56,
                 shopable = True,
                 start_trained = True,
                 tooltip_sections = [
@@ -98,7 +119,9 @@ class TestUpgrade(unittest.TestCase):
                         property_upgrades = [
                             deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
                                 bonus = '', 
+                                fixed_corrupted_bonus = True, 
                                 name = '', 
+                                round_corrupted_bonus = True, 
                                 scale_stat_filter = '', 
                                 upgrade_type = '', )
                             ], )

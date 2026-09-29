@@ -57,8 +57,9 @@ namespace DeadlockApiClient.Test.Api
         public async Task GetMiscEntityAsyncTest()
         {
             string idOrClassname = default!;
+            Client.Option<string?> language = default!;
             Client.Option<int?> clientVersion = default!;
-            var response = await _instance.GetMiscEntityAsync(idOrClassname, clientVersion);
+            var response = await _instance.GetMiscEntityAsync(idOrClassname, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.MiscEntity>(model);
         }
@@ -69,8 +70,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task ListMiscEntitiesAsyncTest()
         {
+            Client.Option<string?> language = default!;
             Client.Option<int?> clientVersion = default!;
-            var response = await _instance.ListMiscEntitiesAsync(clientVersion);
+            var response = await _instance.ListMiscEntitiesAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<MiscEntity>>(model);
         }

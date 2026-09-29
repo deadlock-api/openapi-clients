@@ -24,10 +24,18 @@ export interface MiscEntity {
      */
     'buff_type_loc_string'?: string | null;
     /**
-     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     * Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+     */
+    'buff_type_name'?: string | null;
+    /**
+     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
      */
     'buff_type_value_unit'?: string | null;
     'class_name': string;
+    /**
+     * How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+     */
+    'collection_method'?: string | null;
     'collision_radius'?: number | null;
     'color'?: Color | null;
     'damaged_by_abilities'?: boolean | null;
@@ -40,7 +48,15 @@ export interface MiscEntity {
     'health'?: number | null;
     'heavy_melee_hit_count'?: number | null;
     'heavy_melee_only'?: boolean | null;
+    /**
+     * Punchable pickups: hits needed to collect.
+     */
+    'hits_required'?: number | null;
     'id': number;
+    /**
+     * Corrupted item shop (Broker) trigger: modifier applied while inside.
+     */
+    'in_shop_modifier'?: SubclassModifierDefinition | null;
     'initial_spawn_delay_in_seconds'?: number | null;
     /**
      * Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
@@ -48,15 +64,29 @@ export interface MiscEntity {
     'initial_spawn_delay_seconds'?: number | null;
     'initial_spawn_time'?: number | null;
     'is_mantleable'?: boolean | null;
+    'is_permanent_pickup'?: boolean | null;
     'lifetime'?: number | null;
     'loot_list_deck_size'?: number | null;
     'm_vecPickups_lv2'?: Array<Pickup> | null;
     'm_vecPickups_lv3'?: Array<Pickup> | null;
     'match_time_mins_for_level2_pickups'?: number | null;
     'match_time_mins_for_level3_pickups'?: number | null;
+    'minimap_class'?: string | null;
     'modifier'?: SubclassModifierDefinition | null;
+    /**
+     * `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+     */
+    'name'?: string | null;
+    /**
+     * Localization token of the pickup\'s world label.
+     */
+    'name_loc_string'?: string | null;
     'orb_spawn_delay_max'?: number | null;
     'orb_spawn_delay_min'?: number | null;
+    /**
+     * Pickup spawners: class name of the spawned pickup.
+     */
+    'pickup'?: string | null;
     /**
      * Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
      */
@@ -73,6 +103,22 @@ export interface MiscEntity {
      */
     'primary_drop_chance'?: number | null;
     'primary_pickups'?: Array<Pickup> | null;
+    /**
+     * Health pickups: seconds over which the healing is applied to heroes.
+     */
+    'regen_duration'?: number | null;
+    /**
+     * Health pickups: seconds over which the healing is applied to troopers.
+     */
+    'regen_duration_troopers'?: number | null;
+    /**
+     * Health pickups: healing as percent of max health.
+     */
+    'regen_max_health_percent'?: CurveOrFloat | null;
+    /**
+     * Health pickups: healing multiplier for troopers.
+     */
+    'regen_trooper_multi'?: number | null;
     'render_after_death'?: boolean | null;
     'respawn_time'?: number | null;
     /**
@@ -80,8 +126,20 @@ export interface MiscEntity {
      */
     'roll_type'?: string | null;
     'show_on_minimap'?: boolean | null;
+    /**
+     * Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+     */
+    'single_pickup_override'?: string | null;
     'solid_after_death'?: boolean | null;
+    /**
+     * Pickup spawners: delay (seconds) before the first spawn.
+     */
+    'spawn_delay'?: number | null;
     'spawn_interval'?: number | null;
     'spawn_interval_in_seconds'?: number | null;
+    /**
+     * Corrupted item shop (Broker) trigger: music cue played on spawn.
+     */
+    'spawn_music_state'?: string | null;
 }
 //# sourceMappingURL=misc-entity.d.ts.map

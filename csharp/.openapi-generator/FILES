@@ -26,6 +26,7 @@ docs/apis/MMRApi.md
 docs/apis/MapApi.md
 docs/apis/MatchesApi.md
 docs/apis/MiscEntitiesApi.md
+docs/apis/ModifiersApi.md
 docs/apis/NPCUnitsApi.md
 docs/apis/PatchesApi.md
 docs/apis/PlayersApi.md
@@ -55,6 +56,7 @@ docs/models/AnalyticsAbilityOrderStats.md
 docs/models/AnalyticsGameStats.md
 docs/models/AnalyticsHeroStats.md
 docs/models/BadgeDistribution.md
+docs/models/BreakablePowerupLootParams.md
 docs/models/Build.md
 docs/models/BuildHero.md
 docs/models/BuildHeroDetails.md
@@ -69,6 +71,9 @@ docs/models/ClickhouseSalts.md
 docs/models/Color.md
 docs/models/ColorGradientStop.md
 docs/models/ColumnSchema.md
+docs/models/CorruptedItemInfo.md
+docs/models/CorruptedPenalty.md
+docs/models/CorruptedPenaltyEffect.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
 docs/models/Curve.md
@@ -114,6 +119,8 @@ docs/models/HeroDevelopmentState.md
 docs/models/HeroEntry.md
 docs/models/HeroImages.md
 docs/models/HeroPhysics.md
+docs/models/HeroPopularItem.md
+docs/models/HeroPopularItems.md
 docs/models/HeroStats.md
 docs/models/HeroStatsUI.md
 docs/models/HeroStatsUIDisplay.md
@@ -150,6 +157,7 @@ docs/models/LootEntry.md
 docs/models/LootTable.md
 docs/models/MMRHistory.md
 docs/models/MapData.md
+docs/models/MapDistrict.md
 docs/models/MapImages.md
 docs/models/MatchPlayer.md
 docs/models/MatchSaltsResponse.md
@@ -157,7 +165,10 @@ docs/models/MatchSpectateResponse.md
 docs/models/MateStats.md
 docs/models/MiniMapOffsets.md
 docs/models/MiscEntity.md
+docs/models/Modifier.md
 docs/models/ModifierValue.md
+docs/models/NeutralCamp.md
+docs/models/NeutralCampKind.md
 docs/models/NewPlayerMetrics.md
 docs/models/NpcUnit.md
 docs/models/ObjectiveParams.md
@@ -226,6 +237,8 @@ docs/models/SubclassIntrinsicModifiers.md
 docs/models/SubclassIntrinsicModifiersSubclass.md
 docs/models/SubclassModifierDefinition.md
 docs/models/SubclassModifierDefinitionSubclass.md
+docs/models/SubclassNeutralDamageGrowth.md
+docs/models/SubclassNeutralDamageGrowthSubclass.md
 docs/models/SubclassObjectiveHealthGrowthPhase.md
 docs/models/SubclassObjectiveHealthGrowthPhaseSubclass.md
 docs/models/SubclassObjectiveRegen.md
@@ -278,6 +291,7 @@ src/DeadlockApiClient.Test/Api/MMRApiTests.cs
 src/DeadlockApiClient.Test/Api/MapApiTests.cs
 src/DeadlockApiClient.Test/Api/MatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/MiscEntitiesApiTests.cs
+src/DeadlockApiClient.Test/Api/ModifiersApiTests.cs
 src/DeadlockApiClient.Test/Api/NPCUnitsApiTests.cs
 src/DeadlockApiClient.Test/Api/PatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/PlayersApiTests.cs
@@ -308,6 +322,7 @@ src/DeadlockApiClient.Test/Model/AnalyticsAbilityOrderStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsGameStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsHeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/BadgeDistributionTests.cs
+src/DeadlockApiClient.Test/Model/BreakablePowerupLootParamsTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsAbilityOrderCurrencyChangeTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsAbilityOrderTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsCategoryAbilityTests.cs
@@ -322,6 +337,9 @@ src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
 src/DeadlockApiClient.Test/Model/ColorGradientStopTests.cs
 src/DeadlockApiClient.Test/Model/ColorTests.cs
 src/DeadlockApiClient.Test/Model/ColumnSchemaTests.cs
+src/DeadlockApiClient.Test/Model/CorruptedItemInfoTests.cs
+src/DeadlockApiClient.Test/Model/CorruptedPenaltyEffectTests.cs
+src/DeadlockApiClient.Test/Model/CorruptedPenaltyTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/CurveOrFloatTests.cs
@@ -366,6 +384,8 @@ src/DeadlockApiClient.Test/Model/HeroDevelopmentStateTests.cs
 src/DeadlockApiClient.Test/Model/HeroEntryTests.cs
 src/DeadlockApiClient.Test/Model/HeroImagesTests.cs
 src/DeadlockApiClient.Test/Model/HeroPhysicsTests.cs
+src/DeadlockApiClient.Test/Model/HeroPopularItemTests.cs
+src/DeadlockApiClient.Test/Model/HeroPopularItemsTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsUIDisplayTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsUITests.cs
@@ -403,6 +423,7 @@ src/DeadlockApiClient.Test/Model/LootEntryTests.cs
 src/DeadlockApiClient.Test/Model/LootTableTests.cs
 src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
 src/DeadlockApiClient.Test/Model/MapDataTests.cs
+src/DeadlockApiClient.Test/Model/MapDistrictTests.cs
 src/DeadlockApiClient.Test/Model/MapImagesTests.cs
 src/DeadlockApiClient.Test/Model/MatchPlayerTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
@@ -410,7 +431,10 @@ src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
 src/DeadlockApiClient.Test/Model/MateStatsTests.cs
 src/DeadlockApiClient.Test/Model/MiniMapOffsetsTests.cs
 src/DeadlockApiClient.Test/Model/MiscEntityTests.cs
+src/DeadlockApiClient.Test/Model/ModifierTests.cs
 src/DeadlockApiClient.Test/Model/ModifierValueTests.cs
+src/DeadlockApiClient.Test/Model/NeutralCampKindTests.cs
+src/DeadlockApiClient.Test/Model/NeutralCampTests.cs
 src/DeadlockApiClient.Test/Model/NewPlayerMetricsTests.cs
 src/DeadlockApiClient.Test/Model/NpcUnitTests.cs
 src/DeadlockApiClient.Test/Model/ObjectiveParamsTests.cs
@@ -479,6 +503,8 @@ src/DeadlockApiClient.Test/Model/SubclassIntrinsicModifiersSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassIntrinsicModifiersTests.cs
 src/DeadlockApiClient.Test/Model/SubclassModifierDefinitionSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassModifierDefinitionTests.cs
+src/DeadlockApiClient.Test/Model/SubclassNeutralDamageGrowthSubclassTests.cs
+src/DeadlockApiClient.Test/Model/SubclassNeutralDamageGrowthTests.cs
 src/DeadlockApiClient.Test/Model/SubclassObjectiveHealthGrowthPhaseSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassObjectiveHealthGrowthPhaseTests.cs
 src/DeadlockApiClient.Test/Model/SubclassObjectiveRegenSubclassTests.cs
@@ -529,6 +555,7 @@ src/DeadlockApiClient/Api/MMRApi.cs
 src/DeadlockApiClient/Api/MapApi.cs
 src/DeadlockApiClient/Api/MatchesApi.cs
 src/DeadlockApiClient/Api/MiscEntitiesApi.cs
+src/DeadlockApiClient/Api/ModifiersApi.cs
 src/DeadlockApiClient/Api/NPCUnitsApi.cs
 src/DeadlockApiClient/Api/PatchesApi.cs
 src/DeadlockApiClient/Api/PlayersApi.cs
@@ -583,6 +610,7 @@ src/DeadlockApiClient/Model/AnalyticsAbilityOrderStats.cs
 src/DeadlockApiClient/Model/AnalyticsGameStats.cs
 src/DeadlockApiClient/Model/AnalyticsHeroStats.cs
 src/DeadlockApiClient/Model/BadgeDistribution.cs
+src/DeadlockApiClient/Model/BreakablePowerupLootParams.cs
 src/DeadlockApiClient/Model/Build.cs
 src/DeadlockApiClient/Model/BuildHero.cs
 src/DeadlockApiClient/Model/BuildHeroDetails.cs
@@ -597,6 +625,9 @@ src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/Color.cs
 src/DeadlockApiClient/Model/ColorGradientStop.cs
 src/DeadlockApiClient/Model/ColumnSchema.cs
+src/DeadlockApiClient/Model/CorruptedItemInfo.cs
+src/DeadlockApiClient/Model/CorruptedPenalty.cs
+src/DeadlockApiClient/Model/CorruptedPenaltyEffect.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/Curve.cs
@@ -642,6 +673,8 @@ src/DeadlockApiClient/Model/HeroDevelopmentState.cs
 src/DeadlockApiClient/Model/HeroEntry.cs
 src/DeadlockApiClient/Model/HeroImages.cs
 src/DeadlockApiClient/Model/HeroPhysics.cs
+src/DeadlockApiClient/Model/HeroPopularItem.cs
+src/DeadlockApiClient/Model/HeroPopularItems.cs
 src/DeadlockApiClient/Model/HeroStats.cs
 src/DeadlockApiClient/Model/HeroStatsUI.cs
 src/DeadlockApiClient/Model/HeroStatsUIDisplay.cs
@@ -678,6 +711,7 @@ src/DeadlockApiClient/Model/LootEntry.cs
 src/DeadlockApiClient/Model/LootTable.cs
 src/DeadlockApiClient/Model/MMRHistory.cs
 src/DeadlockApiClient/Model/MapData.cs
+src/DeadlockApiClient/Model/MapDistrict.cs
 src/DeadlockApiClient/Model/MapImages.cs
 src/DeadlockApiClient/Model/MatchPlayer.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs
@@ -685,7 +719,10 @@ src/DeadlockApiClient/Model/MatchSpectateResponse.cs
 src/DeadlockApiClient/Model/MateStats.cs
 src/DeadlockApiClient/Model/MiniMapOffsets.cs
 src/DeadlockApiClient/Model/MiscEntity.cs
+src/DeadlockApiClient/Model/Modifier.cs
 src/DeadlockApiClient/Model/ModifierValue.cs
+src/DeadlockApiClient/Model/NeutralCamp.cs
+src/DeadlockApiClient/Model/NeutralCampKind.cs
 src/DeadlockApiClient/Model/NewPlayerMetrics.cs
 src/DeadlockApiClient/Model/NpcUnit.cs
 src/DeadlockApiClient/Model/ObjectiveParams.cs
@@ -754,6 +791,8 @@ src/DeadlockApiClient/Model/SubclassIntrinsicModifiers.cs
 src/DeadlockApiClient/Model/SubclassIntrinsicModifiersSubclass.cs
 src/DeadlockApiClient/Model/SubclassModifierDefinition.cs
 src/DeadlockApiClient/Model/SubclassModifierDefinitionSubclass.cs
+src/DeadlockApiClient/Model/SubclassNeutralDamageGrowth.cs
+src/DeadlockApiClient/Model/SubclassNeutralDamageGrowthSubclass.cs
 src/DeadlockApiClient/Model/SubclassObjectiveHealthGrowthPhase.cs
 src/DeadlockApiClient/Model/SubclassObjectiveHealthGrowthPhaseSubclass.cs
 src/DeadlockApiClient/Model/SubclassObjectiveRegen.cs

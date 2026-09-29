@@ -21,6 +21,10 @@ export interface SeasonInterval {
     'end_timestamp': number;
     'interval': number;
     /**
+     * Leaderboard backing this interval (build 6701+).
+     */
+    'leaderboard_id'?: number | null;
+    /**
      * Unix timestamp (seconds) at which the interval starts.
      */
     'start_timestamp': number;

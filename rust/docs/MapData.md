@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **images** | [**models::MapImages**](MapImages.md) |  | 
+**neutral_camps** | Option<[**Vec<models::NeutralCamp>**](NeutralCamp.md)> | Neutral camps (build 6711+). | [optional]
 **objective_positions** | [**std::collections::HashMap<String, models::ObjectivePosition>**](ObjectivePosition.md) |  | 
 **radius** | **u32** |  | 
 **zipline_paths** | [**Vec<models::ZiplanePath>**](ZiplanePath.md) |  | 

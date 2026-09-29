@@ -7,9 +7,12 @@ Name | Type | Description | Notes
 **Activation** | [**AbilityActivation**](AbilityActivation.md) |  | 
 **ClassName** | **string** |  | 
 **ComponentItems** | Pointer to **[]string** |  | [optional] 
+**CorruptedInfo** | Pointer to [**NullableCorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
 **Cost** | Pointer to **NullableInt32** |  | [optional] 
 **Description** | Pointer to [**NullableUpgradeDescription**](UpgradeDescription.md) |  | [optional] 
+**DisableItemTarget** | Pointer to **NullableString** |  | [optional] 
 **Disabled** | Pointer to **NullableBool** |  | [optional] 
+**DisabledShopFilters** | Pointer to **[]string** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. | [optional] 
 **Hero** | Pointer to **NullableInt32** |  | [optional] 
 **Heroes** | Pointer to **[]int32** |  | [optional] 
 **Id** | **int32** |  | 
@@ -21,10 +24,12 @@ Name | Type | Description | Notes
 **ItemTier** | **int32** |  | 
 **Name** | **string** |  | 
 **Properties** | Pointer to [**map[string]UpgradeProperty**](UpgradeProperty.md) |  | [optional] 
+**ShopFilters** | Pointer to **[]string** | Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats. | [optional] 
 **ShopImage** | Pointer to **NullableString** |  | [optional] 
 **ShopImageSmall** | Pointer to **NullableString** |  | [optional] 
 **ShopImageSmallWebp** | Pointer to **NullableString** |  | [optional] 
 **ShopImageWebp** | Pointer to **NullableString** |  | [optional] 
+**ShopVersion** | Pointer to **NullableInt64** |  | [optional] 
 **Shopable** | **bool** |  | 
 **StartTrained** | Pointer to **NullableBool** |  | [optional] 
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSection**](UpgradeTooltipSection.md) |  | [optional] 
@@ -127,6 +132,41 @@ HasComponentItems returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetComponentItems()`
 
 UnsetComponentItems ensures that no value is present for ComponentItems, not even an explicit nil
+### GetCorruptedInfo
+
+`func (o *Upgrade) GetCorruptedInfo() CorruptedItemInfo`
+
+GetCorruptedInfo returns the CorruptedInfo field if non-nil, zero value otherwise.
+
+### GetCorruptedInfoOk
+
+`func (o *Upgrade) GetCorruptedInfoOk() (*CorruptedItemInfo, bool)`
+
+GetCorruptedInfoOk returns a tuple with the CorruptedInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptedInfo
+
+`func (o *Upgrade) SetCorruptedInfo(v CorruptedItemInfo)`
+
+SetCorruptedInfo sets CorruptedInfo field to given value.
+
+### HasCorruptedInfo
+
+`func (o *Upgrade) HasCorruptedInfo() bool`
+
+HasCorruptedInfo returns a boolean if a field has been set.
+
+### SetCorruptedInfoNil
+
+`func (o *Upgrade) SetCorruptedInfoNil(b bool)`
+
+ SetCorruptedInfoNil sets the value for CorruptedInfo to be an explicit nil
+
+### UnsetCorruptedInfo
+`func (o *Upgrade) UnsetCorruptedInfo()`
+
+UnsetCorruptedInfo ensures that no value is present for CorruptedInfo, not even an explicit nil
 ### GetCost
 
 `func (o *Upgrade) GetCost() int32`
@@ -197,6 +237,41 @@ HasDescription returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetDescription()`
 
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetDisableItemTarget
+
+`func (o *Upgrade) GetDisableItemTarget() string`
+
+GetDisableItemTarget returns the DisableItemTarget field if non-nil, zero value otherwise.
+
+### GetDisableItemTargetOk
+
+`func (o *Upgrade) GetDisableItemTargetOk() (*string, bool)`
+
+GetDisableItemTargetOk returns a tuple with the DisableItemTarget field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableItemTarget
+
+`func (o *Upgrade) SetDisableItemTarget(v string)`
+
+SetDisableItemTarget sets DisableItemTarget field to given value.
+
+### HasDisableItemTarget
+
+`func (o *Upgrade) HasDisableItemTarget() bool`
+
+HasDisableItemTarget returns a boolean if a field has been set.
+
+### SetDisableItemTargetNil
+
+`func (o *Upgrade) SetDisableItemTargetNil(b bool)`
+
+ SetDisableItemTargetNil sets the value for DisableItemTarget to be an explicit nil
+
+### UnsetDisableItemTarget
+`func (o *Upgrade) UnsetDisableItemTarget()`
+
+UnsetDisableItemTarget ensures that no value is present for DisableItemTarget, not even an explicit nil
 ### GetDisabled
 
 `func (o *Upgrade) GetDisabled() bool`
@@ -232,6 +307,41 @@ HasDisabled returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetDisabled()`
 
 UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
+### GetDisabledShopFilters
+
+`func (o *Upgrade) GetDisabledShopFilters() []string`
+
+GetDisabledShopFilters returns the DisabledShopFilters field if non-nil, zero value otherwise.
+
+### GetDisabledShopFiltersOk
+
+`func (o *Upgrade) GetDisabledShopFiltersOk() (*[]string, bool)`
+
+GetDisabledShopFiltersOk returns a tuple with the DisabledShopFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisabledShopFilters
+
+`func (o *Upgrade) SetDisabledShopFilters(v []string)`
+
+SetDisabledShopFilters sets DisabledShopFilters field to given value.
+
+### HasDisabledShopFilters
+
+`func (o *Upgrade) HasDisabledShopFilters() bool`
+
+HasDisabledShopFilters returns a boolean if a field has been set.
+
+### SetDisabledShopFiltersNil
+
+`func (o *Upgrade) SetDisabledShopFiltersNil(b bool)`
+
+ SetDisabledShopFiltersNil sets the value for DisabledShopFilters to be an explicit nil
+
+### UnsetDisabledShopFilters
+`func (o *Upgrade) UnsetDisabledShopFilters()`
+
+UnsetDisabledShopFilters ensures that no value is present for DisabledShopFilters, not even an explicit nil
 ### GetHero
 
 `func (o *Upgrade) GetHero() int32`
@@ -542,6 +652,41 @@ HasProperties returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetProperties()`
 
 UnsetProperties ensures that no value is present for Properties, not even an explicit nil
+### GetShopFilters
+
+`func (o *Upgrade) GetShopFilters() []string`
+
+GetShopFilters returns the ShopFilters field if non-nil, zero value otherwise.
+
+### GetShopFiltersOk
+
+`func (o *Upgrade) GetShopFiltersOk() (*[]string, bool)`
+
+GetShopFiltersOk returns a tuple with the ShopFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShopFilters
+
+`func (o *Upgrade) SetShopFilters(v []string)`
+
+SetShopFilters sets ShopFilters field to given value.
+
+### HasShopFilters
+
+`func (o *Upgrade) HasShopFilters() bool`
+
+HasShopFilters returns a boolean if a field has been set.
+
+### SetShopFiltersNil
+
+`func (o *Upgrade) SetShopFiltersNil(b bool)`
+
+ SetShopFiltersNil sets the value for ShopFilters to be an explicit nil
+
+### UnsetShopFilters
+`func (o *Upgrade) UnsetShopFilters()`
+
+UnsetShopFilters ensures that no value is present for ShopFilters, not even an explicit nil
 ### GetShopImage
 
 `func (o *Upgrade) GetShopImage() string`
@@ -682,6 +827,41 @@ HasShopImageWebp returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetShopImageWebp()`
 
 UnsetShopImageWebp ensures that no value is present for ShopImageWebp, not even an explicit nil
+### GetShopVersion
+
+`func (o *Upgrade) GetShopVersion() int64`
+
+GetShopVersion returns the ShopVersion field if non-nil, zero value otherwise.
+
+### GetShopVersionOk
+
+`func (o *Upgrade) GetShopVersionOk() (*int64, bool)`
+
+GetShopVersionOk returns a tuple with the ShopVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShopVersion
+
+`func (o *Upgrade) SetShopVersion(v int64)`
+
+SetShopVersion sets ShopVersion field to given value.
+
+### HasShopVersion
+
+`func (o *Upgrade) HasShopVersion() bool`
+
+HasShopVersion returns a boolean if a field has been set.
+
+### SetShopVersionNil
+
+`func (o *Upgrade) SetShopVersionNil(b bool)`
+
+ SetShopVersionNil sets the value for ShopVersion to be an explicit nil
+
+### UnsetShopVersion
+`func (o *Upgrade) UnsetShopVersion()`
+
+UnsetShopVersion ensures that no value is present for ShopVersion, not even an explicit nil
 ### GetShopable
 
 `func (o *Upgrade) GetShopable() bool`

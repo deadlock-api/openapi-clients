@@ -33,6 +33,10 @@ export interface StartingStats {
     'max_health': StartingStat;
     'max_move_speed': StartingStat;
     'move_acceleration': StartingStat;
+    /**
+     * Out-of-combat health regen (build 6711+).
+     */
+    'ooc_health_regen'?: StartingStat | null;
     'proc_build_up_rate_scale': StartingStat;
     'reload_speed': StartingStat;
     'sprint_speed': StartingStat;

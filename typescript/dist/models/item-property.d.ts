@@ -25,6 +25,10 @@ export interface ItemProperty {
     'postvalue_label'?: string | null;
     'prefix'?: string | null;
     'provided_property_type'?: string | null;
+    /**
+     * Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+     */
+    'required_upgrade_bits'?: Array<string> | null;
     'scale_function'?: RawItemPropertyScaleFunctionSubclass | null;
     'street_brawl_value'?: string | null;
     'usage_flags'?: Array<StatsUsageFlag> | null;

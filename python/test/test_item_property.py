@@ -48,6 +48,9 @@ class TestItemProperty(unittest.TestCase):
                 postvalue_label = '',
                 prefix = '',
                 provided_property_type = '',
+                required_upgrade_bits = [
+                    ''
+                    ],
                 scale_function = deadlock_api_client.models.raw_item_property_scale_function_subclass.RawItemPropertyScaleFunctionSubclass(
                     class_name = '', 
                     scaling_stats = [

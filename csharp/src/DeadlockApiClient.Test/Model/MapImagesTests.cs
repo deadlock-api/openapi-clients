@@ -54,15 +54,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Background'
-        /// </summary>
-        [Fact]
-        public void BackgroundTest()
-        {
-            // TODO unit test for the property 'Background'
-        }
-
-        /// <summary>
         /// Test the property 'Frame'
         /// </summary>
         [Fact]
@@ -96,6 +87,15 @@ namespace DeadlockApiClient.Test.Model
         public void PlainTest()
         {
             // TODO unit test for the property 'Plain'
+        }
+
+        /// <summary>
+        /// Test the property 'Background'
+        /// </summary>
+        [Fact]
+        public void BackgroundTest()
+        {
+            // TODO unit test for the property 'Background'
         }
 
         /// <summary>

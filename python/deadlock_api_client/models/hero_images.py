@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -42,9 +42,11 @@ class HeroImages(BaseModel):
     name_image: Optional[StrictStr] = None
     top_bar_vertical_image: Optional[StrictStr] = None
     top_bar_vertical_image_webp: Optional[StrictStr] = None
+    vote_sticker: Optional[StrictStr] = Field(default=None, description="Hero release vote sticker (`m_strVoteSticker`, build 6711+).")
+    vote_sticker_webp: Optional[StrictStr] = None
     weapon_image: Optional[StrictStr] = None
     weapon_image_webp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["background_image", "background_image_webp", "hero_card_critical", "hero_card_critical_webp", "hero_card_gloat", "hero_card_gloat_webp", "icon_hero_card", "icon_hero_card_webp", "icon_image_small", "icon_image_small_webp", "minimap_image", "minimap_image_webp", "name_image", "top_bar_vertical_image", "top_bar_vertical_image_webp", "weapon_image", "weapon_image_webp"]
+    __properties: ClassVar[List[str]] = ["background_image", "background_image_webp", "hero_card_critical", "hero_card_critical_webp", "hero_card_gloat", "hero_card_gloat_webp", "icon_hero_card", "icon_hero_card_webp", "icon_image_small", "icon_image_small_webp", "minimap_image", "minimap_image_webp", "name_image", "top_bar_vertical_image", "top_bar_vertical_image_webp", "vote_sticker", "vote_sticker_webp", "weapon_image", "weapon_image_webp"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -160,6 +162,16 @@ class HeroImages(BaseModel):
         if self.top_bar_vertical_image_webp is None and "top_bar_vertical_image_webp" in self.model_fields_set:
             _dict['top_bar_vertical_image_webp'] = None
 
+        # set to None if vote_sticker (nullable) is None
+        # and model_fields_set contains the field
+        if self.vote_sticker is None and "vote_sticker" in self.model_fields_set:
+            _dict['vote_sticker'] = None
+
+        # set to None if vote_sticker_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.vote_sticker_webp is None and "vote_sticker_webp" in self.model_fields_set:
+            _dict['vote_sticker_webp'] = None
+
         # set to None if weapon_image (nullable) is None
         # and model_fields_set contains the field
         if self.weapon_image is None and "weapon_image" in self.model_fields_set:
@@ -197,6 +209,8 @@ class HeroImages(BaseModel):
             "name_image": obj.get("name_image"),
             "top_bar_vertical_image": obj.get("top_bar_vertical_image"),
             "top_bar_vertical_image_webp": obj.get("top_bar_vertical_image_webp"),
+            "vote_sticker": obj.get("vote_sticker"),
+            "vote_sticker_webp": obj.get("vote_sticker_webp"),
             "weapon_image": obj.get("weapon_image"),
             "weapon_image_webp": obj.get("weapon_image_webp")
         })

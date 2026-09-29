@@ -25,11 +25,23 @@ export interface RawAbilityUpgradePropertyUpgrade  {
      */
     bonus: string;
     /**
+     * Corrupted item bonuses only (build 6711+).
+     * @type {boolean}
+     * @memberof RawAbilityUpgradePropertyUpgrade
+     */
+    fixedCorruptedBonus?: boolean;
+    /**
      * 
      * @type {string}
      * @memberof RawAbilityUpgradePropertyUpgrade
      */
     name: string;
+    /**
+     * Corrupted item bonuses only (build 6711+).
+     * @type {boolean}
+     * @memberof RawAbilityUpgradePropertyUpgrade
+     */
+    roundCorruptedBonus?: boolean;
     /**
      * 
      * @type {string}
@@ -47,7 +59,9 @@ export interface RawAbilityUpgradePropertyUpgrade  {
 export function RawAbilityUpgradePropertyUpgradeFromJSON(json: any): RawAbilityUpgradePropertyUpgrade {
     return {
         'bonus': json['bonus'],
+        'fixedCorruptedBonus': !exists(json, 'fixed_corrupted_bonus') ? undefined : json['fixed_corrupted_bonus'],
         'name': json['name'],
+        'roundCorruptedBonus': !exists(json, 'round_corrupted_bonus') ? undefined : json['round_corrupted_bonus'],
         'scaleStatFilter': !exists(json, 'scale_stat_filter') ? undefined : json['scale_stat_filter'],
         'upgradeType': !exists(json, 'upgrade_type') ? undefined : json['upgrade_type'],
     };
@@ -59,7 +73,9 @@ export function RawAbilityUpgradePropertyUpgradeToJSON(value?: RawAbilityUpgrade
     }
     return {
         'bonus': value.bonus,
+        'fixed_corrupted_bonus': value.fixedCorruptedBonus,
         'name': value.name,
+        'round_corrupted_bonus': value.roundCorruptedBonus,
         'scale_stat_filter': value.scaleStatFilter,
         'upgrade_type': value.upgradeType,
     };

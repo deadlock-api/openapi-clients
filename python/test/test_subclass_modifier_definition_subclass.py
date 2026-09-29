@@ -40,6 +40,7 @@ class TestSubclassModifierDefinitionSubclass(unittest.TestCase):
                     ],
                 class_name = '',
                 duration = 1.337,
+                enabled_state_mask = '',
                 modifier_values = [
                     deadlock_api_client.models.modifier_value.ModifierValue(
                         value = 1.337, 

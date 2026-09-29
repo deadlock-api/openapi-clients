@@ -45,6 +45,13 @@ class TestGenericData(unittest.TestCase):
                             ''
                             ], )
                     ],
+                breakable_powerup_loot_params = deadlock_api_client.models.breakable_powerup_loot_params.BreakablePowerupLootParams(
+                    loot_list_deck_size = 56, 
+                    pickups_by_match_time_mins = {
+                        'key' : {
+                            'key' : 1.337
+                            }
+                        }, ),
                 color_enemy = deadlock_api_client.models.color.Color(
                     alpha = 0, 
                     blue = 0, 
@@ -65,6 +72,24 @@ class TestGenericData(unittest.TestCase):
                     blue = 0, 
                     green = 0, 
                     red = 0, ),
+                corrupted_penalties = [
+                    deadlock_api_client.models.corrupted_penalty.CorruptedPenalty(
+                        effects = [
+                            deadlock_api_client.models.corrupted_penalty_effect.CorruptedPenaltyEffect(
+                                bonus_per_tier = [
+                                    1.337
+                                    ], 
+                                css_class = '', 
+                                display = True, 
+                                display_type = '', 
+                                label = '', 
+                                loc_token_override = '', 
+                                modifier_value = '', 
+                                postfix = '', )
+                            ], 
+                        name = '', 
+                        roll_weight = 1.337, )
+                    ],
                 damage_flash = deadlock_api_client.models.damage_flash.DamageFlash(
                     bullet_damage = deadlock_api_client.models.flash_data.FlashData(
                         brightness = 1.337, 
@@ -123,6 +148,9 @@ class TestGenericData(unittest.TestCase):
                 hero_kill_gold_share_frac = [
                     1.337
                     ],
+                item_corruption_price_per_tier = [
+                    56
+                    ],
                 item_price_per_tier = [
                     56
                     ],
@@ -135,6 +163,13 @@ class TestGenericData(unittest.TestCase):
                         minimap_color = null, 
                         minimap_zipline_color_override = null, 
                         objective_color = null, )
+                    ],
+                map_districts = [
+                    deadlock_api_client.models.map_district.MapDistrict(
+                        building = '', 
+                        building_name = '', 
+                        district = '', 
+                        district_name = '', )
                     ],
                 mini_map_offsets = [
                     deadlock_api_client.models.mini_map_offsets.MiniMapOffsets(
@@ -154,6 +189,7 @@ class TestGenericData(unittest.TestCase):
                     blue = 0, 
                     green = 0, 
                     red = 0, ),
+                neutral_camp_respawn_timer_show_distance = 1.337,
                 new_player_metrics = [
                     deadlock_api_client.models.new_player_metrics.NewPlayerMetrics(
                         abilities_upgraded = 56, 
@@ -211,6 +247,7 @@ class TestGenericData(unittest.TestCase):
                     buy_time_grace_period = 1.337, 
                     comeback_bonus_health = 56, 
                     comeback_bonus_health_critical = 56, 
+                    corrupt_item_round = 56, 
                     gold_per_round = [
                         56
                         ], 

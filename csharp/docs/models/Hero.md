@@ -32,12 +32,15 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** | Always emitted (empty if the hero declares no &#x60;m_vecHeroTags&#x60;). | 
 **CostBonuses** | **Dictionary&lt;string, List&lt;HashMapItemSlotTypeVecMapModCostBonusValueInner&gt;&gt;** |  | [optional] 
 **DevelopmentState** | **HeroDevelopmentState** | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one. | [optional] 
+**Gender** | **string** | Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;. | [optional] 
 **GunTag** | **string** |  | [optional] 
 **HeroType** | **HeroType** |  | [optional] 
 **HideoutRichPresence** | **string** |  | [optional] 
 **ItemDraftBucketing** | [**Dictionary&lt;string, HashMapStringOptionDraftBucketingValue&gt;**](HashMapStringOptionDraftBucketingValue.md) |  | [optional] 
 **ItemDraftWeights** | **Dictionary&lt;string, double&gt;** |  | [optional] 
+**PopularItems** | [**HeroPopularItems**](HeroPopularItems.md) | Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data. | [optional] 
 **PrereleaseOnly** | **bool** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] 
+**SearchName** | **string** | Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+). | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

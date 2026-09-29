@@ -19,6 +19,8 @@
 | **nameImage** | **kotlin.String** |  |  [optional] |
 | **topBarVerticalImage** | **kotlin.String** |  |  [optional] |
 | **topBarVerticalImageWebp** | **kotlin.String** |  |  [optional] |
+| **voteSticker** | **kotlin.String** | Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+). |  [optional] |
+| **voteStickerWebp** | **kotlin.String** |  |  [optional] |
 | **weaponImage** | **kotlin.String** |  |  [optional] |
 | **weaponImageWebp** | **kotlin.String** |  |  [optional] |
 

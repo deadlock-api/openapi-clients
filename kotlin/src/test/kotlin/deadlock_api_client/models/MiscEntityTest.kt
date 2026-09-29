@@ -67,10 +67,22 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.buffTypeLocString shouldBe ("TODO")
         }
 
-        // to test the property `buffTypeValueUnit` - Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+        // to test the property `buffTypeName` - Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+        should("test buffTypeName") {
+            // uncomment below to test the property
+            //modelInstance.buffTypeName shouldBe ("TODO")
+        }
+
+        // to test the property `buffTypeValueUnit` - Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
         should("test buffTypeValueUnit") {
             // uncomment below to test the property
             //modelInstance.buffTypeValueUnit shouldBe ("TODO")
+        }
+
+        // to test the property `collectionMethod` - How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+        should("test collectionMethod") {
+            // uncomment below to test the property
+            //modelInstance.collectionMethod shouldBe ("TODO")
         }
 
         // to test the property `collisionRadius`
@@ -145,6 +157,18 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.heavyMeleeOnly shouldBe ("TODO")
         }
 
+        // to test the property `hitsRequired` - Punchable pickups: hits needed to collect.
+        should("test hitsRequired") {
+            // uncomment below to test the property
+            //modelInstance.hitsRequired shouldBe ("TODO")
+        }
+
+        // to test the property `inShopModifier` - Corrupted item shop (Broker) trigger: modifier applied while inside.
+        should("test inShopModifier") {
+            // uncomment below to test the property
+            //modelInstance.inShopModifier shouldBe ("TODO")
+        }
+
         // to test the property `initialSpawnDelayInSeconds`
         should("test initialSpawnDelayInSeconds") {
             // uncomment below to test the property
@@ -167,6 +191,12 @@ class MiscEntityTest : ShouldSpec() {
         should("test isMantleable") {
             // uncomment below to test the property
             //modelInstance.isMantleable shouldBe ("TODO")
+        }
+
+        // to test the property `isPermanentPickup`
+        should("test isPermanentPickup") {
+            // uncomment below to test the property
+            //modelInstance.isPermanentPickup shouldBe ("TODO")
         }
 
         // to test the property `lifetime`
@@ -205,10 +235,28 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.matchTimeMinsForLevel3Pickups shouldBe ("TODO")
         }
 
+        // to test the property `minimapClass`
+        should("test minimapClass") {
+            // uncomment below to test the property
+            //modelInstance.minimapClass shouldBe ("TODO")
+        }
+
         // to test the property `modifier`
         should("test modifier") {
             // uncomment below to test the property
             //modelInstance.modifier shouldBe ("TODO")
+        }
+
+        // to test the property `name` - `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+        should("test name") {
+            // uncomment below to test the property
+            //modelInstance.name shouldBe ("TODO")
+        }
+
+        // to test the property `nameLocString` - Localization token of the pickup's world label.
+        should("test nameLocString") {
+            // uncomment below to test the property
+            //modelInstance.nameLocString shouldBe ("TODO")
         }
 
         // to test the property `orbSpawnDelayMax`
@@ -221,6 +269,12 @@ class MiscEntityTest : ShouldSpec() {
         should("test orbSpawnDelayMin") {
             // uncomment below to test the property
             //modelInstance.orbSpawnDelayMin shouldBe ("TODO")
+        }
+
+        // to test the property `pickup` - Pickup spawners: class name of the spawned pickup.
+        should("test pickup") {
+            // uncomment below to test the property
+            //modelInstance.pickup shouldBe ("TODO")
         }
 
         // to test the property `pickupChances` - Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
@@ -253,6 +307,30 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.primaryPickups shouldBe ("TODO")
         }
 
+        // to test the property `regenDuration` - Health pickups: seconds over which the healing is applied to heroes.
+        should("test regenDuration") {
+            // uncomment below to test the property
+            //modelInstance.regenDuration shouldBe ("TODO")
+        }
+
+        // to test the property `regenDurationTroopers` - Health pickups: seconds over which the healing is applied to troopers.
+        should("test regenDurationTroopers") {
+            // uncomment below to test the property
+            //modelInstance.regenDurationTroopers shouldBe ("TODO")
+        }
+
+        // to test the property `regenMaxHealthPercent` - Health pickups: healing as percent of max health.
+        should("test regenMaxHealthPercent") {
+            // uncomment below to test the property
+            //modelInstance.regenMaxHealthPercent shouldBe ("TODO")
+        }
+
+        // to test the property `regenTrooperMulti` - Health pickups: healing multiplier for troopers.
+        should("test regenTrooperMulti") {
+            // uncomment below to test the property
+            //modelInstance.regenTrooperMulti shouldBe ("TODO")
+        }
+
         // to test the property `renderAfterDeath`
         should("test renderAfterDeath") {
             // uncomment below to test the property
@@ -277,10 +355,22 @@ class MiscEntityTest : ShouldSpec() {
             //modelInstance.showOnMinimap shouldBe ("TODO")
         }
 
+        // to test the property `singlePickupOverride` - Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+        should("test singlePickupOverride") {
+            // uncomment below to test the property
+            //modelInstance.singlePickupOverride shouldBe ("TODO")
+        }
+
         // to test the property `solidAfterDeath`
         should("test solidAfterDeath") {
             // uncomment below to test the property
             //modelInstance.solidAfterDeath shouldBe ("TODO")
+        }
+
+        // to test the property `spawnDelay` - Pickup spawners: delay (seconds) before the first spawn.
+        should("test spawnDelay") {
+            // uncomment below to test the property
+            //modelInstance.spawnDelay shouldBe ("TODO")
         }
 
         // to test the property `spawnInterval`
@@ -293,6 +383,12 @@ class MiscEntityTest : ShouldSpec() {
         should("test spawnIntervalInSeconds") {
             // uncomment below to test the property
             //modelInstance.spawnIntervalInSeconds shouldBe ("TODO")
+        }
+
+        // to test the property `spawnMusicState` - Corrupted item shop (Broker) trigger: music cue played on spawn.
+        should("test spawnMusicState") {
+            // uncomment below to test the property
+            //modelInstance.spawnMusicState shouldBe ("TODO")
         }
 
     }

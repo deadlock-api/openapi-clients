@@ -36,6 +36,8 @@ type StartingStats struct {
 	MaxHealth StartingStat `json:"max_health"`
 	MaxMoveSpeed StartingStat `json:"max_move_speed"`
 	MoveAcceleration StartingStat `json:"move_acceleration"`
+	// Out-of-combat health regen (build 6711+).
+	OocHealthRegen NullableStartingStat `json:"ooc_health_regen,omitempty"`
 	ProcBuildUpRateScale StartingStat `json:"proc_build_up_rate_scale"`
 	ReloadSpeed StartingStat `json:"reload_speed"`
 	SprintSpeed StartingStat `json:"sprint_speed"`
@@ -536,6 +538,48 @@ func (o *StartingStats) SetMoveAcceleration(v StartingStat) {
 	o.MoveAcceleration = v
 }
 
+// GetOocHealthRegen returns the OocHealthRegen field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StartingStats) GetOocHealthRegen() StartingStat {
+	if o == nil || IsNil(o.OocHealthRegen.Get()) {
+		var ret StartingStat
+		return ret
+	}
+	return *o.OocHealthRegen.Get()
+}
+
+// GetOocHealthRegenOk returns a tuple with the OocHealthRegen field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StartingStats) GetOocHealthRegenOk() (*StartingStat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.OocHealthRegen.Get(), o.OocHealthRegen.IsSet()
+}
+
+// HasOocHealthRegen returns a boolean if a field has been set.
+func (o *StartingStats) HasOocHealthRegen() bool {
+	if o != nil && o.OocHealthRegen.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetOocHealthRegen gets a reference to the given NullableStartingStat and assigns it to the OocHealthRegen field.
+func (o *StartingStats) SetOocHealthRegen(v StartingStat) {
+	o.OocHealthRegen.Set(&v)
+}
+// SetOocHealthRegenNil sets the value for OocHealthRegen to be an explicit nil
+func (o *StartingStats) SetOocHealthRegenNil() {
+	o.OocHealthRegen.Set(nil)
+}
+
+// UnsetOocHealthRegen ensures that no value is present for OocHealthRegen, not even an explicit nil
+func (o *StartingStats) UnsetOocHealthRegen() {
+	o.OocHealthRegen.Unset()
+}
+
 // GetProcBuildUpRateScale returns the ProcBuildUpRateScale field value
 func (o *StartingStats) GetProcBuildUpRateScale() StartingStat {
 	if o == nil {
@@ -829,6 +873,9 @@ func (o StartingStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["max_health"] = o.MaxHealth
 	toSerialize["max_move_speed"] = o.MaxMoveSpeed
 	toSerialize["move_acceleration"] = o.MoveAcceleration
+	if o.OocHealthRegen.IsSet() {
+		toSerialize["ooc_health_regen"] = o.OocHealthRegen.Get()
+	}
 	toSerialize["proc_build_up_rate_scale"] = o.ProcBuildUpRateScale
 	toSerialize["reload_speed"] = o.ReloadSpeed
 	toSerialize["sprint_speed"] = o.SprintSpeed

@@ -27,6 +27,9 @@ import type { SubclassEmpoweredModifierLevel } from './subclass-empowered-modifi
 import type { SubclassIntrinsicModifiers } from './subclass-intrinsic-modifiers.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { SubclassNeutralDamageGrowth } from './subclass-neutral-damage-growth.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { SubclassObjectiveHealthGrowthPhase } from './subclass-objective-health-growth-phase.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -69,6 +72,14 @@ export interface NpcUnit {
     'health_bar_color_team2'?: Color | null;
     'health_bar_color_team_neutral'?: Color | null;
     'id': number;
+    /**
+     * Unit icon (`m_strCustomUnitIcon`) as png.
+     */
+    'image'?: string | null;
+    /**
+     * Unit icon (`m_strCustomUnitIcon`) as webp.
+     */
+    'image_webp'?: string | null;
     'intrinsic_modifiers'?: Array<SubclassIntrinsicModifiers> | null;
     'laser_dps_max_health'?: number | null;
     'laser_dps_to_players'?: number | null;
@@ -79,7 +90,24 @@ export interface NpcUnit {
     'melee_damage'?: number | null;
     'melee_duration'?: number | null;
     'melee_hit_range'?: number | null;
+    /**
+     * Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+     */
+    'name'?: string | null;
     'near_death_duration'?: number | null;
+    /**
+     * Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+     */
+    'neutral_abilities'?: Array<string> | null;
+    'neutral_damage_growth'?: SubclassNeutralDamageGrowth | null;
+    /**
+     * Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+     */
+    'neutral_melee'?: string | null;
+    /**
+     * Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+     */
+    'neutral_type'?: string | null;
     'no_shield_laser_dps_to_players'?: number | null;
     'objective_health_growth_phase1'?: SubclassObjectiveHealthGrowthPhase | null;
     'objective_health_growth_phase2'?: SubclassObjectiveHealthGrowthPhase | null;
@@ -110,6 +138,10 @@ export interface NpcUnit {
     't3_boss_dps'?: number | null;
     'trooper_damage_resist_pct'?: number | null;
     'trooper_dps'?: number | null;
+    /**
+     * Distance threshold (as string key) → soul orb class shown to the viewer.
+     */
+    'viewer_souls_class'?: { [key: string]: string; } | null;
     'walk_speed'?: number | null;
     'weapon_info'?: WeaponInfo | null;
 }

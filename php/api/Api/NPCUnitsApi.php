@@ -134,6 +134,7 @@ class NPCUnitsApi
      * Get NPC Unit
      *
      * @param  string $id_or_classname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnit'] to see the possible values for this operation
      *
@@ -141,9 +142,9 @@ class NPCUnitsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NpcUnit
      */
-    public function getNpcUnit($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
+    public function getNpcUnit($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
     {
-        list($response) = $this->getNpcUnitWithHttpInfo($id_or_classname, $client_version, $contentType);
+        list($response) = $this->getNpcUnitWithHttpInfo($id_or_classname, $language, $client_version, $contentType);
         return $response;
     }
 
@@ -153,6 +154,7 @@ class NPCUnitsApi
      * Get NPC Unit
      *
      * @param  string $id_or_classname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnit'] to see the possible values for this operation
      *
@@ -160,9 +162,9 @@ class NPCUnitsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NpcUnit, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getNpcUnitWithHttpInfo($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
+    public function getNpcUnitWithHttpInfo($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
     {
-        $request = $this->getNpcUnitRequest($id_or_classname, $client_version, $contentType);
+        $request = $this->getNpcUnitRequest($id_or_classname, $language, $client_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +241,16 @@ class NPCUnitsApi
      * Get NPC Unit
      *
      * @param  string $id_or_classname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNpcUnitAsync($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
+    public function getNpcUnitAsync($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
     {
-        return $this->getNpcUnitAsyncWithHttpInfo($id_or_classname, $client_version, $contentType)
+        return $this->getNpcUnitAsyncWithHttpInfo($id_or_classname, $language, $client_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,16 +264,17 @@ class NPCUnitsApi
      * Get NPC Unit
      *
      * @param  string $id_or_classname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getNpcUnitAsyncWithHttpInfo($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
+    public function getNpcUnitAsyncWithHttpInfo($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NpcUnit';
-        $request = $this->getNpcUnitRequest($id_or_classname, $client_version, $contentType);
+        $request = $this->getNpcUnitRequest($id_or_classname, $language, $client_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,13 +316,14 @@ class NPCUnitsApi
      * Create request for operation 'getNpcUnit'
      *
      * @param  string $id_or_classname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNpcUnit'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getNpcUnitRequest($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
+    public function getNpcUnitRequest($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getNpcUnit'][0])
     {
 
         // verify the required parameter 'id_or_classname' is set
@@ -327,6 +332,7 @@ class NPCUnitsApi
                 'Missing the required parameter $id_or_classname when calling getNpcUnit'
             );
         }
+
 
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.getNpcUnit, must be bigger than or equal to 0.');
@@ -340,6 +346,15 @@ class NPCUnitsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
@@ -423,6 +438,7 @@ class NPCUnitsApi
      *
      * List NPC Units
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNpcUnits'] to see the possible values for this operation
      *
@@ -430,9 +446,9 @@ class NPCUnitsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\NpcUnit[]
      */
-    public function listNpcUnits($client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
+    public function listNpcUnits($language = null, $client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
     {
-        list($response) = $this->listNpcUnitsWithHttpInfo($client_version, $contentType);
+        list($response) = $this->listNpcUnitsWithHttpInfo($language, $client_version, $contentType);
         return $response;
     }
 
@@ -441,6 +457,7 @@ class NPCUnitsApi
      *
      * List NPC Units
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNpcUnits'] to see the possible values for this operation
      *
@@ -448,9 +465,9 @@ class NPCUnitsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\NpcUnit[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listNpcUnitsWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
+    public function listNpcUnitsWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
     {
-        $request = $this->listNpcUnitsRequest($client_version, $contentType);
+        $request = $this->listNpcUnitsRequest($language, $client_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -526,15 +543,16 @@ class NPCUnitsApi
      *
      * List NPC Units
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNpcUnits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNpcUnitsAsync($client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
+    public function listNpcUnitsAsync($language = null, $client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
     {
-        return $this->listNpcUnitsAsyncWithHttpInfo($client_version, $contentType)
+        return $this->listNpcUnitsAsyncWithHttpInfo($language, $client_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -547,16 +565,17 @@ class NPCUnitsApi
      *
      * List NPC Units
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNpcUnits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listNpcUnitsAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
+    public function listNpcUnitsAsyncWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
     {
         $returnType = '\OpenAPI\Client\Model\NpcUnit[]';
-        $request = $this->listNpcUnitsRequest($client_version, $contentType);
+        $request = $this->listNpcUnitsRequest($language, $client_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -597,14 +616,16 @@ class NPCUnitsApi
     /**
      * Create request for operation 'listNpcUnits'
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listNpcUnits'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listNpcUnitsRequest($client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
+    public function listNpcUnitsRequest($language = null, $client_version = null, string $contentType = self::contentTypes['listNpcUnits'][0])
     {
+
 
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling NPCUnitsApi.listNpcUnits, must be bigger than or equal to 0.');
@@ -618,6 +639,15 @@ class NPCUnitsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,

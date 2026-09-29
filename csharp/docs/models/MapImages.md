@@ -5,11 +5,11 @@ CDN URLs for the minimap image layers.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Background** | **string** | Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. | 
 **Frame** | **string** |  | 
 **Mid** | **string** | Midtown base layer. | 
-**Minimap** | **string** | Full minimap. From build 6711 on this is the midtown base layer. | 
-**Plain** | **string** | Minimap without overlays. From build 6711 on this is the midtown base layer. | 
+**Minimap** | **string** | Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own. | 
+**Plain** | **string** | Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;). | 
+**Background** | **string** | Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on. | [optional] 
 **MidTunnels** | **string** | Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+). | [optional] 
 **RatTunnels** | **string** | Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+). | [optional] 
 

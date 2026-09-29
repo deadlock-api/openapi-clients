@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **buy_time_grace_period** | **float** |  | 
 **comeback_bonus_health** | **int** |  | 
 **comeback_bonus_health_critical** | **int** |  | 
+**corrupt_item_round** | **int** | Round in which players may corrupt an item (build 6711+). | [optional] 
 **gold_per_round** | **List[int]** |  | 
 **item_draft_rerolls_per_round** | **List[int]** |  | 
 **item_draft_rounds_per_game_round** | [**List[ItemDraftRoundPerGameRound]**](ItemDraftRoundPerGameRound.md) |  | 

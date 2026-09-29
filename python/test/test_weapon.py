@@ -86,6 +86,9 @@ class TestWeapon(unittest.TestCase):
                         postvalue_label = '', 
                         prefix = '', 
                         provided_property_type = '', 
+                        required_upgrade_bits = [
+                            ''
+                            ], 
                         scale_function = null, 
                         street_brawl_value = '', 
                         usage_flags = [

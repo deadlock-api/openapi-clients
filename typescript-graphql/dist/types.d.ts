@@ -136,6 +136,9 @@ declare const _default: {
             gun_tag: number[];
             hideout_rich_presence: number[];
             hero_type: number[];
+            gender: number[];
+            search_name: number[];
+            popular_items: number[];
             prerelease_only: number[];
             limited_testing: number[];
             complexity: number[];
@@ -200,6 +203,8 @@ declare const _default: {
             background_image: number[];
             background_image_webp: number[];
             name_image: number[];
+            vote_sticker: number[];
+            vote_sticker_webp: number[];
             __typename: number[];
         };
         HeroPhysics: {
@@ -210,6 +215,20 @@ declare const _default: {
             footstep_sound_travel_distance_meters: number[];
             step_sound_time: number[];
             step_sound_time_sprinting: number[];
+            __typename: number[];
+        };
+        HeroPopularItem: {
+            item_id: number[];
+            class_name: number[];
+            pick_pct: number[];
+            winrate_pct: number[];
+            __typename: number[];
+        };
+        HeroPopularItems: {
+            timestamp: number[];
+            early_game: number[];
+            mid_game: number[];
+            late_game: number[];
             __typename: number[];
         };
         HeroStatsUI: {
@@ -756,10 +775,15 @@ declare const _default: {
             is_active_item: number[];
             shopable: number[];
             cost: number[];
+            shop_filters: number[];
+            disabled_shop_filters: number[];
+            shop_version: number[];
+            disable_item_target: number[];
             weapon_info: number[];
             properties: number[];
             tooltip_sections: number[];
             upgrades: number[];
+            corrupted_info: number[];
             __typename: number[];
         };
         UpgradeDescription: {

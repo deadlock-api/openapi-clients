@@ -21,19 +21,21 @@ export declare const MiscEntitiesApiAxiosParamCreator: (configuration?: Configur
      * Returns a single misc entity by numeric id or by `class_name` (case-insensitive).
      * @summary Get Misc Entity
      * @param {string} idOrClassname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param {GetMiscEntityLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMiscEntity: (idOrClassname: string, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getMiscEntity: (idOrClassname: string, language?: GetMiscEntityLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
      * @summary List Misc Entities
+     * @param {ListMiscEntitiesLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMiscEntities: (clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    listMiscEntities: (language?: ListMiscEntitiesLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * MiscEntitiesApi - functional programming interface
@@ -43,19 +45,21 @@ export declare const MiscEntitiesApiFp: (configuration?: Configuration) => {
      * Returns a single misc entity by numeric id or by `class_name` (case-insensitive).
      * @summary Get Misc Entity
      * @param {string} idOrClassname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param {GetMiscEntityLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMiscEntity(idOrClassname: string, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MiscEntity>>;
+    getMiscEntity(idOrClassname: string, language?: GetMiscEntityLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MiscEntity>>;
     /**
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
      * @summary List Misc Entities
+     * @param {ListMiscEntitiesLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listMiscEntities(clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MiscEntity>>>;
+    listMiscEntities(language?: ListMiscEntitiesLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MiscEntity>>>;
 };
 /**
  * MiscEntitiesApi - factory interface
@@ -70,7 +74,7 @@ export declare const MiscEntitiesApiFactory: (configuration?: Configuration, bas
      */
     getMiscEntity(requestParameters: MiscEntitiesApiGetMiscEntityRequest, options?: RawAxiosRequestConfig): AxiosPromise<MiscEntity>;
     /**
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
      * @summary List Misc Entities
      * @param {MiscEntitiesApiListMiscEntitiesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -87,6 +91,10 @@ export interface MiscEntitiesApiGetMiscEntityRequest {
      */
     readonly idOrClassname: string;
     /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: GetMiscEntityLanguageEnum;
+    /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
     readonly clientVersion?: number | null;
@@ -95,6 +103,10 @@ export interface MiscEntitiesApiGetMiscEntityRequest {
  * Request parameters for listMiscEntities operation in MiscEntitiesApi.
  */
 export interface MiscEntitiesApiListMiscEntitiesRequest {
+    /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: ListMiscEntitiesLanguageEnum;
     /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
@@ -113,7 +125,7 @@ export declare class MiscEntitiesApi extends BaseAPI {
      */
     getMiscEntity(requestParameters: MiscEntitiesApiGetMiscEntityRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity, any, {}, any>>;
     /**
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
      * @summary List Misc Entities
      * @param {MiscEntitiesApiListMiscEntitiesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -121,4 +133,68 @@ export declare class MiscEntitiesApi extends BaseAPI {
      */
     listMiscEntities(requestParameters?: MiscEntitiesApiListMiscEntitiesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MiscEntity[], any, {}, any>>;
 }
+export declare const GetMiscEntityLanguageEnum: {
+    readonly Brazilian: "brazilian";
+    readonly Bulgarian: "bulgarian";
+    readonly Czech: "czech";
+    readonly Danish: "danish";
+    readonly Dutch: "dutch";
+    readonly English: "english";
+    readonly Finnish: "finnish";
+    readonly French: "french";
+    readonly German: "german";
+    readonly Greek: "greek";
+    readonly Hungarian: "hungarian";
+    readonly Indonesian: "indonesian";
+    readonly Italian: "italian";
+    readonly Japanese: "japanese";
+    readonly Koreana: "koreana";
+    readonly Latam: "latam";
+    readonly Norwegian: "norwegian";
+    readonly Polish: "polish";
+    readonly Portuguese: "portuguese";
+    readonly Romanian: "romanian";
+    readonly Russian: "russian";
+    readonly Schinese: "schinese";
+    readonly Spanish: "spanish";
+    readonly Swedish: "swedish";
+    readonly Tchinese: "tchinese";
+    readonly Thai: "thai";
+    readonly Turkish: "turkish";
+    readonly Ukrainian: "ukrainian";
+    readonly Vietnamese: "vietnamese";
+};
+export type GetMiscEntityLanguageEnum = typeof GetMiscEntityLanguageEnum[keyof typeof GetMiscEntityLanguageEnum];
+export declare const ListMiscEntitiesLanguageEnum: {
+    readonly Brazilian: "brazilian";
+    readonly Bulgarian: "bulgarian";
+    readonly Czech: "czech";
+    readonly Danish: "danish";
+    readonly Dutch: "dutch";
+    readonly English: "english";
+    readonly Finnish: "finnish";
+    readonly French: "french";
+    readonly German: "german";
+    readonly Greek: "greek";
+    readonly Hungarian: "hungarian";
+    readonly Indonesian: "indonesian";
+    readonly Italian: "italian";
+    readonly Japanese: "japanese";
+    readonly Koreana: "koreana";
+    readonly Latam: "latam";
+    readonly Norwegian: "norwegian";
+    readonly Polish: "polish";
+    readonly Portuguese: "portuguese";
+    readonly Romanian: "romanian";
+    readonly Russian: "russian";
+    readonly Schinese: "schinese";
+    readonly Spanish: "spanish";
+    readonly Swedish: "swedish";
+    readonly Tchinese: "tchinese";
+    readonly Thai: "thai";
+    readonly Turkish: "turkish";
+    readonly Ukrainian: "ukrainian";
+    readonly Vietnamese: "vietnamese";
+};
+export type ListMiscEntitiesLanguageEnum = typeof ListMiscEntitiesLanguageEnum[keyof typeof ListMiscEntitiesLanguageEnum];
 //# sourceMappingURL=misc-entities-api.d.ts.map

@@ -215,6 +215,15 @@ class StartingStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "ooc_health_regen"
+     */
+    public function testPropertyOocHealthRegen()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "proc_build_up_rate_scale"
      */
     public function testPropertyProcBuildUpRateScale()

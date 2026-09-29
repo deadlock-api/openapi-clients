@@ -60,8 +60,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => 'bool',
         'buff_type_graph_color' => '\OpenAPI\Client\Model\Color',
         'buff_type_loc_string' => 'string',
+        'buff_type_name' => 'string',
         'buff_type_value_unit' => 'string',
         'class_name' => 'string',
+        'collection_method' => 'string',
         'collision_radius' => 'float',
         'color' => '\OpenAPI\Client\Model\Color',
         'damaged_by_abilities' => 'bool',
@@ -74,32 +76,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => 'int',
         'heavy_melee_hit_count' => 'int',
         'heavy_melee_only' => 'bool',
+        'hits_required' => 'int',
         'id' => 'int',
+        'in_shop_modifier' => '\OpenAPI\Client\Model\SubclassModifierDefinition',
         'initial_spawn_delay_in_seconds' => 'int',
         'initial_spawn_delay_seconds' => 'int',
         'initial_spawn_time' => 'float',
         'is_mantleable' => 'bool',
+        'is_permanent_pickup' => 'bool',
         'lifetime' => 'float',
         'loot_list_deck_size' => 'int',
         'm_vec_pickups_lv2' => '\OpenAPI\Client\Model\Pickup[]',
         'm_vec_pickups_lv3' => '\OpenAPI\Client\Model\Pickup[]',
         'match_time_mins_for_level2_pickups' => 'int',
         'match_time_mins_for_level3_pickups' => 'int',
+        'minimap_class' => 'string',
         'modifier' => '\OpenAPI\Client\Model\SubclassModifierDefinition',
+        'name' => 'string',
+        'name_loc_string' => 'string',
         'orb_spawn_delay_max' => 'float',
         'orb_spawn_delay_min' => 'float',
+        'pickup' => 'string',
         'pickup_chances' => 'array<string,float>',
         'pickup_radius' => '\OpenAPI\Client\Model\CurveOrFloat',
         'powerup_drop_chance' => 'float',
         'primary_drop_chance' => 'float',
         'primary_pickups' => '\OpenAPI\Client\Model\Pickup[]',
+        'regen_duration' => 'float',
+        'regen_duration_troopers' => 'float',
+        'regen_max_health_percent' => '\OpenAPI\Client\Model\CurveOrFloat',
+        'regen_trooper_multi' => 'float',
         'render_after_death' => 'bool',
         'respawn_time' => 'float',
         'roll_type' => 'string',
         'show_on_minimap' => 'bool',
+        'single_pickup_override' => 'string',
         'solid_after_death' => 'bool',
+        'spawn_delay' => 'float',
         'spawn_interval' => 'float',
-        'spawn_interval_in_seconds' => 'int'
+        'spawn_interval_in_seconds' => 'int',
+        'spawn_music_state' => 'string'
     ];
 
     /**
@@ -113,8 +129,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => null,
         'buff_type_graph_color' => null,
         'buff_type_loc_string' => null,
+        'buff_type_name' => null,
         'buff_type_value_unit' => null,
         'class_name' => null,
+        'collection_method' => null,
         'collision_radius' => 'double',
         'color' => null,
         'damaged_by_abilities' => null,
@@ -127,32 +145,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => 'int64',
         'heavy_melee_hit_count' => 'int64',
         'heavy_melee_only' => null,
+        'hits_required' => 'int64',
         'id' => 'int32',
+        'in_shop_modifier' => null,
         'initial_spawn_delay_in_seconds' => 'int64',
         'initial_spawn_delay_seconds' => 'int64',
         'initial_spawn_time' => 'double',
         'is_mantleable' => null,
+        'is_permanent_pickup' => null,
         'lifetime' => 'double',
         'loot_list_deck_size' => 'int64',
         'm_vec_pickups_lv2' => null,
         'm_vec_pickups_lv3' => null,
         'match_time_mins_for_level2_pickups' => 'int64',
         'match_time_mins_for_level3_pickups' => 'int64',
+        'minimap_class' => null,
         'modifier' => null,
+        'name' => null,
+        'name_loc_string' => null,
         'orb_spawn_delay_max' => 'double',
         'orb_spawn_delay_min' => 'double',
+        'pickup' => null,
         'pickup_chances' => 'double',
         'pickup_radius' => null,
         'powerup_drop_chance' => 'double',
         'primary_drop_chance' => 'double',
         'primary_pickups' => null,
+        'regen_duration' => 'double',
+        'regen_duration_troopers' => 'double',
+        'regen_max_health_percent' => null,
+        'regen_trooper_multi' => 'double',
         'render_after_death' => null,
         'respawn_time' => 'double',
         'roll_type' => null,
         'show_on_minimap' => null,
+        'single_pickup_override' => null,
         'solid_after_death' => null,
+        'spawn_delay' => 'double',
         'spawn_interval' => 'double',
-        'spawn_interval_in_seconds' => 'int64'
+        'spawn_interval_in_seconds' => 'int64',
+        'spawn_music_state' => null
     ];
 
     /**
@@ -164,8 +196,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => true,
         'buff_type_graph_color' => true,
         'buff_type_loc_string' => true,
+        'buff_type_name' => true,
         'buff_type_value_unit' => true,
         'class_name' => false,
+        'collection_method' => true,
         'collision_radius' => true,
         'color' => true,
         'damaged_by_abilities' => true,
@@ -178,32 +212,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => true,
         'heavy_melee_hit_count' => true,
         'heavy_melee_only' => true,
+        'hits_required' => true,
         'id' => false,
+        'in_shop_modifier' => true,
         'initial_spawn_delay_in_seconds' => true,
         'initial_spawn_delay_seconds' => true,
         'initial_spawn_time' => true,
         'is_mantleable' => true,
+        'is_permanent_pickup' => true,
         'lifetime' => true,
         'loot_list_deck_size' => true,
         'm_vec_pickups_lv2' => true,
         'm_vec_pickups_lv3' => true,
         'match_time_mins_for_level2_pickups' => true,
         'match_time_mins_for_level3_pickups' => true,
+        'minimap_class' => true,
         'modifier' => true,
+        'name' => true,
+        'name_loc_string' => true,
         'orb_spawn_delay_max' => true,
         'orb_spawn_delay_min' => true,
+        'pickup' => true,
         'pickup_chances' => true,
         'pickup_radius' => true,
         'powerup_drop_chance' => true,
         'primary_drop_chance' => true,
         'primary_pickups' => true,
+        'regen_duration' => true,
+        'regen_duration_troopers' => true,
+        'regen_max_health_percent' => true,
+        'regen_trooper_multi' => true,
         'render_after_death' => true,
         'respawn_time' => true,
         'roll_type' => true,
         'show_on_minimap' => true,
+        'single_pickup_override' => true,
         'solid_after_death' => true,
+        'spawn_delay' => true,
         'spawn_interval' => true,
-        'spawn_interval_in_seconds' => true
+        'spawn_interval_in_seconds' => true,
+        'spawn_music_state' => true
     ];
 
     /**
@@ -295,8 +343,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => 'break_on_dodge_touch',
         'buff_type_graph_color' => 'buff_type_graph_color',
         'buff_type_loc_string' => 'buff_type_loc_string',
+        'buff_type_name' => 'buff_type_name',
         'buff_type_value_unit' => 'buff_type_value_unit',
         'class_name' => 'class_name',
+        'collection_method' => 'collection_method',
         'collision_radius' => 'collision_radius',
         'color' => 'color',
         'damaged_by_abilities' => 'damaged_by_abilities',
@@ -309,32 +359,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => 'health',
         'heavy_melee_hit_count' => 'heavy_melee_hit_count',
         'heavy_melee_only' => 'heavy_melee_only',
+        'hits_required' => 'hits_required',
         'id' => 'id',
+        'in_shop_modifier' => 'in_shop_modifier',
         'initial_spawn_delay_in_seconds' => 'initial_spawn_delay_in_seconds',
         'initial_spawn_delay_seconds' => 'initial_spawn_delay_seconds',
         'initial_spawn_time' => 'initial_spawn_time',
         'is_mantleable' => 'is_mantleable',
+        'is_permanent_pickup' => 'is_permanent_pickup',
         'lifetime' => 'lifetime',
         'loot_list_deck_size' => 'loot_list_deck_size',
         'm_vec_pickups_lv2' => 'm_vecPickups_lv2',
         'm_vec_pickups_lv3' => 'm_vecPickups_lv3',
         'match_time_mins_for_level2_pickups' => 'match_time_mins_for_level2_pickups',
         'match_time_mins_for_level3_pickups' => 'match_time_mins_for_level3_pickups',
+        'minimap_class' => 'minimap_class',
         'modifier' => 'modifier',
+        'name' => 'name',
+        'name_loc_string' => 'name_loc_string',
         'orb_spawn_delay_max' => 'orb_spawn_delay_max',
         'orb_spawn_delay_min' => 'orb_spawn_delay_min',
+        'pickup' => 'pickup',
         'pickup_chances' => 'pickup_chances',
         'pickup_radius' => 'pickup_radius',
         'powerup_drop_chance' => 'powerup_drop_chance',
         'primary_drop_chance' => 'primary_drop_chance',
         'primary_pickups' => 'primary_pickups',
+        'regen_duration' => 'regen_duration',
+        'regen_duration_troopers' => 'regen_duration_troopers',
+        'regen_max_health_percent' => 'regen_max_health_percent',
+        'regen_trooper_multi' => 'regen_trooper_multi',
         'render_after_death' => 'render_after_death',
         'respawn_time' => 'respawn_time',
         'roll_type' => 'roll_type',
         'show_on_minimap' => 'show_on_minimap',
+        'single_pickup_override' => 'single_pickup_override',
         'solid_after_death' => 'solid_after_death',
+        'spawn_delay' => 'spawn_delay',
         'spawn_interval' => 'spawn_interval',
-        'spawn_interval_in_seconds' => 'spawn_interval_in_seconds'
+        'spawn_interval_in_seconds' => 'spawn_interval_in_seconds',
+        'spawn_music_state' => 'spawn_music_state'
     ];
 
     /**
@@ -346,8 +410,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => 'setBreakOnDodgeTouch',
         'buff_type_graph_color' => 'setBuffTypeGraphColor',
         'buff_type_loc_string' => 'setBuffTypeLocString',
+        'buff_type_name' => 'setBuffTypeName',
         'buff_type_value_unit' => 'setBuffTypeValueUnit',
         'class_name' => 'setClassName',
+        'collection_method' => 'setCollectionMethod',
         'collision_radius' => 'setCollisionRadius',
         'color' => 'setColor',
         'damaged_by_abilities' => 'setDamagedByAbilities',
@@ -360,32 +426,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => 'setHealth',
         'heavy_melee_hit_count' => 'setHeavyMeleeHitCount',
         'heavy_melee_only' => 'setHeavyMeleeOnly',
+        'hits_required' => 'setHitsRequired',
         'id' => 'setId',
+        'in_shop_modifier' => 'setInShopModifier',
         'initial_spawn_delay_in_seconds' => 'setInitialSpawnDelayInSeconds',
         'initial_spawn_delay_seconds' => 'setInitialSpawnDelaySeconds',
         'initial_spawn_time' => 'setInitialSpawnTime',
         'is_mantleable' => 'setIsMantleable',
+        'is_permanent_pickup' => 'setIsPermanentPickup',
         'lifetime' => 'setLifetime',
         'loot_list_deck_size' => 'setLootListDeckSize',
         'm_vec_pickups_lv2' => 'setMVecPickupsLv2',
         'm_vec_pickups_lv3' => 'setMVecPickupsLv3',
         'match_time_mins_for_level2_pickups' => 'setMatchTimeMinsForLevel2Pickups',
         'match_time_mins_for_level3_pickups' => 'setMatchTimeMinsForLevel3Pickups',
+        'minimap_class' => 'setMinimapClass',
         'modifier' => 'setModifier',
+        'name' => 'setName',
+        'name_loc_string' => 'setNameLocString',
         'orb_spawn_delay_max' => 'setOrbSpawnDelayMax',
         'orb_spawn_delay_min' => 'setOrbSpawnDelayMin',
+        'pickup' => 'setPickup',
         'pickup_chances' => 'setPickupChances',
         'pickup_radius' => 'setPickupRadius',
         'powerup_drop_chance' => 'setPowerupDropChance',
         'primary_drop_chance' => 'setPrimaryDropChance',
         'primary_pickups' => 'setPrimaryPickups',
+        'regen_duration' => 'setRegenDuration',
+        'regen_duration_troopers' => 'setRegenDurationTroopers',
+        'regen_max_health_percent' => 'setRegenMaxHealthPercent',
+        'regen_trooper_multi' => 'setRegenTrooperMulti',
         'render_after_death' => 'setRenderAfterDeath',
         'respawn_time' => 'setRespawnTime',
         'roll_type' => 'setRollType',
         'show_on_minimap' => 'setShowOnMinimap',
+        'single_pickup_override' => 'setSinglePickupOverride',
         'solid_after_death' => 'setSolidAfterDeath',
+        'spawn_delay' => 'setSpawnDelay',
         'spawn_interval' => 'setSpawnInterval',
-        'spawn_interval_in_seconds' => 'setSpawnIntervalInSeconds'
+        'spawn_interval_in_seconds' => 'setSpawnIntervalInSeconds',
+        'spawn_music_state' => 'setSpawnMusicState'
     ];
 
     /**
@@ -397,8 +477,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'break_on_dodge_touch' => 'getBreakOnDodgeTouch',
         'buff_type_graph_color' => 'getBuffTypeGraphColor',
         'buff_type_loc_string' => 'getBuffTypeLocString',
+        'buff_type_name' => 'getBuffTypeName',
         'buff_type_value_unit' => 'getBuffTypeValueUnit',
         'class_name' => 'getClassName',
+        'collection_method' => 'getCollectionMethod',
         'collision_radius' => 'getCollisionRadius',
         'color' => 'getColor',
         'damaged_by_abilities' => 'getDamagedByAbilities',
@@ -411,32 +493,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         'health' => 'getHealth',
         'heavy_melee_hit_count' => 'getHeavyMeleeHitCount',
         'heavy_melee_only' => 'getHeavyMeleeOnly',
+        'hits_required' => 'getHitsRequired',
         'id' => 'getId',
+        'in_shop_modifier' => 'getInShopModifier',
         'initial_spawn_delay_in_seconds' => 'getInitialSpawnDelayInSeconds',
         'initial_spawn_delay_seconds' => 'getInitialSpawnDelaySeconds',
         'initial_spawn_time' => 'getInitialSpawnTime',
         'is_mantleable' => 'getIsMantleable',
+        'is_permanent_pickup' => 'getIsPermanentPickup',
         'lifetime' => 'getLifetime',
         'loot_list_deck_size' => 'getLootListDeckSize',
         'm_vec_pickups_lv2' => 'getMVecPickupsLv2',
         'm_vec_pickups_lv3' => 'getMVecPickupsLv3',
         'match_time_mins_for_level2_pickups' => 'getMatchTimeMinsForLevel2Pickups',
         'match_time_mins_for_level3_pickups' => 'getMatchTimeMinsForLevel3Pickups',
+        'minimap_class' => 'getMinimapClass',
         'modifier' => 'getModifier',
+        'name' => 'getName',
+        'name_loc_string' => 'getNameLocString',
         'orb_spawn_delay_max' => 'getOrbSpawnDelayMax',
         'orb_spawn_delay_min' => 'getOrbSpawnDelayMin',
+        'pickup' => 'getPickup',
         'pickup_chances' => 'getPickupChances',
         'pickup_radius' => 'getPickupRadius',
         'powerup_drop_chance' => 'getPowerupDropChance',
         'primary_drop_chance' => 'getPrimaryDropChance',
         'primary_pickups' => 'getPrimaryPickups',
+        'regen_duration' => 'getRegenDuration',
+        'regen_duration_troopers' => 'getRegenDurationTroopers',
+        'regen_max_health_percent' => 'getRegenMaxHealthPercent',
+        'regen_trooper_multi' => 'getRegenTrooperMulti',
         'render_after_death' => 'getRenderAfterDeath',
         'respawn_time' => 'getRespawnTime',
         'roll_type' => 'getRollType',
         'show_on_minimap' => 'getShowOnMinimap',
+        'single_pickup_override' => 'getSinglePickupOverride',
         'solid_after_death' => 'getSolidAfterDeath',
+        'spawn_delay' => 'getSpawnDelay',
         'spawn_interval' => 'getSpawnInterval',
-        'spawn_interval_in_seconds' => 'getSpawnIntervalInSeconds'
+        'spawn_interval_in_seconds' => 'getSpawnIntervalInSeconds',
+        'spawn_music_state' => 'getSpawnMusicState'
     ];
 
     /**
@@ -499,8 +595,10 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('break_on_dodge_touch', $data ?? [], null);
         $this->setIfExists('buff_type_graph_color', $data ?? [], null);
         $this->setIfExists('buff_type_loc_string', $data ?? [], null);
+        $this->setIfExists('buff_type_name', $data ?? [], null);
         $this->setIfExists('buff_type_value_unit', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
+        $this->setIfExists('collection_method', $data ?? [], null);
         $this->setIfExists('collision_radius', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('damaged_by_abilities', $data ?? [], null);
@@ -513,32 +611,46 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('health', $data ?? [], null);
         $this->setIfExists('heavy_melee_hit_count', $data ?? [], null);
         $this->setIfExists('heavy_melee_only', $data ?? [], null);
+        $this->setIfExists('hits_required', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('in_shop_modifier', $data ?? [], null);
         $this->setIfExists('initial_spawn_delay_in_seconds', $data ?? [], null);
         $this->setIfExists('initial_spawn_delay_seconds', $data ?? [], null);
         $this->setIfExists('initial_spawn_time', $data ?? [], null);
         $this->setIfExists('is_mantleable', $data ?? [], null);
+        $this->setIfExists('is_permanent_pickup', $data ?? [], null);
         $this->setIfExists('lifetime', $data ?? [], null);
         $this->setIfExists('loot_list_deck_size', $data ?? [], null);
         $this->setIfExists('m_vec_pickups_lv2', $data ?? [], null);
         $this->setIfExists('m_vec_pickups_lv3', $data ?? [], null);
         $this->setIfExists('match_time_mins_for_level2_pickups', $data ?? [], null);
         $this->setIfExists('match_time_mins_for_level3_pickups', $data ?? [], null);
+        $this->setIfExists('minimap_class', $data ?? [], null);
         $this->setIfExists('modifier', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('name_loc_string', $data ?? [], null);
         $this->setIfExists('orb_spawn_delay_max', $data ?? [], null);
         $this->setIfExists('orb_spawn_delay_min', $data ?? [], null);
+        $this->setIfExists('pickup', $data ?? [], null);
         $this->setIfExists('pickup_chances', $data ?? [], null);
         $this->setIfExists('pickup_radius', $data ?? [], null);
         $this->setIfExists('powerup_drop_chance', $data ?? [], null);
         $this->setIfExists('primary_drop_chance', $data ?? [], null);
         $this->setIfExists('primary_pickups', $data ?? [], null);
+        $this->setIfExists('regen_duration', $data ?? [], null);
+        $this->setIfExists('regen_duration_troopers', $data ?? [], null);
+        $this->setIfExists('regen_max_health_percent', $data ?? [], null);
+        $this->setIfExists('regen_trooper_multi', $data ?? [], null);
         $this->setIfExists('render_after_death', $data ?? [], null);
         $this->setIfExists('respawn_time', $data ?? [], null);
         $this->setIfExists('roll_type', $data ?? [], null);
         $this->setIfExists('show_on_minimap', $data ?? [], null);
+        $this->setIfExists('single_pickup_override', $data ?? [], null);
         $this->setIfExists('solid_after_death', $data ?? [], null);
+        $this->setIfExists('spawn_delay', $data ?? [], null);
         $this->setIfExists('spawn_interval', $data ?? [], null);
         $this->setIfExists('spawn_interval_in_seconds', $data ?? [], null);
+        $this->setIfExists('spawn_music_state', $data ?? [], null);
     }
 
     /**
@@ -696,6 +808,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets buff_type_name
+     *
+     * @return string|null
+     */
+    public function getBuffTypeName()
+    {
+        return $this->container['buff_type_name'];
+    }
+
+    /**
+     * Sets buff_type_name
+     *
+     * @param string|null $buff_type_name Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+     *
+     * @return self
+     */
+    public function setBuffTypeName($buff_type_name)
+    {
+        if (is_null($buff_type_name)) {
+            array_push($this->openAPINullablesSetToNull, 'buff_type_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('buff_type_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['buff_type_name'] = $buff_type_name;
+
+        return $this;
+    }
+
+    /**
      * Gets buff_type_value_unit
      *
      * @return string|null
@@ -708,7 +854,7 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buff_type_value_unit
      *
-     * @param string|null $buff_type_value_unit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     * @param string|null $buff_type_value_unit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
      *
      * @return self
      */
@@ -752,6 +898,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable class_name cannot be null');
         }
         $this->container['class_name'] = $class_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets collection_method
+     *
+     * @return string|null
+     */
+    public function getCollectionMethod()
+    {
+        return $this->container['collection_method'];
+    }
+
+    /**
+     * Sets collection_method
+     *
+     * @param string|null $collection_method How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+     *
+     * @return self
+     */
+    public function setCollectionMethod($collection_method)
+    {
+        if (is_null($collection_method)) {
+            array_push($this->openAPINullablesSetToNull, 'collection_method');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('collection_method', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['collection_method'] = $collection_method;
 
         return $this;
     }
@@ -1165,6 +1345,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets hits_required
+     *
+     * @return int|null
+     */
+    public function getHitsRequired()
+    {
+        return $this->container['hits_required'];
+    }
+
+    /**
+     * Sets hits_required
+     *
+     * @param int|null $hits_required Punchable pickups: hits needed to collect.
+     *
+     * @return self
+     */
+    public function setHitsRequired($hits_required)
+    {
+        if (is_null($hits_required)) {
+            array_push($this->openAPINullablesSetToNull, 'hits_required');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hits_required', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['hits_required'] = $hits_required;
+
+        return $this;
+    }
+
+    /**
      * Gets id
      *
      * @return int
@@ -1191,6 +1405,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets in_shop_modifier
+     *
+     * @return \OpenAPI\Client\Model\SubclassModifierDefinition|null
+     */
+    public function getInShopModifier()
+    {
+        return $this->container['in_shop_modifier'];
+    }
+
+    /**
+     * Sets in_shop_modifier
+     *
+     * @param \OpenAPI\Client\Model\SubclassModifierDefinition|null $in_shop_modifier Corrupted item shop (Broker) trigger: modifier applied while inside.
+     *
+     * @return self
+     */
+    public function setInShopModifier($in_shop_modifier)
+    {
+        if (is_null($in_shop_modifier)) {
+            array_push($this->openAPINullablesSetToNull, 'in_shop_modifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('in_shop_modifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['in_shop_modifier'] = $in_shop_modifier;
 
         return $this;
     }
@@ -1327,6 +1575,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['is_mantleable'] = $is_mantleable;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_permanent_pickup
+     *
+     * @return bool|null
+     */
+    public function getIsPermanentPickup()
+    {
+        return $this->container['is_permanent_pickup'];
+    }
+
+    /**
+     * Sets is_permanent_pickup
+     *
+     * @param bool|null $is_permanent_pickup is_permanent_pickup
+     *
+     * @return self
+     */
+    public function setIsPermanentPickup($is_permanent_pickup)
+    {
+        if (is_null($is_permanent_pickup)) {
+            array_push($this->openAPINullablesSetToNull, 'is_permanent_pickup');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_permanent_pickup', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['is_permanent_pickup'] = $is_permanent_pickup;
 
         return $this;
     }
@@ -1536,6 +1818,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets minimap_class
+     *
+     * @return string|null
+     */
+    public function getMinimapClass()
+    {
+        return $this->container['minimap_class'];
+    }
+
+    /**
+     * Sets minimap_class
+     *
+     * @param string|null $minimap_class minimap_class
+     *
+     * @return self
+     */
+    public function setMinimapClass($minimap_class)
+    {
+        if (is_null($minimap_class)) {
+            array_push($this->openAPINullablesSetToNull, 'minimap_class');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('minimap_class', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['minimap_class'] = $minimap_class;
+
+        return $this;
+    }
+
+    /**
      * Gets modifier
      *
      * @return \OpenAPI\Client\Model\SubclassModifierDefinition|null
@@ -1565,6 +1881,74 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['modifier'] = $modifier;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets name_loc_string
+     *
+     * @return string|null
+     */
+    public function getNameLocString()
+    {
+        return $this->container['name_loc_string'];
+    }
+
+    /**
+     * Sets name_loc_string
+     *
+     * @param string|null $name_loc_string Localization token of the pickup's world label.
+     *
+     * @return self
+     */
+    public function setNameLocString($name_loc_string)
+    {
+        if (is_null($name_loc_string)) {
+            array_push($this->openAPINullablesSetToNull, 'name_loc_string');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name_loc_string', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name_loc_string'] = $name_loc_string;
 
         return $this;
     }
@@ -1633,6 +2017,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['orb_spawn_delay_min'] = $orb_spawn_delay_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets pickup
+     *
+     * @return string|null
+     */
+    public function getPickup()
+    {
+        return $this->container['pickup'];
+    }
+
+    /**
+     * Sets pickup
+     *
+     * @param string|null $pickup Pickup spawners: class name of the spawned pickup.
+     *
+     * @return self
+     */
+    public function setPickup($pickup)
+    {
+        if (is_null($pickup)) {
+            array_push($this->openAPINullablesSetToNull, 'pickup');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pickup', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['pickup'] = $pickup;
 
         return $this;
     }
@@ -1808,6 +2226,142 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets regen_duration
+     *
+     * @return float|null
+     */
+    public function getRegenDuration()
+    {
+        return $this->container['regen_duration'];
+    }
+
+    /**
+     * Sets regen_duration
+     *
+     * @param float|null $regen_duration Health pickups: seconds over which the healing is applied to heroes.
+     *
+     * @return self
+     */
+    public function setRegenDuration($regen_duration)
+    {
+        if (is_null($regen_duration)) {
+            array_push($this->openAPINullablesSetToNull, 'regen_duration');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('regen_duration', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['regen_duration'] = $regen_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets regen_duration_troopers
+     *
+     * @return float|null
+     */
+    public function getRegenDurationTroopers()
+    {
+        return $this->container['regen_duration_troopers'];
+    }
+
+    /**
+     * Sets regen_duration_troopers
+     *
+     * @param float|null $regen_duration_troopers Health pickups: seconds over which the healing is applied to troopers.
+     *
+     * @return self
+     */
+    public function setRegenDurationTroopers($regen_duration_troopers)
+    {
+        if (is_null($regen_duration_troopers)) {
+            array_push($this->openAPINullablesSetToNull, 'regen_duration_troopers');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('regen_duration_troopers', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['regen_duration_troopers'] = $regen_duration_troopers;
+
+        return $this;
+    }
+
+    /**
+     * Gets regen_max_health_percent
+     *
+     * @return \OpenAPI\Client\Model\CurveOrFloat|null
+     */
+    public function getRegenMaxHealthPercent()
+    {
+        return $this->container['regen_max_health_percent'];
+    }
+
+    /**
+     * Sets regen_max_health_percent
+     *
+     * @param \OpenAPI\Client\Model\CurveOrFloat|null $regen_max_health_percent Health pickups: healing as percent of max health.
+     *
+     * @return self
+     */
+    public function setRegenMaxHealthPercent($regen_max_health_percent)
+    {
+        if (is_null($regen_max_health_percent)) {
+            array_push($this->openAPINullablesSetToNull, 'regen_max_health_percent');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('regen_max_health_percent', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['regen_max_health_percent'] = $regen_max_health_percent;
+
+        return $this;
+    }
+
+    /**
+     * Gets regen_trooper_multi
+     *
+     * @return float|null
+     */
+    public function getRegenTrooperMulti()
+    {
+        return $this->container['regen_trooper_multi'];
+    }
+
+    /**
+     * Sets regen_trooper_multi
+     *
+     * @param float|null $regen_trooper_multi Health pickups: healing multiplier for troopers.
+     *
+     * @return self
+     */
+    public function setRegenTrooperMulti($regen_trooper_multi)
+    {
+        if (is_null($regen_trooper_multi)) {
+            array_push($this->openAPINullablesSetToNull, 'regen_trooper_multi');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('regen_trooper_multi', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['regen_trooper_multi'] = $regen_trooper_multi;
+
+        return $this;
+    }
+
+    /**
      * Gets render_after_death
      *
      * @return bool|null
@@ -1944,6 +2498,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets single_pickup_override
+     *
+     * @return string|null
+     */
+    public function getSinglePickupOverride()
+    {
+        return $this->container['single_pickup_override'];
+    }
+
+    /**
+     * Sets single_pickup_override
+     *
+     * @param string|null $single_pickup_override Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+     *
+     * @return self
+     */
+    public function setSinglePickupOverride($single_pickup_override)
+    {
+        if (is_null($single_pickup_override)) {
+            array_push($this->openAPINullablesSetToNull, 'single_pickup_override');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('single_pickup_override', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['single_pickup_override'] = $single_pickup_override;
+
+        return $this;
+    }
+
+    /**
      * Gets solid_after_death
      *
      * @return bool|null
@@ -1973,6 +2561,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['solid_after_death'] = $solid_after_death;
+
+        return $this;
+    }
+
+    /**
+     * Gets spawn_delay
+     *
+     * @return float|null
+     */
+    public function getSpawnDelay()
+    {
+        return $this->container['spawn_delay'];
+    }
+
+    /**
+     * Sets spawn_delay
+     *
+     * @param float|null $spawn_delay Pickup spawners: delay (seconds) before the first spawn.
+     *
+     * @return self
+     */
+    public function setSpawnDelay($spawn_delay)
+    {
+        if (is_null($spawn_delay)) {
+            array_push($this->openAPINullablesSetToNull, 'spawn_delay');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spawn_delay', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spawn_delay'] = $spawn_delay;
 
         return $this;
     }
@@ -2041,6 +2663,40 @@ class MiscEntity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['spawn_interval_in_seconds'] = $spawn_interval_in_seconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets spawn_music_state
+     *
+     * @return string|null
+     */
+    public function getSpawnMusicState()
+    {
+        return $this->container['spawn_music_state'];
+    }
+
+    /**
+     * Sets spawn_music_state
+     *
+     * @param string|null $spawn_music_state Corrupted item shop (Broker) trigger: music cue played on spawn.
+     *
+     * @return self
+     */
+    public function setSpawnMusicState($spawn_music_state)
+    {
+        if (is_null($spawn_music_state)) {
+            array_push($this->openAPINullablesSetToNull, 'spawn_music_state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spawn_music_state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['spawn_music_state'] = $spawn_music_state;
 
         return $this;
     }

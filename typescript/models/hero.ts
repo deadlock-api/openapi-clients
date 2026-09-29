@@ -48,6 +48,9 @@ import type { HeroImages } from './hero-images.js';
 import type { HeroPhysics } from './hero-physics.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { HeroPopularItems } from './hero-popular-items.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { HeroStatsUI } from './hero-stats-ui.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -77,6 +80,10 @@ export interface Hero {
      */
     'development_state'?: HeroDevelopmentState | null;
     'disabled': boolean;
+    /**
+     * Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+     */
+    'gender'?: string | null;
     'gun_tag'?: string | null;
     'hero_stats_ui': HeroStatsUI;
     'hero_type'?: HeroType | null;
@@ -98,6 +105,10 @@ export interface Hero {
      */
     'player_selectable': boolean;
     /**
+     * Valve\'s generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+     */
+    'popular_items'?: HeroPopularItems | null;
+    /**
      * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
      */
     'prerelease_only'?: boolean | null;
@@ -106,6 +117,10 @@ export interface Hero {
      */
     'purchase_bonuses': { [key: string]: Array<HashMapItemSlotTypeVecPurchaseBonusValueInner>; };
     'scaling_stats': { [key: string]: HashMapStringScalingStatValue; };
+    /**
+     * Localized search name (`m_strHeroSearchName`, build 6711+).
+     */
+    'search_name'?: string | null;
     'shop_stat_display': ShopStatDisplay;
     'skin': number;
     'standard_level_up_upgrades': { [key: string]: number; };

@@ -58,6 +58,12 @@ export interface StreetBrawl  {
      */
     comebackBonusHealthCritical: number;
     /**
+     * Round in which players may corrupt an item (build 6711+).
+     * @type {number}
+     * @memberof StreetBrawl
+     */
+    corruptItemRound?: number;
+    /**
      * 
      * @type {Array<number>}
      * @memberof StreetBrawl
@@ -204,6 +210,7 @@ export function StreetBrawlFromJSON(json: any): StreetBrawl {
         'buyTimeGracePeriod': json['buy_time_grace_period'],
         'comebackBonusHealth': json['comeback_bonus_health'],
         'comebackBonusHealthCritical': json['comeback_bonus_health_critical'],
+        'corruptItemRound': !exists(json, 'corrupt_item_round') ? undefined : json['corrupt_item_round'],
         'goldPerRound': json['gold_per_round'],
         'itemDraftRerollsPerRound': json['item_draft_rerolls_per_round'],
         'itemDraftRoundsPerGameRound': (json['item_draft_rounds_per_game_round'] as Array<any>).map(ItemDraftRoundPerGameRoundFromJSON),
@@ -240,6 +247,7 @@ export function StreetBrawlToJSON(value?: StreetBrawl): any {
         'buy_time_grace_period': value.buyTimeGracePeriod,
         'comeback_bonus_health': value.comebackBonusHealth,
         'comeback_bonus_health_critical': value.comebackBonusHealthCritical,
+        'corrupt_item_round': value.corruptItemRound,
         'gold_per_round': value.goldPerRound,
         'item_draft_rerolls_per_round': value.itemDraftRerollsPerRound,
         'item_draft_rounds_per_game_round': (value.itemDraftRoundsPerGameRound as Array<any>).map(ItemDraftRoundPerGameRoundToJSON),

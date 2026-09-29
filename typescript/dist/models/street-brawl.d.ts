@@ -17,6 +17,10 @@ export interface StreetBrawl {
     'buy_time_grace_period': number;
     'comeback_bonus_health': number;
     'comeback_bonus_health_critical': number;
+    /**
+     * Round in which players may corrupt an item (build 6711+).
+     */
+    'corrupt_item_round'?: number | null;
     'gold_per_round': Array<number>;
     'item_draft_rerolls_per_round': Array<number>;
     'item_draft_rounds_per_game_round': Array<ItemDraftRoundPerGameRound>;

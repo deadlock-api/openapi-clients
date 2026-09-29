@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**BaseWinLossPointGrant** | Pointer to **NullableInt32** | Base rank points granted per win / taken per loss (build 6701+). | [optional] 
 **CalibrationMatches** | **int32** |  | 
 **ClassName** | **string** |  | 
 **Intervals** | [**[]SeasonInterval**](SeasonInterval.md) |  | 
@@ -33,6 +34,41 @@ NewRankedSeasonWithDefaults instantiates a new RankedSeason object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetBaseWinLossPointGrant
+
+`func (o *RankedSeason) GetBaseWinLossPointGrant() int32`
+
+GetBaseWinLossPointGrant returns the BaseWinLossPointGrant field if non-nil, zero value otherwise.
+
+### GetBaseWinLossPointGrantOk
+
+`func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int32, bool)`
+
+GetBaseWinLossPointGrantOk returns a tuple with the BaseWinLossPointGrant field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBaseWinLossPointGrant
+
+`func (o *RankedSeason) SetBaseWinLossPointGrant(v int32)`
+
+SetBaseWinLossPointGrant sets BaseWinLossPointGrant field to given value.
+
+### HasBaseWinLossPointGrant
+
+`func (o *RankedSeason) HasBaseWinLossPointGrant() bool`
+
+HasBaseWinLossPointGrant returns a boolean if a field has been set.
+
+### SetBaseWinLossPointGrantNil
+
+`func (o *RankedSeason) SetBaseWinLossPointGrantNil(b bool)`
+
+ SetBaseWinLossPointGrantNil sets the value for BaseWinLossPointGrant to be an explicit nil
+
+### UnsetBaseWinLossPointGrant
+`func (o *RankedSeason) UnsetBaseWinLossPointGrant()`
+
+UnsetBaseWinLossPointGrant ensures that no value is present for BaseWinLossPointGrant, not even an explicit nil
 ### GetCalibrationMatches
 
 `func (o *RankedSeason) GetCalibrationMatches() int32`

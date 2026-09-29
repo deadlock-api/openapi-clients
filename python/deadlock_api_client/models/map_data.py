@@ -18,9 +18,10 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.map_images import MapImages
+from deadlock_api_client.models.neutral_camp import NeutralCamp
 from deadlock_api_client.models.objective_position import ObjectivePosition
 from deadlock_api_client.models.ziplane_path import ZiplanePath
 from typing import Optional, Set
@@ -32,10 +33,11 @@ class MapData(BaseModel):
     The `/v1/assets/map` response.
     """ # noqa: E501
     images: MapImages
+    neutral_camps: Optional[List[NeutralCamp]] = Field(default=None, description="Neutral camps (build 6711+).")
     objective_positions: Dict[str, ObjectivePosition]
     radius: Annotated[int, Field(strict=True, ge=0)]
     zipline_paths: List[ZiplanePath]
-    __properties: ClassVar[List[str]] = ["images", "objective_positions", "radius", "zipline_paths"]
+    __properties: ClassVar[List[str]] = ["images", "neutral_camps", "objective_positions", "radius", "zipline_paths"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -79,6 +81,12 @@ class MapData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of images
         if self.images:
             _dict['images'] = self.images.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in neutral_camps (list)
+        _items = []
+        if self.neutral_camps:
+            for _item_neutral_camps in self.neutral_camps:
+                _items.append(_item_neutral_camps.to_dict() if _item_neutral_camps is not None else None)
+            _dict['neutral_camps'] = _items
         # override the default output from pydantic by calling `to_dict()` of each value in objective_positions (dict)
         _field_dict = {}
         if self.objective_positions:
@@ -91,6 +99,11 @@ class MapData(BaseModel):
             for _item_zipline_paths in self.zipline_paths:
                 _items.append(_item_zipline_paths.to_dict() if _item_zipline_paths is not None else None)
             _dict['zipline_paths'] = _items
+        # set to None if neutral_camps (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_camps is None and "neutral_camps" in self.model_fields_set:
+            _dict['neutral_camps'] = None
+
         return _dict
 
     @classmethod
@@ -104,6 +117,7 @@ class MapData(BaseModel):
 
         _obj = cls.model_validate({
             "images": MapImages.from_dict(obj["images"]) if obj.get("images") is not None else None,
+            "neutral_camps": [NeutralCamp.from_dict(_item) for _item in obj["neutral_camps"]] if obj.get("neutral_camps") is not None else None,
             "objective_positions": dict(
                 (_k, ObjectivePosition.from_dict(_v))
                 for _k, _v in obj["objective_positions"].items()

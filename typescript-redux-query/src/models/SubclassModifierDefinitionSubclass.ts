@@ -43,6 +43,12 @@ export interface SubclassModifierDefinitionSubclass  {
      */
     duration?: number;
     /**
+     * Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+     * @type {string}
+     * @memberof SubclassModifierDefinitionSubclass
+     */
+    enabledStateMask?: string;
+    /**
      * 
      * @type {Array<ModifierValue>}
      * @memberof SubclassModifierDefinitionSubclass
@@ -79,6 +85,7 @@ export function SubclassModifierDefinitionSubclassFromJSON(json: any): SubclassM
         'alwaysShowInUi': !exists(json, 'always_show_in_ui') ? undefined : json['always_show_in_ui'],
         'className': !exists(json, 'class_name') ? undefined : json['class_name'],
         'duration': !exists(json, 'duration') ? undefined : json['duration'],
+        'enabledStateMask': !exists(json, 'enabled_state_mask') ? undefined : json['enabled_state_mask'],
         'modifierValues': !exists(json, 'modifier_values') ? undefined : (json['modifier_values'] as Array<any>).map(ModifierValueFromJSON),
         'scriptValues': !exists(json, 'script_values') ? undefined : (json['script_values'] as Array<any>).map(ModifierValueFromJSON),
         'subclassName': !exists(json, 'subclass_name') ? undefined : json['subclass_name'],
@@ -95,6 +102,7 @@ export function SubclassModifierDefinitionSubclassToJSON(value?: SubclassModifie
         'always_show_in_ui': value.alwaysShowInUi,
         'class_name': value.className,
         'duration': value.duration,
+        'enabled_state_mask': value.enabledStateMask,
         'modifier_values': value.modifierValues === undefined ? undefined : (value.modifierValues as Array<any>).map(ModifierValueToJSON),
         'script_values': value.scriptValues === undefined ? undefined : (value.scriptValues as Array<any>).map(ModifierValueToJSON),
         'subclass_name': value.subclassName,

@@ -17,7 +17,7 @@ getGenericData($language, $client_version): \OpenAPI\Client\Model\GenericData
 
 Get Generic Data
 
-Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
 
 ### Example
 

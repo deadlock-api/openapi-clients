@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**base_win_loss_point_grant** | Option<**u32**> | Base rank points granted per win / taken per loss (build 6701+). | [optional]
 **calibration_matches** | **u32** |  | 
 **class_name** | **String** |  | 
 **intervals** | [**Vec<models::SeasonInterval>**](SeasonInterval.md) |  | 

@@ -35,13 +35,17 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="bonus">bonus</param>
         /// <param name="name">name</param>
+        /// <param name="fixedCorruptedBonus">Corrupted item bonuses only (build 6711+).</param>
+        /// <param name="roundCorruptedBonus">Corrupted item bonuses only (build 6711+).</param>
         /// <param name="scaleStatFilter">scaleStatFilter</param>
         /// <param name="upgradeType">upgradeType</param>
         [JsonConstructor]
-        public RawAbilityUpgradePropertyUpgrade(string bonus, string name, Option<string?> scaleStatFilter = default, Option<string?> upgradeType = default)
+        public RawAbilityUpgradePropertyUpgrade(string bonus, string name, Option<bool?> fixedCorruptedBonus = default, Option<bool?> roundCorruptedBonus = default, Option<string?> scaleStatFilter = default, Option<string?> upgradeType = default)
         {
             Bonus = bonus;
             Name = name;
+            FixedCorruptedBonusOption = fixedCorruptedBonus;
+            RoundCorruptedBonusOption = roundCorruptedBonus;
             ScaleStatFilterOption = scaleStatFilter;
             UpgradeTypeOption = upgradeType;
             OnCreated();
@@ -60,6 +64,34 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Used to track the state of FixedCorruptedBonus
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> FixedCorruptedBonusOption { get; private set; }
+
+        /// <summary>
+        /// Corrupted item bonuses only (build 6711+).
+        /// </summary>
+        /// <value>Corrupted item bonuses only (build 6711+).</value>
+        [JsonPropertyName("fixed_corrupted_bonus")]
+        public bool? FixedCorruptedBonus { get { return this.FixedCorruptedBonusOption.Value; } set { this.FixedCorruptedBonusOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RoundCorruptedBonus
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> RoundCorruptedBonusOption { get; private set; }
+
+        /// <summary>
+        /// Corrupted item bonuses only (build 6711+).
+        /// </summary>
+        /// <value>Corrupted item bonuses only (build 6711+).</value>
+        [JsonPropertyName("round_corrupted_bonus")]
+        public bool? RoundCorruptedBonus { get { return this.RoundCorruptedBonusOption.Value; } set { this.RoundCorruptedBonusOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ScaleStatFilter
@@ -97,6 +129,8 @@ namespace DeadlockApiClient.Model
             sb.Append("class RawAbilityUpgradePropertyUpgrade {\n");
             sb.Append("  Bonus: ").Append(Bonus).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  FixedCorruptedBonus: ").Append(FixedCorruptedBonus).Append("\n");
+            sb.Append("  RoundCorruptedBonus: ").Append(RoundCorruptedBonus).Append("\n");
             sb.Append("  ScaleStatFilter: ").Append(ScaleStatFilter).Append("\n");
             sb.Append("  UpgradeType: ").Append(UpgradeType).Append("\n");
             sb.Append("}\n");
@@ -148,6 +182,8 @@ namespace DeadlockApiClient.Model
 
             Option<string?> bonus = default;
             Option<string?> name = default;
+            Option<bool?> fixedCorruptedBonus = default;
+            Option<bool?> roundCorruptedBonus = default;
             Option<string?> scaleStatFilter = default;
             Option<string?> upgradeType = default;
 
@@ -171,6 +207,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "fixed_corrupted_bonus":
+                            fixedCorruptedBonus = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "round_corrupted_bonus":
+                            roundCorruptedBonus = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "scale_stat_filter":
                             scaleStatFilter = new Option<string?>(utf8JsonReader.GetString());
@@ -196,7 +238,7 @@ namespace DeadlockApiClient.Model
             if (name.IsSet && name.Value == null)
                 throw new ArgumentNullException(nameof(name), "Property is not nullable for class RawAbilityUpgradePropertyUpgrade.");
 
-            return new RawAbilityUpgradePropertyUpgrade(bonus.Value!, name.Value!, scaleStatFilter, upgradeType);
+            return new RawAbilityUpgradePropertyUpgrade(bonus.Value!, name.Value!, fixedCorruptedBonus, roundCorruptedBonus, scaleStatFilter, upgradeType);
         }
 
         /// <summary>
@@ -232,6 +274,18 @@ namespace DeadlockApiClient.Model
             writer.WriteString("bonus", rawAbilityUpgradePropertyUpgrade.Bonus);
 
             writer.WriteString("name", rawAbilityUpgradePropertyUpgrade.Name);
+
+            if (rawAbilityUpgradePropertyUpgrade.FixedCorruptedBonusOption.IsSet)
+                if (rawAbilityUpgradePropertyUpgrade.FixedCorruptedBonusOption.Value != null)
+                    writer.WriteBoolean("fixed_corrupted_bonus", rawAbilityUpgradePropertyUpgrade.FixedCorruptedBonusOption.Value!.Value);
+                else
+                    writer.WriteNull("fixed_corrupted_bonus");
+
+            if (rawAbilityUpgradePropertyUpgrade.RoundCorruptedBonusOption.IsSet)
+                if (rawAbilityUpgradePropertyUpgrade.RoundCorruptedBonusOption.Value != null)
+                    writer.WriteBoolean("round_corrupted_bonus", rawAbilityUpgradePropertyUpgrade.RoundCorruptedBonusOption.Value!.Value);
+                else
+                    writer.WriteNull("round_corrupted_bonus");
 
             if (rawAbilityUpgradePropertyUpgrade.ScaleStatFilterOption.IsSet)
                 if (rawAbilityUpgradePropertyUpgrade.ScaleStatFilterOption.Value != null)

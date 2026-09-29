@@ -13,9 +13,15 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    BreakablePowerupLootParams,
+    BreakablePowerupLootParamsFromJSON,
+    BreakablePowerupLootParamsToJSON,
     Color,
     ColorFromJSON,
     ColorToJSON,
+    CorruptedPenalty,
+    CorruptedPenaltyFromJSON,
+    CorruptedPenaltyToJSON,
     DamageFlash,
     DamageFlashFromJSON,
     DamageFlashToJSON,
@@ -28,6 +34,9 @@ import {
     LaneInfo,
     LaneInfoFromJSON,
     LaneInfoToJSON,
+    MapDistrict,
+    MapDistrictFromJSON,
+    MapDistrictToJSON,
     MiniMapOffsets,
     MiniMapOffsetsFromJSON,
     MiniMapOffsetsToJSON,
@@ -64,6 +73,12 @@ export interface GenericData  {
      */
     armorGroups: Array<ItemGroup>;
     /**
+     * Loot tables for breakable powerup props (build 6711+).
+     * @type {BreakablePowerupLootParams}
+     * @memberof GenericData
+     */
+    breakablePowerupLootParams?: BreakablePowerupLootParams;
+    /**
      * Build 6711+.
      * @type {Color}
      * @memberof GenericData
@@ -87,6 +102,12 @@ export interface GenericData  {
      * @memberof GenericData
      */
     colorTeam2?: Color;
+    /**
+     * Penalties that can be rolled onto corrupted items (build 6711+).
+     * @type {Array<CorruptedPenalty>}
+     * @memberof GenericData
+     */
+    corruptedPenalties?: Array<CorruptedPenalty>;
     /**
      * 
      * @type {DamageFlash}
@@ -124,6 +145,12 @@ export interface GenericData  {
      */
     heroKillGoldShareFrac: Array<number>;
     /**
+     * Extra cost of corrupting an item, by item tier (build 6711+).
+     * @type {Array<number>}
+     * @memberof GenericData
+     */
+    itemCorruptionPricePerTier?: Array<number>;
+    /**
      * 
      * @type {Array<number>}
      * @memberof GenericData
@@ -135,6 +162,12 @@ export interface GenericData  {
      * @memberof GenericData
      */
     laneInfo: Array<LaneInfo>;
+    /**
+     * District / building labels shown on the map (build 6711+).
+     * @type {Array<MapDistrict>}
+     * @memberof GenericData
+     */
+    mapDistricts?: Array<MapDistrict>;
     /**
      * 
      * @type {Array<MiniMapOffsets>}
@@ -153,6 +186,12 @@ export interface GenericData  {
      * @memberof GenericData
      */
     minimapTeamRebelsColor?: Color;
+    /**
+     * Distance within which a neutral camp\'s respawn timer is shown (build 6711+).
+     * @type {number}
+     * @memberof GenericData
+     */
+    neutralCampRespawnTimerShowDistance?: number;
     /**
      * 
      * @type {Array<NewPlayerMetrics>}
@@ -207,21 +246,26 @@ export function GenericDataFromJSON(json: any): GenericData {
     return {
         'aimSpringStrength': json['aim_spring_strength'],
         'armorGroups': (json['armor_groups'] as Array<any>).map(ItemGroupFromJSON),
+        'breakablePowerupLootParams': !exists(json, 'breakable_powerup_loot_params') ? undefined : BreakablePowerupLootParamsFromJSON(json['breakable_powerup_loot_params']),
         'colorEnemy': !exists(json, 'color_enemy') ? undefined : ColorFromJSON(json['color_enemy']),
         'colorFriend': !exists(json, 'color_friend') ? undefined : ColorFromJSON(json['color_friend']),
         'colorTeam1': !exists(json, 'color_team1') ? undefined : ColorFromJSON(json['color_team1']),
         'colorTeam2': !exists(json, 'color_team2') ? undefined : ColorFromJSON(json['color_team2']),
+        'corruptedPenalties': !exists(json, 'corrupted_penalties') ? undefined : (json['corrupted_penalties'] as Array<any>).map(CorruptedPenaltyFromJSON),
         'damageFlash': DamageFlashFromJSON(json['damage_flash']),
         'enemyObjectivesAndZiplineColor': !exists(json, 'enemy_objectives_and_zipline_color') ? undefined : ColorFromJSON(json['enemy_objectives_and_zipline_color']),
         'enemyObjectivesColor': !exists(json, 'enemy_objectives_color') ? undefined : ColorFromJSON(json['enemy_objectives_color']),
         'enemyZiplineColor': !exists(json, 'enemy_zipline_color') ? undefined : ColorFromJSON(json['enemy_zipline_color']),
         'glitchSettings': GlitchSettingsFromJSON(json['glitch_settings']),
         'heroKillGoldShareFrac': json['hero_kill_gold_share_frac'],
+        'itemCorruptionPricePerTier': !exists(json, 'item_corruption_price_per_tier') ? undefined : json['item_corruption_price_per_tier'],
         'itemPricePerTier': json['item_price_per_tier'],
         'laneInfo': (json['lane_info'] as Array<any>).map(LaneInfoFromJSON),
+        'mapDistricts': !exists(json, 'map_districts') ? undefined : (json['map_districts'] as Array<any>).map(MapDistrictFromJSON),
         'miniMapOffsets': (json['mini_map_offsets'] as Array<any>).map(MiniMapOffsetsFromJSON),
         'minimapTeamCombineColor': !exists(json, 'minimap_team_combine_color') ? undefined : ColorFromJSON(json['minimap_team_combine_color']),
         'minimapTeamRebelsColor': !exists(json, 'minimap_team_rebels_color') ? undefined : ColorFromJSON(json['minimap_team_rebels_color']),
+        'neutralCampRespawnTimerShowDistance': !exists(json, 'neutral_camp_respawn_timer_show_distance') ? undefined : json['neutral_camp_respawn_timer_show_distance'],
         'newPlayerMetrics': (json['new_player_metrics'] as Array<any>).map(NewPlayerMetricsFromJSON),
         'objectiveParams': ObjectiveParamsFromJSON(json['objective_params']),
         'rejuvParams': RejuvParamsFromJSON(json['rejuv_params']),
@@ -240,21 +284,26 @@ export function GenericDataToJSON(value?: GenericData): any {
     return {
         'aim_spring_strength': value.aimSpringStrength,
         'armor_groups': (value.armorGroups as Array<any>).map(ItemGroupToJSON),
+        'breakable_powerup_loot_params': BreakablePowerupLootParamsToJSON(value.breakablePowerupLootParams),
         'color_enemy': ColorToJSON(value.colorEnemy),
         'color_friend': ColorToJSON(value.colorFriend),
         'color_team1': ColorToJSON(value.colorTeam1),
         'color_team2': ColorToJSON(value.colorTeam2),
+        'corrupted_penalties': value.corruptedPenalties === undefined ? undefined : (value.corruptedPenalties as Array<any>).map(CorruptedPenaltyToJSON),
         'damage_flash': DamageFlashToJSON(value.damageFlash),
         'enemy_objectives_and_zipline_color': ColorToJSON(value.enemyObjectivesAndZiplineColor),
         'enemy_objectives_color': ColorToJSON(value.enemyObjectivesColor),
         'enemy_zipline_color': ColorToJSON(value.enemyZiplineColor),
         'glitch_settings': GlitchSettingsToJSON(value.glitchSettings),
         'hero_kill_gold_share_frac': value.heroKillGoldShareFrac,
+        'item_corruption_price_per_tier': value.itemCorruptionPricePerTier,
         'item_price_per_tier': value.itemPricePerTier,
         'lane_info': (value.laneInfo as Array<any>).map(LaneInfoToJSON),
+        'map_districts': value.mapDistricts === undefined ? undefined : (value.mapDistricts as Array<any>).map(MapDistrictToJSON),
         'mini_map_offsets': (value.miniMapOffsets as Array<any>).map(MiniMapOffsetsToJSON),
         'minimap_team_combine_color': ColorToJSON(value.minimapTeamCombineColor),
         'minimap_team_rebels_color': ColorToJSON(value.minimapTeamRebelsColor),
+        'neutral_camp_respawn_timer_show_distance': value.neutralCampRespawnTimerShowDistance,
         'new_player_metrics': (value.newPlayerMetrics as Array<any>).map(NewPlayerMetricsToJSON),
         'objective_params': ObjectiveParamsToJSON(value.objectiveParams),
         'rejuv_params': RejuvParamsToJSON(value.rejuvParams),

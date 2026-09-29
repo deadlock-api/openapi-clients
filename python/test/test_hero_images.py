@@ -50,6 +50,8 @@ class TestHeroImages(unittest.TestCase):
                 name_image = '',
                 top_bar_vertical_image = '',
                 top_bar_vertical_image_webp = '',
+                vote_sticker = '',
+                vote_sticker_webp = '',
                 weapon_image = '',
                 weapon_image_webp = ''
             )

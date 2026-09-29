@@ -58,7 +58,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPITypes = [
         'bonus' => 'string',
+        'fixed_corrupted_bonus' => 'bool',
         'name' => 'string',
+        'round_corrupted_bonus' => 'bool',
         'scale_stat_filter' => 'string',
         'upgrade_type' => 'string'
     ];
@@ -72,7 +74,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static $openAPIFormats = [
         'bonus' => null,
+        'fixed_corrupted_bonus' => null,
         'name' => null,
+        'round_corrupted_bonus' => null,
         'scale_stat_filter' => null,
         'upgrade_type' => null
     ];
@@ -84,7 +88,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static array $openAPINullables = [
         'bonus' => false,
+        'fixed_corrupted_bonus' => true,
         'name' => false,
+        'round_corrupted_bonus' => true,
         'scale_stat_filter' => true,
         'upgrade_type' => true
     ];
@@ -176,7 +182,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static $attributeMap = [
         'bonus' => 'bonus',
+        'fixed_corrupted_bonus' => 'fixed_corrupted_bonus',
         'name' => 'name',
+        'round_corrupted_bonus' => 'round_corrupted_bonus',
         'scale_stat_filter' => 'scale_stat_filter',
         'upgrade_type' => 'upgrade_type'
     ];
@@ -188,7 +196,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static $setters = [
         'bonus' => 'setBonus',
+        'fixed_corrupted_bonus' => 'setFixedCorruptedBonus',
         'name' => 'setName',
+        'round_corrupted_bonus' => 'setRoundCorruptedBonus',
         'scale_stat_filter' => 'setScaleStatFilter',
         'upgrade_type' => 'setUpgradeType'
     ];
@@ -200,7 +210,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      */
     protected static $getters = [
         'bonus' => 'getBonus',
+        'fixed_corrupted_bonus' => 'getFixedCorruptedBonus',
         'name' => 'getName',
+        'round_corrupted_bonus' => 'getRoundCorruptedBonus',
         'scale_stat_filter' => 'getScaleStatFilter',
         'upgrade_type' => 'getUpgradeType'
     ];
@@ -263,7 +275,9 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
     public function __construct(?array $data = null)
     {
         $this->setIfExists('bonus', $data ?? [], null);
+        $this->setIfExists('fixed_corrupted_bonus', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('round_corrupted_bonus', $data ?? [], null);
         $this->setIfExists('scale_stat_filter', $data ?? [], null);
         $this->setIfExists('upgrade_type', $data ?? [], null);
     }
@@ -344,6 +358,40 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
     }
 
     /**
+     * Gets fixed_corrupted_bonus
+     *
+     * @return bool|null
+     */
+    public function getFixedCorruptedBonus()
+    {
+        return $this->container['fixed_corrupted_bonus'];
+    }
+
+    /**
+     * Sets fixed_corrupted_bonus
+     *
+     * @param bool|null $fixed_corrupted_bonus Corrupted item bonuses only (build 6711+).
+     *
+     * @return self
+     */
+    public function setFixedCorruptedBonus($fixed_corrupted_bonus)
+    {
+        if (is_null($fixed_corrupted_bonus)) {
+            array_push($this->openAPINullablesSetToNull, 'fixed_corrupted_bonus');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('fixed_corrupted_bonus', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['fixed_corrupted_bonus'] = $fixed_corrupted_bonus;
+
+        return $this;
+    }
+
+    /**
      * Gets name
      *
      * @return string
@@ -366,6 +414,40 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets round_corrupted_bonus
+     *
+     * @return bool|null
+     */
+    public function getRoundCorruptedBonus()
+    {
+        return $this->container['round_corrupted_bonus'];
+    }
+
+    /**
+     * Sets round_corrupted_bonus
+     *
+     * @param bool|null $round_corrupted_bonus Corrupted item bonuses only (build 6711+).
+     *
+     * @return self
+     */
+    public function setRoundCorruptedBonus($round_corrupted_bonus)
+    {
+        if (is_null($round_corrupted_bonus)) {
+            array_push($this->openAPINullablesSetToNull, 'round_corrupted_bonus');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('round_corrupted_bonus', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['round_corrupted_bonus'] = $round_corrupted_bonus;
 
         return $this;
     }

@@ -19,6 +19,8 @@ use super::{Error, configuration, ContentType};
 pub struct GetMiscEntityParams {
     /// Misc entity id (`murmurhash2(class_name)`) or `class_name`
     pub id_or_classname: String,
+    /// Language code. Defaults to `english`.
+    pub language: Option<String>,
     /// Client/game version (e.g. `6518`). Defaults to the latest known version.
     pub client_version: Option<u32>
 }
@@ -26,6 +28,8 @@ pub struct GetMiscEntityParams {
 /// struct for passing parameters to the method [`list_misc_entities`]
 #[derive(Clone, Debug)]
 pub struct ListMiscEntitiesParams {
+    /// Language code. Defaults to `english`.
+    pub language: Option<String>,
     /// Client/game version (e.g. `6518`). Defaults to the latest known version.
     pub client_version: Option<u32>
 }
@@ -56,6 +60,9 @@ pub async fn get_misc_entity(configuration: &configuration::Configuration, param
     let uri_str = format!("{}/v1/assets/misc-entities/{id_or_classname}", configuration.base_path, id_or_classname=crate::apis::urlencode(params.id_or_classname));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.client_version {
         req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
@@ -88,12 +95,15 @@ pub async fn get_misc_entity(configuration: &configuration::Configuration, param
     }
 }
 
-/// Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+/// Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 pub async fn list_misc_entities(configuration: &configuration::Configuration, params: ListMiscEntitiesParams) -> Result<Vec<models::MiscEntity>, Error<ListMiscEntitiesError>> {
 
     let uri_str = format!("{}/v1/assets/misc-entities", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.client_version {
         req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }

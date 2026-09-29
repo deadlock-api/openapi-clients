@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **always_show_in_ui** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 **class_name** | **string** |  | [optional] [default to undefined]
 **duration** | **number** |  | [optional] [default to undefined]
+**enabled_state_mask** | **string** | Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;. | [optional] [default to undefined]
 **modifier_values** | [**Array&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] [default to undefined]
 **script_values** | [**Array&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] [default to undefined]
 **subclass_name** | **string** |  | [optional] [default to undefined]
@@ -23,6 +24,7 @@ const instance: SubclassModifierDefinitionSubclass = {
     always_show_in_ui,
     class_name,
     duration,
+    enabled_state_mask,
     modifier_values,
     script_values,
     subclass_name,

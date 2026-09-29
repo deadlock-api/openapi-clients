@@ -36,7 +36,9 @@ class TestRawAbilityUpgradePropertyUpgrade(unittest.TestCase):
         if include_optional:
             return RawAbilityUpgradePropertyUpgrade(
                 bonus = '',
+                fixed_corrupted_bonus = True,
                 name = '',
+                round_corrupted_bonus = True,
                 scale_stat_filter = '',
                 upgrade_type = ''
             )

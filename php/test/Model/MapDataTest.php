@@ -89,6 +89,15 @@ class MapDataTest extends TestCase
     }
 
     /**
+     * Test attribute "neutral_camps"
+     */
+    public function testPropertyNeutralCamps()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "objective_positions"
      */
     public function testPropertyObjectivePositions()

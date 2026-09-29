@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Images** | [**MapImages**](MapImages.md) |  | 
+**NeutralCamps** | Pointer to [**[]NeutralCamp**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 **ObjectivePositions** | [**map[string]ObjectivePosition**](ObjectivePosition.md) |  | 
 **Radius** | **int32** |  | 
 **ZiplinePaths** | [**[]ZiplanePath**](ZiplanePath.md) |  | 
@@ -48,6 +49,41 @@ and a boolean to check if the value has been set.
 SetImages sets Images field to given value.
 
 
+### GetNeutralCamps
+
+`func (o *MapData) GetNeutralCamps() []NeutralCamp`
+
+GetNeutralCamps returns the NeutralCamps field if non-nil, zero value otherwise.
+
+### GetNeutralCampsOk
+
+`func (o *MapData) GetNeutralCampsOk() (*[]NeutralCamp, bool)`
+
+GetNeutralCampsOk returns a tuple with the NeutralCamps field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralCamps
+
+`func (o *MapData) SetNeutralCamps(v []NeutralCamp)`
+
+SetNeutralCamps sets NeutralCamps field to given value.
+
+### HasNeutralCamps
+
+`func (o *MapData) HasNeutralCamps() bool`
+
+HasNeutralCamps returns a boolean if a field has been set.
+
+### SetNeutralCampsNil
+
+`func (o *MapData) SetNeutralCampsNil(b bool)`
+
+ SetNeutralCampsNil sets the value for NeutralCamps to be an explicit nil
+
+### UnsetNeutralCamps
+`func (o *MapData) UnsetNeutralCamps()`
+
+UnsetNeutralCamps ensures that no value is present for NeutralCamps, not even an explicit nil
 ### GetObjectivePositions
 
 `func (o *MapData) GetObjectivePositions() map[string]ObjectivePosition`

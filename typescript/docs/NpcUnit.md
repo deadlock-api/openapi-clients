@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **health_bar_color_team2** | [**Color**](Color.md) |  | [optional] [default to undefined]
 **health_bar_color_team_neutral** | [**Color**](Color.md) |  | [optional] [default to undefined]
 **id** | **number** |  | [default to undefined]
+**image** | **string** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png. | [optional] [default to undefined]
+**image_webp** | **string** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp. | [optional] [default to undefined]
 **intrinsic_modifiers** | [**Array&lt;SubclassIntrinsicModifiers&gt;**](SubclassIntrinsicModifiers.md) |  | [optional] [default to undefined]
 **laser_dps_max_health** | **number** |  | [optional] [default to undefined]
 **laser_dps_to_players** | **number** |  | [optional] [default to undefined]
@@ -39,7 +41,12 @@ Name | Type | Description | Notes
 **melee_damage** | **number** |  | [optional] [default to undefined]
 **melee_duration** | **number** |  | [optional] [default to undefined]
 **melee_hit_range** | **number** |  | [optional] [default to undefined]
+**name** | **string** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. | [optional] [default to undefined]
 **near_death_duration** | **number** |  | [optional] [default to undefined]
+**neutral_abilities** | **Array&lt;string&gt;** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] [default to undefined]
+**neutral_damage_growth** | [**SubclassNeutralDamageGrowth**](SubclassNeutralDamageGrowth.md) |  | [optional] [default to undefined]
+**neutral_melee** | **string** | Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] [default to undefined]
+**neutral_type** | **string** | Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+). | [optional] [default to undefined]
 **no_shield_laser_dps_to_players** | **number** |  | [optional] [default to undefined]
 **objective_health_growth_phase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] [default to undefined]
 **objective_health_growth_phase2** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] [default to undefined]
@@ -70,6 +77,7 @@ Name | Type | Description | Notes
 **t3_boss_dps** | **number** |  | [optional] [default to undefined]
 **trooper_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **trooper_dps** | **number** |  | [optional] [default to undefined]
+**viewer_souls_class** | **{ [key: string]: string; }** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] [default to undefined]
 **walk_speed** | **number** |  | [optional] [default to undefined]
 **weapon_info** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] [default to undefined]
 
@@ -103,6 +111,8 @@ const instance: NpcUnit = {
     health_bar_color_team2,
     health_bar_color_team_neutral,
     id,
+    image,
+    image_webp,
     intrinsic_modifiers,
     laser_dps_max_health,
     laser_dps_to_players,
@@ -113,7 +123,12 @@ const instance: NpcUnit = {
     melee_damage,
     melee_duration,
     melee_hit_range,
+    name,
     near_death_duration,
+    neutral_abilities,
+    neutral_damage_growth,
+    neutral_melee,
+    neutral_type,
     no_shield_laser_dps_to_players,
     objective_health_growth_phase1,
     objective_health_growth_phase2,
@@ -144,6 +159,7 @@ const instance: NpcUnit = {
     t3_boss_dps,
     trooper_damage_resist_pct,
     trooper_dps,
+    viewer_souls_class,
     walk_speed,
     weapon_info,
 };

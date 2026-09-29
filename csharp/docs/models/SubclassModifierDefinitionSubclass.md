@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AlwaysShowInUi** | **List&lt;string&gt;** |  | [optional] 
 **ClassName** | **string** |  | [optional] 
 **Duration** | **double** |  | [optional] 
+**EnabledStateMask** | **string** | Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;. | [optional] 
 **ModifierValues** | [**List&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] 
 **ScriptValues** | [**List&lt;ModifierValue&gt;**](ModifierValue.md) |  | [optional] 
 **SubclassName** | **string** |  | [optional] 

@@ -32,6 +32,8 @@ type UpgradeProperty struct {
 	PostvalueLabel *string `json:"postvalue_label,omitempty"`
 	Prefix *string `json:"prefix,omitempty"`
 	ProvidedPropertyType *string `json:"provided_property_type,omitempty"`
+	// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+	RequiredUpgradeBits []string `json:"required_upgrade_bits,omitempty"`
 	ScaleFunction *RawItemPropertyScaleFunctionSubclass `json:"scale_function,omitempty"`
 	StreetBrawlValue *string `json:"street_brawl_value,omitempty"`
 	UsageFlags []StatsUsageFlag `json:"usage_flags,omitempty"`
@@ -475,6 +477,38 @@ func (o *UpgradeProperty) SetProvidedPropertyType(v string) {
 	o.ProvidedPropertyType = &v
 }
 
+// GetRequiredUpgradeBits returns the RequiredUpgradeBits field value if set, zero value otherwise.
+func (o *UpgradeProperty) GetRequiredUpgradeBits() []string {
+	if o == nil || IsNil(o.RequiredUpgradeBits) {
+		var ret []string
+		return ret
+	}
+	return o.RequiredUpgradeBits
+}
+
+// GetRequiredUpgradeBitsOk returns a tuple with the RequiredUpgradeBits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpgradeProperty) GetRequiredUpgradeBitsOk() ([]string, bool) {
+	if o == nil || IsNil(o.RequiredUpgradeBits) {
+		return nil, false
+	}
+	return o.RequiredUpgradeBits, true
+}
+
+// HasRequiredUpgradeBits returns a boolean if a field has been set.
+func (o *UpgradeProperty) HasRequiredUpgradeBits() bool {
+	if o != nil && !IsNil(o.RequiredUpgradeBits) {
+		return true
+	}
+
+	return false
+}
+
+// SetRequiredUpgradeBits gets a reference to the given []string and assigns it to the RequiredUpgradeBits field.
+func (o *UpgradeProperty) SetRequiredUpgradeBits(v []string) {
+	o.RequiredUpgradeBits = v
+}
+
 // GetScaleFunction returns the ScaleFunction field value if set, zero value otherwise.
 func (o *UpgradeProperty) GetScaleFunction() RawItemPropertyScaleFunctionSubclass {
 	if o == nil || IsNil(o.ScaleFunction) {
@@ -777,6 +811,9 @@ func (o UpgradeProperty) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.ProvidedPropertyType) {
 		toSerialize["provided_property_type"] = o.ProvidedPropertyType
+	}
+	if !IsNil(o.RequiredUpgradeBits) {
+		toSerialize["required_upgrade_bits"] = o.RequiredUpgradeBits
 	}
 	if !IsNil(o.ScaleFunction) {
 		toSerialize["scale_function"] = o.ScaleFunction

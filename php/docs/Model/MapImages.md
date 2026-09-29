@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**background** | **string** | Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. |
+**background** | **string** | Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on. | [optional]
 **frame** | **string** |  |
 **mid** | **string** | Midtown base layer. |
 **mid_tunnels** | **string** | Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+). | [optional]
-**minimap** | **string** | Full minimap. From build 6711 on this is the midtown base layer. |
-**plain** | **string** | Minimap without overlays. From build 6711 on this is the midtown base layer. |
+**minimap** | **string** | Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own. |
+**plain** | **string** | Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;). |
 **rat_tunnels** | **string** | Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -29,6 +29,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock_api_client.models.Upgrade
 import deadlock_api_client.models.AbilityActivation
 import deadlock_api_client.models.AbilityImbue
+import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.ItemSlotType
 import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
@@ -102,6 +103,12 @@ class UpgradeTest : ShouldSpec() {
             //modelInstance.componentItems shouldBe ("TODO")
         }
 
+        // to test the property `corruptedInfo` - Present on upgrades the Broker can corrupt (build 6711+).
+        should("test corruptedInfo") {
+            // uncomment below to test the property
+            //modelInstance.corruptedInfo shouldBe ("TODO")
+        }
+
         // to test the property `cost`
         should("test cost") {
             // uncomment below to test the property
@@ -114,10 +121,22 @@ class UpgradeTest : ShouldSpec() {
             //modelInstance.description shouldBe ("TODO")
         }
 
+        // to test the property `disableItemTarget`
+        should("test disableItemTarget") {
+            // uncomment below to test the property
+            //modelInstance.disableItemTarget shouldBe ("TODO")
+        }
+
         // to test the property `disabled`
         should("test disabled") {
             // uncomment below to test the property
             //modelInstance.disabled shouldBe ("TODO")
+        }
+
+        // to test the property `disabledShopFilters` - Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+        should("test disabledShopFilters") {
+            // uncomment below to test the property
+            //modelInstance.disabledShopFilters shouldBe ("TODO")
         }
 
         // to test the property `hero`
@@ -156,6 +175,12 @@ class UpgradeTest : ShouldSpec() {
             //modelInstance.properties shouldBe ("TODO")
         }
 
+        // to test the property `shopFilters` - Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+        should("test shopFilters") {
+            // uncomment below to test the property
+            //modelInstance.shopFilters shouldBe ("TODO")
+        }
+
         // to test the property `shopImage`
         should("test shopImage") {
             // uncomment below to test the property
@@ -178,6 +203,12 @@ class UpgradeTest : ShouldSpec() {
         should("test shopImageWebp") {
             // uncomment below to test the property
             //modelInstance.shopImageWebp shouldBe ("TODO")
+        }
+
+        // to test the property `shopVersion`
+        should("test shopVersion") {
+            // uncomment below to test the property
+            //modelInstance.shopVersion shouldBe ("TODO")
         }
 
         // to test the property `startTrained`

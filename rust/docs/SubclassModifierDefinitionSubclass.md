@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **always_show_in_ui** | Option<**Vec<String>**> |  | [optional]
 **class_name** | Option<**String**> |  | [optional]
 **duration** | Option<**f64**> |  | [optional]
+**enabled_state_mask** | Option<**String**> | Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`. | [optional]
 **modifier_values** | Option<[**Vec<models::ModifierValue>**](ModifierValue.md)> |  | [optional]
 **script_values** | Option<[**Vec<models::ModifierValue>**](ModifierValue.md)> |  | [optional]
 **subclass_name** | Option<**String**> |  | [optional]

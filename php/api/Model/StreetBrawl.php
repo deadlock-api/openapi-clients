@@ -62,6 +62,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => 'float',
         'comeback_bonus_health' => 'int',
         'comeback_bonus_health_critical' => 'int',
+        'corrupt_item_round' => 'int',
         'gold_per_round' => 'int[]',
         'item_draft_rerolls_per_round' => 'int[]',
         'item_draft_rounds_per_game_round' => '\OpenAPI\Client\Model\ItemDraftRoundPerGameRound[]',
@@ -100,6 +101,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => 'double',
         'comeback_bonus_health' => 'int64',
         'comeback_bonus_health_critical' => 'int64',
+        'corrupt_item_round' => 'int64',
         'gold_per_round' => 'int64',
         'item_draft_rerolls_per_round' => 'int64',
         'item_draft_rounds_per_game_round' => null,
@@ -136,6 +138,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => false,
         'comeback_bonus_health' => false,
         'comeback_bonus_health_critical' => false,
+        'corrupt_item_round' => true,
         'gold_per_round' => false,
         'item_draft_rerolls_per_round' => false,
         'item_draft_rounds_per_game_round' => false,
@@ -252,6 +255,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => 'buy_time_grace_period',
         'comeback_bonus_health' => 'comeback_bonus_health',
         'comeback_bonus_health_critical' => 'comeback_bonus_health_critical',
+        'corrupt_item_round' => 'corrupt_item_round',
         'gold_per_round' => 'gold_per_round',
         'item_draft_rerolls_per_round' => 'item_draft_rerolls_per_round',
         'item_draft_rounds_per_game_round' => 'item_draft_rounds_per_game_round',
@@ -288,6 +292,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => 'setBuyTimeGracePeriod',
         'comeback_bonus_health' => 'setComebackBonusHealth',
         'comeback_bonus_health_critical' => 'setComebackBonusHealthCritical',
+        'corrupt_item_round' => 'setCorruptItemRound',
         'gold_per_round' => 'setGoldPerRound',
         'item_draft_rerolls_per_round' => 'setItemDraftRerollsPerRound',
         'item_draft_rounds_per_game_round' => 'setItemDraftRoundsPerGameRound',
@@ -324,6 +329,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         'buy_time_grace_period' => 'getBuyTimeGracePeriod',
         'comeback_bonus_health' => 'getComebackBonusHealth',
         'comeback_bonus_health_critical' => 'getComebackBonusHealthCritical',
+        'corrupt_item_round' => 'getCorruptItemRound',
         'gold_per_round' => 'getGoldPerRound',
         'item_draft_rerolls_per_round' => 'getItemDraftRerollsPerRound',
         'item_draft_rounds_per_game_round' => 'getItemDraftRoundsPerGameRound',
@@ -411,6 +417,7 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('buy_time_grace_period', $data ?? [], null);
         $this->setIfExists('comeback_bonus_health', $data ?? [], null);
         $this->setIfExists('comeback_bonus_health_critical', $data ?? [], null);
+        $this->setIfExists('corrupt_item_round', $data ?? [], null);
         $this->setIfExists('gold_per_round', $data ?? [], null);
         $this->setIfExists('item_draft_rerolls_per_round', $data ?? [], null);
         $this->setIfExists('item_draft_rounds_per_game_round', $data ?? [], null);
@@ -693,6 +700,40 @@ class StreetBrawl implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable comeback_bonus_health_critical cannot be null');
         }
         $this->container['comeback_bonus_health_critical'] = $comeback_bonus_health_critical;
+
+        return $this;
+    }
+
+    /**
+     * Gets corrupt_item_round
+     *
+     * @return int|null
+     */
+    public function getCorruptItemRound()
+    {
+        return $this->container['corrupt_item_round'];
+    }
+
+    /**
+     * Sets corrupt_item_round
+     *
+     * @param int|null $corrupt_item_round Round in which players may corrupt an item (build 6711+).
+     *
+     * @return self
+     */
+    public function setCorruptItemRound($corrupt_item_round)
+    {
+        if (is_null($corrupt_item_round)) {
+            array_push($this->openAPINullablesSetToNull, 'corrupt_item_round');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('corrupt_item_round', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['corrupt_item_round'] = $corrupt_item_round;
 
         return $this;
     }

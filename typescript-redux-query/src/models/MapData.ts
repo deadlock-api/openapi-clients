@@ -16,6 +16,9 @@ import {
     MapImages,
     MapImagesFromJSON,
     MapImagesToJSON,
+    NeutralCamp,
+    NeutralCampFromJSON,
+    NeutralCampToJSON,
     ObjectivePosition,
     ObjectivePositionFromJSON,
     ObjectivePositionToJSON,
@@ -36,6 +39,12 @@ export interface MapData  {
      * @memberof MapData
      */
     images: MapImages;
+    /**
+     * Neutral camps (build 6711+).
+     * @type {Array<NeutralCamp>}
+     * @memberof MapData
+     */
+    neutralCamps?: Array<NeutralCamp>;
     /**
      * 
      * @type {{ [key: string]: ObjectivePosition; }}
@@ -59,6 +68,7 @@ export interface MapData  {
 export function MapDataFromJSON(json: any): MapData {
     return {
         'images': MapImagesFromJSON(json['images']),
+        'neutralCamps': !exists(json, 'neutral_camps') ? undefined : (json['neutral_camps'] as Array<any>).map(NeutralCampFromJSON),
         'objectivePositions': mapValues(json['objective_positions'], ObjectivePositionFromJSON),
         'radius': json['radius'],
         'ziplinePaths': (json['zipline_paths'] as Array<any>).map(ZiplanePathFromJSON),
@@ -71,6 +81,7 @@ export function MapDataToJSON(value?: MapData): any {
     }
     return {
         'images': MapImagesToJSON(value.images),
+        'neutral_camps': value.neutralCamps === undefined ? undefined : (value.neutralCamps as Array<any>).map(NeutralCampToJSON),
         'objective_positions': mapValues(value.objectivePositions, ObjectivePositionToJSON),
         'radius': value.radius,
         'zipline_paths': (value.ziplinePaths as Array<any>).map(ZiplanePathToJSON),

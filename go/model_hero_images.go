@@ -34,6 +34,9 @@ type HeroImages struct {
 	NameImage NullableString `json:"name_image,omitempty"`
 	TopBarVerticalImage NullableString `json:"top_bar_vertical_image,omitempty"`
 	TopBarVerticalImageWebp NullableString `json:"top_bar_vertical_image_webp,omitempty"`
+	// Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+	VoteSticker NullableString `json:"vote_sticker,omitempty"`
+	VoteStickerWebp NullableString `json:"vote_sticker_webp,omitempty"`
 	WeaponImage NullableString `json:"weapon_image,omitempty"`
 	WeaponImageWebp NullableString `json:"weapon_image_webp,omitempty"`
 }
@@ -685,6 +688,90 @@ func (o *HeroImages) UnsetTopBarVerticalImageWebp() {
 	o.TopBarVerticalImageWebp.Unset()
 }
 
+// GetVoteSticker returns the VoteSticker field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImages) GetVoteSticker() string {
+	if o == nil || IsNil(o.VoteSticker.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VoteSticker.Get()
+}
+
+// GetVoteStickerOk returns a tuple with the VoteSticker field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroImages) GetVoteStickerOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VoteSticker.Get(), o.VoteSticker.IsSet()
+}
+
+// HasVoteSticker returns a boolean if a field has been set.
+func (o *HeroImages) HasVoteSticker() bool {
+	if o != nil && o.VoteSticker.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVoteSticker gets a reference to the given NullableString and assigns it to the VoteSticker field.
+func (o *HeroImages) SetVoteSticker(v string) {
+	o.VoteSticker.Set(&v)
+}
+// SetVoteStickerNil sets the value for VoteSticker to be an explicit nil
+func (o *HeroImages) SetVoteStickerNil() {
+	o.VoteSticker.Set(nil)
+}
+
+// UnsetVoteSticker ensures that no value is present for VoteSticker, not even an explicit nil
+func (o *HeroImages) UnsetVoteSticker() {
+	o.VoteSticker.Unset()
+}
+
+// GetVoteStickerWebp returns the VoteStickerWebp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroImages) GetVoteStickerWebp() string {
+	if o == nil || IsNil(o.VoteStickerWebp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.VoteStickerWebp.Get()
+}
+
+// GetVoteStickerWebpOk returns a tuple with the VoteStickerWebp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroImages) GetVoteStickerWebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.VoteStickerWebp.Get(), o.VoteStickerWebp.IsSet()
+}
+
+// HasVoteStickerWebp returns a boolean if a field has been set.
+func (o *HeroImages) HasVoteStickerWebp() bool {
+	if o != nil && o.VoteStickerWebp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetVoteStickerWebp gets a reference to the given NullableString and assigns it to the VoteStickerWebp field.
+func (o *HeroImages) SetVoteStickerWebp(v string) {
+	o.VoteStickerWebp.Set(&v)
+}
+// SetVoteStickerWebpNil sets the value for VoteStickerWebp to be an explicit nil
+func (o *HeroImages) SetVoteStickerWebpNil() {
+	o.VoteStickerWebp.Set(nil)
+}
+
+// UnsetVoteStickerWebp ensures that no value is present for VoteStickerWebp, not even an explicit nil
+func (o *HeroImages) UnsetVoteStickerWebp() {
+	o.VoteStickerWebp.Unset()
+}
+
 // GetWeaponImage returns the WeaponImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *HeroImages) GetWeaponImage() string {
 	if o == nil || IsNil(o.WeaponImage.Get()) {
@@ -823,6 +910,12 @@ func (o HeroImages) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TopBarVerticalImageWebp.IsSet() {
 		toSerialize["top_bar_vertical_image_webp"] = o.TopBarVerticalImageWebp.Get()
+	}
+	if o.VoteSticker.IsSet() {
+		toSerialize["vote_sticker"] = o.VoteSticker.Get()
+	}
+	if o.VoteStickerWebp.IsSet() {
+		toSerialize["vote_sticker_webp"] = o.VoteStickerWebp.Get()
 	}
 	if o.WeaponImage.IsSet() {
 		toSerialize["weapon_image"] = o.WeaponImage.Get()

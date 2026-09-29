@@ -59,6 +59,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'end_timestamp' => 'int',
         'interval' => 'int',
+        'leaderboard_id' => 'int',
         'start_timestamp' => 'int'
     ];
 
@@ -72,6 +73,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'end_timestamp' => 'int64',
         'interval' => 'int32',
+        'leaderboard_id' => 'int32',
         'start_timestamp' => 'int64'
     ];
 
@@ -83,6 +85,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'end_timestamp' => false,
         'interval' => false,
+        'leaderboard_id' => true,
         'start_timestamp' => false
     ];
 
@@ -174,6 +177,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'end_timestamp' => 'end_timestamp',
         'interval' => 'interval',
+        'leaderboard_id' => 'leaderboard_id',
         'start_timestamp' => 'start_timestamp'
     ];
 
@@ -185,6 +189,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'end_timestamp' => 'setEndTimestamp',
         'interval' => 'setInterval',
+        'leaderboard_id' => 'setLeaderboardId',
         'start_timestamp' => 'setStartTimestamp'
     ];
 
@@ -196,6 +201,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'end_timestamp' => 'getEndTimestamp',
         'interval' => 'getInterval',
+        'leaderboard_id' => 'getLeaderboardId',
         'start_timestamp' => 'getStartTimestamp'
     ];
 
@@ -258,6 +264,7 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('end_timestamp', $data ?? [], null);
         $this->setIfExists('interval', $data ?? [], null);
+        $this->setIfExists('leaderboard_id', $data ?? [], null);
         $this->setIfExists('start_timestamp', $data ?? [], null);
     }
 
@@ -296,6 +303,10 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['interval'] < 0)) {
             $invalidProperties[] = "invalid value for 'interval', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['leaderboard_id']) && ($this->container['leaderboard_id'] < 0)) {
+            $invalidProperties[] = "invalid value for 'leaderboard_id', must be bigger than or equal to 0.";
         }
 
         if ($this->container['start_timestamp'] === null) {
@@ -370,6 +381,44 @@ class SeasonInterval implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['interval'] = $interval;
+
+        return $this;
+    }
+
+    /**
+     * Gets leaderboard_id
+     *
+     * @return int|null
+     */
+    public function getLeaderboardId()
+    {
+        return $this->container['leaderboard_id'];
+    }
+
+    /**
+     * Sets leaderboard_id
+     *
+     * @param int|null $leaderboard_id Leaderboard backing this interval (build 6701+).
+     *
+     * @return self
+     */
+    public function setLeaderboardId($leaderboard_id)
+    {
+        if (is_null($leaderboard_id)) {
+            array_push($this->openAPINullablesSetToNull, 'leaderboard_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('leaderboard_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($leaderboard_id) && ($leaderboard_id < 0)) {
+            throw new \InvalidArgumentException('invalid value for $leaderboard_id when calling SeasonInterval., must be bigger than or equal to 0.');
+        }
+
+        $this->container['leaderboard_id'] = $leaderboard_id;
 
         return $this;
     }

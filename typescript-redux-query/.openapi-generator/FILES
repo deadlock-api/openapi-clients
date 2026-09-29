@@ -25,6 +25,7 @@ src/apis/MMRApi.ts
 src/apis/MapApi.ts
 src/apis/MatchesApi.ts
 src/apis/MiscEntitiesApi.ts
+src/apis/ModifiersApi.ts
 src/apis/NPCUnitsApi.ts
 src/apis/PatchesApi.ts
 src/apis/PlayersApi.ts
@@ -56,6 +57,7 @@ src/models/AnalyticsAbilityOrderStats.ts
 src/models/AnalyticsGameStats.ts
 src/models/AnalyticsHeroStats.ts
 src/models/BadgeDistribution.ts
+src/models/BreakablePowerupLootParams.ts
 src/models/Build.ts
 src/models/BuildHero.ts
 src/models/BuildHeroDetails.ts
@@ -70,6 +72,9 @@ src/models/ClickhouseSalts.ts
 src/models/Color.ts
 src/models/ColorGradientStop.ts
 src/models/ColumnSchema.ts
+src/models/CorruptedItemInfo.ts
+src/models/CorruptedPenalty.ts
+src/models/CorruptedPenaltyEffect.ts
 src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
 src/models/Curve.ts
@@ -115,6 +120,8 @@ src/models/HeroDevelopmentState.ts
 src/models/HeroEntry.ts
 src/models/HeroImages.ts
 src/models/HeroPhysics.ts
+src/models/HeroPopularItem.ts
+src/models/HeroPopularItems.ts
 src/models/HeroStats.ts
 src/models/HeroStatsUI.ts
 src/models/HeroStatsUIDisplay.ts
@@ -151,6 +158,7 @@ src/models/LootEntry.ts
 src/models/LootTable.ts
 src/models/MMRHistory.ts
 src/models/MapData.ts
+src/models/MapDistrict.ts
 src/models/MapImages.ts
 src/models/MatchPlayer.ts
 src/models/MatchSaltsResponse.ts
@@ -158,7 +166,10 @@ src/models/MatchSpectateResponse.ts
 src/models/MateStats.ts
 src/models/MiniMapOffsets.ts
 src/models/MiscEntity.ts
+src/models/Modifier.ts
 src/models/ModifierValue.ts
+src/models/NeutralCamp.ts
+src/models/NeutralCampKind.ts
 src/models/NewPlayerMetrics.ts
 src/models/NpcUnit.ts
 src/models/ObjectiveParams.ts
@@ -227,6 +238,8 @@ src/models/SubclassIntrinsicModifiers.ts
 src/models/SubclassIntrinsicModifiersSubclass.ts
 src/models/SubclassModifierDefinition.ts
 src/models/SubclassModifierDefinitionSubclass.ts
+src/models/SubclassNeutralDamageGrowth.ts
+src/models/SubclassNeutralDamageGrowthSubclass.ts
 src/models/SubclassObjectiveHealthGrowthPhase.ts
 src/models/SubclassObjectiveHealthGrowthPhaseSubclass.ts
 src/models/SubclassObjectiveRegen.ts

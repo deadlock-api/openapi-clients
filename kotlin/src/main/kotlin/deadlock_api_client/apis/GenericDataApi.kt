@@ -100,7 +100,7 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * GET /v1/assets/generic-data
      * Get Generic Data
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
      * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return GenericData
@@ -133,7 +133,7 @@ open class GenericDataApi(basePath: kotlin.String = defaultBasePath, client: Cal
     /**
      * GET /v1/assets/generic-data
      * Get Generic Data
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
      * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<GenericData?>

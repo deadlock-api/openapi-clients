@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Description** | [**HeroDescription**](HeroDescription.md) |  | 
 **DevelopmentState** | Pointer to [**NullableHeroDevelopmentState**](HeroDevelopmentState.md) | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one. | [optional] 
 **Disabled** | **bool** |  | 
+**Gender** | Pointer to **NullableString** | Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;. | [optional] 
 **GunTag** | Pointer to **NullableString** |  | [optional] 
 **HeroStatsUi** | [**HeroStatsUI**](HeroStatsUI.md) |  | 
 **HeroType** | Pointer to [**NullableHeroType**](HeroType.md) |  | [optional] 
@@ -29,9 +30,11 @@ Name | Type | Description | Notes
 **NeedsTesting** | **bool** |  | 
 **Physics** | [**HeroPhysics**](HeroPhysics.md) |  | 
 **PlayerSelectable** | **bool** | Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;. | 
+**PopularItems** | Pointer to [**NullableHeroPopularItems**](HeroPopularItems.md) | Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data. | [optional] 
 **PrereleaseOnly** | Pointer to **NullableBool** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] 
 **PurchaseBonuses** | [**map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner**](array.md) | Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds. | 
 **ScalingStats** | [**map[string]HashMapStringScalingStatValue**](HashMapStringScalingStatValue.md) |  | 
+**SearchName** | Pointer to **NullableString** | Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+). | [optional] 
 **ShopStatDisplay** | [**ShopStatDisplay**](ShopStatDisplay.md) |  | 
 **Skin** | **int64** |  | 
 **StandardLevelUpUpgrades** | **map[string]float64** |  | 
@@ -248,6 +251,41 @@ and a boolean to check if the value has been set.
 SetDisabled sets Disabled field to given value.
 
 
+### GetGender
+
+`func (o *Hero) GetGender() string`
+
+GetGender returns the Gender field if non-nil, zero value otherwise.
+
+### GetGenderOk
+
+`func (o *Hero) GetGenderOk() (*string, bool)`
+
+GetGenderOk returns a tuple with the Gender field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGender
+
+`func (o *Hero) SetGender(v string)`
+
+SetGender sets Gender field to given value.
+
+### HasGender
+
+`func (o *Hero) HasGender() bool`
+
+HasGender returns a boolean if a field has been set.
+
+### SetGenderNil
+
+`func (o *Hero) SetGenderNil(b bool)`
+
+ SetGenderNil sets the value for Gender to be an explicit nil
+
+### UnsetGender
+`func (o *Hero) UnsetGender()`
+
+UnsetGender ensures that no value is present for Gender, not even an explicit nil
 ### GetGunTag
 
 `func (o *Hero) GetGunTag() string`
@@ -663,6 +701,41 @@ and a boolean to check if the value has been set.
 SetPlayerSelectable sets PlayerSelectable field to given value.
 
 
+### GetPopularItems
+
+`func (o *Hero) GetPopularItems() HeroPopularItems`
+
+GetPopularItems returns the PopularItems field if non-nil, zero value otherwise.
+
+### GetPopularItemsOk
+
+`func (o *Hero) GetPopularItemsOk() (*HeroPopularItems, bool)`
+
+GetPopularItemsOk returns a tuple with the PopularItems field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPopularItems
+
+`func (o *Hero) SetPopularItems(v HeroPopularItems)`
+
+SetPopularItems sets PopularItems field to given value.
+
+### HasPopularItems
+
+`func (o *Hero) HasPopularItems() bool`
+
+HasPopularItems returns a boolean if a field has been set.
+
+### SetPopularItemsNil
+
+`func (o *Hero) SetPopularItemsNil(b bool)`
+
+ SetPopularItemsNil sets the value for PopularItems to be an explicit nil
+
+### UnsetPopularItems
+`func (o *Hero) UnsetPopularItems()`
+
+UnsetPopularItems ensures that no value is present for PopularItems, not even an explicit nil
 ### GetPrereleaseOnly
 
 `func (o *Hero) GetPrereleaseOnly() bool`
@@ -738,6 +811,41 @@ and a boolean to check if the value has been set.
 SetScalingStats sets ScalingStats field to given value.
 
 
+### GetSearchName
+
+`func (o *Hero) GetSearchName() string`
+
+GetSearchName returns the SearchName field if non-nil, zero value otherwise.
+
+### GetSearchNameOk
+
+`func (o *Hero) GetSearchNameOk() (*string, bool)`
+
+GetSearchNameOk returns a tuple with the SearchName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchName
+
+`func (o *Hero) SetSearchName(v string)`
+
+SetSearchName sets SearchName field to given value.
+
+### HasSearchName
+
+`func (o *Hero) HasSearchName() bool`
+
+HasSearchName returns a boolean if a field has been set.
+
+### SetSearchNameNil
+
+`func (o *Hero) SetSearchNameNil(b bool)`
+
+ SetSearchNameNil sets the value for SearchName to be an explicit nil
+
+### UnsetSearchName
+`func (o *Hero) UnsetSearchName()`
+
+UnsetSearchName ensures that no value is present for SearchName, not even an explicit nil
 ### GetShopStatDisplay
 
 `func (o *Hero) GetShopStatDisplay() ShopStatDisplay`

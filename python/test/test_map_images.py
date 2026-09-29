@@ -45,7 +45,6 @@ class TestMapImages(unittest.TestCase):
             )
         else:
             return MapImages(
-                background = '',
                 frame = '',
                 mid = '',
                 minimap = '',

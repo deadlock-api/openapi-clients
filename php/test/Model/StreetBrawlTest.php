@@ -125,6 +125,15 @@ class StreetBrawlTest extends TestCase
     }
 
     /**
+     * Test attribute "corrupt_item_round"
+     */
+    public function testPropertyCorruptItemRound()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_per_round"
      */
     public function testPropertyGoldPerRound()

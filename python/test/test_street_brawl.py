@@ -44,6 +44,7 @@ class TestStreetBrawl(unittest.TestCase):
                 buy_time_grace_period = 1.337,
                 comeback_bonus_health = 56,
                 comeback_bonus_health_critical = 56,
+                corrupt_item_round = 56,
                 gold_per_round = [
                     56
                     ],

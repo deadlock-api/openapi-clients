@@ -46,6 +46,8 @@ import java.io.Serializable
  * @param nameImage 
  * @param topBarVerticalImage 
  * @param topBarVerticalImageWebp 
+ * @param voteSticker Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+ * @param voteStickerWebp 
  * @param weaponImage 
  * @param weaponImageWebp 
  */
@@ -97,6 +99,13 @@ data class HeroImages (
 
     @Json(name = "top_bar_vertical_image_webp")
     val topBarVerticalImageWebp: kotlin.String? = null,
+
+    /* Hero release vote sticker (`m_strVoteSticker`, build 6711+). */
+    @Json(name = "vote_sticker")
+    val voteSticker: kotlin.String? = null,
+
+    @Json(name = "vote_sticker_webp")
+    val voteStickerWebp: kotlin.String? = null,
 
     @Json(name = "weapon_image")
     val weaponImage: kotlin.String? = null,

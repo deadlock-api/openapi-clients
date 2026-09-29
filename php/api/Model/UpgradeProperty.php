@@ -70,6 +70,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => 'string',
         'prefix' => 'string',
         'provided_property_type' => 'string',
+        'required_upgrade_bits' => 'string[]',
         'scale_function' => '\OpenAPI\Client\Model\RawItemPropertyScaleFunctionSubclass',
         'street_brawl_value' => 'string',
         'usage_flags' => '\OpenAPI\Client\Model\StatsUsageFlag[]',
@@ -100,6 +101,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => null,
         'prefix' => null,
         'provided_property_type' => null,
+        'required_upgrade_bits' => null,
         'scale_function' => null,
         'street_brawl_value' => null,
         'usage_flags' => null,
@@ -128,6 +130,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => false,
         'prefix' => false,
         'provided_property_type' => false,
+        'required_upgrade_bits' => false,
         'scale_function' => false,
         'street_brawl_value' => false,
         'usage_flags' => false,
@@ -236,6 +239,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => 'postvalue_label',
         'prefix' => 'prefix',
         'provided_property_type' => 'provided_property_type',
+        'required_upgrade_bits' => 'required_upgrade_bits',
         'scale_function' => 'scale_function',
         'street_brawl_value' => 'street_brawl_value',
         'usage_flags' => 'usage_flags',
@@ -264,6 +268,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => 'setPostvalueLabel',
         'prefix' => 'setPrefix',
         'provided_property_type' => 'setProvidedPropertyType',
+        'required_upgrade_bits' => 'setRequiredUpgradeBits',
         'scale_function' => 'setScaleFunction',
         'street_brawl_value' => 'setStreetBrawlValue',
         'usage_flags' => 'setUsageFlags',
@@ -292,6 +297,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'postvalue_label' => 'getPostvalueLabel',
         'prefix' => 'getPrefix',
         'provided_property_type' => 'getProvidedPropertyType',
+        'required_upgrade_bits' => 'getRequiredUpgradeBits',
         'scale_function' => 'getScaleFunction',
         'street_brawl_value' => 'getStreetBrawlValue',
         'usage_flags' => 'getUsageFlags',
@@ -371,6 +377,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('postvalue_label', $data ?? [], null);
         $this->setIfExists('prefix', $data ?? [], null);
         $this->setIfExists('provided_property_type', $data ?? [], null);
+        $this->setIfExists('required_upgrade_bits', $data ?? [], null);
         $this->setIfExists('scale_function', $data ?? [], null);
         $this->setIfExists('street_brawl_value', $data ?? [], null);
         $this->setIfExists('usage_flags', $data ?? [], null);
@@ -769,6 +776,33 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable provided_property_type cannot be null');
         }
         $this->container['provided_property_type'] = $provided_property_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets required_upgrade_bits
+     *
+     * @return string[]|null
+     */
+    public function getRequiredUpgradeBits()
+    {
+        return $this->container['required_upgrade_bits'];
+    }
+
+    /**
+     * Sets required_upgrade_bits
+     *
+     * @param string[]|null $required_upgrade_bits Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+     *
+     * @return self
+     */
+    public function setRequiredUpgradeBits($required_upgrade_bits)
+    {
+        if (is_null($required_upgrade_bits)) {
+            throw new \InvalidArgumentException('non-nullable required_upgrade_bits cannot be null');
+        }
+        $this->container['required_upgrade_bits'] = $required_upgrade_bits;
 
         return $this;
     }

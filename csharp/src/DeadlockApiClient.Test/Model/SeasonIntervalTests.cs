@@ -79,5 +79,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'StartTimestamp'
         }
+
+        /// <summary>
+        /// Test the property 'LeaderboardId'
+        /// </summary>
+        [Fact]
+        public void LeaderboardIdTest()
+        {
+            // TODO unit test for the property 'LeaderboardId'
+        }
     }
 }

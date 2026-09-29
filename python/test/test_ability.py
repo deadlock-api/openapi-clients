@@ -82,6 +82,9 @@ class TestAbility(unittest.TestCase):
                         postvalue_label = '', 
                         prefix = '', 
                         provided_property_type = '', 
+                        required_upgrade_bits = [
+                            ''
+                            ], 
                         scale_function = null, 
                         street_brawl_value = '', 
                         usage_flags = [
@@ -122,7 +125,9 @@ class TestAbility(unittest.TestCase):
                         property_upgrades = [
                             deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
                                 bonus = '', 
+                                fixed_corrupted_bonus = True, 
                                 name = '', 
+                                round_corrupted_bonus = True, 
                                 scale_stat_filter = '', 
                                 upgrade_type = '', )
                             ], )

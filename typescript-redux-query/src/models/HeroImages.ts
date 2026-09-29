@@ -109,6 +109,18 @@ export interface HeroImages  {
      */
     topBarVerticalImageWebp?: string;
     /**
+     * Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+     * @type {string}
+     * @memberof HeroImages
+     */
+    voteSticker?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof HeroImages
+     */
+    voteStickerWebp?: string;
+    /**
      * 
      * @type {string}
      * @memberof HeroImages
@@ -139,6 +151,8 @@ export function HeroImagesFromJSON(json: any): HeroImages {
         'nameImage': !exists(json, 'name_image') ? undefined : json['name_image'],
         'topBarVerticalImage': !exists(json, 'top_bar_vertical_image') ? undefined : json['top_bar_vertical_image'],
         'topBarVerticalImageWebp': !exists(json, 'top_bar_vertical_image_webp') ? undefined : json['top_bar_vertical_image_webp'],
+        'voteSticker': !exists(json, 'vote_sticker') ? undefined : json['vote_sticker'],
+        'voteStickerWebp': !exists(json, 'vote_sticker_webp') ? undefined : json['vote_sticker_webp'],
         'weaponImage': !exists(json, 'weapon_image') ? undefined : json['weapon_image'],
         'weaponImageWebp': !exists(json, 'weapon_image_webp') ? undefined : json['weapon_image_webp'],
     };
@@ -164,6 +178,8 @@ export function HeroImagesToJSON(value?: HeroImages): any {
         'name_image': value.nameImage,
         'top_bar_vertical_image': value.topBarVerticalImage,
         'top_bar_vertical_image_webp': value.topBarVerticalImageWebp,
+        'vote_sticker': value.voteSticker,
+        'vote_sticker_webp': value.voteStickerWebp,
         'weapon_image': value.weaponImage,
         'weapon_image_webp': value.weaponImageWebp,
     };

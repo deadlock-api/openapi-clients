@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **AlwaysShowInUi** | Pointer to **[]string** |  | [optional] 
 **ClassName** | Pointer to **NullableString** |  | [optional] 
 **Duration** | Pointer to **NullableFloat64** |  | [optional] 
+**EnabledStateMask** | Pointer to **NullableString** | Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;. | [optional] 
 **ModifierValues** | Pointer to [**[]ModifierValue**](ModifierValue.md) |  | [optional] 
 **ScriptValues** | Pointer to [**[]ModifierValue**](ModifierValue.md) |  | [optional] 
 **SubclassName** | Pointer to **NullableString** |  | [optional] 
@@ -137,6 +138,41 @@ HasDuration returns a boolean if a field has been set.
 `func (o *SubclassModifierDefinitionSubclass) UnsetDuration()`
 
 UnsetDuration ensures that no value is present for Duration, not even an explicit nil
+### GetEnabledStateMask
+
+`func (o *SubclassModifierDefinitionSubclass) GetEnabledStateMask() string`
+
+GetEnabledStateMask returns the EnabledStateMask field if non-nil, zero value otherwise.
+
+### GetEnabledStateMaskOk
+
+`func (o *SubclassModifierDefinitionSubclass) GetEnabledStateMaskOk() (*string, bool)`
+
+GetEnabledStateMaskOk returns a tuple with the EnabledStateMask field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabledStateMask
+
+`func (o *SubclassModifierDefinitionSubclass) SetEnabledStateMask(v string)`
+
+SetEnabledStateMask sets EnabledStateMask field to given value.
+
+### HasEnabledStateMask
+
+`func (o *SubclassModifierDefinitionSubclass) HasEnabledStateMask() bool`
+
+HasEnabledStateMask returns a boolean if a field has been set.
+
+### SetEnabledStateMaskNil
+
+`func (o *SubclassModifierDefinitionSubclass) SetEnabledStateMaskNil(b bool)`
+
+ SetEnabledStateMaskNil sets the value for EnabledStateMask to be an explicit nil
+
+### UnsetEnabledStateMask
+`func (o *SubclassModifierDefinitionSubclass) UnsetEnabledStateMask()`
+
+UnsetEnabledStateMask ensures that no value is present for EnabledStateMask, not even an explicit nil
 ### GetModifierValues
 
 `func (o *SubclassModifierDefinitionSubclass) GetModifierValues() []ModifierValue`

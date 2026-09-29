@@ -81,6 +81,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => '\OpenAPI\Client\Model\Color',
         'health_bar_color_team_neutral' => '\OpenAPI\Client\Model\Color',
         'id' => 'int',
+        'image' => 'string',
+        'image_webp' => 'string',
         'intrinsic_modifiers' => '\OpenAPI\Client\Model\SubclassIntrinsicModifiers[]',
         'laser_dps_max_health' => 'float',
         'laser_dps_to_players' => 'float',
@@ -91,7 +93,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'float',
         'melee_duration' => 'float',
         'melee_hit_range' => 'float',
+        'name' => 'string',
         'near_death_duration' => 'float',
+        'neutral_abilities' => 'string[]',
+        'neutral_damage_growth' => '\OpenAPI\Client\Model\SubclassNeutralDamageGrowth',
+        'neutral_melee' => 'string',
+        'neutral_type' => 'string',
         'no_shield_laser_dps_to_players' => 'float',
         'objective_health_growth_phase1' => '\OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase',
         'objective_health_growth_phase2' => '\OpenAPI\Client\Model\SubclassObjectiveHealthGrowthPhase',
@@ -122,6 +129,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => 'float',
         'trooper_damage_resist_pct' => 'float',
         'trooper_dps' => 'float',
+        'viewer_souls_class' => 'array<string,string>',
         'walk_speed' => 'float',
         'weapon_info' => '\OpenAPI\Client\Model\WeaponInfo'
     ];
@@ -158,6 +166,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => null,
         'health_bar_color_team_neutral' => null,
         'id' => 'int32',
+        'image' => null,
+        'image_webp' => null,
         'intrinsic_modifiers' => null,
         'laser_dps_max_health' => 'double',
         'laser_dps_to_players' => 'double',
@@ -168,7 +178,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'double',
         'melee_duration' => 'double',
         'melee_hit_range' => 'double',
+        'name' => null,
         'near_death_duration' => 'double',
+        'neutral_abilities' => null,
+        'neutral_damage_growth' => null,
+        'neutral_melee' => null,
+        'neutral_type' => null,
         'no_shield_laser_dps_to_players' => 'double',
         'objective_health_growth_phase1' => null,
         'objective_health_growth_phase2' => null,
@@ -199,6 +214,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => 'double',
         'trooper_damage_resist_pct' => 'double',
         'trooper_dps' => 'double',
+        'viewer_souls_class' => null,
         'walk_speed' => 'double',
         'weapon_info' => null
     ];
@@ -233,6 +249,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => true,
         'health_bar_color_team_neutral' => true,
         'id' => false,
+        'image' => true,
+        'image_webp' => true,
         'intrinsic_modifiers' => true,
         'laser_dps_max_health' => true,
         'laser_dps_to_players' => true,
@@ -243,7 +261,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => true,
         'melee_duration' => true,
         'melee_hit_range' => true,
+        'name' => true,
         'near_death_duration' => true,
+        'neutral_abilities' => true,
+        'neutral_damage_growth' => true,
+        'neutral_melee' => true,
+        'neutral_type' => true,
         'no_shield_laser_dps_to_players' => true,
         'objective_health_growth_phase1' => true,
         'objective_health_growth_phase2' => true,
@@ -274,6 +297,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => true,
         'trooper_damage_resist_pct' => true,
         'trooper_dps' => true,
+        'viewer_souls_class' => true,
         'walk_speed' => true,
         'weapon_info' => true
     ];
@@ -388,6 +412,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => 'health_bar_color_team2',
         'health_bar_color_team_neutral' => 'health_bar_color_team_neutral',
         'id' => 'id',
+        'image' => 'image',
+        'image_webp' => 'image_webp',
         'intrinsic_modifiers' => 'intrinsic_modifiers',
         'laser_dps_max_health' => 'laser_dps_max_health',
         'laser_dps_to_players' => 'laser_dps_to_players',
@@ -398,7 +424,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'melee_damage',
         'melee_duration' => 'melee_duration',
         'melee_hit_range' => 'melee_hit_range',
+        'name' => 'name',
         'near_death_duration' => 'near_death_duration',
+        'neutral_abilities' => 'neutral_abilities',
+        'neutral_damage_growth' => 'neutral_damage_growth',
+        'neutral_melee' => 'neutral_melee',
+        'neutral_type' => 'neutral_type',
         'no_shield_laser_dps_to_players' => 'no_shield_laser_dps_to_players',
         'objective_health_growth_phase1' => 'objective_health_growth_phase1',
         'objective_health_growth_phase2' => 'objective_health_growth_phase2',
@@ -429,6 +460,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => 't3_boss_dps',
         'trooper_damage_resist_pct' => 'trooper_damage_resist_pct',
         'trooper_dps' => 'trooper_dps',
+        'viewer_souls_class' => 'viewer_souls_class',
         'walk_speed' => 'walk_speed',
         'weapon_info' => 'weapon_info'
     ];
@@ -463,6 +495,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => 'setHealthBarColorTeam2',
         'health_bar_color_team_neutral' => 'setHealthBarColorTeamNeutral',
         'id' => 'setId',
+        'image' => 'setImage',
+        'image_webp' => 'setImageWebp',
         'intrinsic_modifiers' => 'setIntrinsicModifiers',
         'laser_dps_max_health' => 'setLaserDpsMaxHealth',
         'laser_dps_to_players' => 'setLaserDpsToPlayers',
@@ -473,7 +507,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'setMeleeDamage',
         'melee_duration' => 'setMeleeDuration',
         'melee_hit_range' => 'setMeleeHitRange',
+        'name' => 'setName',
         'near_death_duration' => 'setNearDeathDuration',
+        'neutral_abilities' => 'setNeutralAbilities',
+        'neutral_damage_growth' => 'setNeutralDamageGrowth',
+        'neutral_melee' => 'setNeutralMelee',
+        'neutral_type' => 'setNeutralType',
         'no_shield_laser_dps_to_players' => 'setNoShieldLaserDpsToPlayers',
         'objective_health_growth_phase1' => 'setObjectiveHealthGrowthPhase1',
         'objective_health_growth_phase2' => 'setObjectiveHealthGrowthPhase2',
@@ -504,6 +543,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => 'setT3BossDps',
         'trooper_damage_resist_pct' => 'setTrooperDamageResistPct',
         'trooper_dps' => 'setTrooperDps',
+        'viewer_souls_class' => 'setViewerSoulsClass',
         'walk_speed' => 'setWalkSpeed',
         'weapon_info' => 'setWeaponInfo'
     ];
@@ -538,6 +578,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'health_bar_color_team2' => 'getHealthBarColorTeam2',
         'health_bar_color_team_neutral' => 'getHealthBarColorTeamNeutral',
         'id' => 'getId',
+        'image' => 'getImage',
+        'image_webp' => 'getImageWebp',
         'intrinsic_modifiers' => 'getIntrinsicModifiers',
         'laser_dps_max_health' => 'getLaserDpsMaxHealth',
         'laser_dps_to_players' => 'getLaserDpsToPlayers',
@@ -548,7 +590,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'getMeleeDamage',
         'melee_duration' => 'getMeleeDuration',
         'melee_hit_range' => 'getMeleeHitRange',
+        'name' => 'getName',
         'near_death_duration' => 'getNearDeathDuration',
+        'neutral_abilities' => 'getNeutralAbilities',
+        'neutral_damage_growth' => 'getNeutralDamageGrowth',
+        'neutral_melee' => 'getNeutralMelee',
+        'neutral_type' => 'getNeutralType',
         'no_shield_laser_dps_to_players' => 'getNoShieldLaserDpsToPlayers',
         'objective_health_growth_phase1' => 'getObjectiveHealthGrowthPhase1',
         'objective_health_growth_phase2' => 'getObjectiveHealthGrowthPhase2',
@@ -579,6 +626,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't3_boss_dps' => 'getT3BossDps',
         'trooper_damage_resist_pct' => 'getTrooperDamageResistPct',
         'trooper_dps' => 'getTrooperDps',
+        'viewer_souls_class' => 'getViewerSoulsClass',
         'walk_speed' => 'getWalkSpeed',
         'weapon_info' => 'getWeaponInfo'
     ];
@@ -664,6 +712,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('health_bar_color_team2', $data ?? [], null);
         $this->setIfExists('health_bar_color_team_neutral', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
+        $this->setIfExists('image_webp', $data ?? [], null);
         $this->setIfExists('intrinsic_modifiers', $data ?? [], null);
         $this->setIfExists('laser_dps_max_health', $data ?? [], null);
         $this->setIfExists('laser_dps_to_players', $data ?? [], null);
@@ -674,7 +724,12 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('melee_damage', $data ?? [], null);
         $this->setIfExists('melee_duration', $data ?? [], null);
         $this->setIfExists('melee_hit_range', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('near_death_duration', $data ?? [], null);
+        $this->setIfExists('neutral_abilities', $data ?? [], null);
+        $this->setIfExists('neutral_damage_growth', $data ?? [], null);
+        $this->setIfExists('neutral_melee', $data ?? [], null);
+        $this->setIfExists('neutral_type', $data ?? [], null);
         $this->setIfExists('no_shield_laser_dps_to_players', $data ?? [], null);
         $this->setIfExists('objective_health_growth_phase1', $data ?? [], null);
         $this->setIfExists('objective_health_growth_phase2', $data ?? [], null);
@@ -705,6 +760,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('t3_boss_dps', $data ?? [], null);
         $this->setIfExists('trooper_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('trooper_dps', $data ?? [], null);
+        $this->setIfExists('viewer_souls_class', $data ?? [], null);
         $this->setIfExists('walk_speed', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
     }
@@ -1568,6 +1624,74 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets image
+     *
+     * @return string|null
+     */
+    public function getImage()
+    {
+        return $this->container['image'];
+    }
+
+    /**
+     * Sets image
+     *
+     * @param string|null $image Unit icon (`m_strCustomUnitIcon`) as png.
+     *
+     * @return self
+     */
+    public function setImage($image)
+    {
+        if (is_null($image)) {
+            array_push($this->openAPINullablesSetToNull, 'image');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image'] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Gets image_webp
+     *
+     * @return string|null
+     */
+    public function getImageWebp()
+    {
+        return $this->container['image_webp'];
+    }
+
+    /**
+     * Sets image_webp
+     *
+     * @param string|null $image_webp Unit icon (`m_strCustomUnitIcon`) as webp.
+     *
+     * @return self
+     */
+    public function setImageWebp($image_webp)
+    {
+        if (is_null($image_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'image_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('image_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['image_webp'] = $image_webp;
+
+        return $this;
+    }
+
+    /**
      * Gets intrinsic_modifiers
      *
      * @return \OpenAPI\Client\Model\SubclassIntrinsicModifiers[]|null
@@ -1908,6 +2032,40 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
      * Gets near_death_duration
      *
      * @return float|null
@@ -1937,6 +2095,142 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['near_death_duration'] = $near_death_duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_abilities
+     *
+     * @return string[]|null
+     */
+    public function getNeutralAbilities()
+    {
+        return $this->container['neutral_abilities'];
+    }
+
+    /**
+     * Sets neutral_abilities
+     *
+     * @param string[]|null $neutral_abilities Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+     *
+     * @return self
+     */
+    public function setNeutralAbilities($neutral_abilities)
+    {
+        if (is_null($neutral_abilities)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_abilities');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_abilities', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_abilities'] = $neutral_abilities;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_damage_growth
+     *
+     * @return \OpenAPI\Client\Model\SubclassNeutralDamageGrowth|null
+     */
+    public function getNeutralDamageGrowth()
+    {
+        return $this->container['neutral_damage_growth'];
+    }
+
+    /**
+     * Sets neutral_damage_growth
+     *
+     * @param \OpenAPI\Client\Model\SubclassNeutralDamageGrowth|null $neutral_damage_growth neutral_damage_growth
+     *
+     * @return self
+     */
+    public function setNeutralDamageGrowth($neutral_damage_growth)
+    {
+        if (is_null($neutral_damage_growth)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_damage_growth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_damage_growth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_damage_growth'] = $neutral_damage_growth;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_melee
+     *
+     * @return string|null
+     */
+    public function getNeutralMelee()
+    {
+        return $this->container['neutral_melee'];
+    }
+
+    /**
+     * Sets neutral_melee
+     *
+     * @param string|null $neutral_melee Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+     *
+     * @return self
+     */
+    public function setNeutralMelee($neutral_melee)
+    {
+        if (is_null($neutral_melee)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_melee');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_melee', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_melee'] = $neutral_melee;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_type
+     *
+     * @return string|null
+     */
+    public function getNeutralType()
+    {
+        return $this->container['neutral_type'];
+    }
+
+    /**
+     * Sets neutral_type
+     *
+     * @param string|null $neutral_type Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+     *
+     * @return self
+     */
+    public function setNeutralType($neutral_type)
+    {
+        if (is_null($neutral_type)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_type'] = $neutral_type;
 
         return $this;
     }
@@ -2957,6 +3251,40 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['trooper_dps'] = $trooper_dps;
+
+        return $this;
+    }
+
+    /**
+     * Gets viewer_souls_class
+     *
+     * @return array<string,string>|null
+     */
+    public function getViewerSoulsClass()
+    {
+        return $this->container['viewer_souls_class'];
+    }
+
+    /**
+     * Sets viewer_souls_class
+     *
+     * @param array<string,string>|null $viewer_souls_class Distance threshold (as string key) → soul orb class shown to the viewer.
+     *
+     * @return self
+     */
+    public function setViewerSoulsClass($viewer_souls_class)
+    {
+        if (is_null($viewer_souls_class)) {
+            array_push($this->openAPINullablesSetToNull, 'viewer_souls_class');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('viewer_souls_class', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['viewer_souls_class'] = $viewer_souls_class;
 
         return $this;
     }

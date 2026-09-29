@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
+from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.npc_unit import NpcUnit
@@ -42,6 +42,7 @@ class NPCUnitsApi:
     def get_npc_unit(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -62,6 +63,8 @@ class NPCUnitsApi:
 
         :param id_or_classname: NPC unit id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -88,6 +91,7 @@ class NPCUnitsApi:
 
         _param = self._get_npc_unit_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,6 +119,7 @@ class NPCUnitsApi:
     def get_npc_unit_with_http_info(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -135,6 +140,8 @@ class NPCUnitsApi:
 
         :param id_or_classname: NPC unit id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -161,6 +168,7 @@ class NPCUnitsApi:
 
         _param = self._get_npc_unit_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -188,6 +196,7 @@ class NPCUnitsApi:
     def get_npc_unit_without_preload_content(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="NPC unit id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -208,6 +217,8 @@ class NPCUnitsApi:
 
         :param id_or_classname: NPC unit id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -234,6 +245,7 @@ class NPCUnitsApi:
 
         _param = self._get_npc_unit_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -256,6 +268,7 @@ class NPCUnitsApi:
     def _get_npc_unit_serialize(
         self,
         id_or_classname,
+        language,
         client_version,
         _request_auth,
         _content_type,
@@ -281,6 +294,10 @@ class NPCUnitsApi:
         if id_or_classname is not None:
             _path_params['id_or_classname'] = id_or_classname
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         if client_version is not None:
             
             _query_params.append(('client_version', client_version))
@@ -324,6 +341,7 @@ class NPCUnitsApi:
     @validate_call
     def list_npc_units(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -340,8 +358,10 @@ class NPCUnitsApi:
     ) -> List[NpcUnit]:
         """List NPC Units
 
-        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -367,6 +387,7 @@ class NPCUnitsApi:
         """ # noqa: E501
 
         _param = self._list_npc_units_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -393,6 +414,7 @@ class NPCUnitsApi:
     @validate_call
     def list_npc_units_with_http_info(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -409,8 +431,10 @@ class NPCUnitsApi:
     ) -> ApiResponse[List[NpcUnit]]:
         """List NPC Units
 
-        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -436,6 +460,7 @@ class NPCUnitsApi:
         """ # noqa: E501
 
         _param = self._list_npc_units_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -462,6 +487,7 @@ class NPCUnitsApi:
     @validate_call
     def list_npc_units_without_preload_content(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -478,8 +504,10 @@ class NPCUnitsApi:
     ) -> RESTResponseType:
         """List NPC Units
 
-        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -505,6 +533,7 @@ class NPCUnitsApi:
         """ # noqa: E501
 
         _param = self._list_npc_units_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -526,6 +555,7 @@ class NPCUnitsApi:
 
     def _list_npc_units_serialize(
         self,
+        language,
         client_version,
         _request_auth,
         _content_type,
@@ -549,6 +579,10 @@ class NPCUnitsApi:
 
         # process the path parameters
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         if client_version is not None:
             
             _query_params.append(('client_version', client_version))

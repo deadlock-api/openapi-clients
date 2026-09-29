@@ -28,6 +28,8 @@
 | **healthBarColorTeam1** | [**Color**](Color.md) |  |  [optional] |
 | **healthBarColorTeam2** | [**Color**](Color.md) |  |  [optional] |
 | **healthBarColorTeamNeutral** | [**Color**](Color.md) |  |  [optional] |
+| **image** | **kotlin.String** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png. |  [optional] |
+| **imageWebp** | **kotlin.String** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp. |  [optional] |
 | **intrinsicModifiers** | [**kotlin.collections.List&lt;SubclassIntrinsicModifiers&gt;**](SubclassIntrinsicModifiers.md) |  |  [optional] |
 | **laserDpsMaxHealth** | **kotlin.Double** |  |  [optional] |
 | **laserDpsToPlayers** | **kotlin.Double** |  |  [optional] |
@@ -38,7 +40,12 @@
 | **meleeDamage** | **kotlin.Double** |  |  [optional] |
 | **meleeDuration** | **kotlin.Double** |  |  [optional] |
 | **meleeHitRange** | **kotlin.Double** |  |  [optional] |
+| **name** | **kotlin.String** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. |  [optional] |
 | **nearDeathDuration** | **kotlin.Double** |  |  [optional] |
+| **neutralAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). |  [optional] |
+| **neutralDamageGrowth** | [**SubclassNeutralDamageGrowth**](SubclassNeutralDamageGrowth.md) |  |  [optional] |
+| **neutralMelee** | **kotlin.String** | Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). |  [optional] |
+| **neutralType** | **kotlin.String** | Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+). |  [optional] |
 | **noShieldLaserDpsToPlayers** | **kotlin.Double** |  |  [optional] |
 | **objectiveHealthGrowthPhase1** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  |  [optional] |
 | **objectiveHealthGrowthPhase2** | [**SubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  |  [optional] |
@@ -69,6 +76,7 @@
 | **t3BossDps** | **kotlin.Double** |  |  [optional] |
 | **trooperDamageResistPct** | **kotlin.Double** |  |  [optional] |
 | **trooperDps** | **kotlin.Double** |  |  [optional] |
+| **viewerSoulsClass** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** | Distance threshold (as string key) → soul orb class shown to the viewer. |  [optional] |
 | **walkSpeed** | **kotlin.Double** |  |  [optional] |
 | **weaponInfo** | [**WeaponInfo**](WeaponInfo.md) |  |  [optional] |
 

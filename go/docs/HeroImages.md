@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **NameImage** | Pointer to **NullableString** |  | [optional] 
 **TopBarVerticalImage** | Pointer to **NullableString** |  | [optional] 
 **TopBarVerticalImageWebp** | Pointer to **NullableString** |  | [optional] 
+**VoteSticker** | Pointer to **NullableString** | Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+). | [optional] 
+**VoteStickerWebp** | Pointer to **NullableString** |  | [optional] 
 **WeaponImage** | Pointer to **NullableString** |  | [optional] 
 **WeaponImageWebp** | Pointer to **NullableString** |  | [optional] 
 
@@ -566,6 +568,76 @@ HasTopBarVerticalImageWebp returns a boolean if a field has been set.
 `func (o *HeroImages) UnsetTopBarVerticalImageWebp()`
 
 UnsetTopBarVerticalImageWebp ensures that no value is present for TopBarVerticalImageWebp, not even an explicit nil
+### GetVoteSticker
+
+`func (o *HeroImages) GetVoteSticker() string`
+
+GetVoteSticker returns the VoteSticker field if non-nil, zero value otherwise.
+
+### GetVoteStickerOk
+
+`func (o *HeroImages) GetVoteStickerOk() (*string, bool)`
+
+GetVoteStickerOk returns a tuple with the VoteSticker field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVoteSticker
+
+`func (o *HeroImages) SetVoteSticker(v string)`
+
+SetVoteSticker sets VoteSticker field to given value.
+
+### HasVoteSticker
+
+`func (o *HeroImages) HasVoteSticker() bool`
+
+HasVoteSticker returns a boolean if a field has been set.
+
+### SetVoteStickerNil
+
+`func (o *HeroImages) SetVoteStickerNil(b bool)`
+
+ SetVoteStickerNil sets the value for VoteSticker to be an explicit nil
+
+### UnsetVoteSticker
+`func (o *HeroImages) UnsetVoteSticker()`
+
+UnsetVoteSticker ensures that no value is present for VoteSticker, not even an explicit nil
+### GetVoteStickerWebp
+
+`func (o *HeroImages) GetVoteStickerWebp() string`
+
+GetVoteStickerWebp returns the VoteStickerWebp field if non-nil, zero value otherwise.
+
+### GetVoteStickerWebpOk
+
+`func (o *HeroImages) GetVoteStickerWebpOk() (*string, bool)`
+
+GetVoteStickerWebpOk returns a tuple with the VoteStickerWebp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVoteStickerWebp
+
+`func (o *HeroImages) SetVoteStickerWebp(v string)`
+
+SetVoteStickerWebp sets VoteStickerWebp field to given value.
+
+### HasVoteStickerWebp
+
+`func (o *HeroImages) HasVoteStickerWebp() bool`
+
+HasVoteStickerWebp returns a boolean if a field has been set.
+
+### SetVoteStickerWebpNil
+
+`func (o *HeroImages) SetVoteStickerWebpNil(b bool)`
+
+ SetVoteStickerWebpNil sets the value for VoteStickerWebp to be an explicit nil
+
+### UnsetVoteStickerWebp
+`func (o *HeroImages) UnsetVoteStickerWebp()`
+
+UnsetVoteStickerWebp ensures that no value is present for VoteStickerWebp, not even an explicit nil
 ### GetWeaponImage
 
 `func (o *HeroImages) GetWeaponImage() string`

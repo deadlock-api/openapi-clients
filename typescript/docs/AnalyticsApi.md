@@ -1112,7 +1112,7 @@ No authorization required
 # **itemFlowStats**
 > ItemFlowStats itemFlowStats()
 
- Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
 ### Example
 
@@ -1266,6 +1266,7 @@ let accountId: number; //Filter for matches with a specific player account ID. (
 let accountIds: Array<number>; //Comma separated list of account ids to include (optional) (default to undefined)
 let abilityOrderPrefix: Array<number>; //Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional) (default to undefined)
 let abilityUnlockOrderPrefix: Array<number>; //Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
+let includeCorruptedItems: boolean; //Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** `false`, corrupted purchases are ignored. (optional) (default to false)
 
 const { status, data } = await apiInstance.itemPermutationStats(
     itemIds,
@@ -1289,7 +1290,8 @@ const { status, data } = await apiInstance.itemPermutationStats(
     accountId,
     accountIds,
     abilityOrderPrefix,
-    abilityUnlockOrderPrefix
+    abilityUnlockOrderPrefix,
+    includeCorruptedItems
 );
 ```
 
@@ -1319,6 +1321,7 @@ const { status, data } = await apiInstance.itemPermutationStats(
 | **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids to include | (optional) defaults to undefined|
 | **abilityOrderPrefix** | **Array&lt;number&gt;** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | (optional) defaults to undefined|
 | **abilityUnlockOrderPrefix** | **Array&lt;number&gt;** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
+| **includeCorruptedItems** | [**boolean**] | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. | (optional) defaults to false|
 
 
 ### Return type
@@ -1391,6 +1394,7 @@ let accountIds: Array<number>; //Comma separated list of account ids to include 
 let minBoughtAtS: number; //Filter items bought after this game time (seconds). (optional) (default to undefined)
 let maxBoughtAtS: number; //Filter items bought before this game time (seconds). (optional) (default to undefined)
 let itemOrder: Array<string>; //Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items> (optional) (default to undefined)
+let includeCorruptedItems: boolean; //Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower. (optional) (default to false)
 
 const { status, data } = await apiInstance.itemStats(
     bucket,
@@ -1423,7 +1427,8 @@ const { status, data } = await apiInstance.itemStats(
     accountIds,
     minBoughtAtS,
     maxBoughtAtS,
-    itemOrder
+    itemOrder,
+    includeCorruptedItems
 );
 ```
 
@@ -1462,6 +1467,7 @@ const { status, data } = await apiInstance.itemStats(
 | **minBoughtAtS** | [**number**] | Filter items bought after this game time (seconds). | (optional) defaults to undefined|
 | **maxBoughtAtS** | [**number**] | Filter items bought before this game time (seconds). | (optional) defaults to undefined|
 | **itemOrder** | **Array&lt;string&gt;** | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | (optional) defaults to undefined|
+| **includeCorruptedItems** | [**boolean**] | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | (optional) defaults to false|
 
 
 ### Return type

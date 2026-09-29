@@ -36,17 +36,19 @@ namespace DeadlockApiClient.Model
         /// <param name="alwaysShowInUi">alwaysShowInUi</param>
         /// <param name="className">className</param>
         /// <param name="duration">duration</param>
+        /// <param name="enabledStateMask">Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;.</param>
         /// <param name="modifierValues">modifierValues</param>
         /// <param name="scriptValues">scriptValues</param>
         /// <param name="subclassName">subclassName</param>
         /// <param name="timeMax">timeMax</param>
         /// <param name="timeMin">timeMin</param>
         [JsonConstructor]
-        public SubclassModifierDefinitionSubclass(Option<List<string>?> alwaysShowInUi = default, Option<string?> className = default, Option<double?> duration = default, Option<List<ModifierValue>?> modifierValues = default, Option<List<ModifierValue>?> scriptValues = default, Option<string?> subclassName = default, Option<double?> timeMax = default, Option<double?> timeMin = default)
+        public SubclassModifierDefinitionSubclass(Option<List<string>?> alwaysShowInUi = default, Option<string?> className = default, Option<double?> duration = default, Option<string?> enabledStateMask = default, Option<List<ModifierValue>?> modifierValues = default, Option<List<ModifierValue>?> scriptValues = default, Option<string?> subclassName = default, Option<double?> timeMax = default, Option<double?> timeMin = default)
         {
             AlwaysShowInUiOption = alwaysShowInUi;
             ClassNameOption = className;
             DurationOption = duration;
+            EnabledStateMaskOption = enabledStateMask;
             ModifierValuesOption = modifierValues;
             ScriptValuesOption = scriptValues;
             SubclassNameOption = subclassName;
@@ -95,6 +97,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("duration")]
         public double? Duration { get { return this.DurationOption.Value; } set { this.DurationOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of EnabledStateMask
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> EnabledStateMaskOption { get; private set; }
+
+        /// <summary>
+        /// Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;.
+        /// </summary>
+        /// <value>Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;.</value>
+        [JsonPropertyName("enabled_state_mask")]
+        public string? EnabledStateMask { get { return this.EnabledStateMaskOption.Value; } set { this.EnabledStateMaskOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ModifierValues
@@ -172,6 +188,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  AlwaysShowInUi: ").Append(AlwaysShowInUi).Append("\n");
             sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("  Duration: ").Append(Duration).Append("\n");
+            sb.Append("  EnabledStateMask: ").Append(EnabledStateMask).Append("\n");
             sb.Append("  ModifierValues: ").Append(ModifierValues).Append("\n");
             sb.Append("  ScriptValues: ").Append(ScriptValues).Append("\n");
             sb.Append("  SubclassName: ").Append(SubclassName).Append("\n");
@@ -227,6 +244,7 @@ namespace DeadlockApiClient.Model
             Option<List<string>?> alwaysShowInUi = default;
             Option<string?> className = default;
             Option<double?> duration = default;
+            Option<string?> enabledStateMask = default;
             Option<List<ModifierValue>?> modifierValues = default;
             Option<List<ModifierValue>?> scriptValues = default;
             Option<string?> subclassName = default;
@@ -257,6 +275,9 @@ namespace DeadlockApiClient.Model
                         case "duration":
                             duration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "enabled_state_mask":
+                            enabledStateMask = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "modifier_values":
                             modifierValues = new Option<List<ModifierValue>?>(JsonSerializer.Deserialize<List<ModifierValue>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
@@ -278,7 +299,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new SubclassModifierDefinitionSubclass(alwaysShowInUi, className, duration, modifierValues, scriptValues, subclassName, timeMax, timeMin);
+            return new SubclassModifierDefinitionSubclass(alwaysShowInUi, className, duration, enabledStateMask, modifierValues, scriptValues, subclassName, timeMax, timeMin);
         }
 
         /// <summary>
@@ -324,6 +345,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("duration", subclassModifierDefinitionSubclass.DurationOption.Value!.Value);
                 else
                     writer.WriteNull("duration");
+
+            if (subclassModifierDefinitionSubclass.EnabledStateMaskOption.IsSet)
+                if (subclassModifierDefinitionSubclass.EnabledStateMaskOption.Value != null)
+                    writer.WriteString("enabled_state_mask", subclassModifierDefinitionSubclass.EnabledStateMask);
+                else
+                    writer.WriteNull("enabled_state_mask");
 
             if (subclassModifierDefinitionSubclass.ModifierValuesOption.IsSet)
                 if (subclassModifierDefinitionSubclass.ModifierValuesOption.Value != null)

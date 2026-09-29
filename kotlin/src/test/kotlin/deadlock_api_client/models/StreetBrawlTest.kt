@@ -203,5 +203,11 @@ class StreetBrawlTest : ShouldSpec() {
             //modelInstance.zipBoostCooldownOnStart shouldBe ("TODO")
         }
 
+        // to test the property `corruptItemRound` - Round in which players may corrupt an item (build 6711+).
+        should("test corruptItemRound") {
+            // uncomment below to test the property
+            //modelInstance.corruptItemRound shouldBe ("TODO")
+        }
+
     }
 }

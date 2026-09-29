@@ -54,10 +54,55 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
+     * enum for parameter language
+     */
+     enum class LanguageGetMiscEntity(val value: kotlin.String) {
+         @Json(name = "brazilian") brazilian("brazilian"),
+         @Json(name = "bulgarian") bulgarian("bulgarian"),
+         @Json(name = "czech") czech("czech"),
+         @Json(name = "danish") danish("danish"),
+         @Json(name = "dutch") dutch("dutch"),
+         @Json(name = "english") english("english"),
+         @Json(name = "finnish") finnish("finnish"),
+         @Json(name = "french") french("french"),
+         @Json(name = "german") german("german"),
+         @Json(name = "greek") greek("greek"),
+         @Json(name = "hungarian") hungarian("hungarian"),
+         @Json(name = "indonesian") indonesian("indonesian"),
+         @Json(name = "italian") italian("italian"),
+         @Json(name = "japanese") japanese("japanese"),
+         @Json(name = "koreana") koreana("koreana"),
+         @Json(name = "latam") latam("latam"),
+         @Json(name = "norwegian") norwegian("norwegian"),
+         @Json(name = "polish") polish("polish"),
+         @Json(name = "portuguese") portuguese("portuguese"),
+         @Json(name = "romanian") romanian("romanian"),
+         @Json(name = "russian") russian("russian"),
+         @Json(name = "schinese") schinese("schinese"),
+         @Json(name = "spanish") spanish("spanish"),
+         @Json(name = "swedish") swedish("swedish"),
+         @Json(name = "tchinese") tchinese("tchinese"),
+         @Json(name = "thai") thai("thai"),
+         @Json(name = "turkish") turkish("turkish"),
+         @Json(name = "ukrainian") ukrainian("ukrainian"),
+         @Json(name = "vietnamese") vietnamese("vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/assets/misc-entities/{id_or_classname}
      * Get Misc Entity
      * Returns a single misc entity by numeric id or by &#x60;class_name&#x60; (case-insensitive).
      * @param idOrClassname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return MiscEntity
      * @throws IllegalStateException If the request is not correctly configured
@@ -68,8 +113,8 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getMiscEntity(idOrClassname: kotlin.String, clientVersion: kotlin.Int? = null) : MiscEntity {
-        val localVarResponse = getMiscEntityWithHttpInfo(idOrClassname = idOrClassname, clientVersion = clientVersion)
+    fun getMiscEntity(idOrClassname: kotlin.String, language: LanguageGetMiscEntity? = null, clientVersion: kotlin.Int? = null) : MiscEntity {
+        val localVarResponse = getMiscEntityWithHttpInfo(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as MiscEntity
@@ -91,6 +136,7 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * Get Misc Entity
      * Returns a single misc entity by numeric id or by &#x60;class_name&#x60; (case-insensitive).
      * @param idOrClassname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<MiscEntity?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -98,8 +144,8 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getMiscEntityWithHttpInfo(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : ApiResponse<MiscEntity?> {
-        val localVariableConfig = getMiscEntityRequestConfig(idOrClassname = idOrClassname, clientVersion = clientVersion)
+    fun getMiscEntityWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Int?) : ApiResponse<MiscEntity?> {
+        val localVariableConfig = getMiscEntityRequestConfig(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return request<Unit, MiscEntity>(
             localVariableConfig
@@ -110,13 +156,17 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      * To obtain the request config of the operation getMiscEntity
      *
      * @param idOrClassname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getMiscEntityRequestConfig(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getMiscEntityRequestConfig(idOrClassname: kotlin.String, language: LanguageGetMiscEntity?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
                 if (clientVersion != null) {
                     put("client_version", listOf(clientVersion.toString()))
                 }
@@ -135,9 +185,54 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
     }
 
     /**
+     * enum for parameter language
+     */
+     enum class LanguageListMiscEntities(val value: kotlin.String) {
+         @Json(name = "brazilian") brazilian("brazilian"),
+         @Json(name = "bulgarian") bulgarian("bulgarian"),
+         @Json(name = "czech") czech("czech"),
+         @Json(name = "danish") danish("danish"),
+         @Json(name = "dutch") dutch("dutch"),
+         @Json(name = "english") english("english"),
+         @Json(name = "finnish") finnish("finnish"),
+         @Json(name = "french") french("french"),
+         @Json(name = "german") german("german"),
+         @Json(name = "greek") greek("greek"),
+         @Json(name = "hungarian") hungarian("hungarian"),
+         @Json(name = "indonesian") indonesian("indonesian"),
+         @Json(name = "italian") italian("italian"),
+         @Json(name = "japanese") japanese("japanese"),
+         @Json(name = "koreana") koreana("koreana"),
+         @Json(name = "latam") latam("latam"),
+         @Json(name = "norwegian") norwegian("norwegian"),
+         @Json(name = "polish") polish("polish"),
+         @Json(name = "portuguese") portuguese("portuguese"),
+         @Json(name = "romanian") romanian("romanian"),
+         @Json(name = "russian") russian("russian"),
+         @Json(name = "schinese") schinese("schinese"),
+         @Json(name = "spanish") spanish("spanish"),
+         @Json(name = "swedish") swedish("swedish"),
+         @Json(name = "tchinese") tchinese("tchinese"),
+         @Json(name = "thai") thai("thai"),
+         @Json(name = "turkish") turkish("turkish"),
+         @Json(name = "ukrainian") ukrainian("ukrainian"),
+         @Json(name = "vietnamese") vietnamese("vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/assets/misc-entities
      * List Misc Entities
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch&#39;s KV3 source files. Pickup labels (&#x60;name&#x60;) and permanent buff stat names (&#x60;buff_type_name&#x60;) are localized into the requested &#x60;language&#x60;; the raw tokens stay in &#x60;name_loc_string&#x60; / &#x60;buff_type_loc_string&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return kotlin.collections.List<MiscEntity>
      * @throws IllegalStateException If the request is not correctly configured
@@ -148,8 +243,8 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listMiscEntities(clientVersion: kotlin.Int? = null) : kotlin.collections.List<MiscEntity> {
-        val localVarResponse = listMiscEntitiesWithHttpInfo(clientVersion = clientVersion)
+    fun listMiscEntities(language: LanguageListMiscEntities? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<MiscEntity> {
+        val localVarResponse = listMiscEntitiesWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<MiscEntity>
@@ -169,7 +264,8 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * GET /v1/assets/misc-entities
      * List Misc Entities
-     * Returns the per-misc-entity metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+     * Returns the per-misc-entity metadata used by the game client, parsed from the patch&#39;s KV3 source files. Pickup labels (&#x60;name&#x60;) and permanent buff stat names (&#x60;buff_type_name&#x60;) are localized into the requested &#x60;language&#x60;; the raw tokens stay in &#x60;name_loc_string&#x60; / &#x60;buff_type_loc_string&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<kotlin.collections.List<MiscEntity>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -177,8 +273,8 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listMiscEntitiesWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<MiscEntity>?> {
-        val localVariableConfig = listMiscEntitiesRequestConfig(clientVersion = clientVersion)
+    fun listMiscEntitiesWithHttpInfo(language: LanguageListMiscEntities?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<MiscEntity>?> {
+        val localVariableConfig = listMiscEntitiesRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<MiscEntity>>(
             localVariableConfig
@@ -188,13 +284,17 @@ open class MiscEntitiesApi(basePath: kotlin.String = defaultBasePath, client: Ca
     /**
      * To obtain the request config of the operation listMiscEntities
      *
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listMiscEntitiesRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listMiscEntitiesRequestConfig(language: LanguageListMiscEntities?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
                 if (clientVersion != null) {
                     put("client_version", listOf(clientVersion.toString()))
                 }

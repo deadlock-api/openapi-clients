@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **postvalue_label** | **string** |  | [optional] [default to undefined]
 **prefix** | **string** |  | [optional] [default to undefined]
 **provided_property_type** | **string** |  | [optional] [default to undefined]
+**required_upgrade_bits** | **Array&lt;string&gt;** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] [default to undefined]
 **scale_function** | [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] [default to undefined]
 **street_brawl_value** | **string** |  | [optional] [default to undefined]
 **usage_flags** | [**Array&lt;StatsUsageFlag&gt;**](StatsUsageFlag.md) |  | [optional] [default to undefined]
@@ -42,6 +43,7 @@ const instance: ItemProperty = {
     postvalue_label,
     prefix,
     provided_property_type,
+    required_upgrade_bits,
     scale_function,
     street_brawl_value,
     usage_flags,

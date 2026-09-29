@@ -40,6 +40,7 @@ __all__ = [
     "MapApi",
     "MatchesApi",
     "MiscEntitiesApi",
+    "ModifiersApi",
     "NPCUnitsApi",
     "PatchesApi",
     "PlayersApi",
@@ -78,6 +79,7 @@ __all__ = [
     "AnalyticsGameStats",
     "AnalyticsHeroStats",
     "BadgeDistribution",
+    "BreakablePowerupLootParams",
     "Build",
     "BuildHero",
     "BuildHeroDetails",
@@ -92,6 +94,9 @@ __all__ = [
     "Color",
     "ColorGradientStop",
     "ColumnSchema",
+    "CorruptedItemInfo",
+    "CorruptedPenalty",
+    "CorruptedPenaltyEffect",
     "CreateCustomRequest",
     "CreateCustomResponse",
     "Curve",
@@ -137,6 +142,8 @@ __all__ = [
     "HeroEntry",
     "HeroImages",
     "HeroPhysics",
+    "HeroPopularItem",
+    "HeroPopularItems",
     "HeroStats",
     "HeroStatsUI",
     "HeroStatsUIDisplay",
@@ -173,6 +180,7 @@ __all__ = [
     "LootTable",
     "MMRHistory",
     "MapData",
+    "MapDistrict",
     "MapImages",
     "MatchPlayer",
     "MatchSaltsResponse",
@@ -180,7 +188,10 @@ __all__ = [
     "MateStats",
     "MiniMapOffsets",
     "MiscEntity",
+    "Modifier",
     "ModifierValue",
+    "NeutralCamp",
+    "NeutralCampKind",
     "NewPlayerMetrics",
     "NpcUnit",
     "ObjectiveParams",
@@ -249,6 +260,8 @@ __all__ = [
     "SubclassIntrinsicModifiersSubclass",
     "SubclassModifierDefinition",
     "SubclassModifierDefinitionSubclass",
+    "SubclassNeutralDamageGrowth",
+    "SubclassNeutralDamageGrowthSubclass",
     "SubclassObjectiveHealthGrowthPhase",
     "SubclassObjectiveHealthGrowthPhaseSubclass",
     "SubclassObjectiveRegen",
@@ -300,6 +313,7 @@ from deadlock_api_client.api.mmr_api import MMRApi as MMRApi
 from deadlock_api_client.api.map_api import MapApi as MapApi
 from deadlock_api_client.api.matches_api import MatchesApi as MatchesApi
 from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi as MiscEntitiesApi
+from deadlock_api_client.api.modifiers_api import ModifiersApi as ModifiersApi
 from deadlock_api_client.api.npc_units_api import NPCUnitsApi as NPCUnitsApi
 from deadlock_api_client.api.patches_api import PatchesApi as PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi as PlayersApi
@@ -342,6 +356,7 @@ from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAb
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats as AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats as AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution as BadgeDistribution
+from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams as BreakablePowerupLootParams
 from deadlock_api_client.models.build import Build as Build
 from deadlock_api_client.models.build_hero import BuildHero as BuildHero
 from deadlock_api_client.models.build_hero_details import BuildHeroDetails as BuildHeroDetails
@@ -356,6 +371,9 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as Click
 from deadlock_api_client.models.color import Color as Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop as ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema as ColumnSchema
+from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo as CorruptedItemInfo
+from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty as CorruptedPenalty
+from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenaltyEffect as CorruptedPenaltyEffect
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock_api_client.models.curve import Curve as Curve
@@ -401,6 +419,8 @@ from deadlock_api_client.models.hero_development_state import HeroDevelopmentSta
 from deadlock_api_client.models.hero_entry import HeroEntry as HeroEntry
 from deadlock_api_client.models.hero_images import HeroImages as HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics as HeroPhysics
+from deadlock_api_client.models.hero_popular_item import HeroPopularItem as HeroPopularItem
+from deadlock_api_client.models.hero_popular_items import HeroPopularItems as HeroPopularItems
 from deadlock_api_client.models.hero_stats import HeroStats as HeroStats
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI as HeroStatsUI
 from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay as HeroStatsUIDisplay
@@ -437,6 +457,7 @@ from deadlock_api_client.models.loot_entry import LootEntry as LootEntry
 from deadlock_api_client.models.loot_table import LootTable as LootTable
 from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.map_data import MapData as MapData
+from deadlock_api_client.models.map_district import MapDistrict as MapDistrict
 from deadlock_api_client.models.map_images import MapImages as MapImages
 from deadlock_api_client.models.match_player import MatchPlayer as MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
@@ -444,7 +465,10 @@ from deadlock_api_client.models.match_spectate_response import MatchSpectateResp
 from deadlock_api_client.models.mate_stats import MateStats as MateStats
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
 from deadlock_api_client.models.misc_entity import MiscEntity as MiscEntity
+from deadlock_api_client.models.modifier import Modifier as Modifier
 from deadlock_api_client.models.modifier_value import ModifierValue as ModifierValue
+from deadlock_api_client.models.neutral_camp import NeutralCamp as NeutralCamp
+from deadlock_api_client.models.neutral_camp_kind import NeutralCampKind as NeutralCampKind
 from deadlock_api_client.models.new_player_metrics import NewPlayerMetrics as NewPlayerMetrics
 from deadlock_api_client.models.npc_unit import NpcUnit as NpcUnit
 from deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
@@ -513,6 +537,8 @@ from deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntr
 from deadlock_api_client.models.subclass_intrinsic_modifiers_subclass import SubclassIntrinsicModifiersSubclass as SubclassIntrinsicModifiersSubclass
 from deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition as SubclassModifierDefinition
 from deadlock_api_client.models.subclass_modifier_definition_subclass import SubclassModifierDefinitionSubclass as SubclassModifierDefinitionSubclass
+from deadlock_api_client.models.subclass_neutral_damage_growth import SubclassNeutralDamageGrowth as SubclassNeutralDamageGrowth
+from deadlock_api_client.models.subclass_neutral_damage_growth_subclass import SubclassNeutralDamageGrowthSubclass as SubclassNeutralDamageGrowthSubclass
 from deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase as SubclassObjectiveHealthGrowthPhase
 from deadlock_api_client.models.subclass_objective_health_growth_phase_subclass import SubclassObjectiveHealthGrowthPhaseSubclass as SubclassObjectiveHealthGrowthPhaseSubclass
 from deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen as SubclassObjectiveRegen

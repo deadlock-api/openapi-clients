@@ -1203,7 +1203,7 @@ No authorization required
 
 ## ItemPermutationStats
 
-> []ItemPermutationStats ItemPermutationStats(ctx).ItemIds(itemIds).CombSize(combSize).MinMatches(minMatches).MaxMatches(maxMatches).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+> []ItemPermutationStats ItemPermutationStats(ctx).ItemIds(itemIds).CombSize(combSize).MinMatches(minMatches).MaxMatches(maxMatches).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).IncludeCorruptedItems(includeCorruptedItems).Execute()
 
 Item Permutation Stats
 
@@ -1244,10 +1244,11 @@ func main() {
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
 	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
 	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	includeCorruptedItems := true // bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** `false`, corrupted purchases are ignored. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.ItemPermutationStats(context.Background()).ItemIds(itemIds).CombSize(combSize).MinMatches(minMatches).MaxMatches(maxMatches).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.ItemPermutationStats(context.Background()).ItemIds(itemIds).CombSize(combSize).MinMatches(minMatches).MaxMatches(maxMatches).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).IncludeCorruptedItems(includeCorruptedItems).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.ItemPermutationStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1290,6 +1291,7 @@ Name | Type | Description  | Notes
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
  **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
  **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **includeCorruptedItems** | **bool** | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. | [default to false]
 
 ### Return type
 
@@ -1311,7 +1313,7 @@ No authorization required
 
 ## ItemStats
 
-> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).Execute()
+> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).IncludeCorruptedItems(includeCorruptedItems).Execute()
 
 Item Stats
 
@@ -1361,10 +1363,11 @@ func main() {
 	minBoughtAtS := int32(56) // int32 | Filter items bought after this game time (seconds). (optional)
 	maxBoughtAtS := int32(56) // int32 | Filter items bought before this game time (seconds). (optional)
 	itemOrder := []string{"Inner_example"} // []string | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+	includeCorruptedItems := true // bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).IncludeCorruptedItems(includeCorruptedItems).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.ItemStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1416,6 +1419,7 @@ Name | Type | Description  | Notes
  **minBoughtAtS** | **int32** | Filter items bought after this game time (seconds). | 
  **maxBoughtAtS** | **int32** | Filter items bought before this game time (seconds). | 
  **itemOrder** | **[]string** | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
+ **includeCorruptedItems** | **bool** | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | [default to false]
 
 ### Return type
 

@@ -144,6 +144,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CorruptedInfo'
+        /// </summary>
+        [Fact]
+        public void CorruptedInfoTest()
+        {
+            // TODO unit test for the property 'CorruptedInfo'
+        }
+
+        /// <summary>
         /// Test the property 'Cost'
         /// </summary>
         [Fact]
@@ -162,12 +171,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DisableItemTarget'
+        /// </summary>
+        [Fact]
+        public void DisableItemTargetTest()
+        {
+            // TODO unit test for the property 'DisableItemTarget'
+        }
+
+        /// <summary>
         /// Test the property 'Disabled'
         /// </summary>
         [Fact]
         public void DisabledTest()
         {
             // TODO unit test for the property 'Disabled'
+        }
+
+        /// <summary>
+        /// Test the property 'DisabledShopFilters'
+        /// </summary>
+        [Fact]
+        public void DisabledShopFiltersTest()
+        {
+            // TODO unit test for the property 'DisabledShopFilters'
         }
 
         /// <summary>
@@ -225,6 +252,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ShopFilters'
+        /// </summary>
+        [Fact]
+        public void ShopFiltersTest()
+        {
+            // TODO unit test for the property 'ShopFilters'
+        }
+
+        /// <summary>
         /// Test the property 'ShopImage'
         /// </summary>
         [Fact]
@@ -258,6 +294,15 @@ namespace DeadlockApiClient.Test.Model
         public void ShopImageWebpTest()
         {
             // TODO unit test for the property 'ShopImageWebp'
+        }
+
+        /// <summary>
+        /// Test the property 'ShopVersion'
+        /// </summary>
+        [Fact]
+        public void ShopVersionTest()
+        {
+            // TODO unit test for the property 'ShopVersion'
         }
 
         /// <summary>

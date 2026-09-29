@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **max_health** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **max_move_speed** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **move_acceleration** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
+**ooc_health_regen** | [**StartingStat**](StartingStat.md) | Out-of-combat health regen (build 6711+). | [optional] [default to undefined]
 **proc_build_up_rate_scale** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **reload_speed** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
 **sprint_speed** | [**StartingStat**](StartingStat.md) |  | [default to undefined]
@@ -52,6 +53,7 @@ const instance: StartingStats = {
     max_health,
     max_move_speed,
     move_acceleration,
+    ooc_health_regen,
     proc_build_up_rate_scale,
     reload_speed,
     sprint_speed,

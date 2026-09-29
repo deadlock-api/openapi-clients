@@ -38,7 +38,9 @@ namespace DeadlockApiClient.Model
         /// <param name="breakOnDodgeTouch">breakOnDodgeTouch</param>
         /// <param name="buffTypeGraphColor">Permanent pickups: color used for the buff in the stat graph.</param>
         /// <param name="buffTypeLocString">Permanent pickups: localization token of the stat the buff raises.</param>
-        /// <param name="buffTypeValueUnit">Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).</param>
+        /// <param name="buffTypeName">Permanent pickups: &#x60;buff_type_loc_string&#x60; localized into the requested language (e.g. &#x60;Fire Rate&#x60;).</param>
+        /// <param name="buffTypeValueUnit">Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). The modifier value itself is in game units (&#x60;Meters&#x60; values are inches, 39.37 per meter).</param>
+        /// <param name="collectionMethod">How the pickup is collected, e.g. &#x60;Punch&#x60; or &#x60;VacuumTrigger&#x60;.</param>
         /// <param name="collisionRadius">collisionRadius</param>
         /// <param name="color">color</param>
         /// <param name="damagedByAbilities">damagedByAbilities</param>
@@ -51,40 +53,56 @@ namespace DeadlockApiClient.Model
         /// <param name="health">health</param>
         /// <param name="heavyMeleeHitCount">heavyMeleeHitCount</param>
         /// <param name="heavyMeleeOnly">heavyMeleeOnly</param>
+        /// <param name="hitsRequired">Punchable pickups: hits needed to collect.</param>
+        /// <param name="inShopModifier">Corrupted item shop (Broker) trigger: modifier applied while inside.</param>
         /// <param name="initialSpawnDelayInSeconds">initialSpawnDelayInSeconds</param>
         /// <param name="initialSpawnDelaySeconds">Duplicate of &#x60;initial_spawn_delay_in_seconds&#x60; for shape parity.</param>
         /// <param name="initialSpawnTime">initialSpawnTime</param>
         /// <param name="isMantleable">isMantleable</param>
+        /// <param name="isPermanentPickup">isPermanentPickup</param>
         /// <param name="lifetime">lifetime</param>
         /// <param name="lootListDeckSize">lootListDeckSize</param>
         /// <param name="mVecPickupsLv2">mVecPickupsLv2</param>
         /// <param name="mVecPickupsLv3">mVecPickupsLv3</param>
         /// <param name="matchTimeMinsForLevel2Pickups">matchTimeMinsForLevel2Pickups</param>
         /// <param name="matchTimeMinsForLevel3Pickups">matchTimeMinsForLevel3Pickups</param>
+        /// <param name="minimapClass">minimapClass</param>
         /// <param name="modifier">modifier</param>
+        /// <param name="name">&#x60;name_loc_string&#x60; localized into the requested language (e.g. &#x60;+1.5% Fire Rate&#x60;). Gold pickups use an ICU plural pattern (&#x60;{amount, plural, one{Soul} other{Souls}}&#x60;).</param>
+        /// <param name="nameLocString">Localization token of the pickup&#39;s world label.</param>
         /// <param name="orbSpawnDelayMax">orbSpawnDelayMax</param>
         /// <param name="orbSpawnDelayMin">orbSpawnDelayMin</param>
+        /// <param name="pickup">Pickup spawners: class name of the spawned pickup.</param>
         /// <param name="pickupChances">Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists.</param>
         /// <param name="pickupRadius">pickupRadius</param>
         /// <param name="powerupDropChance">Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;.</param>
         /// <param name="primaryDropChance">Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;.</param>
         /// <param name="primaryPickups">primaryPickups</param>
+        /// <param name="regenDuration">Health pickups: seconds over which the healing is applied to heroes.</param>
+        /// <param name="regenDurationTroopers">Health pickups: seconds over which the healing is applied to troopers.</param>
+        /// <param name="regenMaxHealthPercent">Health pickups: healing as percent of max health.</param>
+        /// <param name="regenTrooperMulti">Health pickups: healing multiplier for troopers.</param>
         /// <param name="renderAfterDeath">renderAfterDeath</param>
         /// <param name="respawnTime">respawnTime</param>
         /// <param name="rollType">Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;.</param>
         /// <param name="showOnMinimap">showOnMinimap</param>
+        /// <param name="singlePickupOverride">Powerup spawners: class name of the only pickup spawned, overriding &#x60;pickup_chances&#x60;.</param>
         /// <param name="solidAfterDeath">solidAfterDeath</param>
+        /// <param name="spawnDelay">Pickup spawners: delay (seconds) before the first spawn.</param>
         /// <param name="spawnInterval">spawnInterval</param>
         /// <param name="spawnIntervalInSeconds">spawnIntervalInSeconds</param>
+        /// <param name="spawnMusicState">Corrupted item shop (Broker) trigger: music cue played on spawn.</param>
         [JsonConstructor]
-        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<Color?> buffTypeGraphColor = default, Option<string?> buffTypeLocString = default, Option<string?> buffTypeValueUnit = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<bool?> damagedBySlide = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> heavyMeleeHitCount = default, Option<bool?> heavyMeleeOnly = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<SubclassModifierDefinition?> modifier = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<Dictionary<string, double>?> pickupChances = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> powerupDropChance = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default)
+        public MiscEntity(string className, int id, Option<bool?> breakOnDodgeTouch = default, Option<Color?> buffTypeGraphColor = default, Option<string?> buffTypeLocString = default, Option<string?> buffTypeName = default, Option<string?> buffTypeValueUnit = default, Option<string?> collectionMethod = default, Option<double?> collisionRadius = default, Option<Color?> color = default, Option<bool?> damagedByAbilities = default, Option<bool?> damagedByBullets = default, Option<bool?> damagedByMelee = default, Option<bool?> damagedBySlide = default, Option<CurveOrFloat?> expirationDuration = default, Option<double?> goldAmount = default, Option<double?> goldPerMinuteAmount = default, Option<long?> health = default, Option<long?> heavyMeleeHitCount = default, Option<bool?> heavyMeleeOnly = default, Option<long?> hitsRequired = default, Option<SubclassModifierDefinition?> inShopModifier = default, Option<long?> initialSpawnDelayInSeconds = default, Option<long?> initialSpawnDelaySeconds = default, Option<double?> initialSpawnTime = default, Option<bool?> isMantleable = default, Option<bool?> isPermanentPickup = default, Option<double?> lifetime = default, Option<long?> lootListDeckSize = default, Option<List<Pickup>?> mVecPickupsLv2 = default, Option<List<Pickup>?> mVecPickupsLv3 = default, Option<long?> matchTimeMinsForLevel2Pickups = default, Option<long?> matchTimeMinsForLevel3Pickups = default, Option<string?> minimapClass = default, Option<SubclassModifierDefinition?> modifier = default, Option<string?> name = default, Option<string?> nameLocString = default, Option<double?> orbSpawnDelayMax = default, Option<double?> orbSpawnDelayMin = default, Option<string?> pickup = default, Option<Dictionary<string, double>?> pickupChances = default, Option<CurveOrFloat?> pickupRadius = default, Option<double?> powerupDropChance = default, Option<double?> primaryDropChance = default, Option<List<Pickup>?> primaryPickups = default, Option<double?> regenDuration = default, Option<double?> regenDurationTroopers = default, Option<CurveOrFloat?> regenMaxHealthPercent = default, Option<double?> regenTrooperMulti = default, Option<bool?> renderAfterDeath = default, Option<double?> respawnTime = default, Option<string?> rollType = default, Option<bool?> showOnMinimap = default, Option<string?> singlePickupOverride = default, Option<bool?> solidAfterDeath = default, Option<double?> spawnDelay = default, Option<double?> spawnInterval = default, Option<long?> spawnIntervalInSeconds = default, Option<string?> spawnMusicState = default)
         {
             ClassName = className;
             Id = id;
             BreakOnDodgeTouchOption = breakOnDodgeTouch;
             BuffTypeGraphColorOption = buffTypeGraphColor;
             BuffTypeLocStringOption = buffTypeLocString;
+            BuffTypeNameOption = buffTypeName;
             BuffTypeValueUnitOption = buffTypeValueUnit;
+            CollectionMethodOption = collectionMethod;
             CollisionRadiusOption = collisionRadius;
             ColorOption = color;
             DamagedByAbilitiesOption = damagedByAbilities;
@@ -97,31 +115,45 @@ namespace DeadlockApiClient.Model
             HealthOption = health;
             HeavyMeleeHitCountOption = heavyMeleeHitCount;
             HeavyMeleeOnlyOption = heavyMeleeOnly;
+            HitsRequiredOption = hitsRequired;
+            InShopModifierOption = inShopModifier;
             InitialSpawnDelayInSecondsOption = initialSpawnDelayInSeconds;
             InitialSpawnDelaySecondsOption = initialSpawnDelaySeconds;
             InitialSpawnTimeOption = initialSpawnTime;
             IsMantleableOption = isMantleable;
+            IsPermanentPickupOption = isPermanentPickup;
             LifetimeOption = lifetime;
             LootListDeckSizeOption = lootListDeckSize;
             MVecPickupsLv2Option = mVecPickupsLv2;
             MVecPickupsLv3Option = mVecPickupsLv3;
             MatchTimeMinsForLevel2PickupsOption = matchTimeMinsForLevel2Pickups;
             MatchTimeMinsForLevel3PickupsOption = matchTimeMinsForLevel3Pickups;
+            MinimapClassOption = minimapClass;
             ModifierOption = modifier;
+            NameOption = name;
+            NameLocStringOption = nameLocString;
             OrbSpawnDelayMaxOption = orbSpawnDelayMax;
             OrbSpawnDelayMinOption = orbSpawnDelayMin;
+            PickupOption = pickup;
             PickupChancesOption = pickupChances;
             PickupRadiusOption = pickupRadius;
             PowerupDropChanceOption = powerupDropChance;
             PrimaryDropChanceOption = primaryDropChance;
             PrimaryPickupsOption = primaryPickups;
+            RegenDurationOption = regenDuration;
+            RegenDurationTroopersOption = regenDurationTroopers;
+            RegenMaxHealthPercentOption = regenMaxHealthPercent;
+            RegenTrooperMultiOption = regenTrooperMulti;
             RenderAfterDeathOption = renderAfterDeath;
             RespawnTimeOption = respawnTime;
             RollTypeOption = rollType;
             ShowOnMinimapOption = showOnMinimap;
+            SinglePickupOverrideOption = singlePickupOverride;
             SolidAfterDeathOption = solidAfterDeath;
+            SpawnDelayOption = spawnDelay;
             SpawnIntervalOption = spawnInterval;
             SpawnIntervalInSecondsOption = spawnIntervalInSeconds;
+            SpawnMusicStateOption = spawnMusicState;
             OnCreated();
         }
 
@@ -181,6 +213,20 @@ namespace DeadlockApiClient.Model
         public string? BuffTypeLocString { get { return this.BuffTypeLocStringOption.Value; } set { this.BuffTypeLocStringOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of BuffTypeName
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BuffTypeNameOption { get; private set; }
+
+        /// <summary>
+        /// Permanent pickups: &#x60;buff_type_loc_string&#x60; localized into the requested language (e.g. &#x60;Fire Rate&#x60;).
+        /// </summary>
+        /// <value>Permanent pickups: &#x60;buff_type_loc_string&#x60; localized into the requested language (e.g. &#x60;Fire Rate&#x60;).</value>
+        [JsonPropertyName("buff_type_name")]
+        public string? BuffTypeName { get { return this.BuffTypeNameOption.Value; } set { this.BuffTypeNameOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of BuffTypeValueUnit
         /// </summary>
         [JsonIgnore]
@@ -188,11 +234,25 @@ namespace DeadlockApiClient.Model
         public Option<string?> BuffTypeValueUnitOption { get; private set; }
 
         /// <summary>
-        /// Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).
+        /// Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). The modifier value itself is in game units (&#x60;Meters&#x60; values are inches, 39.37 per meter).
         /// </summary>
-        /// <value>Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;).</value>
+        /// <value>Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). The modifier value itself is in game units (&#x60;Meters&#x60; values are inches, 39.37 per meter).</value>
         [JsonPropertyName("buff_type_value_unit")]
         public string? BuffTypeValueUnit { get { return this.BuffTypeValueUnitOption.Value; } set { this.BuffTypeValueUnitOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of CollectionMethod
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> CollectionMethodOption { get; private set; }
+
+        /// <summary>
+        /// How the pickup is collected, e.g. &#x60;Punch&#x60; or &#x60;VacuumTrigger&#x60;.
+        /// </summary>
+        /// <value>How the pickup is collected, e.g. &#x60;Punch&#x60; or &#x60;VacuumTrigger&#x60;.</value>
+        [JsonPropertyName("collection_method")]
+        public string? CollectionMethod { get { return this.CollectionMethodOption.Value; } set { this.CollectionMethodOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of CollisionRadius
@@ -351,6 +411,34 @@ namespace DeadlockApiClient.Model
         public bool? HeavyMeleeOnly { get { return this.HeavyMeleeOnlyOption.Value; } set { this.HeavyMeleeOnlyOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of HitsRequired
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> HitsRequiredOption { get; private set; }
+
+        /// <summary>
+        /// Punchable pickups: hits needed to collect.
+        /// </summary>
+        /// <value>Punchable pickups: hits needed to collect.</value>
+        [JsonPropertyName("hits_required")]
+        public long? HitsRequired { get { return this.HitsRequiredOption.Value; } set { this.HitsRequiredOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of InShopModifier
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<SubclassModifierDefinition?> InShopModifierOption { get; private set; }
+
+        /// <summary>
+        /// Corrupted item shop (Broker) trigger: modifier applied while inside.
+        /// </summary>
+        /// <value>Corrupted item shop (Broker) trigger: modifier applied while inside.</value>
+        [JsonPropertyName("in_shop_modifier")]
+        public SubclassModifierDefinition? InShopModifier { get { return this.InShopModifierOption.Value; } set { this.InShopModifierOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of InitialSpawnDelayInSeconds
         /// </summary>
         [JsonIgnore]
@@ -402,6 +490,19 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("is_mantleable")]
         public bool? IsMantleable { get { return this.IsMantleableOption.Value; } set { this.IsMantleableOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of IsPermanentPickup
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> IsPermanentPickupOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets IsPermanentPickup
+        /// </summary>
+        [JsonPropertyName("is_permanent_pickup")]
+        public bool? IsPermanentPickup { get { return this.IsPermanentPickupOption.Value; } set { this.IsPermanentPickupOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Lifetime
@@ -482,6 +583,19 @@ namespace DeadlockApiClient.Model
         public long? MatchTimeMinsForLevel3Pickups { get { return this.MatchTimeMinsForLevel3PickupsOption.Value; } set { this.MatchTimeMinsForLevel3PickupsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of MinimapClass
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> MinimapClassOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets MinimapClass
+        /// </summary>
+        [JsonPropertyName("minimap_class")]
+        public string? MinimapClass { get { return this.MinimapClassOption.Value; } set { this.MinimapClassOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of Modifier
         /// </summary>
         [JsonIgnore]
@@ -493,6 +607,34 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("modifier")]
         public SubclassModifierDefinition? Modifier { get { return this.ModifierOption.Value; } set { this.ModifierOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Name
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> NameOption { get; private set; }
+
+        /// <summary>
+        /// &#x60;name_loc_string&#x60; localized into the requested language (e.g. &#x60;+1.5% Fire Rate&#x60;). Gold pickups use an ICU plural pattern (&#x60;{amount, plural, one{Soul} other{Souls}}&#x60;).
+        /// </summary>
+        /// <value>&#x60;name_loc_string&#x60; localized into the requested language (e.g. &#x60;+1.5% Fire Rate&#x60;). Gold pickups use an ICU plural pattern (&#x60;{amount, plural, one{Soul} other{Souls}}&#x60;).</value>
+        [JsonPropertyName("name")]
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of NameLocString
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> NameLocStringOption { get; private set; }
+
+        /// <summary>
+        /// Localization token of the pickup&#39;s world label.
+        /// </summary>
+        /// <value>Localization token of the pickup&#39;s world label.</value>
+        [JsonPropertyName("name_loc_string")]
+        public string? NameLocString { get { return this.NameLocStringOption.Value; } set { this.NameLocStringOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of OrbSpawnDelayMax
@@ -519,6 +661,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("orb_spawn_delay_min")]
         public double? OrbSpawnDelayMin { get { return this.OrbSpawnDelayMinOption.Value; } set { this.OrbSpawnDelayMinOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Pickup
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> PickupOption { get; private set; }
+
+        /// <summary>
+        /// Pickup spawners: class name of the spawned pickup.
+        /// </summary>
+        /// <value>Pickup spawners: class name of the spawned pickup.</value>
+        [JsonPropertyName("pickup")]
+        public string? Pickup { get { return this.PickupOption.Value; } set { this.PickupOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PickupChances
@@ -589,6 +745,62 @@ namespace DeadlockApiClient.Model
         public List<Pickup>? PrimaryPickups { get { return this.PrimaryPickupsOption.Value; } set { this.PrimaryPickupsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of RegenDuration
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> RegenDurationOption { get; private set; }
+
+        /// <summary>
+        /// Health pickups: seconds over which the healing is applied to heroes.
+        /// </summary>
+        /// <value>Health pickups: seconds over which the healing is applied to heroes.</value>
+        [JsonPropertyName("regen_duration")]
+        public double? RegenDuration { get { return this.RegenDurationOption.Value; } set { this.RegenDurationOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RegenDurationTroopers
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> RegenDurationTroopersOption { get; private set; }
+
+        /// <summary>
+        /// Health pickups: seconds over which the healing is applied to troopers.
+        /// </summary>
+        /// <value>Health pickups: seconds over which the healing is applied to troopers.</value>
+        [JsonPropertyName("regen_duration_troopers")]
+        public double? RegenDurationTroopers { get { return this.RegenDurationTroopersOption.Value; } set { this.RegenDurationTroopersOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RegenMaxHealthPercent
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<CurveOrFloat?> RegenMaxHealthPercentOption { get; private set; }
+
+        /// <summary>
+        /// Health pickups: healing as percent of max health.
+        /// </summary>
+        /// <value>Health pickups: healing as percent of max health.</value>
+        [JsonPropertyName("regen_max_health_percent")]
+        public CurveOrFloat? RegenMaxHealthPercent { get { return this.RegenMaxHealthPercentOption.Value; } set { this.RegenMaxHealthPercentOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of RegenTrooperMulti
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> RegenTrooperMultiOption { get; private set; }
+
+        /// <summary>
+        /// Health pickups: healing multiplier for troopers.
+        /// </summary>
+        /// <value>Health pickups: healing multiplier for troopers.</value>
+        [JsonPropertyName("regen_trooper_multi")]
+        public double? RegenTrooperMulti { get { return this.RegenTrooperMultiOption.Value; } set { this.RegenTrooperMultiOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of RenderAfterDeath
         /// </summary>
         [JsonIgnore]
@@ -642,6 +854,20 @@ namespace DeadlockApiClient.Model
         public bool? ShowOnMinimap { get { return this.ShowOnMinimapOption.Value; } set { this.ShowOnMinimapOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of SinglePickupOverride
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> SinglePickupOverrideOption { get; private set; }
+
+        /// <summary>
+        /// Powerup spawners: class name of the only pickup spawned, overriding &#x60;pickup_chances&#x60;.
+        /// </summary>
+        /// <value>Powerup spawners: class name of the only pickup spawned, overriding &#x60;pickup_chances&#x60;.</value>
+        [JsonPropertyName("single_pickup_override")]
+        public string? SinglePickupOverride { get { return this.SinglePickupOverrideOption.Value; } set { this.SinglePickupOverrideOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of SolidAfterDeath
         /// </summary>
         [JsonIgnore]
@@ -653,6 +879,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("solid_after_death")]
         public bool? SolidAfterDeath { get { return this.SolidAfterDeathOption.Value; } set { this.SolidAfterDeathOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of SpawnDelay
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> SpawnDelayOption { get; private set; }
+
+        /// <summary>
+        /// Pickup spawners: delay (seconds) before the first spawn.
+        /// </summary>
+        /// <value>Pickup spawners: delay (seconds) before the first spawn.</value>
+        [JsonPropertyName("spawn_delay")]
+        public double? SpawnDelay { get { return this.SpawnDelayOption.Value; } set { this.SpawnDelayOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of SpawnInterval
@@ -681,6 +921,20 @@ namespace DeadlockApiClient.Model
         public long? SpawnIntervalInSeconds { get { return this.SpawnIntervalInSecondsOption.Value; } set { this.SpawnIntervalInSecondsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of SpawnMusicState
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> SpawnMusicStateOption { get; private set; }
+
+        /// <summary>
+        /// Corrupted item shop (Broker) trigger: music cue played on spawn.
+        /// </summary>
+        /// <value>Corrupted item shop (Broker) trigger: music cue played on spawn.</value>
+        [JsonPropertyName("spawn_music_state")]
+        public string? SpawnMusicState { get { return this.SpawnMusicStateOption.Value; } set { this.SpawnMusicStateOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -693,7 +947,9 @@ namespace DeadlockApiClient.Model
             sb.Append("  BreakOnDodgeTouch: ").Append(BreakOnDodgeTouch).Append("\n");
             sb.Append("  BuffTypeGraphColor: ").Append(BuffTypeGraphColor).Append("\n");
             sb.Append("  BuffTypeLocString: ").Append(BuffTypeLocString).Append("\n");
+            sb.Append("  BuffTypeName: ").Append(BuffTypeName).Append("\n");
             sb.Append("  BuffTypeValueUnit: ").Append(BuffTypeValueUnit).Append("\n");
+            sb.Append("  CollectionMethod: ").Append(CollectionMethod).Append("\n");
             sb.Append("  CollisionRadius: ").Append(CollisionRadius).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  DamagedByAbilities: ").Append(DamagedByAbilities).Append("\n");
@@ -706,31 +962,45 @@ namespace DeadlockApiClient.Model
             sb.Append("  Health: ").Append(Health).Append("\n");
             sb.Append("  HeavyMeleeHitCount: ").Append(HeavyMeleeHitCount).Append("\n");
             sb.Append("  HeavyMeleeOnly: ").Append(HeavyMeleeOnly).Append("\n");
+            sb.Append("  HitsRequired: ").Append(HitsRequired).Append("\n");
+            sb.Append("  InShopModifier: ").Append(InShopModifier).Append("\n");
             sb.Append("  InitialSpawnDelayInSeconds: ").Append(InitialSpawnDelayInSeconds).Append("\n");
             sb.Append("  InitialSpawnDelaySeconds: ").Append(InitialSpawnDelaySeconds).Append("\n");
             sb.Append("  InitialSpawnTime: ").Append(InitialSpawnTime).Append("\n");
             sb.Append("  IsMantleable: ").Append(IsMantleable).Append("\n");
+            sb.Append("  IsPermanentPickup: ").Append(IsPermanentPickup).Append("\n");
             sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
             sb.Append("  LootListDeckSize: ").Append(LootListDeckSize).Append("\n");
             sb.Append("  MVecPickupsLv2: ").Append(MVecPickupsLv2).Append("\n");
             sb.Append("  MVecPickupsLv3: ").Append(MVecPickupsLv3).Append("\n");
             sb.Append("  MatchTimeMinsForLevel2Pickups: ").Append(MatchTimeMinsForLevel2Pickups).Append("\n");
             sb.Append("  MatchTimeMinsForLevel3Pickups: ").Append(MatchTimeMinsForLevel3Pickups).Append("\n");
+            sb.Append("  MinimapClass: ").Append(MinimapClass).Append("\n");
             sb.Append("  Modifier: ").Append(Modifier).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  NameLocString: ").Append(NameLocString).Append("\n");
             sb.Append("  OrbSpawnDelayMax: ").Append(OrbSpawnDelayMax).Append("\n");
             sb.Append("  OrbSpawnDelayMin: ").Append(OrbSpawnDelayMin).Append("\n");
+            sb.Append("  Pickup: ").Append(Pickup).Append("\n");
             sb.Append("  PickupChances: ").Append(PickupChances).Append("\n");
             sb.Append("  PickupRadius: ").Append(PickupRadius).Append("\n");
             sb.Append("  PowerupDropChance: ").Append(PowerupDropChance).Append("\n");
             sb.Append("  PrimaryDropChance: ").Append(PrimaryDropChance).Append("\n");
             sb.Append("  PrimaryPickups: ").Append(PrimaryPickups).Append("\n");
+            sb.Append("  RegenDuration: ").Append(RegenDuration).Append("\n");
+            sb.Append("  RegenDurationTroopers: ").Append(RegenDurationTroopers).Append("\n");
+            sb.Append("  RegenMaxHealthPercent: ").Append(RegenMaxHealthPercent).Append("\n");
+            sb.Append("  RegenTrooperMulti: ").Append(RegenTrooperMulti).Append("\n");
             sb.Append("  RenderAfterDeath: ").Append(RenderAfterDeath).Append("\n");
             sb.Append("  RespawnTime: ").Append(RespawnTime).Append("\n");
             sb.Append("  RollType: ").Append(RollType).Append("\n");
             sb.Append("  ShowOnMinimap: ").Append(ShowOnMinimap).Append("\n");
+            sb.Append("  SinglePickupOverride: ").Append(SinglePickupOverride).Append("\n");
             sb.Append("  SolidAfterDeath: ").Append(SolidAfterDeath).Append("\n");
+            sb.Append("  SpawnDelay: ").Append(SpawnDelay).Append("\n");
             sb.Append("  SpawnInterval: ").Append(SpawnInterval).Append("\n");
             sb.Append("  SpawnIntervalInSeconds: ").Append(SpawnIntervalInSeconds).Append("\n");
+            sb.Append("  SpawnMusicState: ").Append(SpawnMusicState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -789,7 +1059,9 @@ namespace DeadlockApiClient.Model
             Option<bool?> breakOnDodgeTouch = default;
             Option<Color?> buffTypeGraphColor = default;
             Option<string?> buffTypeLocString = default;
+            Option<string?> buffTypeName = default;
             Option<string?> buffTypeValueUnit = default;
+            Option<string?> collectionMethod = default;
             Option<double?> collisionRadius = default;
             Option<Color?> color = default;
             Option<bool?> damagedByAbilities = default;
@@ -802,31 +1074,45 @@ namespace DeadlockApiClient.Model
             Option<long?> health = default;
             Option<long?> heavyMeleeHitCount = default;
             Option<bool?> heavyMeleeOnly = default;
+            Option<long?> hitsRequired = default;
+            Option<SubclassModifierDefinition?> inShopModifier = default;
             Option<long?> initialSpawnDelayInSeconds = default;
             Option<long?> initialSpawnDelaySeconds = default;
             Option<double?> initialSpawnTime = default;
             Option<bool?> isMantleable = default;
+            Option<bool?> isPermanentPickup = default;
             Option<double?> lifetime = default;
             Option<long?> lootListDeckSize = default;
             Option<List<Pickup>?> mVecPickupsLv2 = default;
             Option<List<Pickup>?> mVecPickupsLv3 = default;
             Option<long?> matchTimeMinsForLevel2Pickups = default;
             Option<long?> matchTimeMinsForLevel3Pickups = default;
+            Option<string?> minimapClass = default;
             Option<SubclassModifierDefinition?> modifier = default;
+            Option<string?> name = default;
+            Option<string?> nameLocString = default;
             Option<double?> orbSpawnDelayMax = default;
             Option<double?> orbSpawnDelayMin = default;
+            Option<string?> pickup = default;
             Option<Dictionary<string, double>?> pickupChances = default;
             Option<CurveOrFloat?> pickupRadius = default;
             Option<double?> powerupDropChance = default;
             Option<double?> primaryDropChance = default;
             Option<List<Pickup>?> primaryPickups = default;
+            Option<double?> regenDuration = default;
+            Option<double?> regenDurationTroopers = default;
+            Option<CurveOrFloat?> regenMaxHealthPercent = default;
+            Option<double?> regenTrooperMulti = default;
             Option<bool?> renderAfterDeath = default;
             Option<double?> respawnTime = default;
             Option<string?> rollType = default;
             Option<bool?> showOnMinimap = default;
+            Option<string?> singlePickupOverride = default;
             Option<bool?> solidAfterDeath = default;
+            Option<double?> spawnDelay = default;
             Option<double?> spawnInterval = default;
             Option<long?> spawnIntervalInSeconds = default;
+            Option<string?> spawnMusicState = default;
 
             while (utf8JsonReader.Read())
             {
@@ -858,8 +1144,14 @@ namespace DeadlockApiClient.Model
                         case "buff_type_loc_string":
                             buffTypeLocString = new Option<string?>(utf8JsonReader.GetString());
                             break;
+                        case "buff_type_name":
+                            buffTypeName = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "buff_type_value_unit":
                             buffTypeValueUnit = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "collection_method":
+                            collectionMethod = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "collision_radius":
                             collisionRadius = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -897,6 +1189,12 @@ namespace DeadlockApiClient.Model
                         case "heavy_melee_only":
                             heavyMeleeOnly = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "hits_required":
+                            hitsRequired = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "in_shop_modifier":
+                            inShopModifier = new Option<SubclassModifierDefinition?>(JsonSerializer.Deserialize<SubclassModifierDefinition>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "initial_spawn_delay_in_seconds":
                             initialSpawnDelayInSeconds = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
@@ -908,6 +1206,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "is_mantleable":
                             isMantleable = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "is_permanent_pickup":
+                            isPermanentPickup = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "lifetime":
                             lifetime = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -927,14 +1228,26 @@ namespace DeadlockApiClient.Model
                         case "match_time_mins_for_level3_pickups":
                             matchTimeMinsForLevel3Pickups = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "minimap_class":
+                            minimapClass = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "modifier":
                             modifier = new Option<SubclassModifierDefinition?>(JsonSerializer.Deserialize<SubclassModifierDefinition>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "name":
+                            name = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "name_loc_string":
+                            nameLocString = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "orb_spawn_delay_max":
                             orbSpawnDelayMax = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "orb_spawn_delay_min":
                             orbSpawnDelayMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "pickup":
+                            pickup = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "pickup_chances":
                             pickupChances = new Option<Dictionary<string, double>?>(JsonSerializer.Deserialize<Dictionary<string, double>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -951,6 +1264,18 @@ namespace DeadlockApiClient.Model
                         case "primary_pickups":
                             primaryPickups = new Option<List<Pickup>?>(JsonSerializer.Deserialize<List<Pickup>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "regen_duration":
+                            regenDuration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "regen_duration_troopers":
+                            regenDurationTroopers = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "regen_max_health_percent":
+                            regenMaxHealthPercent = new Option<CurveOrFloat?>(JsonSerializer.Deserialize<CurveOrFloat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "regen_trooper_multi":
+                            regenTrooperMulti = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "render_after_death":
                             renderAfterDeath = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
@@ -963,14 +1288,23 @@ namespace DeadlockApiClient.Model
                         case "show_on_minimap":
                             showOnMinimap = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
+                        case "single_pickup_override":
+                            singlePickupOverride = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "solid_after_death":
                             solidAfterDeath = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "spawn_delay":
+                            spawnDelay = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "spawn_interval":
                             spawnInterval = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "spawn_interval_in_seconds":
                             spawnIntervalInSeconds = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "spawn_music_state":
+                            spawnMusicState = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -990,7 +1324,7 @@ namespace DeadlockApiClient.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class MiscEntity.");
 
-            return new MiscEntity(className.Value!, id.Value!.Value!, breakOnDodgeTouch, buffTypeGraphColor, buffTypeLocString, buffTypeValueUnit, collisionRadius, color, damagedByAbilities, damagedByBullets, damagedByMelee, damagedBySlide, expirationDuration, goldAmount, goldPerMinuteAmount, health, heavyMeleeHitCount, heavyMeleeOnly, initialSpawnDelayInSeconds, initialSpawnDelaySeconds, initialSpawnTime, isMantleable, lifetime, lootListDeckSize, mVecPickupsLv2, mVecPickupsLv3, matchTimeMinsForLevel2Pickups, matchTimeMinsForLevel3Pickups, modifier, orbSpawnDelayMax, orbSpawnDelayMin, pickupChances, pickupRadius, powerupDropChance, primaryDropChance, primaryPickups, renderAfterDeath, respawnTime, rollType, showOnMinimap, solidAfterDeath, spawnInterval, spawnIntervalInSeconds);
+            return new MiscEntity(className.Value!, id.Value!.Value!, breakOnDodgeTouch, buffTypeGraphColor, buffTypeLocString, buffTypeName, buffTypeValueUnit, collectionMethod, collisionRadius, color, damagedByAbilities, damagedByBullets, damagedByMelee, damagedBySlide, expirationDuration, goldAmount, goldPerMinuteAmount, health, heavyMeleeHitCount, heavyMeleeOnly, hitsRequired, inShopModifier, initialSpawnDelayInSeconds, initialSpawnDelaySeconds, initialSpawnTime, isMantleable, isPermanentPickup, lifetime, lootListDeckSize, mVecPickupsLv2, mVecPickupsLv3, matchTimeMinsForLevel2Pickups, matchTimeMinsForLevel3Pickups, minimapClass, modifier, name, nameLocString, orbSpawnDelayMax, orbSpawnDelayMin, pickup, pickupChances, pickupRadius, powerupDropChance, primaryDropChance, primaryPickups, regenDuration, regenDurationTroopers, regenMaxHealthPercent, regenTrooperMulti, renderAfterDeath, respawnTime, rollType, showOnMinimap, singlePickupOverride, solidAfterDeath, spawnDelay, spawnInterval, spawnIntervalInSeconds, spawnMusicState);
         }
 
         /// <summary>
@@ -1044,11 +1378,23 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("buff_type_loc_string");
 
+            if (miscEntity.BuffTypeNameOption.IsSet)
+                if (miscEntity.BuffTypeNameOption.Value != null)
+                    writer.WriteString("buff_type_name", miscEntity.BuffTypeName);
+                else
+                    writer.WriteNull("buff_type_name");
+
             if (miscEntity.BuffTypeValueUnitOption.IsSet)
                 if (miscEntity.BuffTypeValueUnitOption.Value != null)
                     writer.WriteString("buff_type_value_unit", miscEntity.BuffTypeValueUnit);
                 else
                     writer.WriteNull("buff_type_value_unit");
+
+            if (miscEntity.CollectionMethodOption.IsSet)
+                if (miscEntity.CollectionMethodOption.Value != null)
+                    writer.WriteString("collection_method", miscEntity.CollectionMethod);
+                else
+                    writer.WriteNull("collection_method");
 
             if (miscEntity.CollisionRadiusOption.IsSet)
                 if (miscEntity.CollisionRadiusOption.Value != null)
@@ -1126,6 +1472,20 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("heavy_melee_only");
 
+            if (miscEntity.HitsRequiredOption.IsSet)
+                if (miscEntity.HitsRequiredOption.Value != null)
+                    writer.WriteNumber("hits_required", miscEntity.HitsRequiredOption.Value!.Value);
+                else
+                    writer.WriteNull("hits_required");
+
+            if (miscEntity.InShopModifierOption.IsSet)
+                if (miscEntity.InShopModifierOption.Value != null)
+                {
+                    writer.WritePropertyName("in_shop_modifier");
+                    JsonSerializer.Serialize(writer, miscEntity.InShopModifier, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("in_shop_modifier");
             if (miscEntity.InitialSpawnDelayInSecondsOption.IsSet)
                 if (miscEntity.InitialSpawnDelayInSecondsOption.Value != null)
                     writer.WriteNumber("initial_spawn_delay_in_seconds", miscEntity.InitialSpawnDelayInSecondsOption.Value!.Value);
@@ -1149,6 +1509,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteBoolean("is_mantleable", miscEntity.IsMantleableOption.Value!.Value);
                 else
                     writer.WriteNull("is_mantleable");
+
+            if (miscEntity.IsPermanentPickupOption.IsSet)
+                if (miscEntity.IsPermanentPickupOption.Value != null)
+                    writer.WriteBoolean("is_permanent_pickup", miscEntity.IsPermanentPickupOption.Value!.Value);
+                else
+                    writer.WriteNull("is_permanent_pickup");
 
             if (miscEntity.LifetimeOption.IsSet)
                 if (miscEntity.LifetimeOption.Value != null)
@@ -1190,6 +1556,12 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("match_time_mins_for_level3_pickups");
 
+            if (miscEntity.MinimapClassOption.IsSet)
+                if (miscEntity.MinimapClassOption.Value != null)
+                    writer.WriteString("minimap_class", miscEntity.MinimapClass);
+                else
+                    writer.WriteNull("minimap_class");
+
             if (miscEntity.ModifierOption.IsSet)
                 if (miscEntity.ModifierOption.Value != null)
                 {
@@ -1198,6 +1570,18 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("modifier");
+            if (miscEntity.NameOption.IsSet)
+                if (miscEntity.NameOption.Value != null)
+                    writer.WriteString("name", miscEntity.Name);
+                else
+                    writer.WriteNull("name");
+
+            if (miscEntity.NameLocStringOption.IsSet)
+                if (miscEntity.NameLocStringOption.Value != null)
+                    writer.WriteString("name_loc_string", miscEntity.NameLocString);
+                else
+                    writer.WriteNull("name_loc_string");
+
             if (miscEntity.OrbSpawnDelayMaxOption.IsSet)
                 if (miscEntity.OrbSpawnDelayMaxOption.Value != null)
                     writer.WriteNumber("orb_spawn_delay_max", miscEntity.OrbSpawnDelayMaxOption.Value!.Value);
@@ -1209,6 +1593,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("orb_spawn_delay_min", miscEntity.OrbSpawnDelayMinOption.Value!.Value);
                 else
                     writer.WriteNull("orb_spawn_delay_min");
+
+            if (miscEntity.PickupOption.IsSet)
+                if (miscEntity.PickupOption.Value != null)
+                    writer.WriteString("pickup", miscEntity.Pickup);
+                else
+                    writer.WriteNull("pickup");
 
             if (miscEntity.PickupChancesOption.IsSet)
                 if (miscEntity.PickupChancesOption.Value != null)
@@ -1246,6 +1636,32 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("primary_pickups");
+            if (miscEntity.RegenDurationOption.IsSet)
+                if (miscEntity.RegenDurationOption.Value != null)
+                    writer.WriteNumber("regen_duration", miscEntity.RegenDurationOption.Value!.Value);
+                else
+                    writer.WriteNull("regen_duration");
+
+            if (miscEntity.RegenDurationTroopersOption.IsSet)
+                if (miscEntity.RegenDurationTroopersOption.Value != null)
+                    writer.WriteNumber("regen_duration_troopers", miscEntity.RegenDurationTroopersOption.Value!.Value);
+                else
+                    writer.WriteNull("regen_duration_troopers");
+
+            if (miscEntity.RegenMaxHealthPercentOption.IsSet)
+                if (miscEntity.RegenMaxHealthPercentOption.Value != null)
+                {
+                    writer.WritePropertyName("regen_max_health_percent");
+                    JsonSerializer.Serialize(writer, miscEntity.RegenMaxHealthPercent, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("regen_max_health_percent");
+            if (miscEntity.RegenTrooperMultiOption.IsSet)
+                if (miscEntity.RegenTrooperMultiOption.Value != null)
+                    writer.WriteNumber("regen_trooper_multi", miscEntity.RegenTrooperMultiOption.Value!.Value);
+                else
+                    writer.WriteNull("regen_trooper_multi");
+
             if (miscEntity.RenderAfterDeathOption.IsSet)
                 if (miscEntity.RenderAfterDeathOption.Value != null)
                     writer.WriteBoolean("render_after_death", miscEntity.RenderAfterDeathOption.Value!.Value);
@@ -1270,11 +1686,23 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("show_on_minimap");
 
+            if (miscEntity.SinglePickupOverrideOption.IsSet)
+                if (miscEntity.SinglePickupOverrideOption.Value != null)
+                    writer.WriteString("single_pickup_override", miscEntity.SinglePickupOverride);
+                else
+                    writer.WriteNull("single_pickup_override");
+
             if (miscEntity.SolidAfterDeathOption.IsSet)
                 if (miscEntity.SolidAfterDeathOption.Value != null)
                     writer.WriteBoolean("solid_after_death", miscEntity.SolidAfterDeathOption.Value!.Value);
                 else
                     writer.WriteNull("solid_after_death");
+
+            if (miscEntity.SpawnDelayOption.IsSet)
+                if (miscEntity.SpawnDelayOption.Value != null)
+                    writer.WriteNumber("spawn_delay", miscEntity.SpawnDelayOption.Value!.Value);
+                else
+                    writer.WriteNull("spawn_delay");
 
             if (miscEntity.SpawnIntervalOption.IsSet)
                 if (miscEntity.SpawnIntervalOption.Value != null)
@@ -1287,6 +1715,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("spawn_interval_in_seconds", miscEntity.SpawnIntervalInSecondsOption.Value!.Value);
                 else
                     writer.WriteNull("spawn_interval_in_seconds");
+
+            if (miscEntity.SpawnMusicStateOption.IsSet)
+                if (miscEntity.SpawnMusicStateOption.Value != null)
+                    writer.WriteString("spawn_music_state", miscEntity.SpawnMusicState);
+                else
+                    writer.WriteNull("spawn_music_state");
         }
     }
 }

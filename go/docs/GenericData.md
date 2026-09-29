@@ -6,21 +6,26 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AimSpringStrength** | **[]float64** |  | 
 **ArmorGroups** | [**[]ItemGroup**](ItemGroup.md) |  | 
+**BreakablePowerupLootParams** | Pointer to [**NullableBreakablePowerupLootParams**](BreakablePowerupLootParams.md) | Loot tables for breakable powerup props (build 6711+). | [optional] 
 **ColorEnemy** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **ColorFriend** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **ColorTeam1** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **ColorTeam2** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**CorruptedPenalties** | Pointer to [**[]CorruptedPenalty**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). | [optional] 
 **DamageFlash** | [**DamageFlash**](DamageFlash.md) |  | 
 **EnemyObjectivesAndZiplineColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **EnemyObjectivesColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **EnemyZiplineColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **GlitchSettings** | [**GlitchSettings**](GlitchSettings.md) |  | 
 **HeroKillGoldShareFrac** | **[]float64** |  | 
+**ItemCorruptionPricePerTier** | Pointer to **[]int64** | Extra cost of corrupting an item, by item tier (build 6711+). | [optional] 
 **ItemPricePerTier** | **[]int64** |  | 
 **LaneInfo** | [**[]LaneInfo**](LaneInfo.md) |  | 
+**MapDistricts** | Pointer to [**[]MapDistrict**](MapDistrict.md) | District / building labels shown on the map (build 6711+). | [optional] 
 **MiniMapOffsets** | [**[]MiniMapOffsets**](MiniMapOffsets.md) |  | 
 **MinimapTeamCombineColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **MinimapTeamRebelsColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
+**NeutralCampRespawnTimerShowDistance** | Pointer to **NullableFloat64** | Distance within which a neutral camp&#39;s respawn timer is shown (build 6711+). | [optional] 
 **NewPlayerMetrics** | [**[]NewPlayerMetrics**](NewPlayerMetrics.md) |  | 
 **ObjectiveParams** | [**ObjectiveParams**](ObjectiveParams.md) |  | 
 **RejuvParams** | [**RejuvParams**](RejuvParams.md) |  | 
@@ -89,6 +94,41 @@ and a boolean to check if the value has been set.
 SetArmorGroups sets ArmorGroups field to given value.
 
 
+### GetBreakablePowerupLootParams
+
+`func (o *GenericData) GetBreakablePowerupLootParams() BreakablePowerupLootParams`
+
+GetBreakablePowerupLootParams returns the BreakablePowerupLootParams field if non-nil, zero value otherwise.
+
+### GetBreakablePowerupLootParamsOk
+
+`func (o *GenericData) GetBreakablePowerupLootParamsOk() (*BreakablePowerupLootParams, bool)`
+
+GetBreakablePowerupLootParamsOk returns a tuple with the BreakablePowerupLootParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBreakablePowerupLootParams
+
+`func (o *GenericData) SetBreakablePowerupLootParams(v BreakablePowerupLootParams)`
+
+SetBreakablePowerupLootParams sets BreakablePowerupLootParams field to given value.
+
+### HasBreakablePowerupLootParams
+
+`func (o *GenericData) HasBreakablePowerupLootParams() bool`
+
+HasBreakablePowerupLootParams returns a boolean if a field has been set.
+
+### SetBreakablePowerupLootParamsNil
+
+`func (o *GenericData) SetBreakablePowerupLootParamsNil(b bool)`
+
+ SetBreakablePowerupLootParamsNil sets the value for BreakablePowerupLootParams to be an explicit nil
+
+### UnsetBreakablePowerupLootParams
+`func (o *GenericData) UnsetBreakablePowerupLootParams()`
+
+UnsetBreakablePowerupLootParams ensures that no value is present for BreakablePowerupLootParams, not even an explicit nil
 ### GetColorEnemy
 
 `func (o *GenericData) GetColorEnemy() Color`
@@ -229,6 +269,41 @@ HasColorTeam2 returns a boolean if a field has been set.
 `func (o *GenericData) UnsetColorTeam2()`
 
 UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
+### GetCorruptedPenalties
+
+`func (o *GenericData) GetCorruptedPenalties() []CorruptedPenalty`
+
+GetCorruptedPenalties returns the CorruptedPenalties field if non-nil, zero value otherwise.
+
+### GetCorruptedPenaltiesOk
+
+`func (o *GenericData) GetCorruptedPenaltiesOk() (*[]CorruptedPenalty, bool)`
+
+GetCorruptedPenaltiesOk returns a tuple with the CorruptedPenalties field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptedPenalties
+
+`func (o *GenericData) SetCorruptedPenalties(v []CorruptedPenalty)`
+
+SetCorruptedPenalties sets CorruptedPenalties field to given value.
+
+### HasCorruptedPenalties
+
+`func (o *GenericData) HasCorruptedPenalties() bool`
+
+HasCorruptedPenalties returns a boolean if a field has been set.
+
+### SetCorruptedPenaltiesNil
+
+`func (o *GenericData) SetCorruptedPenaltiesNil(b bool)`
+
+ SetCorruptedPenaltiesNil sets the value for CorruptedPenalties to be an explicit nil
+
+### UnsetCorruptedPenalties
+`func (o *GenericData) UnsetCorruptedPenalties()`
+
+UnsetCorruptedPenalties ensures that no value is present for CorruptedPenalties, not even an explicit nil
 ### GetDamageFlash
 
 `func (o *GenericData) GetDamageFlash() DamageFlash`
@@ -394,6 +469,41 @@ and a boolean to check if the value has been set.
 SetHeroKillGoldShareFrac sets HeroKillGoldShareFrac field to given value.
 
 
+### GetItemCorruptionPricePerTier
+
+`func (o *GenericData) GetItemCorruptionPricePerTier() []int64`
+
+GetItemCorruptionPricePerTier returns the ItemCorruptionPricePerTier field if non-nil, zero value otherwise.
+
+### GetItemCorruptionPricePerTierOk
+
+`func (o *GenericData) GetItemCorruptionPricePerTierOk() (*[]int64, bool)`
+
+GetItemCorruptionPricePerTierOk returns a tuple with the ItemCorruptionPricePerTier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemCorruptionPricePerTier
+
+`func (o *GenericData) SetItemCorruptionPricePerTier(v []int64)`
+
+SetItemCorruptionPricePerTier sets ItemCorruptionPricePerTier field to given value.
+
+### HasItemCorruptionPricePerTier
+
+`func (o *GenericData) HasItemCorruptionPricePerTier() bool`
+
+HasItemCorruptionPricePerTier returns a boolean if a field has been set.
+
+### SetItemCorruptionPricePerTierNil
+
+`func (o *GenericData) SetItemCorruptionPricePerTierNil(b bool)`
+
+ SetItemCorruptionPricePerTierNil sets the value for ItemCorruptionPricePerTier to be an explicit nil
+
+### UnsetItemCorruptionPricePerTier
+`func (o *GenericData) UnsetItemCorruptionPricePerTier()`
+
+UnsetItemCorruptionPricePerTier ensures that no value is present for ItemCorruptionPricePerTier, not even an explicit nil
 ### GetItemPricePerTier
 
 `func (o *GenericData) GetItemPricePerTier() []int64`
@@ -434,6 +544,41 @@ and a boolean to check if the value has been set.
 SetLaneInfo sets LaneInfo field to given value.
 
 
+### GetMapDistricts
+
+`func (o *GenericData) GetMapDistricts() []MapDistrict`
+
+GetMapDistricts returns the MapDistricts field if non-nil, zero value otherwise.
+
+### GetMapDistrictsOk
+
+`func (o *GenericData) GetMapDistrictsOk() (*[]MapDistrict, bool)`
+
+GetMapDistrictsOk returns a tuple with the MapDistricts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMapDistricts
+
+`func (o *GenericData) SetMapDistricts(v []MapDistrict)`
+
+SetMapDistricts sets MapDistricts field to given value.
+
+### HasMapDistricts
+
+`func (o *GenericData) HasMapDistricts() bool`
+
+HasMapDistricts returns a boolean if a field has been set.
+
+### SetMapDistrictsNil
+
+`func (o *GenericData) SetMapDistrictsNil(b bool)`
+
+ SetMapDistrictsNil sets the value for MapDistricts to be an explicit nil
+
+### UnsetMapDistricts
+`func (o *GenericData) UnsetMapDistricts()`
+
+UnsetMapDistricts ensures that no value is present for MapDistricts, not even an explicit nil
 ### GetMiniMapOffsets
 
 `func (o *GenericData) GetMiniMapOffsets() []MiniMapOffsets`
@@ -524,6 +669,41 @@ HasMinimapTeamRebelsColor returns a boolean if a field has been set.
 `func (o *GenericData) UnsetMinimapTeamRebelsColor()`
 
 UnsetMinimapTeamRebelsColor ensures that no value is present for MinimapTeamRebelsColor, not even an explicit nil
+### GetNeutralCampRespawnTimerShowDistance
+
+`func (o *GenericData) GetNeutralCampRespawnTimerShowDistance() float64`
+
+GetNeutralCampRespawnTimerShowDistance returns the NeutralCampRespawnTimerShowDistance field if non-nil, zero value otherwise.
+
+### GetNeutralCampRespawnTimerShowDistanceOk
+
+`func (o *GenericData) GetNeutralCampRespawnTimerShowDistanceOk() (*float64, bool)`
+
+GetNeutralCampRespawnTimerShowDistanceOk returns a tuple with the NeutralCampRespawnTimerShowDistance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralCampRespawnTimerShowDistance
+
+`func (o *GenericData) SetNeutralCampRespawnTimerShowDistance(v float64)`
+
+SetNeutralCampRespawnTimerShowDistance sets NeutralCampRespawnTimerShowDistance field to given value.
+
+### HasNeutralCampRespawnTimerShowDistance
+
+`func (o *GenericData) HasNeutralCampRespawnTimerShowDistance() bool`
+
+HasNeutralCampRespawnTimerShowDistance returns a boolean if a field has been set.
+
+### SetNeutralCampRespawnTimerShowDistanceNil
+
+`func (o *GenericData) SetNeutralCampRespawnTimerShowDistanceNil(b bool)`
+
+ SetNeutralCampRespawnTimerShowDistanceNil sets the value for NeutralCampRespawnTimerShowDistance to be an explicit nil
+
+### UnsetNeutralCampRespawnTimerShowDistance
+`func (o *GenericData) UnsetNeutralCampRespawnTimerShowDistance()`
+
+UnsetNeutralCampRespawnTimerShowDistance ensures that no value is present for NeutralCampRespawnTimerShowDistance, not even an explicit nil
 ### GetNewPlayerMetrics
 
 `func (o *GenericData) GetNewPlayerMetrics() []NewPlayerMetrics`

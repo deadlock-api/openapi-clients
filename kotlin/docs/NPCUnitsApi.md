@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getNpcUnit"></a>
 # **getNpcUnit**
-> NpcUnit getNpcUnit(idOrClassname, clientVersion)
+> NpcUnit getNpcUnit(idOrClassname, language, clientVersion)
 
 Get NPC Unit
 
@@ -24,9 +24,10 @@ Returns a single NPC unit by numeric id or by &#x60;class_name&#x60; (case-insen
 
 val apiInstance = NPCUnitsApi()
 val idOrClassname : kotlin.String = idOrClassname_example // kotlin.String | NPC unit id (`murmurhash2(class_name)`) or `class_name`
+val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
 val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
-    val result : NpcUnit = apiInstance.getNpcUnit(idOrClassname, clientVersion)
+    val result : NpcUnit = apiInstance.getNpcUnit(idOrClassname, language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NPCUnitsApi#getNpcUnit")
@@ -41,6 +42,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **idOrClassname** | **kotlin.String**| NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | |
+| **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
@@ -58,11 +60,11 @@ No authorization required
 
 <a id="listNpcUnits"></a>
 # **listNpcUnits**
-> kotlin.collections.List&lt;NpcUnit&gt; listNpcUnits(clientVersion)
+> kotlin.collections.List&lt;NpcUnit&gt; listNpcUnits(language, clientVersion)
 
 List NPC Units
 
-Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
 
 ### Example
 ```kotlin
@@ -71,9 +73,10 @@ Returns the per-NPC-unit metadata used by the game client, parsed from the patch
 //import deadlock_api_client.models.*
 
 val apiInstance = NPCUnitsApi()
+val language : kotlin.String = language_example // kotlin.String | Language code. Defaults to `english`.
 val clientVersion : kotlin.Int = 56 // kotlin.Int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 try {
-    val result : kotlin.collections.List<NpcUnit> = apiInstance.listNpcUnits(clientVersion)
+    val result : kotlin.collections.List<NpcUnit> = apiInstance.listNpcUnits(language, clientVersion)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling NPCUnitsApi#listNpcUnits")
@@ -87,6 +90,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **language** | **kotlin.String**| Language code. Defaults to &#x60;english&#x60;. | [optional] [enum: brazilian, bulgarian, czech, danish, dutch, english, finnish, french, german, greek, hungarian, indonesian, italian, japanese, koreana, latam, norwegian, polish, portuguese, romanian, russian, schinese, spanish, swedish, tchinese, thai, turkish, ukrainian, vietnamese] |
 | **clientVersion** | **kotlin.Int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type

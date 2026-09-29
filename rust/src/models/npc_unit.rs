@@ -62,6 +62,12 @@ pub struct NpcUnit {
     pub health_bar_color_team_neutral: Option<Option<Box<models::Color>>>,
     #[serde(rename = "id")]
     pub id: u32,
+    /// Unit icon (`m_strCustomUnitIcon`) as png.
+    #[serde(rename = "image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub image: Option<Option<String>>,
+    /// Unit icon (`m_strCustomUnitIcon`) as webp.
+    #[serde(rename = "image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub image_webp: Option<Option<String>>,
     #[serde(rename = "intrinsic_modifiers", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub intrinsic_modifiers: Option<Option<Vec<models::SubclassIntrinsicModifiers>>>,
     #[serde(rename = "laser_dps_max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -82,8 +88,22 @@ pub struct NpcUnit {
     pub melee_duration: Option<Option<f64>>,
     #[serde(rename = "melee_hit_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub melee_hit_range: Option<Option<f64>>,
+    /// Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub name: Option<Option<String>>,
     #[serde(rename = "near_death_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub near_death_duration: Option<Option<f64>>,
+    /// Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+    #[serde(rename = "neutral_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_abilities: Option<Option<Vec<String>>>,
+    #[serde(rename = "neutral_damage_growth", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_damage_growth: Option<Option<Box<models::SubclassNeutralDamageGrowth>>>,
+    /// Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+    #[serde(rename = "neutral_melee", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_melee: Option<Option<String>>,
+    /// Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+    #[serde(rename = "neutral_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_type: Option<Option<String>>,
     #[serde(rename = "no_shield_laser_dps_to_players", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub no_shield_laser_dps_to_players: Option<Option<f64>>,
     #[serde(rename = "objective_health_growth_phase1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -144,6 +164,9 @@ pub struct NpcUnit {
     pub trooper_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "trooper_dps", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub trooper_dps: Option<Option<f64>>,
+    /// Distance threshold (as string key) → soul orb class shown to the viewer.
+    #[serde(rename = "viewer_souls_class", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub viewer_souls_class: Option<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "walk_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub walk_speed: Option<Option<f64>>,
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -177,6 +200,8 @@ impl NpcUnit {
             health_bar_color_team2: None,
             health_bar_color_team_neutral: None,
             id,
+            image: None,
+            image_webp: None,
             intrinsic_modifiers: None,
             laser_dps_max_health: None,
             laser_dps_to_players: None,
@@ -187,7 +212,12 @@ impl NpcUnit {
             melee_damage: None,
             melee_duration: None,
             melee_hit_range: None,
+            name: None,
             near_death_duration: None,
+            neutral_abilities: None,
+            neutral_damage_growth: None,
+            neutral_melee: None,
+            neutral_type: None,
             no_shield_laser_dps_to_players: None,
             objective_health_growth_phase1: None,
             objective_health_growth_phase2: None,
@@ -218,6 +248,7 @@ impl NpcUnit {
             t3_boss_dps: None,
             trooper_damage_resist_pct: None,
             trooper_dps: None,
+            viewer_souls_class: None,
             walk_speed: None,
             weapon_info: None,
         }

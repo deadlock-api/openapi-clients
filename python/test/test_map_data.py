@@ -43,6 +43,17 @@ class TestMapData(unittest.TestCase):
                     minimap = '', 
                     plain = '', 
                     rat_tunnels = '', ),
+                neutral_camps = [
+                    deadlock_api_client.models.neutral_camp.NeutralCamp(
+                        icon = '', 
+                        kind = 'weak', 
+                        left_relative = 1.337, 
+                        name = '', 
+                        position = [
+                            1.337
+                            ], 
+                        top_relative = 1.337, )
+                    ],
                 objective_positions = {
                     'key' : deadlock_api_client.models.objective_position.ObjectivePosition(
                         left_relative = 1.337, 

@@ -23,11 +23,14 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.BreakablePowerupLootParams
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
 import deadlock_api_client.models.ItemGroup
 import deadlock_api_client.models.LaneInfo
+import deadlock_api_client.models.MapDistrict
 import deadlock_api_client.models.MiniMapOffsets
 import deadlock_api_client.models.NewPlayerMetrics
 import deadlock_api_client.models.ObjectiveParams
@@ -56,15 +59,20 @@ import java.io.Serializable
  * @param targetingSpringStrength 
  * @param trooperKillGoldShareFrac 
  * @param weaponGroups 
+ * @param breakablePowerupLootParams Loot tables for breakable powerup props (build 6711+).
  * @param colorEnemy Build 6711+.
  * @param colorFriend Build 6711+.
  * @param colorTeam1 Build 6711+.
  * @param colorTeam2 Build 6711+.
+ * @param corruptedPenalties Penalties that can be rolled onto corrupted items (build 6711+).
  * @param enemyObjectivesAndZiplineColor 
  * @param enemyObjectivesColor 
  * @param enemyZiplineColor 
+ * @param itemCorruptionPricePerTier Extra cost of corrupting an item, by item tier (build 6711+).
+ * @param mapDistricts District / building labels shown on the map (build 6711+).
  * @param minimapTeamCombineColor 
  * @param minimapTeamRebelsColor 
+ * @param neutralCampRespawnTimerShowDistance Distance within which a neutral camp's respawn timer is shown (build 6711+).
  * @param streetBrawl 
  */
 
@@ -116,6 +124,10 @@ data class GenericData (
     @Json(name = "weapon_groups")
     val weaponGroups: kotlin.collections.List<ItemGroup>,
 
+    /* Loot tables for breakable powerup props (build 6711+). */
+    @Json(name = "breakable_powerup_loot_params")
+    val breakablePowerupLootParams: BreakablePowerupLootParams? = null,
+
     /* Build 6711+. */
     @Json(name = "color_enemy")
     val colorEnemy: Color? = null,
@@ -132,6 +144,10 @@ data class GenericData (
     @Json(name = "color_team2")
     val colorTeam2: Color? = null,
 
+    /* Penalties that can be rolled onto corrupted items (build 6711+). */
+    @Json(name = "corrupted_penalties")
+    val corruptedPenalties: kotlin.collections.List<CorruptedPenalty>? = null,
+
     @Json(name = "enemy_objectives_and_zipline_color")
     val enemyObjectivesAndZiplineColor: Color? = null,
 
@@ -141,11 +157,23 @@ data class GenericData (
     @Json(name = "enemy_zipline_color")
     val enemyZiplineColor: Color? = null,
 
+    /* Extra cost of corrupting an item, by item tier (build 6711+). */
+    @Json(name = "item_corruption_price_per_tier")
+    val itemCorruptionPricePerTier: kotlin.collections.List<kotlin.Long>? = null,
+
+    /* District / building labels shown on the map (build 6711+). */
+    @Json(name = "map_districts")
+    val mapDistricts: kotlin.collections.List<MapDistrict>? = null,
+
     @Json(name = "minimap_team_combine_color")
     val minimapTeamCombineColor: Color? = null,
 
     @Json(name = "minimap_team_rebels_color")
     val minimapTeamRebelsColor: Color? = null,
+
+    /* Distance within which a neutral camp's respawn timer is shown (build 6711+). */
+    @Json(name = "neutral_camp_respawn_timer_show_distance")
+    val neutralCampRespawnTimerShowDistance: kotlin.Double? = null,
 
     @Json(name = "street_brawl")
     val streetBrawl: StreetBrawl? = null

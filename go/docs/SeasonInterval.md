@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EndTimestamp** | **int64** | Unix timestamp (seconds) at which the interval ends. | 
 **Interval** | **int32** |  | 
+**LeaderboardId** | Pointer to **NullableInt32** | Leaderboard backing this interval (build 6701+). | [optional] 
 **StartTimestamp** | **int64** | Unix timestamp (seconds) at which the interval starts. | 
 
 ## Methods
@@ -67,6 +68,41 @@ and a boolean to check if the value has been set.
 SetInterval sets Interval field to given value.
 
 
+### GetLeaderboardId
+
+`func (o *SeasonInterval) GetLeaderboardId() int32`
+
+GetLeaderboardId returns the LeaderboardId field if non-nil, zero value otherwise.
+
+### GetLeaderboardIdOk
+
+`func (o *SeasonInterval) GetLeaderboardIdOk() (*int32, bool)`
+
+GetLeaderboardIdOk returns a tuple with the LeaderboardId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLeaderboardId
+
+`func (o *SeasonInterval) SetLeaderboardId(v int32)`
+
+SetLeaderboardId sets LeaderboardId field to given value.
+
+### HasLeaderboardId
+
+`func (o *SeasonInterval) HasLeaderboardId() bool`
+
+HasLeaderboardId returns a boolean if a field has been set.
+
+### SetLeaderboardIdNil
+
+`func (o *SeasonInterval) SetLeaderboardIdNil(b bool)`
+
+ SetLeaderboardIdNil sets the value for LeaderboardId to be an explicit nil
+
+### UnsetLeaderboardId
+`func (o *SeasonInterval) UnsetLeaderboardId()`
+
+UnsetLeaderboardId ensures that no value is present for LeaderboardId, not even an explicit nil
 ### GetStartTimestamp
 
 `func (o *SeasonInterval) GetStartTimestamp() int64`

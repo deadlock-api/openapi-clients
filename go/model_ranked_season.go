@@ -21,6 +21,8 @@ var _ MappedNullable = &RankedSeason{}
 
 // RankedSeason struct for RankedSeason
 type RankedSeason struct {
+	// Base rank points granted per win / taken per loss (build 6701+).
+	BaseWinLossPointGrant NullableInt32 `json:"base_win_loss_point_grant,omitempty"`
 	CalibrationMatches int32 `json:"calibration_matches"`
 	ClassName string `json:"class_name"`
 	Intervals []SeasonInterval `json:"intervals"`
@@ -58,6 +60,48 @@ func NewRankedSeason(calibrationMatches int32, className string, intervals []Sea
 func NewRankedSeasonWithDefaults() *RankedSeason {
 	this := RankedSeason{}
 	return &this
+}
+
+// GetBaseWinLossPointGrant returns the BaseWinLossPointGrant field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RankedSeason) GetBaseWinLossPointGrant() int32 {
+	if o == nil || IsNil(o.BaseWinLossPointGrant.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BaseWinLossPointGrant.Get()
+}
+
+// GetBaseWinLossPointGrantOk returns a tuple with the BaseWinLossPointGrant field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RankedSeason) GetBaseWinLossPointGrantOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BaseWinLossPointGrant.Get(), o.BaseWinLossPointGrant.IsSet()
+}
+
+// HasBaseWinLossPointGrant returns a boolean if a field has been set.
+func (o *RankedSeason) HasBaseWinLossPointGrant() bool {
+	if o != nil && o.BaseWinLossPointGrant.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBaseWinLossPointGrant gets a reference to the given NullableInt32 and assigns it to the BaseWinLossPointGrant field.
+func (o *RankedSeason) SetBaseWinLossPointGrant(v int32) {
+	o.BaseWinLossPointGrant.Set(&v)
+}
+// SetBaseWinLossPointGrantNil sets the value for BaseWinLossPointGrant to be an explicit nil
+func (o *RankedSeason) SetBaseWinLossPointGrantNil() {
+	o.BaseWinLossPointGrant.Set(nil)
+}
+
+// UnsetBaseWinLossPointGrant ensures that no value is present for BaseWinLossPointGrant, not even an explicit nil
+func (o *RankedSeason) UnsetBaseWinLossPointGrant() {
+	o.BaseWinLossPointGrant.Unset()
 }
 
 // GetCalibrationMatches returns the CalibrationMatches field value
@@ -286,6 +330,9 @@ func (o RankedSeason) MarshalJSON() ([]byte, error) {
 
 func (o RankedSeason) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.BaseWinLossPointGrant.IsSet() {
+		toSerialize["base_win_loss_point_grant"] = o.BaseWinLossPointGrant.Get()
+	}
 	toSerialize["calibration_matches"] = o.CalibrationMatches
 	toSerialize["class_name"] = o.ClassName
 	toSerialize["intervals"] = o.Intervals

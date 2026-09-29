@@ -24,9 +24,14 @@ type Upgrade struct {
 	Activation AbilityActivation `json:"activation"`
 	ClassName string `json:"class_name"`
 	ComponentItems []string `json:"component_items,omitempty"`
+	// Present on upgrades the Broker can corrupt (build 6711+).
+	CorruptedInfo NullableCorruptedItemInfo `json:"corrupted_info,omitempty"`
 	Cost NullableInt32 `json:"cost,omitempty"`
 	Description NullableUpgradeDescription `json:"description,omitempty"`
+	DisableItemTarget NullableString `json:"disable_item_target,omitempty"`
 	Disabled NullableBool `json:"disabled,omitempty"`
+	// Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+	DisabledShopFilters []string `json:"disabled_shop_filters,omitempty"`
 	Hero NullableInt32 `json:"hero,omitempty"`
 	Heroes []int32 `json:"heroes,omitempty"`
 	Id int32 `json:"id"`
@@ -38,10 +43,13 @@ type Upgrade struct {
 	ItemTier int32 `json:"item_tier"`
 	Name string `json:"name"`
 	Properties map[string]UpgradeProperty `json:"properties,omitempty"`
+	// Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+	ShopFilters []string `json:"shop_filters,omitempty"`
 	ShopImage NullableString `json:"shop_image,omitempty"`
 	ShopImageSmall NullableString `json:"shop_image_small,omitempty"`
 	ShopImageSmallWebp NullableString `json:"shop_image_small_webp,omitempty"`
 	ShopImageWebp NullableString `json:"shop_image_webp,omitempty"`
+	ShopVersion NullableInt64 `json:"shop_version,omitempty"`
 	Shopable bool `json:"shopable"`
 	StartTrained NullableBool `json:"start_trained,omitempty"`
 	TooltipSections []UpgradeTooltipSection `json:"tooltip_sections,omitempty"`
@@ -160,6 +168,48 @@ func (o *Upgrade) SetComponentItems(v []string) {
 	o.ComponentItems = v
 }
 
+// GetCorruptedInfo returns the CorruptedInfo field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Upgrade) GetCorruptedInfo() CorruptedItemInfo {
+	if o == nil || IsNil(o.CorruptedInfo.Get()) {
+		var ret CorruptedItemInfo
+		return ret
+	}
+	return *o.CorruptedInfo.Get()
+}
+
+// GetCorruptedInfoOk returns a tuple with the CorruptedInfo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Upgrade) GetCorruptedInfoOk() (*CorruptedItemInfo, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CorruptedInfo.Get(), o.CorruptedInfo.IsSet()
+}
+
+// HasCorruptedInfo returns a boolean if a field has been set.
+func (o *Upgrade) HasCorruptedInfo() bool {
+	if o != nil && o.CorruptedInfo.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCorruptedInfo gets a reference to the given NullableCorruptedItemInfo and assigns it to the CorruptedInfo field.
+func (o *Upgrade) SetCorruptedInfo(v CorruptedItemInfo) {
+	o.CorruptedInfo.Set(&v)
+}
+// SetCorruptedInfoNil sets the value for CorruptedInfo to be an explicit nil
+func (o *Upgrade) SetCorruptedInfoNil() {
+	o.CorruptedInfo.Set(nil)
+}
+
+// UnsetCorruptedInfo ensures that no value is present for CorruptedInfo, not even an explicit nil
+func (o *Upgrade) UnsetCorruptedInfo() {
+	o.CorruptedInfo.Unset()
+}
+
 // GetCost returns the Cost field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Upgrade) GetCost() int32 {
 	if o == nil || IsNil(o.Cost.Get()) {
@@ -244,6 +294,48 @@ func (o *Upgrade) UnsetDescription() {
 	o.Description.Unset()
 }
 
+// GetDisableItemTarget returns the DisableItemTarget field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Upgrade) GetDisableItemTarget() string {
+	if o == nil || IsNil(o.DisableItemTarget.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.DisableItemTarget.Get()
+}
+
+// GetDisableItemTargetOk returns a tuple with the DisableItemTarget field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Upgrade) GetDisableItemTargetOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.DisableItemTarget.Get(), o.DisableItemTarget.IsSet()
+}
+
+// HasDisableItemTarget returns a boolean if a field has been set.
+func (o *Upgrade) HasDisableItemTarget() bool {
+	if o != nil && o.DisableItemTarget.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetDisableItemTarget gets a reference to the given NullableString and assigns it to the DisableItemTarget field.
+func (o *Upgrade) SetDisableItemTarget(v string) {
+	o.DisableItemTarget.Set(&v)
+}
+// SetDisableItemTargetNil sets the value for DisableItemTarget to be an explicit nil
+func (o *Upgrade) SetDisableItemTargetNil() {
+	o.DisableItemTarget.Set(nil)
+}
+
+// UnsetDisableItemTarget ensures that no value is present for DisableItemTarget, not even an explicit nil
+func (o *Upgrade) UnsetDisableItemTarget() {
+	o.DisableItemTarget.Unset()
+}
+
 // GetDisabled returns the Disabled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Upgrade) GetDisabled() bool {
 	if o == nil || IsNil(o.Disabled.Get()) {
@@ -284,6 +376,39 @@ func (o *Upgrade) SetDisabledNil() {
 // UnsetDisabled ensures that no value is present for Disabled, not even an explicit nil
 func (o *Upgrade) UnsetDisabled() {
 	o.Disabled.Unset()
+}
+
+// GetDisabledShopFilters returns the DisabledShopFilters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Upgrade) GetDisabledShopFilters() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.DisabledShopFilters
+}
+
+// GetDisabledShopFiltersOk returns a tuple with the DisabledShopFilters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Upgrade) GetDisabledShopFiltersOk() ([]string, bool) {
+	if o == nil || IsNil(o.DisabledShopFilters) {
+		return nil, false
+	}
+	return o.DisabledShopFilters, true
+}
+
+// HasDisabledShopFilters returns a boolean if a field has been set.
+func (o *Upgrade) HasDisabledShopFilters() bool {
+	if o != nil && !IsNil(o.DisabledShopFilters) {
+		return true
+	}
+
+	return false
+}
+
+// SetDisabledShopFilters gets a reference to the given []string and assigns it to the DisabledShopFilters field.
+func (o *Upgrade) SetDisabledShopFilters(v []string) {
+	o.DisabledShopFilters = v
 }
 
 // GetHero returns the Hero field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -640,6 +765,39 @@ func (o *Upgrade) SetProperties(v map[string]UpgradeProperty) {
 	o.Properties = v
 }
 
+// GetShopFilters returns the ShopFilters field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Upgrade) GetShopFilters() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.ShopFilters
+}
+
+// GetShopFiltersOk returns a tuple with the ShopFilters field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Upgrade) GetShopFiltersOk() ([]string, bool) {
+	if o == nil || IsNil(o.ShopFilters) {
+		return nil, false
+	}
+	return o.ShopFilters, true
+}
+
+// HasShopFilters returns a boolean if a field has been set.
+func (o *Upgrade) HasShopFilters() bool {
+	if o != nil && !IsNil(o.ShopFilters) {
+		return true
+	}
+
+	return false
+}
+
+// SetShopFilters gets a reference to the given []string and assigns it to the ShopFilters field.
+func (o *Upgrade) SetShopFilters(v []string) {
+	o.ShopFilters = v
+}
+
 // GetShopImage returns the ShopImage field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Upgrade) GetShopImage() string {
 	if o == nil || IsNil(o.ShopImage.Get()) {
@@ -806,6 +964,48 @@ func (o *Upgrade) SetShopImageWebpNil() {
 // UnsetShopImageWebp ensures that no value is present for ShopImageWebp, not even an explicit nil
 func (o *Upgrade) UnsetShopImageWebp() {
 	o.ShopImageWebp.Unset()
+}
+
+// GetShopVersion returns the ShopVersion field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Upgrade) GetShopVersion() int64 {
+	if o == nil || IsNil(o.ShopVersion.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.ShopVersion.Get()
+}
+
+// GetShopVersionOk returns a tuple with the ShopVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Upgrade) GetShopVersionOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ShopVersion.Get(), o.ShopVersion.IsSet()
+}
+
+// HasShopVersion returns a boolean if a field has been set.
+func (o *Upgrade) HasShopVersion() bool {
+	if o != nil && o.ShopVersion.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetShopVersion gets a reference to the given NullableInt64 and assigns it to the ShopVersion field.
+func (o *Upgrade) SetShopVersion(v int64) {
+	o.ShopVersion.Set(&v)
+}
+// SetShopVersionNil sets the value for ShopVersion to be an explicit nil
+func (o *Upgrade) SetShopVersionNil() {
+	o.ShopVersion.Set(nil)
+}
+
+// UnsetShopVersion ensures that no value is present for ShopVersion, not even an explicit nil
+func (o *Upgrade) UnsetShopVersion() {
+	o.ShopVersion.Unset()
 }
 
 // GetShopable returns the Shopable field value
@@ -1063,14 +1263,23 @@ func (o Upgrade) ToMap() (map[string]interface{}, error) {
 	if o.ComponentItems != nil {
 		toSerialize["component_items"] = o.ComponentItems
 	}
+	if o.CorruptedInfo.IsSet() {
+		toSerialize["corrupted_info"] = o.CorruptedInfo.Get()
+	}
 	if o.Cost.IsSet() {
 		toSerialize["cost"] = o.Cost.Get()
 	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}
+	if o.DisableItemTarget.IsSet() {
+		toSerialize["disable_item_target"] = o.DisableItemTarget.Get()
+	}
 	if o.Disabled.IsSet() {
 		toSerialize["disabled"] = o.Disabled.Get()
+	}
+	if o.DisabledShopFilters != nil {
+		toSerialize["disabled_shop_filters"] = o.DisabledShopFilters
 	}
 	if o.Hero.IsSet() {
 		toSerialize["hero"] = o.Hero.Get()
@@ -1095,6 +1304,9 @@ func (o Upgrade) ToMap() (map[string]interface{}, error) {
 	if o.Properties != nil {
 		toSerialize["properties"] = o.Properties
 	}
+	if o.ShopFilters != nil {
+		toSerialize["shop_filters"] = o.ShopFilters
+	}
 	if o.ShopImage.IsSet() {
 		toSerialize["shop_image"] = o.ShopImage.Get()
 	}
@@ -1106,6 +1318,9 @@ func (o Upgrade) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ShopImageWebp.IsSet() {
 		toSerialize["shop_image_webp"] = o.ShopImageWebp.Get()
+	}
+	if o.ShopVersion.IsSet() {
+		toSerialize["shop_version"] = o.ShopVersion.Get()
 	}
 	toSerialize["shopable"] = o.Shopable
 	if o.StartTrained.IsSet() {

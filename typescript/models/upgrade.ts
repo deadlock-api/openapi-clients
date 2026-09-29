@@ -21,6 +21,9 @@ import type { AbilityActivation } from './ability-activation.js';
 import type { AbilityImbue } from './ability-imbue.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { CorruptedItemInfo } from './corrupted-item-info.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { ItemSlotType } from './item-slot-type.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -45,9 +48,18 @@ export interface Upgrade {
     'activation': AbilityActivation;
     'class_name': string;
     'component_items'?: Array<string> | null;
+    /**
+     * Present on upgrades the Broker can corrupt (build 6711+).
+     */
+    'corrupted_info'?: CorruptedItemInfo | null;
     'cost'?: number | null;
     'description'?: UpgradeDescription | null;
+    'disable_item_target'?: string | null;
     'disabled'?: boolean | null;
+    /**
+     * Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+     */
+    'disabled_shop_filters'?: Array<string> | null;
     'hero'?: number | null;
     'heroes'?: Array<number> | null;
     'id': number;
@@ -59,10 +71,15 @@ export interface Upgrade {
     'item_tier': number;
     'name': string;
     'properties'?: { [key: string]: UpgradeProperty; } | null;
+    /**
+     * Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+     */
+    'shop_filters'?: Array<string> | null;
     'shop_image'?: string | null;
     'shop_image_small'?: string | null;
     'shop_image_small_webp'?: string | null;
     'shop_image_webp'?: string | null;
+    'shop_version'?: number | null;
     'shopable': boolean;
     'start_trained'?: boolean | null;
     'tooltip_sections'?: Array<UpgradeTooltipSection> | null;

@@ -106,6 +106,12 @@ export interface ItemProperty  {
      */
     providedPropertyType?: string;
     /**
+     * Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+     * @type {Array<string>}
+     * @memberof ItemProperty
+     */
+    requiredUpgradeBits?: Array<string>;
+    /**
      * 
      * @type {RawItemPropertyScaleFunctionSubclass}
      * @memberof ItemProperty
@@ -146,6 +152,7 @@ export function ItemPropertyFromJSON(json: any): ItemProperty {
         'postvalueLabel': !exists(json, 'postvalue_label') ? undefined : json['postvalue_label'],
         'prefix': !exists(json, 'prefix') ? undefined : json['prefix'],
         'providedPropertyType': !exists(json, 'provided_property_type') ? undefined : json['provided_property_type'],
+        'requiredUpgradeBits': !exists(json, 'required_upgrade_bits') ? undefined : json['required_upgrade_bits'],
         'scaleFunction': !exists(json, 'scale_function') ? undefined : RawItemPropertyScaleFunctionSubclassFromJSON(json['scale_function']),
         'streetBrawlValue': !exists(json, 'street_brawl_value') ? undefined : json['street_brawl_value'],
         'usageFlags': !exists(json, 'usage_flags') ? undefined : (json['usage_flags'] as Array<any>).map(StatsUsageFlagFromJSON),
@@ -171,6 +178,7 @@ export function ItemPropertyToJSON(value?: ItemProperty): any {
         'postvalue_label': value.postvalueLabel,
         'prefix': value.prefix,
         'provided_property_type': value.providedPropertyType,
+        'required_upgrade_bits': value.requiredUpgradeBits,
         'scale_function': RawItemPropertyScaleFunctionSubclassToJSON(value.scaleFunction),
         'street_brawl_value': value.streetBrawlValue,
         'usage_flags': value.usageFlags === undefined ? undefined : (value.usageFlags as Array<any>).map(StatsUsageFlagToJSON),

@@ -23,6 +23,8 @@ var _ MappedNullable = &GenericData{}
 type GenericData struct {
 	AimSpringStrength []float64 `json:"aim_spring_strength"`
 	ArmorGroups []ItemGroup `json:"armor_groups"`
+	// Loot tables for breakable powerup props (build 6711+).
+	BreakablePowerupLootParams NullableBreakablePowerupLootParams `json:"breakable_powerup_loot_params,omitempty"`
 	// Build 6711+.
 	ColorEnemy NullableColor `json:"color_enemy,omitempty"`
 	// Build 6711+.
@@ -31,17 +33,25 @@ type GenericData struct {
 	ColorTeam1 NullableColor `json:"color_team1,omitempty"`
 	// Build 6711+.
 	ColorTeam2 NullableColor `json:"color_team2,omitempty"`
+	// Penalties that can be rolled onto corrupted items (build 6711+).
+	CorruptedPenalties []CorruptedPenalty `json:"corrupted_penalties,omitempty"`
 	DamageFlash DamageFlash `json:"damage_flash"`
 	EnemyObjectivesAndZiplineColor NullableColor `json:"enemy_objectives_and_zipline_color,omitempty"`
 	EnemyObjectivesColor NullableColor `json:"enemy_objectives_color,omitempty"`
 	EnemyZiplineColor NullableColor `json:"enemy_zipline_color,omitempty"`
 	GlitchSettings GlitchSettings `json:"glitch_settings"`
 	HeroKillGoldShareFrac []float64 `json:"hero_kill_gold_share_frac"`
+	// Extra cost of corrupting an item, by item tier (build 6711+).
+	ItemCorruptionPricePerTier []int64 `json:"item_corruption_price_per_tier,omitempty"`
 	ItemPricePerTier []int64 `json:"item_price_per_tier"`
 	LaneInfo []LaneInfo `json:"lane_info"`
+	// District / building labels shown on the map (build 6711+).
+	MapDistricts []MapDistrict `json:"map_districts,omitempty"`
 	MiniMapOffsets []MiniMapOffsets `json:"mini_map_offsets"`
 	MinimapTeamCombineColor NullableColor `json:"minimap_team_combine_color,omitempty"`
 	MinimapTeamRebelsColor NullableColor `json:"minimap_team_rebels_color,omitempty"`
+	// Distance within which a neutral camp's respawn timer is shown (build 6711+).
+	NeutralCampRespawnTimerShowDistance NullableFloat64 `json:"neutral_camp_respawn_timer_show_distance,omitempty"`
 	NewPlayerMetrics []NewPlayerMetrics `json:"new_player_metrics"`
 	ObjectiveParams ObjectiveParams `json:"objective_params"`
 	RejuvParams RejuvParams `json:"rejuv_params"`
@@ -132,6 +142,48 @@ func (o *GenericData) GetArmorGroupsOk() ([]ItemGroup, bool) {
 // SetArmorGroups sets field value
 func (o *GenericData) SetArmorGroups(v []ItemGroup) {
 	o.ArmorGroups = v
+}
+
+// GetBreakablePowerupLootParams returns the BreakablePowerupLootParams field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetBreakablePowerupLootParams() BreakablePowerupLootParams {
+	if o == nil || IsNil(o.BreakablePowerupLootParams.Get()) {
+		var ret BreakablePowerupLootParams
+		return ret
+	}
+	return *o.BreakablePowerupLootParams.Get()
+}
+
+// GetBreakablePowerupLootParamsOk returns a tuple with the BreakablePowerupLootParams field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetBreakablePowerupLootParamsOk() (*BreakablePowerupLootParams, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BreakablePowerupLootParams.Get(), o.BreakablePowerupLootParams.IsSet()
+}
+
+// HasBreakablePowerupLootParams returns a boolean if a field has been set.
+func (o *GenericData) HasBreakablePowerupLootParams() bool {
+	if o != nil && o.BreakablePowerupLootParams.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBreakablePowerupLootParams gets a reference to the given NullableBreakablePowerupLootParams and assigns it to the BreakablePowerupLootParams field.
+func (o *GenericData) SetBreakablePowerupLootParams(v BreakablePowerupLootParams) {
+	o.BreakablePowerupLootParams.Set(&v)
+}
+// SetBreakablePowerupLootParamsNil sets the value for BreakablePowerupLootParams to be an explicit nil
+func (o *GenericData) SetBreakablePowerupLootParamsNil() {
+	o.BreakablePowerupLootParams.Set(nil)
+}
+
+// UnsetBreakablePowerupLootParams ensures that no value is present for BreakablePowerupLootParams, not even an explicit nil
+func (o *GenericData) UnsetBreakablePowerupLootParams() {
+	o.BreakablePowerupLootParams.Unset()
 }
 
 // GetColorEnemy returns the ColorEnemy field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -300,6 +352,39 @@ func (o *GenericData) SetColorTeam2Nil() {
 // UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
 func (o *GenericData) UnsetColorTeam2() {
 	o.ColorTeam2.Unset()
+}
+
+// GetCorruptedPenalties returns the CorruptedPenalties field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetCorruptedPenalties() []CorruptedPenalty {
+	if o == nil {
+		var ret []CorruptedPenalty
+		return ret
+	}
+	return o.CorruptedPenalties
+}
+
+// GetCorruptedPenaltiesOk returns a tuple with the CorruptedPenalties field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetCorruptedPenaltiesOk() ([]CorruptedPenalty, bool) {
+	if o == nil || IsNil(o.CorruptedPenalties) {
+		return nil, false
+	}
+	return o.CorruptedPenalties, true
+}
+
+// HasCorruptedPenalties returns a boolean if a field has been set.
+func (o *GenericData) HasCorruptedPenalties() bool {
+	if o != nil && !IsNil(o.CorruptedPenalties) {
+		return true
+	}
+
+	return false
+}
+
+// SetCorruptedPenalties gets a reference to the given []CorruptedPenalty and assigns it to the CorruptedPenalties field.
+func (o *GenericData) SetCorruptedPenalties(v []CorruptedPenalty) {
+	o.CorruptedPenalties = v
 }
 
 // GetDamageFlash returns the DamageFlash field value
@@ -500,6 +585,39 @@ func (o *GenericData) SetHeroKillGoldShareFrac(v []float64) {
 	o.HeroKillGoldShareFrac = v
 }
 
+// GetItemCorruptionPricePerTier returns the ItemCorruptionPricePerTier field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetItemCorruptionPricePerTier() []int64 {
+	if o == nil {
+		var ret []int64
+		return ret
+	}
+	return o.ItemCorruptionPricePerTier
+}
+
+// GetItemCorruptionPricePerTierOk returns a tuple with the ItemCorruptionPricePerTier field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetItemCorruptionPricePerTierOk() ([]int64, bool) {
+	if o == nil || IsNil(o.ItemCorruptionPricePerTier) {
+		return nil, false
+	}
+	return o.ItemCorruptionPricePerTier, true
+}
+
+// HasItemCorruptionPricePerTier returns a boolean if a field has been set.
+func (o *GenericData) HasItemCorruptionPricePerTier() bool {
+	if o != nil && !IsNil(o.ItemCorruptionPricePerTier) {
+		return true
+	}
+
+	return false
+}
+
+// SetItemCorruptionPricePerTier gets a reference to the given []int64 and assigns it to the ItemCorruptionPricePerTier field.
+func (o *GenericData) SetItemCorruptionPricePerTier(v []int64) {
+	o.ItemCorruptionPricePerTier = v
+}
+
 // GetItemPricePerTier returns the ItemPricePerTier field value
 func (o *GenericData) GetItemPricePerTier() []int64 {
 	if o == nil {
@@ -546,6 +664,39 @@ func (o *GenericData) GetLaneInfoOk() ([]LaneInfo, bool) {
 // SetLaneInfo sets field value
 func (o *GenericData) SetLaneInfo(v []LaneInfo) {
 	o.LaneInfo = v
+}
+
+// GetMapDistricts returns the MapDistricts field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetMapDistricts() []MapDistrict {
+	if o == nil {
+		var ret []MapDistrict
+		return ret
+	}
+	return o.MapDistricts
+}
+
+// GetMapDistrictsOk returns a tuple with the MapDistricts field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetMapDistrictsOk() ([]MapDistrict, bool) {
+	if o == nil || IsNil(o.MapDistricts) {
+		return nil, false
+	}
+	return o.MapDistricts, true
+}
+
+// HasMapDistricts returns a boolean if a field has been set.
+func (o *GenericData) HasMapDistricts() bool {
+	if o != nil && !IsNil(o.MapDistricts) {
+		return true
+	}
+
+	return false
+}
+
+// SetMapDistricts gets a reference to the given []MapDistrict and assigns it to the MapDistricts field.
+func (o *GenericData) SetMapDistricts(v []MapDistrict) {
+	o.MapDistricts = v
 }
 
 // GetMiniMapOffsets returns the MiniMapOffsets field value
@@ -654,6 +805,48 @@ func (o *GenericData) SetMinimapTeamRebelsColorNil() {
 // UnsetMinimapTeamRebelsColor ensures that no value is present for MinimapTeamRebelsColor, not even an explicit nil
 func (o *GenericData) UnsetMinimapTeamRebelsColor() {
 	o.MinimapTeamRebelsColor.Unset()
+}
+
+// GetNeutralCampRespawnTimerShowDistance returns the NeutralCampRespawnTimerShowDistance field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetNeutralCampRespawnTimerShowDistance() float64 {
+	if o == nil || IsNil(o.NeutralCampRespawnTimerShowDistance.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.NeutralCampRespawnTimerShowDistance.Get()
+}
+
+// GetNeutralCampRespawnTimerShowDistanceOk returns a tuple with the NeutralCampRespawnTimerShowDistance field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetNeutralCampRespawnTimerShowDistanceOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NeutralCampRespawnTimerShowDistance.Get(), o.NeutralCampRespawnTimerShowDistance.IsSet()
+}
+
+// HasNeutralCampRespawnTimerShowDistance returns a boolean if a field has been set.
+func (o *GenericData) HasNeutralCampRespawnTimerShowDistance() bool {
+	if o != nil && o.NeutralCampRespawnTimerShowDistance.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralCampRespawnTimerShowDistance gets a reference to the given NullableFloat64 and assigns it to the NeutralCampRespawnTimerShowDistance field.
+func (o *GenericData) SetNeutralCampRespawnTimerShowDistance(v float64) {
+	o.NeutralCampRespawnTimerShowDistance.Set(&v)
+}
+// SetNeutralCampRespawnTimerShowDistanceNil sets the value for NeutralCampRespawnTimerShowDistance to be an explicit nil
+func (o *GenericData) SetNeutralCampRespawnTimerShowDistanceNil() {
+	o.NeutralCampRespawnTimerShowDistance.Set(nil)
+}
+
+// UnsetNeutralCampRespawnTimerShowDistance ensures that no value is present for NeutralCampRespawnTimerShowDistance, not even an explicit nil
+func (o *GenericData) UnsetNeutralCampRespawnTimerShowDistance() {
+	o.NeutralCampRespawnTimerShowDistance.Unset()
 }
 
 // GetNewPlayerMetrics returns the NewPlayerMetrics field value
@@ -878,6 +1071,9 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["aim_spring_strength"] = o.AimSpringStrength
 	toSerialize["armor_groups"] = o.ArmorGroups
+	if o.BreakablePowerupLootParams.IsSet() {
+		toSerialize["breakable_powerup_loot_params"] = o.BreakablePowerupLootParams.Get()
+	}
 	if o.ColorEnemy.IsSet() {
 		toSerialize["color_enemy"] = o.ColorEnemy.Get()
 	}
@@ -889,6 +1085,9 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ColorTeam2.IsSet() {
 		toSerialize["color_team2"] = o.ColorTeam2.Get()
+	}
+	if o.CorruptedPenalties != nil {
+		toSerialize["corrupted_penalties"] = o.CorruptedPenalties
 	}
 	toSerialize["damage_flash"] = o.DamageFlash
 	if o.EnemyObjectivesAndZiplineColor.IsSet() {
@@ -902,14 +1101,23 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 	}
 	toSerialize["glitch_settings"] = o.GlitchSettings
 	toSerialize["hero_kill_gold_share_frac"] = o.HeroKillGoldShareFrac
+	if o.ItemCorruptionPricePerTier != nil {
+		toSerialize["item_corruption_price_per_tier"] = o.ItemCorruptionPricePerTier
+	}
 	toSerialize["item_price_per_tier"] = o.ItemPricePerTier
 	toSerialize["lane_info"] = o.LaneInfo
+	if o.MapDistricts != nil {
+		toSerialize["map_districts"] = o.MapDistricts
+	}
 	toSerialize["mini_map_offsets"] = o.MiniMapOffsets
 	if o.MinimapTeamCombineColor.IsSet() {
 		toSerialize["minimap_team_combine_color"] = o.MinimapTeamCombineColor.Get()
 	}
 	if o.MinimapTeamRebelsColor.IsSet() {
 		toSerialize["minimap_team_rebels_color"] = o.MinimapTeamRebelsColor.Get()
+	}
+	if o.NeutralCampRespawnTimerShowDistance.IsSet() {
+		toSerialize["neutral_camp_respawn_timer_show_distance"] = o.NeutralCampRespawnTimerShowDistance.Get()
 	}
 	toSerialize["new_player_metrics"] = o.NewPlayerMetrics
 	toSerialize["objective_params"] = o.ObjectiveParams

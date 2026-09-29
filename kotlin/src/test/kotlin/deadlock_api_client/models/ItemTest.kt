@@ -33,6 +33,7 @@ import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.AbilityTooltipDetails
 import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
+import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.DependantAbilities
 import deadlock_api_client.models.ItemSlotType
 import deadlock_api_client.models.ItemType
@@ -236,10 +237,22 @@ class ItemTest : ShouldSpec() {
             //modelInstance.componentItems shouldBe ("TODO")
         }
 
+        // to test the property `corruptedInfo` - Present on upgrades the Broker can corrupt (build 6711+).
+        should("test corruptedInfo") {
+            // uncomment below to test the property
+            //modelInstance.corruptedInfo shouldBe ("TODO")
+        }
+
         // to test the property `cost`
         should("test cost") {
             // uncomment below to test the property
             //modelInstance.cost shouldBe ("TODO")
+        }
+
+        // to test the property `disableItemTarget`
+        should("test disableItemTarget") {
+            // uncomment below to test the property
+            //modelInstance.disableItemTarget shouldBe ("TODO")
         }
 
         // to test the property `disabled`
@@ -248,10 +261,22 @@ class ItemTest : ShouldSpec() {
             //modelInstance.disabled shouldBe ("TODO")
         }
 
+        // to test the property `disabledShopFilters` - Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+        should("test disabledShopFilters") {
+            // uncomment below to test the property
+            //modelInstance.disabledShopFilters shouldBe ("TODO")
+        }
+
         // to test the property `imbue`
         should("test imbue") {
             // uncomment below to test the property
             //modelInstance.imbue shouldBe ("TODO")
+        }
+
+        // to test the property `shopFilters` - Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+        should("test shopFilters") {
+            // uncomment below to test the property
+            //modelInstance.shopFilters shouldBe ("TODO")
         }
 
         // to test the property `shopImage`
@@ -276,6 +301,12 @@ class ItemTest : ShouldSpec() {
         should("test shopImageWebp") {
             // uncomment below to test the property
             //modelInstance.shopImageWebp shouldBe ("TODO")
+        }
+
+        // to test the property `shopVersion`
+        should("test shopVersion") {
+            // uncomment below to test the property
+            //modelInstance.shopVersion shouldBe ("TODO")
         }
 
         // to test the property `tooltipSections`

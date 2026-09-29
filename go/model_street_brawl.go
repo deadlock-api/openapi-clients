@@ -26,6 +26,8 @@ type StreetBrawl struct {
 	BuyTimeGracePeriod float64 `json:"buy_time_grace_period"`
 	ComebackBonusHealth int64 `json:"comeback_bonus_health"`
 	ComebackBonusHealthCritical int64 `json:"comeback_bonus_health_critical"`
+	// Round in which players may corrupt an item (build 6711+).
+	CorruptItemRound NullableInt64 `json:"corrupt_item_round,omitempty"`
 	GoldPerRound []int64 `json:"gold_per_round"`
 	ItemDraftRerollsPerRound []int64 `json:"item_draft_rerolls_per_round"`
 	ItemDraftRoundsPerGameRound []ItemDraftRoundPerGameRound `json:"item_draft_rounds_per_game_round"`
@@ -216,6 +218,48 @@ func (o *StreetBrawl) GetComebackBonusHealthCriticalOk() (*int64, bool) {
 // SetComebackBonusHealthCritical sets field value
 func (o *StreetBrawl) SetComebackBonusHealthCritical(v int64) {
 	o.ComebackBonusHealthCritical = v
+}
+
+// GetCorruptItemRound returns the CorruptItemRound field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *StreetBrawl) GetCorruptItemRound() int64 {
+	if o == nil || IsNil(o.CorruptItemRound.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.CorruptItemRound.Get()
+}
+
+// GetCorruptItemRoundOk returns a tuple with the CorruptItemRound field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *StreetBrawl) GetCorruptItemRoundOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CorruptItemRound.Get(), o.CorruptItemRound.IsSet()
+}
+
+// HasCorruptItemRound returns a boolean if a field has been set.
+func (o *StreetBrawl) HasCorruptItemRound() bool {
+	if o != nil && o.CorruptItemRound.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCorruptItemRound gets a reference to the given NullableInt64 and assigns it to the CorruptItemRound field.
+func (o *StreetBrawl) SetCorruptItemRound(v int64) {
+	o.CorruptItemRound.Set(&v)
+}
+// SetCorruptItemRoundNil sets the value for CorruptItemRound to be an explicit nil
+func (o *StreetBrawl) SetCorruptItemRoundNil() {
+	o.CorruptItemRound.Set(nil)
+}
+
+// UnsetCorruptItemRound ensures that no value is present for CorruptItemRound, not even an explicit nil
+func (o *StreetBrawl) UnsetCorruptItemRound() {
+	o.CorruptItemRound.Unset()
 }
 
 // GetGoldPerRound returns the GoldPerRound field value
@@ -785,6 +829,9 @@ func (o StreetBrawl) ToMap() (map[string]interface{}, error) {
 	toSerialize["buy_time_grace_period"] = o.BuyTimeGracePeriod
 	toSerialize["comeback_bonus_health"] = o.ComebackBonusHealth
 	toSerialize["comeback_bonus_health_critical"] = o.ComebackBonusHealthCritical
+	if o.CorruptItemRound.IsSet() {
+		toSerialize["corrupt_item_round"] = o.CorruptItemRound.Get()
+	}
 	toSerialize["gold_per_round"] = o.GoldPerRound
 	toSerialize["item_draft_rerolls_per_round"] = o.ItemDraftRerollsPerRound
 	toSerialize["item_draft_rounds_per_game_round"] = o.ItemDraftRoundsPerGameRound

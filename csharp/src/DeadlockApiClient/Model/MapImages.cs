@@ -33,34 +33,27 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MapImages" /> class.
         /// </summary>
-        /// <param name="background">Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.</param>
         /// <param name="frame">frame</param>
         /// <param name="mid">Midtown base layer.</param>
-        /// <param name="minimap">Full minimap. From build 6711 on this is the midtown base layer.</param>
-        /// <param name="plain">Minimap without overlays. From build 6711 on this is the midtown base layer.</param>
+        /// <param name="minimap">Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.</param>
+        /// <param name="plain">Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;).</param>
+        /// <param name="background">Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.</param>
         /// <param name="midTunnels">Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+).</param>
         /// <param name="ratTunnels">Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+).</param>
         [JsonConstructor]
-        public MapImages(string background, string frame, string mid, string minimap, string plain, Option<string?> midTunnels = default, Option<string?> ratTunnels = default)
+        public MapImages(string frame, string mid, string minimap, string plain, Option<string?> background = default, Option<string?> midTunnels = default, Option<string?> ratTunnels = default)
         {
-            Background = background;
             Frame = frame;
             Mid = mid;
             Minimap = minimap;
             Plain = plain;
+            BackgroundOption = background;
             MidTunnelsOption = midTunnels;
             RatTunnelsOption = ratTunnels;
             OnCreated();
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
-        /// </summary>
-        /// <value>Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.</value>
-        [JsonPropertyName("background")]
-        public string Background { get; set; }
 
         /// <summary>
         /// Gets or Sets Frame
@@ -76,18 +69,32 @@ namespace DeadlockApiClient.Model
         public string Mid { get; set; }
 
         /// <summary>
-        /// Full minimap. From build 6711 on this is the midtown base layer.
+        /// Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
         /// </summary>
-        /// <value>Full minimap. From build 6711 on this is the midtown base layer.</value>
+        /// <value>Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.</value>
         [JsonPropertyName("minimap")]
         public string Minimap { get; set; }
 
         /// <summary>
-        /// Minimap without overlays. From build 6711 on this is the midtown base layer.
+        /// Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;).
         /// </summary>
-        /// <value>Minimap without overlays. From build 6711 on this is the midtown base layer.</value>
+        /// <value>Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;).</value>
         [JsonPropertyName("plain")]
         public string Plain { get; set; }
+
+        /// <summary>
+        /// Used to track the state of Background
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> BackgroundOption { get; private set; }
+
+        /// <summary>
+        /// Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
+        /// </summary>
+        /// <value>Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.</value>
+        [JsonPropertyName("background")]
+        public string? Background { get { return this.BackgroundOption.Value; } set { this.BackgroundOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MidTunnels
@@ -125,11 +132,11 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class MapImages {\n");
-            sb.Append("  Background: ").Append(Background).Append("\n");
             sb.Append("  Frame: ").Append(Frame).Append("\n");
             sb.Append("  Mid: ").Append(Mid).Append("\n");
             sb.Append("  Minimap: ").Append(Minimap).Append("\n");
             sb.Append("  Plain: ").Append(Plain).Append("\n");
+            sb.Append("  Background: ").Append(Background).Append("\n");
             sb.Append("  MidTunnels: ").Append(MidTunnels).Append("\n");
             sb.Append("  RatTunnels: ").Append(RatTunnels).Append("\n");
             sb.Append("}\n");
@@ -179,11 +186,11 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<string?> background = default;
             Option<string?> frame = default;
             Option<string?> mid = default;
             Option<string?> minimap = default;
             Option<string?> plain = default;
+            Option<string?> background = default;
             Option<string?> midTunnels = default;
             Option<string?> ratTunnels = default;
 
@@ -202,9 +209,6 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "background":
-                            background = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
                         case "frame":
                             frame = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
@@ -216,6 +220,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "plain":
                             plain = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "background":
+                            background = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "mid_tunnels":
                             midTunnels = new Option<string?>(utf8JsonReader.GetString());
@@ -229,9 +236,6 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (!background.IsSet)
-                throw new ArgumentException("Property is required for class MapImages.", nameof(background));
-
             if (!frame.IsSet)
                 throw new ArgumentException("Property is required for class MapImages.", nameof(frame));
 
@@ -243,9 +247,6 @@ namespace DeadlockApiClient.Model
 
             if (!plain.IsSet)
                 throw new ArgumentException("Property is required for class MapImages.", nameof(plain));
-
-            if (background.IsSet && background.Value == null)
-                throw new ArgumentNullException(nameof(background), "Property is not nullable for class MapImages.");
 
             if (frame.IsSet && frame.Value == null)
                 throw new ArgumentNullException(nameof(frame), "Property is not nullable for class MapImages.");
@@ -259,7 +260,7 @@ namespace DeadlockApiClient.Model
             if (plain.IsSet && plain.Value == null)
                 throw new ArgumentNullException(nameof(plain), "Property is not nullable for class MapImages.");
 
-            return new MapImages(background.Value!, frame.Value!, mid.Value!, minimap.Value!, plain.Value!, midTunnels, ratTunnels);
+            return new MapImages(frame.Value!, mid.Value!, minimap.Value!, plain.Value!, background, midTunnels, ratTunnels);
         }
 
         /// <summary>
@@ -286,9 +287,6 @@ namespace DeadlockApiClient.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapImages mapImages, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mapImages.Background == null)
-                throw new ArgumentNullException(nameof(mapImages.Background), "Property is required for class MapImages.");
-
             if (mapImages.Frame == null)
                 throw new ArgumentNullException(nameof(mapImages.Frame), "Property is required for class MapImages.");
 
@@ -301,8 +299,6 @@ namespace DeadlockApiClient.Model
             if (mapImages.Plain == null)
                 throw new ArgumentNullException(nameof(mapImages.Plain), "Property is required for class MapImages.");
 
-            writer.WriteString("background", mapImages.Background);
-
             writer.WriteString("frame", mapImages.Frame);
 
             writer.WriteString("mid", mapImages.Mid);
@@ -310,6 +306,12 @@ namespace DeadlockApiClient.Model
             writer.WriteString("minimap", mapImages.Minimap);
 
             writer.WriteString("plain", mapImages.Plain);
+
+            if (mapImages.BackgroundOption.IsSet)
+                if (mapImages.BackgroundOption.Value != null)
+                    writer.WriteString("background", mapImages.Background);
+                else
+                    writer.WriteNull("background");
 
             if (mapImages.MidTunnelsOption.IsSet)
                 if (mapImages.MidTunnelsOption.Value != null)

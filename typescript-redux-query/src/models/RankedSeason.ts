@@ -25,6 +25,12 @@ import {
  */
 export interface RankedSeason  {
     /**
+     * Base rank points granted per win / taken per loss (build 6701+).
+     * @type {number}
+     * @memberof RankedSeason
+     */
+    baseWinLossPointGrant?: number;
+    /**
      * 
      * @type {number}
      * @memberof RankedSeason
@@ -82,6 +88,7 @@ export interface RankedSeason  {
 
 export function RankedSeasonFromJSON(json: any): RankedSeason {
     return {
+        'baseWinLossPointGrant': !exists(json, 'base_win_loss_point_grant') ? undefined : json['base_win_loss_point_grant'],
         'calibrationMatches': json['calibration_matches'],
         'className': json['class_name'],
         'intervals': (json['intervals'] as Array<any>).map(SeasonIntervalFromJSON),
@@ -99,6 +106,7 @@ export function RankedSeasonToJSON(value?: RankedSeason): any {
         return undefined;
     }
     return {
+        'base_win_loss_point_grant': value.baseWinLossPointGrant,
         'calibration_matches': value.calibrationMatches,
         'class_name': value.className,
         'intervals': (value.intervals as Array<any>).map(SeasonIntervalToJSON),

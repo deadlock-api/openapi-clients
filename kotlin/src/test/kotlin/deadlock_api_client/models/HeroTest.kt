@@ -38,6 +38,7 @@ import deadlock_api_client.models.HeroDescription
 import deadlock_api_client.models.HeroDevelopmentState
 import deadlock_api_client.models.HeroImages
 import deadlock_api_client.models.HeroPhysics
+import deadlock_api_client.models.HeroPopularItems
 import deadlock_api_client.models.HeroStatsUI
 import deadlock_api_client.models.HeroType
 import deadlock_api_client.models.ShopStatDisplay
@@ -217,6 +218,12 @@ class HeroTest : ShouldSpec() {
             //modelInstance.developmentState shouldBe ("TODO")
         }
 
+        // to test the property `gender` - Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+        should("test gender") {
+            // uncomment below to test the property
+            //modelInstance.gender shouldBe ("TODO")
+        }
+
         // to test the property `gunTag`
         should("test gunTag") {
             // uncomment below to test the property
@@ -247,10 +254,22 @@ class HeroTest : ShouldSpec() {
             //modelInstance.itemDraftWeights shouldBe ("TODO")
         }
 
+        // to test the property `popularItems` - Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+        should("test popularItems") {
+            // uncomment below to test the property
+            //modelInstance.popularItems shouldBe ("TODO")
+        }
+
         // to test the property `prereleaseOnly` - Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
         should("test prereleaseOnly") {
             // uncomment below to test the property
             //modelInstance.prereleaseOnly shouldBe ("TODO")
+        }
+
+        // to test the property `searchName` - Localized search name (`m_strHeroSearchName`, build 6711+).
+        should("test searchName") {
+            // uncomment below to test the property
+            //modelInstance.searchName shouldBe ("TODO")
         }
 
     }

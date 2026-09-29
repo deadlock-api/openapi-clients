@@ -65,6 +65,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => '\OpenAPI\Client\Model\HeroDescription',
         'development_state' => '\OpenAPI\Client\Model\HeroDevelopmentState',
         'disabled' => 'bool',
+        'gender' => 'string',
         'gun_tag' => 'string',
         'hero_stats_ui' => '\OpenAPI\Client\Model\HeroStatsUI',
         'hero_type' => '\OpenAPI\Client\Model\HeroType',
@@ -82,9 +83,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => 'bool',
         'physics' => '\OpenAPI\Client\Model\HeroPhysics',
         'player_selectable' => 'bool',
+        'popular_items' => '\OpenAPI\Client\Model\HeroPopularItems',
         'prerelease_only' => 'bool',
         'purchase_bonuses' => 'array<string,\OpenAPI\Client\Model\HashMapItemSlotTypeVecPurchaseBonusValueInner[]>',
         'scaling_stats' => 'array<string,\OpenAPI\Client\Model\HashMapStringScalingStatValue>',
+        'search_name' => 'string',
         'shop_stat_display' => '\OpenAPI\Client\Model\ShopStatDisplay',
         'skin' => 'int',
         'standard_level_up_upgrades' => 'array<string,float>',
@@ -109,6 +112,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'development_state' => null,
         'disabled' => null,
+        'gender' => null,
         'gun_tag' => null,
         'hero_stats_ui' => null,
         'hero_type' => null,
@@ -126,9 +130,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => null,
         'physics' => null,
         'player_selectable' => null,
+        'popular_items' => null,
         'prerelease_only' => null,
         'purchase_bonuses' => null,
         'scaling_stats' => null,
+        'search_name' => null,
         'shop_stat_display' => null,
         'skin' => 'int64',
         'standard_level_up_upgrades' => 'double',
@@ -151,6 +157,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => false,
         'development_state' => true,
         'disabled' => false,
+        'gender' => true,
         'gun_tag' => true,
         'hero_stats_ui' => false,
         'hero_type' => true,
@@ -168,9 +175,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => false,
         'physics' => false,
         'player_selectable' => false,
+        'popular_items' => true,
         'prerelease_only' => true,
         'purchase_bonuses' => false,
         'scaling_stats' => false,
+        'search_name' => true,
         'shop_stat_display' => false,
         'skin' => false,
         'standard_level_up_upgrades' => false,
@@ -273,6 +282,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'development_state' => 'development_state',
         'disabled' => 'disabled',
+        'gender' => 'gender',
         'gun_tag' => 'gun_tag',
         'hero_stats_ui' => 'hero_stats_ui',
         'hero_type' => 'hero_type',
@@ -290,9 +300,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => 'needs_testing',
         'physics' => 'physics',
         'player_selectable' => 'player_selectable',
+        'popular_items' => 'popular_items',
         'prerelease_only' => 'prerelease_only',
         'purchase_bonuses' => 'purchase_bonuses',
         'scaling_stats' => 'scaling_stats',
+        'search_name' => 'search_name',
         'shop_stat_display' => 'shop_stat_display',
         'skin' => 'skin',
         'standard_level_up_upgrades' => 'standard_level_up_upgrades',
@@ -315,6 +327,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'development_state' => 'setDevelopmentState',
         'disabled' => 'setDisabled',
+        'gender' => 'setGender',
         'gun_tag' => 'setGunTag',
         'hero_stats_ui' => 'setHeroStatsUi',
         'hero_type' => 'setHeroType',
@@ -332,9 +345,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => 'setNeedsTesting',
         'physics' => 'setPhysics',
         'player_selectable' => 'setPlayerSelectable',
+        'popular_items' => 'setPopularItems',
         'prerelease_only' => 'setPrereleaseOnly',
         'purchase_bonuses' => 'setPurchaseBonuses',
         'scaling_stats' => 'setScalingStats',
+        'search_name' => 'setSearchName',
         'shop_stat_display' => 'setShopStatDisplay',
         'skin' => 'setSkin',
         'standard_level_up_upgrades' => 'setStandardLevelUpUpgrades',
@@ -357,6 +372,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'development_state' => 'getDevelopmentState',
         'disabled' => 'getDisabled',
+        'gender' => 'getGender',
         'gun_tag' => 'getGunTag',
         'hero_stats_ui' => 'getHeroStatsUi',
         'hero_type' => 'getHeroType',
@@ -374,9 +390,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'needs_testing' => 'getNeedsTesting',
         'physics' => 'getPhysics',
         'player_selectable' => 'getPlayerSelectable',
+        'popular_items' => 'getPopularItems',
         'prerelease_only' => 'getPrereleaseOnly',
         'purchase_bonuses' => 'getPurchaseBonuses',
         'scaling_stats' => 'getScalingStats',
+        'search_name' => 'getSearchName',
         'shop_stat_display' => 'getShopStatDisplay',
         'skin' => 'getSkin',
         'standard_level_up_upgrades' => 'getStandardLevelUpUpgrades',
@@ -450,6 +468,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('development_state', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
+        $this->setIfExists('gender', $data ?? [], null);
         $this->setIfExists('gun_tag', $data ?? [], null);
         $this->setIfExists('hero_stats_ui', $data ?? [], null);
         $this->setIfExists('hero_type', $data ?? [], null);
@@ -467,9 +486,11 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('needs_testing', $data ?? [], null);
         $this->setIfExists('physics', $data ?? [], null);
         $this->setIfExists('player_selectable', $data ?? [], null);
+        $this->setIfExists('popular_items', $data ?? [], null);
         $this->setIfExists('prerelease_only', $data ?? [], null);
         $this->setIfExists('purchase_bonuses', $data ?? [], null);
         $this->setIfExists('scaling_stats', $data ?? [], null);
+        $this->setIfExists('search_name', $data ?? [], null);
         $this->setIfExists('shop_stat_display', $data ?? [], null);
         $this->setIfExists('skin', $data ?? [], null);
         $this->setIfExists('standard_level_up_upgrades', $data ?? [], null);
@@ -828,6 +849,40 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable disabled cannot be null');
         }
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+     *
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        if (is_null($gender)) {
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gender'] = $gender;
 
         return $this;
     }
@@ -1331,6 +1386,40 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets popular_items
+     *
+     * @return \OpenAPI\Client\Model\HeroPopularItems|null
+     */
+    public function getPopularItems()
+    {
+        return $this->container['popular_items'];
+    }
+
+    /**
+     * Sets popular_items
+     *
+     * @param \OpenAPI\Client\Model\HeroPopularItems|null $popular_items Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+     *
+     * @return self
+     */
+    public function setPopularItems($popular_items)
+    {
+        if (is_null($popular_items)) {
+            array_push($this->openAPINullablesSetToNull, 'popular_items');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('popular_items', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['popular_items'] = $popular_items;
+
+        return $this;
+    }
+
+    /**
      * Gets prerelease_only
      *
      * @return bool|null
@@ -1414,6 +1503,40 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable scaling_stats cannot be null');
         }
         $this->container['scaling_stats'] = $scaling_stats;
+
+        return $this;
+    }
+
+    /**
+     * Gets search_name
+     *
+     * @return string|null
+     */
+    public function getSearchName()
+    {
+        return $this->container['search_name'];
+    }
+
+    /**
+     * Sets search_name
+     *
+     * @param string|null $search_name Localized search name (`m_strHeroSearchName`, build 6711+).
+     *
+     * @return self
+     */
+    public function setSearchName($search_name)
+    {
+        if (is_null($search_name)) {
+            array_push($this->openAPINullablesSetToNull, 'search_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('search_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['search_name'] = $search_name;
 
         return $this;
     }

@@ -25,6 +25,7 @@ api/Api/MMRApi.php
 api/Api/MapApi.php
 api/Api/MatchesApi.php
 api/Api/MiscEntitiesApi.php
+api/Api/ModifiersApi.php
 api/Api/NPCUnitsApi.php
 api/Api/PatchesApi.php
 api/Api/PlayersApi.php
@@ -58,6 +59,7 @@ api/Model/AnalyticsAbilityOrderStats.php
 api/Model/AnalyticsGameStats.php
 api/Model/AnalyticsHeroStats.php
 api/Model/BadgeDistribution.php
+api/Model/BreakablePowerupLootParams.php
 api/Model/Build.php
 api/Model/BuildHero.php
 api/Model/BuildHeroDetails.php
@@ -72,6 +74,9 @@ api/Model/ClickhouseSalts.php
 api/Model/Color.php
 api/Model/ColorGradientStop.php
 api/Model/ColumnSchema.php
+api/Model/CorruptedItemInfo.php
+api/Model/CorruptedPenalty.php
+api/Model/CorruptedPenaltyEffect.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/Curve.php
@@ -117,6 +122,8 @@ api/Model/HeroDevelopmentState.php
 api/Model/HeroEntry.php
 api/Model/HeroImages.php
 api/Model/HeroPhysics.php
+api/Model/HeroPopularItem.php
+api/Model/HeroPopularItems.php
 api/Model/HeroStats.php
 api/Model/HeroStatsUI.php
 api/Model/HeroStatsUIDisplay.php
@@ -153,6 +160,7 @@ api/Model/LootEntry.php
 api/Model/LootTable.php
 api/Model/MMRHistory.php
 api/Model/MapData.php
+api/Model/MapDistrict.php
 api/Model/MapImages.php
 api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
@@ -161,7 +169,10 @@ api/Model/MateStats.php
 api/Model/MiniMapOffsets.php
 api/Model/MiscEntity.php
 api/Model/ModelInterface.php
+api/Model/Modifier.php
 api/Model/ModifierValue.php
+api/Model/NeutralCamp.php
+api/Model/NeutralCampKind.php
 api/Model/NewPlayerMetrics.php
 api/Model/NpcUnit.php
 api/Model/ObjectiveParams.php
@@ -230,6 +241,8 @@ api/Model/SubclassIntrinsicModifiers.php
 api/Model/SubclassIntrinsicModifiersSubclass.php
 api/Model/SubclassModifierDefinition.php
 api/Model/SubclassModifierDefinitionSubclass.php
+api/Model/SubclassNeutralDamageGrowth.php
+api/Model/SubclassNeutralDamageGrowthSubclass.php
 api/Model/SubclassObjectiveHealthGrowthPhase.php
 api/Model/SubclassObjectiveHealthGrowthPhaseSubclass.php
 api/Model/SubclassObjectiveRegen.php
@@ -280,6 +293,7 @@ docs/Api/MMRApi.md
 docs/Api/MapApi.md
 docs/Api/MatchesApi.md
 docs/Api/MiscEntitiesApi.md
+docs/Api/ModifiersApi.md
 docs/Api/NPCUnitsApi.md
 docs/Api/PatchesApi.md
 docs/Api/PlayersApi.md
@@ -309,6 +323,7 @@ docs/Model/AnalyticsAbilityOrderStats.md
 docs/Model/AnalyticsGameStats.md
 docs/Model/AnalyticsHeroStats.md
 docs/Model/BadgeDistribution.md
+docs/Model/BreakablePowerupLootParams.md
 docs/Model/Build.md
 docs/Model/BuildHero.md
 docs/Model/BuildHeroDetails.md
@@ -323,6 +338,9 @@ docs/Model/ClickhouseSalts.md
 docs/Model/Color.md
 docs/Model/ColorGradientStop.md
 docs/Model/ColumnSchema.md
+docs/Model/CorruptedItemInfo.md
+docs/Model/CorruptedPenalty.md
+docs/Model/CorruptedPenaltyEffect.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/Curve.md
@@ -368,6 +386,8 @@ docs/Model/HeroDevelopmentState.md
 docs/Model/HeroEntry.md
 docs/Model/HeroImages.md
 docs/Model/HeroPhysics.md
+docs/Model/HeroPopularItem.md
+docs/Model/HeroPopularItems.md
 docs/Model/HeroStats.md
 docs/Model/HeroStatsUI.md
 docs/Model/HeroStatsUIDisplay.md
@@ -404,6 +424,7 @@ docs/Model/LootEntry.md
 docs/Model/LootTable.md
 docs/Model/MMRHistory.md
 docs/Model/MapData.md
+docs/Model/MapDistrict.md
 docs/Model/MapImages.md
 docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
@@ -411,7 +432,10 @@ docs/Model/MatchSpectateResponse.md
 docs/Model/MateStats.md
 docs/Model/MiniMapOffsets.md
 docs/Model/MiscEntity.md
+docs/Model/Modifier.md
 docs/Model/ModifierValue.md
+docs/Model/NeutralCamp.md
+docs/Model/NeutralCampKind.md
 docs/Model/NewPlayerMetrics.md
 docs/Model/NpcUnit.md
 docs/Model/ObjectiveParams.md
@@ -480,6 +504,8 @@ docs/Model/SubclassIntrinsicModifiers.md
 docs/Model/SubclassIntrinsicModifiersSubclass.md
 docs/Model/SubclassModifierDefinition.md
 docs/Model/SubclassModifierDefinitionSubclass.md
+docs/Model/SubclassNeutralDamageGrowth.md
+docs/Model/SubclassNeutralDamageGrowthSubclass.md
 docs/Model/SubclassObjectiveHealthGrowthPhase.md
 docs/Model/SubclassObjectiveHealthGrowthPhaseSubclass.md
 docs/Model/SubclassObjectiveRegen.md
@@ -530,6 +556,7 @@ test/Api/MMRApiTest.php
 test/Api/MapApiTest.php
 test/Api/MatchesApiTest.php
 test/Api/MiscEntitiesApiTest.php
+test/Api/ModifiersApiTest.php
 test/Api/NPCUnitsApiTest.php
 test/Api/PatchesApiTest.php
 test/Api/PlayersApiTest.php
@@ -559,6 +586,7 @@ test/Model/AnalyticsAbilityOrderStatsTest.php
 test/Model/AnalyticsGameStatsTest.php
 test/Model/AnalyticsHeroStatsTest.php
 test/Model/BadgeDistributionTest.php
+test/Model/BreakablePowerupLootParamsTest.php
 test/Model/BuildHeroDetailsAbilityOrderCurrencyChangeTest.php
 test/Model/BuildHeroDetailsAbilityOrderTest.php
 test/Model/BuildHeroDetailsCategoryAbilityTest.php
@@ -573,6 +601,9 @@ test/Model/ClickhouseSaltsTest.php
 test/Model/ColorGradientStopTest.php
 test/Model/ColorTest.php
 test/Model/ColumnSchemaTest.php
+test/Model/CorruptedItemInfoTest.php
+test/Model/CorruptedPenaltyEffectTest.php
+test/Model/CorruptedPenaltyTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/CurveOrFloatTest.php
@@ -617,6 +648,8 @@ test/Model/HeroDevelopmentStateTest.php
 test/Model/HeroEntryTest.php
 test/Model/HeroImagesTest.php
 test/Model/HeroPhysicsTest.php
+test/Model/HeroPopularItemTest.php
+test/Model/HeroPopularItemsTest.php
 test/Model/HeroStatsTest.php
 test/Model/HeroStatsUIDisplayTest.php
 test/Model/HeroStatsUITest.php
@@ -654,6 +687,7 @@ test/Model/LootEntryTest.php
 test/Model/LootTableTest.php
 test/Model/MMRHistoryTest.php
 test/Model/MapDataTest.php
+test/Model/MapDistrictTest.php
 test/Model/MapImagesTest.php
 test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php
@@ -661,7 +695,10 @@ test/Model/MatchSpectateResponseTest.php
 test/Model/MateStatsTest.php
 test/Model/MiniMapOffsetsTest.php
 test/Model/MiscEntityTest.php
+test/Model/ModifierTest.php
 test/Model/ModifierValueTest.php
+test/Model/NeutralCampKindTest.php
+test/Model/NeutralCampTest.php
 test/Model/NewPlayerMetricsTest.php
 test/Model/NpcUnitTest.php
 test/Model/ObjectiveParamsTest.php
@@ -730,6 +767,8 @@ test/Model/SubclassIntrinsicModifiersSubclassTest.php
 test/Model/SubclassIntrinsicModifiersTest.php
 test/Model/SubclassModifierDefinitionSubclassTest.php
 test/Model/SubclassModifierDefinitionTest.php
+test/Model/SubclassNeutralDamageGrowthSubclassTest.php
+test/Model/SubclassNeutralDamageGrowthTest.php
 test/Model/SubclassObjectiveHealthGrowthPhaseSubclassTest.php
 test/Model/SubclassObjectiveHealthGrowthPhaseTest.php
 test/Model/SubclassObjectiveRegenSubclassTest.php

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_misc_entity**
-> MiscEntity get_misc_entity(id_or_classname, client_version=client_version)
+> MiscEntity get_misc_entity(id_or_classname, language=language, client_version=client_version)
 
 Get Misc Entity
 
@@ -36,11 +36,12 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MiscEntitiesApi(api_client)
     id_or_classname = 'id_or_classname_example' # str | Misc entity id (`murmurhash2(class_name)`) or `class_name`
+    language = 'language_example' # str | Language code. Defaults to `english`. (optional)
     client_version = 56 # int | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
     try:
         # Get Misc Entity
-        api_response = api_instance.get_misc_entity(id_or_classname, client_version=client_version)
+        api_response = api_instance.get_misc_entity(id_or_classname, language=language, client_version=client_version)
         print("The response of MiscEntitiesApi->get_misc_entity:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,6 +56,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_or_classname** | **str**| Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | 
+ **language** | **str**| Language code. Defaults to &#x60;english&#x60;. | [optional] 
  **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] 
 
 ### Return type
@@ -81,11 +83,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_misc_entities**
-> List[MiscEntity] list_misc_entities(client_version=client_version)
+> List[MiscEntity] list_misc_entities(language=language, client_version=client_version)
 
 List Misc Entities
 
-Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
 ### Example
 
@@ -107,11 +109,12 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.MiscEntitiesApi(api_client)
+    language = 'language_example' # str | Language code. Defaults to `english`. (optional)
     client_version = 56 # int | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
     try:
         # List Misc Entities
-        api_response = api_instance.list_misc_entities(client_version=client_version)
+        api_response = api_instance.list_misc_entities(language=language, client_version=client_version)
         print("The response of MiscEntitiesApi->list_misc_entities:\n")
         pprint(api_response)
     except Exception as e:
@@ -125,6 +128,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **language** | **str**| Language code. Defaults to &#x60;english&#x60;. | [optional] 
  **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] 
 
 ### Return type

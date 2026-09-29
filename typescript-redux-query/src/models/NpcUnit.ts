@@ -25,6 +25,9 @@ import {
     SubclassIntrinsicModifiers,
     SubclassIntrinsicModifiersFromJSON,
     SubclassIntrinsicModifiersToJSON,
+    SubclassNeutralDamageGrowth,
+    SubclassNeutralDamageGrowthFromJSON,
+    SubclassNeutralDamageGrowthToJSON,
     SubclassObjectiveHealthGrowthPhase,
     SubclassObjectiveHealthGrowthPhaseFromJSON,
     SubclassObjectiveHealthGrowthPhaseToJSON,
@@ -193,6 +196,18 @@ export interface NpcUnit  {
      */
     id: number;
     /**
+     * Unit icon (`m_strCustomUnitIcon`) as png.
+     * @type {string}
+     * @memberof NpcUnit
+     */
+    image?: string;
+    /**
+     * Unit icon (`m_strCustomUnitIcon`) as webp.
+     * @type {string}
+     * @memberof NpcUnit
+     */
+    imageWebp?: string;
+    /**
      * 
      * @type {Array<SubclassIntrinsicModifiers>}
      * @memberof NpcUnit
@@ -253,11 +268,41 @@ export interface NpcUnit  {
      */
     meleeHitRange?: number;
     /**
+     * Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+     * @type {string}
+     * @memberof NpcUnit
+     */
+    name?: string;
+    /**
      * 
      * @type {number}
      * @memberof NpcUnit
      */
     nearDeathDuration?: number;
+    /**
+     * Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+     * @type {Array<string>}
+     * @memberof NpcUnit
+     */
+    neutralAbilities?: Array<string>;
+    /**
+     * 
+     * @type {SubclassNeutralDamageGrowth}
+     * @memberof NpcUnit
+     */
+    neutralDamageGrowth?: SubclassNeutralDamageGrowth;
+    /**
+     * Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+     * @type {string}
+     * @memberof NpcUnit
+     */
+    neutralMelee?: string;
+    /**
+     * Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+     * @type {string}
+     * @memberof NpcUnit
+     */
+    neutralType?: string;
     /**
      * 
      * @type {number}
@@ -439,6 +484,12 @@ export interface NpcUnit  {
      */
     trooperDps?: number;
     /**
+     * Distance threshold (as string key) → soul orb class shown to the viewer.
+     * @type {{ [key: string]: string; }}
+     * @memberof NpcUnit
+     */
+    viewerSoulsClass?: { [key: string]: string; };
+    /**
      * 
      * @type {number}
      * @memberof NpcUnit
@@ -478,6 +529,8 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'healthBarColorTeam2': !exists(json, 'health_bar_color_team2') ? undefined : ColorFromJSON(json['health_bar_color_team2']),
         'healthBarColorTeamNeutral': !exists(json, 'health_bar_color_team_neutral') ? undefined : ColorFromJSON(json['health_bar_color_team_neutral']),
         'id': json['id'],
+        'image': !exists(json, 'image') ? undefined : json['image'],
+        'imageWebp': !exists(json, 'image_webp') ? undefined : json['image_webp'],
         'intrinsicModifiers': !exists(json, 'intrinsic_modifiers') ? undefined : (json['intrinsic_modifiers'] as Array<any>).map(SubclassIntrinsicModifiersFromJSON),
         'laserDpsMaxHealth': !exists(json, 'laser_dps_max_health') ? undefined : json['laser_dps_max_health'],
         'laserDpsToPlayers': !exists(json, 'laser_dps_to_players') ? undefined : json['laser_dps_to_players'],
@@ -488,7 +541,12 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'meleeDamage': !exists(json, 'melee_damage') ? undefined : json['melee_damage'],
         'meleeDuration': !exists(json, 'melee_duration') ? undefined : json['melee_duration'],
         'meleeHitRange': !exists(json, 'melee_hit_range') ? undefined : json['melee_hit_range'],
+        'name': !exists(json, 'name') ? undefined : json['name'],
         'nearDeathDuration': !exists(json, 'near_death_duration') ? undefined : json['near_death_duration'],
+        'neutralAbilities': !exists(json, 'neutral_abilities') ? undefined : json['neutral_abilities'],
+        'neutralDamageGrowth': !exists(json, 'neutral_damage_growth') ? undefined : SubclassNeutralDamageGrowthFromJSON(json['neutral_damage_growth']),
+        'neutralMelee': !exists(json, 'neutral_melee') ? undefined : json['neutral_melee'],
+        'neutralType': !exists(json, 'neutral_type') ? undefined : json['neutral_type'],
         'noShieldLaserDpsToPlayers': !exists(json, 'no_shield_laser_dps_to_players') ? undefined : json['no_shield_laser_dps_to_players'],
         'objectiveHealthGrowthPhase1': !exists(json, 'objective_health_growth_phase1') ? undefined : SubclassObjectiveHealthGrowthPhaseFromJSON(json['objective_health_growth_phase1']),
         'objectiveHealthGrowthPhase2': !exists(json, 'objective_health_growth_phase2') ? undefined : SubclassObjectiveHealthGrowthPhaseFromJSON(json['objective_health_growth_phase2']),
@@ -519,6 +577,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         't3BossDps': !exists(json, 't3_boss_dps') ? undefined : json['t3_boss_dps'],
         'trooperDamageResistPct': !exists(json, 'trooper_damage_resist_pct') ? undefined : json['trooper_damage_resist_pct'],
         'trooperDps': !exists(json, 'trooper_dps') ? undefined : json['trooper_dps'],
+        'viewerSoulsClass': !exists(json, 'viewer_souls_class') ? undefined : json['viewer_souls_class'],
         'walkSpeed': !exists(json, 'walk_speed') ? undefined : json['walk_speed'],
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : WeaponInfoFromJSON(json['weapon_info']),
     };
@@ -553,6 +612,8 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'health_bar_color_team2': ColorToJSON(value.healthBarColorTeam2),
         'health_bar_color_team_neutral': ColorToJSON(value.healthBarColorTeamNeutral),
         'id': value.id,
+        'image': value.image,
+        'image_webp': value.imageWebp,
         'intrinsic_modifiers': value.intrinsicModifiers === undefined ? undefined : (value.intrinsicModifiers as Array<any>).map(SubclassIntrinsicModifiersToJSON),
         'laser_dps_max_health': value.laserDpsMaxHealth,
         'laser_dps_to_players': value.laserDpsToPlayers,
@@ -563,7 +624,12 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'melee_damage': value.meleeDamage,
         'melee_duration': value.meleeDuration,
         'melee_hit_range': value.meleeHitRange,
+        'name': value.name,
         'near_death_duration': value.nearDeathDuration,
+        'neutral_abilities': value.neutralAbilities,
+        'neutral_damage_growth': SubclassNeutralDamageGrowthToJSON(value.neutralDamageGrowth),
+        'neutral_melee': value.neutralMelee,
+        'neutral_type': value.neutralType,
         'no_shield_laser_dps_to_players': value.noShieldLaserDpsToPlayers,
         'objective_health_growth_phase1': SubclassObjectiveHealthGrowthPhaseToJSON(value.objectiveHealthGrowthPhase1),
         'objective_health_growth_phase2': SubclassObjectiveHealthGrowthPhaseToJSON(value.objectiveHealthGrowthPhase2),
@@ -594,6 +660,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         't3_boss_dps': value.t3BossDps,
         'trooper_damage_resist_pct': value.trooperDamageResistPct,
         'trooper_dps': value.trooperDps,
+        'viewer_souls_class': value.viewerSoulsClass,
         'walk_speed': value.walkSpeed,
         'weapon_info': WeaponInfoToJSON(value.weaponInfo),
     };

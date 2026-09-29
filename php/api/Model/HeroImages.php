@@ -72,6 +72,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => 'string',
         'top_bar_vertical_image' => 'string',
         'top_bar_vertical_image_webp' => 'string',
+        'vote_sticker' => 'string',
+        'vote_sticker_webp' => 'string',
         'weapon_image' => 'string',
         'weapon_image_webp' => 'string'
     ];
@@ -99,6 +101,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => null,
         'top_bar_vertical_image' => null,
         'top_bar_vertical_image_webp' => null,
+        'vote_sticker' => null,
+        'vote_sticker_webp' => null,
         'weapon_image' => null,
         'weapon_image_webp' => null
     ];
@@ -124,6 +128,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => true,
         'top_bar_vertical_image' => true,
         'top_bar_vertical_image_webp' => true,
+        'vote_sticker' => true,
+        'vote_sticker_webp' => true,
         'weapon_image' => true,
         'weapon_image_webp' => true
     ];
@@ -229,6 +235,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => 'name_image',
         'top_bar_vertical_image' => 'top_bar_vertical_image',
         'top_bar_vertical_image_webp' => 'top_bar_vertical_image_webp',
+        'vote_sticker' => 'vote_sticker',
+        'vote_sticker_webp' => 'vote_sticker_webp',
         'weapon_image' => 'weapon_image',
         'weapon_image_webp' => 'weapon_image_webp'
     ];
@@ -254,6 +262,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => 'setNameImage',
         'top_bar_vertical_image' => 'setTopBarVerticalImage',
         'top_bar_vertical_image_webp' => 'setTopBarVerticalImageWebp',
+        'vote_sticker' => 'setVoteSticker',
+        'vote_sticker_webp' => 'setVoteStickerWebp',
         'weapon_image' => 'setWeaponImage',
         'weapon_image_webp' => 'setWeaponImageWebp'
     ];
@@ -279,6 +289,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         'name_image' => 'getNameImage',
         'top_bar_vertical_image' => 'getTopBarVerticalImage',
         'top_bar_vertical_image_webp' => 'getTopBarVerticalImageWebp',
+        'vote_sticker' => 'getVoteSticker',
+        'vote_sticker_webp' => 'getVoteStickerWebp',
         'weapon_image' => 'getWeaponImage',
         'weapon_image_webp' => 'getWeaponImageWebp'
     ];
@@ -355,6 +367,8 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name_image', $data ?? [], null);
         $this->setIfExists('top_bar_vertical_image', $data ?? [], null);
         $this->setIfExists('top_bar_vertical_image_webp', $data ?? [], null);
+        $this->setIfExists('vote_sticker', $data ?? [], null);
+        $this->setIfExists('vote_sticker_webp', $data ?? [], null);
         $this->setIfExists('weapon_image', $data ?? [], null);
         $this->setIfExists('weapon_image_webp', $data ?? [], null);
     }
@@ -907,6 +921,74 @@ class HeroImages implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['top_bar_vertical_image_webp'] = $top_bar_vertical_image_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets vote_sticker
+     *
+     * @return string|null
+     */
+    public function getVoteSticker()
+    {
+        return $this->container['vote_sticker'];
+    }
+
+    /**
+     * Sets vote_sticker
+     *
+     * @param string|null $vote_sticker Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+     *
+     * @return self
+     */
+    public function setVoteSticker($vote_sticker)
+    {
+        if (is_null($vote_sticker)) {
+            array_push($this->openAPINullablesSetToNull, 'vote_sticker');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vote_sticker', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vote_sticker'] = $vote_sticker;
+
+        return $this;
+    }
+
+    /**
+     * Gets vote_sticker_webp
+     *
+     * @return string|null
+     */
+    public function getVoteStickerWebp()
+    {
+        return $this->container['vote_sticker_webp'];
+    }
+
+    /**
+     * Sets vote_sticker_webp
+     *
+     * @param string|null $vote_sticker_webp vote_sticker_webp
+     *
+     * @return self
+     */
+    public function setVoteStickerWebp($vote_sticker_webp)
+    {
+        if (is_null($vote_sticker_webp)) {
+            array_push($this->openAPINullablesSetToNull, 'vote_sticker_webp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vote_sticker_webp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['vote_sticker_webp'] = $vote_sticker_webp;
 
         return $this;
     }

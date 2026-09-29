@@ -81,6 +81,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'EnabledStateMask'
+        /// </summary>
+        [Fact]
+        public void EnabledStateMaskTest()
+        {
+            // TODO unit test for the property 'EnabledStateMask'
+        }
+
+        /// <summary>
         /// Test the property 'ModifierValues'
         /// </summary>
         [Fact]

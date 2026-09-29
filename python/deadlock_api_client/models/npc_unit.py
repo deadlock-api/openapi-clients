@@ -24,6 +24,7 @@ from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
 from deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel
 from deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers
+from deadlock_api_client.models.subclass_neutral_damage_growth import SubclassNeutralDamageGrowth
 from deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase
 from deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen
 from deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier
@@ -61,6 +62,8 @@ class NpcUnit(BaseModel):
     health_bar_color_team2: Optional[Color] = None
     health_bar_color_team_neutral: Optional[Color] = None
     id: Annotated[int, Field(strict=True, ge=0)]
+    image: Optional[StrictStr] = Field(default=None, description="Unit icon (`m_strCustomUnitIcon`) as png.")
+    image_webp: Optional[StrictStr] = Field(default=None, description="Unit icon (`m_strCustomUnitIcon`) as webp.")
     intrinsic_modifiers: Optional[List[SubclassIntrinsicModifiers]] = None
     laser_dps_max_health: Optional[Union[StrictFloat, StrictInt]] = None
     laser_dps_to_players: Optional[Union[StrictFloat, StrictInt]] = None
@@ -71,7 +74,12 @@ class NpcUnit(BaseModel):
     melee_damage: Optional[Union[StrictFloat, StrictInt]] = None
     melee_duration: Optional[Union[StrictFloat, StrictInt]] = None
     melee_hit_range: Optional[Union[StrictFloat, StrictInt]] = None
+    name: Optional[StrictStr] = Field(default=None, description="Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.")
     near_death_duration: Optional[Union[StrictFloat, StrictInt]] = None
+    neutral_abilities: Optional[List[StrictStr]] = Field(default=None, description="Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).")
+    neutral_damage_growth: Optional[SubclassNeutralDamageGrowth] = None
+    neutral_melee: Optional[StrictStr] = Field(default=None, description="Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).")
+    neutral_type: Optional[StrictStr] = Field(default=None, description="Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).")
     no_shield_laser_dps_to_players: Optional[Union[StrictFloat, StrictInt]] = None
     objective_health_growth_phase1: Optional[SubclassObjectiveHealthGrowthPhase] = None
     objective_health_growth_phase2: Optional[SubclassObjectiveHealthGrowthPhase] = None
@@ -102,9 +110,10 @@ class NpcUnit(BaseModel):
     t3_boss_dps: Optional[Union[StrictFloat, StrictInt]] = None
     trooper_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
     trooper_dps: Optional[Union[StrictFloat, StrictInt]] = None
+    viewer_souls_class: Optional[Dict[str, StrictStr]] = Field(default=None, description="Distance threshold (as string key) → soul orb class shown to the viewer.")
     walk_speed: Optional[Union[StrictFloat, StrictInt]] = None
     weapon_info: Optional[WeaponInfo] = None
-    __properties: ClassVar[List[str]] = ["acceleration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "backdoor_bullet_resist_modifier", "barrack_boss_dps", "barrack_guardian_damage_resist_pct", "boss_weapon_info", "bound_abilities", "class_name", "empowered_modifier_level1", "empowered_modifier_level2", "enemy_trooper_damage_reduction", "enemy_trooper_protection_range", "generator_boss_dps", "gold_reward", "gold_reward_bonus_percent_per_minute", "health_bar_color_enemy", "health_bar_color_friend", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id", "intrinsic_modifiers", "laser_dps_max_health", "laser_dps_to_players", "max_health", "max_health_final", "max_health_generator", "melee_attempt_range", "melee_damage", "melee_duration", "melee_hit_range", "near_death_duration", "no_shield_laser_dps_to_players", "objective_health_growth_phase1", "objective_health_growth_phase2", "objective_regen", "phase2_health", "player_damage_resist_pct", "player_dps", "ranged_armor_modifier", "run_speed", "sight_range_npcs", "sight_range_players", "spawn_breakables_on_death", "stomp_damage", "stomp_damage_max_health_percent", "stomp_impact_radius", "stun_duration", "t1_boss_damage_resist_pct", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_damage_resist_pct", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_damage_resist_pct", "t3_boss_dps", "trooper_damage_resist_pct", "trooper_dps", "walk_speed", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["acceleration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "backdoor_bullet_resist_modifier", "barrack_boss_dps", "barrack_guardian_damage_resist_pct", "boss_weapon_info", "bound_abilities", "class_name", "empowered_modifier_level1", "empowered_modifier_level2", "enemy_trooper_damage_reduction", "enemy_trooper_protection_range", "generator_boss_dps", "gold_reward", "gold_reward_bonus_percent_per_minute", "health_bar_color_enemy", "health_bar_color_friend", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id", "image", "image_webp", "intrinsic_modifiers", "laser_dps_max_health", "laser_dps_to_players", "max_health", "max_health_final", "max_health_generator", "melee_attempt_range", "melee_damage", "melee_duration", "melee_hit_range", "name", "near_death_duration", "neutral_abilities", "neutral_damage_growth", "neutral_melee", "neutral_type", "no_shield_laser_dps_to_players", "objective_health_growth_phase1", "objective_health_growth_phase2", "objective_regen", "phase2_health", "player_damage_resist_pct", "player_dps", "ranged_armor_modifier", "run_speed", "sight_range_npcs", "sight_range_players", "spawn_breakables_on_death", "stomp_damage", "stomp_damage_max_health_percent", "stomp_impact_radius", "stun_duration", "t1_boss_damage_resist_pct", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_damage_resist_pct", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_damage_resist_pct", "t3_boss_dps", "trooper_damage_resist_pct", "trooper_dps", "viewer_souls_class", "walk_speed", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -181,6 +190,9 @@ class NpcUnit(BaseModel):
             for _item_intrinsic_modifiers in self.intrinsic_modifiers:
                 _items.append(_item_intrinsic_modifiers.to_dict() if _item_intrinsic_modifiers is not None else None)
             _dict['intrinsic_modifiers'] = _items
+        # override the default output from pydantic by calling `to_dict()` of neutral_damage_growth
+        if self.neutral_damage_growth:
+            _dict['neutral_damage_growth'] = self.neutral_damage_growth.to_dict()
         # override the default output from pydantic by calling `to_dict()` of objective_health_growth_phase1
         if self.objective_health_growth_phase1:
             _dict['objective_health_growth_phase1'] = self.objective_health_growth_phase1.to_dict()
@@ -306,6 +318,16 @@ class NpcUnit(BaseModel):
         if self.health_bar_color_team_neutral is None and "health_bar_color_team_neutral" in self.model_fields_set:
             _dict['health_bar_color_team_neutral'] = None
 
+        # set to None if image (nullable) is None
+        # and model_fields_set contains the field
+        if self.image is None and "image" in self.model_fields_set:
+            _dict['image'] = None
+
+        # set to None if image_webp (nullable) is None
+        # and model_fields_set contains the field
+        if self.image_webp is None and "image_webp" in self.model_fields_set:
+            _dict['image_webp'] = None
+
         # set to None if intrinsic_modifiers (nullable) is None
         # and model_fields_set contains the field
         if self.intrinsic_modifiers is None and "intrinsic_modifiers" in self.model_fields_set:
@@ -356,10 +378,35 @@ class NpcUnit(BaseModel):
         if self.melee_hit_range is None and "melee_hit_range" in self.model_fields_set:
             _dict['melee_hit_range'] = None
 
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
         # set to None if near_death_duration (nullable) is None
         # and model_fields_set contains the field
         if self.near_death_duration is None and "near_death_duration" in self.model_fields_set:
             _dict['near_death_duration'] = None
+
+        # set to None if neutral_abilities (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_abilities is None and "neutral_abilities" in self.model_fields_set:
+            _dict['neutral_abilities'] = None
+
+        # set to None if neutral_damage_growth (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_damage_growth is None and "neutral_damage_growth" in self.model_fields_set:
+            _dict['neutral_damage_growth'] = None
+
+        # set to None if neutral_melee (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_melee is None and "neutral_melee" in self.model_fields_set:
+            _dict['neutral_melee'] = None
+
+        # set to None if neutral_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_type is None and "neutral_type" in self.model_fields_set:
+            _dict['neutral_type'] = None
 
         # set to None if no_shield_laser_dps_to_players (nullable) is None
         # and model_fields_set contains the field
@@ -511,6 +558,11 @@ class NpcUnit(BaseModel):
         if self.trooper_dps is None and "trooper_dps" in self.model_fields_set:
             _dict['trooper_dps'] = None
 
+        # set to None if viewer_souls_class (nullable) is None
+        # and model_fields_set contains the field
+        if self.viewer_souls_class is None and "viewer_souls_class" in self.model_fields_set:
+            _dict['viewer_souls_class'] = None
+
         # set to None if walk_speed (nullable) is None
         # and model_fields_set contains the field
         if self.walk_speed is None and "walk_speed" in self.model_fields_set:
@@ -557,6 +609,8 @@ class NpcUnit(BaseModel):
             "health_bar_color_team2": Color.from_dict(obj["health_bar_color_team2"]) if obj.get("health_bar_color_team2") is not None else None,
             "health_bar_color_team_neutral": Color.from_dict(obj["health_bar_color_team_neutral"]) if obj.get("health_bar_color_team_neutral") is not None else None,
             "id": obj.get("id"),
+            "image": obj.get("image"),
+            "image_webp": obj.get("image_webp"),
             "intrinsic_modifiers": [SubclassIntrinsicModifiers.from_dict(_item) for _item in obj["intrinsic_modifiers"]] if obj.get("intrinsic_modifiers") is not None else None,
             "laser_dps_max_health": obj.get("laser_dps_max_health"),
             "laser_dps_to_players": obj.get("laser_dps_to_players"),
@@ -567,7 +621,12 @@ class NpcUnit(BaseModel):
             "melee_damage": obj.get("melee_damage"),
             "melee_duration": obj.get("melee_duration"),
             "melee_hit_range": obj.get("melee_hit_range"),
+            "name": obj.get("name"),
             "near_death_duration": obj.get("near_death_duration"),
+            "neutral_abilities": obj.get("neutral_abilities"),
+            "neutral_damage_growth": SubclassNeutralDamageGrowth.from_dict(obj["neutral_damage_growth"]) if obj.get("neutral_damage_growth") is not None else None,
+            "neutral_melee": obj.get("neutral_melee"),
+            "neutral_type": obj.get("neutral_type"),
             "no_shield_laser_dps_to_players": obj.get("no_shield_laser_dps_to_players"),
             "objective_health_growth_phase1": SubclassObjectiveHealthGrowthPhase.from_dict(obj["objective_health_growth_phase1"]) if obj.get("objective_health_growth_phase1") is not None else None,
             "objective_health_growth_phase2": SubclassObjectiveHealthGrowthPhase.from_dict(obj["objective_health_growth_phase2"]) if obj.get("objective_health_growth_phase2") is not None else None,
@@ -598,6 +657,7 @@ class NpcUnit(BaseModel):
             "t3_boss_dps": obj.get("t3_boss_dps"),
             "trooper_damage_resist_pct": obj.get("trooper_damage_resist_pct"),
             "trooper_dps": obj.get("trooper_dps"),
+            "viewer_souls_class": obj.get("viewer_souls_class"),
             "walk_speed": obj.get("walk_speed"),
             "weapon_info": WeaponInfo.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None
         })

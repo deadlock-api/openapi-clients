@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **PostvalueLabel** | Pointer to **string** |  | [optional] 
 **Prefix** | Pointer to **string** |  | [optional] 
 **ProvidedPropertyType** | Pointer to **string** |  | [optional] 
+**RequiredUpgradeBits** | Pointer to **[]string** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **ScaleFunction** | Pointer to [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
 **StreetBrawlValue** | Pointer to **string** |  | [optional] 
 **UsageFlags** | Pointer to [**[]StatsUsageFlag**](StatsUsageFlag.md) |  | [optional] 
@@ -368,6 +369,31 @@ SetProvidedPropertyType sets ProvidedPropertyType field to given value.
 `func (o *UpgradeProperty) HasProvidedPropertyType() bool`
 
 HasProvidedPropertyType returns a boolean if a field has been set.
+
+### GetRequiredUpgradeBits
+
+`func (o *UpgradeProperty) GetRequiredUpgradeBits() []string`
+
+GetRequiredUpgradeBits returns the RequiredUpgradeBits field if non-nil, zero value otherwise.
+
+### GetRequiredUpgradeBitsOk
+
+`func (o *UpgradeProperty) GetRequiredUpgradeBitsOk() (*[]string, bool)`
+
+GetRequiredUpgradeBitsOk returns a tuple with the RequiredUpgradeBits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredUpgradeBits
+
+`func (o *UpgradeProperty) SetRequiredUpgradeBits(v []string)`
+
+SetRequiredUpgradeBits sets RequiredUpgradeBits field to given value.
+
+### HasRequiredUpgradeBits
+
+`func (o *UpgradeProperty) HasRequiredUpgradeBits() bool`
+
+HasRequiredUpgradeBits returns a boolean if a field has been set.
 
 ### GetScaleFunction
 

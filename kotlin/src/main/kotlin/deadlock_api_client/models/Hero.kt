@@ -34,6 +34,7 @@ import deadlock_api_client.models.HeroDescription
 import deadlock_api_client.models.HeroDevelopmentState
 import deadlock_api_client.models.HeroImages
 import deadlock_api_client.models.HeroPhysics
+import deadlock_api_client.models.HeroPopularItems
 import deadlock_api_client.models.HeroStatsUI
 import deadlock_api_client.models.HeroType
 import deadlock_api_client.models.ShopStatDisplay
@@ -75,12 +76,15 @@ import java.io.Serializable
  * @param tags Always emitted (empty if the hero declares no `m_vecHeroTags`).
  * @param costBonuses 
  * @param developmentState Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
+ * @param gender Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
  * @param gunTag 
  * @param heroType 
  * @param hideoutRichPresence 
  * @param itemDraftBucketing 
  * @param itemDraftWeights 
+ * @param popularItems Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
  * @param prereleaseOnly Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
+ * @param searchName Localized search name (`m_strHeroSearchName`, build 6711+).
  */
 
 
@@ -175,6 +179,10 @@ data class Hero (
     @Json(name = "development_state")
     val developmentState: HeroDevelopmentState? = null,
 
+    /* Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`. */
+    @Json(name = "gender")
+    val gender: kotlin.String? = null,
+
     @Json(name = "gun_tag")
     val gunTag: kotlin.String? = null,
 
@@ -190,9 +198,17 @@ data class Hero (
     @Json(name = "item_draft_weights")
     val itemDraftWeights: kotlin.collections.Map<kotlin.String, kotlin.Double>? = null,
 
+    /* Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data. */
+    @Json(name = "popular_items")
+    val popularItems: HeroPopularItems? = null,
+
     /* Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`. */
     @Json(name = "prerelease_only")
-    val prereleaseOnly: kotlin.Boolean? = null
+    val prereleaseOnly: kotlin.Boolean? = null,
+
+    /* Localized search name (`m_strHeroSearchName`, build 6711+). */
+    @Json(name = "search_name")
+    val searchName: kotlin.String? = null
 
 ) : Serializable {
     companion object {

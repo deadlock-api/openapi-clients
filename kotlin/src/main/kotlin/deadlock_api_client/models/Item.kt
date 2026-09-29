@@ -29,6 +29,7 @@ import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.AbilityTooltipDetails
 import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
+import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.DependantAbilities
 import deadlock_api_client.models.ItemSlotType
 import deadlock_api_client.models.ItemType
@@ -79,13 +80,18 @@ import java.io.Serializable
  * @param customCrosshairSettings 
  * @param useCustomCrosshairSettings 
  * @param componentItems 
+ * @param corruptedInfo Present on upgrades the Broker can corrupt (build 6711+).
  * @param cost 
+ * @param disableItemTarget 
  * @param disabled 
+ * @param disabledShopFilters Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
  * @param imbue 
+ * @param shopFilters Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
  * @param shopImage 
  * @param shopImageSmall 
  * @param shopImageSmallWebp 
  * @param shopImageWebp 
+ * @param shopVersion 
  * @param tooltipSections 
  */
 
@@ -185,14 +191,29 @@ data class Item (
     @Json(name = "component_items")
     val componentItems: kotlin.collections.List<kotlin.String>? = null,
 
+    /* Present on upgrades the Broker can corrupt (build 6711+). */
+    @Json(name = "corrupted_info")
+    val corruptedInfo: CorruptedItemInfo? = null,
+
     @Json(name = "cost")
     val cost: kotlin.Int? = null,
+
+    @Json(name = "disable_item_target")
+    val disableItemTarget: kotlin.String? = null,
 
     @Json(name = "disabled")
     val disabled: kotlin.Boolean? = null,
 
+    /* Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them. */
+    @Json(name = "disabled_shop_filters")
+    val disabledShopFilters: kotlin.collections.List<kotlin.String>? = null,
+
     @Json(name = "imbue")
     val imbue: AbilityImbue? = null,
+
+    /* Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats. */
+    @Json(name = "shop_filters")
+    val shopFilters: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "shop_image")
     val shopImage: kotlin.String? = null,
@@ -205,6 +226,9 @@ data class Item (
 
     @Json(name = "shop_image_webp")
     val shopImageWebp: kotlin.String? = null,
+
+    @Json(name = "shop_version")
+    val shopVersion: kotlin.Long? = null,
 
     @Json(name = "tooltip_sections")
     val tooltipSections: kotlin.collections.List<UpgradeTooltipSection>? = null

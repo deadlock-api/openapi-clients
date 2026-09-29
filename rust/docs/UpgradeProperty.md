@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **postvalue_label** | Option<**String**> |  | [optional]
 **prefix** | Option<**String**> |  | [optional]
 **provided_property_type** | Option<**String**> |  | [optional]
+**required_upgrade_bits** | Option<**Vec<String>**> | Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`). | [optional]
 **scale_function** | Option<[**models::RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md)> |  | [optional]
 **street_brawl_value** | Option<**String**> |  | [optional]
 **usage_flags** | Option<[**Vec<models::StatsUsageFlag>**](StatsUsageFlag.md)> |  | [optional]

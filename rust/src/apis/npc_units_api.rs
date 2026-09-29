@@ -19,6 +19,8 @@ use super::{Error, configuration, ContentType};
 pub struct GetNpcUnitParams {
     /// NPC unit id (`murmurhash2(class_name)`) or `class_name`
     pub id_or_classname: String,
+    /// Language code. Defaults to `english`.
+    pub language: Option<String>,
     /// Client/game version (e.g. `6518`). Defaults to the latest known version.
     pub client_version: Option<u32>
 }
@@ -26,6 +28,8 @@ pub struct GetNpcUnitParams {
 /// struct for passing parameters to the method [`list_npc_units`]
 #[derive(Clone, Debug)]
 pub struct ListNpcUnitsParams {
+    /// Language code. Defaults to `english`.
+    pub language: Option<String>,
     /// Client/game version (e.g. `6518`). Defaults to the latest known version.
     pub client_version: Option<u32>
 }
@@ -56,6 +60,9 @@ pub async fn get_npc_unit(configuration: &configuration::Configuration, params: 
     let uri_str = format!("{}/v1/assets/npc-units/{id_or_classname}", configuration.base_path, id_or_classname=crate::apis::urlencode(params.id_or_classname));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.client_version {
         req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }
@@ -88,12 +95,15 @@ pub async fn get_npc_unit(configuration: &configuration::Configuration, params: 
     }
 }
 
-/// Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+/// Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 pub async fn list_npc_units(configuration: &configuration::Configuration, params: ListNpcUnitsParams) -> Result<Vec<models::NpcUnit>, Error<ListNpcUnitsError>> {
 
     let uri_str = format!("{}/v1/assets/npc-units", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.language {
+        req_builder = req_builder.query(&[("language", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.client_version {
         req_builder = req_builder.query(&[("client_version", &param_value.to_string())]);
     }

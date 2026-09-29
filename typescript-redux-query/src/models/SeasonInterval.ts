@@ -31,6 +31,12 @@ export interface SeasonInterval  {
      */
     interval: number;
     /**
+     * Leaderboard backing this interval (build 6701+).
+     * @type {number}
+     * @memberof SeasonInterval
+     */
+    leaderboardId?: number;
+    /**
      * Unix timestamp (seconds) at which the interval starts.
      * @type {number}
      * @memberof SeasonInterval
@@ -42,6 +48,7 @@ export function SeasonIntervalFromJSON(json: any): SeasonInterval {
     return {
         'endTimestamp': json['end_timestamp'],
         'interval': json['interval'],
+        'leaderboardId': !exists(json, 'leaderboard_id') ? undefined : json['leaderboard_id'],
         'startTimestamp': json['start_timestamp'],
     };
 }
@@ -53,6 +60,7 @@ export function SeasonIntervalToJSON(value?: SeasonInterval): any {
     return {
         'end_timestamp': value.endTimestamp,
         'interval': value.interval,
+        'leaderboard_id': value.leaderboardId,
         'start_timestamp': value.startTimestamp,
     };
 }

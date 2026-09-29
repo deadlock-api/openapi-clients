@@ -40,7 +40,9 @@ import java.io.Serializable
  * @param breakOnDodgeTouch 
  * @param buffTypeGraphColor Permanent pickups: color used for the buff in the stat graph.
  * @param buffTypeLocString Permanent pickups: localization token of the stat the buff raises.
- * @param buffTypeValueUnit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+ * @param buffTypeName Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+ * @param buffTypeValueUnit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
+ * @param collectionMethod How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
  * @param collisionRadius 
  * @param color 
  * @param damagedByAbilities 
@@ -53,31 +55,45 @@ import java.io.Serializable
  * @param health 
  * @param heavyMeleeHitCount 
  * @param heavyMeleeOnly 
+ * @param hitsRequired Punchable pickups: hits needed to collect.
+ * @param inShopModifier Corrupted item shop (Broker) trigger: modifier applied while inside.
  * @param initialSpawnDelayInSeconds 
  * @param initialSpawnDelaySeconds Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
  * @param initialSpawnTime 
  * @param isMantleable 
+ * @param isPermanentPickup 
  * @param lifetime 
  * @param lootListDeckSize 
  * @param mVecPickupsLv2 
  * @param mVecPickupsLv3 
  * @param matchTimeMinsForLevel2Pickups 
  * @param matchTimeMinsForLevel3Pickups 
+ * @param minimapClass 
  * @param modifier 
+ * @param name `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+ * @param nameLocString Localization token of the pickup's world label.
  * @param orbSpawnDelayMax 
  * @param orbSpawnDelayMin 
+ * @param pickup Pickup spawners: class name of the spawned pickup.
  * @param pickupChances Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
  * @param pickupRadius 
  * @param powerupDropChance Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
  * @param primaryDropChance Pre-6711 builds only; see `powerup_drop_chance`.
  * @param primaryPickups 
+ * @param regenDuration Health pickups: seconds over which the healing is applied to heroes.
+ * @param regenDurationTroopers Health pickups: seconds over which the healing is applied to troopers.
+ * @param regenMaxHealthPercent Health pickups: healing as percent of max health.
+ * @param regenTrooperMulti Health pickups: healing multiplier for troopers.
  * @param renderAfterDeath 
  * @param respawnTime 
  * @param rollType Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
  * @param showOnMinimap 
+ * @param singlePickupOverride Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
  * @param solidAfterDeath 
+ * @param spawnDelay Pickup spawners: delay (seconds) before the first spawn.
  * @param spawnInterval 
  * @param spawnIntervalInSeconds 
+ * @param spawnMusicState Corrupted item shop (Broker) trigger: music cue played on spawn.
  */
 
 
@@ -100,9 +116,17 @@ data class MiscEntity (
     @Json(name = "buff_type_loc_string")
     val buffTypeLocString: kotlin.String? = null,
 
-    /* Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). */
+    /* Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`). */
+    @Json(name = "buff_type_name")
+    val buffTypeName: kotlin.String? = null,
+
+    /* Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter). */
     @Json(name = "buff_type_value_unit")
     val buffTypeValueUnit: kotlin.String? = null,
+
+    /* How the pickup is collected, e.g. `Punch` or `VacuumTrigger`. */
+    @Json(name = "collection_method")
+    val collectionMethod: kotlin.String? = null,
 
     @Json(name = "collision_radius")
     val collisionRadius: kotlin.Double? = null,
@@ -140,6 +164,14 @@ data class MiscEntity (
     @Json(name = "heavy_melee_only")
     val heavyMeleeOnly: kotlin.Boolean? = null,
 
+    /* Punchable pickups: hits needed to collect. */
+    @Json(name = "hits_required")
+    val hitsRequired: kotlin.Long? = null,
+
+    /* Corrupted item shop (Broker) trigger: modifier applied while inside. */
+    @Json(name = "in_shop_modifier")
+    val inShopModifier: SubclassModifierDefinition? = null,
+
     @Json(name = "initial_spawn_delay_in_seconds")
     val initialSpawnDelayInSeconds: kotlin.Long? = null,
 
@@ -152,6 +184,9 @@ data class MiscEntity (
 
     @Json(name = "is_mantleable")
     val isMantleable: kotlin.Boolean? = null,
+
+    @Json(name = "is_permanent_pickup")
+    val isPermanentPickup: kotlin.Boolean? = null,
 
     @Json(name = "lifetime")
     val lifetime: kotlin.Double? = null,
@@ -171,14 +206,29 @@ data class MiscEntity (
     @Json(name = "match_time_mins_for_level3_pickups")
     val matchTimeMinsForLevel3Pickups: kotlin.Long? = null,
 
+    @Json(name = "minimap_class")
+    val minimapClass: kotlin.String? = null,
+
     @Json(name = "modifier")
     val modifier: SubclassModifierDefinition? = null,
+
+    /* `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`). */
+    @Json(name = "name")
+    val name: kotlin.String? = null,
+
+    /* Localization token of the pickup's world label. */
+    @Json(name = "name_loc_string")
+    val nameLocString: kotlin.String? = null,
 
     @Json(name = "orb_spawn_delay_max")
     val orbSpawnDelayMax: kotlin.Double? = null,
 
     @Json(name = "orb_spawn_delay_min")
     val orbSpawnDelayMin: kotlin.Double? = null,
+
+    /* Pickup spawners: class name of the spawned pickup. */
+    @Json(name = "pickup")
+    val pickup: kotlin.String? = null,
 
     /* Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists. */
     @Json(name = "pickup_chances")
@@ -198,6 +248,22 @@ data class MiscEntity (
     @Json(name = "primary_pickups")
     val primaryPickups: kotlin.collections.List<Pickup>? = null,
 
+    /* Health pickups: seconds over which the healing is applied to heroes. */
+    @Json(name = "regen_duration")
+    val regenDuration: kotlin.Double? = null,
+
+    /* Health pickups: seconds over which the healing is applied to troopers. */
+    @Json(name = "regen_duration_troopers")
+    val regenDurationTroopers: kotlin.Double? = null,
+
+    /* Health pickups: healing as percent of max health. */
+    @Json(name = "regen_max_health_percent")
+    val regenMaxHealthPercent: CurveOrFloat? = null,
+
+    /* Health pickups: healing multiplier for troopers. */
+    @Json(name = "regen_trooper_multi")
+    val regenTrooperMulti: kotlin.Double? = null,
+
     @Json(name = "render_after_death")
     val renderAfterDeath: kotlin.Boolean? = null,
 
@@ -211,14 +277,26 @@ data class MiscEntity (
     @Json(name = "show_on_minimap")
     val showOnMinimap: kotlin.Boolean? = null,
 
+    /* Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`. */
+    @Json(name = "single_pickup_override")
+    val singlePickupOverride: kotlin.String? = null,
+
     @Json(name = "solid_after_death")
     val solidAfterDeath: kotlin.Boolean? = null,
+
+    /* Pickup spawners: delay (seconds) before the first spawn. */
+    @Json(name = "spawn_delay")
+    val spawnDelay: kotlin.Double? = null,
 
     @Json(name = "spawn_interval")
     val spawnInterval: kotlin.Double? = null,
 
     @Json(name = "spawn_interval_in_seconds")
-    val spawnIntervalInSeconds: kotlin.Long? = null
+    val spawnIntervalInSeconds: kotlin.Long? = null,
+
+    /* Corrupted item shop (Broker) trigger: music cue played on spawn. */
+    @Json(name = "spawn_music_state")
+    val spawnMusicState: kotlin.String? = null
 
 ) : Serializable {
     companion object {

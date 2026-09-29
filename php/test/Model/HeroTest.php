@@ -152,6 +152,15 @@ class HeroTest extends TestCase
     }
 
     /**
+     * Test attribute "gender"
+     */
+    public function testPropertyGender()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gun_tag"
      */
     public function testPropertyGunTag()
@@ -305,6 +314,15 @@ class HeroTest extends TestCase
     }
 
     /**
+     * Test attribute "popular_items"
+     */
+    public function testPropertyPopularItems()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "prerelease_only"
      */
     public function testPropertyPrereleaseOnly()
@@ -326,6 +344,15 @@ class HeroTest extends TestCase
      * Test attribute "scaling_stats"
      */
     public function testPropertyScalingStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "search_name"
+     */
+    public function testPropertySearchName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

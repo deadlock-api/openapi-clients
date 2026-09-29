@@ -32,16 +32,21 @@ Name | Type | Description | Notes
 **use_custom_crosshair_settings** | **bool** |  | [optional] 
 **activation** | [**AbilityActivation**](AbilityActivation.md) |  | 
 **component_items** | **List[str]** |  | [optional] 
+**corrupted_info** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
 **cost** | **int** |  | [optional] 
+**disable_item_target** | **str** |  | [optional] 
 **disabled** | **bool** |  | [optional] 
+**disabled_shop_filters** | **List[str]** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. | [optional] 
 **imbue** | [**AbilityImbue**](AbilityImbue.md) |  | [optional] 
 **is_active_item** | **bool** |  | 
 **item_slot_type** | [**ItemSlotType**](ItemSlotType.md) |  | 
 **item_tier** | **int** |  | 
+**shop_filters** | **List[str]** | Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats. | [optional] 
 **shop_image** | **str** |  | [optional] 
 **shop_image_small** | **str** |  | [optional] 
 **shop_image_small_webp** | **str** |  | [optional] 
 **shop_image_webp** | **str** |  | [optional] 
+**shop_version** | **int** |  | [optional] 
 **shopable** | **bool** |  | 
 **tooltip_sections** | [**List[UpgradeTooltipSection]**](UpgradeTooltipSection.md) |  | [optional] 
 

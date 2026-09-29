@@ -51,5 +51,11 @@ class SeasonIntervalTest : ShouldSpec() {
             //modelInstance.startTimestamp shouldBe ("TODO")
         }
 
+        // to test the property `leaderboardId` - Leaderboard backing this interval (build 6701+).
+        should("test leaderboardId") {
+            // uncomment below to test the property
+            //modelInstance.leaderboardId shouldBe ("TODO")
+        }
+
     }
 }

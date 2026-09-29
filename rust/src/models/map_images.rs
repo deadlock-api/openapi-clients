@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 /// MapImages : CDN URLs for the minimap image layers.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MapImages {
-    /// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
-    #[serde(rename = "background")]
-    pub background: String,
+    /// Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
+    #[serde(rename = "background", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub background: Option<Option<String>>,
     #[serde(rename = "frame")]
     pub frame: String,
     /// Midtown base layer.
@@ -25,10 +25,10 @@ pub struct MapImages {
     /// Mid tunnels overlay, drawn above `mid` (build 6711+).
     #[serde(rename = "mid_tunnels", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub mid_tunnels: Option<Option<String>>,
-    /// Full minimap. From build 6711 on this is the midtown base layer.
+    /// Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
     #[serde(rename = "minimap")]
     pub minimap: String,
-    /// Minimap without overlays. From build 6711 on this is the midtown base layer.
+    /// Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
     #[serde(rename = "plain")]
     pub plain: String,
     /// Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
@@ -38,9 +38,9 @@ pub struct MapImages {
 
 impl MapImages {
     /// CDN URLs for the minimap image layers.
-    pub fn new(background: String, frame: String, mid: String, minimap: String, plain: String) -> MapImages {
+    pub fn new(frame: String, mid: String, minimap: String, plain: String) -> MapImages {
         MapImages {
-            background,
+            background: None,
             frame,
             mid,
             mid_tunnels: None,

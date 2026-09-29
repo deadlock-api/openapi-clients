@@ -22,10 +22,12 @@ import {
 
 export interface GetNpcUnitRequest {
     idOrClassname: string;
+    language?: GetNpcUnitLanguageEnum;
     clientVersion?: number;
 }
 
 export interface ListNpcUnitsRequest {
+    language?: ListNpcUnitsLanguageEnum;
     clientVersion?: number;
 }
 
@@ -42,6 +44,11 @@ function getNpcUnitRaw<T>(requestParameters: GetNpcUnitRequest, requestConfig: r
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.language !== undefined) {
+        queryParameters['language'] = requestParameters.language;
+    }
 
 
     if (requestParameters.clientVersion !== undefined) {
@@ -85,13 +92,18 @@ export function getNpcUnit<T>(requestParameters: GetNpcUnitRequest, requestConfi
 }
 
 /**
- * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+ * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
  * List NPC Units
  */
 function listNpcUnitsRaw<T>(requestParameters: ListNpcUnitsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<NpcUnit>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.language !== undefined) {
+        queryParameters['language'] = requestParameters.language;
+    }
 
 
     if (requestParameters.clientVersion !== undefined) {
@@ -127,10 +139,81 @@ function listNpcUnitsRaw<T>(requestParameters: ListNpcUnitsRequest, requestConfi
 }
 
 /**
-* Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+* Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 * List NPC Units
 */
 export function listNpcUnits<T>(requestParameters: ListNpcUnitsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<NpcUnit>>): QueryConfig<T> {
     return listNpcUnitsRaw(requestParameters, requestConfig);
 }
 
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GetNpcUnitLanguageEnum {
+    Brazilian = 'brazilian',
+    Bulgarian = 'bulgarian',
+    Czech = 'czech',
+    Danish = 'danish',
+    Dutch = 'dutch',
+    English = 'english',
+    Finnish = 'finnish',
+    French = 'french',
+    German = 'german',
+    Greek = 'greek',
+    Hungarian = 'hungarian',
+    Indonesian = 'indonesian',
+    Italian = 'italian',
+    Japanese = 'japanese',
+    Koreana = 'koreana',
+    Latam = 'latam',
+    Norwegian = 'norwegian',
+    Polish = 'polish',
+    Portuguese = 'portuguese',
+    Romanian = 'romanian',
+    Russian = 'russian',
+    Schinese = 'schinese',
+    Spanish = 'spanish',
+    Swedish = 'swedish',
+    Tchinese = 'tchinese',
+    Thai = 'thai',
+    Turkish = 'turkish',
+    Ukrainian = 'ukrainian',
+    Vietnamese = 'vietnamese'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListNpcUnitsLanguageEnum {
+    Brazilian = 'brazilian',
+    Bulgarian = 'bulgarian',
+    Czech = 'czech',
+    Danish = 'danish',
+    Dutch = 'dutch',
+    English = 'english',
+    Finnish = 'finnish',
+    French = 'french',
+    German = 'german',
+    Greek = 'greek',
+    Hungarian = 'hungarian',
+    Indonesian = 'indonesian',
+    Italian = 'italian',
+    Japanese = 'japanese',
+    Koreana = 'koreana',
+    Latam = 'latam',
+    Norwegian = 'norwegian',
+    Polish = 'polish',
+    Portuguese = 'portuguese',
+    Romanian = 'romanian',
+    Russian = 'russian',
+    Schinese = 'schinese',
+    Spanish = 'spanish',
+    Swedish = 'swedish',
+    Tchinese = 'tchinese',
+    Thai = 'thai',
+    Turkish = 'turkish',
+    Ukrainian = 'ukrainian',
+    Vietnamese = 'vietnamese'
+}

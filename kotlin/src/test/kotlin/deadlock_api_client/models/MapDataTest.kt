@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.MapData
 import deadlock_api_client.models.MapImages
+import deadlock_api_client.models.NeutralCamp
 import deadlock_api_client.models.ObjectivePosition
 import deadlock_api_client.models.ZiplanePath
 
@@ -58,6 +59,12 @@ class MapDataTest : ShouldSpec() {
         should("test ziplinePaths") {
             // uncomment below to test the property
             //modelInstance.ziplinePaths shouldBe ("TODO")
+        }
+
+        // to test the property `neutralCamps` - Neutral camps (build 6711+).
+        should("test neutralCamps") {
+            // uncomment below to test the property
+            //modelInstance.neutralCamps shouldBe ("TODO")
         }
 
     }

@@ -178,6 +178,12 @@ class StartingStatsTest : ShouldSpec() {
             //modelInstance.groundDashDuration shouldBe ("TODO")
         }
 
+        // to test the property `oocHealthRegen` - Out-of-combat health regen (build 6711+).
+        should("test oocHealthRegen") {
+            // uncomment below to test the property
+            //modelInstance.oocHealthRegen shouldBe ("TODO")
+        }
+
         // to test the property `techArmorDamageReduction`
         should("test techArmorDamageReduction") {
             // uncomment below to test the property

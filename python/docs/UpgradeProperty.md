@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **postvalue_label** | **str** |  | [optional] 
 **prefix** | **str** |  | [optional] 
 **provided_property_type** | **str** |  | [optional] 
+**required_upgrade_bits** | **List[str]** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **scale_function** | [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
 **street_brawl_value** | **str** |  | [optional] 
 **usage_flags** | [**List[StatsUsageFlag]**](StatsUsageFlag.md) |  | [optional] 

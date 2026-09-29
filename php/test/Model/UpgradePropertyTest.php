@@ -197,6 +197,15 @@ class UpgradePropertyTest extends TestCase
     }
 
     /**
+     * Test attribute "required_upgrade_bits"
+     */
+    public function testPropertyRequiredUpgradeBits()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "scale_function"
      */
     public function testPropertyScaleFunction()

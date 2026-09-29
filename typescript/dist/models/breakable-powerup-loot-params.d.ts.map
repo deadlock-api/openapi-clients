@@ -1,0 +1,1 @@
+{"version":3,"file":"breakable-powerup-loot-params.d.ts","sourceRoot":"","sources":["../../models/breakable-powerup-loot-params.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,0BAA0B;IACvC,qBAAqB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACtC;;OAEG;IACH,4BAA4B,EAAE;QAAE,CAAC,GAAG,EAAE,MAAM,GAAG;YAAE,CAAC,GAAG,EAAE,MAAM,GAAG,MAAM,CAAC;SAAE,CAAC;KAAE,CAAC;CAChF"}

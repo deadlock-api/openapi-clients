@@ -35,6 +35,7 @@ import java.io.Serializable
  * @param alwaysShowInUi 
  * @param className 
  * @param duration 
+ * @param enabledStateMask Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
  * @param modifierValues 
  * @param scriptValues 
  * @param subclassName 
@@ -53,6 +54,10 @@ data class SubclassModifierDefinitionSubclass (
 
     @Json(name = "duration")
     val duration: kotlin.Double? = null,
+
+    /* Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`. */
+    @Json(name = "enabled_state_mask")
+    val enabledStateMask: kotlin.String? = null,
 
     @Json(name = "modifier_values")
     val modifierValues: kotlin.collections.List<ModifierValue>? = null,

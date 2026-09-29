@@ -27,12 +27,12 @@ class MapImages(BaseModel):
     """
     CDN URLs for the minimap image layers.
     """ # noqa: E501
-    background: StrictStr = Field(description="Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.")
+    background: Optional[StrictStr] = Field(default=None, description="Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.")
     frame: StrictStr
     mid: StrictStr = Field(description="Midtown base layer.")
     mid_tunnels: Optional[StrictStr] = Field(default=None, description="Mid tunnels overlay, drawn above `mid` (build 6711+).")
-    minimap: StrictStr = Field(description="Full minimap. From build 6711 on this is the midtown base layer.")
-    plain: StrictStr = Field(description="Minimap without overlays. From build 6711 on this is the midtown base layer.")
+    minimap: StrictStr = Field(description="Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.")
+    plain: StrictStr = Field(description="Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).")
     rat_tunnels: Optional[StrictStr] = Field(default=None, description="Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).")
     __properties: ClassVar[List[str]] = ["background", "frame", "mid", "mid_tunnels", "minimap", "plain", "rat_tunnels"]
 
@@ -75,6 +75,11 @@ class MapImages(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if background (nullable) is None
+        # and model_fields_set contains the field
+        if self.background is None and "background" in self.model_fields_set:
+            _dict['background'] = None
+
         # set to None if mid_tunnels (nullable) is None
         # and model_fields_set contains the field
         if self.mid_tunnels is None and "mid_tunnels" in self.model_fields_set:

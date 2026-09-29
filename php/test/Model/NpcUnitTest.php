@@ -296,6 +296,24 @@ class NpcUnitTest extends TestCase
     }
 
     /**
+     * Test attribute "image"
+     */
+    public function testPropertyImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "image_webp"
+     */
+    public function testPropertyImageWebp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "intrinsic_modifiers"
      */
     public function testPropertyIntrinsicModifiers()
@@ -386,9 +404,54 @@ class NpcUnitTest extends TestCase
     }
 
     /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "near_death_duration"
      */
     public function testPropertyNearDeathDuration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_abilities"
+     */
+    public function testPropertyNeutralAbilities()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_damage_growth"
+     */
+    public function testPropertyNeutralDamageGrowth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_melee"
+     */
+    public function testPropertyNeutralMelee()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_type"
+     */
+    public function testPropertyNeutralType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -659,6 +722,15 @@ class NpcUnitTest extends TestCase
      * Test attribute "trooper_dps"
      */
     public function testPropertyTrooperDps()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "viewer_souls_class"
+     */
+    public function testPropertyViewerSoulsClass()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

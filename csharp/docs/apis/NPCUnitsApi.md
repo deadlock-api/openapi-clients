@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getnpcunit"></a>
 # **GetNpcUnit**
-> NpcUnit GetNpcUnit (string idOrClassname, int clientVersion = null)
+> NpcUnit GetNpcUnit (string idOrClassname, string language = null, int clientVersion = null)
 
 Get NPC Unit
 
@@ -21,6 +21,7 @@ Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **idOrClassname** | **string** | NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; |  |
+| **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
 | **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
@@ -48,17 +49,18 @@ No authorization required
 
 <a id="listnpcunits"></a>
 # **ListNpcUnits**
-> List&lt;NpcUnit&gt; ListNpcUnits (int clientVersion = null)
+> List&lt;NpcUnit&gt; ListNpcUnits (string language = null, int clientVersion = null)
 
 List NPC Units
 
-Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
 | **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type

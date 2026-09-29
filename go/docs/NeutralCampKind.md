@@ -1,0 +1,17 @@
+# NeutralCampKind
+
+## Enum
+
+
+* `WEAK` (value: `"weak"`)
+
+* `MEDIUM` (value: `"medium"`)
+
+* `STRONG` (value: `"strong"`)
+
+* `VAULT` (value: `"vault"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

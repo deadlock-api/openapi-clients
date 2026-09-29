@@ -48,7 +48,7 @@ func (r ApiListRankedSeasonsRequest) Execute() ([]RankedSeason, *http.Response, 
 /*
 ListRankedSeasons List Ranked Seasons
 
-Returns the ranked season definitions used by the game client, parsed from the patch's KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+Returns the ranked season definitions used by the game client, parsed from the patch's KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval's leaderboard ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListRankedSeasonsRequest

@@ -61,14 +61,17 @@ namespace DeadlockApiClient.Model
         /// <param name="tags">Always emitted (empty if the hero declares no &#x60;m_vecHeroTags&#x60;).</param>
         /// <param name="costBonuses">costBonuses</param>
         /// <param name="developmentState">Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one.</param>
+        /// <param name="gender">Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;.</param>
         /// <param name="gunTag">gunTag</param>
         /// <param name="heroType">heroType</param>
         /// <param name="hideoutRichPresence">hideoutRichPresence</param>
         /// <param name="itemDraftBucketing">itemDraftBucketing</param>
         /// <param name="itemDraftWeights">itemDraftWeights</param>
+        /// <param name="popularItems">Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data.</param>
         /// <param name="prereleaseOnly">Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</param>
+        /// <param name="searchName">Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+).</param>
         [JsonConstructor]
-        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<bool?> prereleaseOnly = default)
+        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gender = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<HeroPopularItems?> popularItems = default, Option<bool?> prereleaseOnly = default, Option<string?> searchName = default)
         {
             AssignedPlayersOnly = assignedPlayersOnly;
             ClassName = className;
@@ -98,12 +101,15 @@ namespace DeadlockApiClient.Model
             Tags = tags;
             CostBonusesOption = costBonuses;
             DevelopmentStateOption = developmentState;
+            GenderOption = gender;
             GunTagOption = gunTag;
             HeroTypeOption = heroType;
             HideoutRichPresenceOption = hideoutRichPresence;
             ItemDraftBucketingOption = itemDraftBucketing;
             ItemDraftWeightsOption = itemDraftWeights;
+            PopularItemsOption = popularItems;
             PrereleaseOnlyOption = prereleaseOnly;
+            SearchNameOption = searchName;
             OnCreated();
         }
 
@@ -310,6 +316,20 @@ namespace DeadlockApiClient.Model
         public Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>? CostBonuses { get { return this.CostBonusesOption.Value; } set { this.CostBonusesOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of Gender
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> GenderOption { get; private set; }
+
+        /// <summary>
+        /// Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;.
+        /// </summary>
+        /// <value>Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;.</value>
+        [JsonPropertyName("gender")]
+        public string? Gender { get { return this.GenderOption.Value; } set { this.GenderOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of GunTag
         /// </summary>
         [JsonIgnore]
@@ -362,6 +382,20 @@ namespace DeadlockApiClient.Model
         public Dictionary<string, double>? ItemDraftWeights { get { return this.ItemDraftWeightsOption.Value; } set { this.ItemDraftWeightsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of PopularItems
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<HeroPopularItems?> PopularItemsOption { get; private set; }
+
+        /// <summary>
+        /// Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data.
+        /// </summary>
+        /// <value>Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data.</value>
+        [JsonPropertyName("popular_items")]
+        public HeroPopularItems? PopularItems { get { return this.PopularItemsOption.Value; } set { this.PopularItemsOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of PrereleaseOnly
         /// </summary>
         [JsonIgnore]
@@ -374,6 +408,20 @@ namespace DeadlockApiClient.Model
         /// <value>Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</value>
         [JsonPropertyName("prerelease_only")]
         public bool? PrereleaseOnly { get { return this.PrereleaseOnlyOption.Value; } set { this.PrereleaseOnlyOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of SearchName
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> SearchNameOption { get; private set; }
+
+        /// <summary>
+        /// Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+).
+        /// </summary>
+        /// <value>Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+).</value>
+        [JsonPropertyName("search_name")]
+        public string? SearchName { get { return this.SearchNameOption.Value; } set { this.SearchNameOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -411,12 +459,15 @@ namespace DeadlockApiClient.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  CostBonuses: ").Append(CostBonuses).Append("\n");
             sb.Append("  DevelopmentState: ").Append(DevelopmentState).Append("\n");
+            sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  GunTag: ").Append(GunTag).Append("\n");
             sb.Append("  HeroType: ").Append(HeroType).Append("\n");
             sb.Append("  HideoutRichPresence: ").Append(HideoutRichPresence).Append("\n");
             sb.Append("  ItemDraftBucketing: ").Append(ItemDraftBucketing).Append("\n");
             sb.Append("  ItemDraftWeights: ").Append(ItemDraftWeights).Append("\n");
+            sb.Append("  PopularItems: ").Append(PopularItems).Append("\n");
             sb.Append("  PrereleaseOnly: ").Append(PrereleaseOnly).Append("\n");
+            sb.Append("  SearchName: ").Append(SearchName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -498,12 +549,15 @@ namespace DeadlockApiClient.Model
             Option<List<string>?> tags = default;
             Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default;
             Option<HeroDevelopmentState?> developmentState = default;
+            Option<string?> gender = default;
             Option<string?> gunTag = default;
             Option<HeroType?> heroType = default;
             Option<string?> hideoutRichPresence = default;
             Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default;
             Option<Dictionary<string, double>?> itemDraftWeights = default;
+            Option<HeroPopularItems?> popularItems = default;
             Option<bool?> prereleaseOnly = default;
+            Option<string?> searchName = default;
 
             while (utf8JsonReader.Read())
             {
@@ -604,6 +658,9 @@ namespace DeadlockApiClient.Model
                         case "development_state":
                             developmentState = new Option<HeroDevelopmentState?>(JsonSerializer.Deserialize<HeroDevelopmentState?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "gender":
+                            gender = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "gun_tag":
                             gunTag = new Option<string?>(utf8JsonReader.GetString());
                             break;
@@ -619,8 +676,14 @@ namespace DeadlockApiClient.Model
                         case "item_draft_weights":
                             itemDraftWeights = new Option<Dictionary<string, double>?>(JsonSerializer.Deserialize<Dictionary<string, double>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "popular_items":
+                            popularItems = new Option<HeroPopularItems?>(JsonSerializer.Deserialize<HeroPopularItems>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "prerelease_only":
                             prereleaseOnly = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "search_name":
+                            searchName = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         default:
                             break;
@@ -784,7 +847,7 @@ namespace DeadlockApiClient.Model
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class Hero.");
 
-            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, prereleaseOnly);
+            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gender, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, popularItems, prereleaseOnly, searchName);
         }
 
         /// <summary>
@@ -930,6 +993,12 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("development_state");
+            if (hero.GenderOption.IsSet)
+                if (hero.GenderOption.Value != null)
+                    writer.WriteString("gender", hero.Gender);
+                else
+                    writer.WriteNull("gender");
+
             if (hero.GunTagOption.IsSet)
                 if (hero.GunTagOption.Value != null)
                     writer.WriteString("gun_tag", hero.GunTag);
@@ -966,11 +1035,25 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("item_draft_weights");
+            if (hero.PopularItemsOption.IsSet)
+                if (hero.PopularItemsOption.Value != null)
+                {
+                    writer.WritePropertyName("popular_items");
+                    JsonSerializer.Serialize(writer, hero.PopularItems, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("popular_items");
             if (hero.PrereleaseOnlyOption.IsSet)
                 if (hero.PrereleaseOnlyOption.Value != null)
                     writer.WriteBoolean("prerelease_only", hero.PrereleaseOnlyOption.Value!.Value);
                 else
                     writer.WriteNull("prerelease_only");
+
+            if (hero.SearchNameOption.IsSet)
+                if (hero.SearchNameOption.Value != null)
+                    writer.WriteString("search_name", hero.SearchName);
+                else
+                    writer.WriteNull("search_name");
         }
     }
 }

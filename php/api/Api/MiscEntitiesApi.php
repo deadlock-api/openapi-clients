@@ -134,6 +134,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_classname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntity'] to see the possible values for this operation
      *
@@ -141,9 +142,9 @@ class MiscEntitiesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MiscEntity
      */
-    public function getMiscEntity($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
+    public function getMiscEntity($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
     {
-        list($response) = $this->getMiscEntityWithHttpInfo($id_or_classname, $client_version, $contentType);
+        list($response) = $this->getMiscEntityWithHttpInfo($id_or_classname, $language, $client_version, $contentType);
         return $response;
     }
 
@@ -153,6 +154,7 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_classname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntity'] to see the possible values for this operation
      *
@@ -160,9 +162,9 @@ class MiscEntitiesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MiscEntity, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getMiscEntityWithHttpInfo($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
+    public function getMiscEntityWithHttpInfo($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
     {
-        $request = $this->getMiscEntityRequest($id_or_classname, $client_version, $contentType);
+        $request = $this->getMiscEntityRequest($id_or_classname, $language, $client_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -239,15 +241,16 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_classname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntity'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMiscEntityAsync($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
+    public function getMiscEntityAsync($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
     {
-        return $this->getMiscEntityAsyncWithHttpInfo($id_or_classname, $client_version, $contentType)
+        return $this->getMiscEntityAsyncWithHttpInfo($id_or_classname, $language, $client_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -261,16 +264,17 @@ class MiscEntitiesApi
      * Get Misc Entity
      *
      * @param  string $id_or_classname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntity'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getMiscEntityAsyncWithHttpInfo($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
+    public function getMiscEntityAsyncWithHttpInfo($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MiscEntity';
-        $request = $this->getMiscEntityRequest($id_or_classname, $client_version, $contentType);
+        $request = $this->getMiscEntityRequest($id_or_classname, $language, $client_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -312,13 +316,14 @@ class MiscEntitiesApi
      * Create request for operation 'getMiscEntity'
      *
      * @param  string $id_or_classname Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; (required)
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMiscEntity'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getMiscEntityRequest($id_or_classname, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
+    public function getMiscEntityRequest($id_or_classname, $language = null, $client_version = null, string $contentType = self::contentTypes['getMiscEntity'][0])
     {
 
         // verify the required parameter 'id_or_classname' is set
@@ -327,6 +332,7 @@ class MiscEntitiesApi
                 'Missing the required parameter $id_or_classname when calling getMiscEntity'
             );
         }
+
 
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.getMiscEntity, must be bigger than or equal to 0.');
@@ -340,6 +346,15 @@ class MiscEntitiesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,
@@ -423,6 +438,7 @@ class MiscEntitiesApi
      *
      * List Misc Entities
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMiscEntities'] to see the possible values for this operation
      *
@@ -430,9 +446,9 @@ class MiscEntitiesApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\MiscEntity[]
      */
-    public function listMiscEntities($client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
+    public function listMiscEntities($language = null, $client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
     {
-        list($response) = $this->listMiscEntitiesWithHttpInfo($client_version, $contentType);
+        list($response) = $this->listMiscEntitiesWithHttpInfo($language, $client_version, $contentType);
         return $response;
     }
 
@@ -441,6 +457,7 @@ class MiscEntitiesApi
      *
      * List Misc Entities
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMiscEntities'] to see the possible values for this operation
      *
@@ -448,9 +465,9 @@ class MiscEntitiesApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\MiscEntity[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listMiscEntitiesWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
+    public function listMiscEntitiesWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
     {
-        $request = $this->listMiscEntitiesRequest($client_version, $contentType);
+        $request = $this->listMiscEntitiesRequest($language, $client_version, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -526,15 +543,16 @@ class MiscEntitiesApi
      *
      * List Misc Entities
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMiscEntities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMiscEntitiesAsync($client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
+    public function listMiscEntitiesAsync($language = null, $client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
     {
-        return $this->listMiscEntitiesAsyncWithHttpInfo($client_version, $contentType)
+        return $this->listMiscEntitiesAsyncWithHttpInfo($language, $client_version, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -547,16 +565,17 @@ class MiscEntitiesApi
      *
      * List Misc Entities
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMiscEntities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listMiscEntitiesAsyncWithHttpInfo($client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
+    public function listMiscEntitiesAsyncWithHttpInfo($language = null, $client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
     {
         $returnType = '\OpenAPI\Client\Model\MiscEntity[]';
-        $request = $this->listMiscEntitiesRequest($client_version, $contentType);
+        $request = $this->listMiscEntitiesRequest($language, $client_version, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -597,14 +616,16 @@ class MiscEntitiesApi
     /**
      * Create request for operation 'listMiscEntities'
      *
+     * @param  string|null $language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param  int|null $client_version Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listMiscEntities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listMiscEntitiesRequest($client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
+    public function listMiscEntitiesRequest($language = null, $client_version = null, string $contentType = self::contentTypes['listMiscEntities'][0])
     {
+
 
         if ($client_version !== null && $client_version < 0) {
             throw new \InvalidArgumentException('invalid value for "$client_version" when calling MiscEntitiesApi.listMiscEntities, must be bigger than or equal to 0.');
@@ -618,6 +639,15 @@ class MiscEntitiesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $language,
+            'language', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $client_version,

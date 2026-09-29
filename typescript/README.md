@@ -143,6 +143,8 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *MiscEntitiesApi* | [**getMiscEntity**](docs/MiscEntitiesApi.md#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
 *MiscEntitiesApi* | [**listMiscEntities**](docs/MiscEntitiesApi.md#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities
+*ModifiersApi* | [**getModifier**](docs/ModifiersApi.md#getmodifier) | **GET** /v1/assets/modifiers/{id_or_classname} | Get Modifier
+*ModifiersApi* | [**listModifiers**](docs/ModifiersApi.md#listmodifiers) | **GET** /v1/assets/modifiers | List Modifiers
 *NPCUnitsApi* | [**getNpcUnit**](docs/NPCUnitsApi.md#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
 *NPCUnitsApi* | [**listNpcUnits**](docs/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
@@ -198,6 +200,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [BadgeDistribution](docs/BadgeDistribution.md)
+ - [BreakablePowerupLootParams](docs/BreakablePowerupLootParams.md)
  - [Build](docs/Build.md)
  - [BuildHero](docs/BuildHero.md)
  - [BuildHeroDetails](docs/BuildHeroDetails.md)
@@ -212,6 +215,9 @@ Class | Method | HTTP request | Description
  - [Color](docs/Color.md)
  - [ColorGradientStop](docs/ColorGradientStop.md)
  - [ColumnSchema](docs/ColumnSchema.md)
+ - [CorruptedItemInfo](docs/CorruptedItemInfo.md)
+ - [CorruptedPenalty](docs/CorruptedPenalty.md)
+ - [CorruptedPenaltyEffect](docs/CorruptedPenaltyEffect.md)
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [Curve](docs/Curve.md)
@@ -257,6 +263,8 @@ Class | Method | HTTP request | Description
  - [HeroEntry](docs/HeroEntry.md)
  - [HeroImages](docs/HeroImages.md)
  - [HeroPhysics](docs/HeroPhysics.md)
+ - [HeroPopularItem](docs/HeroPopularItem.md)
+ - [HeroPopularItems](docs/HeroPopularItems.md)
  - [HeroStats](docs/HeroStats.md)
  - [HeroStatsUI](docs/HeroStatsUI.md)
  - [HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
@@ -293,6 +301,7 @@ Class | Method | HTTP request | Description
  - [LootTable](docs/LootTable.md)
  - [MMRHistory](docs/MMRHistory.md)
  - [MapData](docs/MapData.md)
+ - [MapDistrict](docs/MapDistrict.md)
  - [MapImages](docs/MapImages.md)
  - [MatchPlayer](docs/MatchPlayer.md)
  - [MatchSaltsResponse](docs/MatchSaltsResponse.md)
@@ -300,7 +309,10 @@ Class | Method | HTTP request | Description
  - [MateStats](docs/MateStats.md)
  - [MiniMapOffsets](docs/MiniMapOffsets.md)
  - [MiscEntity](docs/MiscEntity.md)
+ - [Modifier](docs/Modifier.md)
  - [ModifierValue](docs/ModifierValue.md)
+ - [NeutralCamp](docs/NeutralCamp.md)
+ - [NeutralCampKind](docs/NeutralCampKind.md)
  - [NewPlayerMetrics](docs/NewPlayerMetrics.md)
  - [NpcUnit](docs/NpcUnit.md)
  - [ObjectiveParams](docs/ObjectiveParams.md)
@@ -369,6 +381,8 @@ Class | Method | HTTP request | Description
  - [SubclassIntrinsicModifiersSubclass](docs/SubclassIntrinsicModifiersSubclass.md)
  - [SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
  - [SubclassModifierDefinitionSubclass](docs/SubclassModifierDefinitionSubclass.md)
+ - [SubclassNeutralDamageGrowth](docs/SubclassNeutralDamageGrowth.md)
+ - [SubclassNeutralDamageGrowthSubclass](docs/SubclassNeutralDamageGrowthSubclass.md)
  - [SubclassObjectiveHealthGrowthPhase](docs/SubclassObjectiveHealthGrowthPhase.md)
  - [SubclassObjectiveHealthGrowthPhaseSubclass](docs/SubclassObjectiveHealthGrowthPhaseSubclass.md)
  - [SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)

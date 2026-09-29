@@ -34,6 +34,7 @@ import java.io.Serializable
  * @param endTimestamp Unix timestamp (seconds) at which the interval ends.
  * @param interval 
  * @param startTimestamp Unix timestamp (seconds) at which the interval starts.
+ * @param leaderboardId Leaderboard backing this interval (build 6701+).
  */
 
 
@@ -48,7 +49,11 @@ data class SeasonInterval (
 
     /* Unix timestamp (seconds) at which the interval starts. */
     @Json(name = "start_timestamp")
-    val startTimestamp: kotlin.Long
+    val startTimestamp: kotlin.Long,
+
+    /* Leaderboard backing this interval (build 6701+). */
+    @Json(name = "leaderboard_id")
+    val leaderboardId: kotlin.Int? = null
 
 ) : Serializable {
     companion object {

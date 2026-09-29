@@ -189,6 +189,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BreakablePowerupLootParams'
+        /// </summary>
+        [Fact]
+        public void BreakablePowerupLootParamsTest()
+        {
+            // TODO unit test for the property 'BreakablePowerupLootParams'
+        }
+
+        /// <summary>
         /// Test the property 'ColorEnemy'
         /// </summary>
         [Fact]
@@ -225,6 +234,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CorruptedPenalties'
+        /// </summary>
+        [Fact]
+        public void CorruptedPenaltiesTest()
+        {
+            // TODO unit test for the property 'CorruptedPenalties'
+        }
+
+        /// <summary>
         /// Test the property 'EnemyObjectivesAndZiplineColor'
         /// </summary>
         [Fact]
@@ -252,6 +270,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ItemCorruptionPricePerTier'
+        /// </summary>
+        [Fact]
+        public void ItemCorruptionPricePerTierTest()
+        {
+            // TODO unit test for the property 'ItemCorruptionPricePerTier'
+        }
+
+        /// <summary>
+        /// Test the property 'MapDistricts'
+        /// </summary>
+        [Fact]
+        public void MapDistrictsTest()
+        {
+            // TODO unit test for the property 'MapDistricts'
+        }
+
+        /// <summary>
         /// Test the property 'MinimapTeamCombineColor'
         /// </summary>
         [Fact]
@@ -267,6 +303,15 @@ namespace DeadlockApiClient.Test.Model
         public void MinimapTeamRebelsColorTest()
         {
             // TODO unit test for the property 'MinimapTeamRebelsColor'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralCampRespawnTimerShowDistance'
+        /// </summary>
+        [Fact]
+        public void NeutralCampRespawnTimerShowDistanceTest()
+        {
+            // TODO unit test for the property 'NeutralCampRespawnTimerShowDistance'
         }
 
         /// <summary>

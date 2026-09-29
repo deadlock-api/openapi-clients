@@ -80,6 +80,15 @@ class RankedSeasonTest extends TestCase
     }
 
     /**
+     * Test attribute "base_win_loss_point_grant"
+     */
+    public function testPropertyBaseWinLossPointGrant()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "calibration_matches"
      */
     public function testPropertyCalibrationMatches()

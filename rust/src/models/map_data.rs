@@ -16,6 +16,9 @@ use serde::{Deserialize, Serialize};
 pub struct MapData {
     #[serde(rename = "images")]
     pub images: Box<models::MapImages>,
+    /// Neutral camps (build 6711+).
+    #[serde(rename = "neutral_camps", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_camps: Option<Option<Vec<models::NeutralCamp>>>,
     #[serde(rename = "objective_positions")]
     pub objective_positions: std::collections::HashMap<String, models::ObjectivePosition>,
     #[serde(rename = "radius")]
@@ -29,6 +32,7 @@ impl MapData {
     pub fn new(images: models::MapImages, objective_positions: std::collections::HashMap<String, models::ObjectivePosition>, radius: u32, zipline_paths: Vec<models::ZiplanePath>) -> MapData {
         MapData {
             images: Box::new(images),
+            neutral_camps: None,
             objective_positions,
             radius,
             zipline_paths,

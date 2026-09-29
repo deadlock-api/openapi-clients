@@ -25,6 +25,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
 docs/BuildHeroDetails.md
@@ -44,6 +45,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/CorruptedItemInfo.md
+docs/CorruptedPenalty.md
+docs/CorruptedPenaltyEffect.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -93,6 +97,8 @@ docs/HeroDevelopmentState.md
 docs/HeroEntry.md
 docs/HeroImages.md
 docs/HeroPhysics.md
+docs/HeroPopularItem.md
+docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
@@ -137,6 +143,7 @@ docs/MMRApi.md
 docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
+docs/MapDistrict.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -146,8 +153,12 @@ docs/MateStats.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
+docs/Modifier.md
 docs/ModifierValue.md
+docs/ModifiersApi.md
 docs/NPCUnitsApi.md
+docs/NeutralCamp.md
+docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
 docs/ObjectiveParams.md
@@ -223,6 +234,8 @@ docs/SubclassIntrinsicModifiers.md
 docs/SubclassIntrinsicModifiersSubclass.md
 docs/SubclassModifierDefinition.md
 docs/SubclassModifierDefinitionSubclass.md
+docs/SubclassNeutralDamageGrowth.md
+docs/SubclassNeutralDamageGrowthSubclass.md
 docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveHealthGrowthPhaseSubclass.md
 docs/SubclassObjectiveRegen.md
@@ -272,6 +285,7 @@ src/main/kotlin/deadlock_api_client/apis/MMRApi.kt
 src/main/kotlin/deadlock_api_client/apis/MapApi.kt
 src/main/kotlin/deadlock_api_client/apis/MatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/MiscEntitiesApi.kt
+src/main/kotlin/deadlock_api_client/apis/ModifiersApi.kt
 src/main/kotlin/deadlock_api_client/apis/NPCUnitsApi.kt
 src/main/kotlin/deadlock_api_client/apis/PatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/PlayersApi.kt
@@ -318,6 +332,7 @@ src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsGameStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsHeroStats.kt
 src/main/kotlin/deadlock_api_client/models/BadgeDistribution.kt
+src/main/kotlin/deadlock_api_client/models/BreakablePowerupLootParams.kt
 src/main/kotlin/deadlock_api_client/models/Build.kt
 src/main/kotlin/deadlock_api_client/models/BuildHero.kt
 src/main/kotlin/deadlock_api_client/models/BuildHeroDetails.kt
@@ -332,6 +347,9 @@ src/main/kotlin/deadlock_api_client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock_api_client/models/Color.kt
 src/main/kotlin/deadlock_api_client/models/ColorGradientStop.kt
 src/main/kotlin/deadlock_api_client/models/ColumnSchema.kt
+src/main/kotlin/deadlock_api_client/models/CorruptedItemInfo.kt
+src/main/kotlin/deadlock_api_client/models/CorruptedPenalty.kt
+src/main/kotlin/deadlock_api_client/models/CorruptedPenaltyEffect.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/Curve.kt
@@ -377,6 +395,8 @@ src/main/kotlin/deadlock_api_client/models/HeroDevelopmentState.kt
 src/main/kotlin/deadlock_api_client/models/HeroEntry.kt
 src/main/kotlin/deadlock_api_client/models/HeroImages.kt
 src/main/kotlin/deadlock_api_client/models/HeroPhysics.kt
+src/main/kotlin/deadlock_api_client/models/HeroPopularItem.kt
+src/main/kotlin/deadlock_api_client/models/HeroPopularItems.kt
 src/main/kotlin/deadlock_api_client/models/HeroStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroStatsUI.kt
 src/main/kotlin/deadlock_api_client/models/HeroStatsUIDisplay.kt
@@ -413,6 +433,7 @@ src/main/kotlin/deadlock_api_client/models/LootEntry.kt
 src/main/kotlin/deadlock_api_client/models/LootTable.kt
 src/main/kotlin/deadlock_api_client/models/MMRHistory.kt
 src/main/kotlin/deadlock_api_client/models/MapData.kt
+src/main/kotlin/deadlock_api_client/models/MapDistrict.kt
 src/main/kotlin/deadlock_api_client/models/MapImages.kt
 src/main/kotlin/deadlock_api_client/models/MatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/MatchSaltsResponse.kt
@@ -420,7 +441,10 @@ src/main/kotlin/deadlock_api_client/models/MatchSpectateResponse.kt
 src/main/kotlin/deadlock_api_client/models/MateStats.kt
 src/main/kotlin/deadlock_api_client/models/MiniMapOffsets.kt
 src/main/kotlin/deadlock_api_client/models/MiscEntity.kt
+src/main/kotlin/deadlock_api_client/models/Modifier.kt
 src/main/kotlin/deadlock_api_client/models/ModifierValue.kt
+src/main/kotlin/deadlock_api_client/models/NeutralCamp.kt
+src/main/kotlin/deadlock_api_client/models/NeutralCampKind.kt
 src/main/kotlin/deadlock_api_client/models/NewPlayerMetrics.kt
 src/main/kotlin/deadlock_api_client/models/NpcUnit.kt
 src/main/kotlin/deadlock_api_client/models/ObjectiveParams.kt
@@ -489,6 +513,8 @@ src/main/kotlin/deadlock_api_client/models/SubclassIntrinsicModifiers.kt
 src/main/kotlin/deadlock_api_client/models/SubclassIntrinsicModifiersSubclass.kt
 src/main/kotlin/deadlock_api_client/models/SubclassModifierDefinition.kt
 src/main/kotlin/deadlock_api_client/models/SubclassModifierDefinitionSubclass.kt
+src/main/kotlin/deadlock_api_client/models/SubclassNeutralDamageGrowth.kt
+src/main/kotlin/deadlock_api_client/models/SubclassNeutralDamageGrowthSubclass.kt
 src/main/kotlin/deadlock_api_client/models/SubclassObjectiveHealthGrowthPhase.kt
 src/main/kotlin/deadlock_api_client/models/SubclassObjectiveHealthGrowthPhaseSubclass.kt
 src/main/kotlin/deadlock_api_client/models/SubclassObjectiveRegen.kt
@@ -537,6 +563,7 @@ src/test/kotlin/deadlock_api_client/apis/MMRApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/MapApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/MatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/MiscEntitiesApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/ModifiersApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/NPCUnitsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/PatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/PlayersApiTest.kt
@@ -566,6 +593,7 @@ src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsGameStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsHeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/BadgeDistributionTest.kt
+src/test/kotlin/deadlock_api_client/models/BreakablePowerupLootParamsTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsAbilityOrderCurrencyChangeTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsAbilityOrderTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsCategoryAbilityTest.kt
@@ -580,6 +608,9 @@ src/test/kotlin/deadlock_api_client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorGradientStopTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorTest.kt
 src/test/kotlin/deadlock_api_client/models/ColumnSchemaTest.kt
+src/test/kotlin/deadlock_api_client/models/CorruptedItemInfoTest.kt
+src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyEffectTest.kt
+src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveOrFloatTest.kt
@@ -624,6 +655,8 @@ src/test/kotlin/deadlock_api_client/models/HeroDevelopmentStateTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroPhysicsTest.kt
+src/test/kotlin/deadlock_api_client/models/HeroPopularItemTest.kt
+src/test/kotlin/deadlock_api_client/models/HeroPopularItemsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsUIDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsUITest.kt
@@ -661,6 +694,7 @@ src/test/kotlin/deadlock_api_client/models/LootEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/LootTableTest.kt
 src/test/kotlin/deadlock_api_client/models/MMRHistoryTest.kt
 src/test/kotlin/deadlock_api_client/models/MapDataTest.kt
+src/test/kotlin/deadlock_api_client/models/MapDistrictTest.kt
 src/test/kotlin/deadlock_api_client/models/MapImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchPlayerTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSaltsResponseTest.kt
@@ -668,7 +702,10 @@ src/test/kotlin/deadlock_api_client/models/MatchSpectateResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MateStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/MiniMapOffsetsTest.kt
 src/test/kotlin/deadlock_api_client/models/MiscEntityTest.kt
+src/test/kotlin/deadlock_api_client/models/ModifierTest.kt
 src/test/kotlin/deadlock_api_client/models/ModifierValueTest.kt
+src/test/kotlin/deadlock_api_client/models/NeutralCampKindTest.kt
+src/test/kotlin/deadlock_api_client/models/NeutralCampTest.kt
 src/test/kotlin/deadlock_api_client/models/NewPlayerMetricsTest.kt
 src/test/kotlin/deadlock_api_client/models/NpcUnitTest.kt
 src/test/kotlin/deadlock_api_client/models/ObjectiveParamsTest.kt
@@ -737,6 +774,8 @@ src/test/kotlin/deadlock_api_client/models/SubclassIntrinsicModifiersSubclassTes
 src/test/kotlin/deadlock_api_client/models/SubclassIntrinsicModifiersTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassModifierDefinitionSubclassTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassModifierDefinitionTest.kt
+src/test/kotlin/deadlock_api_client/models/SubclassNeutralDamageGrowthSubclassTest.kt
+src/test/kotlin/deadlock_api_client/models/SubclassNeutralDamageGrowthTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassObjectiveHealthGrowthPhaseSubclassTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassObjectiveHealthGrowthPhaseTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassObjectiveRegenSubclassTest.kt

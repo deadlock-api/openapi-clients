@@ -46,6 +46,7 @@ import java.io.Serializable
  * @param postvalueLabel 
  * @param prefix 
  * @param providedPropertyType 
+ * @param requiredUpgradeBits Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
  * @param scaleFunction 
  * @param streetBrawlValue 
  * @param usageFlags 
@@ -93,6 +94,10 @@ data class ItemProperty (
 
     @Json(name = "provided_property_type")
     val providedPropertyType: kotlin.String? = null,
+
+    /* Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`). */
+    @Json(name = "required_upgrade_bits")
+    val requiredUpgradeBits: kotlin.collections.List<kotlin.String>? = null,
 
     @Json(name = "scale_function")
     val scaleFunction: RawItemPropertyScaleFunctionSubclass? = null,

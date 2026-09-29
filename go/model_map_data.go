@@ -22,6 +22,8 @@ var _ MappedNullable = &MapData{}
 // MapData The `/v1/assets/map` response.
 type MapData struct {
 	Images MapImages `json:"images"`
+	// Neutral camps (build 6711+).
+	NeutralCamps []NeutralCamp `json:"neutral_camps,omitempty"`
 	ObjectivePositions map[string]ObjectivePosition `json:"objective_positions"`
 	Radius int32 `json:"radius"`
 	ZiplinePaths []ZiplanePath `json:"zipline_paths"`
@@ -72,6 +74,39 @@ func (o *MapData) GetImagesOk() (*MapImages, bool) {
 // SetImages sets field value
 func (o *MapData) SetImages(v MapImages) {
 	o.Images = v
+}
+
+// GetNeutralCamps returns the NeutralCamps field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MapData) GetNeutralCamps() []NeutralCamp {
+	if o == nil {
+		var ret []NeutralCamp
+		return ret
+	}
+	return o.NeutralCamps
+}
+
+// GetNeutralCampsOk returns a tuple with the NeutralCamps field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MapData) GetNeutralCampsOk() ([]NeutralCamp, bool) {
+	if o == nil || IsNil(o.NeutralCamps) {
+		return nil, false
+	}
+	return o.NeutralCamps, true
+}
+
+// HasNeutralCamps returns a boolean if a field has been set.
+func (o *MapData) HasNeutralCamps() bool {
+	if o != nil && !IsNil(o.NeutralCamps) {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralCamps gets a reference to the given []NeutralCamp and assigns it to the NeutralCamps field.
+func (o *MapData) SetNeutralCamps(v []NeutralCamp) {
+	o.NeutralCamps = v
 }
 
 // GetObjectivePositions returns the ObjectivePositions field value
@@ -157,6 +192,9 @@ func (o MapData) MarshalJSON() ([]byte, error) {
 func (o MapData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["images"] = o.Images
+	if o.NeutralCamps != nil {
+		toSerialize["neutral_camps"] = o.NeutralCamps
+	}
 	toSerialize["objective_positions"] = o.ObjectivePositions
 	toSerialize["radius"] = o.Radius
 	toSerialize["zipline_paths"] = o.ZiplinePaths

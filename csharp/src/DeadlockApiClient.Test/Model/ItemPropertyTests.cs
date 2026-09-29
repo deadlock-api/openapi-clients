@@ -171,6 +171,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'RequiredUpgradeBits'
+        /// </summary>
+        [Fact]
+        public void RequiredUpgradeBitsTest()
+        {
+            // TODO unit test for the property 'RequiredUpgradeBits'
+        }
+
+        /// <summary>
         /// Test the property 'ScaleFunction'
         /// </summary>
         [Fact]

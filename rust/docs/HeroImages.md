@@ -19,6 +19,8 @@ Name | Type | Description | Notes
 **name_image** | Option<**String**> |  | [optional]
 **top_bar_vertical_image** | Option<**String**> |  | [optional]
 **top_bar_vertical_image_webp** | Option<**String**> |  | [optional]
+**vote_sticker** | Option<**String**> | Hero release vote sticker (`m_strVoteSticker`, build 6711+). | [optional]
+**vote_sticker_webp** | Option<**String**> |  | [optional]
 **weapon_image** | Option<**String**> |  | [optional]
 **weapon_image_webp** | Option<**String**> |  | [optional]
 

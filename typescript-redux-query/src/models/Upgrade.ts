@@ -19,6 +19,9 @@ import {
     AbilityImbue,
     AbilityImbueFromJSON,
     AbilityImbueToJSON,
+    CorruptedItemInfo,
+    CorruptedItemInfoFromJSON,
+    CorruptedItemInfoToJSON,
     ItemSlotType,
     ItemSlotTypeFromJSON,
     ItemSlotTypeToJSON,
@@ -67,6 +70,12 @@ export interface Upgrade  {
      */
     componentItems?: Array<string>;
     /**
+     * Present on upgrades the Broker can corrupt (build 6711+).
+     * @type {CorruptedItemInfo}
+     * @memberof Upgrade
+     */
+    corruptedInfo?: CorruptedItemInfo;
+    /**
      * 
      * @type {number}
      * @memberof Upgrade
@@ -80,10 +89,22 @@ export interface Upgrade  {
     description?: UpgradeDescription;
     /**
      * 
+     * @type {string}
+     * @memberof Upgrade
+     */
+    disableItemTarget?: string;
+    /**
+     * 
      * @type {boolean}
      * @memberof Upgrade
      */
     disabled?: boolean;
+    /**
+     * Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+     * @type {Array<string>}
+     * @memberof Upgrade
+     */
+    disabledShopFilters?: Array<string>;
     /**
      * 
      * @type {number}
@@ -151,6 +172,12 @@ export interface Upgrade  {
      */
     properties?: { [key: string]: UpgradeProperty; };
     /**
+     * Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+     * @type {Array<string>}
+     * @memberof Upgrade
+     */
+    shopFilters?: Array<string>;
+    /**
      * 
      * @type {string}
      * @memberof Upgrade
@@ -174,6 +201,12 @@ export interface Upgrade  {
      * @memberof Upgrade
      */
     shopImageWebp?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Upgrade
+     */
+    shopVersion?: number;
     /**
      * 
      * @type {boolean}
@@ -223,9 +256,12 @@ export function UpgradeFromJSON(json: any): Upgrade {
         'activation': AbilityActivationFromJSON(json['activation']),
         'className': json['class_name'],
         'componentItems': !exists(json, 'component_items') ? undefined : json['component_items'],
+        'corruptedInfo': !exists(json, 'corrupted_info') ? undefined : CorruptedItemInfoFromJSON(json['corrupted_info']),
         'cost': !exists(json, 'cost') ? undefined : json['cost'],
         'description': !exists(json, 'description') ? undefined : UpgradeDescriptionFromJSON(json['description']),
+        'disableItemTarget': !exists(json, 'disable_item_target') ? undefined : json['disable_item_target'],
         'disabled': !exists(json, 'disabled') ? undefined : json['disabled'],
+        'disabledShopFilters': !exists(json, 'disabled_shop_filters') ? undefined : json['disabled_shop_filters'],
         'hero': !exists(json, 'hero') ? undefined : json['hero'],
         'heroes': !exists(json, 'heroes') ? undefined : json['heroes'],
         'id': json['id'],
@@ -237,10 +273,12 @@ export function UpgradeFromJSON(json: any): Upgrade {
         'itemTier': json['item_tier'],
         'name': json['name'],
         'properties': !exists(json, 'properties') ? undefined : mapValues(json['properties'], UpgradePropertyFromJSON),
+        'shopFilters': !exists(json, 'shop_filters') ? undefined : json['shop_filters'],
         'shopImage': !exists(json, 'shop_image') ? undefined : json['shop_image'],
         'shopImageSmall': !exists(json, 'shop_image_small') ? undefined : json['shop_image_small'],
         'shopImageSmallWebp': !exists(json, 'shop_image_small_webp') ? undefined : json['shop_image_small_webp'],
         'shopImageWebp': !exists(json, 'shop_image_webp') ? undefined : json['shop_image_webp'],
+        'shopVersion': !exists(json, 'shop_version') ? undefined : json['shop_version'],
         'shopable': json['shopable'],
         'startTrained': !exists(json, 'start_trained') ? undefined : json['start_trained'],
         'tooltipSections': !exists(json, 'tooltip_sections') ? undefined : (json['tooltip_sections'] as Array<any>).map(UpgradeTooltipSectionFromJSON),
@@ -259,9 +297,12 @@ export function UpgradeToJSON(value?: Upgrade): any {
         'activation': AbilityActivationToJSON(value.activation),
         'class_name': value.className,
         'component_items': value.componentItems,
+        'corrupted_info': CorruptedItemInfoToJSON(value.corruptedInfo),
         'cost': value.cost,
         'description': UpgradeDescriptionToJSON(value.description),
+        'disable_item_target': value.disableItemTarget,
         'disabled': value.disabled,
+        'disabled_shop_filters': value.disabledShopFilters,
         'hero': value.hero,
         'heroes': value.heroes,
         'id': value.id,
@@ -273,10 +314,12 @@ export function UpgradeToJSON(value?: Upgrade): any {
         'item_tier': value.itemTier,
         'name': value.name,
         'properties': value.properties === undefined ? undefined : mapValues(value.properties, UpgradePropertyToJSON),
+        'shop_filters': value.shopFilters,
         'shop_image': value.shopImage,
         'shop_image_small': value.shopImageSmall,
         'shop_image_small_webp': value.shopImageSmallWebp,
         'shop_image_webp': value.shopImageWebp,
+        'shop_version': value.shopVersion,
         'shopable': value.shopable,
         'start_trained': value.startTrained,
         'tooltip_sections': value.tooltipSections === undefined ? undefined : (value.tooltipSections as Array<any>).map(UpgradeTooltipSectionToJSON),

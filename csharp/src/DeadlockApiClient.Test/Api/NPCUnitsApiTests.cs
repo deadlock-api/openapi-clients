@@ -57,8 +57,9 @@ namespace DeadlockApiClient.Test.Api
         public async Task GetNpcUnitAsyncTest()
         {
             string idOrClassname = default!;
+            Client.Option<string?> language = default!;
             Client.Option<int?> clientVersion = default!;
-            var response = await _instance.GetNpcUnitAsync(idOrClassname, clientVersion);
+            var response = await _instance.GetNpcUnitAsync(idOrClassname, language, clientVersion);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.NpcUnit>(model);
         }
@@ -69,8 +70,9 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task ListNpcUnitsAsyncTest()
         {
+            Client.Option<string?> language = default!;
             Client.Option<int?> clientVersion = default!;
-            var response = await _instance.ListNpcUnitsAsync(clientVersion);
+            var response = await _instance.ListNpcUnitsAsync(language, clientVersion);
             var model = response.Ok();
             Assert.IsType<List<NpcUnit>>(model);
         }

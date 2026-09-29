@@ -337,6 +337,7 @@ export interface ItemPermutationStatsRequest {
     accountIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
     abilityUnlockOrderPrefix?: Array<number>;
+    includeCorruptedItems?: boolean;
 }
 
 export interface ItemStatsRequest {
@@ -371,6 +372,7 @@ export interface ItemStatsRequest {
     minBoughtAtS?: number;
     maxBoughtAtS?: number;
     itemOrder?: Array<string>;
+    includeCorruptedItems?: boolean;
 }
 
 export interface KillDeathStatsRequest {
@@ -1906,7 +1908,7 @@ export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsReque
 }
 
 /**
- *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Flow Stats
  */
 function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestConfig: runtime.TypedQueryConfig<T, ItemFlowStats> = {}): QueryConfig<T> {
@@ -2058,7 +2060,7 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
 }
 
 /**
-*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in (controlled by `phase_interval_s` and `phase_count`). The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Flow Stats
 */
 export function itemFlowStats<T>(requestParameters: ItemFlowStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, ItemFlowStats>): QueryConfig<T> {
@@ -2182,6 +2184,11 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 
     if (requestParameters.abilityUnlockOrderPrefix) {
         queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+    }
+
+
+    if (requestParameters.includeCorruptedItems !== undefined) {
+        queryParameters['include_corrupted_items'] = requestParameters.includeCorruptedItems;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -2382,6 +2389,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.itemOrder) {
         queryParameters['item_order'] = requestParameters.itemOrder;
+    }
+
+
+    if (requestParameters.includeCorruptedItems !== undefined) {
+        queryParameters['include_corrupted_items'] = requestParameters.includeCorruptedItems;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

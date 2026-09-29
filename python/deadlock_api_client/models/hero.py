@@ -31,6 +31,7 @@ from deadlock_api_client.models.hero_description import HeroDescription
 from deadlock_api_client.models.hero_development_state import HeroDevelopmentState
 from deadlock_api_client.models.hero_images import HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics
+from deadlock_api_client.models.hero_popular_items import HeroPopularItems
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI
 from deadlock_api_client.models.hero_type import HeroType
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay
@@ -52,6 +53,7 @@ class Hero(BaseModel):
     description: HeroDescription
     development_state: Optional[HeroDevelopmentState] = Field(default=None, description="Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.")
     disabled: StrictBool
+    gender: Optional[StrictStr] = Field(default=None, description="Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.")
     gun_tag: Optional[StrictStr] = None
     hero_stats_ui: HeroStatsUI
     hero_type: Optional[HeroType] = None
@@ -69,16 +71,18 @@ class Hero(BaseModel):
     needs_testing: StrictBool
     physics: HeroPhysics
     player_selectable: StrictBool = Field(description="Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.")
+    popular_items: Optional[HeroPopularItems] = Field(default=None, description="Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.")
     prerelease_only: Optional[StrictBool] = Field(default=None, description="Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.")
     purchase_bonuses: Dict[str, List[HashMapItemSlotTypeVecPurchaseBonusValueInner]] = Field(description="Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.")
     scaling_stats: Dict[str, HashMapStringScalingStatValue]
+    search_name: Optional[StrictStr] = Field(default=None, description="Localized search name (`m_strHeroSearchName`, build 6711+).")
     shop_stat_display: ShopStatDisplay
     skin: StrictInt
     standard_level_up_upgrades: Dict[str, Union[StrictFloat, StrictInt]]
     starting_stats: StartingStats
     stats_display: StatsDisplay
     tags: List[StrictStr] = Field(description="Always emitted (empty if the hero declares no `m_vecHeroTags`).")
-    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "development_state", "disabled", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "name", "needs_testing", "physics", "player_selectable", "prerelease_only", "purchase_bonuses", "scaling_stats", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
+    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "development_state", "disabled", "gender", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "name", "needs_testing", "physics", "player_selectable", "popular_items", "prerelease_only", "purchase_bonuses", "scaling_stats", "search_name", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -160,6 +164,9 @@ class Hero(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of physics
         if self.physics:
             _dict['physics'] = self.physics.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of popular_items
+        if self.popular_items:
+            _dict['popular_items'] = self.popular_items.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each value in purchase_bonuses (dict of array)
         _field_dict_of_array = {}
         if self.purchase_bonuses:
@@ -193,6 +200,11 @@ class Hero(BaseModel):
         if self.development_state is None and "development_state" in self.model_fields_set:
             _dict['development_state'] = None
 
+        # set to None if gender (nullable) is None
+        # and model_fields_set contains the field
+        if self.gender is None and "gender" in self.model_fields_set:
+            _dict['gender'] = None
+
         # set to None if gun_tag (nullable) is None
         # and model_fields_set contains the field
         if self.gun_tag is None and "gun_tag" in self.model_fields_set:
@@ -218,10 +230,20 @@ class Hero(BaseModel):
         if self.item_draft_weights is None and "item_draft_weights" in self.model_fields_set:
             _dict['item_draft_weights'] = None
 
+        # set to None if popular_items (nullable) is None
+        # and model_fields_set contains the field
+        if self.popular_items is None and "popular_items" in self.model_fields_set:
+            _dict['popular_items'] = None
+
         # set to None if prerelease_only (nullable) is None
         # and model_fields_set contains the field
         if self.prerelease_only is None and "prerelease_only" in self.model_fields_set:
             _dict['prerelease_only'] = None
+
+        # set to None if search_name (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_name is None and "search_name" in self.model_fields_set:
+            _dict['search_name'] = None
 
         return _dict
 
@@ -248,6 +270,7 @@ class Hero(BaseModel):
             "description": HeroDescription.from_dict(obj["description"]) if obj.get("description") is not None else None,
             "development_state": obj.get("development_state"),
             "disabled": obj.get("disabled"),
+            "gender": obj.get("gender"),
             "gun_tag": obj.get("gun_tag"),
             "hero_stats_ui": HeroStatsUI.from_dict(obj["hero_stats_ui"]) if obj.get("hero_stats_ui") is not None else None,
             "hero_type": obj.get("hero_type"),
@@ -280,6 +303,7 @@ class Hero(BaseModel):
             "needs_testing": obj.get("needs_testing"),
             "physics": HeroPhysics.from_dict(obj["physics"]) if obj.get("physics") is not None else None,
             "player_selectable": obj.get("player_selectable"),
+            "popular_items": HeroPopularItems.from_dict(obj["popular_items"]) if obj.get("popular_items") is not None else None,
             "prerelease_only": obj.get("prerelease_only"),
             "purchase_bonuses": {
                 _k: [HashMapItemSlotTypeVecPurchaseBonusValueInner.from_dict(_item) for _item in _v] if _v is not None else None
@@ -293,6 +317,7 @@ class Hero(BaseModel):
             )
             if obj.get("scaling_stats") is not None
             else None,
+            "search_name": obj.get("search_name"),
             "shop_stat_display": ShopStatDisplay.from_dict(obj["shop_stat_display"]) if obj.get("shop_stat_display") is not None else None,
             "skin": obj.get("skin"),
             "standard_level_up_upgrades": obj.get("standard_level_up_upgrades"),

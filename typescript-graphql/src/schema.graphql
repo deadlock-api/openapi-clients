@@ -212,6 +212,18 @@ type Hero {
   hideout_rich_presence: String
   hero_type: HeroType
 
+  """Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`."""
+  gender: String
+
+  """Localized search name (`m_strHeroSearchName`, build 6711+)."""
+  search_name: String
+
+  """
+  Valve's generated item pick / win rates per game phase
+  (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+  """
+  popular_items: HeroPopularItems
+
   """
   Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
   derived as `development_state == pre_release`.
@@ -306,6 +318,10 @@ type HeroImages {
   background_image: String
   background_image_webp: String
   name_image: String
+
+  """Hero release vote sticker (`m_strVoteSticker`, build 6711+)."""
+  vote_sticker: String
+  vote_sticker_webp: String
 }
 
 type HeroPhysics {
@@ -316,6 +332,26 @@ type HeroPhysics {
   footstep_sound_travel_distance_meters: Float
   step_sound_time: Float
   step_sound_time_sprinting: Float
+}
+
+type HeroPopularItem {
+  """Item id, derived from `class_name` like `/v2/items` ids."""
+  item_id: Int!
+  class_name: String!
+
+  """Pick rate in percent (0-100)."""
+  pick_pct: Float!
+
+  """Win rate in percent (0-100)."""
+  winrate_pct: Float!
+}
+
+type HeroPopularItems {
+  """Unix timestamp (seconds) at which Valve generated the data."""
+  timestamp: Int
+  early_game: [HeroPopularItem!]!
+  mid_game: [HeroPopularItem!]!
+  late_game: [HeroPopularItem!]!
 }
 
 type HeroStatsUI {
@@ -658,7 +694,8 @@ type MatchPlayer {
 
   """
   The `items` entries that are purchased upgrade items (no abilities, no
-  starting items).
+  starting items, no corrupted items: those keep the normal item's id and are
+  only in `items`, with bit 23 (`0x800000`) set in `upgrade_info`).
   """
   upgrades: [UpgradePurchase!]
   stats: [Stat!]
@@ -1143,10 +1180,25 @@ type Upgrade {
   is_active_item: Boolean!
   shopable: Boolean!
   cost: Int
+
+  """
+  Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`)
+  this item shows up under, beyond those derived from its stats.
+  """
+  shop_filters: [String!]
+
+  """
+  Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from
+  even though its stats would match them.
+  """
+  disabled_shop_filters: [String!]
+  shop_version: Int
+  disable_item_target: String
   weapon_info: JSON!
   properties: JSON!
   tooltip_sections: JSON!
   upgrades: JSON!
+  corrupted_info: JSON!
 }
 
 type UpgradeDescription {

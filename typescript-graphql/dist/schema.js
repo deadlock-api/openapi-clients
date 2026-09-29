@@ -92,6 +92,18 @@ export const isHeroPhysics = (obj) => {
         throw new Error('__typename is missing in "isHeroPhysics"');
     return HeroPhysics_possibleTypes.includes(obj.__typename);
 };
+const HeroPopularItem_possibleTypes = ['HeroPopularItem'];
+export const isHeroPopularItem = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isHeroPopularItem"');
+    return HeroPopularItem_possibleTypes.includes(obj.__typename);
+};
+const HeroPopularItems_possibleTypes = ['HeroPopularItems'];
+export const isHeroPopularItems = (obj) => {
+    if (!obj?.__typename)
+        throw new Error('__typename is missing in "isHeroPopularItems"');
+    return HeroPopularItems_possibleTypes.includes(obj.__typename);
+};
 const HeroStatsUI_possibleTypes = ['HeroStatsUI'];
 export const isHeroStatsUI = (obj) => {
     if (!obj?.__typename)

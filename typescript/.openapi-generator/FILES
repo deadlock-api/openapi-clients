@@ -25,6 +25,7 @@ apis/map-api.ts
 apis/matches-api.ts
 apis/misc-entities-api.ts
 apis/mmrapi.ts
+apis/modifiers-api.ts
 apis/npcunits-api.ts
 apis/patches-api.ts
 apis/players-api.ts
@@ -60,6 +61,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
 docs/BuildHeroDetails.md
@@ -79,6 +81,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/CorruptedItemInfo.md
+docs/CorruptedPenalty.md
+docs/CorruptedPenaltyEffect.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -128,6 +133,8 @@ docs/HeroDevelopmentState.md
 docs/HeroEntry.md
 docs/HeroImages.md
 docs/HeroPhysics.md
+docs/HeroPopularItem.md
+docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
@@ -172,6 +179,7 @@ docs/MMRApi.md
 docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
+docs/MapDistrict.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -181,8 +189,12 @@ docs/MateStats.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
+docs/Modifier.md
 docs/ModifierValue.md
+docs/ModifiersApi.md
 docs/NPCUnitsApi.md
+docs/NeutralCamp.md
+docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
 docs/ObjectiveParams.md
@@ -258,6 +270,8 @@ docs/SubclassIntrinsicModifiers.md
 docs/SubclassIntrinsicModifiersSubclass.md
 docs/SubclassModifierDefinition.md
 docs/SubclassModifierDefinitionSubclass.md
+docs/SubclassNeutralDamageGrowth.md
+docs/SubclassNeutralDamageGrowthSubclass.md
 docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveHealthGrowthPhaseSubclass.md
 docs/SubclassObjectiveRegen.md
@@ -307,6 +321,7 @@ models/analytics-game-stats.ts
 models/analytics-hero-stats.ts
 models/apiinfo.ts
 models/badge-distribution.ts
+models/breakable-powerup-loot-params.ts
 models/build-hero-details-ability-order-currency-change.ts
 models/build-hero-details-ability-order.ts
 models/build-hero-details-category-ability.ts
@@ -321,6 +336,9 @@ models/clickhouse-salts.ts
 models/color-gradient-stop.ts
 models/color.ts
 models/column-schema.ts
+models/corrupted-item-info.ts
+models/corrupted-penalty-effect.ts
+models/corrupted-penalty.ts
 models/create-custom-request.ts
 models/create-custom-response.ts
 models/curve-or-float.ts
@@ -365,6 +383,8 @@ models/hero-development-state.ts
 models/hero-entry.ts
 models/hero-images.ts
 models/hero-physics.ts
+models/hero-popular-item.ts
+models/hero-popular-items.ts
 models/hero-stats-ui.ts
 models/hero-stats-uidisplay.ts
 models/hero-stats.ts
@@ -402,6 +422,7 @@ models/live-url.ts
 models/loot-entry.ts
 models/loot-table.ts
 models/map-data.ts
+models/map-district.ts
 models/map-images.ts
 models/match-player.ts
 models/match-salts-response.ts
@@ -411,6 +432,9 @@ models/mini-map-offsets.ts
 models/misc-entity.ts
 models/mmrhistory.ts
 models/modifier-value.ts
+models/modifier.ts
+models/neutral-camp-kind.ts
+models/neutral-camp.ts
 models/new-player-metrics.ts
 models/npc-unit.ts
 models/objective-params.ts
@@ -479,6 +503,8 @@ models/subclass-intrinsic-modifiers-subclass.ts
 models/subclass-intrinsic-modifiers.ts
 models/subclass-modifier-definition-subclass.ts
 models/subclass-modifier-definition.ts
+models/subclass-neutral-damage-growth-subclass.ts
+models/subclass-neutral-damage-growth.ts
 models/subclass-objective-health-growth-phase-subclass.ts
 models/subclass-objective-health-growth-phase.ts
 models/subclass-objective-regen-subclass.ts

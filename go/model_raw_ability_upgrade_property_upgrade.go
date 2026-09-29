@@ -22,7 +22,11 @@ var _ MappedNullable = &RawAbilityUpgradePropertyUpgrade{}
 // RawAbilityUpgradePropertyUpgrade struct for RawAbilityUpgradePropertyUpgrade
 type RawAbilityUpgradePropertyUpgrade struct {
 	Bonus string `json:"bonus"`
+	// Corrupted item bonuses only (build 6711+).
+	FixedCorruptedBonus NullableBool `json:"fixed_corrupted_bonus,omitempty"`
 	Name string `json:"name"`
+	// Corrupted item bonuses only (build 6711+).
+	RoundCorruptedBonus NullableBool `json:"round_corrupted_bonus,omitempty"`
 	ScaleStatFilter NullableString `json:"scale_stat_filter,omitempty"`
 	UpgradeType NullableString `json:"upgrade_type,omitempty"`
 }
@@ -72,6 +76,48 @@ func (o *RawAbilityUpgradePropertyUpgrade) SetBonus(v string) {
 	o.Bonus = v
 }
 
+// GetFixedCorruptedBonus returns the FixedCorruptedBonus field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawAbilityUpgradePropertyUpgrade) GetFixedCorruptedBonus() bool {
+	if o == nil || IsNil(o.FixedCorruptedBonus.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.FixedCorruptedBonus.Get()
+}
+
+// GetFixedCorruptedBonusOk returns a tuple with the FixedCorruptedBonus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawAbilityUpgradePropertyUpgrade) GetFixedCorruptedBonusOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.FixedCorruptedBonus.Get(), o.FixedCorruptedBonus.IsSet()
+}
+
+// HasFixedCorruptedBonus returns a boolean if a field has been set.
+func (o *RawAbilityUpgradePropertyUpgrade) HasFixedCorruptedBonus() bool {
+	if o != nil && o.FixedCorruptedBonus.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetFixedCorruptedBonus gets a reference to the given NullableBool and assigns it to the FixedCorruptedBonus field.
+func (o *RawAbilityUpgradePropertyUpgrade) SetFixedCorruptedBonus(v bool) {
+	o.FixedCorruptedBonus.Set(&v)
+}
+// SetFixedCorruptedBonusNil sets the value for FixedCorruptedBonus to be an explicit nil
+func (o *RawAbilityUpgradePropertyUpgrade) SetFixedCorruptedBonusNil() {
+	o.FixedCorruptedBonus.Set(nil)
+}
+
+// UnsetFixedCorruptedBonus ensures that no value is present for FixedCorruptedBonus, not even an explicit nil
+func (o *RawAbilityUpgradePropertyUpgrade) UnsetFixedCorruptedBonus() {
+	o.FixedCorruptedBonus.Unset()
+}
+
 // GetName returns the Name field value
 func (o *RawAbilityUpgradePropertyUpgrade) GetName() string {
 	if o == nil {
@@ -94,6 +140,48 @@ func (o *RawAbilityUpgradePropertyUpgrade) GetNameOk() (*string, bool) {
 // SetName sets field value
 func (o *RawAbilityUpgradePropertyUpgrade) SetName(v string) {
 	o.Name = v
+}
+
+// GetRoundCorruptedBonus returns the RoundCorruptedBonus field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *RawAbilityUpgradePropertyUpgrade) GetRoundCorruptedBonus() bool {
+	if o == nil || IsNil(o.RoundCorruptedBonus.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.RoundCorruptedBonus.Get()
+}
+
+// GetRoundCorruptedBonusOk returns a tuple with the RoundCorruptedBonus field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *RawAbilityUpgradePropertyUpgrade) GetRoundCorruptedBonusOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RoundCorruptedBonus.Get(), o.RoundCorruptedBonus.IsSet()
+}
+
+// HasRoundCorruptedBonus returns a boolean if a field has been set.
+func (o *RawAbilityUpgradePropertyUpgrade) HasRoundCorruptedBonus() bool {
+	if o != nil && o.RoundCorruptedBonus.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRoundCorruptedBonus gets a reference to the given NullableBool and assigns it to the RoundCorruptedBonus field.
+func (o *RawAbilityUpgradePropertyUpgrade) SetRoundCorruptedBonus(v bool) {
+	o.RoundCorruptedBonus.Set(&v)
+}
+// SetRoundCorruptedBonusNil sets the value for RoundCorruptedBonus to be an explicit nil
+func (o *RawAbilityUpgradePropertyUpgrade) SetRoundCorruptedBonusNil() {
+	o.RoundCorruptedBonus.Set(nil)
+}
+
+// UnsetRoundCorruptedBonus ensures that no value is present for RoundCorruptedBonus, not even an explicit nil
+func (o *RawAbilityUpgradePropertyUpgrade) UnsetRoundCorruptedBonus() {
+	o.RoundCorruptedBonus.Unset()
 }
 
 // GetScaleStatFilter returns the ScaleStatFilter field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -191,7 +279,13 @@ func (o RawAbilityUpgradePropertyUpgrade) MarshalJSON() ([]byte, error) {
 func (o RawAbilityUpgradePropertyUpgrade) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bonus"] = o.Bonus
+	if o.FixedCorruptedBonus.IsSet() {
+		toSerialize["fixed_corrupted_bonus"] = o.FixedCorruptedBonus.Get()
+	}
 	toSerialize["name"] = o.Name
+	if o.RoundCorruptedBonus.IsSet() {
+		toSerialize["round_corrupted_bonus"] = o.RoundCorruptedBonus.Get()
+	}
 	if o.ScaleStatFilter.IsSet() {
 		toSerialize["scale_stat_filter"] = o.ScaleStatFilter.Get()
 	}

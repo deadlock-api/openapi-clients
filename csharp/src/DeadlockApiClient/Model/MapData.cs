@@ -37,13 +37,15 @@ namespace DeadlockApiClient.Model
         /// <param name="objectivePositions">objectivePositions</param>
         /// <param name="radius">radius</param>
         /// <param name="ziplinePaths">ziplinePaths</param>
+        /// <param name="neutralCamps">Neutral camps (build 6711+).</param>
         [JsonConstructor]
-        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths)
+        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths, Option<List<NeutralCamp>?> neutralCamps = default)
         {
             Images = images;
             ObjectivePositions = objectivePositions;
             Radius = radius;
             ZiplinePaths = ziplinePaths;
+            NeutralCampsOption = neutralCamps;
             OnCreated();
         }
 
@@ -74,6 +76,20 @@ namespace DeadlockApiClient.Model
         public List<ZiplanePath> ZiplinePaths { get; set; }
 
         /// <summary>
+        /// Used to track the state of NeutralCamps
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<NeutralCamp>?> NeutralCampsOption { get; private set; }
+
+        /// <summary>
+        /// Neutral camps (build 6711+).
+        /// </summary>
+        /// <value>Neutral camps (build 6711+).</value>
+        [JsonPropertyName("neutral_camps")]
+        public List<NeutralCamp>? NeutralCamps { get { return this.NeutralCampsOption.Value; } set { this.NeutralCampsOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +101,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  ObjectivePositions: ").Append(ObjectivePositions).Append("\n");
             sb.Append("  Radius: ").Append(Radius).Append("\n");
             sb.Append("  ZiplinePaths: ").Append(ZiplinePaths).Append("\n");
+            sb.Append("  NeutralCamps: ").Append(NeutralCamps).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +159,7 @@ namespace DeadlockApiClient.Model
             Option<Dictionary<string, ObjectivePosition>?> objectivePositions = default;
             Option<int?> radius = default;
             Option<List<ZiplanePath>?> ziplinePaths = default;
+            Option<List<NeutralCamp>?> neutralCamps = default;
 
             while (utf8JsonReader.Read())
             {
@@ -169,6 +187,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "zipline_paths":
                             ziplinePaths = new Option<List<ZiplanePath>?>(JsonSerializer.Deserialize<List<ZiplanePath>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "neutral_camps":
+                            neutralCamps = new Option<List<NeutralCamp>?>(JsonSerializer.Deserialize<List<NeutralCamp>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;
@@ -200,7 +221,7 @@ namespace DeadlockApiClient.Model
             if (ziplinePaths.IsSet && ziplinePaths.Value == null)
                 throw new ArgumentNullException(nameof(ziplinePaths), "Property is not nullable for class MapData.");
 
-            return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!);
+            return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!, neutralCamps);
         }
 
         /// <summary>
@@ -244,6 +265,14 @@ namespace DeadlockApiClient.Model
 
             writer.WritePropertyName("zipline_paths");
             JsonSerializer.Serialize(writer, mapData.ZiplinePaths, jsonSerializerOptions);
+            if (mapData.NeutralCampsOption.IsSet)
+                if (mapData.NeutralCampsOption.Value != null)
+                {
+                    writer.WritePropertyName("neutral_camps");
+                    JsonSerializer.Serialize(writer, mapData.NeutralCamps, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("neutral_camps");
         }
     }
 }

@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bonus** | **string** |  | 
 **Name** | **string** |  | 
+**FixedCorruptedBonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 
+**RoundCorruptedBonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **ScaleStatFilter** | **string** |  | [optional] 
 **UpgradeType** | **string** |  | [optional] 
 

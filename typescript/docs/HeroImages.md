@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 **name_image** | **string** |  | [optional] [default to undefined]
 **top_bar_vertical_image** | **string** |  | [optional] [default to undefined]
 **top_bar_vertical_image_webp** | **string** |  | [optional] [default to undefined]
+**vote_sticker** | **string** | Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+). | [optional] [default to undefined]
+**vote_sticker_webp** | **string** |  | [optional] [default to undefined]
 **weapon_image** | **string** |  | [optional] [default to undefined]
 **weapon_image_webp** | **string** |  | [optional] [default to undefined]
 
@@ -44,6 +46,8 @@ const instance: HeroImages = {
     name_image,
     top_bar_vertical_image,
     top_bar_vertical_image_webp,
+    vote_sticker,
+    vote_sticker_webp,
     weapon_image,
     weapon_image_webp,
 };

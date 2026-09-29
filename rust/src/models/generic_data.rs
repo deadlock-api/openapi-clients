@@ -17,6 +17,9 @@ pub struct GenericData {
     pub aim_spring_strength: Vec<f64>,
     #[serde(rename = "armor_groups")]
     pub armor_groups: Vec<models::ItemGroup>,
+    /// Loot tables for breakable powerup props (build 6711+).
+    #[serde(rename = "breakable_powerup_loot_params", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub breakable_powerup_loot_params: Option<Option<Box<models::BreakablePowerupLootParams>>>,
     /// Build 6711+.
     #[serde(rename = "color_enemy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub color_enemy: Option<Option<Box<models::Color>>>,
@@ -29,6 +32,9 @@ pub struct GenericData {
     /// Build 6711+.
     #[serde(rename = "color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub color_team2: Option<Option<Box<models::Color>>>,
+    /// Penalties that can be rolled onto corrupted items (build 6711+).
+    #[serde(rename = "corrupted_penalties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub corrupted_penalties: Option<Option<Vec<models::CorruptedPenalty>>>,
     #[serde(rename = "damage_flash")]
     pub damage_flash: Box<models::DamageFlash>,
     #[serde(rename = "enemy_objectives_and_zipline_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -41,16 +47,25 @@ pub struct GenericData {
     pub glitch_settings: Box<models::GlitchSettings>,
     #[serde(rename = "hero_kill_gold_share_frac")]
     pub hero_kill_gold_share_frac: Vec<f64>,
+    /// Extra cost of corrupting an item, by item tier (build 6711+).
+    #[serde(rename = "item_corruption_price_per_tier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub item_corruption_price_per_tier: Option<Option<Vec<i64>>>,
     #[serde(rename = "item_price_per_tier")]
     pub item_price_per_tier: Vec<i64>,
     #[serde(rename = "lane_info")]
     pub lane_info: Vec<models::LaneInfo>,
+    /// District / building labels shown on the map (build 6711+).
+    #[serde(rename = "map_districts", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub map_districts: Option<Option<Vec<models::MapDistrict>>>,
     #[serde(rename = "mini_map_offsets")]
     pub mini_map_offsets: Vec<models::MiniMapOffsets>,
     #[serde(rename = "minimap_team_combine_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub minimap_team_combine_color: Option<Option<Box<models::Color>>>,
     #[serde(rename = "minimap_team_rebels_color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub minimap_team_rebels_color: Option<Option<Box<models::Color>>>,
+    /// Distance within which a neutral camp's respawn timer is shown (build 6711+).
+    #[serde(rename = "neutral_camp_respawn_timer_show_distance", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub neutral_camp_respawn_timer_show_distance: Option<Option<f64>>,
     #[serde(rename = "new_player_metrics")]
     pub new_player_metrics: Vec<models::NewPlayerMetrics>,
     #[serde(rename = "objective_params")]
@@ -74,21 +89,26 @@ impl GenericData {
         GenericData {
             aim_spring_strength,
             armor_groups,
+            breakable_powerup_loot_params: None,
             color_enemy: None,
             color_friend: None,
             color_team1: None,
             color_team2: None,
+            corrupted_penalties: None,
             damage_flash: Box::new(damage_flash),
             enemy_objectives_and_zipline_color: None,
             enemy_objectives_color: None,
             enemy_zipline_color: None,
             glitch_settings: Box::new(glitch_settings),
             hero_kill_gold_share_frac,
+            item_corruption_price_per_tier: None,
             item_price_per_tier,
             lane_info,
+            map_districts: None,
             mini_map_offsets,
             minimap_team_combine_color: None,
             minimap_team_rebels_color: None,
+            neutral_camp_respawn_timer_show_distance: None,
             new_player_metrics,
             objective_params: Box::new(objective_params),
             rejuv_params: Box::new(rejuv_params),

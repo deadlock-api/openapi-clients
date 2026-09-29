@@ -215,6 +215,24 @@ class HeroImagesTest extends TestCase
     }
 
     /**
+     * Test attribute "vote_sticker"
+     */
+    public function testPropertyVoteSticker()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "vote_sticker_webp"
+     */
+    public function testPropertyVoteStickerWebp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "weapon_image"
      */
     public function testPropertyWeaponImage()

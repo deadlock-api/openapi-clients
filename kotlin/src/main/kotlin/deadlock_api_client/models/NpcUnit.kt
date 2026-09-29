@@ -27,6 +27,7 @@ import deadlock_api_client.models.Color
 import deadlock_api_client.models.SubclassBulletResistModifier
 import deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import deadlock_api_client.models.SubclassIntrinsicModifiers
+import deadlock_api_client.models.SubclassNeutralDamageGrowth
 import deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
@@ -64,6 +65,8 @@ import java.io.Serializable
  * @param healthBarColorTeam1 
  * @param healthBarColorTeam2 
  * @param healthBarColorTeamNeutral 
+ * @param image Unit icon (`m_strCustomUnitIcon`) as png.
+ * @param imageWebp Unit icon (`m_strCustomUnitIcon`) as webp.
  * @param intrinsicModifiers 
  * @param laserDpsMaxHealth 
  * @param laserDpsToPlayers 
@@ -74,7 +77,12 @@ import java.io.Serializable
  * @param meleeDamage 
  * @param meleeDuration 
  * @param meleeHitRange 
+ * @param name Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
  * @param nearDeathDuration 
+ * @param neutralAbilities Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+ * @param neutralDamageGrowth 
+ * @param neutralMelee Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+ * @param neutralType Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
  * @param noShieldLaserDpsToPlayers 
  * @param objectiveHealthGrowthPhase1 
  * @param objectiveHealthGrowthPhase2 
@@ -105,6 +113,7 @@ import java.io.Serializable
  * @param t3BossDps 
  * @param trooperDamageResistPct 
  * @param trooperDps 
+ * @param viewerSoulsClass Distance threshold (as string key) → soul orb class shown to the viewer.
  * @param walkSpeed 
  * @param weaponInfo 
  */
@@ -185,6 +194,14 @@ data class NpcUnit (
     @Json(name = "health_bar_color_team_neutral")
     val healthBarColorTeamNeutral: Color? = null,
 
+    /* Unit icon (`m_strCustomUnitIcon`) as png. */
+    @Json(name = "image")
+    val image: kotlin.String? = null,
+
+    /* Unit icon (`m_strCustomUnitIcon`) as webp. */
+    @Json(name = "image_webp")
+    val imageWebp: kotlin.String? = null,
+
     @Json(name = "intrinsic_modifiers")
     val intrinsicModifiers: kotlin.collections.List<SubclassIntrinsicModifiers>? = null,
 
@@ -215,8 +232,27 @@ data class NpcUnit (
     @Json(name = "melee_hit_range")
     val meleeHitRange: kotlin.Double? = null,
 
+    /* Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`. */
+    @Json(name = "name")
+    val name: kotlin.String? = null,
+
     @Json(name = "near_death_duration")
     val nearDeathDuration: kotlin.Double? = null,
+
+    /* Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+). */
+    @Json(name = "neutral_abilities")
+    val neutralAbilities: kotlin.collections.List<kotlin.String>? = null,
+
+    @Json(name = "neutral_damage_growth")
+    val neutralDamageGrowth: SubclassNeutralDamageGrowth? = null,
+
+    /* Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+). */
+    @Json(name = "neutral_melee")
+    val neutralMelee: kotlin.String? = null,
+
+    /* Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+). */
+    @Json(name = "neutral_type")
+    val neutralType: kotlin.String? = null,
 
     @Json(name = "no_shield_laser_dps_to_players")
     val noShieldLaserDpsToPlayers: kotlin.Double? = null,
@@ -307,6 +343,10 @@ data class NpcUnit (
 
     @Json(name = "trooper_dps")
     val trooperDps: kotlin.Double? = null,
+
+    /* Distance threshold (as string key) → soul orb class shown to the viewer. */
+    @Json(name = "viewer_souls_class")
+    val viewerSoulsClass: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
 
     @Json(name = "walk_speed")
     val walkSpeed: kotlin.Double? = null,

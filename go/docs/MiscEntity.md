@@ -7,8 +7,10 @@ Name | Type | Description | Notes
 **BreakOnDodgeTouch** | Pointer to **NullableBool** |  | [optional] 
 **BuffTypeGraphColor** | Pointer to [**NullableColor**](Color.md) | Permanent pickups: color used for the buff in the stat graph. | [optional] 
 **BuffTypeLocString** | Pointer to **NullableString** | Permanent pickups: localization token of the stat the buff raises. | [optional] 
-**BuffTypeValueUnit** | Pointer to **NullableString** | Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). | [optional] 
+**BuffTypeName** | Pointer to **NullableString** | Permanent pickups: &#x60;buff_type_loc_string&#x60; localized into the requested language (e.g. &#x60;Fire Rate&#x60;). | [optional] 
+**BuffTypeValueUnit** | Pointer to **NullableString** | Permanent pickups: unit of the buff value (e.g. &#x60;Percent&#x60;, &#x60;Meters&#x60;). The modifier value itself is in game units (&#x60;Meters&#x60; values are inches, 39.37 per meter). | [optional] 
 **ClassName** | **string** |  | 
+**CollectionMethod** | Pointer to **NullableString** | How the pickup is collected, e.g. &#x60;Punch&#x60; or &#x60;VacuumTrigger&#x60;. | [optional] 
 **CollisionRadius** | Pointer to **NullableFloat64** |  | [optional] 
 **Color** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **DamagedByAbilities** | Pointer to **NullableBool** |  | [optional] 
@@ -21,32 +23,46 @@ Name | Type | Description | Notes
 **Health** | Pointer to **NullableInt64** |  | [optional] 
 **HeavyMeleeHitCount** | Pointer to **NullableInt64** |  | [optional] 
 **HeavyMeleeOnly** | Pointer to **NullableBool** |  | [optional] 
+**HitsRequired** | Pointer to **NullableInt64** | Punchable pickups: hits needed to collect. | [optional] 
 **Id** | **int32** |  | 
+**InShopModifier** | Pointer to [**NullableSubclassModifierDefinition**](SubclassModifierDefinition.md) | Corrupted item shop (Broker) trigger: modifier applied while inside. | [optional] 
 **InitialSpawnDelayInSeconds** | Pointer to **NullableInt64** |  | [optional] 
 **InitialSpawnDelaySeconds** | Pointer to **NullableInt64** | Duplicate of &#x60;initial_spawn_delay_in_seconds&#x60; for shape parity. | [optional] 
 **InitialSpawnTime** | Pointer to **NullableFloat64** |  | [optional] 
 **IsMantleable** | Pointer to **NullableBool** |  | [optional] 
+**IsPermanentPickup** | Pointer to **NullableBool** |  | [optional] 
 **Lifetime** | Pointer to **NullableFloat64** |  | [optional] 
 **LootListDeckSize** | Pointer to **NullableInt64** |  | [optional] 
 **MVecPickupsLv2** | Pointer to [**[]Pickup**](Pickup.md) |  | [optional] 
 **MVecPickupsLv3** | Pointer to [**[]Pickup**](Pickup.md) |  | [optional] 
 **MatchTimeMinsForLevel2Pickups** | Pointer to **NullableInt64** |  | [optional] 
 **MatchTimeMinsForLevel3Pickups** | Pointer to **NullableInt64** |  | [optional] 
+**MinimapClass** | Pointer to **NullableString** |  | [optional] 
 **Modifier** | Pointer to [**NullableSubclassModifierDefinition**](SubclassModifierDefinition.md) |  | [optional] 
+**Name** | Pointer to **NullableString** | &#x60;name_loc_string&#x60; localized into the requested language (e.g. &#x60;+1.5% Fire Rate&#x60;). Gold pickups use an ICU plural pattern (&#x60;{amount, plural, one{Soul} other{Souls}}&#x60;). | [optional] 
+**NameLocString** | Pointer to **NullableString** | Localization token of the pickup&#39;s world label. | [optional] 
 **OrbSpawnDelayMax** | Pointer to **NullableFloat64** |  | [optional] 
 **OrbSpawnDelayMin** | Pointer to **NullableFloat64** |  | [optional] 
+**Pickup** | Pointer to **NullableString** | Pickup spawners: class name of the spawned pickup. | [optional] 
 **PickupChances** | Pointer to **map[string]float64** | Pickup name to relative weight (build 6711+); replaces the &#x60;primary_pickups&#x60; / &#x60;m_vecPickups_lv*&#x60; lists. | [optional] 
 **PickupRadius** | Pointer to [**NullableCurveOrFloat**](CurveOrFloat.md) |  | [optional] 
 **PowerupDropChance** | Pointer to **NullableFloat64** | Drop chance (percent) for build 6711+; replaces &#x60;primary_drop_chance&#x60;. | [optional] 
 **PrimaryDropChance** | Pointer to **NullableFloat64** | Pre-6711 builds only; see &#x60;powerup_drop_chance&#x60;. | [optional] 
 **PrimaryPickups** | Pointer to [**[]Pickup**](Pickup.md) |  | [optional] 
+**RegenDuration** | Pointer to **NullableFloat64** | Health pickups: seconds over which the healing is applied to heroes. | [optional] 
+**RegenDurationTroopers** | Pointer to **NullableFloat64** | Health pickups: seconds over which the healing is applied to troopers. | [optional] 
+**RegenMaxHealthPercent** | Pointer to [**NullableCurveOrFloat**](CurveOrFloat.md) | Health pickups: healing as percent of max health. | [optional] 
+**RegenTrooperMulti** | Pointer to **NullableFloat64** | Health pickups: healing multiplier for troopers. | [optional] 
 **RenderAfterDeath** | Pointer to **NullableBool** |  | [optional] 
 **RespawnTime** | Pointer to **NullableFloat64** |  | [optional] 
 **RollType** | Pointer to **NullableString** | Known values for &#x60;m_eRollType&#x60;. Unknown values pass through unchanged so a newly-introduced roll type doesn&#39;t 500. Known values: &#x60;ECitadelRandomRoll_BreakablePowerupPickup&#x60;, &#x60;ECitadelRandomRoll_BreakableGoldPickup&#x60;. | [optional] 
 **ShowOnMinimap** | Pointer to **NullableBool** |  | [optional] 
+**SinglePickupOverride** | Pointer to **NullableString** | Powerup spawners: class name of the only pickup spawned, overriding &#x60;pickup_chances&#x60;. | [optional] 
 **SolidAfterDeath** | Pointer to **NullableBool** |  | [optional] 
+**SpawnDelay** | Pointer to **NullableFloat64** | Pickup spawners: delay (seconds) before the first spawn. | [optional] 
 **SpawnInterval** | Pointer to **NullableFloat64** |  | [optional] 
 **SpawnIntervalInSeconds** | Pointer to **NullableInt64** |  | [optional] 
+**SpawnMusicState** | Pointer to **NullableString** | Corrupted item shop (Broker) trigger: music cue played on spawn. | [optional] 
 
 ## Methods
 
@@ -172,6 +188,41 @@ HasBuffTypeLocString returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetBuffTypeLocString()`
 
 UnsetBuffTypeLocString ensures that no value is present for BuffTypeLocString, not even an explicit nil
+### GetBuffTypeName
+
+`func (o *MiscEntity) GetBuffTypeName() string`
+
+GetBuffTypeName returns the BuffTypeName field if non-nil, zero value otherwise.
+
+### GetBuffTypeNameOk
+
+`func (o *MiscEntity) GetBuffTypeNameOk() (*string, bool)`
+
+GetBuffTypeNameOk returns a tuple with the BuffTypeName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBuffTypeName
+
+`func (o *MiscEntity) SetBuffTypeName(v string)`
+
+SetBuffTypeName sets BuffTypeName field to given value.
+
+### HasBuffTypeName
+
+`func (o *MiscEntity) HasBuffTypeName() bool`
+
+HasBuffTypeName returns a boolean if a field has been set.
+
+### SetBuffTypeNameNil
+
+`func (o *MiscEntity) SetBuffTypeNameNil(b bool)`
+
+ SetBuffTypeNameNil sets the value for BuffTypeName to be an explicit nil
+
+### UnsetBuffTypeName
+`func (o *MiscEntity) UnsetBuffTypeName()`
+
+UnsetBuffTypeName ensures that no value is present for BuffTypeName, not even an explicit nil
 ### GetBuffTypeValueUnit
 
 `func (o *MiscEntity) GetBuffTypeValueUnit() string`
@@ -227,6 +278,41 @@ and a boolean to check if the value has been set.
 SetClassName sets ClassName field to given value.
 
 
+### GetCollectionMethod
+
+`func (o *MiscEntity) GetCollectionMethod() string`
+
+GetCollectionMethod returns the CollectionMethod field if non-nil, zero value otherwise.
+
+### GetCollectionMethodOk
+
+`func (o *MiscEntity) GetCollectionMethodOk() (*string, bool)`
+
+GetCollectionMethodOk returns a tuple with the CollectionMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCollectionMethod
+
+`func (o *MiscEntity) SetCollectionMethod(v string)`
+
+SetCollectionMethod sets CollectionMethod field to given value.
+
+### HasCollectionMethod
+
+`func (o *MiscEntity) HasCollectionMethod() bool`
+
+HasCollectionMethod returns a boolean if a field has been set.
+
+### SetCollectionMethodNil
+
+`func (o *MiscEntity) SetCollectionMethodNil(b bool)`
+
+ SetCollectionMethodNil sets the value for CollectionMethod to be an explicit nil
+
+### UnsetCollectionMethod
+`func (o *MiscEntity) UnsetCollectionMethod()`
+
+UnsetCollectionMethod ensures that no value is present for CollectionMethod, not even an explicit nil
 ### GetCollisionRadius
 
 `func (o *MiscEntity) GetCollisionRadius() float64`
@@ -647,6 +733,41 @@ HasHeavyMeleeOnly returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetHeavyMeleeOnly()`
 
 UnsetHeavyMeleeOnly ensures that no value is present for HeavyMeleeOnly, not even an explicit nil
+### GetHitsRequired
+
+`func (o *MiscEntity) GetHitsRequired() int64`
+
+GetHitsRequired returns the HitsRequired field if non-nil, zero value otherwise.
+
+### GetHitsRequiredOk
+
+`func (o *MiscEntity) GetHitsRequiredOk() (*int64, bool)`
+
+GetHitsRequiredOk returns a tuple with the HitsRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHitsRequired
+
+`func (o *MiscEntity) SetHitsRequired(v int64)`
+
+SetHitsRequired sets HitsRequired field to given value.
+
+### HasHitsRequired
+
+`func (o *MiscEntity) HasHitsRequired() bool`
+
+HasHitsRequired returns a boolean if a field has been set.
+
+### SetHitsRequiredNil
+
+`func (o *MiscEntity) SetHitsRequiredNil(b bool)`
+
+ SetHitsRequiredNil sets the value for HitsRequired to be an explicit nil
+
+### UnsetHitsRequired
+`func (o *MiscEntity) UnsetHitsRequired()`
+
+UnsetHitsRequired ensures that no value is present for HitsRequired, not even an explicit nil
 ### GetId
 
 `func (o *MiscEntity) GetId() int32`
@@ -667,6 +788,41 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetInShopModifier
+
+`func (o *MiscEntity) GetInShopModifier() SubclassModifierDefinition`
+
+GetInShopModifier returns the InShopModifier field if non-nil, zero value otherwise.
+
+### GetInShopModifierOk
+
+`func (o *MiscEntity) GetInShopModifierOk() (*SubclassModifierDefinition, bool)`
+
+GetInShopModifierOk returns a tuple with the InShopModifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInShopModifier
+
+`func (o *MiscEntity) SetInShopModifier(v SubclassModifierDefinition)`
+
+SetInShopModifier sets InShopModifier field to given value.
+
+### HasInShopModifier
+
+`func (o *MiscEntity) HasInShopModifier() bool`
+
+HasInShopModifier returns a boolean if a field has been set.
+
+### SetInShopModifierNil
+
+`func (o *MiscEntity) SetInShopModifierNil(b bool)`
+
+ SetInShopModifierNil sets the value for InShopModifier to be an explicit nil
+
+### UnsetInShopModifier
+`func (o *MiscEntity) UnsetInShopModifier()`
+
+UnsetInShopModifier ensures that no value is present for InShopModifier, not even an explicit nil
 ### GetInitialSpawnDelayInSeconds
 
 `func (o *MiscEntity) GetInitialSpawnDelayInSeconds() int64`
@@ -807,6 +963,41 @@ HasIsMantleable returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetIsMantleable()`
 
 UnsetIsMantleable ensures that no value is present for IsMantleable, not even an explicit nil
+### GetIsPermanentPickup
+
+`func (o *MiscEntity) GetIsPermanentPickup() bool`
+
+GetIsPermanentPickup returns the IsPermanentPickup field if non-nil, zero value otherwise.
+
+### GetIsPermanentPickupOk
+
+`func (o *MiscEntity) GetIsPermanentPickupOk() (*bool, bool)`
+
+GetIsPermanentPickupOk returns a tuple with the IsPermanentPickup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPermanentPickup
+
+`func (o *MiscEntity) SetIsPermanentPickup(v bool)`
+
+SetIsPermanentPickup sets IsPermanentPickup field to given value.
+
+### HasIsPermanentPickup
+
+`func (o *MiscEntity) HasIsPermanentPickup() bool`
+
+HasIsPermanentPickup returns a boolean if a field has been set.
+
+### SetIsPermanentPickupNil
+
+`func (o *MiscEntity) SetIsPermanentPickupNil(b bool)`
+
+ SetIsPermanentPickupNil sets the value for IsPermanentPickup to be an explicit nil
+
+### UnsetIsPermanentPickup
+`func (o *MiscEntity) UnsetIsPermanentPickup()`
+
+UnsetIsPermanentPickup ensures that no value is present for IsPermanentPickup, not even an explicit nil
 ### GetLifetime
 
 `func (o *MiscEntity) GetLifetime() float64`
@@ -1017,6 +1208,41 @@ HasMatchTimeMinsForLevel3Pickups returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetMatchTimeMinsForLevel3Pickups()`
 
 UnsetMatchTimeMinsForLevel3Pickups ensures that no value is present for MatchTimeMinsForLevel3Pickups, not even an explicit nil
+### GetMinimapClass
+
+`func (o *MiscEntity) GetMinimapClass() string`
+
+GetMinimapClass returns the MinimapClass field if non-nil, zero value otherwise.
+
+### GetMinimapClassOk
+
+`func (o *MiscEntity) GetMinimapClassOk() (*string, bool)`
+
+GetMinimapClassOk returns a tuple with the MinimapClass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinimapClass
+
+`func (o *MiscEntity) SetMinimapClass(v string)`
+
+SetMinimapClass sets MinimapClass field to given value.
+
+### HasMinimapClass
+
+`func (o *MiscEntity) HasMinimapClass() bool`
+
+HasMinimapClass returns a boolean if a field has been set.
+
+### SetMinimapClassNil
+
+`func (o *MiscEntity) SetMinimapClassNil(b bool)`
+
+ SetMinimapClassNil sets the value for MinimapClass to be an explicit nil
+
+### UnsetMinimapClass
+`func (o *MiscEntity) UnsetMinimapClass()`
+
+UnsetMinimapClass ensures that no value is present for MinimapClass, not even an explicit nil
 ### GetModifier
 
 `func (o *MiscEntity) GetModifier() SubclassModifierDefinition`
@@ -1052,6 +1278,76 @@ HasModifier returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetModifier()`
 
 UnsetModifier ensures that no value is present for Modifier, not even an explicit nil
+### GetName
+
+`func (o *MiscEntity) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *MiscEntity) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *MiscEntity) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *MiscEntity) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *MiscEntity) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *MiscEntity) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
+### GetNameLocString
+
+`func (o *MiscEntity) GetNameLocString() string`
+
+GetNameLocString returns the NameLocString field if non-nil, zero value otherwise.
+
+### GetNameLocStringOk
+
+`func (o *MiscEntity) GetNameLocStringOk() (*string, bool)`
+
+GetNameLocStringOk returns a tuple with the NameLocString field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNameLocString
+
+`func (o *MiscEntity) SetNameLocString(v string)`
+
+SetNameLocString sets NameLocString field to given value.
+
+### HasNameLocString
+
+`func (o *MiscEntity) HasNameLocString() bool`
+
+HasNameLocString returns a boolean if a field has been set.
+
+### SetNameLocStringNil
+
+`func (o *MiscEntity) SetNameLocStringNil(b bool)`
+
+ SetNameLocStringNil sets the value for NameLocString to be an explicit nil
+
+### UnsetNameLocString
+`func (o *MiscEntity) UnsetNameLocString()`
+
+UnsetNameLocString ensures that no value is present for NameLocString, not even an explicit nil
 ### GetOrbSpawnDelayMax
 
 `func (o *MiscEntity) GetOrbSpawnDelayMax() float64`
@@ -1122,6 +1418,41 @@ HasOrbSpawnDelayMin returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetOrbSpawnDelayMin()`
 
 UnsetOrbSpawnDelayMin ensures that no value is present for OrbSpawnDelayMin, not even an explicit nil
+### GetPickup
+
+`func (o *MiscEntity) GetPickup() string`
+
+GetPickup returns the Pickup field if non-nil, zero value otherwise.
+
+### GetPickupOk
+
+`func (o *MiscEntity) GetPickupOk() (*string, bool)`
+
+GetPickupOk returns a tuple with the Pickup field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPickup
+
+`func (o *MiscEntity) SetPickup(v string)`
+
+SetPickup sets Pickup field to given value.
+
+### HasPickup
+
+`func (o *MiscEntity) HasPickup() bool`
+
+HasPickup returns a boolean if a field has been set.
+
+### SetPickupNil
+
+`func (o *MiscEntity) SetPickupNil(b bool)`
+
+ SetPickupNil sets the value for Pickup to be an explicit nil
+
+### UnsetPickup
+`func (o *MiscEntity) UnsetPickup()`
+
+UnsetPickup ensures that no value is present for Pickup, not even an explicit nil
 ### GetPickupChances
 
 `func (o *MiscEntity) GetPickupChances() map[string]float64`
@@ -1297,6 +1628,146 @@ HasPrimaryPickups returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetPrimaryPickups()`
 
 UnsetPrimaryPickups ensures that no value is present for PrimaryPickups, not even an explicit nil
+### GetRegenDuration
+
+`func (o *MiscEntity) GetRegenDuration() float64`
+
+GetRegenDuration returns the RegenDuration field if non-nil, zero value otherwise.
+
+### GetRegenDurationOk
+
+`func (o *MiscEntity) GetRegenDurationOk() (*float64, bool)`
+
+GetRegenDurationOk returns a tuple with the RegenDuration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegenDuration
+
+`func (o *MiscEntity) SetRegenDuration(v float64)`
+
+SetRegenDuration sets RegenDuration field to given value.
+
+### HasRegenDuration
+
+`func (o *MiscEntity) HasRegenDuration() bool`
+
+HasRegenDuration returns a boolean if a field has been set.
+
+### SetRegenDurationNil
+
+`func (o *MiscEntity) SetRegenDurationNil(b bool)`
+
+ SetRegenDurationNil sets the value for RegenDuration to be an explicit nil
+
+### UnsetRegenDuration
+`func (o *MiscEntity) UnsetRegenDuration()`
+
+UnsetRegenDuration ensures that no value is present for RegenDuration, not even an explicit nil
+### GetRegenDurationTroopers
+
+`func (o *MiscEntity) GetRegenDurationTroopers() float64`
+
+GetRegenDurationTroopers returns the RegenDurationTroopers field if non-nil, zero value otherwise.
+
+### GetRegenDurationTroopersOk
+
+`func (o *MiscEntity) GetRegenDurationTroopersOk() (*float64, bool)`
+
+GetRegenDurationTroopersOk returns a tuple with the RegenDurationTroopers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegenDurationTroopers
+
+`func (o *MiscEntity) SetRegenDurationTroopers(v float64)`
+
+SetRegenDurationTroopers sets RegenDurationTroopers field to given value.
+
+### HasRegenDurationTroopers
+
+`func (o *MiscEntity) HasRegenDurationTroopers() bool`
+
+HasRegenDurationTroopers returns a boolean if a field has been set.
+
+### SetRegenDurationTroopersNil
+
+`func (o *MiscEntity) SetRegenDurationTroopersNil(b bool)`
+
+ SetRegenDurationTroopersNil sets the value for RegenDurationTroopers to be an explicit nil
+
+### UnsetRegenDurationTroopers
+`func (o *MiscEntity) UnsetRegenDurationTroopers()`
+
+UnsetRegenDurationTroopers ensures that no value is present for RegenDurationTroopers, not even an explicit nil
+### GetRegenMaxHealthPercent
+
+`func (o *MiscEntity) GetRegenMaxHealthPercent() CurveOrFloat`
+
+GetRegenMaxHealthPercent returns the RegenMaxHealthPercent field if non-nil, zero value otherwise.
+
+### GetRegenMaxHealthPercentOk
+
+`func (o *MiscEntity) GetRegenMaxHealthPercentOk() (*CurveOrFloat, bool)`
+
+GetRegenMaxHealthPercentOk returns a tuple with the RegenMaxHealthPercent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegenMaxHealthPercent
+
+`func (o *MiscEntity) SetRegenMaxHealthPercent(v CurveOrFloat)`
+
+SetRegenMaxHealthPercent sets RegenMaxHealthPercent field to given value.
+
+### HasRegenMaxHealthPercent
+
+`func (o *MiscEntity) HasRegenMaxHealthPercent() bool`
+
+HasRegenMaxHealthPercent returns a boolean if a field has been set.
+
+### SetRegenMaxHealthPercentNil
+
+`func (o *MiscEntity) SetRegenMaxHealthPercentNil(b bool)`
+
+ SetRegenMaxHealthPercentNil sets the value for RegenMaxHealthPercent to be an explicit nil
+
+### UnsetRegenMaxHealthPercent
+`func (o *MiscEntity) UnsetRegenMaxHealthPercent()`
+
+UnsetRegenMaxHealthPercent ensures that no value is present for RegenMaxHealthPercent, not even an explicit nil
+### GetRegenTrooperMulti
+
+`func (o *MiscEntity) GetRegenTrooperMulti() float64`
+
+GetRegenTrooperMulti returns the RegenTrooperMulti field if non-nil, zero value otherwise.
+
+### GetRegenTrooperMultiOk
+
+`func (o *MiscEntity) GetRegenTrooperMultiOk() (*float64, bool)`
+
+GetRegenTrooperMultiOk returns a tuple with the RegenTrooperMulti field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegenTrooperMulti
+
+`func (o *MiscEntity) SetRegenTrooperMulti(v float64)`
+
+SetRegenTrooperMulti sets RegenTrooperMulti field to given value.
+
+### HasRegenTrooperMulti
+
+`func (o *MiscEntity) HasRegenTrooperMulti() bool`
+
+HasRegenTrooperMulti returns a boolean if a field has been set.
+
+### SetRegenTrooperMultiNil
+
+`func (o *MiscEntity) SetRegenTrooperMultiNil(b bool)`
+
+ SetRegenTrooperMultiNil sets the value for RegenTrooperMulti to be an explicit nil
+
+### UnsetRegenTrooperMulti
+`func (o *MiscEntity) UnsetRegenTrooperMulti()`
+
+UnsetRegenTrooperMulti ensures that no value is present for RegenTrooperMulti, not even an explicit nil
 ### GetRenderAfterDeath
 
 `func (o *MiscEntity) GetRenderAfterDeath() bool`
@@ -1437,6 +1908,41 @@ HasShowOnMinimap returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetShowOnMinimap()`
 
 UnsetShowOnMinimap ensures that no value is present for ShowOnMinimap, not even an explicit nil
+### GetSinglePickupOverride
+
+`func (o *MiscEntity) GetSinglePickupOverride() string`
+
+GetSinglePickupOverride returns the SinglePickupOverride field if non-nil, zero value otherwise.
+
+### GetSinglePickupOverrideOk
+
+`func (o *MiscEntity) GetSinglePickupOverrideOk() (*string, bool)`
+
+GetSinglePickupOverrideOk returns a tuple with the SinglePickupOverride field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSinglePickupOverride
+
+`func (o *MiscEntity) SetSinglePickupOverride(v string)`
+
+SetSinglePickupOverride sets SinglePickupOverride field to given value.
+
+### HasSinglePickupOverride
+
+`func (o *MiscEntity) HasSinglePickupOverride() bool`
+
+HasSinglePickupOverride returns a boolean if a field has been set.
+
+### SetSinglePickupOverrideNil
+
+`func (o *MiscEntity) SetSinglePickupOverrideNil(b bool)`
+
+ SetSinglePickupOverrideNil sets the value for SinglePickupOverride to be an explicit nil
+
+### UnsetSinglePickupOverride
+`func (o *MiscEntity) UnsetSinglePickupOverride()`
+
+UnsetSinglePickupOverride ensures that no value is present for SinglePickupOverride, not even an explicit nil
 ### GetSolidAfterDeath
 
 `func (o *MiscEntity) GetSolidAfterDeath() bool`
@@ -1472,6 +1978,41 @@ HasSolidAfterDeath returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetSolidAfterDeath()`
 
 UnsetSolidAfterDeath ensures that no value is present for SolidAfterDeath, not even an explicit nil
+### GetSpawnDelay
+
+`func (o *MiscEntity) GetSpawnDelay() float64`
+
+GetSpawnDelay returns the SpawnDelay field if non-nil, zero value otherwise.
+
+### GetSpawnDelayOk
+
+`func (o *MiscEntity) GetSpawnDelayOk() (*float64, bool)`
+
+GetSpawnDelayOk returns a tuple with the SpawnDelay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpawnDelay
+
+`func (o *MiscEntity) SetSpawnDelay(v float64)`
+
+SetSpawnDelay sets SpawnDelay field to given value.
+
+### HasSpawnDelay
+
+`func (o *MiscEntity) HasSpawnDelay() bool`
+
+HasSpawnDelay returns a boolean if a field has been set.
+
+### SetSpawnDelayNil
+
+`func (o *MiscEntity) SetSpawnDelayNil(b bool)`
+
+ SetSpawnDelayNil sets the value for SpawnDelay to be an explicit nil
+
+### UnsetSpawnDelay
+`func (o *MiscEntity) UnsetSpawnDelay()`
+
+UnsetSpawnDelay ensures that no value is present for SpawnDelay, not even an explicit nil
 ### GetSpawnInterval
 
 `func (o *MiscEntity) GetSpawnInterval() float64`
@@ -1542,6 +2083,41 @@ HasSpawnIntervalInSeconds returns a boolean if a field has been set.
 `func (o *MiscEntity) UnsetSpawnIntervalInSeconds()`
 
 UnsetSpawnIntervalInSeconds ensures that no value is present for SpawnIntervalInSeconds, not even an explicit nil
+### GetSpawnMusicState
+
+`func (o *MiscEntity) GetSpawnMusicState() string`
+
+GetSpawnMusicState returns the SpawnMusicState field if non-nil, zero value otherwise.
+
+### GetSpawnMusicStateOk
+
+`func (o *MiscEntity) GetSpawnMusicStateOk() (*string, bool)`
+
+GetSpawnMusicStateOk returns a tuple with the SpawnMusicState field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSpawnMusicState
+
+`func (o *MiscEntity) SetSpawnMusicState(v string)`
+
+SetSpawnMusicState sets SpawnMusicState field to given value.
+
+### HasSpawnMusicState
+
+`func (o *MiscEntity) HasSpawnMusicState() bool`
+
+HasSpawnMusicState returns a boolean if a field has been set.
+
+### SetSpawnMusicStateNil
+
+`func (o *MiscEntity) SetSpawnMusicStateNil(b bool)`
+
+ SetSpawnMusicStateNil sets the value for SpawnMusicState to be an explicit nil
+
+### UnsetSpawnMusicState
+`func (o *MiscEntity) UnsetSpawnMusicState()`
+
+UnsetSpawnMusicState ensures that no value is present for SpawnMusicState, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

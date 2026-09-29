@@ -88,5 +88,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'ZiplinePaths'
         }
+
+        /// <summary>
+        /// Test the property 'NeutralCamps'
+        /// </summary>
+        [Fact]
+        public void NeutralCampsTest()
+        {
+            // TODO unit test for the property 'NeutralCamps'
+        }
     }
 }

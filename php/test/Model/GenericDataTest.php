@@ -98,6 +98,15 @@ class GenericDataTest extends TestCase
     }
 
     /**
+     * Test attribute "breakable_powerup_loot_params"
+     */
+    public function testPropertyBreakablePowerupLootParams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "color_enemy"
      */
     public function testPropertyColorEnemy()
@@ -128,6 +137,15 @@ class GenericDataTest extends TestCase
      * Test attribute "color_team2"
      */
     public function testPropertyColorTeam2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "corrupted_penalties"
+     */
+    public function testPropertyCorruptedPenalties()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -188,6 +206,15 @@ class GenericDataTest extends TestCase
     }
 
     /**
+     * Test attribute "item_corruption_price_per_tier"
+     */
+    public function testPropertyItemCorruptionPricePerTier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "item_price_per_tier"
      */
     public function testPropertyItemPricePerTier()
@@ -200,6 +227,15 @@ class GenericDataTest extends TestCase
      * Test attribute "lane_info"
      */
     public function testPropertyLaneInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "map_districts"
+     */
+    public function testPropertyMapDistricts()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -227,6 +263,15 @@ class GenericDataTest extends TestCase
      * Test attribute "minimap_team_rebels_color"
      */
     public function testPropertyMinimapTeamRebelsColor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_camp_respawn_timer_show_distance"
+     */
+    public function testPropertyNeutralCampRespawnTimerShowDistance()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -84,16 +84,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => 'bool',
         'activation' => '\OpenAPI\Client\Model\AbilityActivation',
         'component_items' => 'string[]',
+        'corrupted_info' => '\OpenAPI\Client\Model\CorruptedItemInfo',
         'cost' => 'int',
+        'disable_item_target' => 'string',
         'disabled' => 'bool',
+        'disabled_shop_filters' => 'string[]',
         'imbue' => '\OpenAPI\Client\Model\AbilityImbue',
         'is_active_item' => 'bool',
         'item_slot_type' => '\OpenAPI\Client\Model\ItemSlotType',
         'item_tier' => 'int',
+        'shop_filters' => 'string[]',
         'shop_image' => 'string',
         'shop_image_small' => 'string',
         'shop_image_small_webp' => 'string',
         'shop_image_webp' => 'string',
+        'shop_version' => 'int',
         'shopable' => 'bool',
         'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSection[]'
     ];
@@ -133,16 +138,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => null,
         'activation' => null,
         'component_items' => null,
+        'corrupted_info' => null,
         'cost' => 'int32',
+        'disable_item_target' => null,
         'disabled' => null,
+        'disabled_shop_filters' => null,
         'imbue' => null,
         'is_active_item' => null,
         'item_slot_type' => null,
         'item_tier' => 'int32',
+        'shop_filters' => null,
         'shop_image' => null,
         'shop_image_small' => null,
         'shop_image_small_webp' => null,
         'shop_image_webp' => null,
+        'shop_version' => 'int64',
         'shopable' => null,
         'tooltip_sections' => null
     ];
@@ -180,16 +190,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => false,
         'activation' => false,
         'component_items' => false,
+        'corrupted_info' => false,
         'cost' => false,
+        'disable_item_target' => false,
         'disabled' => false,
+        'disabled_shop_filters' => false,
         'imbue' => false,
         'is_active_item' => false,
         'item_slot_type' => false,
         'item_tier' => false,
+        'shop_filters' => false,
         'shop_image' => false,
         'shop_image_small' => false,
         'shop_image_small_webp' => false,
         'shop_image_webp' => false,
+        'shop_version' => false,
         'shopable' => false,
         'tooltip_sections' => false
     ];
@@ -307,16 +322,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => 'use_custom_crosshair_settings',
         'activation' => 'activation',
         'component_items' => 'component_items',
+        'corrupted_info' => 'corrupted_info',
         'cost' => 'cost',
+        'disable_item_target' => 'disable_item_target',
         'disabled' => 'disabled',
+        'disabled_shop_filters' => 'disabled_shop_filters',
         'imbue' => 'imbue',
         'is_active_item' => 'is_active_item',
         'item_slot_type' => 'item_slot_type',
         'item_tier' => 'item_tier',
+        'shop_filters' => 'shop_filters',
         'shop_image' => 'shop_image',
         'shop_image_small' => 'shop_image_small',
         'shop_image_small_webp' => 'shop_image_small_webp',
         'shop_image_webp' => 'shop_image_webp',
+        'shop_version' => 'shop_version',
         'shopable' => 'shopable',
         'tooltip_sections' => 'tooltip_sections'
     ];
@@ -354,16 +374,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => 'setUseCustomCrosshairSettings',
         'activation' => 'setActivation',
         'component_items' => 'setComponentItems',
+        'corrupted_info' => 'setCorruptedInfo',
         'cost' => 'setCost',
+        'disable_item_target' => 'setDisableItemTarget',
         'disabled' => 'setDisabled',
+        'disabled_shop_filters' => 'setDisabledShopFilters',
         'imbue' => 'setImbue',
         'is_active_item' => 'setIsActiveItem',
         'item_slot_type' => 'setItemSlotType',
         'item_tier' => 'setItemTier',
+        'shop_filters' => 'setShopFilters',
         'shop_image' => 'setShopImage',
         'shop_image_small' => 'setShopImageSmall',
         'shop_image_small_webp' => 'setShopImageSmallWebp',
         'shop_image_webp' => 'setShopImageWebp',
+        'shop_version' => 'setShopVersion',
         'shopable' => 'setShopable',
         'tooltip_sections' => 'setTooltipSections'
     ];
@@ -401,16 +426,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'use_custom_crosshair_settings' => 'getUseCustomCrosshairSettings',
         'activation' => 'getActivation',
         'component_items' => 'getComponentItems',
+        'corrupted_info' => 'getCorruptedInfo',
         'cost' => 'getCost',
+        'disable_item_target' => 'getDisableItemTarget',
         'disabled' => 'getDisabled',
+        'disabled_shop_filters' => 'getDisabledShopFilters',
         'imbue' => 'getImbue',
         'is_active_item' => 'getIsActiveItem',
         'item_slot_type' => 'getItemSlotType',
         'item_tier' => 'getItemTier',
+        'shop_filters' => 'getShopFilters',
         'shop_image' => 'getShopImage',
         'shop_image_small' => 'getShopImageSmall',
         'shop_image_small_webp' => 'getShopImageSmallWebp',
         'shop_image_webp' => 'getShopImageWebp',
+        'shop_version' => 'getShopVersion',
         'shopable' => 'getShopable',
         'tooltip_sections' => 'getTooltipSections'
     ];
@@ -499,16 +529,21 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('use_custom_crosshair_settings', $data ?? [], null);
         $this->setIfExists('activation', $data ?? [], null);
         $this->setIfExists('component_items', $data ?? [], null);
+        $this->setIfExists('corrupted_info', $data ?? [], null);
         $this->setIfExists('cost', $data ?? [], null);
+        $this->setIfExists('disable_item_target', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
+        $this->setIfExists('disabled_shop_filters', $data ?? [], null);
         $this->setIfExists('imbue', $data ?? [], null);
         $this->setIfExists('is_active_item', $data ?? [], null);
         $this->setIfExists('item_slot_type', $data ?? [], null);
         $this->setIfExists('item_tier', $data ?? [], null);
+        $this->setIfExists('shop_filters', $data ?? [], null);
         $this->setIfExists('shop_image', $data ?? [], null);
         $this->setIfExists('shop_image_small', $data ?? [], null);
         $this->setIfExists('shop_image_small_webp', $data ?? [], null);
         $this->setIfExists('shop_image_webp', $data ?? [], null);
+        $this->setIfExists('shop_version', $data ?? [], null);
         $this->setIfExists('shopable', $data ?? [], null);
         $this->setIfExists('tooltip_sections', $data ?? [], null);
     }
@@ -1339,6 +1374,33 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets corrupted_info
+     *
+     * @return \OpenAPI\Client\Model\CorruptedItemInfo|null
+     */
+    public function getCorruptedInfo()
+    {
+        return $this->container['corrupted_info'];
+    }
+
+    /**
+     * Sets corrupted_info
+     *
+     * @param \OpenAPI\Client\Model\CorruptedItemInfo|null $corrupted_info Present on upgrades the Broker can corrupt (build 6711+).
+     *
+     * @return self
+     */
+    public function setCorruptedInfo($corrupted_info)
+    {
+        if (is_null($corrupted_info)) {
+            throw new \InvalidArgumentException('non-nullable corrupted_info cannot be null');
+        }
+        $this->container['corrupted_info'] = $corrupted_info;
+
+        return $this;
+    }
+
+    /**
      * Gets cost
      *
      * @return int|null
@@ -1370,6 +1432,33 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets disable_item_target
+     *
+     * @return string|null
+     */
+    public function getDisableItemTarget()
+    {
+        return $this->container['disable_item_target'];
+    }
+
+    /**
+     * Sets disable_item_target
+     *
+     * @param string|null $disable_item_target disable_item_target
+     *
+     * @return self
+     */
+    public function setDisableItemTarget($disable_item_target)
+    {
+        if (is_null($disable_item_target)) {
+            throw new \InvalidArgumentException('non-nullable disable_item_target cannot be null');
+        }
+        $this->container['disable_item_target'] = $disable_item_target;
+
+        return $this;
+    }
+
+    /**
      * Gets disabled
      *
      * @return bool|null
@@ -1392,6 +1481,33 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable disabled cannot be null');
         }
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabled_shop_filters
+     *
+     * @return string[]|null
+     */
+    public function getDisabledShopFilters()
+    {
+        return $this->container['disabled_shop_filters'];
+    }
+
+    /**
+     * Sets disabled_shop_filters
+     *
+     * @param string[]|null $disabled_shop_filters Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+     *
+     * @return self
+     */
+    public function setDisabledShopFilters($disabled_shop_filters)
+    {
+        if (is_null($disabled_shop_filters)) {
+            throw new \InvalidArgumentException('non-nullable disabled_shop_filters cannot be null');
+        }
+        $this->container['disabled_shop_filters'] = $disabled_shop_filters;
 
         return $this;
     }
@@ -1509,6 +1625,33 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets shop_filters
+     *
+     * @return string[]|null
+     */
+    public function getShopFilters()
+    {
+        return $this->container['shop_filters'];
+    }
+
+    /**
+     * Sets shop_filters
+     *
+     * @param string[]|null $shop_filters Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+     *
+     * @return self
+     */
+    public function setShopFilters($shop_filters)
+    {
+        if (is_null($shop_filters)) {
+            throw new \InvalidArgumentException('non-nullable shop_filters cannot be null');
+        }
+        $this->container['shop_filters'] = $shop_filters;
+
+        return $this;
+    }
+
+    /**
      * Gets shop_image
      *
      * @return string|null
@@ -1612,6 +1755,33 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable shop_image_webp cannot be null');
         }
         $this->container['shop_image_webp'] = $shop_image_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets shop_version
+     *
+     * @return int|null
+     */
+    public function getShopVersion()
+    {
+        return $this->container['shop_version'];
+    }
+
+    /**
+     * Sets shop_version
+     *
+     * @param int|null $shop_version shop_version
+     *
+     * @return self
+     */
+    public function setShopVersion($shop_version)
+    {
+        if (is_null($shop_version)) {
+            throw new \InvalidArgumentException('non-nullable shop_version cannot be null');
+        }
+        $this->container['shop_version'] = $shop_version;
 
         return $this;
     }

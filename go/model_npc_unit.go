@@ -46,6 +46,10 @@ type NpcUnit struct {
 	HealthBarColorTeam2 NullableColor `json:"health_bar_color_team2,omitempty"`
 	HealthBarColorTeamNeutral NullableColor `json:"health_bar_color_team_neutral,omitempty"`
 	Id int32 `json:"id"`
+	// Unit icon (`m_strCustomUnitIcon`) as png.
+	Image NullableString `json:"image,omitempty"`
+	// Unit icon (`m_strCustomUnitIcon`) as webp.
+	ImageWebp NullableString `json:"image_webp,omitempty"`
 	IntrinsicModifiers []SubclassIntrinsicModifiers `json:"intrinsic_modifiers,omitempty"`
 	LaserDpsMaxHealth NullableFloat64 `json:"laser_dps_max_health,omitempty"`
 	LaserDpsToPlayers NullableFloat64 `json:"laser_dps_to_players,omitempty"`
@@ -56,7 +60,16 @@ type NpcUnit struct {
 	MeleeDamage NullableFloat64 `json:"melee_damage,omitempty"`
 	MeleeDuration NullableFloat64 `json:"melee_duration,omitempty"`
 	MeleeHitRange NullableFloat64 `json:"melee_hit_range,omitempty"`
+	// Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+	Name NullableString `json:"name,omitempty"`
 	NearDeathDuration NullableFloat64 `json:"near_death_duration,omitempty"`
+	// Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+	NeutralAbilities []string `json:"neutral_abilities,omitempty"`
+	NeutralDamageGrowth NullableSubclassNeutralDamageGrowth `json:"neutral_damage_growth,omitempty"`
+	// Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+	NeutralMelee NullableString `json:"neutral_melee,omitempty"`
+	// Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+	NeutralType NullableString `json:"neutral_type,omitempty"`
 	NoShieldLaserDpsToPlayers NullableFloat64 `json:"no_shield_laser_dps_to_players,omitempty"`
 	ObjectiveHealthGrowthPhase1 NullableSubclassObjectiveHealthGrowthPhase `json:"objective_health_growth_phase1,omitempty"`
 	ObjectiveHealthGrowthPhase2 NullableSubclassObjectiveHealthGrowthPhase `json:"objective_health_growth_phase2,omitempty"`
@@ -87,6 +100,8 @@ type NpcUnit struct {
 	T3BossDps NullableFloat64 `json:"t3_boss_dps,omitempty"`
 	TrooperDamageResistPct NullableFloat64 `json:"trooper_damage_resist_pct,omitempty"`
 	TrooperDps NullableFloat64 `json:"trooper_dps,omitempty"`
+	// Distance threshold (as string key) → soul orb class shown to the viewer.
+	ViewerSoulsClass map[string]string `json:"viewer_souls_class,omitempty"`
 	WalkSpeed NullableFloat64 `json:"walk_speed,omitempty"`
 	WeaponInfo NullableWeaponInfo `json:"weapon_info,omitempty"`
 }
@@ -1075,6 +1090,90 @@ func (o *NpcUnit) SetId(v int32) {
 	o.Id = v
 }
 
+// GetImage returns the Image field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetImage() string {
+	if o == nil || IsNil(o.Image.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Image.Get()
+}
+
+// GetImageOk returns a tuple with the Image field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetImageOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Image.Get(), o.Image.IsSet()
+}
+
+// HasImage returns a boolean if a field has been set.
+func (o *NpcUnit) HasImage() bool {
+	if o != nil && o.Image.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImage gets a reference to the given NullableString and assigns it to the Image field.
+func (o *NpcUnit) SetImage(v string) {
+	o.Image.Set(&v)
+}
+// SetImageNil sets the value for Image to be an explicit nil
+func (o *NpcUnit) SetImageNil() {
+	o.Image.Set(nil)
+}
+
+// UnsetImage ensures that no value is present for Image, not even an explicit nil
+func (o *NpcUnit) UnsetImage() {
+	o.Image.Unset()
+}
+
+// GetImageWebp returns the ImageWebp field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetImageWebp() string {
+	if o == nil || IsNil(o.ImageWebp.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.ImageWebp.Get()
+}
+
+// GetImageWebpOk returns a tuple with the ImageWebp field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetImageWebpOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.ImageWebp.Get(), o.ImageWebp.IsSet()
+}
+
+// HasImageWebp returns a boolean if a field has been set.
+func (o *NpcUnit) HasImageWebp() bool {
+	if o != nil && o.ImageWebp.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetImageWebp gets a reference to the given NullableString and assigns it to the ImageWebp field.
+func (o *NpcUnit) SetImageWebp(v string) {
+	o.ImageWebp.Set(&v)
+}
+// SetImageWebpNil sets the value for ImageWebp to be an explicit nil
+func (o *NpcUnit) SetImageWebpNil() {
+	o.ImageWebp.Set(nil)
+}
+
+// UnsetImageWebp ensures that no value is present for ImageWebp, not even an explicit nil
+func (o *NpcUnit) UnsetImageWebp() {
+	o.ImageWebp.Unset()
+}
+
 // GetIntrinsicModifiers returns the IntrinsicModifiers field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NpcUnit) GetIntrinsicModifiers() []SubclassIntrinsicModifiers {
 	if o == nil {
@@ -1486,6 +1585,48 @@ func (o *NpcUnit) UnsetMeleeHitRange() {
 	o.MeleeHitRange.Unset()
 }
 
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetName() string {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *NpcUnit) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *NpcUnit) SetName(v string) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *NpcUnit) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *NpcUnit) UnsetName() {
+	o.Name.Unset()
+}
+
 // GetNearDeathDuration returns the NearDeathDuration field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NpcUnit) GetNearDeathDuration() float64 {
 	if o == nil || IsNil(o.NearDeathDuration.Get()) {
@@ -1526,6 +1667,165 @@ func (o *NpcUnit) SetNearDeathDurationNil() {
 // UnsetNearDeathDuration ensures that no value is present for NearDeathDuration, not even an explicit nil
 func (o *NpcUnit) UnsetNearDeathDuration() {
 	o.NearDeathDuration.Unset()
+}
+
+// GetNeutralAbilities returns the NeutralAbilities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetNeutralAbilities() []string {
+	if o == nil {
+		var ret []string
+		return ret
+	}
+	return o.NeutralAbilities
+}
+
+// GetNeutralAbilitiesOk returns a tuple with the NeutralAbilities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetNeutralAbilitiesOk() ([]string, bool) {
+	if o == nil || IsNil(o.NeutralAbilities) {
+		return nil, false
+	}
+	return o.NeutralAbilities, true
+}
+
+// HasNeutralAbilities returns a boolean if a field has been set.
+func (o *NpcUnit) HasNeutralAbilities() bool {
+	if o != nil && !IsNil(o.NeutralAbilities) {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralAbilities gets a reference to the given []string and assigns it to the NeutralAbilities field.
+func (o *NpcUnit) SetNeutralAbilities(v []string) {
+	o.NeutralAbilities = v
+}
+
+// GetNeutralDamageGrowth returns the NeutralDamageGrowth field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetNeutralDamageGrowth() SubclassNeutralDamageGrowth {
+	if o == nil || IsNil(o.NeutralDamageGrowth.Get()) {
+		var ret SubclassNeutralDamageGrowth
+		return ret
+	}
+	return *o.NeutralDamageGrowth.Get()
+}
+
+// GetNeutralDamageGrowthOk returns a tuple with the NeutralDamageGrowth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetNeutralDamageGrowthOk() (*SubclassNeutralDamageGrowth, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NeutralDamageGrowth.Get(), o.NeutralDamageGrowth.IsSet()
+}
+
+// HasNeutralDamageGrowth returns a boolean if a field has been set.
+func (o *NpcUnit) HasNeutralDamageGrowth() bool {
+	if o != nil && o.NeutralDamageGrowth.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralDamageGrowth gets a reference to the given NullableSubclassNeutralDamageGrowth and assigns it to the NeutralDamageGrowth field.
+func (o *NpcUnit) SetNeutralDamageGrowth(v SubclassNeutralDamageGrowth) {
+	o.NeutralDamageGrowth.Set(&v)
+}
+// SetNeutralDamageGrowthNil sets the value for NeutralDamageGrowth to be an explicit nil
+func (o *NpcUnit) SetNeutralDamageGrowthNil() {
+	o.NeutralDamageGrowth.Set(nil)
+}
+
+// UnsetNeutralDamageGrowth ensures that no value is present for NeutralDamageGrowth, not even an explicit nil
+func (o *NpcUnit) UnsetNeutralDamageGrowth() {
+	o.NeutralDamageGrowth.Unset()
+}
+
+// GetNeutralMelee returns the NeutralMelee field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetNeutralMelee() string {
+	if o == nil || IsNil(o.NeutralMelee.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NeutralMelee.Get()
+}
+
+// GetNeutralMeleeOk returns a tuple with the NeutralMelee field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetNeutralMeleeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NeutralMelee.Get(), o.NeutralMelee.IsSet()
+}
+
+// HasNeutralMelee returns a boolean if a field has been set.
+func (o *NpcUnit) HasNeutralMelee() bool {
+	if o != nil && o.NeutralMelee.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralMelee gets a reference to the given NullableString and assigns it to the NeutralMelee field.
+func (o *NpcUnit) SetNeutralMelee(v string) {
+	o.NeutralMelee.Set(&v)
+}
+// SetNeutralMeleeNil sets the value for NeutralMelee to be an explicit nil
+func (o *NpcUnit) SetNeutralMeleeNil() {
+	o.NeutralMelee.Set(nil)
+}
+
+// UnsetNeutralMelee ensures that no value is present for NeutralMelee, not even an explicit nil
+func (o *NpcUnit) UnsetNeutralMelee() {
+	o.NeutralMelee.Unset()
+}
+
+// GetNeutralType returns the NeutralType field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetNeutralType() string {
+	if o == nil || IsNil(o.NeutralType.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NeutralType.Get()
+}
+
+// GetNeutralTypeOk returns a tuple with the NeutralType field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetNeutralTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NeutralType.Get(), o.NeutralType.IsSet()
+}
+
+// HasNeutralType returns a boolean if a field has been set.
+func (o *NpcUnit) HasNeutralType() bool {
+	if o != nil && o.NeutralType.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNeutralType gets a reference to the given NullableString and assigns it to the NeutralType field.
+func (o *NpcUnit) SetNeutralType(v string) {
+	o.NeutralType.Set(&v)
+}
+// SetNeutralTypeNil sets the value for NeutralType to be an explicit nil
+func (o *NpcUnit) SetNeutralTypeNil() {
+	o.NeutralType.Set(nil)
+}
+
+// UnsetNeutralType ensures that no value is present for NeutralType, not even an explicit nil
+func (o *NpcUnit) UnsetNeutralType() {
+	o.NeutralType.Unset()
 }
 
 // GetNoShieldLaserDpsToPlayers returns the NoShieldLaserDpsToPlayers field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -2788,6 +3088,39 @@ func (o *NpcUnit) UnsetTrooperDps() {
 	o.TrooperDps.Unset()
 }
 
+// GetViewerSoulsClass returns the ViewerSoulsClass field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetViewerSoulsClass() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+	return o.ViewerSoulsClass
+}
+
+// GetViewerSoulsClassOk returns a tuple with the ViewerSoulsClass field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetViewerSoulsClassOk() (map[string]string, bool) {
+	if o == nil || IsNil(o.ViewerSoulsClass) {
+		return map[string]string{}, false
+	}
+	return o.ViewerSoulsClass, true
+}
+
+// HasViewerSoulsClass returns a boolean if a field has been set.
+func (o *NpcUnit) HasViewerSoulsClass() bool {
+	if o != nil && !IsNil(o.ViewerSoulsClass) {
+		return true
+	}
+
+	return false
+}
+
+// SetViewerSoulsClass gets a reference to the given map[string]string and assigns it to the ViewerSoulsClass field.
+func (o *NpcUnit) SetViewerSoulsClass(v map[string]string) {
+	o.ViewerSoulsClass = v
+}
+
 // GetWalkSpeed returns the WalkSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NpcUnit) GetWalkSpeed() float64 {
 	if o == nil || IsNil(o.WalkSpeed.Get()) {
@@ -2950,6 +3283,12 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 		toSerialize["health_bar_color_team_neutral"] = o.HealthBarColorTeamNeutral.Get()
 	}
 	toSerialize["id"] = o.Id
+	if o.Image.IsSet() {
+		toSerialize["image"] = o.Image.Get()
+	}
+	if o.ImageWebp.IsSet() {
+		toSerialize["image_webp"] = o.ImageWebp.Get()
+	}
 	if o.IntrinsicModifiers != nil {
 		toSerialize["intrinsic_modifiers"] = o.IntrinsicModifiers
 	}
@@ -2980,8 +3319,23 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	if o.MeleeHitRange.IsSet() {
 		toSerialize["melee_hit_range"] = o.MeleeHitRange.Get()
 	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
 	if o.NearDeathDuration.IsSet() {
 		toSerialize["near_death_duration"] = o.NearDeathDuration.Get()
+	}
+	if o.NeutralAbilities != nil {
+		toSerialize["neutral_abilities"] = o.NeutralAbilities
+	}
+	if o.NeutralDamageGrowth.IsSet() {
+		toSerialize["neutral_damage_growth"] = o.NeutralDamageGrowth.Get()
+	}
+	if o.NeutralMelee.IsSet() {
+		toSerialize["neutral_melee"] = o.NeutralMelee.Get()
+	}
+	if o.NeutralType.IsSet() {
+		toSerialize["neutral_type"] = o.NeutralType.Get()
 	}
 	if o.NoShieldLaserDpsToPlayers.IsSet() {
 		toSerialize["no_shield_laser_dps_to_players"] = o.NoShieldLaserDpsToPlayers.Get()
@@ -3072,6 +3426,9 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	}
 	if o.TrooperDps.IsSet() {
 		toSerialize["trooper_dps"] = o.TrooperDps.Get()
+	}
+	if o.ViewerSoulsClass != nil {
+		toSerialize["viewer_souls_class"] = o.ViewerSoulsClass
 	}
 	if o.WalkSpeed.IsSet() {
 		toSerialize["walk_speed"] = o.WalkSpeed.Get()

@@ -22,10 +22,12 @@ import {
 
 export interface GetMiscEntityRequest {
     idOrClassname: string;
+    language?: GetMiscEntityLanguageEnum;
     clientVersion?: number;
 }
 
 export interface ListMiscEntitiesRequest {
+    language?: ListMiscEntitiesLanguageEnum;
     clientVersion?: number;
 }
 
@@ -42,6 +44,11 @@ function getMiscEntityRaw<T>(requestParameters: GetMiscEntityRequest, requestCon
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.language !== undefined) {
+        queryParameters['language'] = requestParameters.language;
+    }
 
 
     if (requestParameters.clientVersion !== undefined) {
@@ -85,13 +92,18 @@ export function getMiscEntity<T>(requestParameters: GetMiscEntityRequest, reques
 }
 
 /**
- * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+ * Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
  * List Misc Entities
  */
 function listMiscEntitiesRaw<T>(requestParameters: ListMiscEntitiesRequest, requestConfig: runtime.TypedQueryConfig<T, Array<MiscEntity>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
     queryParameters = {};
+
+
+    if (requestParameters.language !== undefined) {
+        queryParameters['language'] = requestParameters.language;
+    }
 
 
     if (requestParameters.clientVersion !== undefined) {
@@ -127,10 +139,81 @@ function listMiscEntitiesRaw<T>(requestParameters: ListMiscEntitiesRequest, requ
 }
 
 /**
-* Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files.
+* Returns the per-misc-entity metadata used by the game client, parsed from the patch\'s KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 * List Misc Entities
 */
 export function listMiscEntities<T>(requestParameters: ListMiscEntitiesRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MiscEntity>>): QueryConfig<T> {
     return listMiscEntitiesRaw(requestParameters, requestConfig);
 }
 
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum GetMiscEntityLanguageEnum {
+    Brazilian = 'brazilian',
+    Bulgarian = 'bulgarian',
+    Czech = 'czech',
+    Danish = 'danish',
+    Dutch = 'dutch',
+    English = 'english',
+    Finnish = 'finnish',
+    French = 'french',
+    German = 'german',
+    Greek = 'greek',
+    Hungarian = 'hungarian',
+    Indonesian = 'indonesian',
+    Italian = 'italian',
+    Japanese = 'japanese',
+    Koreana = 'koreana',
+    Latam = 'latam',
+    Norwegian = 'norwegian',
+    Polish = 'polish',
+    Portuguese = 'portuguese',
+    Romanian = 'romanian',
+    Russian = 'russian',
+    Schinese = 'schinese',
+    Spanish = 'spanish',
+    Swedish = 'swedish',
+    Tchinese = 'tchinese',
+    Thai = 'thai',
+    Turkish = 'turkish',
+    Ukrainian = 'ukrainian',
+    Vietnamese = 'vietnamese'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ListMiscEntitiesLanguageEnum {
+    Brazilian = 'brazilian',
+    Bulgarian = 'bulgarian',
+    Czech = 'czech',
+    Danish = 'danish',
+    Dutch = 'dutch',
+    English = 'english',
+    Finnish = 'finnish',
+    French = 'french',
+    German = 'german',
+    Greek = 'greek',
+    Hungarian = 'hungarian',
+    Indonesian = 'indonesian',
+    Italian = 'italian',
+    Japanese = 'japanese',
+    Koreana = 'koreana',
+    Latam = 'latam',
+    Norwegian = 'norwegian',
+    Polish = 'polish',
+    Portuguese = 'portuguese',
+    Romanian = 'romanian',
+    Russian = 'russian',
+    Schinese = 'schinese',
+    Spanish = 'spanish',
+    Swedish = 'swedish',
+    Tchinese = 'tchinese',
+    Thai = 'thai',
+    Turkish = 'turkish',
+    Ukrainian = 'ukrainian',
+    Vietnamese = 'vietnamese'
+}

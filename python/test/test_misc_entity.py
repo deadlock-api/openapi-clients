@@ -42,8 +42,10 @@ class TestMiscEntity(unittest.TestCase):
                     green = 0, 
                     red = 0, ),
                 buff_type_loc_string = '',
+                buff_type_name = '',
                 buff_type_value_unit = '',
                 class_name = '',
+                collection_method = '',
                 collision_radius = 1.337,
                 color = deadlock_api_client.models.color.Color(
                     alpha = 0, 
@@ -60,32 +62,16 @@ class TestMiscEntity(unittest.TestCase):
                 health = 56,
                 heavy_melee_hit_count = 56,
                 heavy_melee_only = True,
+                hits_required = 56,
                 id = 0,
-                initial_spawn_delay_in_seconds = 56,
-                initial_spawn_delay_seconds = 56,
-                initial_spawn_time = 1.337,
-                is_mantleable = True,
-                lifetime = 1.337,
-                loot_list_deck_size = 56,
-                m_vec_pickups_lv2 = [
-                    deadlock_api_client.models.pickup.Pickup(
-                        pickup_name = '', 
-                        pickup_weight = 1.337, )
-                    ],
-                m_vec_pickups_lv3 = [
-                    deadlock_api_client.models.pickup.Pickup(
-                        pickup_name = '', 
-                        pickup_weight = 1.337, )
-                    ],
-                match_time_mins_for_level2_pickups = 56,
-                match_time_mins_for_level3_pickups = 56,
-                modifier = deadlock_api_client.models.subclass_modifier_definition.Subclass_ModifierDefinition(
+                in_shop_modifier = deadlock_api_client.models.subclass_modifier_definition.Subclass_ModifierDefinition(
                     subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
                         always_show_in_ui = [
                             ''
                             ], 
                         class_name = '', 
                         duration = 1.337, 
+                        enabled_state_mask = '', 
                         modifier_values = [
                             deadlock_api_client.models.modifier_value.ModifierValue(
                                 value = 1.337, 
@@ -103,8 +89,56 @@ class TestMiscEntity(unittest.TestCase):
                         subclass_name = '', 
                         time_max = 1.337, 
                         time_min = 1.337, ), ),
+                initial_spawn_delay_in_seconds = 56,
+                initial_spawn_delay_seconds = 56,
+                initial_spawn_time = 1.337,
+                is_mantleable = True,
+                is_permanent_pickup = True,
+                lifetime = 1.337,
+                loot_list_deck_size = 56,
+                m_vec_pickups_lv2 = [
+                    deadlock_api_client.models.pickup.Pickup(
+                        pickup_name = '', 
+                        pickup_weight = 1.337, )
+                    ],
+                m_vec_pickups_lv3 = [
+                    deadlock_api_client.models.pickup.Pickup(
+                        pickup_name = '', 
+                        pickup_weight = 1.337, )
+                    ],
+                match_time_mins_for_level2_pickups = 56,
+                match_time_mins_for_level3_pickups = 56,
+                minimap_class = '',
+                modifier = deadlock_api_client.models.subclass_modifier_definition.Subclass_ModifierDefinition(
+                    subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
+                        always_show_in_ui = [
+                            ''
+                            ], 
+                        class_name = '', 
+                        duration = 1.337, 
+                        enabled_state_mask = '', 
+                        modifier_values = [
+                            deadlock_api_client.models.modifier_value.ModifierValue(
+                                value = 1.337, 
+                                value_max = 1.337, 
+                                value_min = 1.337, 
+                                value_type = '', )
+                            ], 
+                        script_values = [
+                            deadlock_api_client.models.modifier_value.ModifierValue(
+                                value = 1.337, 
+                                value_max = 1.337, 
+                                value_min = 1.337, 
+                                value_type = '', )
+                            ], 
+                        subclass_name = '', 
+                        time_max = 1.337, 
+                        time_min = 1.337, ), ),
+                name = '',
+                name_loc_string = '',
                 orb_spawn_delay_max = 1.337,
                 orb_spawn_delay_min = 1.337,
+                pickup = '',
                 pickup_chances = {
                     'key' : 1.337
                     },
@@ -116,13 +150,20 @@ class TestMiscEntity(unittest.TestCase):
                         pickup_name = '', 
                         pickup_weight = 1.337, )
                     ],
+                regen_duration = 1.337,
+                regen_duration_troopers = 1.337,
+                regen_max_health_percent = None,
+                regen_trooper_multi = 1.337,
                 render_after_death = True,
                 respawn_time = 1.337,
                 roll_type = '',
                 show_on_minimap = True,
+                single_pickup_override = '',
                 solid_after_death = True,
+                spawn_delay = 1.337,
                 spawn_interval = 1.337,
-                spawn_interval_in_seconds = 56
+                spawn_interval_in_seconds = 56,
+                spawn_music_state = ''
             )
         else:
             return MiscEntity(

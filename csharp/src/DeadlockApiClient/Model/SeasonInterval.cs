@@ -36,12 +36,14 @@ namespace DeadlockApiClient.Model
         /// <param name="endTimestamp">Unix timestamp (seconds) at which the interval ends.</param>
         /// <param name="interval">interval</param>
         /// <param name="startTimestamp">Unix timestamp (seconds) at which the interval starts.</param>
+        /// <param name="leaderboardId">Leaderboard backing this interval (build 6701+).</param>
         [JsonConstructor]
-        public SeasonInterval(long endTimestamp, int interval, long startTimestamp)
+        public SeasonInterval(long endTimestamp, int interval, long startTimestamp, Option<int?> leaderboardId = default)
         {
             EndTimestamp = endTimestamp;
             Interval = interval;
             StartTimestamp = startTimestamp;
+            LeaderboardIdOption = leaderboardId;
             OnCreated();
         }
 
@@ -68,6 +70,20 @@ namespace DeadlockApiClient.Model
         public long StartTimestamp { get; set; }
 
         /// <summary>
+        /// Used to track the state of LeaderboardId
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> LeaderboardIdOption { get; private set; }
+
+        /// <summary>
+        /// Leaderboard backing this interval (build 6701+).
+        /// </summary>
+        /// <value>Leaderboard backing this interval (build 6701+).</value>
+        [JsonPropertyName("leaderboard_id")]
+        public int? LeaderboardId { get { return this.LeaderboardIdOption.Value; } set { this.LeaderboardIdOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +94,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  EndTimestamp: ").Append(EndTimestamp).Append("\n");
             sb.Append("  Interval: ").Append(Interval).Append("\n");
             sb.Append("  StartTimestamp: ").Append(StartTimestamp).Append("\n");
+            sb.Append("  LeaderboardId: ").Append(LeaderboardId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +110,12 @@ namespace DeadlockApiClient.Model
             if (this.Interval < (int)0)
             {
                 yield return new ValidationResult("Invalid value for Interval, must be a value greater than or equal to 0.", new [] { "Interval" });
+            }
+
+            // LeaderboardId (int) minimum
+            if (this.LeaderboardIdOption.IsSet && this.LeaderboardIdOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for LeaderboardId, must be a value greater than or equal to 0.", new [] { "LeaderboardId" });
             }
 
             yield break;
@@ -134,6 +157,7 @@ namespace DeadlockApiClient.Model
             Option<long?> endTimestamp = default;
             Option<int?> interval = default;
             Option<long?> startTimestamp = default;
+            Option<int?> leaderboardId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -159,6 +183,9 @@ namespace DeadlockApiClient.Model
                         case "start_timestamp":
                             startTimestamp = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
+                        case "leaderboard_id":
+                            leaderboardId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         default:
                             break;
                     }
@@ -183,7 +210,7 @@ namespace DeadlockApiClient.Model
             if (startTimestamp.IsSet && startTimestamp.Value == null)
                 throw new ArgumentNullException(nameof(startTimestamp), "Property is not nullable for class SeasonInterval.");
 
-            return new SeasonInterval(endTimestamp.Value!.Value!, interval.Value!.Value!, startTimestamp.Value!.Value!);
+            return new SeasonInterval(endTimestamp.Value!.Value!, interval.Value!.Value!, startTimestamp.Value!.Value!, leaderboardId);
         }
 
         /// <summary>
@@ -215,6 +242,12 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("interval", seasonInterval.Interval);
 
             writer.WriteNumber("start_timestamp", seasonInterval.StartTimestamp);
+
+            if (seasonInterval.LeaderboardIdOption.IsSet)
+                if (seasonInterval.LeaderboardIdOption.Value != null)
+                    writer.WriteNumber("leaderboard_id", seasonInterval.LeaderboardIdOption.Value!.Value);
+                else
+                    writer.WriteNull("leaderboard_id");
         }
     }
 }

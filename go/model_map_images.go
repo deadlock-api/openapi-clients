@@ -21,16 +21,16 @@ var _ MappedNullable = &MapImages{}
 
 // MapImages CDN URLs for the minimap image layers.
 type MapImages struct {
-	// Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
-	Background string `json:"background"`
+	// Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
+	Background NullableString `json:"background,omitempty"`
 	Frame string `json:"frame"`
 	// Midtown base layer.
 	Mid string `json:"mid"`
 	// Mid tunnels overlay, drawn above `mid` (build 6711+).
 	MidTunnels NullableString `json:"mid_tunnels,omitempty"`
-	// Full minimap. From build 6711 on this is the midtown base layer.
+	// Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
 	Minimap string `json:"minimap"`
-	// Minimap without overlays. From build 6711 on this is the midtown base layer.
+	// Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
 	Plain string `json:"plain"`
 	// Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
 	RatTunnels NullableString `json:"rat_tunnels,omitempty"`
@@ -42,9 +42,8 @@ type _MapImages MapImages
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMapImages(background string, frame string, mid string, minimap string, plain string) *MapImages {
+func NewMapImages(frame string, mid string, minimap string, plain string) *MapImages {
 	this := MapImages{}
-	this.Background = background
 	this.Frame = frame
 	this.Mid = mid
 	this.Minimap = minimap
@@ -60,28 +59,46 @@ func NewMapImagesWithDefaults() *MapImages {
 	return &this
 }
 
-// GetBackground returns the Background field value
+// GetBackground returns the Background field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MapImages) GetBackground() string {
-	if o == nil {
+	if o == nil || IsNil(o.Background.Get()) {
 		var ret string
 		return ret
 	}
-
-	return o.Background
+	return *o.Background.Get()
 }
 
-// GetBackgroundOk returns a tuple with the Background field value
+// GetBackgroundOk returns a tuple with the Background field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *MapImages) GetBackgroundOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Background, true
+	return o.Background.Get(), o.Background.IsSet()
 }
 
-// SetBackground sets field value
+// HasBackground returns a boolean if a field has been set.
+func (o *MapImages) HasBackground() bool {
+	if o != nil && o.Background.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBackground gets a reference to the given NullableString and assigns it to the Background field.
 func (o *MapImages) SetBackground(v string) {
-	o.Background = v
+	o.Background.Set(&v)
+}
+// SetBackgroundNil sets the value for Background to be an explicit nil
+func (o *MapImages) SetBackgroundNil() {
+	o.Background.Set(nil)
+}
+
+// UnsetBackground ensures that no value is present for Background, not even an explicit nil
+func (o *MapImages) UnsetBackground() {
+	o.Background.Unset()
 }
 
 // GetFrame returns the Frame field value
@@ -274,7 +291,9 @@ func (o MapImages) MarshalJSON() ([]byte, error) {
 
 func (o MapImages) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["background"] = o.Background
+	if o.Background.IsSet() {
+		toSerialize["background"] = o.Background.Get()
+	}
 	toSerialize["frame"] = o.Frame
 	toSerialize["mid"] = o.Mid
 	if o.MidTunnels.IsSet() {
@@ -293,7 +312,6 @@ func (o *MapImages) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"background",
 		"frame",
 		"mid",
 		"minimap",

@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 **HealthBarColorTeam2** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **HealthBarColorTeamNeutral** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
 **Id** | **int32** |  | 
+**Image** | Pointer to **NullableString** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png. | [optional] 
+**ImageWebp** | Pointer to **NullableString** | Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp. | [optional] 
 **IntrinsicModifiers** | Pointer to [**[]SubclassIntrinsicModifiers**](SubclassIntrinsicModifiers.md) |  | [optional] 
 **LaserDpsMaxHealth** | Pointer to **NullableFloat64** |  | [optional] 
 **LaserDpsToPlayers** | Pointer to **NullableFloat64** |  | [optional] 
@@ -38,7 +40,12 @@ Name | Type | Description | Notes
 **MeleeDamage** | Pointer to **NullableFloat64** |  | [optional] 
 **MeleeDuration** | Pointer to **NullableFloat64** |  | [optional] 
 **MeleeHitRange** | Pointer to **NullableFloat64** |  | [optional] 
+**Name** | Pointer to **NullableString** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. | [optional] 
 **NearDeathDuration** | Pointer to **NullableFloat64** |  | [optional] 
+**NeutralAbilities** | Pointer to **[]string** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] 
+**NeutralDamageGrowth** | Pointer to [**NullableSubclassNeutralDamageGrowth**](SubclassNeutralDamageGrowth.md) |  | [optional] 
+**NeutralMelee** | Pointer to **NullableString** | Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] 
+**NeutralType** | Pointer to **NullableString** | Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+). | [optional] 
 **NoShieldLaserDpsToPlayers** | Pointer to **NullableFloat64** |  | [optional] 
 **ObjectiveHealthGrowthPhase1** | Pointer to [**NullableSubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 
 **ObjectiveHealthGrowthPhase2** | Pointer to [**NullableSubclassObjectiveHealthGrowthPhase**](SubclassObjectiveHealthGrowthPhase.md) |  | [optional] 
@@ -69,6 +76,7 @@ Name | Type | Description | Notes
 **T3BossDps** | Pointer to **NullableFloat64** |  | [optional] 
 **TrooperDamageResistPct** | Pointer to **NullableFloat64** |  | [optional] 
 **TrooperDps** | Pointer to **NullableFloat64** |  | [optional] 
+**ViewerSoulsClass** | Pointer to **map[string]string** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] 
 **WalkSpeed** | Pointer to **NullableFloat64** |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) |  | [optional] 
 
@@ -901,6 +909,76 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
+### GetImage
+
+`func (o *NpcUnit) GetImage() string`
+
+GetImage returns the Image field if non-nil, zero value otherwise.
+
+### GetImageOk
+
+`func (o *NpcUnit) GetImageOk() (*string, bool)`
+
+GetImageOk returns a tuple with the Image field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImage
+
+`func (o *NpcUnit) SetImage(v string)`
+
+SetImage sets Image field to given value.
+
+### HasImage
+
+`func (o *NpcUnit) HasImage() bool`
+
+HasImage returns a boolean if a field has been set.
+
+### SetImageNil
+
+`func (o *NpcUnit) SetImageNil(b bool)`
+
+ SetImageNil sets the value for Image to be an explicit nil
+
+### UnsetImage
+`func (o *NpcUnit) UnsetImage()`
+
+UnsetImage ensures that no value is present for Image, not even an explicit nil
+### GetImageWebp
+
+`func (o *NpcUnit) GetImageWebp() string`
+
+GetImageWebp returns the ImageWebp field if non-nil, zero value otherwise.
+
+### GetImageWebpOk
+
+`func (o *NpcUnit) GetImageWebpOk() (*string, bool)`
+
+GetImageWebpOk returns a tuple with the ImageWebp field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageWebp
+
+`func (o *NpcUnit) SetImageWebp(v string)`
+
+SetImageWebp sets ImageWebp field to given value.
+
+### HasImageWebp
+
+`func (o *NpcUnit) HasImageWebp() bool`
+
+HasImageWebp returns a boolean if a field has been set.
+
+### SetImageWebpNil
+
+`func (o *NpcUnit) SetImageWebpNil(b bool)`
+
+ SetImageWebpNil sets the value for ImageWebp to be an explicit nil
+
+### UnsetImageWebp
+`func (o *NpcUnit) UnsetImageWebp()`
+
+UnsetImageWebp ensures that no value is present for ImageWebp, not even an explicit nil
 ### GetIntrinsicModifiers
 
 `func (o *NpcUnit) GetIntrinsicModifiers() []SubclassIntrinsicModifiers`
@@ -1251,6 +1329,41 @@ HasMeleeHitRange returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetMeleeHitRange()`
 
 UnsetMeleeHitRange ensures that no value is present for MeleeHitRange, not even an explicit nil
+### GetName
+
+`func (o *NpcUnit) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *NpcUnit) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *NpcUnit) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *NpcUnit) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### SetNameNil
+
+`func (o *NpcUnit) SetNameNil(b bool)`
+
+ SetNameNil sets the value for Name to be an explicit nil
+
+### UnsetName
+`func (o *NpcUnit) UnsetName()`
+
+UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetNearDeathDuration
 
 `func (o *NpcUnit) GetNearDeathDuration() float64`
@@ -1286,6 +1399,146 @@ HasNearDeathDuration returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetNearDeathDuration()`
 
 UnsetNearDeathDuration ensures that no value is present for NearDeathDuration, not even an explicit nil
+### GetNeutralAbilities
+
+`func (o *NpcUnit) GetNeutralAbilities() []string`
+
+GetNeutralAbilities returns the NeutralAbilities field if non-nil, zero value otherwise.
+
+### GetNeutralAbilitiesOk
+
+`func (o *NpcUnit) GetNeutralAbilitiesOk() (*[]string, bool)`
+
+GetNeutralAbilitiesOk returns a tuple with the NeutralAbilities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralAbilities
+
+`func (o *NpcUnit) SetNeutralAbilities(v []string)`
+
+SetNeutralAbilities sets NeutralAbilities field to given value.
+
+### HasNeutralAbilities
+
+`func (o *NpcUnit) HasNeutralAbilities() bool`
+
+HasNeutralAbilities returns a boolean if a field has been set.
+
+### SetNeutralAbilitiesNil
+
+`func (o *NpcUnit) SetNeutralAbilitiesNil(b bool)`
+
+ SetNeutralAbilitiesNil sets the value for NeutralAbilities to be an explicit nil
+
+### UnsetNeutralAbilities
+`func (o *NpcUnit) UnsetNeutralAbilities()`
+
+UnsetNeutralAbilities ensures that no value is present for NeutralAbilities, not even an explicit nil
+### GetNeutralDamageGrowth
+
+`func (o *NpcUnit) GetNeutralDamageGrowth() SubclassNeutralDamageGrowth`
+
+GetNeutralDamageGrowth returns the NeutralDamageGrowth field if non-nil, zero value otherwise.
+
+### GetNeutralDamageGrowthOk
+
+`func (o *NpcUnit) GetNeutralDamageGrowthOk() (*SubclassNeutralDamageGrowth, bool)`
+
+GetNeutralDamageGrowthOk returns a tuple with the NeutralDamageGrowth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralDamageGrowth
+
+`func (o *NpcUnit) SetNeutralDamageGrowth(v SubclassNeutralDamageGrowth)`
+
+SetNeutralDamageGrowth sets NeutralDamageGrowth field to given value.
+
+### HasNeutralDamageGrowth
+
+`func (o *NpcUnit) HasNeutralDamageGrowth() bool`
+
+HasNeutralDamageGrowth returns a boolean if a field has been set.
+
+### SetNeutralDamageGrowthNil
+
+`func (o *NpcUnit) SetNeutralDamageGrowthNil(b bool)`
+
+ SetNeutralDamageGrowthNil sets the value for NeutralDamageGrowth to be an explicit nil
+
+### UnsetNeutralDamageGrowth
+`func (o *NpcUnit) UnsetNeutralDamageGrowth()`
+
+UnsetNeutralDamageGrowth ensures that no value is present for NeutralDamageGrowth, not even an explicit nil
+### GetNeutralMelee
+
+`func (o *NpcUnit) GetNeutralMelee() string`
+
+GetNeutralMelee returns the NeutralMelee field if non-nil, zero value otherwise.
+
+### GetNeutralMeleeOk
+
+`func (o *NpcUnit) GetNeutralMeleeOk() (*string, bool)`
+
+GetNeutralMeleeOk returns a tuple with the NeutralMelee field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralMelee
+
+`func (o *NpcUnit) SetNeutralMelee(v string)`
+
+SetNeutralMelee sets NeutralMelee field to given value.
+
+### HasNeutralMelee
+
+`func (o *NpcUnit) HasNeutralMelee() bool`
+
+HasNeutralMelee returns a boolean if a field has been set.
+
+### SetNeutralMeleeNil
+
+`func (o *NpcUnit) SetNeutralMeleeNil(b bool)`
+
+ SetNeutralMeleeNil sets the value for NeutralMelee to be an explicit nil
+
+### UnsetNeutralMelee
+`func (o *NpcUnit) UnsetNeutralMelee()`
+
+UnsetNeutralMelee ensures that no value is present for NeutralMelee, not even an explicit nil
+### GetNeutralType
+
+`func (o *NpcUnit) GetNeutralType() string`
+
+GetNeutralType returns the NeutralType field if non-nil, zero value otherwise.
+
+### GetNeutralTypeOk
+
+`func (o *NpcUnit) GetNeutralTypeOk() (*string, bool)`
+
+GetNeutralTypeOk returns a tuple with the NeutralType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNeutralType
+
+`func (o *NpcUnit) SetNeutralType(v string)`
+
+SetNeutralType sets NeutralType field to given value.
+
+### HasNeutralType
+
+`func (o *NpcUnit) HasNeutralType() bool`
+
+HasNeutralType returns a boolean if a field has been set.
+
+### SetNeutralTypeNil
+
+`func (o *NpcUnit) SetNeutralTypeNil(b bool)`
+
+ SetNeutralTypeNil sets the value for NeutralType to be an explicit nil
+
+### UnsetNeutralType
+`func (o *NpcUnit) UnsetNeutralType()`
+
+UnsetNeutralType ensures that no value is present for NeutralType, not even an explicit nil
 ### GetNoShieldLaserDpsToPlayers
 
 `func (o *NpcUnit) GetNoShieldLaserDpsToPlayers() float64`
@@ -2336,6 +2589,41 @@ HasTrooperDps returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetTrooperDps()`
 
 UnsetTrooperDps ensures that no value is present for TrooperDps, not even an explicit nil
+### GetViewerSoulsClass
+
+`func (o *NpcUnit) GetViewerSoulsClass() map[string]string`
+
+GetViewerSoulsClass returns the ViewerSoulsClass field if non-nil, zero value otherwise.
+
+### GetViewerSoulsClassOk
+
+`func (o *NpcUnit) GetViewerSoulsClassOk() (*map[string]string, bool)`
+
+GetViewerSoulsClassOk returns a tuple with the ViewerSoulsClass field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetViewerSoulsClass
+
+`func (o *NpcUnit) SetViewerSoulsClass(v map[string]string)`
+
+SetViewerSoulsClass sets ViewerSoulsClass field to given value.
+
+### HasViewerSoulsClass
+
+`func (o *NpcUnit) HasViewerSoulsClass() bool`
+
+HasViewerSoulsClass returns a boolean if a field has been set.
+
+### SetViewerSoulsClassNil
+
+`func (o *NpcUnit) SetViewerSoulsClassNil(b bool)`
+
+ SetViewerSoulsClassNil sets the value for ViewerSoulsClass to be an explicit nil
+
+### UnsetViewerSoulsClass
+`func (o *NpcUnit) UnsetViewerSoulsClass()`
+
+UnsetViewerSoulsClass ensures that no value is present for ViewerSoulsClass, not even an explicit nil
 ### GetWalkSpeed
 
 `func (o *NpcUnit) GetWalkSpeed() float64`

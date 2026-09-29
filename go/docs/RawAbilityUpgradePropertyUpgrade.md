@@ -5,7 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bonus** | **string** |  | 
+**FixedCorruptedBonus** | Pointer to **NullableBool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **Name** | **string** |  | 
+**RoundCorruptedBonus** | Pointer to **NullableBool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **ScaleStatFilter** | Pointer to **NullableString** |  | [optional] 
 **UpgradeType** | Pointer to **NullableString** |  | [optional] 
 
@@ -48,6 +50,41 @@ and a boolean to check if the value has been set.
 SetBonus sets Bonus field to given value.
 
 
+### GetFixedCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) GetFixedCorruptedBonus() bool`
+
+GetFixedCorruptedBonus returns the FixedCorruptedBonus field if non-nil, zero value otherwise.
+
+### GetFixedCorruptedBonusOk
+
+`func (o *RawAbilityUpgradePropertyUpgrade) GetFixedCorruptedBonusOk() (*bool, bool)`
+
+GetFixedCorruptedBonusOk returns a tuple with the FixedCorruptedBonus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFixedCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) SetFixedCorruptedBonus(v bool)`
+
+SetFixedCorruptedBonus sets FixedCorruptedBonus field to given value.
+
+### HasFixedCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) HasFixedCorruptedBonus() bool`
+
+HasFixedCorruptedBonus returns a boolean if a field has been set.
+
+### SetFixedCorruptedBonusNil
+
+`func (o *RawAbilityUpgradePropertyUpgrade) SetFixedCorruptedBonusNil(b bool)`
+
+ SetFixedCorruptedBonusNil sets the value for FixedCorruptedBonus to be an explicit nil
+
+### UnsetFixedCorruptedBonus
+`func (o *RawAbilityUpgradePropertyUpgrade) UnsetFixedCorruptedBonus()`
+
+UnsetFixedCorruptedBonus ensures that no value is present for FixedCorruptedBonus, not even an explicit nil
 ### GetName
 
 `func (o *RawAbilityUpgradePropertyUpgrade) GetName() string`
@@ -68,6 +105,41 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetRoundCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) GetRoundCorruptedBonus() bool`
+
+GetRoundCorruptedBonus returns the RoundCorruptedBonus field if non-nil, zero value otherwise.
+
+### GetRoundCorruptedBonusOk
+
+`func (o *RawAbilityUpgradePropertyUpgrade) GetRoundCorruptedBonusOk() (*bool, bool)`
+
+GetRoundCorruptedBonusOk returns a tuple with the RoundCorruptedBonus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRoundCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) SetRoundCorruptedBonus(v bool)`
+
+SetRoundCorruptedBonus sets RoundCorruptedBonus field to given value.
+
+### HasRoundCorruptedBonus
+
+`func (o *RawAbilityUpgradePropertyUpgrade) HasRoundCorruptedBonus() bool`
+
+HasRoundCorruptedBonus returns a boolean if a field has been set.
+
+### SetRoundCorruptedBonusNil
+
+`func (o *RawAbilityUpgradePropertyUpgrade) SetRoundCorruptedBonusNil(b bool)`
+
+ SetRoundCorruptedBonusNil sets the value for RoundCorruptedBonus to be an explicit nil
+
+### UnsetRoundCorruptedBonus
+`func (o *RawAbilityUpgradePropertyUpgrade) UnsetRoundCorruptedBonus()`
+
+UnsetRoundCorruptedBonus ensures that no value is present for RoundCorruptedBonus, not even an explicit nil
 ### GetScaleStatFilter
 
 `func (o *RawAbilityUpgradePropertyUpgrade) GetScaleStatFilter() string`

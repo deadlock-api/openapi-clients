@@ -18,6 +18,9 @@ pub struct SeasonInterval {
     pub end_timestamp: i64,
     #[serde(rename = "interval")]
     pub interval: u32,
+    /// Leaderboard backing this interval (build 6701+).
+    #[serde(rename = "leaderboard_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub leaderboard_id: Option<Option<u32>>,
     /// Unix timestamp (seconds) at which the interval starts.
     #[serde(rename = "start_timestamp")]
     pub start_timestamp: i64,
@@ -28,6 +31,7 @@ impl SeasonInterval {
         SeasonInterval {
             end_timestamp,
             interval,
+            leaderboard_id: None,
             start_timestamp,
         }
     }

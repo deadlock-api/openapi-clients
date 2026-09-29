@@ -98,6 +98,15 @@ class SeasonIntervalTest extends TestCase
     }
 
     /**
+     * Test attribute "leaderboard_id"
+     */
+    public function testPropertyLeaderboardId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "start_timestamp"
      */
     public function testPropertyStartTimestamp()

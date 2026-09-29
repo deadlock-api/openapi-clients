@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from deadlock_api_client.models.draft_buckets import DraftBuckets
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound
 from typing import Optional, Set
@@ -34,6 +34,7 @@ class StreetBrawl(BaseModel):
     buy_time_grace_period: Union[StrictFloat, StrictInt]
     comeback_bonus_health: StrictInt
     comeback_bonus_health_critical: StrictInt
+    corrupt_item_round: Optional[StrictInt] = Field(default=None, description="Round in which players may corrupt an item (build 6711+).")
     gold_per_round: List[StrictInt]
     item_draft_rerolls_per_round: List[StrictInt]
     item_draft_rounds_per_game_round: List[ItemDraftRoundPerGameRound]
@@ -57,7 +58,7 @@ class StreetBrawl(BaseModel):
     trooper_spawn_timer: List[Union[StrictFloat, StrictInt]]
     ultimate_unlock_round: StrictInt
     zip_boost_cooldown_on_start: Union[StrictFloat, StrictInt]
-    __properties: ClassVar[List[str]] = ["apper_round", "buy_time", "buy_time_grace_period", "comeback_bonus_health", "comeback_bonus_health_critical", "gold_per_round", "item_draft_rerolls_per_round", "item_draft_rounds_per_game_round", "item_drafts", "lane_number", "objective_max_health", "overtime_respawn_time_increase", "overtime_respawn_time_increase_urgent", "overtime_trooper_damage_scale", "overtime_trooper_health_scale", "pre_buy_time", "respawn_times", "round_length_minutes", "round_length_minutes_urgent", "score_to_win", "scoring_time", "tier1_max_resist_time", "tier2_bonus_health", "tier2_max_resist_time", "trooper_spawn_before_round_start_timer", "trooper_spawn_timer", "ultimate_unlock_round", "zip_boost_cooldown_on_start"]
+    __properties: ClassVar[List[str]] = ["apper_round", "buy_time", "buy_time_grace_period", "comeback_bonus_health", "comeback_bonus_health_critical", "corrupt_item_round", "gold_per_round", "item_draft_rerolls_per_round", "item_draft_rounds_per_game_round", "item_drafts", "lane_number", "objective_max_health", "overtime_respawn_time_increase", "overtime_respawn_time_increase_urgent", "overtime_trooper_damage_scale", "overtime_trooper_health_scale", "pre_buy_time", "respawn_times", "round_length_minutes", "round_length_minutes_urgent", "score_to_win", "scoring_time", "tier1_max_resist_time", "tier2_bonus_health", "tier2_max_resist_time", "trooper_spawn_before_round_start_timer", "trooper_spawn_timer", "ultimate_unlock_round", "zip_boost_cooldown_on_start"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -110,6 +111,11 @@ class StreetBrawl(BaseModel):
             for _key_item_drafts in self.item_drafts:
                 _field_dict[_key_item_drafts] = self.item_drafts[_key_item_drafts].to_dict() if self.item_drafts[_key_item_drafts] is not None else None
             _dict['item_drafts'] = _field_dict
+        # set to None if corrupt_item_round (nullable) is None
+        # and model_fields_set contains the field
+        if self.corrupt_item_round is None and "corrupt_item_round" in self.model_fields_set:
+            _dict['corrupt_item_round'] = None
+
         return _dict
 
     @classmethod
@@ -127,6 +133,7 @@ class StreetBrawl(BaseModel):
             "buy_time_grace_period": obj.get("buy_time_grace_period"),
             "comeback_bonus_health": obj.get("comeback_bonus_health"),
             "comeback_bonus_health_critical": obj.get("comeback_bonus_health_critical"),
+            "corrupt_item_round": obj.get("corrupt_item_round"),
             "gold_per_round": obj.get("gold_per_round"),
             "item_draft_rerolls_per_round": obj.get("item_draft_rerolls_per_round"),
             "item_draft_rounds_per_game_round": [ItemDraftRoundPerGameRound.from_dict(_item) for _item in obj["item_draft_rounds_per_game_round"]] if obj.get("item_draft_rounds_per_game_round") is not None else None,

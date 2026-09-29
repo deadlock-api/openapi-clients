@@ -107,6 +107,15 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "buff_type_name"
+     */
+    public function testPropertyBuffTypeName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "buff_type_value_unit"
      */
     public function testPropertyBuffTypeValueUnit()
@@ -119,6 +128,15 @@ class MiscEntityTest extends TestCase
      * Test attribute "class_name"
      */
     public function testPropertyClassName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "collection_method"
+     */
+    public function testPropertyCollectionMethod()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -233,9 +251,27 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "hits_required"
+     */
+    public function testPropertyHitsRequired()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "id"
      */
     public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "in_shop_modifier"
+     */
+    public function testPropertyInShopModifier()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -272,6 +308,15 @@ class MiscEntityTest extends TestCase
      * Test attribute "is_mantleable"
      */
     public function testPropertyIsMantleable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "is_permanent_pickup"
+     */
+    public function testPropertyIsPermanentPickup()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -332,9 +377,36 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "minimap_class"
+     */
+    public function testPropertyMinimapClass()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "modifier"
      */
     public function testPropertyModifier()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name_loc_string"
+     */
+    public function testPropertyNameLocString()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -353,6 +425,15 @@ class MiscEntityTest extends TestCase
      * Test attribute "orb_spawn_delay_min"
      */
     public function testPropertyOrbSpawnDelayMin()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "pickup"
+     */
+    public function testPropertyPickup()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -404,6 +485,42 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "regen_duration"
+     */
+    public function testPropertyRegenDuration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "regen_duration_troopers"
+     */
+    public function testPropertyRegenDurationTroopers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "regen_max_health_percent"
+     */
+    public function testPropertyRegenMaxHealthPercent()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "regen_trooper_multi"
+     */
+    public function testPropertyRegenTrooperMulti()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "render_after_death"
      */
     public function testPropertyRenderAfterDeath()
@@ -440,9 +557,27 @@ class MiscEntityTest extends TestCase
     }
 
     /**
+     * Test attribute "single_pickup_override"
+     */
+    public function testPropertySinglePickupOverride()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "solid_after_death"
      */
     public function testPropertySolidAfterDeath()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "spawn_delay"
+     */
+    public function testPropertySpawnDelay()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -461,6 +596,15 @@ class MiscEntityTest extends TestCase
      * Test attribute "spawn_interval_in_seconds"
      */
     public function testPropertySpawnIntervalInSeconds()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "spawn_music_state"
+     */
+    public function testPropertySpawnMusicState()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

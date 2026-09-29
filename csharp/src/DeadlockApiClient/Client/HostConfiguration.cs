@@ -71,6 +71,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new AnalyticsGameStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsHeroStatsJsonConverter());
             _jsonOptions.Converters.Add(new BadgeDistributionJsonConverter());
+            _jsonOptions.Converters.Add(new BreakablePowerupLootParamsJsonConverter());
             _jsonOptions.Converters.Add(new BuildJsonConverter());
             _jsonOptions.Converters.Add(new BuildHeroJsonConverter());
             _jsonOptions.Converters.Add(new BuildHeroDetailsJsonConverter());
@@ -85,6 +86,9 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ColorJsonConverter());
             _jsonOptions.Converters.Add(new ColorGradientStopJsonConverter());
             _jsonOptions.Converters.Add(new ColumnSchemaJsonConverter());
+            _jsonOptions.Converters.Add(new CorruptedItemInfoJsonConverter());
+            _jsonOptions.Converters.Add(new CorruptedPenaltyJsonConverter());
+            _jsonOptions.Converters.Add(new CorruptedPenaltyEffectJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomRequestJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
             _jsonOptions.Converters.Add(new CurveJsonConverter());
@@ -133,6 +137,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HeroEntryJsonConverter());
             _jsonOptions.Converters.Add(new HeroImagesJsonConverter());
             _jsonOptions.Converters.Add(new HeroPhysicsJsonConverter());
+            _jsonOptions.Converters.Add(new HeroPopularItemJsonConverter());
+            _jsonOptions.Converters.Add(new HeroPopularItemsJsonConverter());
             _jsonOptions.Converters.Add(new HeroStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroStatsUIJsonConverter());
             _jsonOptions.Converters.Add(new HeroStatsUIDisplayJsonConverter());
@@ -173,6 +179,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new LootTableJsonConverter());
             _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
             _jsonOptions.Converters.Add(new MapDataJsonConverter());
+            _jsonOptions.Converters.Add(new MapDistrictJsonConverter());
             _jsonOptions.Converters.Add(new MapImagesJsonConverter());
             _jsonOptions.Converters.Add(new MatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
@@ -180,7 +187,11 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new MateStatsJsonConverter());
             _jsonOptions.Converters.Add(new MiniMapOffsetsJsonConverter());
             _jsonOptions.Converters.Add(new MiscEntityJsonConverter());
+            _jsonOptions.Converters.Add(new ModifierJsonConverter());
             _jsonOptions.Converters.Add(new ModifierValueJsonConverter());
+            _jsonOptions.Converters.Add(new NeutralCampJsonConverter());
+            _jsonOptions.Converters.Add(new NeutralCampKindJsonConverter());
+            _jsonOptions.Converters.Add(new NeutralCampKindNullableJsonConverter());
             _jsonOptions.Converters.Add(new NewPlayerMetricsJsonConverter());
             _jsonOptions.Converters.Add(new NpcUnitJsonConverter());
             _jsonOptions.Converters.Add(new ObjectiveParamsJsonConverter());
@@ -253,6 +264,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new SubclassIntrinsicModifiersSubclassJsonConverter());
             _jsonOptions.Converters.Add(new SubclassModifierDefinitionJsonConverter());
             _jsonOptions.Converters.Add(new SubclassModifierDefinitionSubclassJsonConverter());
+            _jsonOptions.Converters.Add(new SubclassNeutralDamageGrowthJsonConverter());
+            _jsonOptions.Converters.Add(new SubclassNeutralDamageGrowthSubclassJsonConverter());
             _jsonOptions.Converters.Add(new SubclassObjectiveHealthGrowthPhaseJsonConverter());
             _jsonOptions.Converters.Add(new SubclassObjectiveHealthGrowthPhaseSubclassJsonConverter());
             _jsonOptions.Converters.Add(new SubclassObjectiveRegenJsonConverter());
@@ -305,6 +318,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<MapApiEvents>();
             _services.AddSingleton<MatchesApiEvents>();
             _services.AddSingleton<MiscEntitiesApiEvents>();
+            _services.AddSingleton<ModifiersApiEvents>();
             _services.AddSingleton<NPCUnitsApiEvents>();
             _services.AddSingleton<PatchesApiEvents>();
             _services.AddSingleton<PlayersApiEvents>();
@@ -380,6 +394,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IMapApi, MapApi>("DeadlockApiClient.Api.IMapApi", client));
             builders.Add(_services.AddHttpClient<IMatchesApi, MatchesApi>("DeadlockApiClient.Api.IMatchesApi", client));
             builders.Add(_services.AddHttpClient<IMiscEntitiesApi, MiscEntitiesApi>("DeadlockApiClient.Api.IMiscEntitiesApi", client));
+            builders.Add(_services.AddHttpClient<IModifiersApi, ModifiersApi>("DeadlockApiClient.Api.IModifiersApi", client));
             builders.Add(_services.AddHttpClient<INPCUnitsApi, NPCUnitsApi>("DeadlockApiClient.Api.INPCUnitsApi", client));
             builders.Add(_services.AddHttpClient<IPatchesApi, PatchesApi>("DeadlockApiClient.Api.IPatchesApi", client));
             builders.Add(_services.AddHttpClient<IPlayersApi, PlayersApi>("DeadlockApiClient.Api.IPlayersApi", client));

@@ -24,6 +24,7 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.MapImages
+import deadlock_api_client.models.NeutralCamp
 import deadlock_api_client.models.ObjectivePosition
 import deadlock_api_client.models.ZiplanePath
 
@@ -38,6 +39,7 @@ import java.io.Serializable
  * @param objectivePositions 
  * @param radius 
  * @param ziplinePaths 
+ * @param neutralCamps Neutral camps (build 6711+).
  */
 
 
@@ -53,7 +55,11 @@ data class MapData (
     val radius: kotlin.Int,
 
     @Json(name = "zipline_paths")
-    val ziplinePaths: kotlin.collections.List<ZiplanePath>
+    val ziplinePaths: kotlin.collections.List<ZiplanePath>,
+
+    /* Neutral camps (build 6711+). */
+    @Json(name = "neutral_camps")
+    val neutralCamps: kotlin.collections.List<NeutralCamp>? = null
 
 ) : Serializable {
     companion object {

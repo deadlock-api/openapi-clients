@@ -29,7 +29,7 @@ import type { RankedSeason } from '../models/index.js';
 export const RankedSeasonsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval\'s leaderboard ID.
          * @summary List Ranked Seasons
          * @param {ListRankedSeasonsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -78,7 +78,7 @@ export const RankedSeasonsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RankedSeasonsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval\'s leaderboard ID.
          * @summary List Ranked Seasons
          * @param {ListRankedSeasonsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -101,7 +101,7 @@ export const RankedSeasonsApiFactory = function (configuration?: Configuration, 
     const localVarFp = RankedSeasonsApiFp(configuration)
     return {
         /**
-         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+         * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval\'s leaderboard ID.
          * @summary List Ranked Seasons
          * @param {RankedSeasonsApiListRankedSeasonsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -133,7 +133,7 @@ export interface RankedSeasonsApiListRankedSeasonsRequest {
  */
 export class RankedSeasonsApi extends BaseAPI {
     /**
-     * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+     * Returns the ranked season definitions used by the game client, parsed from the patch\'s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval\'s leaderboard ID.
      * @summary List Ranked Seasons
      * @param {RankedSeasonsApiListRankedSeasonsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

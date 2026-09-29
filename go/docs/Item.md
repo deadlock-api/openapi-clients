@@ -31,16 +31,21 @@ Name | Type | Description | Notes
 **UseCustomCrosshairSettings** | Pointer to **bool** |  | [optional] 
 **Activation** | [**AbilityActivation**](AbilityActivation.md) |  | 
 **ComponentItems** | Pointer to **[]string** |  | [optional] 
+**CorruptedInfo** | Pointer to [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
 **Cost** | Pointer to **int32** |  | [optional] 
+**DisableItemTarget** | Pointer to **string** |  | [optional] 
 **Disabled** | Pointer to **bool** |  | [optional] 
+**DisabledShopFilters** | Pointer to **[]string** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. | [optional] 
 **Imbue** | Pointer to [**AbilityImbue**](AbilityImbue.md) |  | [optional] 
 **IsActiveItem** | **bool** |  | 
 **ItemSlotType** | [**ItemSlotType**](ItemSlotType.md) |  | 
 **ItemTier** | **int32** |  | 
+**ShopFilters** | Pointer to **[]string** | Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats. | [optional] 
 **ShopImage** | Pointer to **string** |  | [optional] 
 **ShopImageSmall** | Pointer to **string** |  | [optional] 
 **ShopImageSmallWebp** | Pointer to **string** |  | [optional] 
 **ShopImageWebp** | Pointer to **string** |  | [optional] 
+**ShopVersion** | Pointer to **int64** |  | [optional] 
 **Shopable** | **bool** |  | 
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSection**](UpgradeTooltipSection.md) |  | [optional] 
 
@@ -708,6 +713,31 @@ SetComponentItems sets ComponentItems field to given value.
 
 HasComponentItems returns a boolean if a field has been set.
 
+### GetCorruptedInfo
+
+`func (o *Item) GetCorruptedInfo() CorruptedItemInfo`
+
+GetCorruptedInfo returns the CorruptedInfo field if non-nil, zero value otherwise.
+
+### GetCorruptedInfoOk
+
+`func (o *Item) GetCorruptedInfoOk() (*CorruptedItemInfo, bool)`
+
+GetCorruptedInfoOk returns a tuple with the CorruptedInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptedInfo
+
+`func (o *Item) SetCorruptedInfo(v CorruptedItemInfo)`
+
+SetCorruptedInfo sets CorruptedInfo field to given value.
+
+### HasCorruptedInfo
+
+`func (o *Item) HasCorruptedInfo() bool`
+
+HasCorruptedInfo returns a boolean if a field has been set.
+
 ### GetCost
 
 `func (o *Item) GetCost() int32`
@@ -733,6 +763,31 @@ SetCost sets Cost field to given value.
 
 HasCost returns a boolean if a field has been set.
 
+### GetDisableItemTarget
+
+`func (o *Item) GetDisableItemTarget() string`
+
+GetDisableItemTarget returns the DisableItemTarget field if non-nil, zero value otherwise.
+
+### GetDisableItemTargetOk
+
+`func (o *Item) GetDisableItemTargetOk() (*string, bool)`
+
+GetDisableItemTargetOk returns a tuple with the DisableItemTarget field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableItemTarget
+
+`func (o *Item) SetDisableItemTarget(v string)`
+
+SetDisableItemTarget sets DisableItemTarget field to given value.
+
+### HasDisableItemTarget
+
+`func (o *Item) HasDisableItemTarget() bool`
+
+HasDisableItemTarget returns a boolean if a field has been set.
+
 ### GetDisabled
 
 `func (o *Item) GetDisabled() bool`
@@ -757,6 +812,31 @@ SetDisabled sets Disabled field to given value.
 `func (o *Item) HasDisabled() bool`
 
 HasDisabled returns a boolean if a field has been set.
+
+### GetDisabledShopFilters
+
+`func (o *Item) GetDisabledShopFilters() []string`
+
+GetDisabledShopFilters returns the DisabledShopFilters field if non-nil, zero value otherwise.
+
+### GetDisabledShopFiltersOk
+
+`func (o *Item) GetDisabledShopFiltersOk() (*[]string, bool)`
+
+GetDisabledShopFiltersOk returns a tuple with the DisabledShopFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisabledShopFilters
+
+`func (o *Item) SetDisabledShopFilters(v []string)`
+
+SetDisabledShopFilters sets DisabledShopFilters field to given value.
+
+### HasDisabledShopFilters
+
+`func (o *Item) HasDisabledShopFilters() bool`
+
+HasDisabledShopFilters returns a boolean if a field has been set.
 
 ### GetImbue
 
@@ -842,6 +922,31 @@ and a boolean to check if the value has been set.
 
 SetItemTier sets ItemTier field to given value.
 
+
+### GetShopFilters
+
+`func (o *Item) GetShopFilters() []string`
+
+GetShopFilters returns the ShopFilters field if non-nil, zero value otherwise.
+
+### GetShopFiltersOk
+
+`func (o *Item) GetShopFiltersOk() (*[]string, bool)`
+
+GetShopFiltersOk returns a tuple with the ShopFilters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShopFilters
+
+`func (o *Item) SetShopFilters(v []string)`
+
+SetShopFilters sets ShopFilters field to given value.
+
+### HasShopFilters
+
+`func (o *Item) HasShopFilters() bool`
+
+HasShopFilters returns a boolean if a field has been set.
 
 ### GetShopImage
 
@@ -942,6 +1047,31 @@ SetShopImageWebp sets ShopImageWebp field to given value.
 `func (o *Item) HasShopImageWebp() bool`
 
 HasShopImageWebp returns a boolean if a field has been set.
+
+### GetShopVersion
+
+`func (o *Item) GetShopVersion() int64`
+
+GetShopVersion returns the ShopVersion field if non-nil, zero value otherwise.
+
+### GetShopVersionOk
+
+`func (o *Item) GetShopVersionOk() (*int64, bool)`
+
+GetShopVersionOk returns a tuple with the ShopVersion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetShopVersion
+
+`func (o *Item) SetShopVersion(v int64)`
+
+SetShopVersion sets ShopVersion field to given value.
+
+### HasShopVersion
+
+`func (o *Item) HasShopVersion() bool`
+
+HasShopVersion returns a boolean if a field has been set.
 
 ### GetShopable
 

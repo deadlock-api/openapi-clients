@@ -52,6 +52,12 @@ class SubclassModifierDefinitionSubclassTest : ShouldSpec() {
             //modelInstance.duration shouldBe ("TODO")
         }
 
+        // to test the property `enabledStateMask` - Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+        should("test enabledStateMask") {
+            // uncomment below to test the property
+            //modelInstance.enabledStateMask shouldBe ("TODO")
+        }
+
         // to test the property `modifierValues`
         should("test modifierValues") {
             // uncomment below to test the property

@@ -15,7 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { BreakablePowerupLootParams } from './breakable-powerup-loot-params.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { Color } from './color.js';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { CorruptedPenalty } from './corrupted-penalty.js';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { DamageFlash } from './damage-flash.js';
@@ -28,6 +34,9 @@ import type { ItemGroup } from './item-group.js';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { LaneInfo } from './lane-info.js';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { MapDistrict } from './map-district.js';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { MiniMapOffsets } from './mini-map-offsets.js';
@@ -48,6 +57,10 @@ export interface GenericData {
     'aim_spring_strength': Array<number>;
     'armor_groups': Array<ItemGroup>;
     /**
+     * Loot tables for breakable powerup props (build 6711+).
+     */
+    'breakable_powerup_loot_params'?: BreakablePowerupLootParams | null;
+    /**
      * Build 6711+.
      */
     'color_enemy'?: Color | null;
@@ -63,17 +76,33 @@ export interface GenericData {
      * Build 6711+.
      */
     'color_team2'?: Color | null;
+    /**
+     * Penalties that can be rolled onto corrupted items (build 6711+).
+     */
+    'corrupted_penalties'?: Array<CorruptedPenalty> | null;
     'damage_flash': DamageFlash;
     'enemy_objectives_and_zipline_color'?: Color | null;
     'enemy_objectives_color'?: Color | null;
     'enemy_zipline_color'?: Color | null;
     'glitch_settings': GlitchSettings;
     'hero_kill_gold_share_frac': Array<number>;
+    /**
+     * Extra cost of corrupting an item, by item tier (build 6711+).
+     */
+    'item_corruption_price_per_tier'?: Array<number> | null;
     'item_price_per_tier': Array<number>;
     'lane_info': Array<LaneInfo>;
+    /**
+     * District / building labels shown on the map (build 6711+).
+     */
+    'map_districts'?: Array<MapDistrict> | null;
     'mini_map_offsets': Array<MiniMapOffsets>;
     'minimap_team_combine_color'?: Color | null;
     'minimap_team_rebels_color'?: Color | null;
+    /**
+     * Distance within which a neutral camp\'s respawn timer is shown (build 6711+).
+     */
+    'neutral_camp_respawn_timer_show_distance'?: number | null;
     'new_player_metrics': Array<NewPlayerMetrics>;
     'objective_params': ObjectiveParams;
     'rejuv_params': RejuvParams;

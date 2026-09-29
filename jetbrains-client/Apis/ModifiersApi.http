@@ -1,0 +1,11 @@
+## ModifiersApi
+
+### Get Modifier
+## Get Modifier
+GET https://api.deadlock-api.com/v1/assets/modifiers/{{id_or_classname}}?clientVersion={{clientVersion}}
+Accept: application/json
+
+### List Modifiers
+## List Modifiers
+GET https://api.deadlock-api.com/v1/assets/modifiers?clientVersion={{clientVersion}}
+Accept: application/json

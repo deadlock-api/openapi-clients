@@ -26,11 +26,12 @@ export const NPCUnitsApiAxiosParamCreator = function (configuration) {
          * Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
          * @summary Get NPC Unit
          * @param {string} idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+         * @param {GetNpcUnitLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNpcUnit: async (idOrClassname, clientVersion, options = {}) => {
+        getNpcUnit: async (idOrClassname, language, clientVersion, options = {}) => {
             // verify required parameter 'idOrClassname' is not null or undefined
             assertParamExists('getNpcUnit', 'idOrClassname', idOrClassname);
             const localVarPath = `/v1/assets/npc-units/{id_or_classname}`
@@ -44,6 +45,9 @@ export const NPCUnitsApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
             if (clientVersion !== undefined) {
                 localVarQueryParameter['client_version'] = clientVersion;
             }
@@ -57,13 +61,14 @@ export const NPCUnitsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
          * @summary List NPC Units
+         * @param {ListNpcUnitsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listNpcUnits: async (clientVersion, options = {}) => {
+        listNpcUnits: async (language, clientVersion, options = {}) => {
             const localVarPath = `/v1/assets/npc-units`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -74,6 +79,9 @@ export const NPCUnitsApiAxiosParamCreator = function (configuration) {
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
+            if (language !== undefined) {
+                localVarQueryParameter['language'] = language;
+            }
             if (clientVersion !== undefined) {
                 localVarQueryParameter['client_version'] = clientVersion;
             }
@@ -98,25 +106,27 @@ export const NPCUnitsApiFp = function (configuration) {
          * Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
          * @summary Get NPC Unit
          * @param {string} idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+         * @param {GetNpcUnitLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getNpcUnit(idOrClassname, clientVersion, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNpcUnit(idOrClassname, clientVersion, options);
+        async getNpcUnit(idOrClassname, language, clientVersion, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNpcUnit(idOrClassname, language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['NPCUnitsApi.getNpcUnit']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
          * @summary List NPC Units
+         * @param {ListNpcUnitsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listNpcUnits(clientVersion, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNpcUnits(clientVersion, options);
+        async listNpcUnits(language, clientVersion, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNpcUnits(language, clientVersion, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['NPCUnitsApi.listNpcUnits']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -137,17 +147,17 @@ export const NPCUnitsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         getNpcUnit(requestParameters, options) {
-            return localVarFp.getNpcUnit(requestParameters.idOrClassname, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+            return localVarFp.getNpcUnit(requestParameters.idOrClassname, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+         * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
          * @summary List NPC Units
          * @param {NPCUnitsApiListNpcUnitsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         listNpcUnits(requestParameters = {}, options) {
-            return localVarFp.listNpcUnits(requestParameters.clientVersion, options).then((request) => request(axios, basePath));
+            return localVarFp.listNpcUnits(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -163,17 +173,79 @@ export class NPCUnitsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     getNpcUnit(requestParameters, options) {
-        return NPCUnitsApiFp(this.configuration).getNpcUnit(requestParameters.idOrClassname, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+        return NPCUnitsApiFp(this.configuration).getNpcUnit(requestParameters.idOrClassname, requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
      * @summary List NPC Units
      * @param {NPCUnitsApiListNpcUnitsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     listNpcUnits(requestParameters = {}, options) {
-        return NPCUnitsApiFp(this.configuration).listNpcUnits(requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
+        return NPCUnitsApiFp(this.configuration).listNpcUnits(requestParameters.language, requestParameters.clientVersion, options).then((request) => request(this.axios, this.basePath));
     }
 }
+export const GetNpcUnitLanguageEnum = {
+    Brazilian: 'brazilian',
+    Bulgarian: 'bulgarian',
+    Czech: 'czech',
+    Danish: 'danish',
+    Dutch: 'dutch',
+    English: 'english',
+    Finnish: 'finnish',
+    French: 'french',
+    German: 'german',
+    Greek: 'greek',
+    Hungarian: 'hungarian',
+    Indonesian: 'indonesian',
+    Italian: 'italian',
+    Japanese: 'japanese',
+    Koreana: 'koreana',
+    Latam: 'latam',
+    Norwegian: 'norwegian',
+    Polish: 'polish',
+    Portuguese: 'portuguese',
+    Romanian: 'romanian',
+    Russian: 'russian',
+    Schinese: 'schinese',
+    Spanish: 'spanish',
+    Swedish: 'swedish',
+    Tchinese: 'tchinese',
+    Thai: 'thai',
+    Turkish: 'turkish',
+    Ukrainian: 'ukrainian',
+    Vietnamese: 'vietnamese',
+};
+export const ListNpcUnitsLanguageEnum = {
+    Brazilian: 'brazilian',
+    Bulgarian: 'bulgarian',
+    Czech: 'czech',
+    Danish: 'danish',
+    Dutch: 'dutch',
+    English: 'english',
+    Finnish: 'finnish',
+    French: 'french',
+    German: 'german',
+    Greek: 'greek',
+    Hungarian: 'hungarian',
+    Indonesian: 'indonesian',
+    Italian: 'italian',
+    Japanese: 'japanese',
+    Koreana: 'koreana',
+    Latam: 'latam',
+    Norwegian: 'norwegian',
+    Polish: 'polish',
+    Portuguese: 'portuguese',
+    Romanian: 'romanian',
+    Russian: 'russian',
+    Schinese: 'schinese',
+    Spanish: 'spanish',
+    Swedish: 'swedish',
+    Tchinese: 'tchinese',
+    Thai: 'thai',
+    Turkish: 'turkish',
+    Ukrainian: 'ukrainian',
+    Vietnamese: 'vietnamese',
+};
 //# sourceMappingURL=npcunits-api.js.map

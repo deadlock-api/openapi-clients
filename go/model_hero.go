@@ -31,6 +31,8 @@ type Hero struct {
 	// Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
 	DevelopmentState NullableHeroDevelopmentState `json:"development_state,omitempty"`
 	Disabled bool `json:"disabled"`
+	// Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+	Gender NullableString `json:"gender,omitempty"`
 	GunTag NullableString `json:"gun_tag,omitempty"`
 	HeroStatsUi HeroStatsUI `json:"hero_stats_ui"`
 	HeroType NullableHeroType `json:"hero_type,omitempty"`
@@ -49,11 +51,15 @@ type Hero struct {
 	Physics HeroPhysics `json:"physics"`
 	// Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
 	PlayerSelectable bool `json:"player_selectable"`
+	// Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+	PopularItems NullableHeroPopularItems `json:"popular_items,omitempty"`
 	// Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
 	PrereleaseOnly NullableBool `json:"prerelease_only,omitempty"`
 	// Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
 	PurchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner `json:"purchase_bonuses"`
 	ScalingStats map[string]HashMapStringScalingStatValue `json:"scaling_stats"`
+	// Localized search name (`m_strHeroSearchName`, build 6711+).
+	SearchName NullableString `json:"search_name,omitempty"`
 	ShopStatDisplay ShopStatDisplay `json:"shop_stat_display"`
 	Skin int64 `json:"skin"`
 	StandardLevelUpUpgrades map[string]float64 `json:"standard_level_up_upgrades"`
@@ -325,6 +331,48 @@ func (o *Hero) GetDisabledOk() (*bool, bool) {
 // SetDisabled sets field value
 func (o *Hero) SetDisabled(v bool) {
 	o.Disabled = v
+}
+
+// GetGender returns the Gender field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Hero) GetGender() string {
+	if o == nil || IsNil(o.Gender.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Gender.Get()
+}
+
+// GetGenderOk returns a tuple with the Gender field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Hero) GetGenderOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Gender.Get(), o.Gender.IsSet()
+}
+
+// HasGender returns a boolean if a field has been set.
+func (o *Hero) HasGender() bool {
+	if o != nil && o.Gender.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetGender gets a reference to the given NullableString and assigns it to the Gender field.
+func (o *Hero) SetGender(v string) {
+	o.Gender.Set(&v)
+}
+// SetGenderNil sets the value for Gender to be an explicit nil
+func (o *Hero) SetGenderNil() {
+	o.Gender.Set(nil)
+}
+
+// UnsetGender ensures that no value is present for Gender, not even an explicit nil
+func (o *Hero) UnsetGender() {
+	o.Gender.Unset()
 }
 
 // GetGunTag returns the GunTag field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -807,6 +855,48 @@ func (o *Hero) SetPlayerSelectable(v bool) {
 	o.PlayerSelectable = v
 }
 
+// GetPopularItems returns the PopularItems field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Hero) GetPopularItems() HeroPopularItems {
+	if o == nil || IsNil(o.PopularItems.Get()) {
+		var ret HeroPopularItems
+		return ret
+	}
+	return *o.PopularItems.Get()
+}
+
+// GetPopularItemsOk returns a tuple with the PopularItems field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Hero) GetPopularItemsOk() (*HeroPopularItems, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PopularItems.Get(), o.PopularItems.IsSet()
+}
+
+// HasPopularItems returns a boolean if a field has been set.
+func (o *Hero) HasPopularItems() bool {
+	if o != nil && o.PopularItems.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPopularItems gets a reference to the given NullableHeroPopularItems and assigns it to the PopularItems field.
+func (o *Hero) SetPopularItems(v HeroPopularItems) {
+	o.PopularItems.Set(&v)
+}
+// SetPopularItemsNil sets the value for PopularItems to be an explicit nil
+func (o *Hero) SetPopularItemsNil() {
+	o.PopularItems.Set(nil)
+}
+
+// UnsetPopularItems ensures that no value is present for PopularItems, not even an explicit nil
+func (o *Hero) UnsetPopularItems() {
+	o.PopularItems.Unset()
+}
+
 // GetPrereleaseOnly returns the PrereleaseOnly field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Hero) GetPrereleaseOnly() bool {
 	if o == nil || IsNil(o.PrereleaseOnly.Get()) {
@@ -895,6 +985,48 @@ func (o *Hero) GetScalingStatsOk() (map[string]HashMapStringScalingStatValue, bo
 // SetScalingStats sets field value
 func (o *Hero) SetScalingStats(v map[string]HashMapStringScalingStatValue) {
 	o.ScalingStats = v
+}
+
+// GetSearchName returns the SearchName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Hero) GetSearchName() string {
+	if o == nil || IsNil(o.SearchName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SearchName.Get()
+}
+
+// GetSearchNameOk returns a tuple with the SearchName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Hero) GetSearchNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SearchName.Get(), o.SearchName.IsSet()
+}
+
+// HasSearchName returns a boolean if a field has been set.
+func (o *Hero) HasSearchName() bool {
+	if o != nil && o.SearchName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSearchName gets a reference to the given NullableString and assigns it to the SearchName field.
+func (o *Hero) SetSearchName(v string) {
+	o.SearchName.Set(&v)
+}
+// SetSearchNameNil sets the value for SearchName to be an explicit nil
+func (o *Hero) SetSearchNameNil() {
+	o.SearchName.Set(nil)
+}
+
+// UnsetSearchName ensures that no value is present for SearchName, not even an explicit nil
+func (o *Hero) UnsetSearchName() {
+	o.SearchName.Unset()
 }
 
 // GetShopStatDisplay returns the ShopStatDisplay field value
@@ -1063,6 +1195,9 @@ func (o Hero) ToMap() (map[string]interface{}, error) {
 		toSerialize["development_state"] = o.DevelopmentState.Get()
 	}
 	toSerialize["disabled"] = o.Disabled
+	if o.Gender.IsSet() {
+		toSerialize["gender"] = o.Gender.Get()
+	}
 	if o.GunTag.IsSet() {
 		toSerialize["gun_tag"] = o.GunTag.Get()
 	}
@@ -1090,11 +1225,17 @@ func (o Hero) ToMap() (map[string]interface{}, error) {
 	toSerialize["needs_testing"] = o.NeedsTesting
 	toSerialize["physics"] = o.Physics
 	toSerialize["player_selectable"] = o.PlayerSelectable
+	if o.PopularItems.IsSet() {
+		toSerialize["popular_items"] = o.PopularItems.Get()
+	}
 	if o.PrereleaseOnly.IsSet() {
 		toSerialize["prerelease_only"] = o.PrereleaseOnly.Get()
 	}
 	toSerialize["purchase_bonuses"] = o.PurchaseBonuses
 	toSerialize["scaling_stats"] = o.ScalingStats
+	if o.SearchName.IsSet() {
+		toSerialize["search_name"] = o.SearchName.Get()
+	}
 	toSerialize["shop_stat_display"] = o.ShopStatDisplay
 	toSerialize["skin"] = o.Skin
 	toSerialize["standard_level_up_upgrades"] = o.StandardLevelUpUpgrades

@@ -411,7 +411,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> accountIds = default!;
             Client.Option<List<int>?> abilityOrderPrefix = default!;
             Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
-            var response = await _instance.ItemPermutationStatsAsync(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+            Client.Option<bool?> includeCorruptedItems = default!;
+            var response = await _instance.ItemPermutationStatsAsync(itemIds, combSize, minMatches, maxMatches, gameMode, matchMode, heroIds, heroId, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix, includeCorruptedItems);
             var model = response.Ok();
             Assert.IsType<List<ItemPermutationStats>>(model);
         }
@@ -453,7 +454,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> minBoughtAtS = default!;
             Client.Option<int?> maxBoughtAtS = default!;
             Client.Option<List<string>?> itemOrder = default!;
-            var response = await _instance.ItemStatsAsync(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder);
+            Client.Option<bool?> includeCorruptedItems = default!;
+            var response = await _instance.ItemStatsAsync(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, includeCorruptedItems);
             var model = response.Ok();
             Assert.IsType<List<ItemStats>>(model);
         }

@@ -23,6 +23,9 @@ pub struct StreetBrawl {
     pub comeback_bonus_health: i64,
     #[serde(rename = "comeback_bonus_health_critical")]
     pub comeback_bonus_health_critical: i64,
+    /// Round in which players may corrupt an item (build 6711+).
+    #[serde(rename = "corrupt_item_round", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub corrupt_item_round: Option<Option<i64>>,
     #[serde(rename = "gold_per_round")]
     pub gold_per_round: Vec<i64>,
     #[serde(rename = "item_draft_rerolls_per_round")]
@@ -79,6 +82,7 @@ impl StreetBrawl {
             buy_time_grace_period,
             comeback_bonus_health,
             comeback_bonus_health_critical,
+            corrupt_item_round: None,
             gold_per_round,
             item_draft_rerolls_per_round,
             item_draft_rounds_per_game_round,

@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **PostvalueLabel** | Pointer to **NullableString** |  | [optional] 
 **Prefix** | Pointer to **NullableString** |  | [optional] 
 **ProvidedPropertyType** | Pointer to **NullableString** |  | [optional] 
+**RequiredUpgradeBits** | Pointer to **[]string** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **ScaleFunction** | Pointer to [**NullableRawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
 **StreetBrawlValue** | Pointer to **NullableString** |  | [optional] 
 **UsageFlags** | Pointer to [**[]StatsUsageFlag**](StatsUsageFlag.md) |  | [optional] 
@@ -496,6 +497,41 @@ HasProvidedPropertyType returns a boolean if a field has been set.
 `func (o *ItemProperty) UnsetProvidedPropertyType()`
 
 UnsetProvidedPropertyType ensures that no value is present for ProvidedPropertyType, not even an explicit nil
+### GetRequiredUpgradeBits
+
+`func (o *ItemProperty) GetRequiredUpgradeBits() []string`
+
+GetRequiredUpgradeBits returns the RequiredUpgradeBits field if non-nil, zero value otherwise.
+
+### GetRequiredUpgradeBitsOk
+
+`func (o *ItemProperty) GetRequiredUpgradeBitsOk() (*[]string, bool)`
+
+GetRequiredUpgradeBitsOk returns a tuple with the RequiredUpgradeBits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequiredUpgradeBits
+
+`func (o *ItemProperty) SetRequiredUpgradeBits(v []string)`
+
+SetRequiredUpgradeBits sets RequiredUpgradeBits field to given value.
+
+### HasRequiredUpgradeBits
+
+`func (o *ItemProperty) HasRequiredUpgradeBits() bool`
+
+HasRequiredUpgradeBits returns a boolean if a field has been set.
+
+### SetRequiredUpgradeBitsNil
+
+`func (o *ItemProperty) SetRequiredUpgradeBitsNil(b bool)`
+
+ SetRequiredUpgradeBitsNil sets the value for RequiredUpgradeBits to be an explicit nil
+
+### UnsetRequiredUpgradeBits
+`func (o *ItemProperty) UnsetRequiredUpgradeBits()`
+
+UnsetRequiredUpgradeBits ensures that no value is present for RequiredUpgradeBits, not even an explicit nil
 ### GetScaleFunction
 
 `func (o *ItemProperty) GetScaleFunction() RawItemPropertyScaleFunctionSubclass`

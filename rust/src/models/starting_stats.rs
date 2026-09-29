@@ -43,6 +43,9 @@ pub struct StartingStats {
     pub max_move_speed: Box<models::StartingStat>,
     #[serde(rename = "move_acceleration")]
     pub move_acceleration: Box<models::StartingStat>,
+    /// Out-of-combat health regen (build 6711+).
+    #[serde(rename = "ooc_health_regen", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub ooc_health_regen: Option<Option<Box<models::StartingStat>>>,
     #[serde(rename = "proc_build_up_rate_scale")]
     pub proc_build_up_rate_scale: Box<models::StartingStat>,
     #[serde(rename = "reload_speed")]
@@ -83,6 +86,7 @@ impl StartingStats {
             max_health: Box::new(max_health),
             max_move_speed: Box::new(max_move_speed),
             move_acceleration: Box::new(move_acceleration),
+            ooc_health_regen: None,
             proc_build_up_rate_scale: Box::new(proc_build_up_rate_scale),
             reload_speed: Box::new(reload_speed),
             sprint_speed: Box::new(sprint_speed),

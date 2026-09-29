@@ -88,5 +88,11 @@ class RankedSeasonTest : ShouldSpec() {
             //modelInstance.validPartySizes shouldBe ("TODO")
         }
 
+        // to test the property `baseWinLossPointGrant` - Base rank points granted per win / taken per loss (build 6701+).
+        should("test baseWinLossPointGrant") {
+            // uncomment below to test the property
+            //modelInstance.baseWinLossPointGrant shouldBe ("TODO")
+        }
+
     }
 }

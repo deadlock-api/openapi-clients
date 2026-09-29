@@ -99,12 +99,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BuffTypeName'
+        /// </summary>
+        [Fact]
+        public void BuffTypeNameTest()
+        {
+            // TODO unit test for the property 'BuffTypeName'
+        }
+
+        /// <summary>
         /// Test the property 'BuffTypeValueUnit'
         /// </summary>
         [Fact]
         public void BuffTypeValueUnitTest()
         {
             // TODO unit test for the property 'BuffTypeValueUnit'
+        }
+
+        /// <summary>
+        /// Test the property 'CollectionMethod'
+        /// </summary>
+        [Fact]
+        public void CollectionMethodTest()
+        {
+            // TODO unit test for the property 'CollectionMethod'
         }
 
         /// <summary>
@@ -216,6 +234,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'HitsRequired'
+        /// </summary>
+        [Fact]
+        public void HitsRequiredTest()
+        {
+            // TODO unit test for the property 'HitsRequired'
+        }
+
+        /// <summary>
+        /// Test the property 'InShopModifier'
+        /// </summary>
+        [Fact]
+        public void InShopModifierTest()
+        {
+            // TODO unit test for the property 'InShopModifier'
+        }
+
+        /// <summary>
         /// Test the property 'InitialSpawnDelayInSeconds'
         /// </summary>
         [Fact]
@@ -249,6 +285,15 @@ namespace DeadlockApiClient.Test.Model
         public void IsMantleableTest()
         {
             // TODO unit test for the property 'IsMantleable'
+        }
+
+        /// <summary>
+        /// Test the property 'IsPermanentPickup'
+        /// </summary>
+        [Fact]
+        public void IsPermanentPickupTest()
+        {
+            // TODO unit test for the property 'IsPermanentPickup'
         }
 
         /// <summary>
@@ -306,12 +351,39 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'MinimapClass'
+        /// </summary>
+        [Fact]
+        public void MinimapClassTest()
+        {
+            // TODO unit test for the property 'MinimapClass'
+        }
+
+        /// <summary>
         /// Test the property 'Modifier'
         /// </summary>
         [Fact]
         public void ModifierTest()
         {
             // TODO unit test for the property 'Modifier'
+        }
+
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Fact]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+
+        /// <summary>
+        /// Test the property 'NameLocString'
+        /// </summary>
+        [Fact]
+        public void NameLocStringTest()
+        {
+            // TODO unit test for the property 'NameLocString'
         }
 
         /// <summary>
@@ -330,6 +402,15 @@ namespace DeadlockApiClient.Test.Model
         public void OrbSpawnDelayMinTest()
         {
             // TODO unit test for the property 'OrbSpawnDelayMin'
+        }
+
+        /// <summary>
+        /// Test the property 'Pickup'
+        /// </summary>
+        [Fact]
+        public void PickupTest()
+        {
+            // TODO unit test for the property 'Pickup'
         }
 
         /// <summary>
@@ -378,6 +459,42 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'RegenDuration'
+        /// </summary>
+        [Fact]
+        public void RegenDurationTest()
+        {
+            // TODO unit test for the property 'RegenDuration'
+        }
+
+        /// <summary>
+        /// Test the property 'RegenDurationTroopers'
+        /// </summary>
+        [Fact]
+        public void RegenDurationTroopersTest()
+        {
+            // TODO unit test for the property 'RegenDurationTroopers'
+        }
+
+        /// <summary>
+        /// Test the property 'RegenMaxHealthPercent'
+        /// </summary>
+        [Fact]
+        public void RegenMaxHealthPercentTest()
+        {
+            // TODO unit test for the property 'RegenMaxHealthPercent'
+        }
+
+        /// <summary>
+        /// Test the property 'RegenTrooperMulti'
+        /// </summary>
+        [Fact]
+        public void RegenTrooperMultiTest()
+        {
+            // TODO unit test for the property 'RegenTrooperMulti'
+        }
+
+        /// <summary>
         /// Test the property 'RenderAfterDeath'
         /// </summary>
         [Fact]
@@ -414,12 +531,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'SinglePickupOverride'
+        /// </summary>
+        [Fact]
+        public void SinglePickupOverrideTest()
+        {
+            // TODO unit test for the property 'SinglePickupOverride'
+        }
+
+        /// <summary>
         /// Test the property 'SolidAfterDeath'
         /// </summary>
         [Fact]
         public void SolidAfterDeathTest()
         {
             // TODO unit test for the property 'SolidAfterDeath'
+        }
+
+        /// <summary>
+        /// Test the property 'SpawnDelay'
+        /// </summary>
+        [Fact]
+        public void SpawnDelayTest()
+        {
+            // TODO unit test for the property 'SpawnDelay'
         }
 
         /// <summary>
@@ -438,6 +573,15 @@ namespace DeadlockApiClient.Test.Model
         public void SpawnIntervalInSecondsTest()
         {
             // TODO unit test for the property 'SpawnIntervalInSeconds'
+        }
+
+        /// <summary>
+        /// Test the property 'SpawnMusicState'
+        /// </summary>
+        [Fact]
+        public void SpawnMusicStateTest()
+        {
+            // TODO unit test for the property 'SpawnMusicState'
         }
     }
 }

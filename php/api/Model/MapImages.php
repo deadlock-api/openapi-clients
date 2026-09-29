@@ -90,7 +90,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'background' => false,
+        'background' => true,
         'frame' => false,
         'mid' => false,
         'mid_tunnels' => true,
@@ -317,9 +317,6 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['background'] === null) {
-            $invalidProperties[] = "'background' can't be null";
-        }
         if ($this->container['frame'] === null) {
             $invalidProperties[] = "'frame' can't be null";
         }
@@ -350,7 +347,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets background
      *
-     * @return string
+     * @return string|null
      */
     public function getBackground()
     {
@@ -360,14 +357,21 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets background
      *
-     * @param string $background Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
+     * @param string|null $background Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
      *
      * @return self
      */
     public function setBackground($background)
     {
         if (is_null($background)) {
-            throw new \InvalidArgumentException('non-nullable background cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'background');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('background', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['background'] = $background;
 
@@ -475,7 +479,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets minimap
      *
-     * @param string $minimap Full minimap. From build 6711 on this is the midtown base layer.
+     * @param string $minimap Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
      *
      * @return self
      */
@@ -502,7 +506,7 @@ class MapImages implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets plain
      *
-     * @param string $plain Minimap without overlays. From build 6711 on this is the midtown base layer.
+     * @param string $plain Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
      *
      * @return self
      */

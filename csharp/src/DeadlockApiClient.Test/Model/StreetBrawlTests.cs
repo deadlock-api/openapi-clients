@@ -304,5 +304,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'ZipBoostCooldownOnStart'
         }
+
+        /// <summary>
+        /// Test the property 'CorruptItemRound'
+        /// </summary>
+        [Fact]
+        public void CorruptItemRoundTest()
+        {
+            // TODO unit test for the property 'CorruptItemRound'
+        }
     }
 }

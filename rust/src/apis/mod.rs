@@ -133,6 +133,7 @@ pub mod mmr_api;
 pub mod map_api;
 pub mod matches_api;
 pub mod misc_entities_api;
+pub mod modifiers_api;
 pub mod npc_units_api;
 pub mod patches_api;
 pub mod players_api;

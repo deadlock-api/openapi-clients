@@ -6,7 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bonus** | **str** |  | 
+**fixed_corrupted_bonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **name** | **str** |  | 
+**round_corrupted_bonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **scale_stat_filter** | **str** |  | [optional] 
 **upgrade_type** | **str** |  | [optional] 
 

@@ -54,10 +54,55 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
+     * enum for parameter language
+     */
+     enum class LanguageGetNpcUnit(val value: kotlin.String) {
+         @Json(name = "brazilian") brazilian("brazilian"),
+         @Json(name = "bulgarian") bulgarian("bulgarian"),
+         @Json(name = "czech") czech("czech"),
+         @Json(name = "danish") danish("danish"),
+         @Json(name = "dutch") dutch("dutch"),
+         @Json(name = "english") english("english"),
+         @Json(name = "finnish") finnish("finnish"),
+         @Json(name = "french") french("french"),
+         @Json(name = "german") german("german"),
+         @Json(name = "greek") greek("greek"),
+         @Json(name = "hungarian") hungarian("hungarian"),
+         @Json(name = "indonesian") indonesian("indonesian"),
+         @Json(name = "italian") italian("italian"),
+         @Json(name = "japanese") japanese("japanese"),
+         @Json(name = "koreana") koreana("koreana"),
+         @Json(name = "latam") latam("latam"),
+         @Json(name = "norwegian") norwegian("norwegian"),
+         @Json(name = "polish") polish("polish"),
+         @Json(name = "portuguese") portuguese("portuguese"),
+         @Json(name = "romanian") romanian("romanian"),
+         @Json(name = "russian") russian("russian"),
+         @Json(name = "schinese") schinese("schinese"),
+         @Json(name = "spanish") spanish("spanish"),
+         @Json(name = "swedish") swedish("swedish"),
+         @Json(name = "tchinese") tchinese("tchinese"),
+         @Json(name = "thai") thai("thai"),
+         @Json(name = "turkish") turkish("turkish"),
+         @Json(name = "ukrainian") ukrainian("ukrainian"),
+         @Json(name = "vietnamese") vietnamese("vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/assets/npc-units/{id_or_classname}
      * Get NPC Unit
      * Returns a single NPC unit by numeric id or by &#x60;class_name&#x60; (case-insensitive).
      * @param idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return NpcUnit
      * @throws IllegalStateException If the request is not correctly configured
@@ -68,8 +113,8 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getNpcUnit(idOrClassname: kotlin.String, clientVersion: kotlin.Int? = null) : NpcUnit {
-        val localVarResponse = getNpcUnitWithHttpInfo(idOrClassname = idOrClassname, clientVersion = clientVersion)
+    fun getNpcUnit(idOrClassname: kotlin.String, language: LanguageGetNpcUnit? = null, clientVersion: kotlin.Int? = null) : NpcUnit {
+        val localVarResponse = getNpcUnitWithHttpInfo(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as NpcUnit
@@ -91,6 +136,7 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * Get NPC Unit
      * Returns a single NPC unit by numeric id or by &#x60;class_name&#x60; (case-insensitive).
      * @param idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<NpcUnit?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -98,8 +144,8 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getNpcUnitWithHttpInfo(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : ApiResponse<NpcUnit?> {
-        val localVariableConfig = getNpcUnitRequestConfig(idOrClassname = idOrClassname, clientVersion = clientVersion)
+    fun getNpcUnitWithHttpInfo(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Int?) : ApiResponse<NpcUnit?> {
+        val localVariableConfig = getNpcUnitRequestConfig(idOrClassname = idOrClassname, language = language, clientVersion = clientVersion)
 
         return request<Unit, NpcUnit>(
             localVariableConfig
@@ -110,13 +156,17 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      * To obtain the request config of the operation getNpcUnit
      *
      * @param idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun getNpcUnitRequestConfig(idOrClassname: kotlin.String, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun getNpcUnitRequestConfig(idOrClassname: kotlin.String, language: LanguageGetNpcUnit?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
                 if (clientVersion != null) {
                     put("client_version", listOf(clientVersion.toString()))
                 }
@@ -135,9 +185,54 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     }
 
     /**
+     * enum for parameter language
+     */
+     enum class LanguageListNpcUnits(val value: kotlin.String) {
+         @Json(name = "brazilian") brazilian("brazilian"),
+         @Json(name = "bulgarian") bulgarian("bulgarian"),
+         @Json(name = "czech") czech("czech"),
+         @Json(name = "danish") danish("danish"),
+         @Json(name = "dutch") dutch("dutch"),
+         @Json(name = "english") english("english"),
+         @Json(name = "finnish") finnish("finnish"),
+         @Json(name = "french") french("french"),
+         @Json(name = "german") german("german"),
+         @Json(name = "greek") greek("greek"),
+         @Json(name = "hungarian") hungarian("hungarian"),
+         @Json(name = "indonesian") indonesian("indonesian"),
+         @Json(name = "italian") italian("italian"),
+         @Json(name = "japanese") japanese("japanese"),
+         @Json(name = "koreana") koreana("koreana"),
+         @Json(name = "latam") latam("latam"),
+         @Json(name = "norwegian") norwegian("norwegian"),
+         @Json(name = "polish") polish("polish"),
+         @Json(name = "portuguese") portuguese("portuguese"),
+         @Json(name = "romanian") romanian("romanian"),
+         @Json(name = "russian") russian("russian"),
+         @Json(name = "schinese") schinese("schinese"),
+         @Json(name = "spanish") spanish("spanish"),
+         @Json(name = "swedish") swedish("swedish"),
+         @Json(name = "tchinese") tchinese("tchinese"),
+         @Json(name = "thai") thai("thai"),
+         @Json(name = "turkish") turkish("turkish"),
+         @Json(name = "ukrainian") ukrainian("ukrainian"),
+         @Json(name = "vietnamese") vietnamese("vietnamese");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
      * GET /v1/assets/npc-units
      * List NPC Units
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return kotlin.collections.List<NpcUnit>
      * @throws IllegalStateException If the request is not correctly configured
@@ -148,8 +243,8 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listNpcUnits(clientVersion: kotlin.Int? = null) : kotlin.collections.List<NpcUnit> {
-        val localVarResponse = listNpcUnitsWithHttpInfo(clientVersion = clientVersion)
+    fun listNpcUnits(language: LanguageListNpcUnits? = null, clientVersion: kotlin.Int? = null) : kotlin.collections.List<NpcUnit> {
+        val localVarResponse = listNpcUnitsWithHttpInfo(language = language, clientVersion = clientVersion)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<NpcUnit>
@@ -169,7 +264,8 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/assets/npc-units
      * List NPC Units
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<kotlin.collections.List<NpcUnit>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -177,8 +273,8 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun listNpcUnitsWithHttpInfo(clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<NpcUnit>?> {
-        val localVariableConfig = listNpcUnitsRequestConfig(clientVersion = clientVersion)
+    fun listNpcUnitsWithHttpInfo(language: LanguageListNpcUnits?, clientVersion: kotlin.Int?) : ApiResponse<kotlin.collections.List<NpcUnit>?> {
+        val localVariableConfig = listNpcUnitsRequestConfig(language = language, clientVersion = clientVersion)
 
         return request<Unit, kotlin.collections.List<NpcUnit>>(
             localVariableConfig
@@ -188,13 +284,17 @@ open class NPCUnitsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * To obtain the request config of the operation listNpcUnits
      *
+     * @param language Language code. Defaults to &#x60;english&#x60;. (optional)
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return RequestConfig
      */
-    fun listNpcUnitsRequestConfig(clientVersion: kotlin.Int?) : RequestConfig<Unit> {
+    fun listNpcUnitsRequestConfig(language: LanguageListNpcUnits?, clientVersion: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
+                if (language != null) {
+                    put("language", listOf(language.value))
+                }
                 if (clientVersion != null) {
                     put("client_version", listOf(clientVersion.toString()))
                 }

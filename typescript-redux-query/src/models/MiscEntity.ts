@@ -52,7 +52,13 @@ export interface MiscEntity  {
      */
     buffTypeLocString?: string;
     /**
-     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+     * Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    buffTypeName?: string;
+    /**
+     * Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
      * @type {string}
      * @memberof MiscEntity
      */
@@ -63,6 +69,12 @@ export interface MiscEntity  {
      * @memberof MiscEntity
      */
     className: string;
+    /**
+     * How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    collectionMethod?: string;
     /**
      * 
      * @type {number}
@@ -136,11 +148,23 @@ export interface MiscEntity  {
      */
     heavyMeleeOnly?: boolean;
     /**
+     * Punchable pickups: hits needed to collect.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    hitsRequired?: number;
+    /**
      * 
      * @type {number}
      * @memberof MiscEntity
      */
     id: number;
+    /**
+     * Corrupted item shop (Broker) trigger: modifier applied while inside.
+     * @type {SubclassModifierDefinition}
+     * @memberof MiscEntity
+     */
+    inShopModifier?: SubclassModifierDefinition;
     /**
      * 
      * @type {number}
@@ -165,6 +189,12 @@ export interface MiscEntity  {
      * @memberof MiscEntity
      */
     isMantleable?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof MiscEntity
+     */
+    isPermanentPickup?: boolean;
     /**
      * 
      * @type {number}
@@ -203,10 +233,28 @@ export interface MiscEntity  {
     matchTimeMinsForLevel3Pickups?: number;
     /**
      * 
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    minimapClass?: string;
+    /**
+     * 
      * @type {SubclassModifierDefinition}
      * @memberof MiscEntity
      */
     modifier?: SubclassModifierDefinition;
+    /**
+     * `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    name?: string;
+    /**
+     * Localization token of the pickup\'s world label.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    nameLocString?: string;
     /**
      * 
      * @type {number}
@@ -219,6 +267,12 @@ export interface MiscEntity  {
      * @memberof MiscEntity
      */
     orbSpawnDelayMin?: number;
+    /**
+     * Pickup spawners: class name of the spawned pickup.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    pickup?: string;
     /**
      * Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
      * @type {{ [key: string]: number; }}
@@ -250,6 +304,30 @@ export interface MiscEntity  {
      */
     primaryPickups?: Array<Pickup>;
     /**
+     * Health pickups: seconds over which the healing is applied to heroes.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    regenDuration?: number;
+    /**
+     * Health pickups: seconds over which the healing is applied to troopers.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    regenDurationTroopers?: number;
+    /**
+     * Health pickups: healing as percent of max health.
+     * @type {CurveOrFloat}
+     * @memberof MiscEntity
+     */
+    regenMaxHealthPercent?: CurveOrFloat;
+    /**
+     * Health pickups: healing multiplier for troopers.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    regenTrooperMulti?: number;
+    /**
      * 
      * @type {boolean}
      * @memberof MiscEntity
@@ -274,11 +352,23 @@ export interface MiscEntity  {
      */
     showOnMinimap?: boolean;
     /**
+     * Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    singlePickupOverride?: string;
+    /**
      * 
      * @type {boolean}
      * @memberof MiscEntity
      */
     solidAfterDeath?: boolean;
+    /**
+     * Pickup spawners: delay (seconds) before the first spawn.
+     * @type {number}
+     * @memberof MiscEntity
+     */
+    spawnDelay?: number;
     /**
      * 
      * @type {number}
@@ -291,6 +381,12 @@ export interface MiscEntity  {
      * @memberof MiscEntity
      */
     spawnIntervalInSeconds?: number;
+    /**
+     * Corrupted item shop (Broker) trigger: music cue played on spawn.
+     * @type {string}
+     * @memberof MiscEntity
+     */
+    spawnMusicState?: string;
 }
 
 export function MiscEntityFromJSON(json: any): MiscEntity {
@@ -298,8 +394,10 @@ export function MiscEntityFromJSON(json: any): MiscEntity {
         'breakOnDodgeTouch': !exists(json, 'break_on_dodge_touch') ? undefined : json['break_on_dodge_touch'],
         'buffTypeGraphColor': !exists(json, 'buff_type_graph_color') ? undefined : ColorFromJSON(json['buff_type_graph_color']),
         'buffTypeLocString': !exists(json, 'buff_type_loc_string') ? undefined : json['buff_type_loc_string'],
+        'buffTypeName': !exists(json, 'buff_type_name') ? undefined : json['buff_type_name'],
         'buffTypeValueUnit': !exists(json, 'buff_type_value_unit') ? undefined : json['buff_type_value_unit'],
         'className': json['class_name'],
+        'collectionMethod': !exists(json, 'collection_method') ? undefined : json['collection_method'],
         'collisionRadius': !exists(json, 'collision_radius') ? undefined : json['collision_radius'],
         'color': !exists(json, 'color') ? undefined : ColorFromJSON(json['color']),
         'damagedByAbilities': !exists(json, 'damaged_by_abilities') ? undefined : json['damaged_by_abilities'],
@@ -312,32 +410,46 @@ export function MiscEntityFromJSON(json: any): MiscEntity {
         'health': !exists(json, 'health') ? undefined : json['health'],
         'heavyMeleeHitCount': !exists(json, 'heavy_melee_hit_count') ? undefined : json['heavy_melee_hit_count'],
         'heavyMeleeOnly': !exists(json, 'heavy_melee_only') ? undefined : json['heavy_melee_only'],
+        'hitsRequired': !exists(json, 'hits_required') ? undefined : json['hits_required'],
         'id': json['id'],
+        'inShopModifier': !exists(json, 'in_shop_modifier') ? undefined : SubclassModifierDefinitionFromJSON(json['in_shop_modifier']),
         'initialSpawnDelayInSeconds': !exists(json, 'initial_spawn_delay_in_seconds') ? undefined : json['initial_spawn_delay_in_seconds'],
         'initialSpawnDelaySeconds': !exists(json, 'initial_spawn_delay_seconds') ? undefined : json['initial_spawn_delay_seconds'],
         'initialSpawnTime': !exists(json, 'initial_spawn_time') ? undefined : json['initial_spawn_time'],
         'isMantleable': !exists(json, 'is_mantleable') ? undefined : json['is_mantleable'],
+        'isPermanentPickup': !exists(json, 'is_permanent_pickup') ? undefined : json['is_permanent_pickup'],
         'lifetime': !exists(json, 'lifetime') ? undefined : json['lifetime'],
         'lootListDeckSize': !exists(json, 'loot_list_deck_size') ? undefined : json['loot_list_deck_size'],
         'mVecPickupsLv2': !exists(json, 'm_vecPickups_lv2') ? undefined : (json['m_vecPickups_lv2'] as Array<any>).map(PickupFromJSON),
         'mVecPickupsLv3': !exists(json, 'm_vecPickups_lv3') ? undefined : (json['m_vecPickups_lv3'] as Array<any>).map(PickupFromJSON),
         'matchTimeMinsForLevel2Pickups': !exists(json, 'match_time_mins_for_level2_pickups') ? undefined : json['match_time_mins_for_level2_pickups'],
         'matchTimeMinsForLevel3Pickups': !exists(json, 'match_time_mins_for_level3_pickups') ? undefined : json['match_time_mins_for_level3_pickups'],
+        'minimapClass': !exists(json, 'minimap_class') ? undefined : json['minimap_class'],
         'modifier': !exists(json, 'modifier') ? undefined : SubclassModifierDefinitionFromJSON(json['modifier']),
+        'name': !exists(json, 'name') ? undefined : json['name'],
+        'nameLocString': !exists(json, 'name_loc_string') ? undefined : json['name_loc_string'],
         'orbSpawnDelayMax': !exists(json, 'orb_spawn_delay_max') ? undefined : json['orb_spawn_delay_max'],
         'orbSpawnDelayMin': !exists(json, 'orb_spawn_delay_min') ? undefined : json['orb_spawn_delay_min'],
+        'pickup': !exists(json, 'pickup') ? undefined : json['pickup'],
         'pickupChances': !exists(json, 'pickup_chances') ? undefined : json['pickup_chances'],
         'pickupRadius': !exists(json, 'pickup_radius') ? undefined : CurveOrFloatFromJSON(json['pickup_radius']),
         'powerupDropChance': !exists(json, 'powerup_drop_chance') ? undefined : json['powerup_drop_chance'],
         'primaryDropChance': !exists(json, 'primary_drop_chance') ? undefined : json['primary_drop_chance'],
         'primaryPickups': !exists(json, 'primary_pickups') ? undefined : (json['primary_pickups'] as Array<any>).map(PickupFromJSON),
+        'regenDuration': !exists(json, 'regen_duration') ? undefined : json['regen_duration'],
+        'regenDurationTroopers': !exists(json, 'regen_duration_troopers') ? undefined : json['regen_duration_troopers'],
+        'regenMaxHealthPercent': !exists(json, 'regen_max_health_percent') ? undefined : CurveOrFloatFromJSON(json['regen_max_health_percent']),
+        'regenTrooperMulti': !exists(json, 'regen_trooper_multi') ? undefined : json['regen_trooper_multi'],
         'renderAfterDeath': !exists(json, 'render_after_death') ? undefined : json['render_after_death'],
         'respawnTime': !exists(json, 'respawn_time') ? undefined : json['respawn_time'],
         'rollType': !exists(json, 'roll_type') ? undefined : json['roll_type'],
         'showOnMinimap': !exists(json, 'show_on_minimap') ? undefined : json['show_on_minimap'],
+        'singlePickupOverride': !exists(json, 'single_pickup_override') ? undefined : json['single_pickup_override'],
         'solidAfterDeath': !exists(json, 'solid_after_death') ? undefined : json['solid_after_death'],
+        'spawnDelay': !exists(json, 'spawn_delay') ? undefined : json['spawn_delay'],
         'spawnInterval': !exists(json, 'spawn_interval') ? undefined : json['spawn_interval'],
         'spawnIntervalInSeconds': !exists(json, 'spawn_interval_in_seconds') ? undefined : json['spawn_interval_in_seconds'],
+        'spawnMusicState': !exists(json, 'spawn_music_state') ? undefined : json['spawn_music_state'],
     };
 }
 
@@ -349,8 +461,10 @@ export function MiscEntityToJSON(value?: MiscEntity): any {
         'break_on_dodge_touch': value.breakOnDodgeTouch,
         'buff_type_graph_color': ColorToJSON(value.buffTypeGraphColor),
         'buff_type_loc_string': value.buffTypeLocString,
+        'buff_type_name': value.buffTypeName,
         'buff_type_value_unit': value.buffTypeValueUnit,
         'class_name': value.className,
+        'collection_method': value.collectionMethod,
         'collision_radius': value.collisionRadius,
         'color': ColorToJSON(value.color),
         'damaged_by_abilities': value.damagedByAbilities,
@@ -363,32 +477,46 @@ export function MiscEntityToJSON(value?: MiscEntity): any {
         'health': value.health,
         'heavy_melee_hit_count': value.heavyMeleeHitCount,
         'heavy_melee_only': value.heavyMeleeOnly,
+        'hits_required': value.hitsRequired,
         'id': value.id,
+        'in_shop_modifier': SubclassModifierDefinitionToJSON(value.inShopModifier),
         'initial_spawn_delay_in_seconds': value.initialSpawnDelayInSeconds,
         'initial_spawn_delay_seconds': value.initialSpawnDelaySeconds,
         'initial_spawn_time': value.initialSpawnTime,
         'is_mantleable': value.isMantleable,
+        'is_permanent_pickup': value.isPermanentPickup,
         'lifetime': value.lifetime,
         'loot_list_deck_size': value.lootListDeckSize,
         'm_vecPickups_lv2': value.mVecPickupsLv2 === undefined ? undefined : (value.mVecPickupsLv2 as Array<any>).map(PickupToJSON),
         'm_vecPickups_lv3': value.mVecPickupsLv3 === undefined ? undefined : (value.mVecPickupsLv3 as Array<any>).map(PickupToJSON),
         'match_time_mins_for_level2_pickups': value.matchTimeMinsForLevel2Pickups,
         'match_time_mins_for_level3_pickups': value.matchTimeMinsForLevel3Pickups,
+        'minimap_class': value.minimapClass,
         'modifier': SubclassModifierDefinitionToJSON(value.modifier),
+        'name': value.name,
+        'name_loc_string': value.nameLocString,
         'orb_spawn_delay_max': value.orbSpawnDelayMax,
         'orb_spawn_delay_min': value.orbSpawnDelayMin,
+        'pickup': value.pickup,
         'pickup_chances': value.pickupChances,
         'pickup_radius': CurveOrFloatToJSON(value.pickupRadius),
         'powerup_drop_chance': value.powerupDropChance,
         'primary_drop_chance': value.primaryDropChance,
         'primary_pickups': value.primaryPickups === undefined ? undefined : (value.primaryPickups as Array<any>).map(PickupToJSON),
+        'regen_duration': value.regenDuration,
+        'regen_duration_troopers': value.regenDurationTroopers,
+        'regen_max_health_percent': CurveOrFloatToJSON(value.regenMaxHealthPercent),
+        'regen_trooper_multi': value.regenTrooperMulti,
         'render_after_death': value.renderAfterDeath,
         'respawn_time': value.respawnTime,
         'roll_type': value.rollType,
         'show_on_minimap': value.showOnMinimap,
+        'single_pickup_override': value.singlePickupOverride,
         'solid_after_death': value.solidAfterDeath,
+        'spawn_delay': value.spawnDelay,
         'spawn_interval': value.spawnInterval,
         'spawn_interval_in_seconds': value.spawnIntervalInSeconds,
+        'spawn_music_state': value.spawnMusicState,
     };
 }
 

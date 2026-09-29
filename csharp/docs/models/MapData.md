@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ObjectivePositions** | [**Dictionary&lt;string, ObjectivePosition&gt;**](ObjectivePosition.md) |  | 
 **Radius** | **int** |  | 
 **ZiplinePaths** | [**List&lt;ZiplanePath&gt;**](ZiplanePath.md) |  | 
+**NeutralCamps** | [**List&lt;NeutralCamp&gt;**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

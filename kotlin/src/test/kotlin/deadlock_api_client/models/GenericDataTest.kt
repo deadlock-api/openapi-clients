@@ -27,11 +27,14 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.GenericData
+import deadlock_api_client.models.BreakablePowerupLootParams
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
 import deadlock_api_client.models.ItemGroup
 import deadlock_api_client.models.LaneInfo
+import deadlock_api_client.models.MapDistrict
 import deadlock_api_client.models.MiniMapOffsets
 import deadlock_api_client.models.NewPlayerMetrics
 import deadlock_api_client.models.ObjectiveParams
@@ -133,6 +136,12 @@ class GenericDataTest : ShouldSpec() {
             //modelInstance.weaponGroups shouldBe ("TODO")
         }
 
+        // to test the property `breakablePowerupLootParams` - Loot tables for breakable powerup props (build 6711+).
+        should("test breakablePowerupLootParams") {
+            // uncomment below to test the property
+            //modelInstance.breakablePowerupLootParams shouldBe ("TODO")
+        }
+
         // to test the property `colorEnemy` - Build 6711+.
         should("test colorEnemy") {
             // uncomment below to test the property
@@ -157,6 +166,12 @@ class GenericDataTest : ShouldSpec() {
             //modelInstance.colorTeam2 shouldBe ("TODO")
         }
 
+        // to test the property `corruptedPenalties` - Penalties that can be rolled onto corrupted items (build 6711+).
+        should("test corruptedPenalties") {
+            // uncomment below to test the property
+            //modelInstance.corruptedPenalties shouldBe ("TODO")
+        }
+
         // to test the property `enemyObjectivesAndZiplineColor`
         should("test enemyObjectivesAndZiplineColor") {
             // uncomment below to test the property
@@ -175,6 +190,18 @@ class GenericDataTest : ShouldSpec() {
             //modelInstance.enemyZiplineColor shouldBe ("TODO")
         }
 
+        // to test the property `itemCorruptionPricePerTier` - Extra cost of corrupting an item, by item tier (build 6711+).
+        should("test itemCorruptionPricePerTier") {
+            // uncomment below to test the property
+            //modelInstance.itemCorruptionPricePerTier shouldBe ("TODO")
+        }
+
+        // to test the property `mapDistricts` - District / building labels shown on the map (build 6711+).
+        should("test mapDistricts") {
+            // uncomment below to test the property
+            //modelInstance.mapDistricts shouldBe ("TODO")
+        }
+
         // to test the property `minimapTeamCombineColor`
         should("test minimapTeamCombineColor") {
             // uncomment below to test the property
@@ -185,6 +212,12 @@ class GenericDataTest : ShouldSpec() {
         should("test minimapTeamRebelsColor") {
             // uncomment below to test the property
             //modelInstance.minimapTeamRebelsColor shouldBe ("TODO")
+        }
+
+        // to test the property `neutralCampRespawnTimerShowDistance` - Distance within which a neutral camp's respawn timer is shown (build 6711+).
+        should("test neutralCampRespawnTimerShowDistance") {
+            // uncomment below to test the property
+            //modelInstance.neutralCampRespawnTimerShowDistance shouldBe ("TODO")
         }
 
         // to test the property `streetBrawl`

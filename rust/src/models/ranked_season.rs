@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RankedSeason {
+    /// Base rank points granted per win / taken per loss (build 6701+).
+    #[serde(rename = "base_win_loss_point_grant", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub base_win_loss_point_grant: Option<Option<u32>>,
     #[serde(rename = "calibration_matches")]
     pub calibration_matches: u32,
     #[serde(rename = "class_name")]
@@ -36,6 +39,7 @@ pub struct RankedSeason {
 impl RankedSeason {
     pub fn new(calibration_matches: u32, class_name: String, intervals: Vec<models::SeasonInterval>, min_hero_unlocks: u32, min_hero_wins: u32, min_wins: u32, name: String, ranked_type: String, valid_party_sizes: Vec<u32>) -> RankedSeason {
         RankedSeason {
+            base_win_loss_point_grant: None,
             calibration_matches,
             class_name,
             intervals,

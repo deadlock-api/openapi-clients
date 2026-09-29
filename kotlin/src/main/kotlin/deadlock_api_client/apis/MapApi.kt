@@ -56,7 +56,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/assets/map
      * Map
-     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return MapData
      * @throws IllegalStateException If the request is not correctly configured
@@ -88,7 +88,7 @@ open class MapApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/assets/map
      * Map
-     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
      * @param clientVersion Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)
      * @return ApiResponse<MapData?>
      * @throws IllegalStateException If the request is not correctly configured

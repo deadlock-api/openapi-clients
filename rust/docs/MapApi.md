@@ -13,7 +13,7 @@ Method | HTTP request | Description
 > models::MapData get_map(client_version)
 Map
 
-Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
 
 ### Parameters
 

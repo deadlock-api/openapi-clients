@@ -1,0 +1,1 @@
+{"version":3,"file":"map-district.d.ts","sourceRoot":"","sources":["../../models/map-district.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH;;GAEG;AACH,MAAM,WAAW,WAAW;IACxB;;OAEG;IACH,UAAU,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC3B;;OAEG;IACH,eAAe,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAChC;;OAEG;IACH,UAAU,EAAE,MAAM,CAAC;IACnB;;OAEG;IACH,eAAe,EAAE,MAAM,CAAC;CAC3B"}

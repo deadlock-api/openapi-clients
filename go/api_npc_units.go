@@ -27,7 +27,14 @@ type ApiGetNpcUnitRequest struct {
 	ctx context.Context
 	ApiService *NPCUnitsAPIService
 	idOrClassname string
+	language *string
 	clientVersion *int32
+}
+
+// Language code. Defaults to &#x60;english&#x60;.
+func (r ApiGetNpcUnitRequest) Language(language string) ApiGetNpcUnitRequest {
+	r.language = &language
+	return r
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -79,6 +86,9 @@ func (a *NPCUnitsAPIService) GetNpcUnitExecute(r ApiGetNpcUnitRequest) (*NpcUnit
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.language != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
 	if r.clientVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
 	}
@@ -139,7 +149,14 @@ func (a *NPCUnitsAPIService) GetNpcUnitExecute(r ApiGetNpcUnitRequest) (*NpcUnit
 type ApiListNpcUnitsRequest struct {
 	ctx context.Context
 	ApiService *NPCUnitsAPIService
+	language *string
 	clientVersion *int32
+}
+
+// Language code. Defaults to &#x60;english&#x60;.
+func (r ApiListNpcUnitsRequest) Language(language string) ApiListNpcUnitsRequest {
+	r.language = &language
+	return r
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -155,7 +172,7 @@ func (r ApiListNpcUnitsRequest) Execute() ([]NpcUnit, *http.Response, error) {
 /*
 ListNpcUnits List NPC Units
 
-Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral ("Haunt") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListNpcUnitsRequest
@@ -188,6 +205,9 @@ func (a *NPCUnitsAPIService) ListNpcUnitsExecute(r ApiListNpcUnitsRequest) ([]Np
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.language != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
 	if r.clientVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
 	}

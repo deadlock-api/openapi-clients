@@ -15,7 +15,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
+from pydantic import Field, StrictStr, field_validator
 from typing import List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.misc_entity import MiscEntity
@@ -42,6 +42,7 @@ class MiscEntitiesApi:
     def get_misc_entity(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Misc entity id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -62,6 +63,8 @@ class MiscEntitiesApi:
 
         :param id_or_classname: Misc entity id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -88,6 +91,7 @@ class MiscEntitiesApi:
 
         _param = self._get_misc_entity_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,6 +119,7 @@ class MiscEntitiesApi:
     def get_misc_entity_with_http_info(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Misc entity id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -135,6 +140,8 @@ class MiscEntitiesApi:
 
         :param id_or_classname: Misc entity id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -161,6 +168,7 @@ class MiscEntitiesApi:
 
         _param = self._get_misc_entity_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -188,6 +196,7 @@ class MiscEntitiesApi:
     def get_misc_entity_without_preload_content(
         self,
         id_or_classname: Annotated[StrictStr, Field(description="Misc entity id (`murmurhash2(class_name)`) or `class_name`")],
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -208,6 +217,8 @@ class MiscEntitiesApi:
 
         :param id_or_classname: Misc entity id (`murmurhash2(class_name)`) or `class_name` (required)
         :type id_or_classname: str
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -234,6 +245,7 @@ class MiscEntitiesApi:
 
         _param = self._get_misc_entity_serialize(
             id_or_classname=id_or_classname,
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -256,6 +268,7 @@ class MiscEntitiesApi:
     def _get_misc_entity_serialize(
         self,
         id_or_classname,
+        language,
         client_version,
         _request_auth,
         _content_type,
@@ -281,6 +294,10 @@ class MiscEntitiesApi:
         if id_or_classname is not None:
             _path_params['id_or_classname'] = id_or_classname
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         if client_version is not None:
             
             _query_params.append(('client_version', client_version))
@@ -324,6 +341,7 @@ class MiscEntitiesApi:
     @validate_call
     def list_misc_entities(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -340,8 +358,10 @@ class MiscEntitiesApi:
     ) -> List[MiscEntity]:
         """List Misc Entities
 
-        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -367,6 +387,7 @@ class MiscEntitiesApi:
         """ # noqa: E501
 
         _param = self._list_misc_entities_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -393,6 +414,7 @@ class MiscEntitiesApi:
     @validate_call
     def list_misc_entities_with_http_info(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -409,8 +431,10 @@ class MiscEntitiesApi:
     ) -> ApiResponse[List[MiscEntity]]:
         """List Misc Entities
 
-        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -436,6 +460,7 @@ class MiscEntitiesApi:
         """ # noqa: E501
 
         _param = self._list_misc_entities_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -462,6 +487,7 @@ class MiscEntitiesApi:
     @validate_call
     def list_misc_entities_without_preload_content(
         self,
+        language: Annotated[Optional[StrictStr], Field(description="Language code. Defaults to `english`.")] = None,
         client_version: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Client/game version (e.g. `6518`). Defaults to the latest known version.")] = None,
         _request_timeout: Union[
             None,
@@ -478,8 +504,10 @@ class MiscEntitiesApi:
     ) -> RESTResponseType:
         """List Misc Entities
 
-        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+        Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
+        :param language: Language code. Defaults to `english`.
+        :type language: str
         :param client_version: Client/game version (e.g. `6518`). Defaults to the latest known version.
         :type client_version: int
         :param _request_timeout: timeout setting for this request. If one
@@ -505,6 +533,7 @@ class MiscEntitiesApi:
         """ # noqa: E501
 
         _param = self._list_misc_entities_serialize(
+            language=language,
             client_version=client_version,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -526,6 +555,7 @@ class MiscEntitiesApi:
 
     def _list_misc_entities_serialize(
         self,
+        language,
         client_version,
         _request_auth,
         _content_type,
@@ -549,6 +579,10 @@ class MiscEntitiesApi:
 
         # process the path parameters
         # process the query parameters
+        if language is not None:
+            
+            _query_params.append(('language', language))
+            
         if client_version is not None:
             
             _query_params.append(('client_version', client_version))

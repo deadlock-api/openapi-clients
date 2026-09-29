@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **buy_time_grace_period** | **f64** |  | 
 **comeback_bonus_health** | **i64** |  | 
 **comeback_bonus_health_critical** | **i64** |  | 
+**corrupt_item_round** | Option<**i64**> | Round in which players may corrupt an item (build 6711+). | [optional]
 **gold_per_round** | **Vec<i64>** |  | 
 **item_draft_rerolls_per_round** | **Vec<i64>** |  | 
 **item_draft_rounds_per_game_round** | [**Vec<models::ItemDraftRoundPerGameRound>**](ItemDraftRoundPerGameRound.md) |  | 

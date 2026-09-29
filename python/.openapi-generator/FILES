@@ -28,6 +28,7 @@ deadlock_api_client/api/map_api.py
 deadlock_api_client/api/matches_api.py
 deadlock_api_client/api/misc_entities_api.py
 deadlock_api_client/api/mmr_api.py
+deadlock_api_client/api/modifiers_api.py
 deadlock_api_client/api/npc_units_api.py
 deadlock_api_client/api/patches_api.py
 deadlock_api_client/api/players_api.py
@@ -62,6 +63,7 @@ deadlock_api_client/models/analytics_game_stats.py
 deadlock_api_client/models/analytics_hero_stats.py
 deadlock_api_client/models/api_info.py
 deadlock_api_client/models/badge_distribution.py
+deadlock_api_client/models/breakable_powerup_loot_params.py
 deadlock_api_client/models/build.py
 deadlock_api_client/models/build_hero.py
 deadlock_api_client/models/build_hero_details.py
@@ -76,6 +78,9 @@ deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/color.py
 deadlock_api_client/models/color_gradient_stop.py
 deadlock_api_client/models/column_schema.py
+deadlock_api_client/models/corrupted_item_info.py
+deadlock_api_client/models/corrupted_penalty.py
+deadlock_api_client/models/corrupted_penalty_effect.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
 deadlock_api_client/models/curve.py
@@ -121,6 +126,8 @@ deadlock_api_client/models/hero_development_state.py
 deadlock_api_client/models/hero_entry.py
 deadlock_api_client/models/hero_images.py
 deadlock_api_client/models/hero_physics.py
+deadlock_api_client/models/hero_popular_item.py
+deadlock_api_client/models/hero_popular_items.py
 deadlock_api_client/models/hero_stats.py
 deadlock_api_client/models/hero_stats_ui.py
 deadlock_api_client/models/hero_stats_ui_display.py
@@ -156,6 +163,7 @@ deadlock_api_client/models/live_url.py
 deadlock_api_client/models/loot_entry.py
 deadlock_api_client/models/loot_table.py
 deadlock_api_client/models/map_data.py
+deadlock_api_client/models/map_district.py
 deadlock_api_client/models/map_images.py
 deadlock_api_client/models/match_player.py
 deadlock_api_client/models/match_salts_response.py
@@ -164,7 +172,10 @@ deadlock_api_client/models/mate_stats.py
 deadlock_api_client/models/mini_map_offsets.py
 deadlock_api_client/models/misc_entity.py
 deadlock_api_client/models/mmr_history.py
+deadlock_api_client/models/modifier.py
 deadlock_api_client/models/modifier_value.py
+deadlock_api_client/models/neutral_camp.py
+deadlock_api_client/models/neutral_camp_kind.py
 deadlock_api_client/models/new_player_metrics.py
 deadlock_api_client/models/npc_unit.py
 deadlock_api_client/models/objective_params.py
@@ -233,6 +244,8 @@ deadlock_api_client/models/subclass_intrinsic_modifiers.py
 deadlock_api_client/models/subclass_intrinsic_modifiers_subclass.py
 deadlock_api_client/models/subclass_modifier_definition.py
 deadlock_api_client/models/subclass_modifier_definition_subclass.py
+deadlock_api_client/models/subclass_neutral_damage_growth.py
+deadlock_api_client/models/subclass_neutral_damage_growth_subclass.py
 deadlock_api_client/models/subclass_objective_health_growth_phase.py
 deadlock_api_client/models/subclass_objective_health_growth_phase_subclass.py
 deadlock_api_client/models/subclass_objective_regen.py
@@ -285,6 +298,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
 docs/BuildHeroDetails.md
@@ -304,6 +318,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/CorruptedItemInfo.md
+docs/CorruptedPenalty.md
+docs/CorruptedPenaltyEffect.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -353,6 +370,8 @@ docs/HeroDevelopmentState.md
 docs/HeroEntry.md
 docs/HeroImages.md
 docs/HeroPhysics.md
+docs/HeroPopularItem.md
+docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
@@ -397,6 +416,7 @@ docs/MMRApi.md
 docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
+docs/MapDistrict.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -406,8 +426,12 @@ docs/MateStats.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
+docs/Modifier.md
 docs/ModifierValue.md
+docs/ModifiersApi.md
 docs/NPCUnitsApi.md
+docs/NeutralCamp.md
+docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
 docs/ObjectiveParams.md
@@ -483,6 +507,8 @@ docs/SubclassIntrinsicModifiers.md
 docs/SubclassIntrinsicModifiersSubclass.md
 docs/SubclassModifierDefinition.md
 docs/SubclassModifierDefinitionSubclass.md
+docs/SubclassNeutralDamageGrowth.md
+docs/SubclassNeutralDamageGrowthSubclass.md
 docs/SubclassObjectiveHealthGrowthPhase.md
 docs/SubclassObjectiveHealthGrowthPhaseSubclass.md
 docs/SubclassObjectiveRegen.md
@@ -540,6 +566,7 @@ test/test_analytics_hero_stats.py
 test/test_api_info.py
 test/test_assets_bucket_api.py
 test/test_badge_distribution.py
+test/test_breakable_powerup_loot_params.py
 test/test_build.py
 test/test_build_hero.py
 test/test_build_hero_details.py
@@ -559,6 +586,9 @@ test/test_color_gradient_stop.py
 test/test_colors_api.py
 test/test_column_schema.py
 test/test_commands_api.py
+test/test_corrupted_item_info.py
+test/test_corrupted_penalty.py
+test/test_corrupted_penalty_effect.py
 test/test_create_custom_request.py
 test/test_create_custom_response.py
 test/test_curve.py
@@ -608,6 +638,8 @@ test/test_hero_development_state.py
 test/test_hero_entry.py
 test/test_hero_images.py
 test/test_hero_physics.py
+test/test_hero_popular_item.py
+test/test_hero_popular_items.py
 test/test_hero_stats.py
 test/test_hero_stats_ui.py
 test/test_hero_stats_ui_display.py
@@ -650,6 +682,7 @@ test/test_loot_table.py
 test/test_loot_tables_api.py
 test/test_map_api.py
 test/test_map_data.py
+test/test_map_district.py
 test/test_map_images.py
 test/test_match_player.py
 test/test_match_salts_response.py
@@ -661,7 +694,11 @@ test/test_misc_entities_api.py
 test/test_misc_entity.py
 test/test_mmr_api.py
 test/test_mmr_history.py
+test/test_modifier.py
 test/test_modifier_value.py
+test/test_modifiers_api.py
+test/test_neutral_camp.py
+test/test_neutral_camp_kind.py
 test/test_new_player_metrics.py
 test/test_npc_unit.py
 test/test_npc_units_api.py
@@ -738,6 +775,8 @@ test/test_subclass_intrinsic_modifiers.py
 test/test_subclass_intrinsic_modifiers_subclass.py
 test/test_subclass_modifier_definition.py
 test/test_subclass_modifier_definition_subclass.py
+test/test_subclass_neutral_damage_growth.py
+test/test_subclass_neutral_damage_growth_subclass.py
 test/test_subclass_objective_health_growth_phase.py
 test/test_subclass_objective_health_growth_phase_subclass.py
 test/test_subclass_objective_regen.py

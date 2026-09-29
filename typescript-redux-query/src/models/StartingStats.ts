@@ -115,6 +115,12 @@ export interface StartingStats  {
      */
     moveAcceleration: StartingStat;
     /**
+     * Out-of-combat health regen (build 6711+).
+     * @type {StartingStat}
+     * @memberof StartingStats
+     */
+    oocHealthRegen?: StartingStat;
+    /**
      * 
      * @type {StartingStat}
      * @memberof StartingStats
@@ -193,6 +199,7 @@ export function StartingStatsFromJSON(json: any): StartingStats {
         'maxHealth': StartingStatFromJSON(json['max_health']),
         'maxMoveSpeed': StartingStatFromJSON(json['max_move_speed']),
         'moveAcceleration': StartingStatFromJSON(json['move_acceleration']),
+        'oocHealthRegen': !exists(json, 'ooc_health_regen') ? undefined : StartingStatFromJSON(json['ooc_health_regen']),
         'procBuildUpRateScale': StartingStatFromJSON(json['proc_build_up_rate_scale']),
         'reloadSpeed': StartingStatFromJSON(json['reload_speed']),
         'sprintSpeed': StartingStatFromJSON(json['sprint_speed']),
@@ -226,6 +233,7 @@ export function StartingStatsToJSON(value?: StartingStats): any {
         'max_health': StartingStatToJSON(value.maxHealth),
         'max_move_speed': StartingStatToJSON(value.maxMoveSpeed),
         'move_acceleration': StartingStatToJSON(value.moveAcceleration),
+        'ooc_health_regen': StartingStatToJSON(value.oocHealthRegen),
         'proc_build_up_rate_scale': StartingStatToJSON(value.procBuildUpRateScale),
         'reload_speed': StartingStatToJSON(value.reloadSpeed),
         'sprint_speed': StartingStatToJSON(value.sprintSpeed),

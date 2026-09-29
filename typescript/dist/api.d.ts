@@ -31,6 +31,7 @@ export * from './apis/mmrapi.js';
 export * from './apis/map-api.js';
 export * from './apis/matches-api.js';
 export * from './apis/misc-entities-api.js';
+export * from './apis/modifiers-api.js';
 export * from './apis/npcunits-api.js';
 export * from './apis/patches-api.js';
 export * from './apis/players-api.js';

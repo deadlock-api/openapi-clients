@@ -2,10 +2,10 @@
 
 ### Get Misc Entity
 ## Get Misc Entity
-GET https://api.deadlock-api.com/v1/assets/misc-entities/{{id_or_classname}}?clientVersion={{clientVersion}}
+GET https://api.deadlock-api.com/v1/assets/misc-entities/{{id_or_classname}}?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json
 
 ### List Misc Entities
 ## List Misc Entities
-GET https://api.deadlock-api.com/v1/assets/misc-entities?clientVersion={{clientVersion}}
+GET https://api.deadlock-api.com/v1/assets/misc-entities?language={{language}}&clientVersion={{clientVersion}}
 Accept: application/json

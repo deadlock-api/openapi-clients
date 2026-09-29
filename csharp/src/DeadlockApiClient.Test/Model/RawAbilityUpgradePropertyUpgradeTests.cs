@@ -72,6 +72,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'FixedCorruptedBonus'
+        /// </summary>
+        [Fact]
+        public void FixedCorruptedBonusTest()
+        {
+            // TODO unit test for the property 'FixedCorruptedBonus'
+        }
+
+        /// <summary>
+        /// Test the property 'RoundCorruptedBonus'
+        /// </summary>
+        [Fact]
+        public void RoundCorruptedBonusTest()
+        {
+            // TODO unit test for the property 'RoundCorruptedBonus'
+        }
+
+        /// <summary>
         /// Test the property 'ScaleStatFilter'
         /// </summary>
         [Fact]

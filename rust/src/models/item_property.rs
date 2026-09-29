@@ -39,6 +39,9 @@ pub struct ItemProperty {
     pub prefix: Option<Option<String>>,
     #[serde(rename = "provided_property_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub provided_property_type: Option<Option<String>>,
+    /// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+    #[serde(rename = "required_upgrade_bits", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub required_upgrade_bits: Option<Option<Vec<String>>>,
     #[serde(rename = "scale_function", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scale_function: Option<Option<Box<models::RawItemPropertyScaleFunctionSubclass>>>,
     #[serde(rename = "street_brawl_value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -66,6 +69,7 @@ impl ItemProperty {
             postvalue_label: None,
             prefix: None,
             provided_property_type: None,
+            required_upgrade_bits: None,
             scale_function: None,
             street_brawl_value: None,
             usage_flags: None,

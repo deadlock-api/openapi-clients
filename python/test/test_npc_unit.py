@@ -167,6 +167,8 @@ class TestNpcUnit(unittest.TestCase):
                     green = 0, 
                     red = 0, ),
                 id = 0,
+                image = '',
+                image_webp = '',
                 intrinsic_modifiers = [
                     deadlock_api_client.models.subclass_intrinsic_modifiers.Subclass_IntrinsicModifiers(
                         subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.Subclass_IntrinsicModifiers_subclass(
@@ -185,7 +187,16 @@ class TestNpcUnit(unittest.TestCase):
                 melee_damage = 1.337,
                 melee_duration = 1.337,
                 melee_hit_range = 1.337,
+                name = '',
                 near_death_duration = 1.337,
+                neutral_abilities = [
+                    ''
+                    ],
+                neutral_damage_growth = deadlock_api_client.models.subclass_neutral_damage_growth.Subclass_NeutralDamageGrowth(
+                    subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.Subclass_NeutralDamageGrowth_subclass(
+                        damage_growth_pct_per_min = 1.337, ), ),
+                neutral_melee = '',
+                neutral_type = '',
                 no_shield_laser_dps_to_players = 1.337,
                 objective_health_growth_phase1 = deadlock_api_client.models.subclass_objective_health_growth_phase.Subclass_ObjectiveHealthGrowthPhase(
                     subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.Subclass_ObjectiveHealthGrowthPhase_subclass(
@@ -231,6 +242,9 @@ class TestNpcUnit(unittest.TestCase):
                 t3_boss_dps = 1.337,
                 trooper_damage_resist_pct = 1.337,
                 trooper_dps = 1.337,
+                viewer_souls_class = {
+                    'key' : ''
+                    },
                 walk_speed = 1.337,
                 weapon_info = deadlock_api_client.models.weapon_info.WeaponInfo(
                     aiming_shot_spread_penalty = null, 

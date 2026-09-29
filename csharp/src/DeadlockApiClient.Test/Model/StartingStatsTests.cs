@@ -270,6 +270,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'OocHealthRegen'
+        /// </summary>
+        [Fact]
+        public void OocHealthRegenTest()
+        {
+            // TODO unit test for the property 'OocHealthRegen'
+        }
+
+        /// <summary>
         /// Test the property 'TechArmorDamageReduction'
         /// </summary>
         [Fact]

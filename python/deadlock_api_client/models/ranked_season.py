@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.season_interval import SeasonInterval
 from typing import Optional, Set
@@ -29,6 +29,7 @@ class RankedSeason(BaseModel):
     """
     RankedSeason
     """ # noqa: E501
+    base_win_loss_point_grant: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Base rank points granted per win / taken per loss (build 6701+).")
     calibration_matches: Annotated[int, Field(strict=True, ge=0)]
     class_name: StrictStr
     intervals: List[SeasonInterval]
@@ -38,7 +39,7 @@ class RankedSeason(BaseModel):
     name: StrictStr
     ranked_type: StrictStr
     valid_party_sizes: List[Annotated[int, Field(strict=True, ge=0)]]
-    __properties: ClassVar[List[str]] = ["calibration_matches", "class_name", "intervals", "min_hero_unlocks", "min_hero_wins", "min_wins", "name", "ranked_type", "valid_party_sizes"]
+    __properties: ClassVar[List[str]] = ["base_win_loss_point_grant", "calibration_matches", "class_name", "intervals", "min_hero_unlocks", "min_hero_wins", "min_wins", "name", "ranked_type", "valid_party_sizes"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,6 +86,11 @@ class RankedSeason(BaseModel):
             for _item_intervals in self.intervals:
                 _items.append(_item_intervals.to_dict() if _item_intervals is not None else None)
             _dict['intervals'] = _items
+        # set to None if base_win_loss_point_grant (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_win_loss_point_grant is None and "base_win_loss_point_grant" in self.model_fields_set:
+            _dict['base_win_loss_point_grant'] = None
+
         return _dict
 
     @classmethod
@@ -97,6 +103,7 @@ class RankedSeason(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "base_win_loss_point_grant": obj.get("base_win_loss_point_grant"),
             "calibration_matches": obj.get("calibration_matches"),
             "class_name": obj.get("class_name"),
             "intervals": [SeasonInterval.from_dict(_item) for _item in obj["intervals"]] if obj.get("intervals") is not None else None,

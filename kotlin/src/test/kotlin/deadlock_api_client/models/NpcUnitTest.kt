@@ -31,6 +31,7 @@ import deadlock_api_client.models.Color
 import deadlock_api_client.models.SubclassBulletResistModifier
 import deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import deadlock_api_client.models.SubclassIntrinsicModifiers
+import deadlock_api_client.models.SubclassNeutralDamageGrowth
 import deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
@@ -186,6 +187,18 @@ class NpcUnitTest : ShouldSpec() {
             //modelInstance.healthBarColorTeamNeutral shouldBe ("TODO")
         }
 
+        // to test the property `image` - Unit icon (`m_strCustomUnitIcon`) as png.
+        should("test image") {
+            // uncomment below to test the property
+            //modelInstance.image shouldBe ("TODO")
+        }
+
+        // to test the property `imageWebp` - Unit icon (`m_strCustomUnitIcon`) as webp.
+        should("test imageWebp") {
+            // uncomment below to test the property
+            //modelInstance.imageWebp shouldBe ("TODO")
+        }
+
         // to test the property `intrinsicModifiers`
         should("test intrinsicModifiers") {
             // uncomment below to test the property
@@ -246,10 +259,40 @@ class NpcUnitTest : ShouldSpec() {
             //modelInstance.meleeHitRange shouldBe ("TODO")
         }
 
+        // to test the property `name` - Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
+        should("test name") {
+            // uncomment below to test the property
+            //modelInstance.name shouldBe ("TODO")
+        }
+
         // to test the property `nearDeathDuration`
         should("test nearDeathDuration") {
             // uncomment below to test the property
             //modelInstance.nearDeathDuration shouldBe ("TODO")
+        }
+
+        // to test the property `neutralAbilities` - Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
+        should("test neutralAbilities") {
+            // uncomment below to test the property
+            //modelInstance.neutralAbilities shouldBe ("TODO")
+        }
+
+        // to test the property `neutralDamageGrowth`
+        should("test neutralDamageGrowth") {
+            // uncomment below to test the property
+            //modelInstance.neutralDamageGrowth shouldBe ("TODO")
+        }
+
+        // to test the property `neutralMelee` - Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
+        should("test neutralMelee") {
+            // uncomment below to test the property
+            //modelInstance.neutralMelee shouldBe ("TODO")
+        }
+
+        // to test the property `neutralType` - Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
+        should("test neutralType") {
+            // uncomment below to test the property
+            //modelInstance.neutralType shouldBe ("TODO")
         }
 
         // to test the property `noShieldLaserDpsToPlayers`
@@ -430,6 +473,12 @@ class NpcUnitTest : ShouldSpec() {
         should("test trooperDps") {
             // uncomment below to test the property
             //modelInstance.trooperDps shouldBe ("TODO")
+        }
+
+        // to test the property `viewerSoulsClass` - Distance threshold (as string key) → soul orb class shown to the viewer.
+        should("test viewerSoulsClass") {
+            // uncomment below to test the property
+            //modelInstance.viewerSoulsClass shouldBe ("TODO")
         }
 
         // to test the property `walkSpeed`

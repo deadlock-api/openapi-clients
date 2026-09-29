@@ -189,6 +189,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'VoteSticker'
+        /// </summary>
+        [Fact]
+        public void VoteStickerTest()
+        {
+            // TODO unit test for the property 'VoteSticker'
+        }
+
+        /// <summary>
+        /// Test the property 'VoteStickerWebp'
+        /// </summary>
+        [Fact]
+        public void VoteStickerWebpTest()
+        {
+            // TODO unit test for the property 'VoteStickerWebp'
+        }
+
+        /// <summary>
         /// Test the property 'WeaponImage'
         /// </summary>
         [Fact]

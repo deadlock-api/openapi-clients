@@ -169,6 +169,15 @@ export interface Hero {
     gun_tag: (Scalars['String'] | null)
     hideout_rich_presence: (Scalars['String'] | null)
     hero_type: (HeroType | null)
+    /** Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`. */
+    gender: (Scalars['String'] | null)
+    /** Localized search name (`m_strHeroSearchName`, build 6711+). */
+    search_name: (Scalars['String'] | null)
+    /**
+     * Valve's generated item pick / win rates per game phase
+     * (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+     */
+    popular_items: (HeroPopularItems | null)
     /**
      * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
      * derived as `development_state == pre_release`.
@@ -224,6 +233,9 @@ export interface HeroImages {
     background_image: (Scalars['String'] | null)
     background_image_webp: (Scalars['String'] | null)
     name_image: (Scalars['String'] | null)
+    /** Hero release vote sticker (`m_strVoteSticker`, build 6711+). */
+    vote_sticker: (Scalars['String'] | null)
+    vote_sticker_webp: (Scalars['String'] | null)
     __typename: 'HeroImages'
 }
 
@@ -236,6 +248,26 @@ export interface HeroPhysics {
     step_sound_time: (Scalars['Float'] | null)
     step_sound_time_sprinting: (Scalars['Float'] | null)
     __typename: 'HeroPhysics'
+}
+
+export interface HeroPopularItem {
+    /** Item id, derived from `class_name` like `/v2/items` ids. */
+    item_id: Scalars['Int']
+    class_name: Scalars['String']
+    /** Pick rate in percent (0-100). */
+    pick_pct: Scalars['Float']
+    /** Win rate in percent (0-100). */
+    winrate_pct: Scalars['Float']
+    __typename: 'HeroPopularItem'
+}
+
+export interface HeroPopularItems {
+    /** Unix timestamp (seconds) at which Valve generated the data. */
+    timestamp: (Scalars['Int'] | null)
+    early_game: HeroPopularItem[]
+    mid_game: HeroPopularItem[]
+    late_game: HeroPopularItem[]
+    __typename: 'HeroPopularItems'
 }
 
 export interface HeroStatsUI {
@@ -456,7 +488,8 @@ export interface MatchPlayer {
     items: (Item[] | null)
     /**
      * The `items` entries that are purchased upgrade items (no abilities, no
-     * starting items).
+     * starting items, no corrupted items: those keep the normal item's id and are
+     * only in `items`, with bit 23 (`0x800000`) set in `upgrade_info`).
      */
     upgrades: (UpgradePurchase[] | null)
     stats: (Stat[] | null)
@@ -822,10 +855,23 @@ export interface Upgrade {
     is_active_item: Scalars['Boolean']
     shopable: Scalars['Boolean']
     cost: (Scalars['Int'] | null)
+    /**
+     * Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`)
+     * this item shows up under, beyond those derived from its stats.
+     */
+    shop_filters: (Scalars['String'][] | null)
+    /**
+     * Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from
+     * even though its stats would match them.
+     */
+    disabled_shop_filters: (Scalars['String'][] | null)
+    shop_version: (Scalars['Int'] | null)
+    disable_item_target: (Scalars['String'] | null)
     weapon_info: Scalars['JSON']
     properties: Scalars['JSON']
     tooltip_sections: Scalars['JSON']
     upgrades: Scalars['JSON']
+    corrupted_info: Scalars['JSON']
     __typename: 'Upgrade'
 }
 
@@ -1030,6 +1076,15 @@ export interface HeroGenqlSelection{
     gun_tag?: boolean | number
     hideout_rich_presence?: boolean | number
     hero_type?: boolean | number
+    /** Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`. */
+    gender?: boolean | number
+    /** Localized search name (`m_strHeroSearchName`, build 6711+). */
+    search_name?: boolean | number
+    /**
+     * Valve's generated item pick / win rates per game phase
+     * (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+     */
+    popular_items?: HeroPopularItemsGenqlSelection
     /**
      * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
      * derived as `development_state == pre_release`.
@@ -1110,6 +1165,9 @@ export interface HeroImagesGenqlSelection{
     background_image?: boolean | number
     background_image_webp?: boolean | number
     name_image?: boolean | number
+    /** Hero release vote sticker (`m_strVoteSticker`, build 6711+). */
+    vote_sticker?: boolean | number
+    vote_sticker_webp?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1122,6 +1180,28 @@ export interface HeroPhysicsGenqlSelection{
     footstep_sound_travel_distance_meters?: boolean | number
     step_sound_time?: boolean | number
     step_sound_time_sprinting?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface HeroPopularItemGenqlSelection{
+    /** Item id, derived from `class_name` like `/v2/items` ids. */
+    item_id?: boolean | number
+    class_name?: boolean | number
+    /** Pick rate in percent (0-100). */
+    pick_pct?: boolean | number
+    /** Win rate in percent (0-100). */
+    winrate_pct?: boolean | number
+    __typename?: boolean | number
+    __scalar?: boolean | number
+}
+
+export interface HeroPopularItemsGenqlSelection{
+    /** Unix timestamp (seconds) at which Valve generated the data. */
+    timestamp?: boolean | number
+    early_game?: HeroPopularItemGenqlSelection
+    mid_game?: HeroPopularItemGenqlSelection
+    late_game?: HeroPopularItemGenqlSelection
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1345,7 +1425,8 @@ export interface MatchPlayerGenqlSelection{
     items?: ItemGenqlSelection
     /**
      * The `items` entries that are purchased upgrade items (no abilities, no
-     * starting items).
+     * starting items, no corrupted items: those keep the normal item's id and are
+     * only in `items`, with bit 23 (`0x800000`) set in `upgrade_info`).
      */
     upgrades?: UpgradePurchaseGenqlSelection
     stats?: StatGenqlSelection
@@ -1737,10 +1818,23 @@ export interface UpgradeGenqlSelection{
     is_active_item?: boolean | number
     shopable?: boolean | number
     cost?: boolean | number
+    /**
+     * Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`)
+     * this item shows up under, beyond those derived from its stats.
+     */
+    shop_filters?: boolean | number
+    /**
+     * Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from
+     * even though its stats would match them.
+     */
+    disabled_shop_filters?: boolean | number
+    shop_version?: boolean | number
+    disable_item_target?: boolean | number
     weapon_info?: boolean | number
     properties?: boolean | number
     tooltip_sections?: boolean | number
     upgrades?: boolean | number
+    corrupted_info?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1902,6 +1996,22 @@ export type QueryGenqlSelection = QueryRootGenqlSelection
     export const isHeroPhysics = (obj?: { __typename?: any } | null): obj is HeroPhysics => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isHeroPhysics"')
       return HeroPhysics_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const HeroPopularItem_possibleTypes: string[] = ['HeroPopularItem']
+    export const isHeroPopularItem = (obj?: { __typename?: any } | null): obj is HeroPopularItem => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isHeroPopularItem"')
+      return HeroPopularItem_possibleTypes.includes(obj.__typename)
+    }
+    
+
+
+    const HeroPopularItems_possibleTypes: string[] = ['HeroPopularItems']
+    export const isHeroPopularItems = (obj?: { __typename?: any } | null): obj is HeroPopularItems => {
+      if (!obj?.__typename) throw new Error('__typename is missing in "isHeroPopularItems"')
+      return HeroPopularItems_possibleTypes.includes(obj.__typename)
     }
     
 

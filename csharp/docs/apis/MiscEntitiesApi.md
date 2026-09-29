@@ -9,7 +9,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="getmiscentity"></a>
 # **GetMiscEntity**
-> MiscEntity GetMiscEntity (string idOrClassname, int clientVersion = null)
+> MiscEntity GetMiscEntity (string idOrClassname, string language = null, int clientVersion = null)
 
 Get Misc Entity
 
@@ -21,6 +21,7 @@ Returns a single misc entity by numeric id or by `class_name` (case-insensitive)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **idOrClassname** | **string** | Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; |  |
+| **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
 | **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type
@@ -48,17 +49,18 @@ No authorization required
 
 <a id="listmiscentities"></a>
 # **ListMiscEntities**
-> List&lt;MiscEntity&gt; ListMiscEntities (int clientVersion = null)
+> List&lt;MiscEntity&gt; ListMiscEntities (string language = null, int clientVersion = null)
 
 List Misc Entities
 
-Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | [optional]  |
 | **clientVersion** | **int** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional]  |
 
 ### Return type

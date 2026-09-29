@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**base_win_loss_point_grant** | **int** | Base rank points granted per win / taken per loss (build 6701+). | [optional]
 **calibration_matches** | **int** |  |
 **class_name** | **string** |  |
 **intervals** | [**\OpenAPI\Client\Model\SeasonInterval[]**](SeasonInterval.md) |  |

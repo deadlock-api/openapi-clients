@@ -13,6 +13,7 @@
 | **name** | **kotlin.String** |  |  |
 | **rankedType** | **kotlin.String** |  |  |
 | **validPartySizes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  |
+| **baseWinLossPointGrant** | **kotlin.Int** | Base rank points granted per win / taken per loss (build 6701+). |  [optional] |
 
 
 

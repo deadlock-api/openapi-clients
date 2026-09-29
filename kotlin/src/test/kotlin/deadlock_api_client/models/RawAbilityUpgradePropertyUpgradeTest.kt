@@ -45,6 +45,18 @@ class RawAbilityUpgradePropertyUpgradeTest : ShouldSpec() {
             //modelInstance.name shouldBe ("TODO")
         }
 
+        // to test the property `fixedCorruptedBonus` - Corrupted item bonuses only (build 6711+).
+        should("test fixedCorruptedBonus") {
+            // uncomment below to test the property
+            //modelInstance.fixedCorruptedBonus shouldBe ("TODO")
+        }
+
+        // to test the property `roundCorruptedBonus` - Corrupted item bonuses only (build 6711+).
+        should("test roundCorruptedBonus") {
+            // uncomment below to test the property
+            //modelInstance.roundCorruptedBonus shouldBe ("TODO")
+        }
+
         // to test the property `scaleStatFilter`
         should("test scaleStatFilter") {
             // uncomment below to test the property

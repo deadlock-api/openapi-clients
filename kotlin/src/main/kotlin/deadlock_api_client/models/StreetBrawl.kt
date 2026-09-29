@@ -61,6 +61,7 @@ import java.io.Serializable
  * @param trooperSpawnTimer 
  * @param ultimateUnlockRound 
  * @param zipBoostCooldownOnStart 
+ * @param corruptItemRound Round in which players may corrupt an item (build 6711+).
  */
 
 
@@ -148,7 +149,11 @@ data class StreetBrawl (
     val ultimateUnlockRound: kotlin.Long,
 
     @Json(name = "zip_boost_cooldown_on_start")
-    val zipBoostCooldownOnStart: kotlin.Double
+    val zipBoostCooldownOnStart: kotlin.Double,
+
+    /* Round in which players may corrupt an item (build 6711+). */
+    @Json(name = "corrupt_item_round")
+    val corruptItemRound: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

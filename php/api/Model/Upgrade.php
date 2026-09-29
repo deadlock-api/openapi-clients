@@ -60,9 +60,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => '\OpenAPI\Client\Model\AbilityActivation',
         'class_name' => 'string',
         'component_items' => 'string[]',
+        'corrupted_info' => '\OpenAPI\Client\Model\CorruptedItemInfo',
         'cost' => 'int',
         'description' => '\OpenAPI\Client\Model\UpgradeDescription',
+        'disable_item_target' => 'string',
         'disabled' => 'bool',
+        'disabled_shop_filters' => 'string[]',
         'hero' => 'int',
         'heroes' => 'int[]',
         'id' => 'int',
@@ -74,10 +77,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => 'int',
         'name' => 'string',
         'properties' => 'array<string,\OpenAPI\Client\Model\UpgradeProperty>',
+        'shop_filters' => 'string[]',
         'shop_image' => 'string',
         'shop_image_small' => 'string',
         'shop_image_small_webp' => 'string',
         'shop_image_webp' => 'string',
+        'shop_version' => 'int',
         'shopable' => 'bool',
         'start_trained' => 'bool',
         'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSection[]',
@@ -98,9 +103,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => null,
         'class_name' => null,
         'component_items' => null,
+        'corrupted_info' => null,
         'cost' => 'int32',
         'description' => null,
+        'disable_item_target' => null,
         'disabled' => null,
+        'disabled_shop_filters' => null,
         'hero' => 'int32',
         'heroes' => 'int32',
         'id' => 'int32',
@@ -112,10 +120,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => 'int32',
         'name' => null,
         'properties' => null,
+        'shop_filters' => null,
         'shop_image' => null,
         'shop_image_small' => null,
         'shop_image_small_webp' => null,
         'shop_image_webp' => null,
+        'shop_version' => 'int64',
         'shopable' => null,
         'start_trained' => null,
         'tooltip_sections' => null,
@@ -134,9 +144,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => false,
         'class_name' => false,
         'component_items' => true,
+        'corrupted_info' => true,
         'cost' => true,
         'description' => true,
+        'disable_item_target' => true,
         'disabled' => true,
+        'disabled_shop_filters' => true,
         'hero' => true,
         'heroes' => true,
         'id' => false,
@@ -148,10 +161,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => false,
         'name' => false,
         'properties' => true,
+        'shop_filters' => true,
         'shop_image' => true,
         'shop_image_small' => true,
         'shop_image_small_webp' => true,
         'shop_image_webp' => true,
+        'shop_version' => true,
         'shopable' => false,
         'start_trained' => true,
         'tooltip_sections' => true,
@@ -250,9 +265,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => 'activation',
         'class_name' => 'class_name',
         'component_items' => 'component_items',
+        'corrupted_info' => 'corrupted_info',
         'cost' => 'cost',
         'description' => 'description',
+        'disable_item_target' => 'disable_item_target',
         'disabled' => 'disabled',
+        'disabled_shop_filters' => 'disabled_shop_filters',
         'hero' => 'hero',
         'heroes' => 'heroes',
         'id' => 'id',
@@ -264,10 +282,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => 'item_tier',
         'name' => 'name',
         'properties' => 'properties',
+        'shop_filters' => 'shop_filters',
         'shop_image' => 'shop_image',
         'shop_image_small' => 'shop_image_small',
         'shop_image_small_webp' => 'shop_image_small_webp',
         'shop_image_webp' => 'shop_image_webp',
+        'shop_version' => 'shop_version',
         'shopable' => 'shopable',
         'start_trained' => 'start_trained',
         'tooltip_sections' => 'tooltip_sections',
@@ -286,9 +306,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => 'setActivation',
         'class_name' => 'setClassName',
         'component_items' => 'setComponentItems',
+        'corrupted_info' => 'setCorruptedInfo',
         'cost' => 'setCost',
         'description' => 'setDescription',
+        'disable_item_target' => 'setDisableItemTarget',
         'disabled' => 'setDisabled',
+        'disabled_shop_filters' => 'setDisabledShopFilters',
         'hero' => 'setHero',
         'heroes' => 'setHeroes',
         'id' => 'setId',
@@ -300,10 +323,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => 'setItemTier',
         'name' => 'setName',
         'properties' => 'setProperties',
+        'shop_filters' => 'setShopFilters',
         'shop_image' => 'setShopImage',
         'shop_image_small' => 'setShopImageSmall',
         'shop_image_small_webp' => 'setShopImageSmallWebp',
         'shop_image_webp' => 'setShopImageWebp',
+        'shop_version' => 'setShopVersion',
         'shopable' => 'setShopable',
         'start_trained' => 'setStartTrained',
         'tooltip_sections' => 'setTooltipSections',
@@ -322,9 +347,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'activation' => 'getActivation',
         'class_name' => 'getClassName',
         'component_items' => 'getComponentItems',
+        'corrupted_info' => 'getCorruptedInfo',
         'cost' => 'getCost',
         'description' => 'getDescription',
+        'disable_item_target' => 'getDisableItemTarget',
         'disabled' => 'getDisabled',
+        'disabled_shop_filters' => 'getDisabledShopFilters',
         'hero' => 'getHero',
         'heroes' => 'getHeroes',
         'id' => 'getId',
@@ -336,10 +364,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'item_tier' => 'getItemTier',
         'name' => 'getName',
         'properties' => 'getProperties',
+        'shop_filters' => 'getShopFilters',
         'shop_image' => 'getShopImage',
         'shop_image_small' => 'getShopImageSmall',
         'shop_image_small_webp' => 'getShopImageSmallWebp',
         'shop_image_webp' => 'getShopImageWebp',
+        'shop_version' => 'getShopVersion',
         'shopable' => 'getShopable',
         'start_trained' => 'getStartTrained',
         'tooltip_sections' => 'getTooltipSections',
@@ -409,9 +439,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('activation', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('component_items', $data ?? [], null);
+        $this->setIfExists('corrupted_info', $data ?? [], null);
         $this->setIfExists('cost', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('disable_item_target', $data ?? [], null);
         $this->setIfExists('disabled', $data ?? [], null);
+        $this->setIfExists('disabled_shop_filters', $data ?? [], null);
         $this->setIfExists('hero', $data ?? [], null);
         $this->setIfExists('heroes', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
@@ -423,10 +456,12 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('item_tier', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
+        $this->setIfExists('shop_filters', $data ?? [], null);
         $this->setIfExists('shop_image', $data ?? [], null);
         $this->setIfExists('shop_image_small', $data ?? [], null);
         $this->setIfExists('shop_image_small_webp', $data ?? [], null);
         $this->setIfExists('shop_image_webp', $data ?? [], null);
+        $this->setIfExists('shop_version', $data ?? [], null);
         $this->setIfExists('shopable', $data ?? [], null);
         $this->setIfExists('start_trained', $data ?? [], null);
         $this->setIfExists('tooltip_sections', $data ?? [], null);
@@ -610,6 +645,40 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets corrupted_info
+     *
+     * @return \OpenAPI\Client\Model\CorruptedItemInfo|null
+     */
+    public function getCorruptedInfo()
+    {
+        return $this->container['corrupted_info'];
+    }
+
+    /**
+     * Sets corrupted_info
+     *
+     * @param \OpenAPI\Client\Model\CorruptedItemInfo|null $corrupted_info Present on upgrades the Broker can corrupt (build 6711+).
+     *
+     * @return self
+     */
+    public function setCorruptedInfo($corrupted_info)
+    {
+        if (is_null($corrupted_info)) {
+            array_push($this->openAPINullablesSetToNull, 'corrupted_info');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('corrupted_info', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['corrupted_info'] = $corrupted_info;
+
+        return $this;
+    }
+
+    /**
      * Gets cost
      *
      * @return int|null
@@ -682,6 +751,40 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets disable_item_target
+     *
+     * @return string|null
+     */
+    public function getDisableItemTarget()
+    {
+        return $this->container['disable_item_target'];
+    }
+
+    /**
+     * Sets disable_item_target
+     *
+     * @param string|null $disable_item_target disable_item_target
+     *
+     * @return self
+     */
+    public function setDisableItemTarget($disable_item_target)
+    {
+        if (is_null($disable_item_target)) {
+            array_push($this->openAPINullablesSetToNull, 'disable_item_target');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('disable_item_target', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['disable_item_target'] = $disable_item_target;
+
+        return $this;
+    }
+
+    /**
      * Gets disabled
      *
      * @return bool|null
@@ -711,6 +814,40 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['disabled'] = $disabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets disabled_shop_filters
+     *
+     * @return string[]|null
+     */
+    public function getDisabledShopFilters()
+    {
+        return $this->container['disabled_shop_filters'];
+    }
+
+    /**
+     * Sets disabled_shop_filters
+     *
+     * @param string[]|null $disabled_shop_filters Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+     *
+     * @return self
+     */
+    public function setDisabledShopFilters($disabled_shop_filters)
+    {
+        if (is_null($disabled_shop_filters)) {
+            array_push($this->openAPINullablesSetToNull, 'disabled_shop_filters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('disabled_shop_filters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['disabled_shop_filters'] = $disabled_shop_filters;
 
         return $this;
     }
@@ -1067,6 +1204,40 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets shop_filters
+     *
+     * @return string[]|null
+     */
+    public function getShopFilters()
+    {
+        return $this->container['shop_filters'];
+    }
+
+    /**
+     * Sets shop_filters
+     *
+     * @param string[]|null $shop_filters Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+     *
+     * @return self
+     */
+    public function setShopFilters($shop_filters)
+    {
+        if (is_null($shop_filters)) {
+            array_push($this->openAPINullablesSetToNull, 'shop_filters');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shop_filters', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shop_filters'] = $shop_filters;
+
+        return $this;
+    }
+
+    /**
      * Gets shop_image
      *
      * @return string|null
@@ -1198,6 +1369,40 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['shop_image_webp'] = $shop_image_webp;
+
+        return $this;
+    }
+
+    /**
+     * Gets shop_version
+     *
+     * @return int|null
+     */
+    public function getShopVersion()
+    {
+        return $this->container['shop_version'];
+    }
+
+    /**
+     * Sets shop_version
+     *
+     * @param int|null $shop_version shop_version
+     *
+     * @return self
+     */
+    public function setShopVersion($shop_version)
+    {
+        if (is_null($shop_version)) {
+            array_push($this->openAPINullablesSetToNull, 'shop_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('shop_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['shop_version'] = $shop_version;
 
         return $this;
     }

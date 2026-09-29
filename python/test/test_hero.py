@@ -60,6 +60,7 @@ class TestHero(unittest.TestCase):
                     role = '', ),
                 development_state = 'release',
                 disabled = True,
+                gender = '',
                 gun_tag = '',
                 hero_stats_ui = deadlock_api_client.models.hero_stats_ui.HeroStatsUI(
                     display_stats = [
@@ -87,6 +88,8 @@ class TestHero(unittest.TestCase):
                     name_image = '', 
                     top_bar_vertical_image = '', 
                     top_bar_vertical_image_webp = '', 
+                    vote_sticker = '', 
+                    vote_sticker_webp = '', 
                     weapon_image = '', 
                     weapon_image_webp = '', ),
                 in_development = True,
@@ -127,6 +130,25 @@ class TestHero(unittest.TestCase):
                     step_sound_time = 1.337, 
                     step_sound_time_sprinting = 1.337, ),
                 player_selectable = True,
+                popular_items = deadlock_api_client.models.hero_popular_items.HeroPopularItems(
+                    early_game = [
+                        deadlock_api_client.models.hero_popular_item.HeroPopularItem(
+                            class_name = '', 
+                            item_id = 0, 
+                            pick_pct = 1.337, 
+                            winrate_pct = 1.337, )
+                        ], 
+                    late_game = [
+                        deadlock_api_client.models.hero_popular_item.HeroPopularItem(
+                            class_name = '', 
+                            item_id = 0, 
+                            pick_pct = 1.337, 
+                            winrate_pct = 1.337, )
+                        ], 
+                    mid_game = [
+                        
+                        ], 
+                    timestamp = 56, ),
                 prerelease_only = True,
                 purchase_bonuses = {
                     'key' : [
@@ -141,6 +163,7 @@ class TestHero(unittest.TestCase):
                         scale = 1.337, 
                         scaling_stat = '', )
                     },
+                search_name = '',
                 shop_stat_display = deadlock_api_client.models.shop_stat_display.ShopStatDisplay(
                     spirit_stats_display = deadlock_api_client.models.shop_spirit_stats_display.ShopSpiritStatsDisplay(
                         display_stats = [
@@ -187,6 +210,7 @@ class TestHero(unittest.TestCase):
                     max_health = , 
                     max_move_speed = , 
                     move_acceleration = , 
+                    ooc_health_regen = null, 
                     proc_build_up_rate_scale = , 
                     reload_speed = , 
                     sprint_speed = , 
@@ -262,6 +286,8 @@ class TestHero(unittest.TestCase):
                     name_image = '', 
                     top_bar_vertical_image = '', 
                     top_bar_vertical_image_webp = '', 
+                    vote_sticker = '', 
+                    vote_sticker_webp = '', 
                     weapon_image = '', 
                     weapon_image_webp = '', ),
                 in_development = True,
@@ -353,6 +379,7 @@ class TestHero(unittest.TestCase):
                     max_health = , 
                     max_move_speed = , 
                     move_acceleration = , 
+                    ooc_health_regen = null, 
                     proc_build_up_rate_scale = , 
                     reload_speed = , 
                     sprint_speed = , 

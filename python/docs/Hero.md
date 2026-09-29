@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **description** | [**HeroDescription**](HeroDescription.md) |  | 
 **development_state** | [**HeroDevelopmentState**](HeroDevelopmentState.md) | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don&#39;t declare one. | [optional] 
 **disabled** | **bool** |  | 
+**gender** | **str** | Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;. | [optional] 
 **gun_tag** | **str** |  | [optional] 
 **hero_stats_ui** | [**HeroStatsUI**](HeroStatsUI.md) |  | 
 **hero_type** | [**HeroType**](HeroType.md) |  | [optional] 
@@ -30,9 +31,11 @@ Name | Type | Description | Notes
 **needs_testing** | **bool** |  | 
 **physics** | [**HeroPhysics**](HeroPhysics.md) |  | 
 **player_selectable** | **bool** | Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;. | 
+**popular_items** | [**HeroPopularItems**](HeroPopularItems.md) | Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data. | [optional] 
 **prerelease_only** | **bool** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] 
 **purchase_bonuses** | **Dict[str, List[HashMapItemSlotTypeVecPurchaseBonusValueInner]]** | Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds. | 
 **scaling_stats** | [**Dict[str, HashMapStringScalingStatValue]**](HashMapStringScalingStatValue.md) |  | 
+**search_name** | **str** | Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+). | [optional] 
 **shop_stat_display** | [**ShopStatDisplay**](ShopStatDisplay.md) |  | 
 **skin** | **int** |  | 
 **standard_level_up_upgrades** | **Dict[str, float]** |  | 

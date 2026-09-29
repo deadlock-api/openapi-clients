@@ -23,7 +23,7 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 export const MapApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
          * @summary Map
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
@@ -61,7 +61,7 @@ export const MapApiFp = function (configuration) {
     const localVarAxiosParamCreator = MapApiAxiosParamCreator(configuration);
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
          * @summary Map
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
@@ -82,7 +82,7 @@ export const MapApiFactory = function (configuration, basePath, axios) {
     const localVarFp = MapApiFp(configuration);
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
          * @summary Map
          * @param {MapApiGetMapRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -98,7 +98,7 @@ export const MapApiFactory = function (configuration, basePath, axios) {
  */
 export class MapApi extends BaseAPI {
     /**
-     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, and the three zip-line lane cubic splines. Defaults to the latest known client version.
+     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
      * @summary Map
      * @param {MapApiGetMapRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

@@ -31,6 +31,9 @@ pub struct Hero {
     pub development_state: Option<Option<models::HeroDevelopmentState>>,
     #[serde(rename = "disabled")]
     pub disabled: bool,
+    /// Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+    #[serde(rename = "gender", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub gender: Option<Option<String>>,
     #[serde(rename = "gun_tag", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub gun_tag: Option<Option<String>>,
     #[serde(rename = "hero_stats_ui")]
@@ -66,6 +69,9 @@ pub struct Hero {
     /// Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
     #[serde(rename = "player_selectable")]
     pub player_selectable: bool,
+    /// Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+    #[serde(rename = "popular_items", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub popular_items: Option<Option<Box<models::HeroPopularItems>>>,
     /// Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
     #[serde(rename = "prerelease_only", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub prerelease_only: Option<Option<bool>>,
@@ -74,6 +80,9 @@ pub struct Hero {
     pub purchase_bonuses: std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>,
     #[serde(rename = "scaling_stats")]
     pub scaling_stats: std::collections::HashMap<String, models::HashMapStringScalingStatValue>,
+    /// Localized search name (`m_strHeroSearchName`, build 6711+).
+    #[serde(rename = "search_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub search_name: Option<Option<String>>,
     #[serde(rename = "shop_stat_display")]
     pub shop_stat_display: Box<models::ShopStatDisplay>,
     #[serde(rename = "skin")]
@@ -100,6 +109,7 @@ impl Hero {
             description: Box::new(description),
             development_state: None,
             disabled,
+            gender: None,
             gun_tag: None,
             hero_stats_ui: Box::new(hero_stats_ui),
             hero_type: None,
@@ -117,9 +127,11 @@ impl Hero {
             needs_testing,
             physics: Box::new(physics),
             player_selectable,
+            popular_items: None,
             prerelease_only: None,
             purchase_bonuses,
             scaling_stats,
+            search_name: None,
             shop_stat_display: Box::new(shop_stat_display),
             skin,
             standard_level_up_upgrades,

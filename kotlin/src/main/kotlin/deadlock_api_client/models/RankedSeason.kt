@@ -41,6 +41,7 @@ import java.io.Serializable
  * @param name 
  * @param rankedType 
  * @param validPartySizes 
+ * @param baseWinLossPointGrant Base rank points granted per win / taken per loss (build 6701+).
  */
 
 
@@ -71,7 +72,11 @@ data class RankedSeason (
     val rankedType: kotlin.String,
 
     @Json(name = "valid_party_sizes")
-    val validPartySizes: kotlin.collections.List<kotlin.Int>
+    val validPartySizes: kotlin.collections.List<kotlin.Int>,
+
+    /* Base rank points granted per win / taken per loss (build 6701+). */
+    @Json(name = "base_win_loss_point_grant")
+    val baseWinLossPointGrant: kotlin.Int? = null
 
 ) : Serializable {
     companion object {

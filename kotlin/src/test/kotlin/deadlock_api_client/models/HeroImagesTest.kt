@@ -123,6 +123,18 @@ class HeroImagesTest : ShouldSpec() {
             //modelInstance.topBarVerticalImageWebp shouldBe ("TODO")
         }
 
+        // to test the property `voteSticker` - Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+        should("test voteSticker") {
+            // uncomment below to test the property
+            //modelInstance.voteSticker shouldBe ("TODO")
+        }
+
+        // to test the property `voteStickerWebp`
+        should("test voteStickerWebp") {
+            // uncomment below to test the property
+            //modelInstance.voteStickerWebp shouldBe ("TODO")
+        }
+
         // to test the property `weaponImage`
         should("test weaponImage") {
             // uncomment below to test the property

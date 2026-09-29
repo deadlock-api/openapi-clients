@@ -48,10 +48,12 @@ namespace DeadlockApiClient.Model
         /// <param name="nameImage">nameImage</param>
         /// <param name="topBarVerticalImage">topBarVerticalImage</param>
         /// <param name="topBarVerticalImageWebp">topBarVerticalImageWebp</param>
+        /// <param name="voteSticker">Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+).</param>
+        /// <param name="voteStickerWebp">voteStickerWebp</param>
         /// <param name="weaponImage">weaponImage</param>
         /// <param name="weaponImageWebp">weaponImageWebp</param>
         [JsonConstructor]
-        public HeroImages(Option<string?> backgroundImage = default, Option<string?> backgroundImageWebp = default, Option<string?> heroCardCritical = default, Option<string?> heroCardCriticalWebp = default, Option<string?> heroCardGloat = default, Option<string?> heroCardGloatWebp = default, Option<string?> iconHeroCard = default, Option<string?> iconHeroCardWebp = default, Option<string?> iconImageSmall = default, Option<string?> iconImageSmallWebp = default, Option<string?> minimapImage = default, Option<string?> minimapImageWebp = default, Option<string?> nameImage = default, Option<string?> topBarVerticalImage = default, Option<string?> topBarVerticalImageWebp = default, Option<string?> weaponImage = default, Option<string?> weaponImageWebp = default)
+        public HeroImages(Option<string?> backgroundImage = default, Option<string?> backgroundImageWebp = default, Option<string?> heroCardCritical = default, Option<string?> heroCardCriticalWebp = default, Option<string?> heroCardGloat = default, Option<string?> heroCardGloatWebp = default, Option<string?> iconHeroCard = default, Option<string?> iconHeroCardWebp = default, Option<string?> iconImageSmall = default, Option<string?> iconImageSmallWebp = default, Option<string?> minimapImage = default, Option<string?> minimapImageWebp = default, Option<string?> nameImage = default, Option<string?> topBarVerticalImage = default, Option<string?> topBarVerticalImageWebp = default, Option<string?> voteSticker = default, Option<string?> voteStickerWebp = default, Option<string?> weaponImage = default, Option<string?> weaponImageWebp = default)
         {
             BackgroundImageOption = backgroundImage;
             BackgroundImageWebpOption = backgroundImageWebp;
@@ -68,6 +70,8 @@ namespace DeadlockApiClient.Model
             NameImageOption = nameImage;
             TopBarVerticalImageOption = topBarVerticalImage;
             TopBarVerticalImageWebpOption = topBarVerticalImageWebp;
+            VoteStickerOption = voteSticker;
+            VoteStickerWebpOption = voteStickerWebp;
             WeaponImageOption = weaponImage;
             WeaponImageWebpOption = weaponImageWebp;
             OnCreated();
@@ -271,6 +275,33 @@ namespace DeadlockApiClient.Model
         public string? TopBarVerticalImageWebp { get { return this.TopBarVerticalImageWebpOption.Value; } set { this.TopBarVerticalImageWebpOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of VoteSticker
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> VoteStickerOption { get; private set; }
+
+        /// <summary>
+        /// Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+).
+        /// </summary>
+        /// <value>Hero release vote sticker (&#x60;m_strVoteSticker&#x60;, build 6711+).</value>
+        [JsonPropertyName("vote_sticker")]
+        public string? VoteSticker { get { return this.VoteStickerOption.Value; } set { this.VoteStickerOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of VoteStickerWebp
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> VoteStickerWebpOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets VoteStickerWebp
+        /// </summary>
+        [JsonPropertyName("vote_sticker_webp")]
+        public string? VoteStickerWebp { get { return this.VoteStickerWebpOption.Value; } set { this.VoteStickerWebpOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of WeaponImage
         /// </summary>
         [JsonIgnore]
@@ -319,6 +350,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  NameImage: ").Append(NameImage).Append("\n");
             sb.Append("  TopBarVerticalImage: ").Append(TopBarVerticalImage).Append("\n");
             sb.Append("  TopBarVerticalImageWebp: ").Append(TopBarVerticalImageWebp).Append("\n");
+            sb.Append("  VoteSticker: ").Append(VoteSticker).Append("\n");
+            sb.Append("  VoteStickerWebp: ").Append(VoteStickerWebp).Append("\n");
             sb.Append("  WeaponImage: ").Append(WeaponImage).Append("\n");
             sb.Append("  WeaponImageWebp: ").Append(WeaponImageWebp).Append("\n");
             sb.Append("}\n");
@@ -383,6 +416,8 @@ namespace DeadlockApiClient.Model
             Option<string?> nameImage = default;
             Option<string?> topBarVerticalImage = default;
             Option<string?> topBarVerticalImageWebp = default;
+            Option<string?> voteSticker = default;
+            Option<string?> voteStickerWebp = default;
             Option<string?> weaponImage = default;
             Option<string?> weaponImageWebp = default;
 
@@ -446,6 +481,12 @@ namespace DeadlockApiClient.Model
                         case "top_bar_vertical_image_webp":
                             topBarVerticalImageWebp = new Option<string?>(utf8JsonReader.GetString());
                             break;
+                        case "vote_sticker":
+                            voteSticker = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "vote_sticker_webp":
+                            voteStickerWebp = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "weapon_image":
                             weaponImage = new Option<string?>(utf8JsonReader.GetString());
                             break;
@@ -458,7 +499,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new HeroImages(backgroundImage, backgroundImageWebp, heroCardCritical, heroCardCriticalWebp, heroCardGloat, heroCardGloatWebp, iconHeroCard, iconHeroCardWebp, iconImageSmall, iconImageSmallWebp, minimapImage, minimapImageWebp, nameImage, topBarVerticalImage, topBarVerticalImageWebp, weaponImage, weaponImageWebp);
+            return new HeroImages(backgroundImage, backgroundImageWebp, heroCardCritical, heroCardCriticalWebp, heroCardGloat, heroCardGloatWebp, iconHeroCard, iconHeroCardWebp, iconImageSmall, iconImageSmallWebp, minimapImage, minimapImageWebp, nameImage, topBarVerticalImage, topBarVerticalImageWebp, voteSticker, voteStickerWebp, weaponImage, weaponImageWebp);
         }
 
         /// <summary>
@@ -574,6 +615,18 @@ namespace DeadlockApiClient.Model
                     writer.WriteString("top_bar_vertical_image_webp", heroImages.TopBarVerticalImageWebp);
                 else
                     writer.WriteNull("top_bar_vertical_image_webp");
+
+            if (heroImages.VoteStickerOption.IsSet)
+                if (heroImages.VoteStickerOption.Value != null)
+                    writer.WriteString("vote_sticker", heroImages.VoteSticker);
+                else
+                    writer.WriteNull("vote_sticker");
+
+            if (heroImages.VoteStickerWebpOption.IsSet)
+                if (heroImages.VoteStickerWebpOption.Value != null)
+                    writer.WriteString("vote_sticker_webp", heroImages.VoteStickerWebp);
+                else
+                    writer.WriteNull("vote_sticker_webp");
 
             if (heroImages.WeaponImageOption.IsSet)
                 if (heroImages.WeaponImageOption.Value != null)

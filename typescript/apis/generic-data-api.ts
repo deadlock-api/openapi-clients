@@ -29,7 +29,7 @@ import type { GenericData } from '../models/index.js';
 export const GenericDataApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
          * @summary Get Generic Data
          * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -78,7 +78,7 @@ export const GenericDataApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GenericDataApiAxiosParamCreator(configuration)
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
          * @summary Get Generic Data
          * @param {GetGenericDataLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -101,7 +101,7 @@ export const GenericDataApiFactory = function (configuration?: Configuration, ba
     const localVarFp = GenericDataApiFp(configuration)
     return {
         /**
-         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+         * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
          * @summary Get Generic Data
          * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -133,7 +133,7 @@ export interface GenericDataApiGetGenericDataRequest {
  */
 export class GenericDataApi extends BaseAPI {
     /**
-     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+     * Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch\'s `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
      * @summary Get Generic Data
      * @param {GenericDataApiGetGenericDataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

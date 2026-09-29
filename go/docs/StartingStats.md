@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **MaxHealth** | [**StartingStat**](StartingStat.md) |  | 
 **MaxMoveSpeed** | [**StartingStat**](StartingStat.md) |  | 
 **MoveAcceleration** | [**StartingStat**](StartingStat.md) |  | 
+**OocHealthRegen** | Pointer to [**NullableStartingStat**](StartingStat.md) | Out-of-combat health regen (build 6711+). | [optional] 
 **ProcBuildUpRateScale** | [**StartingStat**](StartingStat.md) |  | 
 **ReloadSpeed** | [**StartingStat**](StartingStat.md) |  | 
 **SprintSpeed** | [**StartingStat**](StartingStat.md) |  | 
@@ -424,6 +425,41 @@ and a boolean to check if the value has been set.
 SetMoveAcceleration sets MoveAcceleration field to given value.
 
 
+### GetOocHealthRegen
+
+`func (o *StartingStats) GetOocHealthRegen() StartingStat`
+
+GetOocHealthRegen returns the OocHealthRegen field if non-nil, zero value otherwise.
+
+### GetOocHealthRegenOk
+
+`func (o *StartingStats) GetOocHealthRegenOk() (*StartingStat, bool)`
+
+GetOocHealthRegenOk returns a tuple with the OocHealthRegen field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOocHealthRegen
+
+`func (o *StartingStats) SetOocHealthRegen(v StartingStat)`
+
+SetOocHealthRegen sets OocHealthRegen field to given value.
+
+### HasOocHealthRegen
+
+`func (o *StartingStats) HasOocHealthRegen() bool`
+
+HasOocHealthRegen returns a boolean if a field has been set.
+
+### SetOocHealthRegenNil
+
+`func (o *StartingStats) SetOocHealthRegenNil(b bool)`
+
+ SetOocHealthRegenNil sets the value for OocHealthRegen to be an explicit nil
+
+### UnsetOocHealthRegen
+`func (o *StartingStats) UnsetOocHealthRegen()`
+
+UnsetOocHealthRegen ensures that no value is present for OocHealthRegen, not even an explicit nil
 ### GetProcBuildUpRateScale
 
 `func (o *StartingStats) GetProcBuildUpRateScale() StartingStat`

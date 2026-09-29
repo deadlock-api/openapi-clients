@@ -21,6 +21,10 @@ export interface SubclassModifierDefinitionSubclass {
     'always_show_in_ui'?: Array<string> | null;
     'class_name'?: string | null;
     'duration'?: number | null;
+    /**
+     * Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+     */
+    'enabled_state_mask'?: string | null;
     'modifier_values'?: Array<ModifierValue> | null;
     'script_values'?: Array<ModifierValue> | null;
     'subclass_name'?: string | null;

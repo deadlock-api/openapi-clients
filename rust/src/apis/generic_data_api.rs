@@ -34,7 +34,7 @@ pub enum GetGenericDataError {
 }
 
 
-/// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names are localized into the requested `language`.
+/// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch's `generic_data.vdata` KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested `language`.
 pub async fn get_generic_data(configuration: &configuration::Configuration, params: GetGenericDataParams) -> Result<models::GenericData, Error<GetGenericDataError>> {
 
     let uri_str = format!("{}/v1/assets/generic-data", configuration.base_path);

@@ -28,6 +28,7 @@
 | **bulletArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 | **groundDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 | **groundDashDuration** | [**StartingStat**](StartingStat.md) |  |  [optional] |
+| **oocHealthRegen** | [**StartingStat**](StartingStat.md) | Out-of-combat health regen (build 6711+). |  [optional] |
 | **techArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  |  [optional] |
 
 

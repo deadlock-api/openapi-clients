@@ -43,6 +43,7 @@ class UpgradeProperty(BaseModel):
     postvalue_label: Optional[StrictStr] = None
     prefix: Optional[StrictStr] = None
     provided_property_type: Optional[StrictStr] = None
+    required_upgrade_bits: Optional[List[StrictStr]] = Field(default=None, description="Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).")
     scale_function: Optional[RawItemPropertyScaleFunctionSubclass] = None
     street_brawl_value: Optional[StrictStr] = None
     usage_flags: Optional[List[StatsUsageFlag]] = None
@@ -50,7 +51,7 @@ class UpgradeProperty(BaseModel):
     tooltip_is_elevated: Optional[StrictBool] = None
     tooltip_is_important: Optional[StrictBool] = None
     tooltip_section: Optional[AbilitySectionType] = None
-    __properties: ClassVar[List[str]] = ["can_set_token_override", "conditional", "css_class", "disable_value", "display_units", "icon", "label", "loc_token_override", "negative_attribute", "postfix", "postvalue_label", "prefix", "provided_property_type", "scale_function", "street_brawl_value", "usage_flags", "value", "tooltip_is_elevated", "tooltip_is_important", "tooltip_section"]
+    __properties: ClassVar[List[str]] = ["can_set_token_override", "conditional", "css_class", "disable_value", "display_units", "icon", "label", "loc_token_override", "negative_attribute", "postfix", "postvalue_label", "prefix", "provided_property_type", "required_upgrade_bits", "scale_function", "street_brawl_value", "usage_flags", "value", "tooltip_is_elevated", "tooltip_is_important", "tooltip_section"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -134,6 +135,7 @@ class UpgradeProperty(BaseModel):
             "postvalue_label": obj.get("postvalue_label"),
             "prefix": obj.get("prefix"),
             "provided_property_type": obj.get("provided_property_type"),
+            "required_upgrade_bits": obj.get("required_upgrade_bits"),
             "scale_function": RawItemPropertyScaleFunctionSubclass.from_dict(obj["scale_function"]) if obj.get("scale_function") is not None else None,
             "street_brawl_value": obj.get("street_brawl_value"),
             "usage_flags": obj.get("usage_flags"),

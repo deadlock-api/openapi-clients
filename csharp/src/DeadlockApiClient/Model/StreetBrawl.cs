@@ -61,8 +61,9 @@ namespace DeadlockApiClient.Model
         /// <param name="trooperSpawnTimer">trooperSpawnTimer</param>
         /// <param name="ultimateUnlockRound">ultimateUnlockRound</param>
         /// <param name="zipBoostCooldownOnStart">zipBoostCooldownOnStart</param>
+        /// <param name="corruptItemRound">Round in which players may corrupt an item (build 6711+).</param>
         [JsonConstructor]
-        public StreetBrawl(List<long> apperRound, List<long> buyTime, double buyTimeGracePeriod, long comebackBonusHealth, long comebackBonusHealthCritical, List<long> goldPerRound, List<long> itemDraftRerollsPerRound, List<ItemDraftRoundPerGameRound> itemDraftRoundsPerGameRound, Dictionary<string, DraftBuckets> itemDrafts, long laneNumber, List<long> objectiveMaxHealth, List<double> overtimeRespawnTimeIncrease, List<double> overtimeRespawnTimeIncreaseUrgent, List<double> overtimeTrooperDamageScale, List<double> overtimeTrooperHealthScale, List<double> preBuyTime, List<long> respawnTimes, List<long> roundLengthMinutes, List<double> roundLengthMinutesUrgent, long scoreToWin, double scoringTime, double tier1MaxResistTime, long tier2BonusHealth, double tier2MaxResistTime, double trooperSpawnBeforeRoundStartTimer, List<double> trooperSpawnTimer, long ultimateUnlockRound, double zipBoostCooldownOnStart)
+        public StreetBrawl(List<long> apperRound, List<long> buyTime, double buyTimeGracePeriod, long comebackBonusHealth, long comebackBonusHealthCritical, List<long> goldPerRound, List<long> itemDraftRerollsPerRound, List<ItemDraftRoundPerGameRound> itemDraftRoundsPerGameRound, Dictionary<string, DraftBuckets> itemDrafts, long laneNumber, List<long> objectiveMaxHealth, List<double> overtimeRespawnTimeIncrease, List<double> overtimeRespawnTimeIncreaseUrgent, List<double> overtimeTrooperDamageScale, List<double> overtimeTrooperHealthScale, List<double> preBuyTime, List<long> respawnTimes, List<long> roundLengthMinutes, List<double> roundLengthMinutesUrgent, long scoreToWin, double scoringTime, double tier1MaxResistTime, long tier2BonusHealth, double tier2MaxResistTime, double trooperSpawnBeforeRoundStartTimer, List<double> trooperSpawnTimer, long ultimateUnlockRound, double zipBoostCooldownOnStart, Option<long?> corruptItemRound = default)
         {
             ApperRound = apperRound;
             BuyTime = buyTime;
@@ -92,6 +93,7 @@ namespace DeadlockApiClient.Model
             TrooperSpawnTimer = trooperSpawnTimer;
             UltimateUnlockRound = ultimateUnlockRound;
             ZipBoostCooldownOnStart = zipBoostCooldownOnStart;
+            CorruptItemRoundOption = corruptItemRound;
             OnCreated();
         }
 
@@ -266,6 +268,20 @@ namespace DeadlockApiClient.Model
         public double ZipBoostCooldownOnStart { get; set; }
 
         /// <summary>
+        /// Used to track the state of CorruptItemRound
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> CorruptItemRoundOption { get; private set; }
+
+        /// <summary>
+        /// Round in which players may corrupt an item (build 6711+).
+        /// </summary>
+        /// <value>Round in which players may corrupt an item (build 6711+).</value>
+        [JsonPropertyName("corrupt_item_round")]
+        public long? CorruptItemRound { get { return this.CorruptItemRoundOption.Value; } set { this.CorruptItemRoundOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -301,6 +317,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  TrooperSpawnTimer: ").Append(TrooperSpawnTimer).Append("\n");
             sb.Append("  UltimateUnlockRound: ").Append(UltimateUnlockRound).Append("\n");
             sb.Append("  ZipBoostCooldownOnStart: ").Append(ZipBoostCooldownOnStart).Append("\n");
+            sb.Append("  CorruptItemRound: ").Append(CorruptItemRound).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -376,6 +393,7 @@ namespace DeadlockApiClient.Model
             Option<List<double>?> trooperSpawnTimer = default;
             Option<long?> ultimateUnlockRound = default;
             Option<double?> zipBoostCooldownOnStart = default;
+            Option<long?> corruptItemRound = default;
 
             while (utf8JsonReader.Read())
             {
@@ -475,6 +493,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "zip_boost_cooldown_on_start":
                             zipBoostCooldownOnStart = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "corrupt_item_round":
+                            corruptItemRound = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;
@@ -650,7 +671,7 @@ namespace DeadlockApiClient.Model
             if (zipBoostCooldownOnStart.IsSet && zipBoostCooldownOnStart.Value == null)
                 throw new ArgumentNullException(nameof(zipBoostCooldownOnStart), "Property is not nullable for class StreetBrawl.");
 
-            return new StreetBrawl(apperRound.Value!, buyTime.Value!, buyTimeGracePeriod.Value!.Value!, comebackBonusHealth.Value!.Value!, comebackBonusHealthCritical.Value!.Value!, goldPerRound.Value!, itemDraftRerollsPerRound.Value!, itemDraftRoundsPerGameRound.Value!, itemDrafts.Value!, laneNumber.Value!.Value!, objectiveMaxHealth.Value!, overtimeRespawnTimeIncrease.Value!, overtimeRespawnTimeIncreaseUrgent.Value!, overtimeTrooperDamageScale.Value!, overtimeTrooperHealthScale.Value!, preBuyTime.Value!, respawnTimes.Value!, roundLengthMinutes.Value!, roundLengthMinutesUrgent.Value!, scoreToWin.Value!.Value!, scoringTime.Value!.Value!, tier1MaxResistTime.Value!.Value!, tier2BonusHealth.Value!.Value!, tier2MaxResistTime.Value!.Value!, trooperSpawnBeforeRoundStartTimer.Value!.Value!, trooperSpawnTimer.Value!, ultimateUnlockRound.Value!.Value!, zipBoostCooldownOnStart.Value!.Value!);
+            return new StreetBrawl(apperRound.Value!, buyTime.Value!, buyTimeGracePeriod.Value!.Value!, comebackBonusHealth.Value!.Value!, comebackBonusHealthCritical.Value!.Value!, goldPerRound.Value!, itemDraftRerollsPerRound.Value!, itemDraftRoundsPerGameRound.Value!, itemDrafts.Value!, laneNumber.Value!.Value!, objectiveMaxHealth.Value!, overtimeRespawnTimeIncrease.Value!, overtimeRespawnTimeIncreaseUrgent.Value!, overtimeTrooperDamageScale.Value!, overtimeTrooperHealthScale.Value!, preBuyTime.Value!, respawnTimes.Value!, roundLengthMinutes.Value!, roundLengthMinutesUrgent.Value!, scoreToWin.Value!.Value!, scoringTime.Value!.Value!, tier1MaxResistTime.Value!.Value!, tier2BonusHealth.Value!.Value!, tier2MaxResistTime.Value!.Value!, trooperSpawnBeforeRoundStartTimer.Value!.Value!, trooperSpawnTimer.Value!, ultimateUnlockRound.Value!.Value!, zipBoostCooldownOnStart.Value!.Value!, corruptItemRound);
         }
 
         /// <summary>
@@ -780,6 +801,12 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("ultimate_unlock_round", streetBrawl.UltimateUnlockRound);
 
             writer.WriteNumber("zip_boost_cooldown_on_start", streetBrawl.ZipBoostCooldownOnStart);
+
+            if (streetBrawl.CorruptItemRoundOption.IsSet)
+                if (streetBrawl.CorruptItemRoundOption.Value != null)
+                    writer.WriteNumber("corrupt_item_round", streetBrawl.CorruptItemRoundOption.Value!.Value);
+                else
+                    writer.WriteNull("corrupt_item_round");
         }
     }
 }

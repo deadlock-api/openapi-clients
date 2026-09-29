@@ -24,6 +24,8 @@ type SeasonInterval struct {
 	// Unix timestamp (seconds) at which the interval ends.
 	EndTimestamp int64 `json:"end_timestamp"`
 	Interval int32 `json:"interval"`
+	// Leaderboard backing this interval (build 6701+).
+	LeaderboardId NullableInt32 `json:"leaderboard_id,omitempty"`
 	// Unix timestamp (seconds) at which the interval starts.
 	StartTimestamp int64 `json:"start_timestamp"`
 }
@@ -98,6 +100,48 @@ func (o *SeasonInterval) SetInterval(v int32) {
 	o.Interval = v
 }
 
+// GetLeaderboardId returns the LeaderboardId field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SeasonInterval) GetLeaderboardId() int32 {
+	if o == nil || IsNil(o.LeaderboardId.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.LeaderboardId.Get()
+}
+
+// GetLeaderboardIdOk returns a tuple with the LeaderboardId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SeasonInterval) GetLeaderboardIdOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LeaderboardId.Get(), o.LeaderboardId.IsSet()
+}
+
+// HasLeaderboardId returns a boolean if a field has been set.
+func (o *SeasonInterval) HasLeaderboardId() bool {
+	if o != nil && o.LeaderboardId.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLeaderboardId gets a reference to the given NullableInt32 and assigns it to the LeaderboardId field.
+func (o *SeasonInterval) SetLeaderboardId(v int32) {
+	o.LeaderboardId.Set(&v)
+}
+// SetLeaderboardIdNil sets the value for LeaderboardId to be an explicit nil
+func (o *SeasonInterval) SetLeaderboardIdNil() {
+	o.LeaderboardId.Set(nil)
+}
+
+// UnsetLeaderboardId ensures that no value is present for LeaderboardId, not even an explicit nil
+func (o *SeasonInterval) UnsetLeaderboardId() {
+	o.LeaderboardId.Unset()
+}
+
 // GetStartTimestamp returns the StartTimestamp field value
 func (o *SeasonInterval) GetStartTimestamp() int64 {
 	if o == nil {
@@ -134,6 +178,9 @@ func (o SeasonInterval) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["end_timestamp"] = o.EndTimestamp
 	toSerialize["interval"] = o.Interval
+	if o.LeaderboardId.IsSet() {
+		toSerialize["leaderboard_id"] = o.LeaderboardId.Get()
+	}
 	toSerialize["start_timestamp"] = o.StartTimestamp
 	return toSerialize, nil
 }

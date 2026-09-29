@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,10 +28,12 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
     RawAbilityUpgradePropertyUpgrade
     """ # noqa: E501
     bonus: StrictStr
+    fixed_corrupted_bonus: Optional[StrictBool] = Field(default=None, description="Corrupted item bonuses only (build 6711+).")
     name: StrictStr
+    round_corrupted_bonus: Optional[StrictBool] = Field(default=None, description="Corrupted item bonuses only (build 6711+).")
     scale_stat_filter: Optional[StrictStr] = None
     upgrade_type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["bonus", "name", "scale_stat_filter", "upgrade_type"]
+    __properties: ClassVar[List[str]] = ["bonus", "fixed_corrupted_bonus", "name", "round_corrupted_bonus", "scale_stat_filter", "upgrade_type"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -72,6 +74,16 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if fixed_corrupted_bonus (nullable) is None
+        # and model_fields_set contains the field
+        if self.fixed_corrupted_bonus is None and "fixed_corrupted_bonus" in self.model_fields_set:
+            _dict['fixed_corrupted_bonus'] = None
+
+        # set to None if round_corrupted_bonus (nullable) is None
+        # and model_fields_set contains the field
+        if self.round_corrupted_bonus is None and "round_corrupted_bonus" in self.model_fields_set:
+            _dict['round_corrupted_bonus'] = None
+
         # set to None if scale_stat_filter (nullable) is None
         # and model_fields_set contains the field
         if self.scale_stat_filter is None and "scale_stat_filter" in self.model_fields_set:
@@ -95,7 +107,9 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
 
         _obj = cls.model_validate({
             "bonus": obj.get("bonus"),
+            "fixed_corrupted_bonus": obj.get("fixed_corrupted_bonus"),
             "name": obj.get("name"),
+            "round_corrupted_bonus": obj.get("round_corrupted_bonus"),
             "scale_stat_filter": obj.get("scale_stat_filter"),
             "upgrade_type": obj.get("upgrade_type")
         })

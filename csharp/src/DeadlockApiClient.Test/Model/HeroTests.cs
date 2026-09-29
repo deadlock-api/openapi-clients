@@ -306,6 +306,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Gender'
+        /// </summary>
+        [Fact]
+        public void GenderTest()
+        {
+            // TODO unit test for the property 'Gender'
+        }
+
+        /// <summary>
         /// Test the property 'GunTag'
         /// </summary>
         [Fact]
@@ -351,12 +360,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PopularItems'
+        /// </summary>
+        [Fact]
+        public void PopularItemsTest()
+        {
+            // TODO unit test for the property 'PopularItems'
+        }
+
+        /// <summary>
         /// Test the property 'PrereleaseOnly'
         /// </summary>
         [Fact]
         public void PrereleaseOnlyTest()
         {
             // TODO unit test for the property 'PrereleaseOnly'
+        }
+
+        /// <summary>
+        /// Test the property 'SearchName'
+        /// </summary>
+        [Fact]
+        public void SearchNameTest()
+        {
+            // TODO unit test for the property 'SearchName'
         }
     }
 }

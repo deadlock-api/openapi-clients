@@ -7,6 +7,7 @@ The `/v1/assets/map` response.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **images** | [**MapImages**](MapImages.md) |  | [default to undefined]
+**neutral_camps** | [**Array&lt;NeutralCamp&gt;**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] [default to undefined]
 **objective_positions** | [**{ [key: string]: ObjectivePosition; }**](ObjectivePosition.md) |  | [default to undefined]
 **radius** | **number** |  | [default to undefined]
 **zipline_paths** | [**Array&lt;ZiplanePath&gt;**](ZiplanePath.md) |  | [default to undefined]
@@ -18,6 +19,7 @@ import { MapData } from 'deadlock_api_client';
 
 const instance: MapData = {
     images,
+    neutral_camps,
     objective_positions,
     radius,
     zipline_paths,

@@ -93,6 +93,8 @@ type APIClient struct {
 
 	MiscEntitiesAPI *MiscEntitiesAPIService
 
+	ModifiersAPI *ModifiersAPIService
+
 	NPCUnitsAPI *NPCUnitsAPIService
 
 	PatchesAPI *PatchesAPIService
@@ -148,6 +150,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.MapAPI = (*MapAPIService)(&c.common)
 	c.MatchesAPI = (*MatchesAPIService)(&c.common)
 	c.MiscEntitiesAPI = (*MiscEntitiesAPIService)(&c.common)
+	c.ModifiersAPI = (*ModifiersAPIService)(&c.common)
 	c.NPCUnitsAPI = (*NPCUnitsAPIService)(&c.common)
 	c.PatchesAPI = (*PatchesAPIService)(&c.common)
 	c.PlayersAPI = (*PlayersAPIService)(&c.common)

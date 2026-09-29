@@ -35,13 +35,18 @@
 | **customCrosshairSettings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  |  [optional] |
 | **useCustomCrosshairSettings** | **kotlin.Boolean** |  |  [optional] |
 | **componentItems** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
+| **corruptedInfo** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). |  [optional] |
 | **cost** | **kotlin.Int** |  |  [optional] |
+| **disableItemTarget** | **kotlin.String** |  |  [optional] |
 | **disabled** | **kotlin.Boolean** |  |  [optional] |
+| **disabledShopFilters** | **kotlin.collections.List&lt;kotlin.String&gt;** | Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them. |  [optional] |
 | **imbue** | [**AbilityImbue**](AbilityImbue.md) |  |  [optional] |
+| **shopFilters** | **kotlin.collections.List&lt;kotlin.String&gt;** | Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats. |  [optional] |
 | **shopImage** | **kotlin.String** |  |  [optional] |
 | **shopImageSmall** | **kotlin.String** |  |  [optional] |
 | **shopImageSmallWebp** | **kotlin.String** |  |  [optional] |
 | **shopImageWebp** | **kotlin.String** |  |  [optional] |
+| **shopVersion** | **kotlin.Long** |  |  [optional] |
 | **tooltipSections** | [**kotlin.collections.List&lt;UpgradeTooltipSection&gt;**](UpgradeTooltipSection.md) |  |  [optional] |
 
 

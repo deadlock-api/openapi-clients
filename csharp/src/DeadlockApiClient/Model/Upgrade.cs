@@ -43,26 +43,31 @@ namespace DeadlockApiClient.Model
         /// <param name="shopable">shopable</param>
         /// <param name="type">type</param>
         /// <param name="componentItems">componentItems</param>
+        /// <param name="corruptedInfo">Present on upgrades the Broker can corrupt (build 6711+).</param>
         /// <param name="cost">cost</param>
         /// <param name="description">description</param>
+        /// <param name="disableItemTarget">disableItemTarget</param>
         /// <param name="disabled">disabled</param>
+        /// <param name="disabledShopFilters">Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them.</param>
         /// <param name="hero">hero</param>
         /// <param name="heroes">heroes</param>
         /// <param name="image">image</param>
         /// <param name="imageWebp">imageWebp</param>
         /// <param name="imbue">imbue</param>
         /// <param name="properties">properties</param>
+        /// <param name="shopFilters">Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats.</param>
         /// <param name="shopImage">shopImage</param>
         /// <param name="shopImageSmall">shopImageSmall</param>
         /// <param name="shopImageSmallWebp">shopImageSmallWebp</param>
         /// <param name="shopImageWebp">shopImageWebp</param>
+        /// <param name="shopVersion">shopVersion</param>
         /// <param name="startTrained">startTrained</param>
         /// <param name="tooltipSections">tooltipSections</param>
         /// <param name="updateTime">updateTime</param>
         /// <param name="upgrades">upgrades</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Upgrade(AbilityActivation activation, string className, int id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, ItemType type, Option<List<string>?> componentItems = default, Option<int?> cost = default, Option<UpgradeDescription?> description = default, Option<bool?> disabled = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
+        public Upgrade(AbilityActivation activation, string className, int id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, ItemType type, Option<List<string>?> componentItems = default, Option<CorruptedItemInfo?> corruptedInfo = default, Option<int?> cost = default, Option<UpgradeDescription?> description = default, Option<string?> disableItemTarget = default, Option<bool?> disabled = default, Option<List<string>?> disabledShopFilters = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<List<string>?> shopFilters = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<long?> shopVersion = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
         {
             Activation = activation;
             ClassName = className;
@@ -74,19 +79,24 @@ namespace DeadlockApiClient.Model
             Shopable = shopable;
             Type = type;
             ComponentItemsOption = componentItems;
+            CorruptedInfoOption = corruptedInfo;
             CostOption = cost;
             DescriptionOption = description;
+            DisableItemTargetOption = disableItemTarget;
             DisabledOption = disabled;
+            DisabledShopFiltersOption = disabledShopFilters;
             HeroOption = hero;
             HeroesOption = heroes;
             ImageOption = image;
             ImageWebpOption = imageWebp;
             ImbueOption = imbue;
             PropertiesOption = properties;
+            ShopFiltersOption = shopFilters;
             ShopImageOption = shopImage;
             ShopImageSmallOption = shopImageSmall;
             ShopImageSmallWebpOption = shopImageSmallWebp;
             ShopImageWebpOption = shopImageWebp;
+            ShopVersionOption = shopVersion;
             StartTrainedOption = startTrained;
             TooltipSectionsOption = tooltipSections;
             UpdateTimeOption = updateTime;
@@ -178,6 +188,20 @@ namespace DeadlockApiClient.Model
         public List<string>? ComponentItems { get { return this.ComponentItemsOption.Value; } set { this.ComponentItemsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of CorruptedInfo
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<CorruptedItemInfo?> CorruptedInfoOption { get; private set; }
+
+        /// <summary>
+        /// Present on upgrades the Broker can corrupt (build 6711+).
+        /// </summary>
+        /// <value>Present on upgrades the Broker can corrupt (build 6711+).</value>
+        [JsonPropertyName("corrupted_info")]
+        public CorruptedItemInfo? CorruptedInfo { get { return this.CorruptedInfoOption.Value; } set { this.CorruptedInfoOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of Cost
         /// </summary>
         [JsonIgnore]
@@ -204,6 +228,19 @@ namespace DeadlockApiClient.Model
         public UpgradeDescription? Description { get { return this.DescriptionOption.Value; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of DisableItemTarget
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> DisableItemTargetOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets DisableItemTarget
+        /// </summary>
+        [JsonPropertyName("disable_item_target")]
+        public string? DisableItemTarget { get { return this.DisableItemTargetOption.Value; } set { this.DisableItemTargetOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of Disabled
         /// </summary>
         [JsonIgnore]
@@ -215,6 +252,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("disabled")]
         public bool? Disabled { get { return this.DisabledOption.Value; } set { this.DisabledOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of DisabledShopFilters
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<string>?> DisabledShopFiltersOption { get; private set; }
+
+        /// <summary>
+        /// Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them.
+        /// </summary>
+        /// <value>Shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names) this item is hidden from even though its stats would match them.</value>
+        [JsonPropertyName("disabled_shop_filters")]
+        public List<string>? DisabledShopFilters { get { return this.DisabledShopFiltersOption.Value; } set { this.DisabledShopFiltersOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Hero
@@ -282,6 +333,20 @@ namespace DeadlockApiClient.Model
         public Dictionary<string, UpgradeProperty>? Properties { get { return this.PropertiesOption.Value; } set { this.PropertiesOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of ShopFilters
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<string>?> ShopFiltersOption { get; private set; }
+
+        /// <summary>
+        /// Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats.
+        /// </summary>
+        /// <value>Extra shop filters (&#x60;snake_case&#x60; &#x60;EShopFilter*&#x60; names, e.g. &#x60;status_grounded&#x60;) this item shows up under, beyond those derived from its stats.</value>
+        [JsonPropertyName("shop_filters")]
+        public List<string>? ShopFilters { get { return this.ShopFiltersOption.Value; } set { this.ShopFiltersOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of ShopImage
         /// </summary>
         [JsonIgnore]
@@ -332,6 +397,19 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("shop_image_webp")]
         public string? ShopImageWebp { get { return this.ShopImageWebpOption.Value; } set { this.ShopImageWebpOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ShopVersion
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> ShopVersionOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets ShopVersion
+        /// </summary>
+        [JsonPropertyName("shop_version")]
+        public long? ShopVersion { get { return this.ShopVersionOption.Value; } set { this.ShopVersionOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of StartTrained
@@ -416,19 +494,24 @@ namespace DeadlockApiClient.Model
             sb.Append("  Shopable: ").Append(Shopable).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ComponentItems: ").Append(ComponentItems).Append("\n");
+            sb.Append("  CorruptedInfo: ").Append(CorruptedInfo).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisableItemTarget: ").Append(DisableItemTarget).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
+            sb.Append("  DisabledShopFilters: ").Append(DisabledShopFilters).Append("\n");
             sb.Append("  Hero: ").Append(Hero).Append("\n");
             sb.Append("  Heroes: ").Append(Heroes).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  ImageWebp: ").Append(ImageWebp).Append("\n");
             sb.Append("  Imbue: ").Append(Imbue).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
+            sb.Append("  ShopFilters: ").Append(ShopFilters).Append("\n");
             sb.Append("  ShopImage: ").Append(ShopImage).Append("\n");
             sb.Append("  ShopImageSmall: ").Append(ShopImageSmall).Append("\n");
             sb.Append("  ShopImageSmallWebp: ").Append(ShopImageSmallWebp).Append("\n");
             sb.Append("  ShopImageWebp: ").Append(ShopImageWebp).Append("\n");
+            sb.Append("  ShopVersion: ").Append(ShopVersion).Append("\n");
             sb.Append("  StartTrained: ").Append(StartTrained).Append("\n");
             sb.Append("  TooltipSections: ").Append(TooltipSections).Append("\n");
             sb.Append("  UpdateTime: ").Append(UpdateTime).Append("\n");
@@ -515,19 +598,24 @@ namespace DeadlockApiClient.Model
             Option<bool?> shopable = default;
             Option<ItemType?> type = default;
             Option<List<string>?> componentItems = default;
+            Option<CorruptedItemInfo?> corruptedInfo = default;
             Option<int?> cost = default;
             Option<UpgradeDescription?> description = default;
+            Option<string?> disableItemTarget = default;
             Option<bool?> disabled = default;
+            Option<List<string>?> disabledShopFilters = default;
             Option<int?> hero = default;
             Option<List<int>?> heroes = default;
             Option<string?> image = default;
             Option<string?> imageWebp = default;
             Option<AbilityImbue?> imbue = default;
             Option<Dictionary<string, UpgradeProperty>?> properties = default;
+            Option<List<string>?> shopFilters = default;
             Option<string?> shopImage = default;
             Option<string?> shopImageSmall = default;
             Option<string?> shopImageSmallWebp = default;
             Option<string?> shopImageWebp = default;
+            Option<long?> shopVersion = default;
             Option<bool?> startTrained = default;
             Option<List<UpgradeTooltipSection>?> tooltipSections = default;
             Option<long?> updateTime = default;
@@ -579,14 +667,23 @@ namespace DeadlockApiClient.Model
                         case "component_items":
                             componentItems = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "corrupted_info":
+                            corruptedInfo = new Option<CorruptedItemInfo?>(JsonSerializer.Deserialize<CorruptedItemInfo>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "cost":
                             cost = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "description":
                             description = new Option<UpgradeDescription?>(JsonSerializer.Deserialize<UpgradeDescription>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "disable_item_target":
+                            disableItemTarget = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "disabled":
                             disabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "disabled_shop_filters":
+                            disabledShopFilters = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "hero":
                             hero = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -606,6 +703,9 @@ namespace DeadlockApiClient.Model
                         case "properties":
                             properties = new Option<Dictionary<string, UpgradeProperty>?>(JsonSerializer.Deserialize<Dictionary<string, UpgradeProperty>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "shop_filters":
+                            shopFilters = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "shop_image":
                             shopImage = new Option<string?>(utf8JsonReader.GetString());
                             break;
@@ -617,6 +717,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "shop_image_webp":
                             shopImageWebp = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "shop_version":
+                            shopVersion = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "start_trained":
                             startTrained = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -693,7 +796,7 @@ namespace DeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new ArgumentNullException(nameof(type), "Property is not nullable for class Upgrade.");
 
-            return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, type.Value!.Value!, componentItems, cost, description, disabled, hero, heroes, image, imageWebp, imbue, properties, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
+            return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, type.Value!.Value!, componentItems, corruptedInfo, cost, description, disableItemTarget, disabled, disabledShopFilters, hero, heroes, image, imageWebp, imbue, properties, shopFilters, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, shopVersion, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
         }
 
         /// <summary>
@@ -755,6 +858,14 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("component_items");
+            if (upgrade.CorruptedInfoOption.IsSet)
+                if (upgrade.CorruptedInfoOption.Value != null)
+                {
+                    writer.WritePropertyName("corrupted_info");
+                    JsonSerializer.Serialize(writer, upgrade.CorruptedInfo, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("corrupted_info");
             if (upgrade.CostOption.IsSet)
                 if (upgrade.CostOption.Value != null)
                     writer.WriteNumber("cost", upgrade.CostOption.Value!.Value);
@@ -769,12 +880,26 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("description");
+            if (upgrade.DisableItemTargetOption.IsSet)
+                if (upgrade.DisableItemTargetOption.Value != null)
+                    writer.WriteString("disable_item_target", upgrade.DisableItemTarget);
+                else
+                    writer.WriteNull("disable_item_target");
+
             if (upgrade.DisabledOption.IsSet)
                 if (upgrade.DisabledOption.Value != null)
                     writer.WriteBoolean("disabled", upgrade.DisabledOption.Value!.Value);
                 else
                     writer.WriteNull("disabled");
 
+            if (upgrade.DisabledShopFiltersOption.IsSet)
+                if (upgrade.DisabledShopFiltersOption.Value != null)
+                {
+                    writer.WritePropertyName("disabled_shop_filters");
+                    JsonSerializer.Serialize(writer, upgrade.DisabledShopFilters, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("disabled_shop_filters");
             if (upgrade.HeroOption.IsSet)
                 if (upgrade.HeroOption.Value != null)
                     writer.WriteNumber("hero", upgrade.HeroOption.Value!.Value);
@@ -817,6 +942,14 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("properties");
+            if (upgrade.ShopFiltersOption.IsSet)
+                if (upgrade.ShopFiltersOption.Value != null)
+                {
+                    writer.WritePropertyName("shop_filters");
+                    JsonSerializer.Serialize(writer, upgrade.ShopFilters, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("shop_filters");
             if (upgrade.ShopImageOption.IsSet)
                 if (upgrade.ShopImageOption.Value != null)
                     writer.WriteString("shop_image", upgrade.ShopImage);
@@ -840,6 +973,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteString("shop_image_webp", upgrade.ShopImageWebp);
                 else
                     writer.WriteNull("shop_image_webp");
+
+            if (upgrade.ShopVersionOption.IsSet)
+                if (upgrade.ShopVersionOption.Value != null)
+                    writer.WriteNumber("shop_version", upgrade.ShopVersionOption.Value!.Value);
+                else
+                    writer.WriteNull("shop_version");
 
             if (upgrade.StartTrainedOption.IsSet)
                 if (upgrade.StartTrainedOption.Value != null)

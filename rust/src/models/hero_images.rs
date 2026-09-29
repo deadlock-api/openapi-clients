@@ -43,6 +43,11 @@ pub struct HeroImages {
     pub top_bar_vertical_image: Option<Option<String>>,
     #[serde(rename = "top_bar_vertical_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub top_bar_vertical_image_webp: Option<Option<String>>,
+    /// Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+    #[serde(rename = "vote_sticker", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub vote_sticker: Option<Option<String>>,
+    #[serde(rename = "vote_sticker_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub vote_sticker_webp: Option<Option<String>>,
     #[serde(rename = "weapon_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub weapon_image: Option<Option<String>>,
     #[serde(rename = "weapon_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -67,6 +72,8 @@ impl HeroImages {
             name_image: None,
             top_bar_vertical_image: None,
             top_bar_vertical_image_webp: None,
+            vote_sticker: None,
+            vote_sticker_webp: None,
             weapon_image: None,
             weapon_image_webp: None,
         }

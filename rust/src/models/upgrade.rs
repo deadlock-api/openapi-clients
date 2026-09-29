@@ -19,12 +19,20 @@ pub struct Upgrade {
     pub class_name: String,
     #[serde(rename = "component_items", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub component_items: Option<Option<Vec<String>>>,
+    /// Present on upgrades the Broker can corrupt (build 6711+).
+    #[serde(rename = "corrupted_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub corrupted_info: Option<Option<Box<models::CorruptedItemInfo>>>,
     #[serde(rename = "cost", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cost: Option<Option<u32>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<Box<models::UpgradeDescription>>>,
+    #[serde(rename = "disable_item_target", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub disable_item_target: Option<Option<String>>,
     #[serde(rename = "disabled", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub disabled: Option<Option<bool>>,
+    /// Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
+    #[serde(rename = "disabled_shop_filters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub disabled_shop_filters: Option<Option<Vec<String>>>,
     #[serde(rename = "hero", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub hero: Option<Option<u32>>,
     #[serde(rename = "heroes", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -47,6 +55,9 @@ pub struct Upgrade {
     pub name: String,
     #[serde(rename = "properties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub properties: Option<Option<std::collections::HashMap<String, models::UpgradeProperty>>>,
+    /// Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
+    #[serde(rename = "shop_filters", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub shop_filters: Option<Option<Vec<String>>>,
     #[serde(rename = "shop_image", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shop_image: Option<Option<String>>,
     #[serde(rename = "shop_image_small", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -55,6 +66,8 @@ pub struct Upgrade {
     pub shop_image_small_webp: Option<Option<String>>,
     #[serde(rename = "shop_image_webp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shop_image_webp: Option<Option<String>>,
+    #[serde(rename = "shop_version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub shop_version: Option<Option<i64>>,
     #[serde(rename = "shopable")]
     pub shopable: bool,
     #[serde(rename = "start_trained", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -77,9 +90,12 @@ impl Upgrade {
             activation,
             class_name,
             component_items: None,
+            corrupted_info: None,
             cost: None,
             description: None,
+            disable_item_target: None,
             disabled: None,
+            disabled_shop_filters: None,
             hero: None,
             heroes: None,
             id,
@@ -91,10 +107,12 @@ impl Upgrade {
             item_tier,
             name,
             properties: None,
+            shop_filters: None,
             shop_image: None,
             shop_image_small: None,
             shop_image_small_webp: None,
             shop_image_webp: None,
+            shop_version: None,
             shopable,
             start_trained: None,
             tooltip_sections: None,

@@ -133,5 +133,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'ValidPartySizes'
         }
+
+        /// <summary>
+        /// Test the property 'BaseWinLossPointGrant'
+        /// </summary>
+        [Fact]
+        public void BaseWinLossPointGrantTest()
+        {
+            // TODO unit test for the property 'BaseWinLossPointGrant'
+        }
     }
 }

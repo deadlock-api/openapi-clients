@@ -6793,15 +6793,16 @@ class AnalyticsApi
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
      * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemPermutationStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemPermutationStats[]
      */
-    public function itemPermutationStats($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStats($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
-        list($response) = $this->itemPermutationStatsWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        list($response) = $this->itemPermutationStatsWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
         return $response;
     }
 
@@ -6832,15 +6833,16 @@ class AnalyticsApi
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
      * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemPermutationStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemPermutationStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
-        $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6938,14 +6940,15 @@ class AnalyticsApi
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
      * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemPermutationStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsync($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
-        return $this->itemPermutationStatsAsyncWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
+        return $this->itemPermutationStatsAsyncWithHttpInfo($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6980,15 +6983,16 @@ class AnalyticsApi
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
      * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemPermutationStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsAsyncWithHttpInfo($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemPermutationStats[]';
-        $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->itemPermutationStatsRequest($item_ids, $comb_size, $min_matches, $max_matches, $game_mode, $match_mode, $hero_ids, $hero_id, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $include_corrupted_items, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7051,12 +7055,13 @@ class AnalyticsApi
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
      * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemPermutationStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['itemPermutationStats'][0])
+    public function itemPermutationStatsRequest($item_ids = null, $comb_size = 2, $min_matches = 20, $max_matches = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemPermutationStats'][0])
     {
 
 
@@ -7139,6 +7144,7 @@ class AnalyticsApi
             throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.itemPermutationStats, number of items must be greater than or equal to 1.');
         }
         
+
 
 
 
@@ -7347,6 +7353,15 @@ class AnalyticsApi
             true, // explode
             false // required
         ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_corrupted_items,
+            'include_corrupted_items', // param base name
+            'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 
@@ -7444,15 +7459,16 @@ class AnalyticsApi
      * @param  int|null $min_bought_at_s Filter items bought after this game time (seconds). (optional)
      * @param  int|null $max_bought_at_s Filter items bought before this game time (seconds). (optional)
      * @param  string[]|null $item_order Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\ItemStats[]
      */
-    public function itemStats($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStats($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemStats'][0])
     {
-        list($response) = $this->itemStatsWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $contentType);
+        list($response) = $this->itemStatsWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items, $contentType);
         return $response;
     }
 
@@ -7492,15 +7508,16 @@ class AnalyticsApi
      * @param  int|null $min_bought_at_s Filter items bought after this game time (seconds). (optional)
      * @param  int|null $max_bought_at_s Filter items bought before this game time (seconds). (optional)
      * @param  string[]|null $item_order Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\ItemStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function itemStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemStats'][0])
     {
-        $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $contentType);
+        $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7607,14 +7624,15 @@ class AnalyticsApi
      * @param  int|null $min_bought_at_s Filter items bought after this game time (seconds). (optional)
      * @param  int|null $max_bought_at_s Filter items bought before this game time (seconds). (optional)
      * @param  string[]|null $item_order Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemStats'][0])
     {
-        return $this->itemStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $contentType)
+        return $this->itemStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7658,15 +7676,16 @@ class AnalyticsApi
      * @param  int|null $min_bought_at_s Filter items bought after this game time (seconds). (optional)
      * @param  int|null $max_bought_at_s Filter items bought before this game time (seconds). (optional)
      * @param  string[]|null $item_order Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function itemStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\ItemStats[]';
-        $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $contentType);
+        $request = $this->itemStatsRequest($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7738,12 +7757,13 @@ class AnalyticsApi
      * @param  int|null $min_bought_at_s Filter items bought after this game time (seconds). (optional)
      * @param  int|null $max_bought_at_s Filter items bought before this game time (seconds). (optional)
      * @param  string[]|null $item_order Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  bool|null $include_corrupted_items Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['itemStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function itemStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, string $contentType = self::contentTypes['itemStats'][0])
+    public function itemStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $hero_ids = null, $hero_id = null, $enemy_hero_ids = null, $enemy_hero_ids_all_match = null, $min_enemy_networth = null, $max_enemy_networth = null, $same_lane_filter = null, $min_unix_timestamp = 1788048000, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $min_bought_at_s = null, $max_bought_at_s = null, $item_order = null, $include_corrupted_items = false, string $contentType = self::contentTypes['itemStats'][0])
     {
 
 
@@ -7842,6 +7862,7 @@ class AnalyticsApi
             throw new \InvalidArgumentException('invalid value for "$max_bought_at_s" when calling AnalyticsApi.itemStats, must be bigger than or equal to 0.');
         }
         
+
 
 
         $resourcePath = '/v1/analytics/item-stats';
@@ -8126,6 +8147,15 @@ class AnalyticsApi
             $item_order,
             'item_order', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_corrupted_items,
+            'include_corrupted_items', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetMiscEntity
 
-> MiscEntity GetMiscEntity(ctx, idOrClassname).ClientVersion(clientVersion).Execute()
+> MiscEntity GetMiscEntity(ctx, idOrClassname).Language(language).ClientVersion(clientVersion).Execute()
 
 Get Misc Entity
 
@@ -31,11 +31,12 @@ import (
 
 func main() {
 	idOrClassname := "idOrClassname_example" // string | Misc entity id (`murmurhash2(class_name)`) or `class_name`
+	language := "language_example" // string | Language code. Defaults to `english`. (optional)
 	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscEntitiesAPI.GetMiscEntity(context.Background(), idOrClassname).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.MiscEntitiesAPI.GetMiscEntity(context.Background(), idOrClassname).Language(language).ClientVersion(clientVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscEntitiesAPI.GetMiscEntity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Other parameters are passed through a pointer to a apiGetMiscEntityRequest struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
  **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
@@ -83,7 +85,7 @@ No authorization required
 
 ## ListMiscEntities
 
-> []MiscEntity ListMiscEntities(ctx).ClientVersion(clientVersion).Execute()
+> []MiscEntity ListMiscEntities(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 List Misc Entities
 
@@ -102,11 +104,12 @@ import (
 )
 
 func main() {
+	language := "language_example" // string | Language code. Defaults to `english`. (optional)
 	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.MiscEntitiesAPI.ListMiscEntities(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.MiscEntitiesAPI.ListMiscEntities(context.Background()).Language(language).ClientVersion(clientVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MiscEntitiesAPI.ListMiscEntities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +130,7 @@ Other parameters are passed through a pointer to a apiListMiscEntitiesRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
  **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type

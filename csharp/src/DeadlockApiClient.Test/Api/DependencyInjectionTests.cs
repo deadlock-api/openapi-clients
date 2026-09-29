@@ -148,6 +148,9 @@ namespace DeadlockApiClient.Test.Api
             var miscEntitiesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMiscEntitiesApi>();
             Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
 
+            var modifiersApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IModifiersApi>();
+            Assert.True(modifiersApi.HttpClient.BaseAddress != null);
+
             var nPCUnitsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<INPCUnitsApi>();
             Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
 
@@ -244,6 +247,9 @@ namespace DeadlockApiClient.Test.Api
 
             var miscEntitiesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMiscEntitiesApi>();
             Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+
+            var modifiersApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IModifiersApi>();
+            Assert.True(modifiersApi.HttpClient.BaseAddress != null);
 
             var nPCUnitsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<INPCUnitsApi>();
             Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
@@ -342,6 +348,9 @@ namespace DeadlockApiClient.Test.Api
             var miscEntitiesApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMiscEntitiesApi>();
             Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
             
+            var modifiersApi = _hostUsingAddWithAClient.Services.GetRequiredService<IModifiersApi>();
+            Assert.True(modifiersApi.HttpClient.BaseAddress != null);
+            
             var nPCUnitsApi = _hostUsingAddWithAClient.Services.GetRequiredService<INPCUnitsApi>();
             Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);
             
@@ -438,6 +447,9 @@ namespace DeadlockApiClient.Test.Api
 
             var miscEntitiesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMiscEntitiesApi>();
             Assert.True(miscEntitiesApi.HttpClient.BaseAddress != null);
+
+            var modifiersApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IModifiersApi>();
+            Assert.True(modifiersApi.HttpClient.BaseAddress != null);
 
             var nPCUnitsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<INPCUnitsApi>();
             Assert.True(nPCUnitsApi.HttpClient.BaseAddress != null);

@@ -59,6 +59,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'images' => '\OpenAPI\Client\Model\MapImages',
+        'neutral_camps' => '\OpenAPI\Client\Model\NeutralCamp[]',
         'objective_positions' => 'array<string,\OpenAPI\Client\Model\ObjectivePosition>',
         'radius' => 'int',
         'zipline_paths' => '\OpenAPI\Client\Model\ZiplanePath[]'
@@ -73,6 +74,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'images' => null,
+        'neutral_camps' => null,
         'objective_positions' => null,
         'radius' => 'int32',
         'zipline_paths' => null
@@ -85,6 +87,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'images' => false,
+        'neutral_camps' => true,
         'objective_positions' => false,
         'radius' => false,
         'zipline_paths' => false
@@ -177,6 +180,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'images' => 'images',
+        'neutral_camps' => 'neutral_camps',
         'objective_positions' => 'objective_positions',
         'radius' => 'radius',
         'zipline_paths' => 'zipline_paths'
@@ -189,6 +193,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'images' => 'setImages',
+        'neutral_camps' => 'setNeutralCamps',
         'objective_positions' => 'setObjectivePositions',
         'radius' => 'setRadius',
         'zipline_paths' => 'setZiplinePaths'
@@ -201,6 +206,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'images' => 'getImages',
+        'neutral_camps' => 'getNeutralCamps',
         'objective_positions' => 'getObjectivePositions',
         'radius' => 'getRadius',
         'zipline_paths' => 'getZiplinePaths'
@@ -264,6 +270,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('images', $data ?? [], null);
+        $this->setIfExists('neutral_camps', $data ?? [], null);
         $this->setIfExists('objective_positions', $data ?? [], null);
         $this->setIfExists('radius', $data ?? [], null);
         $this->setIfExists('zipline_paths', $data ?? [], null);
@@ -350,6 +357,40 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable images cannot be null');
         }
         $this->container['images'] = $images;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_camps
+     *
+     * @return \OpenAPI\Client\Model\NeutralCamp[]|null
+     */
+    public function getNeutralCamps()
+    {
+        return $this->container['neutral_camps'];
+    }
+
+    /**
+     * Sets neutral_camps
+     *
+     * @param \OpenAPI\Client\Model\NeutralCamp[]|null $neutral_camps Neutral camps (build 6711+).
+     *
+     * @return self
+     */
+    public function setNeutralCamps($neutral_camps)
+    {
+        if (is_null($neutral_camps)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_camps');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_camps', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_camps'] = $neutral_camps;
 
         return $this;
     }

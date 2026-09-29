@@ -19,6 +19,9 @@ pub struct SubclassModifierDefinitionSubclass {
     pub class_name: Option<Option<String>>,
     #[serde(rename = "duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub duration: Option<Option<f64>>,
+    /// Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+    #[serde(rename = "enabled_state_mask", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enabled_state_mask: Option<Option<String>>,
     #[serde(rename = "modifier_values", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub modifier_values: Option<Option<Vec<models::ModifierValue>>>,
     #[serde(rename = "script_values", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -37,6 +40,7 @@ impl SubclassModifierDefinitionSubclass {
             always_show_in_ui: None,
             class_name: None,
             duration: None,
+            enabled_state_mask: None,
             modifier_values: None,
             script_values: None,
             subclass_name: None,

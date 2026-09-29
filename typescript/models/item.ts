@@ -33,6 +33,9 @@ import type { AbilityType } from './ability-type.js';
 import type { AbilityVideos } from './ability-videos.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { CorruptedItemInfo } from './corrupted-item-info.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { DependantAbilities } from './dependant-abilities.js';
 // May contain unused imports in some cases
 // @ts-ignore

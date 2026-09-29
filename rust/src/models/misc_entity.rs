@@ -21,11 +21,17 @@ pub struct MiscEntity {
     /// Permanent pickups: localization token of the stat the buff raises.
     #[serde(rename = "buff_type_loc_string", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub buff_type_loc_string: Option<Option<String>>,
-    /// Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+    /// Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+    #[serde(rename = "buff_type_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub buff_type_name: Option<Option<String>>,
+    /// Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
     #[serde(rename = "buff_type_value_unit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub buff_type_value_unit: Option<Option<String>>,
     #[serde(rename = "class_name")]
     pub class_name: String,
+    /// How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+    #[serde(rename = "collection_method", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub collection_method: Option<Option<String>>,
     #[serde(rename = "collision_radius", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub collision_radius: Option<Option<f64>>,
     #[serde(rename = "color", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -50,8 +56,14 @@ pub struct MiscEntity {
     pub heavy_melee_hit_count: Option<Option<i64>>,
     #[serde(rename = "heavy_melee_only", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub heavy_melee_only: Option<Option<bool>>,
+    /// Punchable pickups: hits needed to collect.
+    #[serde(rename = "hits_required", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub hits_required: Option<Option<i64>>,
     #[serde(rename = "id")]
     pub id: u32,
+    /// Corrupted item shop (Broker) trigger: modifier applied while inside.
+    #[serde(rename = "in_shop_modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub in_shop_modifier: Option<Option<Box<models::SubclassModifierDefinition>>>,
     #[serde(rename = "initial_spawn_delay_in_seconds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub initial_spawn_delay_in_seconds: Option<Option<i64>>,
     /// Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
@@ -61,6 +73,8 @@ pub struct MiscEntity {
     pub initial_spawn_time: Option<Option<f64>>,
     #[serde(rename = "is_mantleable", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub is_mantleable: Option<Option<bool>>,
+    #[serde(rename = "is_permanent_pickup", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub is_permanent_pickup: Option<Option<bool>>,
     #[serde(rename = "lifetime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub lifetime: Option<Option<f64>>,
     #[serde(rename = "loot_list_deck_size", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -73,12 +87,23 @@ pub struct MiscEntity {
     pub match_time_mins_for_level2_pickups: Option<Option<i64>>,
     #[serde(rename = "match_time_mins_for_level3_pickups", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub match_time_mins_for_level3_pickups: Option<Option<i64>>,
+    #[serde(rename = "minimap_class", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub minimap_class: Option<Option<String>>,
     #[serde(rename = "modifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub modifier: Option<Option<Box<models::SubclassModifierDefinition>>>,
+    /// `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub name: Option<Option<String>>,
+    /// Localization token of the pickup's world label.
+    #[serde(rename = "name_loc_string", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub name_loc_string: Option<Option<String>>,
     #[serde(rename = "orb_spawn_delay_max", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub orb_spawn_delay_max: Option<Option<f64>>,
     #[serde(rename = "orb_spawn_delay_min", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub orb_spawn_delay_min: Option<Option<f64>>,
+    /// Pickup spawners: class name of the spawned pickup.
+    #[serde(rename = "pickup", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub pickup: Option<Option<String>>,
     /// Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
     #[serde(rename = "pickup_chances", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub pickup_chances: Option<Option<std::collections::HashMap<String, f64>>>,
@@ -92,6 +117,18 @@ pub struct MiscEntity {
     pub primary_drop_chance: Option<Option<f64>>,
     #[serde(rename = "primary_pickups", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub primary_pickups: Option<Option<Vec<models::Pickup>>>,
+    /// Health pickups: seconds over which the healing is applied to heroes.
+    #[serde(rename = "regen_duration", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub regen_duration: Option<Option<f64>>,
+    /// Health pickups: seconds over which the healing is applied to troopers.
+    #[serde(rename = "regen_duration_troopers", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub regen_duration_troopers: Option<Option<f64>>,
+    /// Health pickups: healing as percent of max health.
+    #[serde(rename = "regen_max_health_percent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub regen_max_health_percent: Option<Option<Box<models::CurveOrFloat>>>,
+    /// Health pickups: healing multiplier for troopers.
+    #[serde(rename = "regen_trooper_multi", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub regen_trooper_multi: Option<Option<f64>>,
     #[serde(rename = "render_after_death", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub render_after_death: Option<Option<bool>>,
     #[serde(rename = "respawn_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -101,12 +138,21 @@ pub struct MiscEntity {
     pub roll_type: Option<Option<String>>,
     #[serde(rename = "show_on_minimap", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub show_on_minimap: Option<Option<bool>>,
+    /// Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+    #[serde(rename = "single_pickup_override", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub single_pickup_override: Option<Option<String>>,
     #[serde(rename = "solid_after_death", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub solid_after_death: Option<Option<bool>>,
+    /// Pickup spawners: delay (seconds) before the first spawn.
+    #[serde(rename = "spawn_delay", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spawn_delay: Option<Option<f64>>,
     #[serde(rename = "spawn_interval", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub spawn_interval: Option<Option<f64>>,
     #[serde(rename = "spawn_interval_in_seconds", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub spawn_interval_in_seconds: Option<Option<i64>>,
+    /// Corrupted item shop (Broker) trigger: music cue played on spawn.
+    #[serde(rename = "spawn_music_state", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub spawn_music_state: Option<Option<String>>,
 }
 
 impl MiscEntity {
@@ -115,8 +161,10 @@ impl MiscEntity {
             break_on_dodge_touch: None,
             buff_type_graph_color: None,
             buff_type_loc_string: None,
+            buff_type_name: None,
             buff_type_value_unit: None,
             class_name,
+            collection_method: None,
             collision_radius: None,
             color: None,
             damaged_by_abilities: None,
@@ -129,32 +177,46 @@ impl MiscEntity {
             health: None,
             heavy_melee_hit_count: None,
             heavy_melee_only: None,
+            hits_required: None,
             id,
+            in_shop_modifier: None,
             initial_spawn_delay_in_seconds: None,
             initial_spawn_delay_seconds: None,
             initial_spawn_time: None,
             is_mantleable: None,
+            is_permanent_pickup: None,
             lifetime: None,
             loot_list_deck_size: None,
             m_vec_pickups_lv2: None,
             m_vec_pickups_lv3: None,
             match_time_mins_for_level2_pickups: None,
             match_time_mins_for_level3_pickups: None,
+            minimap_class: None,
             modifier: None,
+            name: None,
+            name_loc_string: None,
             orb_spawn_delay_max: None,
             orb_spawn_delay_min: None,
+            pickup: None,
             pickup_chances: None,
             pickup_radius: None,
             powerup_drop_chance: None,
             primary_drop_chance: None,
             primary_pickups: None,
+            regen_duration: None,
+            regen_duration_troopers: None,
+            regen_max_health_percent: None,
+            regen_trooper_multi: None,
             render_after_death: None,
             respawn_time: None,
             roll_type: None,
             show_on_minimap: None,
+            single_pickup_override: None,
             solid_after_death: None,
+            spawn_delay: None,
             spawn_interval: None,
             spawn_interval_in_seconds: None,
+            spawn_music_state: None,
         }
     }
 }

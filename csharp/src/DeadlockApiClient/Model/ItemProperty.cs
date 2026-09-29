@@ -46,12 +46,13 @@ namespace DeadlockApiClient.Model
         /// <param name="postvalueLabel">postvalueLabel</param>
         /// <param name="prefix">prefix</param>
         /// <param name="providedPropertyType">providedPropertyType</param>
+        /// <param name="requiredUpgradeBits">Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;).</param>
         /// <param name="scaleFunction">scaleFunction</param>
         /// <param name="streetBrawlValue">streetBrawlValue</param>
         /// <param name="usageFlags">usageFlags</param>
         /// <param name="value">Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;).</param>
         [JsonConstructor]
-        public ItemProperty(Option<bool?> canSetTokenOverride = default, Option<string?> conditional = default, Option<string?> cssClass = default, Option<string?> disableValue = default, Option<string?> displayUnits = default, Option<string?> icon = default, Option<string?> label = default, Option<string?> locTokenOverride = default, Option<bool?> negativeAttribute = default, Option<string?> postfix = default, Option<string?> postvalueLabel = default, Option<string?> prefix = default, Option<string?> providedPropertyType = default, Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default, Option<string?> streetBrawlValue = default, Option<List<StatsUsageFlag>?> usageFlags = default, Option<string?> value = default)
+        public ItemProperty(Option<bool?> canSetTokenOverride = default, Option<string?> conditional = default, Option<string?> cssClass = default, Option<string?> disableValue = default, Option<string?> displayUnits = default, Option<string?> icon = default, Option<string?> label = default, Option<string?> locTokenOverride = default, Option<bool?> negativeAttribute = default, Option<string?> postfix = default, Option<string?> postvalueLabel = default, Option<string?> prefix = default, Option<string?> providedPropertyType = default, Option<List<string>?> requiredUpgradeBits = default, Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default, Option<string?> streetBrawlValue = default, Option<List<StatsUsageFlag>?> usageFlags = default, Option<string?> value = default)
         {
             CanSetTokenOverrideOption = canSetTokenOverride;
             ConditionalOption = conditional;
@@ -66,6 +67,7 @@ namespace DeadlockApiClient.Model
             PostvalueLabelOption = postvalueLabel;
             PrefixOption = prefix;
             ProvidedPropertyTypeOption = providedPropertyType;
+            RequiredUpgradeBitsOption = requiredUpgradeBits;
             ScaleFunctionOption = scaleFunction;
             StreetBrawlValueOption = streetBrawlValue;
             UsageFlagsOption = usageFlags;
@@ -245,6 +247,20 @@ namespace DeadlockApiClient.Model
         public string? ProvidedPropertyType { get { return this.ProvidedPropertyTypeOption.Value; } set { this.ProvidedPropertyTypeOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of RequiredUpgradeBits
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<string>?> RequiredUpgradeBitsOption { get; private set; }
+
+        /// <summary>
+        /// Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;).
+        /// </summary>
+        /// <value>Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;).</value>
+        [JsonPropertyName("required_upgrade_bits")]
+        public List<string>? RequiredUpgradeBits { get { return this.RequiredUpgradeBitsOption.Value; } set { this.RequiredUpgradeBitsOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of ScaleFunction
         /// </summary>
         [JsonIgnore]
@@ -318,6 +334,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  PostvalueLabel: ").Append(PostvalueLabel).Append("\n");
             sb.Append("  Prefix: ").Append(Prefix).Append("\n");
             sb.Append("  ProvidedPropertyType: ").Append(ProvidedPropertyType).Append("\n");
+            sb.Append("  RequiredUpgradeBits: ").Append(RequiredUpgradeBits).Append("\n");
             sb.Append("  ScaleFunction: ").Append(ScaleFunction).Append("\n");
             sb.Append("  StreetBrawlValue: ").Append(StreetBrawlValue).Append("\n");
             sb.Append("  UsageFlags: ").Append(UsageFlags).Append("\n");
@@ -382,6 +399,7 @@ namespace DeadlockApiClient.Model
             Option<string?> postvalueLabel = default;
             Option<string?> prefix = default;
             Option<string?> providedPropertyType = default;
+            Option<List<string>?> requiredUpgradeBits = default;
             Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default;
             Option<string?> streetBrawlValue = default;
             Option<List<StatsUsageFlag>?> usageFlags = default;
@@ -441,6 +459,9 @@ namespace DeadlockApiClient.Model
                         case "provided_property_type":
                             providedPropertyType = new Option<string?>(utf8JsonReader.GetString());
                             break;
+                        case "required_upgrade_bits":
+                            requiredUpgradeBits = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "scale_function":
                             scaleFunction = new Option<RawItemPropertyScaleFunctionSubclass?>(JsonSerializer.Deserialize<RawItemPropertyScaleFunctionSubclass>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
@@ -459,7 +480,7 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            return new ItemProperty(canSetTokenOverride, conditional, cssClass, disableValue, displayUnits, icon, label, locTokenOverride, negativeAttribute, postfix, postvalueLabel, prefix, providedPropertyType, scaleFunction, streetBrawlValue, usageFlags, value);
+            return new ItemProperty(canSetTokenOverride, conditional, cssClass, disableValue, displayUnits, icon, label, locTokenOverride, negativeAttribute, postfix, postvalueLabel, prefix, providedPropertyType, requiredUpgradeBits, scaleFunction, streetBrawlValue, usageFlags, value);
         }
 
         /// <summary>
@@ -564,6 +585,14 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("provided_property_type");
 
+            if (itemProperty.RequiredUpgradeBitsOption.IsSet)
+                if (itemProperty.RequiredUpgradeBitsOption.Value != null)
+                {
+                    writer.WritePropertyName("required_upgrade_bits");
+                    JsonSerializer.Serialize(writer, itemProperty.RequiredUpgradeBits, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("required_upgrade_bits");
             if (itemProperty.ScaleFunctionOption.IsSet)
                 if (itemProperty.ScaleFunctionOption.Value != null)
                 {

@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.ability_activation import AbilityActivation
 from deadlock_api_client.models.ability_imbue import AbilityImbue
+from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo
 from deadlock_api_client.models.item_slot_type import ItemSlotType
 from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade
@@ -40,9 +41,12 @@ class Upgrade(BaseModel):
     activation: AbilityActivation
     class_name: StrictStr
     component_items: Optional[List[StrictStr]] = None
+    corrupted_info: Optional[CorruptedItemInfo] = Field(default=None, description="Present on upgrades the Broker can corrupt (build 6711+).")
     cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     description: Optional[UpgradeDescription] = None
+    disable_item_target: Optional[StrictStr] = None
     disabled: Optional[StrictBool] = None
+    disabled_shop_filters: Optional[List[StrictStr]] = Field(default=None, description="Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.")
     hero: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     heroes: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
     id: Annotated[int, Field(strict=True, ge=0)]
@@ -54,10 +58,12 @@ class Upgrade(BaseModel):
     item_tier: Annotated[int, Field(strict=True, ge=0)]
     name: StrictStr
     properties: Optional[Dict[str, UpgradeProperty]] = None
+    shop_filters: Optional[List[StrictStr]] = Field(default=None, description="Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.")
     shop_image: Optional[StrictStr] = None
     shop_image_small: Optional[StrictStr] = None
     shop_image_small_webp: Optional[StrictStr] = None
     shop_image_webp: Optional[StrictStr] = None
+    shop_version: Optional[StrictInt] = None
     shopable: StrictBool
     start_trained: Optional[StrictBool] = None
     tooltip_sections: Optional[List[UpgradeTooltipSection]] = None
@@ -65,7 +71,7 @@ class Upgrade(BaseModel):
     update_time: Optional[StrictInt] = None
     upgrades: Optional[List[RawAbilityUpgrade]] = None
     weapon_info: Optional[RawItemWeaponInfoInner] = None
-    __properties: ClassVar[List[str]] = ["activation", "class_name", "component_items", "cost", "description", "disabled", "hero", "heroes", "id", "image", "image_webp", "imbue", "is_active_item", "item_slot_type", "item_tier", "name", "properties", "shop_image", "shop_image_small", "shop_image_small_webp", "shop_image_webp", "shopable", "start_trained", "tooltip_sections", "type", "update_time", "upgrades", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["activation", "class_name", "component_items", "corrupted_info", "cost", "description", "disable_item_target", "disabled", "disabled_shop_filters", "hero", "heroes", "id", "image", "image_webp", "imbue", "is_active_item", "item_slot_type", "item_tier", "name", "properties", "shop_filters", "shop_image", "shop_image_small", "shop_image_small_webp", "shop_image_webp", "shop_version", "shopable", "start_trained", "tooltip_sections", "type", "update_time", "upgrades", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -106,6 +112,9 @@ class Upgrade(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of corrupted_info
+        if self.corrupted_info:
+            _dict['corrupted_info'] = self.corrupted_info.to_dict()
         # override the default output from pydantic by calling `to_dict()` of description
         if self.description:
             _dict['description'] = self.description.to_dict()
@@ -135,6 +144,11 @@ class Upgrade(BaseModel):
         if self.component_items is None and "component_items" in self.model_fields_set:
             _dict['component_items'] = None
 
+        # set to None if corrupted_info (nullable) is None
+        # and model_fields_set contains the field
+        if self.corrupted_info is None and "corrupted_info" in self.model_fields_set:
+            _dict['corrupted_info'] = None
+
         # set to None if cost (nullable) is None
         # and model_fields_set contains the field
         if self.cost is None and "cost" in self.model_fields_set:
@@ -145,10 +159,20 @@ class Upgrade(BaseModel):
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
 
+        # set to None if disable_item_target (nullable) is None
+        # and model_fields_set contains the field
+        if self.disable_item_target is None and "disable_item_target" in self.model_fields_set:
+            _dict['disable_item_target'] = None
+
         # set to None if disabled (nullable) is None
         # and model_fields_set contains the field
         if self.disabled is None and "disabled" in self.model_fields_set:
             _dict['disabled'] = None
+
+        # set to None if disabled_shop_filters (nullable) is None
+        # and model_fields_set contains the field
+        if self.disabled_shop_filters is None and "disabled_shop_filters" in self.model_fields_set:
+            _dict['disabled_shop_filters'] = None
 
         # set to None if hero (nullable) is None
         # and model_fields_set contains the field
@@ -180,6 +204,11 @@ class Upgrade(BaseModel):
         if self.properties is None and "properties" in self.model_fields_set:
             _dict['properties'] = None
 
+        # set to None if shop_filters (nullable) is None
+        # and model_fields_set contains the field
+        if self.shop_filters is None and "shop_filters" in self.model_fields_set:
+            _dict['shop_filters'] = None
+
         # set to None if shop_image (nullable) is None
         # and model_fields_set contains the field
         if self.shop_image is None and "shop_image" in self.model_fields_set:
@@ -199,6 +228,11 @@ class Upgrade(BaseModel):
         # and model_fields_set contains the field
         if self.shop_image_webp is None and "shop_image_webp" in self.model_fields_set:
             _dict['shop_image_webp'] = None
+
+        # set to None if shop_version (nullable) is None
+        # and model_fields_set contains the field
+        if self.shop_version is None and "shop_version" in self.model_fields_set:
+            _dict['shop_version'] = None
 
         # set to None if start_trained (nullable) is None
         # and model_fields_set contains the field
@@ -240,9 +274,12 @@ class Upgrade(BaseModel):
             "activation": obj.get("activation"),
             "class_name": obj.get("class_name"),
             "component_items": obj.get("component_items"),
+            "corrupted_info": CorruptedItemInfo.from_dict(obj["corrupted_info"]) if obj.get("corrupted_info") is not None else None,
             "cost": obj.get("cost"),
             "description": UpgradeDescription.from_dict(obj["description"]) if obj.get("description") is not None else None,
+            "disable_item_target": obj.get("disable_item_target"),
             "disabled": obj.get("disabled"),
+            "disabled_shop_filters": obj.get("disabled_shop_filters"),
             "hero": obj.get("hero"),
             "heroes": obj.get("heroes"),
             "id": obj.get("id"),
@@ -259,10 +296,12 @@ class Upgrade(BaseModel):
             )
             if obj.get("properties") is not None
             else None,
+            "shop_filters": obj.get("shop_filters"),
             "shop_image": obj.get("shop_image"),
             "shop_image_small": obj.get("shop_image_small"),
             "shop_image_small_webp": obj.get("shop_image_small_webp"),
             "shop_image_webp": obj.get("shop_image_webp"),
+            "shop_version": obj.get("shop_version"),
             "shopable": obj.get("shopable"),
             "start_trained": obj.get("start_trained"),
             "tooltip_sections": [UpgradeTooltipSection.from_dict(_item) for _item in obj["tooltip_sections"]] if obj.get("tooltip_sections") is not None else None,

@@ -106,6 +106,8 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](Apis/MatchesApi.http#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *MiscEntitiesApi* | [**getMiscEntity**](Apis/MiscEntitiesApi.http#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
 *MiscEntitiesApi* | [**listMiscEntities**](Apis/MiscEntitiesApi.http#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities
+*ModifiersApi* | [**getModifier**](Apis/ModifiersApi.http#getmodifier) | **GET** /v1/assets/modifiers/{id_or_classname} | Get Modifier
+*ModifiersApi* | [**listModifiers**](Apis/ModifiersApi.http#listmodifiers) | **GET** /v1/assets/modifiers | List Modifiers
 *NPCUnitsApi* | [**getNpcUnit**](Apis/NPCUnitsApi.http#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
 *NPCUnitsApi* | [**listNpcUnits**](Apis/NPCUnitsApi.http#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days

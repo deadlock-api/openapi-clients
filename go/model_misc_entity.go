@@ -26,9 +26,13 @@ type MiscEntity struct {
 	BuffTypeGraphColor NullableColor `json:"buff_type_graph_color,omitempty"`
 	// Permanent pickups: localization token of the stat the buff raises.
 	BuffTypeLocString NullableString `json:"buff_type_loc_string,omitempty"`
-	// Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+	// Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
+	BuffTypeName NullableString `json:"buff_type_name,omitempty"`
+	// Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
 	BuffTypeValueUnit NullableString `json:"buff_type_value_unit,omitempty"`
 	ClassName string `json:"class_name"`
+	// How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
+	CollectionMethod NullableString `json:"collection_method,omitempty"`
 	CollisionRadius NullableFloat64 `json:"collision_radius,omitempty"`
 	Color NullableColor `json:"color,omitempty"`
 	DamagedByAbilities NullableBool `json:"damaged_by_abilities,omitempty"`
@@ -41,21 +45,33 @@ type MiscEntity struct {
 	Health NullableInt64 `json:"health,omitempty"`
 	HeavyMeleeHitCount NullableInt64 `json:"heavy_melee_hit_count,omitempty"`
 	HeavyMeleeOnly NullableBool `json:"heavy_melee_only,omitempty"`
+	// Punchable pickups: hits needed to collect.
+	HitsRequired NullableInt64 `json:"hits_required,omitempty"`
 	Id int32 `json:"id"`
+	// Corrupted item shop (Broker) trigger: modifier applied while inside.
+	InShopModifier NullableSubclassModifierDefinition `json:"in_shop_modifier,omitempty"`
 	InitialSpawnDelayInSeconds NullableInt64 `json:"initial_spawn_delay_in_seconds,omitempty"`
 	// Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
 	InitialSpawnDelaySeconds NullableInt64 `json:"initial_spawn_delay_seconds,omitempty"`
 	InitialSpawnTime NullableFloat64 `json:"initial_spawn_time,omitempty"`
 	IsMantleable NullableBool `json:"is_mantleable,omitempty"`
+	IsPermanentPickup NullableBool `json:"is_permanent_pickup,omitempty"`
 	Lifetime NullableFloat64 `json:"lifetime,omitempty"`
 	LootListDeckSize NullableInt64 `json:"loot_list_deck_size,omitempty"`
 	MVecPickupsLv2 []Pickup `json:"m_vecPickups_lv2,omitempty"`
 	MVecPickupsLv3 []Pickup `json:"m_vecPickups_lv3,omitempty"`
 	MatchTimeMinsForLevel2Pickups NullableInt64 `json:"match_time_mins_for_level2_pickups,omitempty"`
 	MatchTimeMinsForLevel3Pickups NullableInt64 `json:"match_time_mins_for_level3_pickups,omitempty"`
+	MinimapClass NullableString `json:"minimap_class,omitempty"`
 	Modifier NullableSubclassModifierDefinition `json:"modifier,omitempty"`
+	// `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
+	Name NullableString `json:"name,omitempty"`
+	// Localization token of the pickup's world label.
+	NameLocString NullableString `json:"name_loc_string,omitempty"`
 	OrbSpawnDelayMax NullableFloat64 `json:"orb_spawn_delay_max,omitempty"`
 	OrbSpawnDelayMin NullableFloat64 `json:"orb_spawn_delay_min,omitempty"`
+	// Pickup spawners: class name of the spawned pickup.
+	Pickup NullableString `json:"pickup,omitempty"`
 	// Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
 	PickupChances map[string]float64 `json:"pickup_chances,omitempty"`
 	PickupRadius NullableCurveOrFloat `json:"pickup_radius,omitempty"`
@@ -64,14 +80,28 @@ type MiscEntity struct {
 	// Pre-6711 builds only; see `powerup_drop_chance`.
 	PrimaryDropChance NullableFloat64 `json:"primary_drop_chance,omitempty"`
 	PrimaryPickups []Pickup `json:"primary_pickups,omitempty"`
+	// Health pickups: seconds over which the healing is applied to heroes.
+	RegenDuration NullableFloat64 `json:"regen_duration,omitempty"`
+	// Health pickups: seconds over which the healing is applied to troopers.
+	RegenDurationTroopers NullableFloat64 `json:"regen_duration_troopers,omitempty"`
+	// Health pickups: healing as percent of max health.
+	RegenMaxHealthPercent NullableCurveOrFloat `json:"regen_max_health_percent,omitempty"`
+	// Health pickups: healing multiplier for troopers.
+	RegenTrooperMulti NullableFloat64 `json:"regen_trooper_multi,omitempty"`
 	RenderAfterDeath NullableBool `json:"render_after_death,omitempty"`
 	RespawnTime NullableFloat64 `json:"respawn_time,omitempty"`
 	// Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
 	RollType NullableString `json:"roll_type,omitempty"`
 	ShowOnMinimap NullableBool `json:"show_on_minimap,omitempty"`
+	// Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
+	SinglePickupOverride NullableString `json:"single_pickup_override,omitempty"`
 	SolidAfterDeath NullableBool `json:"solid_after_death,omitempty"`
+	// Pickup spawners: delay (seconds) before the first spawn.
+	SpawnDelay NullableFloat64 `json:"spawn_delay,omitempty"`
 	SpawnInterval NullableFloat64 `json:"spawn_interval,omitempty"`
 	SpawnIntervalInSeconds NullableInt64 `json:"spawn_interval_in_seconds,omitempty"`
+	// Corrupted item shop (Broker) trigger: music cue played on spawn.
+	SpawnMusicState NullableString `json:"spawn_music_state,omitempty"`
 }
 
 type _MiscEntity MiscEntity
@@ -221,6 +251,48 @@ func (o *MiscEntity) UnsetBuffTypeLocString() {
 	o.BuffTypeLocString.Unset()
 }
 
+// GetBuffTypeName returns the BuffTypeName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetBuffTypeName() string {
+	if o == nil || IsNil(o.BuffTypeName.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.BuffTypeName.Get()
+}
+
+// GetBuffTypeNameOk returns a tuple with the BuffTypeName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetBuffTypeNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BuffTypeName.Get(), o.BuffTypeName.IsSet()
+}
+
+// HasBuffTypeName returns a boolean if a field has been set.
+func (o *MiscEntity) HasBuffTypeName() bool {
+	if o != nil && o.BuffTypeName.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBuffTypeName gets a reference to the given NullableString and assigns it to the BuffTypeName field.
+func (o *MiscEntity) SetBuffTypeName(v string) {
+	o.BuffTypeName.Set(&v)
+}
+// SetBuffTypeNameNil sets the value for BuffTypeName to be an explicit nil
+func (o *MiscEntity) SetBuffTypeNameNil() {
+	o.BuffTypeName.Set(nil)
+}
+
+// UnsetBuffTypeName ensures that no value is present for BuffTypeName, not even an explicit nil
+func (o *MiscEntity) UnsetBuffTypeName() {
+	o.BuffTypeName.Unset()
+}
+
 // GetBuffTypeValueUnit returns the BuffTypeValueUnit field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MiscEntity) GetBuffTypeValueUnit() string {
 	if o == nil || IsNil(o.BuffTypeValueUnit.Get()) {
@@ -285,6 +357,48 @@ func (o *MiscEntity) GetClassNameOk() (*string, bool) {
 // SetClassName sets field value
 func (o *MiscEntity) SetClassName(v string) {
 	o.ClassName = v
+}
+
+// GetCollectionMethod returns the CollectionMethod field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetCollectionMethod() string {
+	if o == nil || IsNil(o.CollectionMethod.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.CollectionMethod.Get()
+}
+
+// GetCollectionMethodOk returns a tuple with the CollectionMethod field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetCollectionMethodOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CollectionMethod.Get(), o.CollectionMethod.IsSet()
+}
+
+// HasCollectionMethod returns a boolean if a field has been set.
+func (o *MiscEntity) HasCollectionMethod() bool {
+	if o != nil && o.CollectionMethod.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCollectionMethod gets a reference to the given NullableString and assigns it to the CollectionMethod field.
+func (o *MiscEntity) SetCollectionMethod(v string) {
+	o.CollectionMethod.Set(&v)
+}
+// SetCollectionMethodNil sets the value for CollectionMethod to be an explicit nil
+func (o *MiscEntity) SetCollectionMethodNil() {
+	o.CollectionMethod.Set(nil)
+}
+
+// UnsetCollectionMethod ensures that no value is present for CollectionMethod, not even an explicit nil
+func (o *MiscEntity) UnsetCollectionMethod() {
+	o.CollectionMethod.Unset()
 }
 
 // GetCollisionRadius returns the CollisionRadius field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -791,6 +905,48 @@ func (o *MiscEntity) UnsetHeavyMeleeOnly() {
 	o.HeavyMeleeOnly.Unset()
 }
 
+// GetHitsRequired returns the HitsRequired field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetHitsRequired() int64 {
+	if o == nil || IsNil(o.HitsRequired.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.HitsRequired.Get()
+}
+
+// GetHitsRequiredOk returns a tuple with the HitsRequired field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetHitsRequiredOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.HitsRequired.Get(), o.HitsRequired.IsSet()
+}
+
+// HasHitsRequired returns a boolean if a field has been set.
+func (o *MiscEntity) HasHitsRequired() bool {
+	if o != nil && o.HitsRequired.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetHitsRequired gets a reference to the given NullableInt64 and assigns it to the HitsRequired field.
+func (o *MiscEntity) SetHitsRequired(v int64) {
+	o.HitsRequired.Set(&v)
+}
+// SetHitsRequiredNil sets the value for HitsRequired to be an explicit nil
+func (o *MiscEntity) SetHitsRequiredNil() {
+	o.HitsRequired.Set(nil)
+}
+
+// UnsetHitsRequired ensures that no value is present for HitsRequired, not even an explicit nil
+func (o *MiscEntity) UnsetHitsRequired() {
+	o.HitsRequired.Unset()
+}
+
 // GetId returns the Id field value
 func (o *MiscEntity) GetId() int32 {
 	if o == nil {
@@ -813,6 +969,48 @@ func (o *MiscEntity) GetIdOk() (*int32, bool) {
 // SetId sets field value
 func (o *MiscEntity) SetId(v int32) {
 	o.Id = v
+}
+
+// GetInShopModifier returns the InShopModifier field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetInShopModifier() SubclassModifierDefinition {
+	if o == nil || IsNil(o.InShopModifier.Get()) {
+		var ret SubclassModifierDefinition
+		return ret
+	}
+	return *o.InShopModifier.Get()
+}
+
+// GetInShopModifierOk returns a tuple with the InShopModifier field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetInShopModifierOk() (*SubclassModifierDefinition, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.InShopModifier.Get(), o.InShopModifier.IsSet()
+}
+
+// HasInShopModifier returns a boolean if a field has been set.
+func (o *MiscEntity) HasInShopModifier() bool {
+	if o != nil && o.InShopModifier.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetInShopModifier gets a reference to the given NullableSubclassModifierDefinition and assigns it to the InShopModifier field.
+func (o *MiscEntity) SetInShopModifier(v SubclassModifierDefinition) {
+	o.InShopModifier.Set(&v)
+}
+// SetInShopModifierNil sets the value for InShopModifier to be an explicit nil
+func (o *MiscEntity) SetInShopModifierNil() {
+	o.InShopModifier.Set(nil)
+}
+
+// UnsetInShopModifier ensures that no value is present for InShopModifier, not even an explicit nil
+func (o *MiscEntity) UnsetInShopModifier() {
+	o.InShopModifier.Unset()
 }
 
 // GetInitialSpawnDelayInSeconds returns the InitialSpawnDelayInSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -981,6 +1179,48 @@ func (o *MiscEntity) SetIsMantleableNil() {
 // UnsetIsMantleable ensures that no value is present for IsMantleable, not even an explicit nil
 func (o *MiscEntity) UnsetIsMantleable() {
 	o.IsMantleable.Unset()
+}
+
+// GetIsPermanentPickup returns the IsPermanentPickup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetIsPermanentPickup() bool {
+	if o == nil || IsNil(o.IsPermanentPickup.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.IsPermanentPickup.Get()
+}
+
+// GetIsPermanentPickupOk returns a tuple with the IsPermanentPickup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetIsPermanentPickupOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.IsPermanentPickup.Get(), o.IsPermanentPickup.IsSet()
+}
+
+// HasIsPermanentPickup returns a boolean if a field has been set.
+func (o *MiscEntity) HasIsPermanentPickup() bool {
+	if o != nil && o.IsPermanentPickup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetIsPermanentPickup gets a reference to the given NullableBool and assigns it to the IsPermanentPickup field.
+func (o *MiscEntity) SetIsPermanentPickup(v bool) {
+	o.IsPermanentPickup.Set(&v)
+}
+// SetIsPermanentPickupNil sets the value for IsPermanentPickup to be an explicit nil
+func (o *MiscEntity) SetIsPermanentPickupNil() {
+	o.IsPermanentPickup.Set(nil)
+}
+
+// UnsetIsPermanentPickup ensures that no value is present for IsPermanentPickup, not even an explicit nil
+func (o *MiscEntity) UnsetIsPermanentPickup() {
+	o.IsPermanentPickup.Unset()
 }
 
 // GetLifetime returns the Lifetime field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1217,6 +1457,48 @@ func (o *MiscEntity) UnsetMatchTimeMinsForLevel3Pickups() {
 	o.MatchTimeMinsForLevel3Pickups.Unset()
 }
 
+// GetMinimapClass returns the MinimapClass field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetMinimapClass() string {
+	if o == nil || IsNil(o.MinimapClass.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.MinimapClass.Get()
+}
+
+// GetMinimapClassOk returns a tuple with the MinimapClass field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetMinimapClassOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MinimapClass.Get(), o.MinimapClass.IsSet()
+}
+
+// HasMinimapClass returns a boolean if a field has been set.
+func (o *MiscEntity) HasMinimapClass() bool {
+	if o != nil && o.MinimapClass.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetMinimapClass gets a reference to the given NullableString and assigns it to the MinimapClass field.
+func (o *MiscEntity) SetMinimapClass(v string) {
+	o.MinimapClass.Set(&v)
+}
+// SetMinimapClassNil sets the value for MinimapClass to be an explicit nil
+func (o *MiscEntity) SetMinimapClassNil() {
+	o.MinimapClass.Set(nil)
+}
+
+// UnsetMinimapClass ensures that no value is present for MinimapClass, not even an explicit nil
+func (o *MiscEntity) UnsetMinimapClass() {
+	o.MinimapClass.Unset()
+}
+
 // GetModifier returns the Modifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MiscEntity) GetModifier() SubclassModifierDefinition {
 	if o == nil || IsNil(o.Modifier.Get()) {
@@ -1257,6 +1539,90 @@ func (o *MiscEntity) SetModifierNil() {
 // UnsetModifier ensures that no value is present for Modifier, not even an explicit nil
 func (o *MiscEntity) UnsetModifier() {
 	o.Modifier.Unset()
+}
+
+// GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetName() string {
+	if o == nil || IsNil(o.Name.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Name.Get()
+}
+
+// GetNameOk returns a tuple with the Name field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Name.Get(), o.Name.IsSet()
+}
+
+// HasName returns a boolean if a field has been set.
+func (o *MiscEntity) HasName() bool {
+	if o != nil && o.Name.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetName gets a reference to the given NullableString and assigns it to the Name field.
+func (o *MiscEntity) SetName(v string) {
+	o.Name.Set(&v)
+}
+// SetNameNil sets the value for Name to be an explicit nil
+func (o *MiscEntity) SetNameNil() {
+	o.Name.Set(nil)
+}
+
+// UnsetName ensures that no value is present for Name, not even an explicit nil
+func (o *MiscEntity) UnsetName() {
+	o.Name.Unset()
+}
+
+// GetNameLocString returns the NameLocString field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetNameLocString() string {
+	if o == nil || IsNil(o.NameLocString.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.NameLocString.Get()
+}
+
+// GetNameLocStringOk returns a tuple with the NameLocString field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetNameLocStringOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.NameLocString.Get(), o.NameLocString.IsSet()
+}
+
+// HasNameLocString returns a boolean if a field has been set.
+func (o *MiscEntity) HasNameLocString() bool {
+	if o != nil && o.NameLocString.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetNameLocString gets a reference to the given NullableString and assigns it to the NameLocString field.
+func (o *MiscEntity) SetNameLocString(v string) {
+	o.NameLocString.Set(&v)
+}
+// SetNameLocStringNil sets the value for NameLocString to be an explicit nil
+func (o *MiscEntity) SetNameLocStringNil() {
+	o.NameLocString.Set(nil)
+}
+
+// UnsetNameLocString ensures that no value is present for NameLocString, not even an explicit nil
+func (o *MiscEntity) UnsetNameLocString() {
+	o.NameLocString.Unset()
 }
 
 // GetOrbSpawnDelayMax returns the OrbSpawnDelayMax field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1341,6 +1707,48 @@ func (o *MiscEntity) SetOrbSpawnDelayMinNil() {
 // UnsetOrbSpawnDelayMin ensures that no value is present for OrbSpawnDelayMin, not even an explicit nil
 func (o *MiscEntity) UnsetOrbSpawnDelayMin() {
 	o.OrbSpawnDelayMin.Unset()
+}
+
+// GetPickup returns the Pickup field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetPickup() string {
+	if o == nil || IsNil(o.Pickup.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.Pickup.Get()
+}
+
+// GetPickupOk returns a tuple with the Pickup field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetPickupOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Pickup.Get(), o.Pickup.IsSet()
+}
+
+// HasPickup returns a boolean if a field has been set.
+func (o *MiscEntity) HasPickup() bool {
+	if o != nil && o.Pickup.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPickup gets a reference to the given NullableString and assigns it to the Pickup field.
+func (o *MiscEntity) SetPickup(v string) {
+	o.Pickup.Set(&v)
+}
+// SetPickupNil sets the value for Pickup to be an explicit nil
+func (o *MiscEntity) SetPickupNil() {
+	o.Pickup.Set(nil)
+}
+
+// UnsetPickup ensures that no value is present for Pickup, not even an explicit nil
+func (o *MiscEntity) UnsetPickup() {
+	o.Pickup.Unset()
 }
 
 // GetPickupChances returns the PickupChances field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1535,6 +1943,174 @@ func (o *MiscEntity) SetPrimaryPickups(v []Pickup) {
 	o.PrimaryPickups = v
 }
 
+// GetRegenDuration returns the RegenDuration field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetRegenDuration() float64 {
+	if o == nil || IsNil(o.RegenDuration.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.RegenDuration.Get()
+}
+
+// GetRegenDurationOk returns a tuple with the RegenDuration field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetRegenDurationOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RegenDuration.Get(), o.RegenDuration.IsSet()
+}
+
+// HasRegenDuration returns a boolean if a field has been set.
+func (o *MiscEntity) HasRegenDuration() bool {
+	if o != nil && o.RegenDuration.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRegenDuration gets a reference to the given NullableFloat64 and assigns it to the RegenDuration field.
+func (o *MiscEntity) SetRegenDuration(v float64) {
+	o.RegenDuration.Set(&v)
+}
+// SetRegenDurationNil sets the value for RegenDuration to be an explicit nil
+func (o *MiscEntity) SetRegenDurationNil() {
+	o.RegenDuration.Set(nil)
+}
+
+// UnsetRegenDuration ensures that no value is present for RegenDuration, not even an explicit nil
+func (o *MiscEntity) UnsetRegenDuration() {
+	o.RegenDuration.Unset()
+}
+
+// GetRegenDurationTroopers returns the RegenDurationTroopers field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetRegenDurationTroopers() float64 {
+	if o == nil || IsNil(o.RegenDurationTroopers.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.RegenDurationTroopers.Get()
+}
+
+// GetRegenDurationTroopersOk returns a tuple with the RegenDurationTroopers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetRegenDurationTroopersOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RegenDurationTroopers.Get(), o.RegenDurationTroopers.IsSet()
+}
+
+// HasRegenDurationTroopers returns a boolean if a field has been set.
+func (o *MiscEntity) HasRegenDurationTroopers() bool {
+	if o != nil && o.RegenDurationTroopers.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRegenDurationTroopers gets a reference to the given NullableFloat64 and assigns it to the RegenDurationTroopers field.
+func (o *MiscEntity) SetRegenDurationTroopers(v float64) {
+	o.RegenDurationTroopers.Set(&v)
+}
+// SetRegenDurationTroopersNil sets the value for RegenDurationTroopers to be an explicit nil
+func (o *MiscEntity) SetRegenDurationTroopersNil() {
+	o.RegenDurationTroopers.Set(nil)
+}
+
+// UnsetRegenDurationTroopers ensures that no value is present for RegenDurationTroopers, not even an explicit nil
+func (o *MiscEntity) UnsetRegenDurationTroopers() {
+	o.RegenDurationTroopers.Unset()
+}
+
+// GetRegenMaxHealthPercent returns the RegenMaxHealthPercent field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetRegenMaxHealthPercent() CurveOrFloat {
+	if o == nil || IsNil(o.RegenMaxHealthPercent.Get()) {
+		var ret CurveOrFloat
+		return ret
+	}
+	return *o.RegenMaxHealthPercent.Get()
+}
+
+// GetRegenMaxHealthPercentOk returns a tuple with the RegenMaxHealthPercent field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetRegenMaxHealthPercentOk() (*CurveOrFloat, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RegenMaxHealthPercent.Get(), o.RegenMaxHealthPercent.IsSet()
+}
+
+// HasRegenMaxHealthPercent returns a boolean if a field has been set.
+func (o *MiscEntity) HasRegenMaxHealthPercent() bool {
+	if o != nil && o.RegenMaxHealthPercent.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRegenMaxHealthPercent gets a reference to the given NullableCurveOrFloat and assigns it to the RegenMaxHealthPercent field.
+func (o *MiscEntity) SetRegenMaxHealthPercent(v CurveOrFloat) {
+	o.RegenMaxHealthPercent.Set(&v)
+}
+// SetRegenMaxHealthPercentNil sets the value for RegenMaxHealthPercent to be an explicit nil
+func (o *MiscEntity) SetRegenMaxHealthPercentNil() {
+	o.RegenMaxHealthPercent.Set(nil)
+}
+
+// UnsetRegenMaxHealthPercent ensures that no value is present for RegenMaxHealthPercent, not even an explicit nil
+func (o *MiscEntity) UnsetRegenMaxHealthPercent() {
+	o.RegenMaxHealthPercent.Unset()
+}
+
+// GetRegenTrooperMulti returns the RegenTrooperMulti field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetRegenTrooperMulti() float64 {
+	if o == nil || IsNil(o.RegenTrooperMulti.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.RegenTrooperMulti.Get()
+}
+
+// GetRegenTrooperMultiOk returns a tuple with the RegenTrooperMulti field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetRegenTrooperMultiOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RegenTrooperMulti.Get(), o.RegenTrooperMulti.IsSet()
+}
+
+// HasRegenTrooperMulti returns a boolean if a field has been set.
+func (o *MiscEntity) HasRegenTrooperMulti() bool {
+	if o != nil && o.RegenTrooperMulti.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRegenTrooperMulti gets a reference to the given NullableFloat64 and assigns it to the RegenTrooperMulti field.
+func (o *MiscEntity) SetRegenTrooperMulti(v float64) {
+	o.RegenTrooperMulti.Set(&v)
+}
+// SetRegenTrooperMultiNil sets the value for RegenTrooperMulti to be an explicit nil
+func (o *MiscEntity) SetRegenTrooperMultiNil() {
+	o.RegenTrooperMulti.Set(nil)
+}
+
+// UnsetRegenTrooperMulti ensures that no value is present for RegenTrooperMulti, not even an explicit nil
+func (o *MiscEntity) UnsetRegenTrooperMulti() {
+	o.RegenTrooperMulti.Unset()
+}
+
 // GetRenderAfterDeath returns the RenderAfterDeath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MiscEntity) GetRenderAfterDeath() bool {
 	if o == nil || IsNil(o.RenderAfterDeath.Get()) {
@@ -1703,6 +2279,48 @@ func (o *MiscEntity) UnsetShowOnMinimap() {
 	o.ShowOnMinimap.Unset()
 }
 
+// GetSinglePickupOverride returns the SinglePickupOverride field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetSinglePickupOverride() string {
+	if o == nil || IsNil(o.SinglePickupOverride.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SinglePickupOverride.Get()
+}
+
+// GetSinglePickupOverrideOk returns a tuple with the SinglePickupOverride field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetSinglePickupOverrideOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SinglePickupOverride.Get(), o.SinglePickupOverride.IsSet()
+}
+
+// HasSinglePickupOverride returns a boolean if a field has been set.
+func (o *MiscEntity) HasSinglePickupOverride() bool {
+	if o != nil && o.SinglePickupOverride.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSinglePickupOverride gets a reference to the given NullableString and assigns it to the SinglePickupOverride field.
+func (o *MiscEntity) SetSinglePickupOverride(v string) {
+	o.SinglePickupOverride.Set(&v)
+}
+// SetSinglePickupOverrideNil sets the value for SinglePickupOverride to be an explicit nil
+func (o *MiscEntity) SetSinglePickupOverrideNil() {
+	o.SinglePickupOverride.Set(nil)
+}
+
+// UnsetSinglePickupOverride ensures that no value is present for SinglePickupOverride, not even an explicit nil
+func (o *MiscEntity) UnsetSinglePickupOverride() {
+	o.SinglePickupOverride.Unset()
+}
+
 // GetSolidAfterDeath returns the SolidAfterDeath field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *MiscEntity) GetSolidAfterDeath() bool {
 	if o == nil || IsNil(o.SolidAfterDeath.Get()) {
@@ -1743,6 +2361,48 @@ func (o *MiscEntity) SetSolidAfterDeathNil() {
 // UnsetSolidAfterDeath ensures that no value is present for SolidAfterDeath, not even an explicit nil
 func (o *MiscEntity) UnsetSolidAfterDeath() {
 	o.SolidAfterDeath.Unset()
+}
+
+// GetSpawnDelay returns the SpawnDelay field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetSpawnDelay() float64 {
+	if o == nil || IsNil(o.SpawnDelay.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.SpawnDelay.Get()
+}
+
+// GetSpawnDelayOk returns a tuple with the SpawnDelay field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetSpawnDelayOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpawnDelay.Get(), o.SpawnDelay.IsSet()
+}
+
+// HasSpawnDelay returns a boolean if a field has been set.
+func (o *MiscEntity) HasSpawnDelay() bool {
+	if o != nil && o.SpawnDelay.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpawnDelay gets a reference to the given NullableFloat64 and assigns it to the SpawnDelay field.
+func (o *MiscEntity) SetSpawnDelay(v float64) {
+	o.SpawnDelay.Set(&v)
+}
+// SetSpawnDelayNil sets the value for SpawnDelay to be an explicit nil
+func (o *MiscEntity) SetSpawnDelayNil() {
+	o.SpawnDelay.Set(nil)
+}
+
+// UnsetSpawnDelay ensures that no value is present for SpawnDelay, not even an explicit nil
+func (o *MiscEntity) UnsetSpawnDelay() {
+	o.SpawnDelay.Unset()
 }
 
 // GetSpawnInterval returns the SpawnInterval field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1829,6 +2489,48 @@ func (o *MiscEntity) UnsetSpawnIntervalInSeconds() {
 	o.SpawnIntervalInSeconds.Unset()
 }
 
+// GetSpawnMusicState returns the SpawnMusicState field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MiscEntity) GetSpawnMusicState() string {
+	if o == nil || IsNil(o.SpawnMusicState.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.SpawnMusicState.Get()
+}
+
+// GetSpawnMusicStateOk returns a tuple with the SpawnMusicState field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MiscEntity) GetSpawnMusicStateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.SpawnMusicState.Get(), o.SpawnMusicState.IsSet()
+}
+
+// HasSpawnMusicState returns a boolean if a field has been set.
+func (o *MiscEntity) HasSpawnMusicState() bool {
+	if o != nil && o.SpawnMusicState.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetSpawnMusicState gets a reference to the given NullableString and assigns it to the SpawnMusicState field.
+func (o *MiscEntity) SetSpawnMusicState(v string) {
+	o.SpawnMusicState.Set(&v)
+}
+// SetSpawnMusicStateNil sets the value for SpawnMusicState to be an explicit nil
+func (o *MiscEntity) SetSpawnMusicStateNil() {
+	o.SpawnMusicState.Set(nil)
+}
+
+// UnsetSpawnMusicState ensures that no value is present for SpawnMusicState, not even an explicit nil
+func (o *MiscEntity) UnsetSpawnMusicState() {
+	o.SpawnMusicState.Unset()
+}
+
 func (o MiscEntity) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1848,10 +2550,16 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	if o.BuffTypeLocString.IsSet() {
 		toSerialize["buff_type_loc_string"] = o.BuffTypeLocString.Get()
 	}
+	if o.BuffTypeName.IsSet() {
+		toSerialize["buff_type_name"] = o.BuffTypeName.Get()
+	}
 	if o.BuffTypeValueUnit.IsSet() {
 		toSerialize["buff_type_value_unit"] = o.BuffTypeValueUnit.Get()
 	}
 	toSerialize["class_name"] = o.ClassName
+	if o.CollectionMethod.IsSet() {
+		toSerialize["collection_method"] = o.CollectionMethod.Get()
+	}
 	if o.CollisionRadius.IsSet() {
 		toSerialize["collision_radius"] = o.CollisionRadius.Get()
 	}
@@ -1888,7 +2596,13 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	if o.HeavyMeleeOnly.IsSet() {
 		toSerialize["heavy_melee_only"] = o.HeavyMeleeOnly.Get()
 	}
+	if o.HitsRequired.IsSet() {
+		toSerialize["hits_required"] = o.HitsRequired.Get()
+	}
 	toSerialize["id"] = o.Id
+	if o.InShopModifier.IsSet() {
+		toSerialize["in_shop_modifier"] = o.InShopModifier.Get()
+	}
 	if o.InitialSpawnDelayInSeconds.IsSet() {
 		toSerialize["initial_spawn_delay_in_seconds"] = o.InitialSpawnDelayInSeconds.Get()
 	}
@@ -1900,6 +2614,9 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	}
 	if o.IsMantleable.IsSet() {
 		toSerialize["is_mantleable"] = o.IsMantleable.Get()
+	}
+	if o.IsPermanentPickup.IsSet() {
+		toSerialize["is_permanent_pickup"] = o.IsPermanentPickup.Get()
 	}
 	if o.Lifetime.IsSet() {
 		toSerialize["lifetime"] = o.Lifetime.Get()
@@ -1919,14 +2636,26 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	if o.MatchTimeMinsForLevel3Pickups.IsSet() {
 		toSerialize["match_time_mins_for_level3_pickups"] = o.MatchTimeMinsForLevel3Pickups.Get()
 	}
+	if o.MinimapClass.IsSet() {
+		toSerialize["minimap_class"] = o.MinimapClass.Get()
+	}
 	if o.Modifier.IsSet() {
 		toSerialize["modifier"] = o.Modifier.Get()
+	}
+	if o.Name.IsSet() {
+		toSerialize["name"] = o.Name.Get()
+	}
+	if o.NameLocString.IsSet() {
+		toSerialize["name_loc_string"] = o.NameLocString.Get()
 	}
 	if o.OrbSpawnDelayMax.IsSet() {
 		toSerialize["orb_spawn_delay_max"] = o.OrbSpawnDelayMax.Get()
 	}
 	if o.OrbSpawnDelayMin.IsSet() {
 		toSerialize["orb_spawn_delay_min"] = o.OrbSpawnDelayMin.Get()
+	}
+	if o.Pickup.IsSet() {
+		toSerialize["pickup"] = o.Pickup.Get()
 	}
 	if o.PickupChances != nil {
 		toSerialize["pickup_chances"] = o.PickupChances
@@ -1943,6 +2672,18 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	if o.PrimaryPickups != nil {
 		toSerialize["primary_pickups"] = o.PrimaryPickups
 	}
+	if o.RegenDuration.IsSet() {
+		toSerialize["regen_duration"] = o.RegenDuration.Get()
+	}
+	if o.RegenDurationTroopers.IsSet() {
+		toSerialize["regen_duration_troopers"] = o.RegenDurationTroopers.Get()
+	}
+	if o.RegenMaxHealthPercent.IsSet() {
+		toSerialize["regen_max_health_percent"] = o.RegenMaxHealthPercent.Get()
+	}
+	if o.RegenTrooperMulti.IsSet() {
+		toSerialize["regen_trooper_multi"] = o.RegenTrooperMulti.Get()
+	}
 	if o.RenderAfterDeath.IsSet() {
 		toSerialize["render_after_death"] = o.RenderAfterDeath.Get()
 	}
@@ -1955,14 +2696,23 @@ func (o MiscEntity) ToMap() (map[string]interface{}, error) {
 	if o.ShowOnMinimap.IsSet() {
 		toSerialize["show_on_minimap"] = o.ShowOnMinimap.Get()
 	}
+	if o.SinglePickupOverride.IsSet() {
+		toSerialize["single_pickup_override"] = o.SinglePickupOverride.Get()
+	}
 	if o.SolidAfterDeath.IsSet() {
 		toSerialize["solid_after_death"] = o.SolidAfterDeath.Get()
+	}
+	if o.SpawnDelay.IsSet() {
+		toSerialize["spawn_delay"] = o.SpawnDelay.Get()
 	}
 	if o.SpawnInterval.IsSet() {
 		toSerialize["spawn_interval"] = o.SpawnInterval.Get()
 	}
 	if o.SpawnIntervalInSeconds.IsSet() {
 		toSerialize["spawn_interval_in_seconds"] = o.SpawnIntervalInSeconds.Get()
+	}
+	if o.SpawnMusicState.IsSet() {
+		toSerialize["spawn_music_state"] = o.SpawnMusicState.Get()
 	}
 	return toSerialize, nil
 }

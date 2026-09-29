@@ -46,10 +46,11 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="idOrClassname">NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;</param>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNpcUnitApiResponse"/>&gt;</returns>
-        Task<IGetNpcUnitApiResponse> GetNpcUnitAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNpcUnitApiResponse> GetNpcUnitAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get NPC Unit
@@ -58,33 +59,36 @@ namespace DeadlockApiClient.Api
         /// Returns a single NPC unit by numeric id or by &#x60;class_name&#x60; (case-insensitive).
         /// </remarks>
         /// <param name="idOrClassname">NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;</param>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNpcUnitApiResponse"/>?&gt;</returns>
-        Task<IGetNpcUnitApiResponse?> GetNpcUnitOrDefaultAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IGetNpcUnitApiResponse?> GetNpcUnitOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List NPC Units
         /// </summary>
         /// <remarks>
-        /// Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+        /// Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListNpcUnitsApiResponse"/>&gt;</returns>
-        Task<IListNpcUnitsApiResponse> ListNpcUnitsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListNpcUnitsApiResponse> ListNpcUnitsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List NPC Units
         /// </summary>
         /// <remarks>
-        /// Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+        /// Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
         /// </remarks>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListNpcUnitsApiResponse"/>?&gt;</returns>
-        Task<IListNpcUnitsApiResponse?> ListNpcUnitsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IListNpcUnitsApiResponse?> ListNpcUnitsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -222,7 +226,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatGetNpcUnit(ref string idOrClassname, ref Option<int?> clientVersion);
+        partial void FormatGetNpcUnit(ref string idOrClassname, ref Option<string?> language, ref Option<int?> clientVersion);
 
         /// <summary>
         /// Validates the request parameters
@@ -240,11 +244,12 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="idOrClassname"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterGetNpcUnitDefaultImplementation(IGetNpcUnitApiResponse apiResponseLocalVar, string idOrClassname, Option<int?> clientVersion)
+        private void AfterGetNpcUnitDefaultImplementation(IGetNpcUnitApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLog = false;
-            AfterGetNpcUnit(ref suppressDefaultLog, apiResponseLocalVar, idOrClassname, clientVersion);
+            AfterGetNpcUnit(ref suppressDefaultLog, apiResponseLocalVar, idOrClassname, language, clientVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -255,8 +260,9 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="idOrClassname"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterGetNpcUnit(ref bool suppressDefaultLog, IGetNpcUnitApiResponse apiResponseLocalVar, string idOrClassname, Option<int?> clientVersion);
+        partial void AfterGetNpcUnit(ref bool suppressDefaultLog, IGetNpcUnitApiResponse apiResponseLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -265,11 +271,12 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="idOrClassname"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorGetNpcUnitDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<int?> clientVersion)
+        private void OnErrorGetNpcUnitDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorGetNpcUnit(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, idOrClassname, clientVersion);
+            OnErrorGetNpcUnit(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, idOrClassname, language, clientVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -282,21 +289,23 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="idOrClassname"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorGetNpcUnit(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<int?> clientVersion);
+        partial void OnErrorGetNpcUnit(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string idOrClassname, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
         /// Get NPC Unit Returns a single NPC unit by numeric id or by &#x60;class_name&#x60; (case-insensitive).
         /// </summary>
         /// <param name="idOrClassname">NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;</param>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNpcUnitApiResponse"/>&gt;</returns>
-        public async Task<IGetNpcUnitApiResponse?> GetNpcUnitOrDefaultAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNpcUnitApiResponse?> GetNpcUnitOrDefaultAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await GetNpcUnitAsync(idOrClassname, clientVersion, cancellationToken).ConfigureAwait(false);
+                return await GetNpcUnitAsync(idOrClassname, language, clientVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -309,10 +318,11 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="idOrClassname">NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;</param>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IGetNpcUnitApiResponse"/>&gt;</returns>
-        public async Task<IGetNpcUnitApiResponse> GetNpcUnitAsync(string idOrClassname, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IGetNpcUnitApiResponse> GetNpcUnitAsync(string idOrClassname, Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -320,7 +330,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateGetNpcUnit(idOrClassname);
 
-                FormatGetNpcUnit(ref idOrClassname, ref clientVersion);
+                FormatGetNpcUnit(ref idOrClassname, ref language, ref clientVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -333,6 +343,9 @@ namespace DeadlockApiClient.Api
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bid_or_classname%7D", Uri.EscapeDataString(idOrClassname.ToString()));
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (language.IsSet)
+                        parseQueryStringLocalVar["language"] = ClientUtils.ParameterToString(language.Value);
 
                     if (clientVersion.IsSet)
                         parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
@@ -367,7 +380,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterGetNpcUnitDefaultImplementation(apiResponseLocalVar, idOrClassname, clientVersion);
+                        AfterGetNpcUnitDefaultImplementation(apiResponseLocalVar, idOrClassname, language, clientVersion);
 
                         Events.ExecuteOnGetNpcUnit(apiResponseLocalVar);
 
@@ -377,7 +390,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorGetNpcUnitDefaultImplementation(e, "/v1/assets/npc-units/{id_or_classname}", uriBuilderLocalVar.Path, idOrClassname, clientVersion);
+                OnErrorGetNpcUnitDefaultImplementation(e, "/v1/assets/npc-units/{id_or_classname}", uriBuilderLocalVar.Path, idOrClassname, language, clientVersion);
                 Events.ExecuteOnErrorGetNpcUnit(e);
                 throw;
             }
@@ -500,17 +513,18 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatListNpcUnits(ref Option<int?> clientVersion);
+        partial void FormatListNpcUnits(ref Option<string?> language, ref Option<int?> clientVersion);
 
         /// <summary>
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void AfterListNpcUnitsDefaultImplementation(IListNpcUnitsApiResponse apiResponseLocalVar, Option<int?> clientVersion)
+        private void AfterListNpcUnitsDefaultImplementation(IListNpcUnitsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLog = false;
-            AfterListNpcUnits(ref suppressDefaultLog, apiResponseLocalVar, clientVersion);
+            AfterListNpcUnits(ref suppressDefaultLog, apiResponseLocalVar, language, clientVersion);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -520,8 +534,9 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void AfterListNpcUnits(ref bool suppressDefaultLog, IListNpcUnitsApiResponse apiResponseLocalVar, Option<int?> clientVersion);
+        partial void AfterListNpcUnits(ref bool suppressDefaultLog, IListNpcUnitsApiResponse apiResponseLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -529,11 +544,12 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        private void OnErrorListNpcUnitsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion)
+        private void OnErrorListNpcUnitsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorListNpcUnits(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, clientVersion);
+            OnErrorListNpcUnits(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, language, clientVersion);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -545,20 +561,22 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
+        /// <param name="language"></param>
         /// <param name="clientVersion"></param>
-        partial void OnErrorListNpcUnits(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
+        partial void OnErrorListNpcUnits(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
-        /// List NPC Units Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+        /// List NPC Units Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
         /// </summary>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListNpcUnitsApiResponse"/>&gt;</returns>
-        public async Task<IListNpcUnitsApiResponse?> ListNpcUnitsOrDefaultAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListNpcUnitsApiResponse?> ListNpcUnitsOrDefaultAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await ListNpcUnitsAsync(clientVersion, cancellationToken).ConfigureAwait(false);
+                return await ListNpcUnitsAsync(language, clientVersion, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -567,19 +585,20 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// List NPC Units Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files.
+        /// List NPC Units Returns the per-NPC-unit metadata used by the game client, parsed from the patch&#39;s KV3 source files. Unit names (&#x60;name&#x60;) are localized into the requested &#x60;language&#x60;; neutral (\&quot;Haunt\&quot;) abilities referenced by &#x60;neutral_abilities&#x60; / &#x60;neutral_melee&#x60; are listed under &#x60;/v1/assets/modifiers&#x60;.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IListNpcUnitsApiResponse"/>&gt;</returns>
-        public async Task<IListNpcUnitsApiResponse> ListNpcUnitsAsync(Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IListNpcUnitsApiResponse> ListNpcUnitsAsync(Option<string?> language = default, Option<int?> clientVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatListNpcUnits(ref clientVersion);
+                FormatListNpcUnits(ref language, ref clientVersion);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -591,6 +610,9 @@ namespace DeadlockApiClient.Api
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/assets/npc-units");
 
                     System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (language.IsSet)
+                        parseQueryStringLocalVar["language"] = ClientUtils.ParameterToString(language.Value);
 
                     if (clientVersion.IsSet)
                         parseQueryStringLocalVar["client_version"] = ClientUtils.ParameterToString(clientVersion.Value);
@@ -625,7 +647,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterListNpcUnitsDefaultImplementation(apiResponseLocalVar, clientVersion);
+                        AfterListNpcUnitsDefaultImplementation(apiResponseLocalVar, language, clientVersion);
 
                         Events.ExecuteOnListNpcUnits(apiResponseLocalVar);
 
@@ -635,7 +657,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorListNpcUnitsDefaultImplementation(e, "/v1/assets/npc-units", uriBuilderLocalVar.Path, clientVersion);
+                OnErrorListNpcUnitsDefaultImplementation(e, "/v1/assets/npc-units", uriBuilderLocalVar.Path, language, clientVersion);
                 Events.ExecuteOnErrorListNpcUnits(e);
                 throw;
             }

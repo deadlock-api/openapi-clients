@@ -30,6 +30,11 @@ export interface HeroImages {
     'name_image'?: string | null;
     'top_bar_vertical_image'?: string | null;
     'top_bar_vertical_image_webp'?: string | null;
+    /**
+     * Hero release vote sticker (`m_strVoteSticker`, build 6711+).
+     */
+    'vote_sticker'?: string | null;
+    'vote_sticker_webp'?: string | null;
     'weapon_image'?: string | null;
     'weapon_image_webp'?: string | null;
 }

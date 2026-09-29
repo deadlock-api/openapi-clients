@@ -80,6 +80,9 @@ class TestStartingStats(unittest.TestCase):
                 move_acceleration = deadlock_api_client.models.starting_stat.StartingStat(
                     display_stat_name = '', 
                     value = 1.337, ),
+                ooc_health_regen = deadlock_api_client.models.starting_stat.StartingStat(
+                    display_stat_name = '', 
+                    value = 1.337, ),
                 proc_build_up_rate_scale = deadlock_api_client.models.starting_stat.StartingStat(
                     display_stat_name = '', 
                     value = 1.337, ),

@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **BulletArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **GroundDashDistanceInMeters** | [**StartingStat**](StartingStat.md) |  | [optional] 
 **GroundDashDuration** | [**StartingStat**](StartingStat.md) |  | [optional] 
+**OocHealthRegen** | [**StartingStat**](StartingStat.md) | Out-of-combat health regen (build 6711+). | [optional] 
 **TechArmorDamageReduction** | [**StartingStat**](StartingStat.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

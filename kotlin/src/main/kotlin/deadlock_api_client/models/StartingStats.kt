@@ -56,6 +56,7 @@ import java.io.Serializable
  * @param bulletArmorDamageReduction 
  * @param groundDashDistanceInMeters 
  * @param groundDashDuration 
+ * @param oocHealthRegen Out-of-combat health regen (build 6711+).
  * @param techArmorDamageReduction 
  */
 
@@ -133,6 +134,10 @@ data class StartingStats (
 
     @Json(name = "ground_dash_duration")
     val groundDashDuration: StartingStat? = null,
+
+    /* Out-of-combat health regen (build 6711+). */
+    @Json(name = "ooc_health_regen")
+    val oocHealthRegen: StartingStat? = null,
 
     @Json(name = "tech_armor_damage_reduction")
     val techArmorDamageReduction: StartingStat? = null

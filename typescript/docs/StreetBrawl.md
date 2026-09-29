@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **buy_time_grace_period** | **number** |  | [default to undefined]
 **comeback_bonus_health** | **number** |  | [default to undefined]
 **comeback_bonus_health_critical** | **number** |  | [default to undefined]
+**corrupt_item_round** | **number** | Round in which players may corrupt an item (build 6711+). | [optional] [default to undefined]
 **gold_per_round** | **Array&lt;number&gt;** |  | [default to undefined]
 **item_draft_rerolls_per_round** | **Array&lt;number&gt;** |  | [default to undefined]
 **item_draft_rounds_per_game_round** | [**Array&lt;ItemDraftRoundPerGameRound&gt;**](ItemDraftRoundPerGameRound.md) |  | [default to undefined]
@@ -45,6 +46,7 @@ const instance: StreetBrawl = {
     buy_time_grace_period,
     comeback_bonus_health,
     comeback_bonus_health_critical,
+    corrupt_item_round,
     gold_per_round,
     item_draft_rerolls_per_round,
     item_draft_rounds_per_game_round,

@@ -32,6 +32,7 @@
 | **trooperSpawnTimer** | **kotlin.collections.List&lt;kotlin.Double&gt;** |  |  |
 | **ultimateUnlockRound** | **kotlin.Long** |  |  |
 | **zipBoostCooldownOnStart** | **kotlin.Double** |  |  |
+| **corruptItemRound** | **kotlin.Long** | Round in which players may corrupt an item (build 6711+). |  [optional] |
 
 
 

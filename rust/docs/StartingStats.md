@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **max_health** | [**models::StartingStat**](StartingStat.md) |  | 
 **max_move_speed** | [**models::StartingStat**](StartingStat.md) |  | 
 **move_acceleration** | [**models::StartingStat**](StartingStat.md) |  | 
+**ooc_health_regen** | Option<[**models::StartingStat**](StartingStat.md)> | Out-of-combat health regen (build 6711+). | [optional]
 **proc_build_up_rate_scale** | [**models::StartingStat**](StartingStat.md) |  | 
 **reload_speed** | [**models::StartingStat**](StartingStat.md) |  | 
 **sprint_speed** | [**models::StartingStat**](StartingStat.md) |  | 

@@ -27,7 +27,14 @@ type ApiGetMiscEntityRequest struct {
 	ctx context.Context
 	ApiService *MiscEntitiesAPIService
 	idOrClassname string
+	language *string
 	clientVersion *int32
+}
+
+// Language code. Defaults to &#x60;english&#x60;.
+func (r ApiGetMiscEntityRequest) Language(language string) ApiGetMiscEntityRequest {
+	r.language = &language
+	return r
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -79,6 +86,9 @@ func (a *MiscEntitiesAPIService) GetMiscEntityExecute(r ApiGetMiscEntityRequest)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.language != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
 	if r.clientVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
 	}
@@ -139,7 +149,14 @@ func (a *MiscEntitiesAPIService) GetMiscEntityExecute(r ApiGetMiscEntityRequest)
 type ApiListMiscEntitiesRequest struct {
 	ctx context.Context
 	ApiService *MiscEntitiesAPIService
+	language *string
 	clientVersion *int32
+}
+
+// Language code. Defaults to &#x60;english&#x60;.
+func (r ApiListMiscEntitiesRequest) Language(language string) ApiListMiscEntitiesRequest {
+	r.language = &language
+	return r
 }
 
 // Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
@@ -155,7 +172,7 @@ func (r ApiListMiscEntitiesRequest) Execute() ([]MiscEntity, *http.Response, err
 /*
 ListMiscEntities List Misc Entities
 
-Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListMiscEntitiesRequest
@@ -188,6 +205,9 @@ func (a *MiscEntitiesAPIService) ListMiscEntitiesExecute(r ApiListMiscEntitiesRe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.language != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "language", r.language, "form", "")
+	}
 	if r.clientVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "client_version", r.clientVersion, "form", "")
 	}

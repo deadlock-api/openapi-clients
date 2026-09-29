@@ -42,8 +42,9 @@ namespace DeadlockApiClient.Model
         /// <param name="name">name</param>
         /// <param name="rankedType">rankedType</param>
         /// <param name="validPartySizes">validPartySizes</param>
+        /// <param name="baseWinLossPointGrant">Base rank points granted per win / taken per loss (build 6701+).</param>
         [JsonConstructor]
-        public RankedSeason(int calibrationMatches, string className, List<SeasonInterval> intervals, int minHeroUnlocks, int minHeroWins, int minWins, string name, string rankedType, List<int> validPartySizes)
+        public RankedSeason(int calibrationMatches, string className, List<SeasonInterval> intervals, int minHeroUnlocks, int minHeroWins, int minWins, string name, string rankedType, List<int> validPartySizes, Option<int?> baseWinLossPointGrant = default)
         {
             CalibrationMatches = calibrationMatches;
             ClassName = className;
@@ -54,6 +55,7 @@ namespace DeadlockApiClient.Model
             Name = name;
             RankedType = rankedType;
             ValidPartySizes = validPartySizes;
+            BaseWinLossPointGrantOption = baseWinLossPointGrant;
             OnCreated();
         }
 
@@ -114,6 +116,20 @@ namespace DeadlockApiClient.Model
         public List<int> ValidPartySizes { get; set; }
 
         /// <summary>
+        /// Used to track the state of BaseWinLossPointGrant
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> BaseWinLossPointGrantOption { get; private set; }
+
+        /// <summary>
+        /// Base rank points granted per win / taken per loss (build 6701+).
+        /// </summary>
+        /// <value>Base rank points granted per win / taken per loss (build 6701+).</value>
+        [JsonPropertyName("base_win_loss_point_grant")]
+        public int? BaseWinLossPointGrant { get { return this.BaseWinLossPointGrantOption.Value; } set { this.BaseWinLossPointGrantOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +146,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  RankedType: ").Append(RankedType).Append("\n");
             sb.Append("  ValidPartySizes: ").Append(ValidPartySizes).Append("\n");
+            sb.Append("  BaseWinLossPointGrant: ").Append(BaseWinLossPointGrant).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +180,12 @@ namespace DeadlockApiClient.Model
             if (this.MinWins < (int)0)
             {
                 yield return new ValidationResult("Invalid value for MinWins, must be a value greater than or equal to 0.", new [] { "MinWins" });
+            }
+
+            // BaseWinLossPointGrant (int) minimum
+            if (this.BaseWinLossPointGrantOption.IsSet && this.BaseWinLossPointGrantOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for BaseWinLossPointGrant, must be a value greater than or equal to 0.", new [] { "BaseWinLossPointGrant" });
             }
 
             yield break;
@@ -210,6 +233,7 @@ namespace DeadlockApiClient.Model
             Option<string?> name = default;
             Option<string?> rankedType = default;
             Option<List<int>?> validPartySizes = default;
+            Option<int?> baseWinLossPointGrant = default;
 
             while (utf8JsonReader.Read())
             {
@@ -252,6 +276,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "valid_party_sizes":
                             validPartySizes = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "base_win_loss_point_grant":
+                            baseWinLossPointGrant = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;
@@ -313,7 +340,7 @@ namespace DeadlockApiClient.Model
             if (validPartySizes.IsSet && validPartySizes.Value == null)
                 throw new ArgumentNullException(nameof(validPartySizes), "Property is not nullable for class RankedSeason.");
 
-            return new RankedSeason(calibrationMatches.Value!.Value!, className.Value!, intervals.Value!, minHeroUnlocks.Value!.Value!, minHeroWins.Value!.Value!, minWins.Value!.Value!, name.Value!, rankedType.Value!, validPartySizes.Value!);
+            return new RankedSeason(calibrationMatches.Value!.Value!, className.Value!, intervals.Value!, minHeroUnlocks.Value!.Value!, minHeroWins.Value!.Value!, minWins.Value!.Value!, name.Value!, rankedType.Value!, validPartySizes.Value!, baseWinLossPointGrant);
         }
 
         /// <summary>
@@ -373,6 +400,11 @@ namespace DeadlockApiClient.Model
 
             writer.WritePropertyName("valid_party_sizes");
             JsonSerializer.Serialize(writer, rankedSeason.ValidPartySizes, jsonSerializerOptions);
+            if (rankedSeason.BaseWinLossPointGrantOption.IsSet)
+                if (rankedSeason.BaseWinLossPointGrantOption.Value != null)
+                    writer.WriteNumber("base_win_loss_point_grant", rankedSeason.BaseWinLossPointGrantOption.Value!.Value);
+                else
+                    writer.WriteNull("base_win_loss_point_grant");
         }
     }
 }

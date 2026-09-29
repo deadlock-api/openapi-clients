@@ -11,6 +11,10 @@
  */
 import type { SeasonInterval } from './season-interval.js';
 export interface RankedSeason {
+    /**
+     * Base rank points granted per win / taken per loss (build 6701+).
+     */
+    'base_win_loss_point_grant'?: number | null;
     'calibration_matches': number;
     'class_name': string;
     'intervals': Array<SeasonInterval>;

@@ -155,6 +155,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *MatchesApi* | [**urls**](docs/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs |
 | *MiscEntitiesApi* | [**getMiscEntity**](docs/MiscEntitiesApi.md#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity |
 | *MiscEntitiesApi* | [**listMiscEntities**](docs/MiscEntitiesApi.md#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities |
+| *ModifiersApi* | [**getModifier**](docs/ModifiersApi.md#getmodifier) | **GET** /v1/assets/modifiers/{id_or_classname} | Get Modifier |
+| *ModifiersApi* | [**listModifiers**](docs/ModifiersApi.md#listmodifiers) | **GET** /v1/assets/modifiers | List Modifiers |
 | *NPCUnitsApi* | [**getNpcUnit**](docs/NPCUnitsApi.md#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit |
 | *NPCUnitsApi* | [**listNpcUnits**](docs/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units |
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
@@ -211,6 +213,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [deadlock_api_client.models.BadgeDistribution](docs/BadgeDistribution.md)
+ - [deadlock_api_client.models.BreakablePowerupLootParams](docs/BreakablePowerupLootParams.md)
  - [deadlock_api_client.models.Build](docs/Build.md)
  - [deadlock_api_client.models.BuildHero](docs/BuildHero.md)
  - [deadlock_api_client.models.BuildHeroDetails](docs/BuildHeroDetails.md)
@@ -225,6 +228,9 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Color](docs/Color.md)
  - [deadlock_api_client.models.ColorGradientStop](docs/ColorGradientStop.md)
  - [deadlock_api_client.models.ColumnSchema](docs/ColumnSchema.md)
+ - [deadlock_api_client.models.CorruptedItemInfo](docs/CorruptedItemInfo.md)
+ - [deadlock_api_client.models.CorruptedPenalty](docs/CorruptedPenalty.md)
+ - [deadlock_api_client.models.CorruptedPenaltyEffect](docs/CorruptedPenaltyEffect.md)
  - [deadlock_api_client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
  - [deadlock_api_client.models.Curve](docs/Curve.md)
@@ -270,6 +276,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.HeroEntry](docs/HeroEntry.md)
  - [deadlock_api_client.models.HeroImages](docs/HeroImages.md)
  - [deadlock_api_client.models.HeroPhysics](docs/HeroPhysics.md)
+ - [deadlock_api_client.models.HeroPopularItem](docs/HeroPopularItem.md)
+ - [deadlock_api_client.models.HeroPopularItems](docs/HeroPopularItems.md)
  - [deadlock_api_client.models.HeroStats](docs/HeroStats.md)
  - [deadlock_api_client.models.HeroStatsUI](docs/HeroStatsUI.md)
  - [deadlock_api_client.models.HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
@@ -306,6 +314,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.LootTable](docs/LootTable.md)
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
  - [deadlock_api_client.models.MapData](docs/MapData.md)
+ - [deadlock_api_client.models.MapDistrict](docs/MapDistrict.md)
  - [deadlock_api_client.models.MapImages](docs/MapImages.md)
  - [deadlock_api_client.models.MatchPlayer](docs/MatchPlayer.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)
@@ -313,7 +322,10 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MateStats](docs/MateStats.md)
  - [deadlock_api_client.models.MiniMapOffsets](docs/MiniMapOffsets.md)
  - [deadlock_api_client.models.MiscEntity](docs/MiscEntity.md)
+ - [deadlock_api_client.models.Modifier](docs/Modifier.md)
  - [deadlock_api_client.models.ModifierValue](docs/ModifierValue.md)
+ - [deadlock_api_client.models.NeutralCamp](docs/NeutralCamp.md)
+ - [deadlock_api_client.models.NeutralCampKind](docs/NeutralCampKind.md)
  - [deadlock_api_client.models.NewPlayerMetrics](docs/NewPlayerMetrics.md)
  - [deadlock_api_client.models.NpcUnit](docs/NpcUnit.md)
  - [deadlock_api_client.models.ObjectiveParams](docs/ObjectiveParams.md)
@@ -382,6 +394,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.SubclassIntrinsicModifiersSubclass](docs/SubclassIntrinsicModifiersSubclass.md)
  - [deadlock_api_client.models.SubclassModifierDefinition](docs/SubclassModifierDefinition.md)
  - [deadlock_api_client.models.SubclassModifierDefinitionSubclass](docs/SubclassModifierDefinitionSubclass.md)
+ - [deadlock_api_client.models.SubclassNeutralDamageGrowth](docs/SubclassNeutralDamageGrowth.md)
+ - [deadlock_api_client.models.SubclassNeutralDamageGrowthSubclass](docs/SubclassNeutralDamageGrowthSubclass.md)
  - [deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase](docs/SubclassObjectiveHealthGrowthPhase.md)
  - [deadlock_api_client.models.SubclassObjectiveHealthGrowthPhaseSubclass](docs/SubclassObjectiveHealthGrowthPhaseSubclass.md)
  - [deadlock_api_client.models.SubclassObjectiveRegen](docs/SubclassObjectiveRegen.md)

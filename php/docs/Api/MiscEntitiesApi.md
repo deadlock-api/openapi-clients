@@ -13,7 +13,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `getMiscEntity()`
 
 ```php
-getMiscEntity($id_or_classname, $client_version): \OpenAPI\Client\Model\MiscEntity
+getMiscEntity($id_or_classname, $language, $client_version): \OpenAPI\Client\Model\MiscEntity
 ```
 
 Get Misc Entity
@@ -34,10 +34,11 @@ $apiInstance = new OpenAPI\Client\Api\MiscEntitiesApi(
     new GuzzleHttp\Client()
 );
 $id_or_classname = 'id_or_classname_example'; // string | Misc entity id (`murmurhash2(class_name)`) or `class_name`
+$language = 'language_example'; // string | Language code. Defaults to `english`.
 $client_version = 56; // int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 
 try {
-    $result = $apiInstance->getMiscEntity($id_or_classname, $client_version);
+    $result = $apiInstance->getMiscEntity($id_or_classname, $language, $client_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MiscEntitiesApi->getMiscEntity: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_classname** | **string**| Misc entity id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | |
+| **language** | **string**| Language code. Defaults to &#x60;english&#x60;. | [optional] |
 | **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
@@ -71,12 +73,12 @@ No authorization required
 ## `listMiscEntities()`
 
 ```php
-listMiscEntities($client_version): \OpenAPI\Client\Model\MiscEntity[]
+listMiscEntities($language, $client_version): \OpenAPI\Client\Model\MiscEntity[]
 ```
 
 List Misc Entities
 
-Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
 ### Example
 
@@ -91,10 +93,11 @@ $apiInstance = new OpenAPI\Client\Api\MiscEntitiesApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$language = 'language_example'; // string | Language code. Defaults to `english`.
 $client_version = 56; // int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 
 try {
-    $result = $apiInstance->listMiscEntities($client_version);
+    $result = $apiInstance->listMiscEntities($language, $client_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MiscEntitiesApi->listMiscEntities: ', $e->getMessage(), PHP_EOL;
@@ -105,6 +108,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **language** | **string**| Language code. Defaults to &#x60;english&#x60;. | [optional] |
 | **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type

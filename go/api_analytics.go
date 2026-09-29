@@ -3534,6 +3534,9 @@ the buyer's lead. It is still observational, not a controlled/causal estimate. `
 gives the distinct baseline games that bought any upgrade in each column, so consumers can show how
 survivorship-selected (e.g. long-game-only) a late stage is.
 
+Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the
+normal item they replaced still is.
+
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
@@ -3797,6 +3800,7 @@ type ApiItemPermutationStatsRequest struct {
 	accountIds *[]int32
 	abilityOrderPrefix *[]int32
 	abilityUnlockOrderPrefix *[]int32
+	includeCorruptedItems *bool
 }
 
 // Comma separated list of item ids. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
@@ -3930,6 +3934,12 @@ func (r ApiItemPermutationStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []
 // Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiItemPermutationStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiItemPermutationStatsRequest {
 	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
+// Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored.
+func (r ApiItemPermutationStatsRequest) IncludeCorruptedItems(includeCorruptedItems bool) ApiItemPermutationStatsRequest {
+	r.includeCorruptedItems = &includeCorruptedItems
 	return r
 }
 
@@ -4096,6 +4106,13 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
 		}
 	}
+	if r.includeCorruptedItems != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", r.includeCorruptedItems, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", defaultValue, "form", "")
+		r.includeCorruptedItems = &defaultValue
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -4184,6 +4201,7 @@ type ApiItemStatsRequest struct {
 	minBoughtAtS *int32
 	maxBoughtAtS *int32
 	itemOrder *[]string
+	includeCorruptedItems *bool
 }
 
 // Bucket allows you to group the stats by a specific field.
@@ -4371,6 +4389,12 @@ func (r ApiItemStatsRequest) MaxBoughtAtS(maxBoughtAtS int32) ApiItemStatsReques
 // Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiItemStatsRequest) ItemOrder(itemOrder []string) ApiItemStatsRequest {
 	r.itemOrder = &itemOrder
+	return r
+}
+
+// Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower.
+func (r ApiItemStatsRequest) IncludeCorruptedItems(includeCorruptedItems bool) ApiItemStatsRequest {
+	r.includeCorruptedItems = &includeCorruptedItems
 	return r
 }
 
@@ -4575,6 +4599,13 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "item_order", t, "form", "multi")
 		}
+	}
+	if r.includeCorruptedItems != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", r.includeCorruptedItems, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", defaultValue, "form", "")
+		r.includeCorruptedItems = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

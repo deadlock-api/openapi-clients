@@ -13,7 +13,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `getNpcUnit()`
 
 ```php
-getNpcUnit($id_or_classname, $client_version): \OpenAPI\Client\Model\NpcUnit
+getNpcUnit($id_or_classname, $language, $client_version): \OpenAPI\Client\Model\NpcUnit
 ```
 
 Get NPC Unit
@@ -34,10 +34,11 @@ $apiInstance = new OpenAPI\Client\Api\NPCUnitsApi(
     new GuzzleHttp\Client()
 );
 $id_or_classname = 'id_or_classname_example'; // string | NPC unit id (`murmurhash2(class_name)`) or `class_name`
+$language = 'language_example'; // string | Language code. Defaults to `english`.
 $client_version = 56; // int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 
 try {
-    $result = $apiInstance->getNpcUnit($id_or_classname, $client_version);
+    $result = $apiInstance->getNpcUnit($id_or_classname, $language, $client_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NPCUnitsApi->getNpcUnit: ', $e->getMessage(), PHP_EOL;
@@ -49,6 +50,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id_or_classname** | **string**| NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60; | |
+| **language** | **string**| Language code. Defaults to &#x60;english&#x60;. | [optional] |
 | **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type
@@ -71,12 +73,12 @@ No authorization required
 ## `listNpcUnits()`
 
 ```php
-listNpcUnits($client_version): \OpenAPI\Client\Model\NpcUnit[]
+listNpcUnits($language, $client_version): \OpenAPI\Client\Model\NpcUnit[]
 ```
 
 List NPC Units
 
-Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
 ### Example
 
@@ -91,10 +93,11 @@ $apiInstance = new OpenAPI\Client\Api\NPCUnitsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$language = 'language_example'; // string | Language code. Defaults to `english`.
 $client_version = 56; // int | Client/game version (e.g. `6518`). Defaults to the latest known version.
 
 try {
-    $result = $apiInstance->listNpcUnits($client_version);
+    $result = $apiInstance->listNpcUnits($language, $client_version);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NPCUnitsApi->listNpcUnits: ', $e->getMessage(), PHP_EOL;
@@ -105,6 +108,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **language** | **string**| Language code. Defaults to &#x60;english&#x60;. | [optional] |
 | **client_version** | **int**| Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | [optional] |
 
 ### Return type

@@ -15,8 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct RawAbilityUpgradePropertyUpgrade {
     #[serde(rename = "bonus")]
     pub bonus: String,
+    /// Corrupted item bonuses only (build 6711+).
+    #[serde(rename = "fixed_corrupted_bonus", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub fixed_corrupted_bonus: Option<Option<bool>>,
     #[serde(rename = "name")]
     pub name: String,
+    /// Corrupted item bonuses only (build 6711+).
+    #[serde(rename = "round_corrupted_bonus", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub round_corrupted_bonus: Option<Option<bool>>,
     #[serde(rename = "scale_stat_filter", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scale_stat_filter: Option<Option<String>>,
     #[serde(rename = "upgrade_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -27,7 +33,9 @@ impl RawAbilityUpgradePropertyUpgrade {
     pub fn new(bonus: String, name: String) -> RawAbilityUpgradePropertyUpgrade {
         RawAbilityUpgradePropertyUpgrade {
             bonus,
+            fixed_corrupted_bonus: None,
             name,
+            round_corrupted_bonus: None,
             scale_stat_filter: None,
             upgrade_type: None,
         }

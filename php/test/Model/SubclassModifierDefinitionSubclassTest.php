@@ -107,6 +107,15 @@ class SubclassModifierDefinitionSubclassTest extends TestCase
     }
 
     /**
+     * Test attribute "enabled_state_mask"
+     */
+    public function testPropertyEnabledStateMask()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "modifier_values"
      */
     public function testPropertyModifierValues()

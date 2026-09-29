@@ -33,12 +33,6 @@ class MapImagesTest : ShouldSpec() {
         // uncomment below to create an instance of MapImages
         //val modelInstance = MapImages()
 
-        // to test the property `background` - Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
-        should("test background") {
-            // uncomment below to test the property
-            //modelInstance.background shouldBe ("TODO")
-        }
-
         // to test the property `frame`
         should("test frame") {
             // uncomment below to test the property
@@ -51,16 +45,22 @@ class MapImagesTest : ShouldSpec() {
             //modelInstance.mid shouldBe ("TODO")
         }
 
-        // to test the property `minimap` - Full minimap. From build 6711 on this is the midtown base layer.
+        // to test the property `minimap` - Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
         should("test minimap") {
             // uncomment below to test the property
             //modelInstance.minimap shouldBe ("TODO")
         }
 
-        // to test the property `plain` - Minimap without overlays. From build 6711 on this is the midtown base layer.
+        // to test the property `plain` - Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
         should("test plain") {
             // uncomment below to test the property
             //modelInstance.plain shouldBe ("TODO")
+        }
+
+        // to test the property `background` - Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
+        should("test background") {
+            // uncomment below to test the property
+            //modelInstance.background shouldBe ("TODO")
         }
 
         // to test the property `midTunnels` - Mid tunnels overlay, drawn above `mid` (build 6711+).

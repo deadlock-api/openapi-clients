@@ -59,21 +59,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'aim_spring_strength' => 'float[]',
         'armor_groups' => '\OpenAPI\Client\Model\ItemGroup[]',
+        'breakable_powerup_loot_params' => '\OpenAPI\Client\Model\BreakablePowerupLootParams',
         'color_enemy' => '\OpenAPI\Client\Model\Color',
         'color_friend' => '\OpenAPI\Client\Model\Color',
         'color_team1' => '\OpenAPI\Client\Model\Color',
         'color_team2' => '\OpenAPI\Client\Model\Color',
+        'corrupted_penalties' => '\OpenAPI\Client\Model\CorruptedPenalty[]',
         'damage_flash' => '\OpenAPI\Client\Model\DamageFlash',
         'enemy_objectives_and_zipline_color' => '\OpenAPI\Client\Model\Color',
         'enemy_objectives_color' => '\OpenAPI\Client\Model\Color',
         'enemy_zipline_color' => '\OpenAPI\Client\Model\Color',
         'glitch_settings' => '\OpenAPI\Client\Model\GlitchSettings',
         'hero_kill_gold_share_frac' => 'float[]',
+        'item_corruption_price_per_tier' => 'int[]',
         'item_price_per_tier' => 'int[]',
         'lane_info' => '\OpenAPI\Client\Model\LaneInfo[]',
+        'map_districts' => '\OpenAPI\Client\Model\MapDistrict[]',
         'mini_map_offsets' => '\OpenAPI\Client\Model\MiniMapOffsets[]',
         'minimap_team_combine_color' => '\OpenAPI\Client\Model\Color',
         'minimap_team_rebels_color' => '\OpenAPI\Client\Model\Color',
+        'neutral_camp_respawn_timer_show_distance' => 'float',
         'new_player_metrics' => '\OpenAPI\Client\Model\NewPlayerMetrics[]',
         'objective_params' => '\OpenAPI\Client\Model\ObjectiveParams',
         'rejuv_params' => '\OpenAPI\Client\Model\RejuvParams',
@@ -94,21 +99,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'aim_spring_strength' => 'double',
         'armor_groups' => null,
+        'breakable_powerup_loot_params' => null,
         'color_enemy' => null,
         'color_friend' => null,
         'color_team1' => null,
         'color_team2' => null,
+        'corrupted_penalties' => null,
         'damage_flash' => null,
         'enemy_objectives_and_zipline_color' => null,
         'enemy_objectives_color' => null,
         'enemy_zipline_color' => null,
         'glitch_settings' => null,
         'hero_kill_gold_share_frac' => 'double',
+        'item_corruption_price_per_tier' => 'int64',
         'item_price_per_tier' => 'int64',
         'lane_info' => null,
+        'map_districts' => null,
         'mini_map_offsets' => null,
         'minimap_team_combine_color' => null,
         'minimap_team_rebels_color' => null,
+        'neutral_camp_respawn_timer_show_distance' => 'double',
         'new_player_metrics' => null,
         'objective_params' => null,
         'rejuv_params' => null,
@@ -127,21 +137,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'aim_spring_strength' => false,
         'armor_groups' => false,
+        'breakable_powerup_loot_params' => true,
         'color_enemy' => true,
         'color_friend' => true,
         'color_team1' => true,
         'color_team2' => true,
+        'corrupted_penalties' => true,
         'damage_flash' => false,
         'enemy_objectives_and_zipline_color' => true,
         'enemy_objectives_color' => true,
         'enemy_zipline_color' => true,
         'glitch_settings' => false,
         'hero_kill_gold_share_frac' => false,
+        'item_corruption_price_per_tier' => true,
         'item_price_per_tier' => false,
         'lane_info' => false,
+        'map_districts' => true,
         'mini_map_offsets' => false,
         'minimap_team_combine_color' => true,
         'minimap_team_rebels_color' => true,
+        'neutral_camp_respawn_timer_show_distance' => true,
         'new_player_metrics' => false,
         'objective_params' => false,
         'rejuv_params' => false,
@@ -240,21 +255,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'aim_spring_strength' => 'aim_spring_strength',
         'armor_groups' => 'armor_groups',
+        'breakable_powerup_loot_params' => 'breakable_powerup_loot_params',
         'color_enemy' => 'color_enemy',
         'color_friend' => 'color_friend',
         'color_team1' => 'color_team1',
         'color_team2' => 'color_team2',
+        'corrupted_penalties' => 'corrupted_penalties',
         'damage_flash' => 'damage_flash',
         'enemy_objectives_and_zipline_color' => 'enemy_objectives_and_zipline_color',
         'enemy_objectives_color' => 'enemy_objectives_color',
         'enemy_zipline_color' => 'enemy_zipline_color',
         'glitch_settings' => 'glitch_settings',
         'hero_kill_gold_share_frac' => 'hero_kill_gold_share_frac',
+        'item_corruption_price_per_tier' => 'item_corruption_price_per_tier',
         'item_price_per_tier' => 'item_price_per_tier',
         'lane_info' => 'lane_info',
+        'map_districts' => 'map_districts',
         'mini_map_offsets' => 'mini_map_offsets',
         'minimap_team_combine_color' => 'minimap_team_combine_color',
         'minimap_team_rebels_color' => 'minimap_team_rebels_color',
+        'neutral_camp_respawn_timer_show_distance' => 'neutral_camp_respawn_timer_show_distance',
         'new_player_metrics' => 'new_player_metrics',
         'objective_params' => 'objective_params',
         'rejuv_params' => 'rejuv_params',
@@ -273,21 +293,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'aim_spring_strength' => 'setAimSpringStrength',
         'armor_groups' => 'setArmorGroups',
+        'breakable_powerup_loot_params' => 'setBreakablePowerupLootParams',
         'color_enemy' => 'setColorEnemy',
         'color_friend' => 'setColorFriend',
         'color_team1' => 'setColorTeam1',
         'color_team2' => 'setColorTeam2',
+        'corrupted_penalties' => 'setCorruptedPenalties',
         'damage_flash' => 'setDamageFlash',
         'enemy_objectives_and_zipline_color' => 'setEnemyObjectivesAndZiplineColor',
         'enemy_objectives_color' => 'setEnemyObjectivesColor',
         'enemy_zipline_color' => 'setEnemyZiplineColor',
         'glitch_settings' => 'setGlitchSettings',
         'hero_kill_gold_share_frac' => 'setHeroKillGoldShareFrac',
+        'item_corruption_price_per_tier' => 'setItemCorruptionPricePerTier',
         'item_price_per_tier' => 'setItemPricePerTier',
         'lane_info' => 'setLaneInfo',
+        'map_districts' => 'setMapDistricts',
         'mini_map_offsets' => 'setMiniMapOffsets',
         'minimap_team_combine_color' => 'setMinimapTeamCombineColor',
         'minimap_team_rebels_color' => 'setMinimapTeamRebelsColor',
+        'neutral_camp_respawn_timer_show_distance' => 'setNeutralCampRespawnTimerShowDistance',
         'new_player_metrics' => 'setNewPlayerMetrics',
         'objective_params' => 'setObjectiveParams',
         'rejuv_params' => 'setRejuvParams',
@@ -306,21 +331,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'aim_spring_strength' => 'getAimSpringStrength',
         'armor_groups' => 'getArmorGroups',
+        'breakable_powerup_loot_params' => 'getBreakablePowerupLootParams',
         'color_enemy' => 'getColorEnemy',
         'color_friend' => 'getColorFriend',
         'color_team1' => 'getColorTeam1',
         'color_team2' => 'getColorTeam2',
+        'corrupted_penalties' => 'getCorruptedPenalties',
         'damage_flash' => 'getDamageFlash',
         'enemy_objectives_and_zipline_color' => 'getEnemyObjectivesAndZiplineColor',
         'enemy_objectives_color' => 'getEnemyObjectivesColor',
         'enemy_zipline_color' => 'getEnemyZiplineColor',
         'glitch_settings' => 'getGlitchSettings',
         'hero_kill_gold_share_frac' => 'getHeroKillGoldShareFrac',
+        'item_corruption_price_per_tier' => 'getItemCorruptionPricePerTier',
         'item_price_per_tier' => 'getItemPricePerTier',
         'lane_info' => 'getLaneInfo',
+        'map_districts' => 'getMapDistricts',
         'mini_map_offsets' => 'getMiniMapOffsets',
         'minimap_team_combine_color' => 'getMinimapTeamCombineColor',
         'minimap_team_rebels_color' => 'getMinimapTeamRebelsColor',
+        'neutral_camp_respawn_timer_show_distance' => 'getNeutralCampRespawnTimerShowDistance',
         'new_player_metrics' => 'getNewPlayerMetrics',
         'objective_params' => 'getObjectiveParams',
         'rejuv_params' => 'getRejuvParams',
@@ -390,21 +420,26 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('aim_spring_strength', $data ?? [], null);
         $this->setIfExists('armor_groups', $data ?? [], null);
+        $this->setIfExists('breakable_powerup_loot_params', $data ?? [], null);
         $this->setIfExists('color_enemy', $data ?? [], null);
         $this->setIfExists('color_friend', $data ?? [], null);
         $this->setIfExists('color_team1', $data ?? [], null);
         $this->setIfExists('color_team2', $data ?? [], null);
+        $this->setIfExists('corrupted_penalties', $data ?? [], null);
         $this->setIfExists('damage_flash', $data ?? [], null);
         $this->setIfExists('enemy_objectives_and_zipline_color', $data ?? [], null);
         $this->setIfExists('enemy_objectives_color', $data ?? [], null);
         $this->setIfExists('enemy_zipline_color', $data ?? [], null);
         $this->setIfExists('glitch_settings', $data ?? [], null);
         $this->setIfExists('hero_kill_gold_share_frac', $data ?? [], null);
+        $this->setIfExists('item_corruption_price_per_tier', $data ?? [], null);
         $this->setIfExists('item_price_per_tier', $data ?? [], null);
         $this->setIfExists('lane_info', $data ?? [], null);
+        $this->setIfExists('map_districts', $data ?? [], null);
         $this->setIfExists('mini_map_offsets', $data ?? [], null);
         $this->setIfExists('minimap_team_combine_color', $data ?? [], null);
         $this->setIfExists('minimap_team_rebels_color', $data ?? [], null);
+        $this->setIfExists('neutral_camp_respawn_timer_show_distance', $data ?? [], null);
         $this->setIfExists('new_player_metrics', $data ?? [], null);
         $this->setIfExists('objective_params', $data ?? [], null);
         $this->setIfExists('rejuv_params', $data ?? [], null);
@@ -557,6 +592,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets breakable_powerup_loot_params
+     *
+     * @return \OpenAPI\Client\Model\BreakablePowerupLootParams|null
+     */
+    public function getBreakablePowerupLootParams()
+    {
+        return $this->container['breakable_powerup_loot_params'];
+    }
+
+    /**
+     * Sets breakable_powerup_loot_params
+     *
+     * @param \OpenAPI\Client\Model\BreakablePowerupLootParams|null $breakable_powerup_loot_params Loot tables for breakable powerup props (build 6711+).
+     *
+     * @return self
+     */
+    public function setBreakablePowerupLootParams($breakable_powerup_loot_params)
+    {
+        if (is_null($breakable_powerup_loot_params)) {
+            array_push($this->openAPINullablesSetToNull, 'breakable_powerup_loot_params');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('breakable_powerup_loot_params', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['breakable_powerup_loot_params'] = $breakable_powerup_loot_params;
+
+        return $this;
+    }
+
+    /**
      * Gets color_enemy
      *
      * @return \OpenAPI\Client\Model\Color|null
@@ -688,6 +757,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['color_team2'] = $color_team2;
+
+        return $this;
+    }
+
+    /**
+     * Gets corrupted_penalties
+     *
+     * @return \OpenAPI\Client\Model\CorruptedPenalty[]|null
+     */
+    public function getCorruptedPenalties()
+    {
+        return $this->container['corrupted_penalties'];
+    }
+
+    /**
+     * Sets corrupted_penalties
+     *
+     * @param \OpenAPI\Client\Model\CorruptedPenalty[]|null $corrupted_penalties Penalties that can be rolled onto corrupted items (build 6711+).
+     *
+     * @return self
+     */
+    public function setCorruptedPenalties($corrupted_penalties)
+    {
+        if (is_null($corrupted_penalties)) {
+            array_push($this->openAPINullablesSetToNull, 'corrupted_penalties');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('corrupted_penalties', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['corrupted_penalties'] = $corrupted_penalties;
 
         return $this;
     }
@@ -876,6 +979,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets item_corruption_price_per_tier
+     *
+     * @return int[]|null
+     */
+    public function getItemCorruptionPricePerTier()
+    {
+        return $this->container['item_corruption_price_per_tier'];
+    }
+
+    /**
+     * Sets item_corruption_price_per_tier
+     *
+     * @param int[]|null $item_corruption_price_per_tier Extra cost of corrupting an item, by item tier (build 6711+).
+     *
+     * @return self
+     */
+    public function setItemCorruptionPricePerTier($item_corruption_price_per_tier)
+    {
+        if (is_null($item_corruption_price_per_tier)) {
+            array_push($this->openAPINullablesSetToNull, 'item_corruption_price_per_tier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('item_corruption_price_per_tier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['item_corruption_price_per_tier'] = $item_corruption_price_per_tier;
+
+        return $this;
+    }
+
+    /**
      * Gets item_price_per_tier
      *
      * @return int[]
@@ -925,6 +1062,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable lane_info cannot be null');
         }
         $this->container['lane_info'] = $lane_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets map_districts
+     *
+     * @return \OpenAPI\Client\Model\MapDistrict[]|null
+     */
+    public function getMapDistricts()
+    {
+        return $this->container['map_districts'];
+    }
+
+    /**
+     * Sets map_districts
+     *
+     * @param \OpenAPI\Client\Model\MapDistrict[]|null $map_districts District / building labels shown on the map (build 6711+).
+     *
+     * @return self
+     */
+    public function setMapDistricts($map_districts)
+    {
+        if (is_null($map_districts)) {
+            array_push($this->openAPINullablesSetToNull, 'map_districts');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('map_districts', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['map_districts'] = $map_districts;
 
         return $this;
     }
@@ -1020,6 +1191,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['minimap_team_rebels_color'] = $minimap_team_rebels_color;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_camp_respawn_timer_show_distance
+     *
+     * @return float|null
+     */
+    public function getNeutralCampRespawnTimerShowDistance()
+    {
+        return $this->container['neutral_camp_respawn_timer_show_distance'];
+    }
+
+    /**
+     * Sets neutral_camp_respawn_timer_show_distance
+     *
+     * @param float|null $neutral_camp_respawn_timer_show_distance Distance within which a neutral camp's respawn timer is shown (build 6711+).
+     *
+     * @return self
+     */
+    public function setNeutralCampRespawnTimerShowDistance($neutral_camp_respawn_timer_show_distance)
+    {
+        if (is_null($neutral_camp_respawn_timer_show_distance)) {
+            array_push($this->openAPINullablesSetToNull, 'neutral_camp_respawn_timer_show_distance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('neutral_camp_respawn_timer_show_distance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['neutral_camp_respawn_timer_show_distance'] = $neutral_camp_respawn_timer_show_distance;
 
         return $this;
     }

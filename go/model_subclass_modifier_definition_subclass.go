@@ -22,6 +22,8 @@ type SubclassModifierDefinitionSubclass struct {
 	AlwaysShowInUi []string `json:"always_show_in_ui,omitempty"`
 	ClassName NullableString `json:"class_name,omitempty"`
 	Duration NullableFloat64 `json:"duration,omitempty"`
+	// Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+	EnabledStateMask NullableString `json:"enabled_state_mask,omitempty"`
 	ModifierValues []ModifierValue `json:"modifier_values,omitempty"`
 	ScriptValues []ModifierValue `json:"script_values,omitempty"`
 	SubclassName NullableString `json:"subclass_name,omitempty"`
@@ -161,6 +163,48 @@ func (o *SubclassModifierDefinitionSubclass) SetDurationNil() {
 // UnsetDuration ensures that no value is present for Duration, not even an explicit nil
 func (o *SubclassModifierDefinitionSubclass) UnsetDuration() {
 	o.Duration.Unset()
+}
+
+// GetEnabledStateMask returns the EnabledStateMask field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SubclassModifierDefinitionSubclass) GetEnabledStateMask() string {
+	if o == nil || IsNil(o.EnabledStateMask.Get()) {
+		var ret string
+		return ret
+	}
+	return *o.EnabledStateMask.Get()
+}
+
+// GetEnabledStateMaskOk returns a tuple with the EnabledStateMask field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SubclassModifierDefinitionSubclass) GetEnabledStateMaskOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EnabledStateMask.Get(), o.EnabledStateMask.IsSet()
+}
+
+// HasEnabledStateMask returns a boolean if a field has been set.
+func (o *SubclassModifierDefinitionSubclass) HasEnabledStateMask() bool {
+	if o != nil && o.EnabledStateMask.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEnabledStateMask gets a reference to the given NullableString and assigns it to the EnabledStateMask field.
+func (o *SubclassModifierDefinitionSubclass) SetEnabledStateMask(v string) {
+	o.EnabledStateMask.Set(&v)
+}
+// SetEnabledStateMaskNil sets the value for EnabledStateMask to be an explicit nil
+func (o *SubclassModifierDefinitionSubclass) SetEnabledStateMaskNil() {
+	o.EnabledStateMask.Set(nil)
+}
+
+// UnsetEnabledStateMask ensures that no value is present for EnabledStateMask, not even an explicit nil
+func (o *SubclassModifierDefinitionSubclass) UnsetEnabledStateMask() {
+	o.EnabledStateMask.Unset()
 }
 
 // GetModifierValues returns the ModifierValues field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -373,6 +417,9 @@ func (o SubclassModifierDefinitionSubclass) ToMap() (map[string]interface{}, err
 	}
 	if o.Duration.IsSet() {
 		toSerialize["duration"] = o.Duration.Get()
+	}
+	if o.EnabledStateMask.IsSet() {
+		toSerialize["enabled_state_mask"] = o.EnabledStateMask.Get()
 	}
 	if o.ModifierValues != nil {
 		toSerialize["modifier_values"] = o.ModifierValues

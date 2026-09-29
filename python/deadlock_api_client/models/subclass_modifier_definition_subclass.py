@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from deadlock_api_client.models.modifier_value import ModifierValue
 from typing import Optional, Set
@@ -31,12 +31,13 @@ class SubclassModifierDefinitionSubclass(BaseModel):
     always_show_in_ui: Optional[List[StrictStr]] = None
     class_name: Optional[StrictStr] = None
     duration: Optional[Union[StrictFloat, StrictInt]] = None
+    enabled_state_mask: Optional[StrictStr] = Field(default=None, description="Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.")
     modifier_values: Optional[List[ModifierValue]] = None
     script_values: Optional[List[ModifierValue]] = None
     subclass_name: Optional[StrictStr] = None
     time_max: Optional[Union[StrictFloat, StrictInt]] = None
     time_min: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["always_show_in_ui", "class_name", "duration", "modifier_values", "script_values", "subclass_name", "time_max", "time_min"]
+    __properties: ClassVar[List[str]] = ["always_show_in_ui", "class_name", "duration", "enabled_state_mask", "modifier_values", "script_values", "subclass_name", "time_max", "time_min"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -104,6 +105,11 @@ class SubclassModifierDefinitionSubclass(BaseModel):
         if self.duration is None and "duration" in self.model_fields_set:
             _dict['duration'] = None
 
+        # set to None if enabled_state_mask (nullable) is None
+        # and model_fields_set contains the field
+        if self.enabled_state_mask is None and "enabled_state_mask" in self.model_fields_set:
+            _dict['enabled_state_mask'] = None
+
         # set to None if modifier_values (nullable) is None
         # and model_fields_set contains the field
         if self.modifier_values is None and "modifier_values" in self.model_fields_set:
@@ -144,6 +150,7 @@ class SubclassModifierDefinitionSubclass(BaseModel):
             "always_show_in_ui": obj.get("always_show_in_ui"),
             "class_name": obj.get("class_name"),
             "duration": obj.get("duration"),
+            "enabled_state_mask": obj.get("enabled_state_mask"),
             "modifier_values": [ModifierValue.from_dict(_item) for _item in obj["modifier_values"]] if obj.get("modifier_values") is not None else None,
             "script_values": [ModifierValue.from_dict(_item) for _item in obj["script_values"]] if obj.get("script_values") is not None else None,
             "subclass_name": obj.get("subclass_name"),

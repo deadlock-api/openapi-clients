@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_misc_entity
 
-> models::MiscEntity get_misc_entity(id_or_classname, client_version)
+> models::MiscEntity get_misc_entity(id_or_classname, language, client_version)
 Get Misc Entity
 
 Returns a single misc entity by numeric id or by `class_name` (case-insensitive).
@@ -22,6 +22,7 @@ Returns a single misc entity by numeric id or by `class_name` (case-insensitive)
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_classname** | **String** | Misc entity id (`murmurhash2(class_name)`) or `class_name` | [required] |
+**language** | Option<**String**> | Language code. Defaults to `english`. |  |
 **client_version** | Option<**u32**> | Client/game version (e.g. `6518`). Defaults to the latest known version. |  |
 
 ### Return type
@@ -42,16 +43,17 @@ No authorization required
 
 ## list_misc_entities
 
-> Vec<models::MiscEntity> list_misc_entities(client_version)
+> Vec<models::MiscEntity> list_misc_entities(language, client_version)
 List Misc Entities
 
-Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-misc-entity metadata used by the game client, parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent buff stat names (`buff_type_name`) are localized into the requested `language`; the raw tokens stay in `name_loc_string` / `buff_type_loc_string`.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**language** | Option<**String**> | Language code. Defaults to `english`. |  |
 **client_version** | Option<**u32**> | Client/game version (e.g. `6518`). Defaults to the latest known version. |  |
 
 ### Return type

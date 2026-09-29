@@ -33,6 +33,8 @@ import java.io.Serializable
  *
  * @param bonus 
  * @param name 
+ * @param fixedCorruptedBonus Corrupted item bonuses only (build 6711+).
+ * @param roundCorruptedBonus Corrupted item bonuses only (build 6711+).
  * @param scaleStatFilter 
  * @param upgradeType 
  */
@@ -45,6 +47,14 @@ data class RawAbilityUpgradePropertyUpgrade (
 
     @Json(name = "name")
     val name: kotlin.String,
+
+    /* Corrupted item bonuses only (build 6711+). */
+    @Json(name = "fixed_corrupted_bonus")
+    val fixedCorruptedBonus: kotlin.Boolean? = null,
+
+    /* Corrupted item bonuses only (build 6711+). */
+    @Json(name = "round_corrupted_bonus")
+    val roundCorruptedBonus: kotlin.Boolean? = null,
 
     @Json(name = "scale_stat_filter")
     val scaleStatFilter: kotlin.String? = null,

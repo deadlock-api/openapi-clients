@@ -34,6 +34,7 @@ from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAb
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
+from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams
 from deadlock_api_client.models.build import Build
 from deadlock_api_client.models.build_hero import BuildHero
 from deadlock_api_client.models.build_hero_details import BuildHeroDetails
@@ -48,6 +49,9 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts
 from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema
+from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo
+from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty
+from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenaltyEffect
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
 from deadlock_api_client.models.curve import Curve
@@ -93,6 +97,8 @@ from deadlock_api_client.models.hero_development_state import HeroDevelopmentSta
 from deadlock_api_client.models.hero_entry import HeroEntry
 from deadlock_api_client.models.hero_images import HeroImages
 from deadlock_api_client.models.hero_physics import HeroPhysics
+from deadlock_api_client.models.hero_popular_item import HeroPopularItem
+from deadlock_api_client.models.hero_popular_items import HeroPopularItems
 from deadlock_api_client.models.hero_stats import HeroStats
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI
 from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay
@@ -129,6 +135,7 @@ from deadlock_api_client.models.loot_entry import LootEntry
 from deadlock_api_client.models.loot_table import LootTable
 from deadlock_api_client.models.mmr_history import MMRHistory
 from deadlock_api_client.models.map_data import MapData
+from deadlock_api_client.models.map_district import MapDistrict
 from deadlock_api_client.models.map_images import MapImages
 from deadlock_api_client.models.match_player import MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
@@ -136,7 +143,10 @@ from deadlock_api_client.models.match_spectate_response import MatchSpectateResp
 from deadlock_api_client.models.mate_stats import MateStats
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
 from deadlock_api_client.models.misc_entity import MiscEntity
+from deadlock_api_client.models.modifier import Modifier
 from deadlock_api_client.models.modifier_value import ModifierValue
+from deadlock_api_client.models.neutral_camp import NeutralCamp
+from deadlock_api_client.models.neutral_camp_kind import NeutralCampKind
 from deadlock_api_client.models.new_player_metrics import NewPlayerMetrics
 from deadlock_api_client.models.npc_unit import NpcUnit
 from deadlock_api_client.models.objective_params import ObjectiveParams
@@ -205,6 +215,8 @@ from deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntr
 from deadlock_api_client.models.subclass_intrinsic_modifiers_subclass import SubclassIntrinsicModifiersSubclass
 from deadlock_api_client.models.subclass_modifier_definition import SubclassModifierDefinition
 from deadlock_api_client.models.subclass_modifier_definition_subclass import SubclassModifierDefinitionSubclass
+from deadlock_api_client.models.subclass_neutral_damage_growth import SubclassNeutralDamageGrowth
+from deadlock_api_client.models.subclass_neutral_damage_growth_subclass import SubclassNeutralDamageGrowthSubclass
 from deadlock_api_client.models.subclass_objective_health_growth_phase import SubclassObjectiveHealthGrowthPhase
 from deadlock_api_client.models.subclass_objective_health_growth_phase_subclass import SubclassObjectiveHealthGrowthPhaseSubclass
 from deadlock_api_client.models.subclass_objective_regen import SubclassObjectiveRegen

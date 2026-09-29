@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Get Generic Data
         /// </summary>
         /// <remarks>
-        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
@@ -55,7 +55,7 @@ namespace DeadlockApiClient.Api
         /// Get Generic Data
         /// </summary>
         /// <remarks>
-        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+        /// Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
         /// </remarks>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
@@ -208,7 +208,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorGetGenericData(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
-        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
         /// </summary>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
@@ -227,7 +227,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names are localized into the requested &#x60;language&#x60;.
+        /// Get Generic Data Returns the game-wide generic configuration (street brawl, lane info, glitch settings, damage flash, item draft, corrupted item penalties, breakable loot tables, map districts, etc.) parsed from the patch&#39;s &#x60;generic_data.vdata&#x60; KV3 source file. Lane names, corrupted penalty labels and map district names are localized into the requested &#x60;language&#x60;.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>

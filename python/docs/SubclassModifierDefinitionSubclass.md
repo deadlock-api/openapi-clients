@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **always_show_in_ui** | **List[str]** |  | [optional] 
 **class_name** | **str** |  | [optional] 
 **duration** | **float** |  | [optional] 
+**enabled_state_mask** | **str** | Modifier states the modifier enables, e.g. &#x60;MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP&#x60;. | [optional] 
 **modifier_values** | [**List[ModifierValue]**](ModifierValue.md) |  | [optional] 
 **script_values** | [**List[ModifierValue]**](ModifierValue.md) |  | [optional] 
 **subclass_name** | **str** |  | [optional] 

@@ -89,9 +89,27 @@ class RawAbilityUpgradePropertyUpgradeTest extends TestCase
     }
 
     /**
+     * Test attribute "fixed_corrupted_bonus"
+     */
+    public function testPropertyFixedCorruptedBonus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "round_corrupted_bonus"
+     */
+    public function testPropertyRoundCorruptedBonus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

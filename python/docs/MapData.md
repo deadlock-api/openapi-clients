@@ -7,6 +7,7 @@ The `/v1/assets/map` response.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **images** | [**MapImages**](MapImages.md) |  | 
+**neutral_camps** | [**List[NeutralCamp]**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 **objective_positions** | [**Dict[str, ObjectivePosition]**](ObjectivePosition.md) |  | 
 **radius** | **int** |  | 
 **zipline_paths** | [**List[ZiplanePath]**](ZiplanePath.md) |  | 

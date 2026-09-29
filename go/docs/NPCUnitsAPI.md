@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetNpcUnit
 
-> NpcUnit GetNpcUnit(ctx, idOrClassname).ClientVersion(clientVersion).Execute()
+> NpcUnit GetNpcUnit(ctx, idOrClassname).Language(language).ClientVersion(clientVersion).Execute()
 
 Get NPC Unit
 
@@ -31,11 +31,12 @@ import (
 
 func main() {
 	idOrClassname := "idOrClassname_example" // string | NPC unit id (`murmurhash2(class_name)`) or `class_name`
+	language := "language_example" // string | Language code. Defaults to `english`. (optional)
 	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NPCUnitsAPI.GetNpcUnit(context.Background(), idOrClassname).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.NPCUnitsAPI.GetNpcUnit(context.Background(), idOrClassname).Language(language).ClientVersion(clientVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NPCUnitsAPI.GetNpcUnit``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -61,6 +62,7 @@ Other parameters are passed through a pointer to a apiGetNpcUnitRequest struct v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
  **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type
@@ -83,7 +85,7 @@ No authorization required
 
 ## ListNpcUnits
 
-> []NpcUnit ListNpcUnits(ctx).ClientVersion(clientVersion).Execute()
+> []NpcUnit ListNpcUnits(ctx).Language(language).ClientVersion(clientVersion).Execute()
 
 List NPC Units
 
@@ -102,11 +104,12 @@ import (
 )
 
 func main() {
+	language := "language_example" // string | Language code. Defaults to `english`. (optional)
 	clientVersion := int32(56) // int32 | Client/game version (e.g. `6518`). Defaults to the latest known version. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.NPCUnitsAPI.ListNpcUnits(context.Background()).ClientVersion(clientVersion).Execute()
+	resp, r, err := apiClient.NPCUnitsAPI.ListNpcUnits(context.Background()).Language(language).ClientVersion(clientVersion).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NPCUnitsAPI.ListNpcUnits``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,6 +130,7 @@ Other parameters are passed through a pointer to a apiListNpcUnitsRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **language** | **string** | Language code. Defaults to &#x60;english&#x60;. | 
  **clientVersion** | **int32** | Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. | 
 
 ### Return type

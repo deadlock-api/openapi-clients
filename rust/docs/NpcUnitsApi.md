@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_npc_unit
 
-> models::NpcUnit get_npc_unit(id_or_classname, client_version)
+> models::NpcUnit get_npc_unit(id_or_classname, language, client_version)
 Get NPC Unit
 
 Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
@@ -22,6 +22,7 @@ Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **id_or_classname** | **String** | NPC unit id (`murmurhash2(class_name)`) or `class_name` | [required] |
+**language** | Option<**String**> | Language code. Defaults to `english`. |  |
 **client_version** | Option<**u32**> | Client/game version (e.g. `6518`). Defaults to the latest known version. |  |
 
 ### Return type
@@ -42,16 +43,17 @@ No authorization required
 
 ## list_npc_units
 
-> Vec<models::NpcUnit> list_npc_units(client_version)
+> Vec<models::NpcUnit> list_npc_units(language, client_version)
 List NPC Units
 
-Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files.
+Returns the per-NPC-unit metadata used by the game client, parsed from the patch's KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**language** | Option<**String**> | Language code. Defaults to `english`. |  |
 **client_version** | Option<**u32**> | Client/game version (e.g. `6518`). Defaults to the latest known version. |  |
 
 ### Return type

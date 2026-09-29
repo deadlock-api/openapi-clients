@@ -46,6 +46,9 @@ import {
     HeroPhysics,
     HeroPhysicsFromJSON,
     HeroPhysicsToJSON,
+    HeroPopularItems,
+    HeroPopularItemsFromJSON,
+    HeroPopularItemsToJSON,
     HeroStatsUI,
     HeroStatsUIFromJSON,
     HeroStatsUIToJSON,
@@ -117,6 +120,12 @@ export interface Hero  {
      * @memberof Hero
      */
     disabled: boolean;
+    /**
+     * Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
+     * @type {string}
+     * @memberof Hero
+     */
+    gender?: string;
     /**
      * 
      * @type {string}
@@ -220,6 +229,12 @@ export interface Hero  {
      */
     playerSelectable: boolean;
     /**
+     * Valve\'s generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+     * @type {HeroPopularItems}
+     * @memberof Hero
+     */
+    popularItems?: HeroPopularItems;
+    /**
      * Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
      * @type {boolean}
      * @memberof Hero
@@ -237,6 +252,12 @@ export interface Hero  {
      * @memberof Hero
      */
     scalingStats: { [key: string]: HashMapStringScalingStatValue; };
+    /**
+     * Localized search name (`m_strHeroSearchName`, build 6711+).
+     * @type {string}
+     * @memberof Hero
+     */
+    searchName?: string;
     /**
      * 
      * @type {ShopStatDisplay}
@@ -285,6 +306,7 @@ export function HeroFromJSON(json: any): Hero {
         'description': HeroDescriptionFromJSON(json['description']),
         'developmentState': !exists(json, 'development_state') ? undefined : HeroDevelopmentStateFromJSON(json['development_state']),
         'disabled': json['disabled'],
+        'gender': !exists(json, 'gender') ? undefined : json['gender'],
         'gunTag': !exists(json, 'gun_tag') ? undefined : json['gun_tag'],
         'heroStatsUi': HeroStatsUIFromJSON(json['hero_stats_ui']),
         'heroType': !exists(json, 'hero_type') ? undefined : HeroTypeFromJSON(json['hero_type']),
@@ -302,9 +324,11 @@ export function HeroFromJSON(json: any): Hero {
         'needsTesting': json['needs_testing'],
         'physics': HeroPhysicsFromJSON(json['physics']),
         'playerSelectable': json['player_selectable'],
+        'popularItems': !exists(json, 'popular_items') ? undefined : HeroPopularItemsFromJSON(json['popular_items']),
         'prereleaseOnly': !exists(json, 'prerelease_only') ? undefined : json['prerelease_only'],
         'purchaseBonuses': json['purchase_bonuses'],
         'scalingStats': mapValues(json['scaling_stats'], HashMapStringScalingStatValueFromJSON),
+        'searchName': !exists(json, 'search_name') ? undefined : json['search_name'],
         'shopStatDisplay': ShopStatDisplayFromJSON(json['shop_stat_display']),
         'skin': json['skin'],
         'standardLevelUpUpgrades': json['standard_level_up_upgrades'],
@@ -327,6 +351,7 @@ export function HeroToJSON(value?: Hero): any {
         'description': HeroDescriptionToJSON(value.description),
         'development_state': HeroDevelopmentStateToJSON(value.developmentState),
         'disabled': value.disabled,
+        'gender': value.gender,
         'gun_tag': value.gunTag,
         'hero_stats_ui': HeroStatsUIToJSON(value.heroStatsUi),
         'hero_type': HeroTypeToJSON(value.heroType),
@@ -344,9 +369,11 @@ export function HeroToJSON(value?: Hero): any {
         'needs_testing': value.needsTesting,
         'physics': HeroPhysicsToJSON(value.physics),
         'player_selectable': value.playerSelectable,
+        'popular_items': HeroPopularItemsToJSON(value.popularItems),
         'prerelease_only': value.prereleaseOnly,
         'purchase_bonuses': value.purchaseBonuses,
         'scaling_stats': mapValues(value.scalingStats, HashMapStringScalingStatValueToJSON),
+        'search_name': value.searchName,
         'shop_stat_display': ShopStatDisplayToJSON(value.shopStatDisplay),
         'skin': value.skin,
         'standard_level_up_upgrades': value.standardLevelUpUpgrades,

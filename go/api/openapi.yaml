@@ -124,6 +124,9 @@ tags:
 - description: "Misc entity definitions (powerup spawners, breakable props, neutral\
     \ camps, capture points, …) derived from per-version game data files."
   name: Misc Entities
+- description: Modifier and neutral ("Haunt") ability definitions derived from per-version
+    game data files.
+  name: Modifiers
 - description: NPC unit definitions derived from per-version game data files.
   name: NPC Units
 - description: "File-tree indexes of static assets (images, icons, sounds, fonts)\
@@ -2452,10 +2455,12 @@ paths:
         \ not a controlled/causal estimate. `reached_per_column`\ngives the distinct\
         \ baseline games that bought any upgrade in each column, so consumers can\
         \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is.\n\
-        \nResults are cached for **1 hour** based on the unique combination of query\
-        \ parameters provided.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+        \nCorrupted items (build 6712+, same item id as the normal item) are not counted\
+        \ as purchases; the\nnormal item they replaced still is.\n\nResults are cached\
+        \ for **1 hour** based on the unique combination of query parameters provided.\n\
+        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: item_flow_stats
       parameters:
       - description: |-
@@ -3064,6 +3069,18 @@ paths:
           type: array
           default: null
         style: form
+      - description: "Count corrupted items (build 6712+: a T3/T4 upgrade the Broker\
+          \ swapped for a corrupted version with the same item id) as the normal item.\
+          \ **Default:** `false`, corrupted purchases are ignored."
+        explode: true
+        in: query
+        name: include_corrupted_items
+        required: false
+        schema:
+          default: false
+          nullable: true
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -3489,6 +3506,20 @@ paths:
           nullable: true
           type: array
           default: null
+        style: form
+      - description: "Count corrupted items (build 6712+: a T3/T4 upgrade the Broker\
+          \ swapped for a corrupted version with the same item id) as purchases of\
+          \ the normal item. **Default:** `false`, corrupted purchases are excluded\
+          \ from the stats. Setting it to `true` bypasses the pre-aggregated rollups,\
+          \ so requests are slower."
+        explode: true
+        in: query
+        name: include_corrupted_items
+        required: false
+        schema:
+          default: false
+          nullable: true
+          type: boolean
         style: form
       responses:
         "200":
@@ -6093,9 +6124,10 @@ paths:
   /v1/assets/generic-data:
     get:
       description: "Returns the game-wide generic configuration (street brawl, lane\
-        \ info, glitch settings, damage flash, item draft, etc.) parsed from the patch's\
-        \ `generic_data.vdata` KV3 source file. Lane names are localized into the\
-        \ requested `language`."
+        \ info, glitch settings, damage flash, item draft, corrupted item penalties,\
+        \ breakable loot tables, map districts, etc.) parsed from the patch's `generic_data.vdata`\
+        \ KV3 source file. Lane names, corrupted penalty labels and map district names\
+        \ are localized into the requested `language`."
       operationId: get_generic_data
       parameters:
       - description: Language code. Defaults to `english`.
@@ -6877,8 +6909,9 @@ paths:
   /v1/assets/map:
     get:
       description: "Map metadata for a client version: the minimap radius, image-layer\
-        \ CDN URLs, the relative positions of every objective/tower marker, and the\
-        \ three zip-line lane cubic splines. Defaults to the latest known client version."
+        \ CDN URLs, the relative positions of every objective/tower marker, the three\
+        \ zip-line lane cubic splines and, from build 6711 on, the neutral camps.\
+        \ Defaults to the latest known client version."
       operationId: get_map
       parameters:
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
@@ -6910,9 +6943,52 @@ paths:
   /v1/assets/misc-entities:
     get:
       description: "Returns the per-misc-entity metadata used by the game client,\
-        \ parsed from the patch's KV3 source files."
+        \ parsed from the patch's KV3 source files. Pickup labels (`name`) and permanent\
+        \ buff stat names (`buff_type_name`) are localized into the requested `language`;\
+        \ the raw tokens stay in `name_loc_string` / `buff_type_loc_string`."
       operationId: list_misc_entities
       parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
           version.
         explode: true
@@ -6955,6 +7031,47 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
           version.
         explode: true
@@ -6981,12 +7098,134 @@ paths:
       summary: Get Misc Entity
       tags:
       - Misc Entities
+  /v1/assets/modifiers:
+    get:
+      description: "Returns modifier definitions parsed from the patch's `modifiers.vdata`\
+        \ KV3 source file, including the neutral (\"Haunt\") abilities referenced\
+        \ by NPC units' `neutral_abilities` / `neutral_melee` (`citadel_neutral_*`).\
+        \ Each entry exposes its class and numeric properties; nested properties use\
+        \ dotted paths."
+      operationId: list_modifiers
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/Modifier"
+                type: array
+                default: null
+          description: ""
+        "404":
+          description: "Requested client_version is not available, or it has no modifiers\
+            \ data (published from build 6712 on)"
+        "500":
+          description: Failed to load source assets
+      summary: List Modifiers
+      tags:
+      - Modifiers
+  /v1/assets/modifiers/{id_or_classname}:
+    get:
+      description: Returns a single modifier by numeric id or by `class_name` (case-insensitive).
+      operationId: get_modifier
+      parameters:
+      - description: Modifier id (`murmurhash2(class_name)`) or `class_name`
+        explode: false
+        in: path
+        name: id_or_classname
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Modifier"
+          description: ""
+        "404":
+          description: "Unknown modifier id/class_name or client_version, or no modifiers\
+            \ data for that version"
+        "500":
+          description: Failed to load source assets
+      summary: Get Modifier
+      tags:
+      - Modifiers
   /v1/assets/npc-units:
     get:
       description: "Returns the per-NPC-unit metadata used by the game client, parsed\
-        \ from the patch's KV3 source files."
+        \ from the patch's KV3 source files. Unit names (`name`) are localized into\
+        \ the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities`\
+        \ / `neutral_melee` are listed under `/v1/assets/modifiers`."
       operationId: list_npc_units
       parameters:
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
           version.
         explode: true
@@ -7029,6 +7268,47 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Language code. Defaults to `english`.
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          description: Set of languages the upstream `localization/<lang>.json` files
+            are keyed by.
+          enum:
+          - brazilian
+          - bulgarian
+          - czech
+          - danish
+          - dutch
+          - english
+          - finnish
+          - french
+          - german
+          - greek
+          - hungarian
+          - indonesian
+          - italian
+          - japanese
+          - koreana
+          - latam
+          - norwegian
+          - polish
+          - portuguese
+          - romanian
+          - russian
+          - schinese
+          - spanish
+          - swedish
+          - tchinese
+          - thai
+          - turkish
+          - ukrainian
+          - vietnamese
+          nullable: true
+          type: string
+        style: form
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
           version.
         explode: true
@@ -7059,7 +7339,8 @@ paths:
     get:
       description: "Returns the ranked season definitions used by the game client,\
         \ parsed from the patch's KV3 source files. Each season carries its eligibility\
-        \ requirements and the intervals it runs for, as unix timestamps in seconds."
+        \ requirements and the intervals it runs for, as unix timestamps in seconds,\
+        \ together with each interval's leaderboard ID."
       operationId: list_ranked_seasons
       parameters:
       - description: Language code. Defaults to `english`.
@@ -11622,6 +11903,9 @@ components:
             postvalue_label: postvalue_label
             prefix: prefix
             provided_property_type: provided_property_type
+            required_upgrade_bits:
+            - required_upgrade_bits
+            - required_upgrade_bits
             scale_function: ""
             street_brawl_value: street_brawl_value
             usage_flags:
@@ -11635,20 +11919,28 @@ components:
         upgrades:
         - property_upgrades:
           - bonus: bonus
+            fixed_corrupted_bonus: true
             name: name
+            round_corrupted_bonus: true
             scale_stat_filter: scale_stat_filter
             upgrade_type: upgrade_type
           - bonus: bonus
+            fixed_corrupted_bonus: true
             name: name
+            round_corrupted_bonus: true
             scale_stat_filter: scale_stat_filter
             upgrade_type: upgrade_type
         - property_upgrades:
           - bonus: bonus
+            fixed_corrupted_bonus: true
             name: name
+            round_corrupted_bonus: true
             scale_stat_filter: scale_stat_filter
             upgrade_type: upgrade_type
           - bonus: bonus
+            fixed_corrupted_bonus: true
             name: name
+            round_corrupted_bonus: true
             scale_stat_filter: scale_stat_filter
             upgrade_type: upgrade_type
         videos: ""
@@ -12582,6 +12874,24 @@ components:
       - badge_level
       - total_matches
       - unique_players
+    BreakablePowerupLootParams:
+      properties:
+        loot_list_deck_size:
+          format: int64
+          nullable: true
+          type: integer
+        pickups_by_match_time_mins:
+          additionalProperties:
+            additionalProperties:
+              format: double
+              type: number
+            type: object
+          description: |-
+            Match time in minutes (string key) from which a loot table applies,
+            mapped to `{pickup_name: relative weight}`.
+          type: object
+      required:
+      - pickups_by_match_time_mins
     Build:
       example:
         hero_build:
@@ -13099,7 +13409,7 @@ components:
           blue: 0
           green: 0
           red: 0
-        position: 9.301444243932576
+        position: 2.027123023002322
       properties:
         color:
           $ref: "#/components/schemas/Color"
@@ -13128,6 +13438,120 @@ components:
       - data_type
       - name
       - nullable
+    CorruptedItemInfo:
+      description: "Broker (\"City Never Sleeps\", build 6711+) corruption data of\
+        \ an upgrade."
+      properties:
+        excluded_penalties:
+          description: |-
+            Names of corrupted penalty definitions (`generic_data`) that can never
+            roll on this item.
+          items:
+            type: string
+          type: array
+          default: null
+        property_upgrades:
+          description: Property bonuses the corrupted variant gains.
+          items:
+            $ref: "#/components/schemas/RawAbilityUpgradePropertyUpgrade"
+          type: array
+          default: null
+      required:
+      - excluded_penalties
+      - property_upgrades
+    CorruptedPenalty:
+      description: A penalty that can be rolled onto a corrupted item (build 6711+).
+      example:
+        effects:
+        - bonus_per_tier:
+          - 6.027456183070403
+          - 6.027456183070403
+          css_class: css_class
+          display: true
+          display_type: display_type
+          label: label
+          loc_token_override: loc_token_override
+          modifier_value: modifier_value
+          postfix: postfix
+        - bonus_per_tier:
+          - 6.027456183070403
+          - 6.027456183070403
+          css_class: css_class
+          display: true
+          display_type: display_type
+          label: label
+          loc_token_override: loc_token_override
+          modifier_value: modifier_value
+          postfix: postfix
+        name: name
+        roll_weight: 1.4658129805029452
+      properties:
+        effects:
+          items:
+            $ref: "#/components/schemas/CorruptedPenaltyEffect"
+          type: array
+          default: null
+        name:
+          type: string
+        roll_weight:
+          format: double
+          nullable: true
+          type: number
+      required:
+      - effects
+      - name
+    CorruptedPenaltyEffect:
+      example:
+        bonus_per_tier:
+        - 6.027456183070403
+        - 6.027456183070403
+        css_class: css_class
+        display: true
+        display_type: display_type
+        label: label
+        loc_token_override: loc_token_override
+        modifier_value: modifier_value
+        postfix: postfix
+      properties:
+        bonus_per_tier:
+          description: |-
+            Penalty value indexed by item tier (same indexing as
+            `item_price_per_tier`; tiers that can't be corrupted are `0`), in
+            display units: distances are meters (source suffix `m` stripped),
+            matching `postfix`.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        css_class:
+          nullable: true
+          type: string
+        display:
+          description: '`false` for effects the game applies but doesn''t list in
+            tooltips.'
+          type: boolean
+        display_type:
+          nullable: true
+          type: string
+        label:
+          description: Localized stat label (from `loc_token_override`).
+          nullable: true
+          type: string
+        loc_token_override:
+          nullable: true
+          type: string
+        modifier_value:
+          description: "Modifier the penalty applies, e.g. `MODIFIER_VALUE_COOLDOWN_REDUCTION_PERCENTAGE`."
+          type: string
+        postfix:
+          description: "Localized unit suffix, e.g. `%` or ` m`."
+          nullable: true
+          type: string
+      required:
+      - bonus_per_tier
+      - display
+      - modifier_value
     CreateCustomRequest:
       example:
         callback_url: callback_url
@@ -13222,8 +13646,8 @@ components:
     DamageFlash:
       example:
         bullet_damage:
-          brightness: 6.027456183070403
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          brightness: 5.962133916683182
+          brightness_in_light_sensitivity_mode: 5.637376656633329
           color: ""
           color_gradient:
           - color:
@@ -13231,19 +13655,19 @@ components:
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
+            position: 2.027123023002322
           - color:
               alpha: 0
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
-          coverage: 3.616076749251911
-          duration: 2.027123023002322
-          hardness: 4.145608029883936
+            position: 2.027123023002322
+          coverage: 4.145608029883936
+          duration: 7.386281948385884
+          hardness: 1.2315135367772556
         crit_damage:
-          brightness: 6.027456183070403
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          brightness: 5.962133916683182
+          brightness_in_light_sensitivity_mode: 5.637376656633329
           color: ""
           color_gradient:
           - color:
@@ -13251,20 +13675,20 @@ components:
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
+            position: 2.027123023002322
           - color:
               alpha: 0
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
-          coverage: 3.616076749251911
-          duration: 2.027123023002322
-          hardness: 4.145608029883936
+            position: 2.027123023002322
+          coverage: 4.145608029883936
+          duration: 7.386281948385884
+          hardness: 1.2315135367772556
         generic_damage: ""
         healing_damage:
-          brightness: 6.027456183070403
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          brightness: 5.962133916683182
+          brightness_in_light_sensitivity_mode: 5.637376656633329
           color: ""
           color_gradient:
           - color:
@@ -13272,19 +13696,19 @@ components:
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
+            position: 2.027123023002322
           - color:
               alpha: 0
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
-          coverage: 3.616076749251911
-          duration: 2.027123023002322
-          hardness: 4.145608029883936
+            position: 2.027123023002322
+          coverage: 4.145608029883936
+          duration: 7.386281948385884
+          hardness: 1.2315135367772556
         melee_damage:
-          brightness: 6.027456183070403
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          brightness: 5.962133916683182
+          brightness_in_light_sensitivity_mode: 5.637376656633329
           color: ""
           color_gradient:
           - color:
@@ -13292,19 +13716,19 @@ components:
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
+            position: 2.027123023002322
           - color:
               alpha: 0
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
-          coverage: 3.616076749251911
-          duration: 2.027123023002322
-          hardness: 4.145608029883936
+            position: 2.027123023002322
+          coverage: 4.145608029883936
+          duration: 7.386281948385884
+          hardness: 1.2315135367772556
         tech_damage:
-          brightness: 6.027456183070403
-          brightness_in_light_sensitivity_mode: 1.4658129805029452
+          brightness: 5.962133916683182
+          brightness_in_light_sensitivity_mode: 5.637376656633329
           color: ""
           color_gradient:
           - color:
@@ -13312,16 +13736,16 @@ components:
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
+            position: 2.027123023002322
           - color:
               alpha: 0
               blue: 0
               green: 0
               red: 0
-            position: 9.301444243932576
-          coverage: 3.616076749251911
-          duration: 2.027123023002322
-          hardness: 4.145608029883936
+            position: 2.027123023002322
+          coverage: 4.145608029883936
+          duration: 7.386281948385884
+          hardness: 1.2315135367772556
       properties:
         bullet_damage:
           $ref: "#/components/schemas/FlashData"
@@ -13638,8 +14062,8 @@ components:
           nullable: true
     FlashData:
       example:
-        brightness: 6.027456183070403
-        brightness_in_light_sensitivity_mode: 1.4658129805029452
+        brightness: 5.962133916683182
+        brightness_in_light_sensitivity_mode: 5.637376656633329
         color: ""
         color_gradient:
         - color:
@@ -13647,16 +14071,16 @@ components:
             blue: 0
             green: 0
             red: 0
-          position: 9.301444243932576
+          position: 2.027123023002322
         - color:
             alpha: 0
             blue: 0
             green: 0
             red: 0
-          position: 9.301444243932576
-        coverage: 3.616076749251911
-        duration: 2.027123023002322
-        hardness: 4.145608029883936
+          position: 2.027123023002322
+        coverage: 4.145608029883936
+        duration: 7.386281948385884
+        hardness: 1.2315135367772556
       properties:
         brightness:
           format: double
@@ -13739,14 +14163,62 @@ components:
           upgrades:
           - upgrades
           - upgrades
+        breakable_powerup_loot_params: ""
         color_enemy: ""
         color_friend: ""
         color_team1: ""
         color_team2: ""
+        corrupted_penalties:
+        - effects:
+          - bonus_per_tier:
+            - 6.027456183070403
+            - 6.027456183070403
+            css_class: css_class
+            display: true
+            display_type: display_type
+            label: label
+            loc_token_override: loc_token_override
+            modifier_value: modifier_value
+            postfix: postfix
+          - bonus_per_tier:
+            - 6.027456183070403
+            - 6.027456183070403
+            css_class: css_class
+            display: true
+            display_type: display_type
+            label: label
+            loc_token_override: loc_token_override
+            modifier_value: modifier_value
+            postfix: postfix
+          name: name
+          roll_weight: 1.4658129805029452
+        - effects:
+          - bonus_per_tier:
+            - 6.027456183070403
+            - 6.027456183070403
+            css_class: css_class
+            display: true
+            display_type: display_type
+            label: label
+            loc_token_override: loc_token_override
+            modifier_value: modifier_value
+            postfix: postfix
+          - bonus_per_tier:
+            - 6.027456183070403
+            - 6.027456183070403
+            css_class: css_class
+            display: true
+            display_type: display_type
+            label: label
+            loc_token_override: loc_token_override
+            modifier_value: modifier_value
+            postfix: postfix
+          name: name
+          roll_weight: 1.4658129805029452
         damage_flash:
           bullet_damage:
-            brightness: 6.027456183070403
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            brightness: 5.962133916683182
+            brightness_in_light_sensitivity_mode: 5.637376656633329
             color: ""
             color_gradient:
             - color:
@@ -13754,19 +14226,19 @@ components:
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
+              position: 2.027123023002322
             - color:
                 alpha: 0
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
-            coverage: 3.616076749251911
-            duration: 2.027123023002322
-            hardness: 4.145608029883936
+              position: 2.027123023002322
+            coverage: 4.145608029883936
+            duration: 7.386281948385884
+            hardness: 1.2315135367772556
           crit_damage:
-            brightness: 6.027456183070403
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            brightness: 5.962133916683182
+            brightness_in_light_sensitivity_mode: 5.637376656633329
             color: ""
             color_gradient:
             - color:
@@ -13774,20 +14246,20 @@ components:
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
+              position: 2.027123023002322
             - color:
                 alpha: 0
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
-            coverage: 3.616076749251911
-            duration: 2.027123023002322
-            hardness: 4.145608029883936
+              position: 2.027123023002322
+            coverage: 4.145608029883936
+            duration: 7.386281948385884
+            hardness: 1.2315135367772556
           generic_damage: ""
           healing_damage:
-            brightness: 6.027456183070403
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            brightness: 5.962133916683182
+            brightness_in_light_sensitivity_mode: 5.637376656633329
             color: ""
             color_gradient:
             - color:
@@ -13795,19 +14267,19 @@ components:
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
+              position: 2.027123023002322
             - color:
                 alpha: 0
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
-            coverage: 3.616076749251911
-            duration: 2.027123023002322
-            hardness: 4.145608029883936
+              position: 2.027123023002322
+            coverage: 4.145608029883936
+            duration: 7.386281948385884
+            hardness: 1.2315135367772556
           melee_damage:
-            brightness: 6.027456183070403
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            brightness: 5.962133916683182
+            brightness_in_light_sensitivity_mode: 5.637376656633329
             color: ""
             color_gradient:
             - color:
@@ -13815,19 +14287,19 @@ components:
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
+              position: 2.027123023002322
             - color:
                 alpha: 0
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
-            coverage: 3.616076749251911
-            duration: 2.027123023002322
-            hardness: 4.145608029883936
+              position: 2.027123023002322
+            coverage: 4.145608029883936
+            duration: 7.386281948385884
+            hardness: 1.2315135367772556
           tech_damage:
-            brightness: 6.027456183070403
-            brightness_in_light_sensitivity_mode: 1.4658129805029452
+            brightness: 5.962133916683182
+            brightness_in_light_sensitivity_mode: 5.637376656633329
             color: ""
             color_gradient:
             - color:
@@ -13835,37 +14307,40 @@ components:
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
+              position: 2.027123023002322
             - color:
                 alpha: 0
                 blue: 0
                 green: 0
                 red: 0
-              position: 9.301444243932576
-            coverage: 3.616076749251911
-            duration: 2.027123023002322
-            hardness: 4.145608029883936
+              position: 2.027123023002322
+            coverage: 4.145608029883936
+            duration: 7.386281948385884
+            hardness: 1.2315135367772556
         enemy_objectives_and_zipline_color: ""
         enemy_objectives_color: ""
         enemy_zipline_color: ""
         glitch_settings:
-          breakup_strength: 7.386281948385884
-          distort_strength: 1.2315135367772556
-          frame_rate: 1.0246457001441578
-          jump_strength: 1.4894159098541704
-          quantize_scale: 6.84685269835264
-          quantize_strength: 7.457744773683766
-          scanline_strength: 1.1730742509559433
-          speed: 4.965218492984954
-          strength: 5.025004791520295
-          uantize_type: 9.965781217890562
-          white_noise_strength: 9.369310271410669
+          breakup_strength: 1.0246457001441578
+          distort_strength: 1.4894159098541704
+          frame_rate: 6.84685269835264
+          jump_strength: 7.457744773683766
+          quantize_scale: 1.1730742509559433
+          quantize_strength: 4.965218492984954
+          scanline_strength: 5.025004791520295
+          speed: 9.965781217890562
+          strength: 9.369310271410669
+          uantize_type: 6.683562403749608
+          white_noise_strength: 8.762042012749001
         hero_kill_gold_share_frac:
-        - 6.683562403749608
-        - 6.683562403749608
+        - 9.018348186070783
+        - 9.018348186070783
+        item_corruption_price_per_tier:
+        - 6
+        - 6
         item_price_per_tier:
-        - 8
-        - 8
+        - 3
+        - 3
         lane_info:
         - color: ""
           css_class: css_class
@@ -13881,67 +14356,77 @@ components:
           minimap_color: ""
           minimap_zipline_color_override: ""
           objective_color: ""
+        map_districts:
+        - building: building
+          building_name: building_name
+          district: district
+          district_name: district_name
+        - building: building
+          building_name: building_name
+          district: district
+          district_name: district_name
         mini_map_offsets:
         - entity_class: entity_class
-          lane_index: 9
+          lane_index: 6
           offset_2d:
-          - 6.438423552598547
-          - 6.438423552598547
+          - 1.284659006116532
+          - 1.284659006116532
         - entity_class: entity_class
-          lane_index: 9
+          lane_index: 6
           offset_2d:
-          - 6.438423552598547
-          - 6.438423552598547
+          - 1.284659006116532
+          - 1.284659006116532
         minimap_team_combine_color: ""
         minimap_team_rebels_color: ""
+        neutral_camp_respawn_timer_show_distance: 2.8841621266687802
         new_player_metrics:
-        - abilities_upgraded: 3
+        - abilities_upgraded: 6
           boss_damage: 6
-          damage_taken: 1
-          last_hits: 2
-          mods_purchased: 6
-          net_worth: 6
-          orbs_denied: 5
-          orbs_secured: 6
-          player_damage: 3
+          damage_taken: 5
+          last_hits: 6
+          mods_purchased: 3
+          net_worth: 3
+          orbs_denied: 7
+          orbs_secured: 0
+          player_damage: 7
           skill_tier_name: skill_tier_name
-        - abilities_upgraded: 3
+        - abilities_upgraded: 6
           boss_damage: 6
-          damage_taken: 1
-          last_hits: 2
-          mods_purchased: 6
-          net_worth: 6
-          orbs_denied: 5
-          orbs_secured: 6
-          player_damage: 3
+          damage_taken: 5
+          last_hits: 6
+          mods_purchased: 3
+          net_worth: 3
+          orbs_denied: 7
+          orbs_secured: 0
+          player_damage: 7
           skill_tier_name: skill_tier_name
         objective_params:
-          base_guardians_gold_kill: 3
-          base_guardians_gold_orbs: 7
-          gold_per_orb: 0
-          near_player_split_pct: 7.058770351582356
-          patron_phase1_gold_kill: 6
-          patron_phase1_gold_orbs: 0
-          shrines_gold_kill: 4
-          shrines_gold_orbs: 8
-          tier1_gold_kill: 7
+          base_guardians_gold_kill: 6
+          base_guardians_gold_orbs: 0
+          gold_per_orb: 4
+          near_player_split_pct: 8.969578798196912
+          patron_phase1_gold_kill: 7
+          patron_phase1_gold_orbs: 3
+          shrines_gold_kill: 3
+          shrines_gold_orbs: 7
+          tier1_gold_kill: 5
           tier1_gold_orbs: 3
-          tier2_gold_kill: 3
-          tier2_gold_orbs: 7
+          tier2_gold_kill: 4
+          tier2_gold_orbs: 0
         rejuv_params:
           player_respawn_mult:
-          - 5.533258397034986
-          - 5.533258397034986
-          rejuvinator_buff_duration: 3.2588565619047607
-          rejuvinator_drop_duration: 4.078845849666752
-          rejuvinator_drop_height: 0.2025324113236393
-          rejuvinator_expiration_warning_timing: 6.628464275087742
+          - 6.628464275087742
+          - 6.628464275087742
+          rejuvinator_buff_duration: 4.258773108174356
+          rejuvinator_drop_duration: 1.041444916118296
+          rejuvinator_drop_height: 4.678947989005849
+          rejuvinator_expiration_warning_timing: 7.260521264802104
           rejuvinator_rebirth_duration:
-          - 4.258773108174356
-          - 4.258773108174356
+          - 9.132027271330688
+          - 9.132027271330688
           trooper_health_mult:
-          - 1.041444916118296
-          - 1.041444916118296
+          - 0.8774076871421566
+          - 0.8774076871421566
         spirit_groups:
         - shop_group: shop_group
           upgrades:
@@ -13953,11 +14438,11 @@ components:
           - upgrades
         street_brawl: ""
         targeting_spring_strength:
-        - 4.678947989005849
-        - 4.678947989005849
+        - 9.702963800023566
+        - 9.702963800023566
         trooper_kill_gold_share_frac:
-        - 7.260521264802104
-        - 7.260521264802104
+        - 0.5199002018724985
+        - 0.5199002018724985
         weapon_groups:
         - shop_group: shop_group
           upgrades:
@@ -13979,6 +14464,11 @@ components:
             $ref: "#/components/schemas/ItemGroup"
           type: array
           default: null
+        breakable_powerup_loot_params:
+          allOf:
+          - $ref: "#/components/schemas/BreakablePowerupLootParams"
+          description: Loot tables for breakable powerup props (build 6711+).
+          nullable: true
         color_enemy:
           allOf:
           - $ref: "#/components/schemas/Color"
@@ -13999,6 +14489,13 @@ components:
           - $ref: "#/components/schemas/Color"
           description: Build 6711+.
           nullable: true
+        corrupted_penalties:
+          description: Penalties that can be rolled onto corrupted items (build 6711+).
+          items:
+            $ref: "#/components/schemas/CorruptedPenalty"
+          nullable: true
+          type: array
+          default: null
         damage_flash:
           $ref: "#/components/schemas/DamageFlash"
         enemy_objectives_and_zipline_color:
@@ -14021,6 +14518,14 @@ components:
             type: number
           type: array
           default: null
+        item_corruption_price_per_tier:
+          description: "Extra cost of corrupting an item, by item tier (build 6711+)."
+          items:
+            format: int64
+            type: integer
+          nullable: true
+          type: array
+          default: null
         item_price_per_tier:
           items:
             format: int64
@@ -14030,6 +14535,13 @@ components:
         lane_info:
           items:
             $ref: "#/components/schemas/LaneInfo"
+          type: array
+          default: null
+        map_districts:
+          description: District / building labels shown on the map (build 6711+).
+          items:
+            $ref: "#/components/schemas/MapDistrict"
+          nullable: true
           type: array
           default: null
         mini_map_offsets:
@@ -14045,6 +14557,12 @@ components:
           allOf:
           - $ref: "#/components/schemas/Color"
           nullable: true
+        neutral_camp_respawn_timer_show_distance:
+          description: Distance within which a neutral camp's respawn timer is shown
+            (build 6711+).
+          format: double
+          nullable: true
+          type: number
         new_player_metrics:
           items:
             $ref: "#/components/schemas/NewPlayerMetrics"
@@ -14108,17 +14626,17 @@ components:
       - match_id
     GlitchSettings:
       example:
-        breakup_strength: 7.386281948385884
-        distort_strength: 1.2315135367772556
-        frame_rate: 1.0246457001441578
-        jump_strength: 1.4894159098541704
-        quantize_scale: 6.84685269835264
-        quantize_strength: 7.457744773683766
-        scanline_strength: 1.1730742509559433
-        speed: 4.965218492984954
-        strength: 5.025004791520295
-        uantize_type: 9.965781217890562
-        white_noise_strength: 9.369310271410669
+        breakup_strength: 1.0246457001441578
+        distort_strength: 1.4894159098541704
+        frame_rate: 6.84685269835264
+        jump_strength: 7.457744773683766
+        quantize_scale: 1.1730742509559433
+        quantize_strength: 4.965218492984954
+        scanline_strength: 5.025004791520295
+        speed: 9.965781217890562
+        strength: 9.369310271410669
+        uantize_type: 6.683562403749608
+        white_noise_strength: 8.762042012749001
       properties:
         breakup_strength:
           format: double
@@ -14229,6 +14747,7 @@ components:
           role: role
         development_state: ""
         disabled: true
+        gender: gender
         gun_tag: gun_tag
         hero_stats_ui:
           display_stats:
@@ -14256,6 +14775,8 @@ components:
           name_image: name_image
           top_bar_vertical_image: top_bar_vertical_image
           top_bar_vertical_image_webp: top_bar_vertical_image_webp
+          vote_sticker: vote_sticker
+          vote_sticker_webp: vote_sticker_webp
           weapon_image: weapon_image
           weapon_image_webp: weapon_image_webp
         in_development: true
@@ -14287,12 +14808,14 @@ components:
           step_sound_time: 7.386281948385884
           step_sound_time_sprinting: 1.2315135367772556
         player_selectable: true
+        popular_items: ""
         prerelease_only: true
         purchase_bonuses: ""
         scaling_stats:
           key:
             scale: 1.0246457001441578
             scaling_stat: scaling_stat
+        search_name: search_name
         shop_stat_display:
           spirit_stats_display:
             display_stats:
@@ -14356,6 +14879,7 @@ components:
           move_acceleration:
             display_stat_name: display_stat_name
             value: 7.457744773683766
+          ooc_health_regen: ""
           proc_build_up_rate_scale:
             display_stat_name: display_stat_name
             value: 7.457744773683766
@@ -14433,6 +14957,11 @@ components:
           nullable: true
         disabled:
           type: boolean
+        gender:
+          description: "Hero gender (`m_strHeroGender`, build 6711+), e.g. `male`\
+            \ / `female`."
+          nullable: true
+          type: string
         gun_tag:
           nullable: true
           type: string
@@ -14486,6 +15015,13 @@ components:
             Read from `m_bPlayerSelectable` on older builds; since build 6711 it is
             derived as `development_state == release`.
           type: boolean
+        popular_items:
+          allOf:
+          - $ref: "#/components/schemas/HeroPopularItems"
+          description: |-
+            Valve's generated item pick / win rates per game phase
+            (`m_PopularItems`, build 6711+). `null` when the hero has no data.
+          nullable: true
         prerelease_only:
           description: |-
             Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is
@@ -14502,6 +15038,10 @@ components:
           additionalProperties:
             $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
           type: object
+        search_name:
+          description: "Localized search name (`m_strHeroSearchName`, build 6711+)."
+          nullable: true
+          type: string
         shop_stat_display:
           $ref: "#/components/schemas/ShopStatDisplay"
         skin:
@@ -14900,6 +15440,8 @@ components:
         name_image: name_image
         top_bar_vertical_image: top_bar_vertical_image
         top_bar_vertical_image_webp: top_bar_vertical_image_webp
+        vote_sticker: vote_sticker
+        vote_sticker_webp: vote_sticker_webp
         weapon_image: weapon_image
         weapon_image_webp: weapon_image_webp
       properties:
@@ -14948,6 +15490,13 @@ components:
         top_bar_vertical_image_webp:
           nullable: true
           type: string
+        vote_sticker:
+          description: "Hero release vote sticker (`m_strVoteSticker`, build 6711+)."
+          nullable: true
+          type: string
+        vote_sticker_webp:
+          nullable: true
+          type: string
         weapon_image:
           nullable: true
           type: string
@@ -14993,6 +15542,54 @@ components:
           type: number
       required:
       - stealth_speed_meters_per_second
+    HeroPopularItem:
+      properties:
+        class_name:
+          type: string
+        item_id:
+          description: "Item id, derived from `class_name` like `/v2/items` ids."
+          format: int32
+          minimum: 0
+          type: integer
+        pick_pct:
+          description: Pick rate in percent (0-100).
+          format: double
+          type: number
+        winrate_pct:
+          description: Win rate in percent (0-100).
+          format: double
+          type: number
+      required:
+      - class_name
+      - item_id
+      - pick_pct
+      - winrate_pct
+    HeroPopularItems:
+      properties:
+        early_game:
+          items:
+            $ref: "#/components/schemas/HeroPopularItem"
+          type: array
+          default: null
+        late_game:
+          items:
+            $ref: "#/components/schemas/HeroPopularItem"
+          type: array
+          default: null
+        mid_game:
+          items:
+            $ref: "#/components/schemas/HeroPopularItem"
+          type: array
+          default: null
+        timestamp:
+          description: Unix timestamp (seconds) at which Valve generated the data.
+          format: int64
+          nullable: true
+          type: integer
+      required:
+      - early_game
+      - late_game
+      - mid_game
     HeroStats:
       example:
         account_id: 0
@@ -15778,6 +16375,9 @@ components:
         postvalue_label: postvalue_label
         prefix: prefix
         provided_property_type: provided_property_type
+        required_upgrade_bits:
+        - required_upgrade_bits
+        - required_upgrade_bits
         scale_function: ""
         street_brawl_value: street_brawl_value
         usage_flags:
@@ -15824,6 +16424,15 @@ components:
         provided_property_type:
           nullable: true
           type: string
+        required_upgrade_bits:
+          description: |-
+            Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property
+            to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
         scale_function:
           allOf:
           - $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclass"
@@ -16575,27 +17184,44 @@ components:
           minimap: minimap
           plain: plain
           rat_tunnels: rat_tunnels
+        neutral_camps:
+        - icon: icon
+          kind: weak
+          left_relative: 0.8008281904610115
+          name: name
+          position:
+          - 6.027456183070403
+          - 6.027456183070403
+          top_relative: 1.4658129805029452
+        - icon: icon
+          kind: weak
+          left_relative: 0.8008281904610115
+          name: name
+          position:
+          - 6.027456183070403
+          - 6.027456183070403
+          top_relative: 1.4658129805029452
         objective_positions:
           key:
-            left_relative: 0.8008281904610115
-            top_relative: 6.027456183070403
+            left_relative: 5.962133916683182
+            top_relative: 5.637376656633329
         radius: 0
         zipline_paths:
         - P0_points:
-          - - 5.962133916683182
-            - 5.962133916683182
-          - - 5.962133916683182
-            - 5.962133916683182
+          - - 7.061401241503109
+            - 7.061401241503109
+          - - 7.061401241503109
+            - 7.061401241503109
           P1_points:
-          - - 5.637376656633329
-            - 5.637376656633329
-          - - 5.637376656633329
-            - 5.637376656633329
+          - - 9.301444243932576
+            - 9.301444243932576
+          - - 9.301444243932576
+            - 9.301444243932576
           P2_points:
-          - - 2.3021358869347655
-            - 2.3021358869347655
-          - - 2.3021358869347655
-            - 2.3021358869347655
+          - - 3.616076749251911
+            - 3.616076749251911
+          - - 3.616076749251911
+            - 3.616076749251911
           color: color
           color_parsed:
             alpha: 0
@@ -16603,23 +17229,23 @@ components:
             green: 0
             red: 0
           origin:
-          - 7.061401241503109
-          - 7.061401241503109
+          - 2.027123023002322
+          - 2.027123023002322
         - P0_points:
-          - - 5.962133916683182
-            - 5.962133916683182
-          - - 5.962133916683182
-            - 5.962133916683182
+          - - 7.061401241503109
+            - 7.061401241503109
+          - - 7.061401241503109
+            - 7.061401241503109
           P1_points:
-          - - 5.637376656633329
-            - 5.637376656633329
-          - - 5.637376656633329
-            - 5.637376656633329
+          - - 9.301444243932576
+            - 9.301444243932576
+          - - 9.301444243932576
+            - 9.301444243932576
           P2_points:
-          - - 2.3021358869347655
-            - 2.3021358869347655
-          - - 2.3021358869347655
-            - 2.3021358869347655
+          - - 3.616076749251911
+            - 3.616076749251911
+          - - 3.616076749251911
+            - 3.616076749251911
           color: color
           color_parsed:
             alpha: 0
@@ -16627,11 +17253,18 @@ components:
             green: 0
             red: 0
           origin:
-          - 7.061401241503109
-          - 7.061401241503109
+          - 2.027123023002322
+          - 2.027123023002322
       properties:
         images:
           $ref: "#/components/schemas/MapImages"
+        neutral_camps:
+          description: Neutral camps (build 6711+).
+          items:
+            $ref: "#/components/schemas/NeutralCamp"
+          nullable: true
+          type: array
+          default: null
         objective_positions:
           additionalProperties:
             $ref: "#/components/schemas/ObjectivePosition"
@@ -16650,6 +17283,33 @@ components:
       - objective_positions
       - radius
       - zipline_paths
+    MapDistrict:
+      description: A district / building label pair shown on the map (build 6711+).
+      example:
+        building: building
+        building_name: building_name
+        district: district
+        district_name: district_name
+      properties:
+        building:
+          description: |-
+            Localization token, e.g. `map_district_building_docks`. Absent for
+            districts without buildings.
+          nullable: true
+          type: string
+        building_name:
+          description: "Localized building name, e.g. `Docks`."
+          nullable: true
+          type: string
+        district:
+          description: "Localization token, e.g. `map_district_theater`."
+          type: string
+        district_name:
+          description: "Localized district name, e.g. `Theater`."
+          type: string
+      required:
+      - district
+      - district_name
     MapImages:
       description: CDN URLs for the minimap image layers.
       example:
@@ -16663,8 +17323,9 @@ components:
       properties:
         background:
           description: |-
-            Background layer. No longer shipped by the game from build 6711 on; the
-            last extracted image is kept in the bucket.
+            Background layer drawn under `mid`. Only for builds before 6711; the game no longer
+            ships it, so it is omitted from build 6711 on.
+          nullable: true
           type: string
         frame:
           type: string
@@ -16676,18 +17337,21 @@ components:
           nullable: true
           type: string
         minimap:
-          description: Full minimap. From build 6711 on this is the midtown base layer.
+          description: |-
+            Full minimap. From build 6711 on the game ships no composed minimap, so this is the
+            same image as `mid`: the midtown street layer as a black mask on transparency, meant
+            to be drawn over a base colour rather than shown on its own.
           type: string
         plain:
-          description: Minimap without overlays. From build 6711 on this is the midtown
-            base layer.
+          description: |-
+            Minimap without overlays. From build 6711 on this is the same street mask as `mid`
+            (see `minimap`).
           type: string
         rat_tunnels:
           description: "Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+)."
           nullable: true
           type: string
       required:
-      - background
       - frame
       - mid
       - minimap
@@ -16788,10 +17452,10 @@ components:
     MiniMapOffsets:
       example:
         entity_class: entity_class
-        lane_index: 9
+        lane_index: 6
         offset_2d:
-        - 6.438423552598547
-        - 6.438423552598547
+        - 1.284659006116532
+        - 1.284659006116532
       properties:
         entity_class:
           type: string
@@ -16813,8 +17477,10 @@ components:
         break_on_dodge_touch: true
         buff_type_graph_color: ""
         buff_type_loc_string: buff_type_loc_string
+        buff_type_name: buff_type_name
         buff_type_value_unit: buff_type_value_unit
         class_name: class_name
+        collection_method: collection_method
         collision_radius: 0.8008281904610115
         color: ""
         damaged_by_abilities: true
@@ -16827,45 +17493,59 @@ components:
         health: 5
         heavy_melee_hit_count: 5
         heavy_melee_only: true
+        hits_required: 2
         id: 0
-        initial_spawn_delay_in_seconds: 7
-        initial_spawn_delay_seconds: 9
-        initial_spawn_time: 3.616076749251911
+        in_shop_modifier: ""
+        initial_spawn_delay_in_seconds: 9
+        initial_spawn_delay_seconds: 3
+        initial_spawn_time: 2.027123023002322
         is_mantleable: true
-        lifetime: 2.027123023002322
-        loot_list_deck_size: 4
+        is_permanent_pickup: true
+        lifetime: 4.145608029883936
+        loot_list_deck_size: 7
         m_vecPickups_lv2:
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
         m_vecPickups_lv3:
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
         match_time_mins_for_level2_pickups: 1
         match_time_mins_for_level3_pickups: 1
+        minimap_class: minimap_class
         modifier: ""
-        orb_spawn_delay_max: 1.4894159098541704
-        orb_spawn_delay_min: 6.84685269835264
+        name: name
+        name_loc_string: name_loc_string
+        orb_spawn_delay_max: 6.84685269835264
+        orb_spawn_delay_min: 7.457744773683766
+        pickup: pickup
         pickup_chances:
-          key: 7.457744773683766
+          key: 1.1730742509559433
         pickup_radius: ""
-        powerup_drop_chance: 1.1730742509559433
-        primary_drop_chance: 4.965218492984954
+        powerup_drop_chance: 4.965218492984954
+        primary_drop_chance: 5.025004791520295
         primary_pickups:
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
         - pickup_name: pickup_name
-          pickup_weight: 7.386281948385884
+          pickup_weight: 1.2315135367772556
+        regen_duration: 9.965781217890562
+        regen_duration_troopers: 9.369310271410669
+        regen_max_health_percent: ""
+        regen_trooper_multi: 6.683562403749608
         render_after_death: true
-        respawn_time: 5.025004791520295
+        respawn_time: 8.762042012749001
         roll_type: ""
         show_on_minimap: true
+        single_pickup_override: single_pickup_override
         solid_after_death: true
-        spawn_interval: 9.965781217890562
-        spawn_interval_in_seconds: 9
+        spawn_delay: 9.018348186070783
+        spawn_interval: 6.438423552598547
+        spawn_interval_in_seconds: 3
+        spawn_music_state: spawn_music_state
       properties:
         break_on_dodge_touch:
           nullable: true
@@ -16880,12 +17560,24 @@ components:
             \ raises."
           nullable: true
           type: string
+        buff_type_name:
+          description: |-
+            Permanent pickups: `buff_type_loc_string` localized into the requested
+            language (e.g. `Fire Rate`).
+          nullable: true
+          type: string
         buff_type_value_unit:
-          description: "Permanent pickups: unit of the buff value (e.g. `Percent`,\
-            \ `Meters`)."
+          description: |-
+            Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`).
+            The modifier value itself is in game units (`Meters` values are
+            inches, 39.37 per meter).
           nullable: true
           type: string
         class_name:
+          type: string
+        collection_method:
+          description: "How the pickup is collected, e.g. `Punch` or `VacuumTrigger`."
+          nullable: true
           type: string
         collision_radius:
           format: double
@@ -16930,10 +17622,21 @@ components:
         heavy_melee_only:
           nullable: true
           type: boolean
+        hits_required:
+          description: "Punchable pickups: hits needed to collect."
+          format: int64
+          nullable: true
+          type: integer
         id:
           format: int32
           minimum: 0
           type: integer
+        in_shop_modifier:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_ModifierDefinition"
+          description: "Corrupted item shop (Broker) trigger: modifier applied while\
+            \ inside."
+          nullable: true
         initial_spawn_delay_in_seconds:
           format: int64
           nullable: true
@@ -16948,6 +17651,9 @@ components:
           nullable: true
           type: number
         is_mantleable:
+          nullable: true
+          type: boolean
+        is_permanent_pickup:
           nullable: true
           type: boolean
         lifetime:
@@ -16978,10 +17684,24 @@ components:
           format: int64
           nullable: true
           type: integer
+        minimap_class:
+          nullable: true
+          type: string
         modifier:
           allOf:
           - $ref: "#/components/schemas/Subclass_ModifierDefinition"
           nullable: true
+        name:
+          description: |-
+            `name_loc_string` localized into the requested language (e.g.
+            `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern
+            (`{amount, plural, one{Soul} other{Souls}}`).
+          nullable: true
+          type: string
+        name_loc_string:
+          description: Localization token of the pickup's world label.
+          nullable: true
+          type: string
         orb_spawn_delay_max:
           format: double
           nullable: true
@@ -16990,6 +17710,10 @@ components:
           format: double
           nullable: true
           type: number
+        pickup:
+          description: "Pickup spawners: class name of the spawned pickup."
+          nullable: true
+          type: string
         pickup_chances:
           additionalProperties:
             format: double
@@ -17019,6 +17743,28 @@ components:
           nullable: true
           type: array
           default: null
+        regen_duration:
+          description: "Health pickups: seconds over which the healing is applied\
+            \ to heroes."
+          format: double
+          nullable: true
+          type: number
+        regen_duration_troopers:
+          description: "Health pickups: seconds over which the healing is applied\
+            \ to troopers."
+          format: double
+          nullable: true
+          type: number
+        regen_max_health_percent:
+          allOf:
+          - $ref: "#/components/schemas/CurveOrFloat"
+          description: "Health pickups: healing as percent of max health."
+          nullable: true
+        regen_trooper_multi:
+          description: "Health pickups: healing multiplier for troopers."
+          format: double
+          nullable: true
+          type: number
         render_after_death:
           nullable: true
           type: boolean
@@ -17033,9 +17779,20 @@ components:
         show_on_minimap:
           nullable: true
           type: boolean
+        single_pickup_override:
+          description: |-
+            Powerup spawners: class name of the only pickup spawned, overriding
+            `pickup_chances`.
+          nullable: true
+          type: string
         solid_after_death:
           nullable: true
           type: boolean
+        spawn_delay:
+          description: "Pickup spawners: delay (seconds) before the first spawn."
+          format: double
+          nullable: true
+          type: number
         spawn_interval:
           format: double
           nullable: true
@@ -17044,9 +17801,56 @@ components:
           format: int64
           nullable: true
           type: integer
+        spawn_music_state:
+          description: "Corrupted item shop (Broker) trigger: music cue played on\
+            \ spawn."
+          nullable: true
+          type: string
       required:
       - class_name
       - id
+    Modifier:
+      example:
+        base: base
+        class: class
+        class_name: class_name
+        folder: folder
+        id: 0
+        properties:
+          key: 6.027456183070403
+      properties:
+        base:
+          description: Entry this one inherits from (`_base`).
+          nullable: true
+          type: string
+        class:
+          description: "Engine class (`_class`), e.g. `citadel_neutral_laser_beam`."
+          nullable: true
+          type: string
+        class_name:
+          type: string
+        folder:
+          description: "Editor folder (`_editor.folder_name`), e.g. `Neutral Ability`."
+          nullable: true
+          type: string
+        id:
+          format: int32
+          minimum: 0
+          type: integer
+        properties:
+          additionalProperties:
+            format: double
+            type: number
+          description: |-
+            Numeric properties keyed by their source name. Nested properties use a
+            dotted path (`m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS`,
+            `subclass:` wrappers are skipped); `m_vecScriptValues` entries are keyed
+            by their `m_eModifierValue` (`MODIFIER_VALUE_GRAVITY_SCALE`).
+          type: object
+      required:
+      - class_name
+      - id
+      - properties
     ModifierValue:
       properties:
         value:
@@ -17064,17 +17868,68 @@ components:
         value_type:
           nullable: true
           type: string
+    NeutralCamp:
+      description: A neutral camp ("Haunt") marker (build 6711+).
+      example:
+        icon: icon
+        kind: weak
+        left_relative: 0.8008281904610115
+        name: name
+        position:
+        - 6.027456183070403
+        - 6.027456183070403
+        top_relative: 1.4658129805029452
+      properties:
+        icon:
+          description: Minimap icon URL.
+          type: string
+        kind:
+          $ref: "#/components/schemas/NeutralCampKind"
+        left_relative:
+          description: "Position on the minimap, as fractions of its width/height."
+          format: double
+          type: number
+        name:
+          description: Camp entity name from the map (e.g. `theater_lobby_camp`).
+          type: string
+        position:
+          description: "World position `[x, y, z]`, same space as the zip-line splines."
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        top_relative:
+          format: double
+          type: number
+      required:
+      - icon
+      - kind
+      - left_relative
+      - name
+      - position
+      - top_relative
+    NeutralCampKind:
+      description: |-
+        Neutral camp strength (`info_neutral_trooper_camp` `subclass_name`
+        `neutral_camp_{weak,medium,strong,vaults}` in `misc.vdata`).
+      enum:
+      - weak
+      - medium
+      - strong
+      - vault
+      type: string
     NewPlayerMetrics:
       example:
-        abilities_upgraded: 3
+        abilities_upgraded: 6
         boss_damage: 6
-        damage_taken: 1
-        last_hits: 2
-        mods_purchased: 6
-        net_worth: 6
-        orbs_denied: 5
-        orbs_secured: 6
-        player_damage: 3
+        damage_taken: 5
+        last_hits: 6
+        mods_purchased: 3
+        net_worth: 3
+        orbs_denied: 7
+        orbs_secured: 0
+        player_damage: 7
         skill_tier_name: skill_tier_name
       properties:
         abilities_upgraded:
@@ -17144,6 +17999,8 @@ components:
         health_bar_color_team2: ""
         health_bar_color_team_neutral: ""
         id: 0
+        image: image
+        image_webp: image_webp
         intrinsic_modifiers:
         - subclass:
             script_values:
@@ -17166,7 +18023,14 @@ components:
         melee_damage: 5.025004791520295
         melee_duration: 9.965781217890562
         melee_hit_range: 9.369310271410669
+        name: name
         near_death_duration: 6.683562403749608
+        neutral_abilities:
+        - neutral_abilities
+        - neutral_abilities
+        neutral_damage_growth: ""
+        neutral_melee: neutral_melee
+        neutral_type: neutral_type
         no_shield_laser_dps_to_players: 8.762042012749001
         objective_health_growth_phase1: ""
         objective_health_growth_phase2: ""
@@ -17197,6 +18061,8 @@ components:
         t3_boss_dps: 3.0576100241049344
         trooper_damage_resist_pct: 7.04836565559697
         trooper_dps: 5.533258397034986
+        viewer_souls_class:
+          key: viewer_souls_class
         walk_speed: 3.2588565619047607
         weapon_info: ""
       properties:
@@ -17296,6 +18162,14 @@ components:
           format: int32
           minimum: 0
           type: integer
+        image:
+          description: Unit icon (`m_strCustomUnitIcon`) as png.
+          nullable: true
+          type: string
+        image_webp:
+          description: Unit icon (`m_strCustomUnitIcon`) as webp.
+          nullable: true
+          type: string
         intrinsic_modifiers:
           items:
             $ref: "#/components/schemas/Subclass_IntrinsicModifiers"
@@ -17338,10 +18212,36 @@ components:
           format: double
           nullable: true
           type: number
+        name:
+          description: "Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul\
+            \ I`."
+          nullable: true
+          type: string
         near_death_duration:
           format: double
           nullable: true
           type: number
+        neutral_abilities:
+          description: Neutral ability class names; see `/v1/assets/modifiers` (builds
+            6711+).
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
+        neutral_damage_growth:
+          allOf:
+          - $ref: "#/components/schemas/Subclass_NeutralDamageGrowth"
+          nullable: true
+        neutral_melee:
+          description: Neutral melee ability class name; see `/v1/assets/modifiers`
+            (builds 6711+).
+          nullable: true
+          type: string
+        neutral_type:
+          description: "Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+)."
+          nullable: true
+          type: string
         no_shield_laser_dps_to_players:
           format: double
           nullable: true
@@ -17461,6 +18361,13 @@ components:
           format: double
           nullable: true
           type: number
+        viewer_souls_class:
+          additionalProperties:
+            type: string
+          description: Distance threshold (as string key) → soul orb class shown to
+            the viewer.
+          nullable: true
+          type: object
         walk_speed:
           format: double
           nullable: true
@@ -17474,18 +18381,18 @@ components:
       - id
     ObjectiveParams:
       example:
-        base_guardians_gold_kill: 3
-        base_guardians_gold_orbs: 7
-        gold_per_orb: 0
-        near_player_split_pct: 7.058770351582356
-        patron_phase1_gold_kill: 6
-        patron_phase1_gold_orbs: 0
-        shrines_gold_kill: 4
-        shrines_gold_orbs: 8
-        tier1_gold_kill: 7
+        base_guardians_gold_kill: 6
+        base_guardians_gold_orbs: 0
+        gold_per_orb: 4
+        near_player_split_pct: 8.969578798196912
+        patron_phase1_gold_kill: 7
+        patron_phase1_gold_orbs: 3
+        shrines_gold_kill: 3
+        shrines_gold_orbs: 7
+        tier1_gold_kill: 5
         tier1_gold_orbs: 3
-        tier2_gold_kill: 3
-        tier2_gold_orbs: 7
+        tier2_gold_kill: 4
+        tier2_gold_orbs: 0
       properties:
         base_guardians_gold_kill:
           format: int64
@@ -17539,8 +18446,8 @@ components:
     ObjectivePosition:
       description: "A position on the minimap, as fractions of its width/height."
       example:
-        left_relative: 0.8008281904610115
-        top_relative: 6.027456183070403
+        left_relative: 5.962133916683182
+        top_relative: 5.637376656633329
       properties:
         left_relative:
           format: double
@@ -17637,7 +18544,7 @@ components:
     Pickup:
       example:
         pickup_name: pickup_name
-        pickup_weight: 7.386281948385884
+        pickup_weight: 1.2315135367772556
       properties:
         pickup_name:
           nullable: true
@@ -18526,15 +19433,18 @@ components:
       - subrank
     RankedSeason:
       example:
+        base_win_loss_point_grant: 0
         calibration_matches: 0
         class_name: class_name
         intervals:
-        - end_timestamp: 6
+        - end_timestamp: 1
           interval: 0
-          start_timestamp: 5
-        - end_timestamp: 6
+          leaderboard_id: 0
+          start_timestamp: 2
+        - end_timestamp: 1
           interval: 0
-          start_timestamp: 5
+          leaderboard_id: 0
+          start_timestamp: 2
         min_hero_unlocks: 0
         min_hero_wins: 0
         min_wins: 0
@@ -18544,6 +19454,12 @@ components:
         - 0
         - 0
       properties:
+        base_win_loss_point_grant:
+          description: Base rank points granted per win / taken per loss (build 6701+).
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
         calibration_matches:
           format: int32
           minimum: 0
@@ -18592,11 +19508,15 @@ components:
       example:
         property_upgrades:
         - bonus: bonus
+          fixed_corrupted_bonus: true
           name: name
+          round_corrupted_bonus: true
           scale_stat_filter: scale_stat_filter
           upgrade_type: upgrade_type
         - bonus: bonus
+          fixed_corrupted_bonus: true
           name: name
+          round_corrupted_bonus: true
           scale_stat_filter: scale_stat_filter
           upgrade_type: upgrade_type
       properties:
@@ -18608,14 +19528,24 @@ components:
     RawAbilityUpgradePropertyUpgrade:
       example:
         bonus: bonus
+        fixed_corrupted_bonus: true
         name: name
+        round_corrupted_bonus: true
         scale_stat_filter: scale_stat_filter
         upgrade_type: upgrade_type
       properties:
         bonus:
           type: string
+        fixed_corrupted_bonus:
+          description: Corrupted item bonuses only (build 6711+).
+          nullable: true
+          type: boolean
         name:
           type: string
+        round_corrupted_bonus:
+          description: Corrupted item bonuses only (build 6711+).
+          nullable: true
+          type: boolean
         scale_stat_filter:
           nullable: true
           type: string
@@ -18823,18 +19753,18 @@ components:
     RejuvParams:
       example:
         player_respawn_mult:
-        - 5.533258397034986
-        - 5.533258397034986
-        rejuvinator_buff_duration: 3.2588565619047607
-        rejuvinator_drop_duration: 4.078845849666752
-        rejuvinator_drop_height: 0.2025324113236393
-        rejuvinator_expiration_warning_timing: 6.628464275087742
+        - 6.628464275087742
+        - 6.628464275087742
+        rejuvinator_buff_duration: 4.258773108174356
+        rejuvinator_drop_duration: 1.041444916118296
+        rejuvinator_drop_height: 4.678947989005849
+        rejuvinator_expiration_warning_timing: 7.260521264802104
         rejuvinator_rebirth_duration:
-        - 4.258773108174356
-        - 4.258773108174356
+        - 9.132027271330688
+        - 9.132027271330688
         trooper_health_mult:
-        - 1.041444916118296
-        - 1.041444916118296
+        - 0.8774076871421566
+        - 0.8774076871421566
       properties:
         player_respawn_mult:
           items:
@@ -18904,9 +19834,10 @@ components:
           type: number
     SeasonInterval:
       example:
-        end_timestamp: 6
+        end_timestamp: 1
         interval: 0
-        start_timestamp: 5
+        leaderboard_id: 0
+        start_timestamp: 2
       properties:
         end_timestamp:
           description: Unix timestamp (seconds) at which the interval ends.
@@ -18915,6 +19846,12 @@ components:
         interval:
           format: int32
           minimum: 0
+          type: integer
+        leaderboard_id:
+          description: Leaderboard backing this interval (build 6701+).
+          format: int32
+          minimum: 0
+          nullable: true
           type: integer
         start_timestamp:
           description: Unix timestamp (seconds) at which the interval starts.
@@ -19171,6 +20108,7 @@ components:
         move_acceleration:
           display_stat_name: display_stat_name
           value: 7.457744773683766
+        ooc_health_regen: ""
         proc_build_up_rate_scale:
           display_stat_name: display_stat_name
           value: 7.457744773683766
@@ -19240,6 +20178,11 @@ components:
           $ref: "#/components/schemas/StartingStat"
         move_acceleration:
           $ref: "#/components/schemas/StartingStat"
+        ooc_health_regen:
+          allOf:
+          - $ref: "#/components/schemas/StartingStat"
+          description: Out-of-combat health regen (build 6711+).
+          nullable: true
         proc_build_up_rate_scale:
           $ref: "#/components/schemas/StartingStat"
         reload_speed:
@@ -19612,6 +20555,11 @@ components:
         comeback_bonus_health_critical:
           format: int64
           type: integer
+        corrupt_item_round:
+          description: Round in which players may corrupt an item (build 6711+).
+          format: int64
+          nullable: true
+          type: integer
         gold_per_round:
           items:
             format: int64
@@ -19792,6 +20740,15 @@ components:
           $ref: "#/components/schemas/Subclass_ModifierDefinition_subclass"
       required:
       - subclass
+    Subclass_NeutralDamageGrowth:
+      description: |-
+        Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
+        JSON output.
+      properties:
+        subclass:
+          $ref: "#/components/schemas/Subclass_NeutralDamageGrowth_subclass"
+      required:
+      - subclass
     Subclass_ObjectiveHealthGrowthPhase:
       description: |-
         Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
@@ -19949,6 +20906,11 @@ components:
           nullable: true
           type: array
           default: null
+        corrupted_info:
+          allOf:
+          - $ref: "#/components/schemas/CorruptedItemInfo"
+          description: Present on upgrades the Broker can corrupt (build 6711+).
+          nullable: true
         cost:
           format: int32
           minimum: 0
@@ -19958,9 +20920,21 @@ components:
           allOf:
           - $ref: "#/components/schemas/UpgradeDescription"
           nullable: true
+        disable_item_target:
+          nullable: true
+          type: string
         disabled:
           nullable: true
           type: boolean
+        disabled_shop_filters:
+          description: |-
+            Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from
+            even though its stats would match them.
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
         hero:
           format: int32
           minimum: 0
@@ -20003,6 +20977,15 @@ components:
             $ref: "#/components/schemas/UpgradeProperty"
           nullable: true
           type: object
+        shop_filters:
+          description: |-
+            Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`)
+            this item shows up under, beyond those derived from its stats.
+          items:
+            type: string
+          nullable: true
+          type: array
+          default: null
         shop_image:
           nullable: true
           type: string
@@ -20015,6 +20998,10 @@ components:
         shop_image_webp:
           nullable: true
           type: string
+        shop_version:
+          format: int64
+          nullable: true
+          type: integer
         shopable:
           type: boolean
         start_trained:
@@ -20560,20 +21547,20 @@ components:
       description: A single lane's zip-line cubic spline.
       example:
         P0_points:
-        - - 5.962133916683182
-          - 5.962133916683182
-        - - 5.962133916683182
-          - 5.962133916683182
+        - - 7.061401241503109
+          - 7.061401241503109
+        - - 7.061401241503109
+          - 7.061401241503109
         P1_points:
-        - - 5.637376656633329
-          - 5.637376656633329
-        - - 5.637376656633329
-          - 5.637376656633329
+        - - 9.301444243932576
+          - 9.301444243932576
+        - - 9.301444243932576
+          - 9.301444243932576
         P2_points:
-        - - 2.3021358869347655
-          - 2.3021358869347655
-        - - 2.3021358869347655
-          - 2.3021358869347655
+        - - 3.616076749251911
+          - 3.616076749251911
+        - - 3.616076749251911
+          - 3.616076749251911
         color: color
         color_parsed:
           alpha: 0
@@ -20581,8 +21568,8 @@ components:
           green: 0
           red: 0
         origin:
-        - 7.061401241503109
-        - 7.061401241503109
+        - 2.027123023002322
+        - 2.027123023002322
       properties:
         P0_points:
           items:
@@ -20847,6 +21834,12 @@ components:
           format: double
           nullable: true
           type: number
+        enabled_state_mask:
+          description: |-
+            Modifier states the modifier enables, e.g.
+            `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+          nullable: true
+          type: string
         modifier_values:
           items:
             $ref: "#/components/schemas/ModifierValue"
@@ -20867,6 +21860,12 @@ components:
           nullable: true
           type: number
         time_min:
+          format: double
+          nullable: true
+          type: number
+    Subclass_NeutralDamageGrowth_subclass:
+      properties:
+        damage_growth_pct_per_min:
           format: double
           nullable: true
           type: number
@@ -20941,6 +21940,7 @@ x-tagGroups:
   - Heroes
   - Ranks
   - NPC Units
+  - Modifiers
   - Build Tags
   - Client Versions
   - Map

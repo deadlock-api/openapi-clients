@@ -1302,6 +1302,9 @@ the buyer's lead. It is still observational, not a controlled/causal estimate. `
 gives the distinct baseline games that bought any upgrade in each column, so consumers can show how
 survivorship-selected (e.g. long-game-only) a late stage is.
 
+Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the
+normal item they replaced still is.
+
 Results are cached for **1 hour** based on the unique combination of query parameters provided.
 
 ### Rate Limits:
@@ -1422,7 +1425,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_permutation_stats**
-> List[ItemPermutationStats] item_permutation_stats(item_ids=item_ids, comb_size=comb_size, min_matches=min_matches, max_matches=max_matches, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+> List[ItemPermutationStats] item_permutation_stats(item_ids=item_ids, comb_size=comb_size, min_matches=min_matches, max_matches=max_matches, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, include_corrupted_items=include_corrupted_items)
 
 Item Permutation Stats
 
@@ -1483,10 +1486,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
     ability_order_prefix = [56] # List[int] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
     ability_unlock_order_prefix = [56] # List[int] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+    include_corrupted_items = False # bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** `false`, corrupted purchases are ignored. (optional) (default to False)
 
     try:
         # Item Permutation Stats
-        api_response = api_instance.item_permutation_stats(item_ids=item_ids, comb_size=comb_size, min_matches=min_matches, max_matches=max_matches, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+        api_response = api_instance.item_permutation_stats(item_ids=item_ids, comb_size=comb_size, min_matches=min_matches, max_matches=max_matches, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, include_corrupted_items=include_corrupted_items)
         print("The response of AnalyticsApi->item_permutation_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1522,6 +1526,7 @@ Name | Type | Description  | Notes
  **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids to include | [optional] 
  **ability_order_prefix** | [**List[int]**](int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] 
  **ability_unlock_order_prefix** | [**List[int]**](int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+ **include_corrupted_items** | **bool**| Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are ignored. | [optional] [default to False]
 
 ### Return type
 
@@ -1547,7 +1552,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **item_stats**
-> List[ItemStats] item_stats(bucket=bucket, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, enemy_hero_ids=enemy_hero_ids, enemy_hero_ids_all_match=enemy_hero_ids_all_match, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, same_lane_filter=same_lane_filter, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, min_bought_at_s=min_bought_at_s, max_bought_at_s=max_bought_at_s, item_order=item_order)
+> List[ItemStats] item_stats(bucket=bucket, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, enemy_hero_ids=enemy_hero_ids, enemy_hero_ids_all_match=enemy_hero_ids_all_match, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, same_lane_filter=same_lane_filter, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, min_bought_at_s=min_bought_at_s, max_bought_at_s=max_bought_at_s, item_order=item_order, include_corrupted_items=include_corrupted_items)
 
 Item Stats
 
@@ -1617,10 +1622,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     min_bought_at_s = 56 # int | Filter items bought after this game time (seconds). (optional)
     max_bought_at_s = 56 # int | Filter items bought before this game time (seconds). (optional)
     item_order = ['item_order_example'] # List[str] | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
+    include_corrupted_items = False # bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower. (optional) (default to False)
 
     try:
         # Item Stats
-        api_response = api_instance.item_stats(bucket=bucket, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, enemy_hero_ids=enemy_hero_ids, enemy_hero_ids_all_match=enemy_hero_ids_all_match, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, same_lane_filter=same_lane_filter, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, min_bought_at_s=min_bought_at_s, max_bought_at_s=max_bought_at_s, item_order=item_order)
+        api_response = api_instance.item_stats(bucket=bucket, game_mode=game_mode, match_mode=match_mode, hero_ids=hero_ids, hero_id=hero_id, enemy_hero_ids=enemy_hero_ids, enemy_hero_ids_all_match=enemy_hero_ids_all_match, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, same_lane_filter=same_lane_filter, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, min_bought_at_s=min_bought_at_s, max_bought_at_s=max_bought_at_s, item_order=item_order, include_corrupted_items=include_corrupted_items)
         print("The response of AnalyticsApi->item_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1665,6 +1671,7 @@ Name | Type | Description  | Notes
  **min_bought_at_s** | **int**| Filter items bought after this game time (seconds). | [optional] 
  **max_bought_at_s** | **int**| Filter items bought before this game time (seconds). | [optional] 
  **item_order** | [**List[str]**](str.md)| Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] 
+ **include_corrupted_items** | **bool**| Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | [optional] [default to False]
 
 ### Return type
 

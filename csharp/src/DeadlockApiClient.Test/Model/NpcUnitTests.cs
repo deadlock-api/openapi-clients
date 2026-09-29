@@ -270,6 +270,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Image'
+        /// </summary>
+        [Fact]
+        public void ImageTest()
+        {
+            // TODO unit test for the property 'Image'
+        }
+
+        /// <summary>
+        /// Test the property 'ImageWebp'
+        /// </summary>
+        [Fact]
+        public void ImageWebpTest()
+        {
+            // TODO unit test for the property 'ImageWebp'
+        }
+
+        /// <summary>
         /// Test the property 'IntrinsicModifiers'
         /// </summary>
         [Fact]
@@ -360,12 +378,57 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Fact]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+
+        /// <summary>
         /// Test the property 'NearDeathDuration'
         /// </summary>
         [Fact]
         public void NearDeathDurationTest()
         {
             // TODO unit test for the property 'NearDeathDuration'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralAbilities'
+        /// </summary>
+        [Fact]
+        public void NeutralAbilitiesTest()
+        {
+            // TODO unit test for the property 'NeutralAbilities'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralDamageGrowth'
+        /// </summary>
+        [Fact]
+        public void NeutralDamageGrowthTest()
+        {
+            // TODO unit test for the property 'NeutralDamageGrowth'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralMelee'
+        /// </summary>
+        [Fact]
+        public void NeutralMeleeTest()
+        {
+            // TODO unit test for the property 'NeutralMelee'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralType'
+        /// </summary>
+        [Fact]
+        public void NeutralTypeTest()
+        {
+            // TODO unit test for the property 'NeutralType'
         }
 
         /// <summary>
@@ -636,6 +699,15 @@ namespace DeadlockApiClient.Test.Model
         public void TrooperDpsTest()
         {
             // TODO unit test for the property 'TrooperDps'
+        }
+
+        /// <summary>
+        /// Test the property 'ViewerSoulsClass'
+        /// </summary>
+        [Fact]
+        public void ViewerSoulsClassTest()
+        {
+            // TODO unit test for the property 'ViewerSoulsClass'
         }
 
         /// <summary>

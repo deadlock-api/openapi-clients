@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **description** | [**HeroDescription**](HeroDescription.md) |  | [default to undefined]
 **development_state** | [**HeroDevelopmentState**](HeroDevelopmentState.md) | Hero development state (&#x60;m_eHeroDevelopmentState&#x60;, build 6711+). &#x60;null&#x60; on older builds and on heroes that don\&#39;t declare one. | [optional] [default to undefined]
 **disabled** | **boolean** |  | [default to undefined]
+**gender** | **string** | Hero gender (&#x60;m_strHeroGender&#x60;, build 6711+), e.g. &#x60;male&#x60; / &#x60;female&#x60;. | [optional] [default to undefined]
 **gun_tag** | **string** |  | [optional] [default to undefined]
 **hero_stats_ui** | [**HeroStatsUI**](HeroStatsUI.md) |  | [default to undefined]
 **hero_type** | [**HeroType**](HeroType.md) |  | [optional] [default to undefined]
@@ -30,9 +31,11 @@ Name | Type | Description | Notes
 **needs_testing** | **boolean** |  | [default to undefined]
 **physics** | [**HeroPhysics**](HeroPhysics.md) |  | [default to undefined]
 **player_selectable** | **boolean** | Read from &#x60;m_bPlayerSelectable&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; release&#x60;. | [default to undefined]
+**popular_items** | [**HeroPopularItems**](HeroPopularItems.md) | Valve\&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data. | [optional] [default to undefined]
 **prerelease_only** | **boolean** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. | [optional] [default to undefined]
 **purchase_bonuses** | **{ [key: string]: Array&lt;HashMapItemSlotTypeVecPurchaseBonusValueInner&gt;; }** | Deprecated: &#x60;m_mapPurchaseBonuses&#x60; was removed in build 6711, so this is always empty for newer builds. | [default to undefined]
 **scaling_stats** | [**{ [key: string]: HashMapStringScalingStatValue; }**](HashMapStringScalingStatValue.md) |  | [default to undefined]
+**search_name** | **string** | Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+). | [optional] [default to undefined]
 **shop_stat_display** | [**ShopStatDisplay**](ShopStatDisplay.md) |  | [default to undefined]
 **skin** | **number** |  | [default to undefined]
 **standard_level_up_upgrades** | **{ [key: string]: number; }** |  | [default to undefined]
@@ -54,6 +57,7 @@ const instance: Hero = {
     description,
     development_state,
     disabled,
+    gender,
     gun_tag,
     hero_stats_ui,
     hero_type,
@@ -71,9 +75,11 @@ const instance: Hero = {
     needs_testing,
     physics,
     player_selectable,
+    popular_items,
     prerelease_only,
     purchase_bonuses,
     scaling_stats,
+    search_name,
     shop_stat_display,
     skin,
     standard_level_up_upgrades,

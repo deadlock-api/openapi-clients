@@ -57,9 +57,10 @@ namespace DeadlockApiClient.Model
         /// <param name="bulletArmorDamageReduction">bulletArmorDamageReduction</param>
         /// <param name="groundDashDistanceInMeters">groundDashDistanceInMeters</param>
         /// <param name="groundDashDuration">groundDashDuration</param>
+        /// <param name="oocHealthRegen">Out-of-combat health regen (build 6711+).</param>
         /// <param name="techArmorDamageReduction">techArmorDamageReduction</param>
         [JsonConstructor]
-        public StartingStats(StartingStat abilityResourceMax, StartingStat abilityResourceRegenPerSecond, StartingStat baseHealthRegen, StartingStat critDamageReceivedScale, StartingStat crouchSpeed, StartingStat heavyMeleeDamage, StartingStat lightMeleeDamage, StartingStat maxHealth, StartingStat maxMoveSpeed, StartingStat moveAcceleration, StartingStat procBuildUpRateScale, StartingStat reloadSpeed, StartingStat sprintSpeed, StartingStat stamina, StartingStat staminaRegenPerSecond, StartingStat techDuration, StartingStat techRange, StartingStat weaponPower, StartingStat weaponPowerScale, Option<StartingStat?> airDashDistanceInMeters = default, Option<StartingStat?> airDashDuration = default, Option<StartingStat?> bulletArmorDamageReduction = default, Option<StartingStat?> groundDashDistanceInMeters = default, Option<StartingStat?> groundDashDuration = default, Option<StartingStat?> techArmorDamageReduction = default)
+        public StartingStats(StartingStat abilityResourceMax, StartingStat abilityResourceRegenPerSecond, StartingStat baseHealthRegen, StartingStat critDamageReceivedScale, StartingStat crouchSpeed, StartingStat heavyMeleeDamage, StartingStat lightMeleeDamage, StartingStat maxHealth, StartingStat maxMoveSpeed, StartingStat moveAcceleration, StartingStat procBuildUpRateScale, StartingStat reloadSpeed, StartingStat sprintSpeed, StartingStat stamina, StartingStat staminaRegenPerSecond, StartingStat techDuration, StartingStat techRange, StartingStat weaponPower, StartingStat weaponPowerScale, Option<StartingStat?> airDashDistanceInMeters = default, Option<StartingStat?> airDashDuration = default, Option<StartingStat?> bulletArmorDamageReduction = default, Option<StartingStat?> groundDashDistanceInMeters = default, Option<StartingStat?> groundDashDuration = default, Option<StartingStat?> oocHealthRegen = default, Option<StartingStat?> techArmorDamageReduction = default)
         {
             AbilityResourceMax = abilityResourceMax;
             AbilityResourceRegenPerSecond = abilityResourceRegenPerSecond;
@@ -85,6 +86,7 @@ namespace DeadlockApiClient.Model
             BulletArmorDamageReductionOption = bulletArmorDamageReduction;
             GroundDashDistanceInMetersOption = groundDashDistanceInMeters;
             GroundDashDurationOption = groundDashDuration;
+            OocHealthRegenOption = oocHealthRegen;
             TechArmorDamageReductionOption = techArmorDamageReduction;
             OnCreated();
         }
@@ -271,6 +273,20 @@ namespace DeadlockApiClient.Model
         public StartingStat? GroundDashDuration { get { return this.GroundDashDurationOption.Value; } set { this.GroundDashDurationOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of OocHealthRegen
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<StartingStat?> OocHealthRegenOption { get; private set; }
+
+        /// <summary>
+        /// Out-of-combat health regen (build 6711+).
+        /// </summary>
+        /// <value>Out-of-combat health regen (build 6711+).</value>
+        [JsonPropertyName("ooc_health_regen")]
+        public StartingStat? OocHealthRegen { get { return this.OocHealthRegenOption.Value; } set { this.OocHealthRegenOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of TechArmorDamageReduction
         /// </summary>
         [JsonIgnore]
@@ -315,6 +331,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  BulletArmorDamageReduction: ").Append(BulletArmorDamageReduction).Append("\n");
             sb.Append("  GroundDashDistanceInMeters: ").Append(GroundDashDistanceInMeters).Append("\n");
             sb.Append("  GroundDashDuration: ").Append(GroundDashDuration).Append("\n");
+            sb.Append("  OocHealthRegen: ").Append(OocHealthRegen).Append("\n");
             sb.Append("  TechArmorDamageReduction: ").Append(TechArmorDamageReduction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -387,6 +404,7 @@ namespace DeadlockApiClient.Model
             Option<StartingStat?> bulletArmorDamageReduction = default;
             Option<StartingStat?> groundDashDistanceInMeters = default;
             Option<StartingStat?> groundDashDuration = default;
+            Option<StartingStat?> oocHealthRegen = default;
             Option<StartingStat?> techArmorDamageReduction = default;
 
             while (utf8JsonReader.Read())
@@ -475,6 +493,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "ground_dash_duration":
                             groundDashDuration = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "ooc_health_regen":
+                            oocHealthRegen = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "tech_armor_damage_reduction":
                             techArmorDamageReduction = new Option<StartingStat?>(JsonSerializer.Deserialize<StartingStat>(ref utf8JsonReader, jsonSerializerOptions));
@@ -599,7 +620,7 @@ namespace DeadlockApiClient.Model
             if (weaponPowerScale.IsSet && weaponPowerScale.Value == null)
                 throw new ArgumentNullException(nameof(weaponPowerScale), "Property is not nullable for class StartingStats.");
 
-            return new StartingStats(abilityResourceMax.Value!, abilityResourceRegenPerSecond.Value!, baseHealthRegen.Value!, critDamageReceivedScale.Value!, crouchSpeed.Value!, heavyMeleeDamage.Value!, lightMeleeDamage.Value!, maxHealth.Value!, maxMoveSpeed.Value!, moveAcceleration.Value!, procBuildUpRateScale.Value!, reloadSpeed.Value!, sprintSpeed.Value!, stamina.Value!, staminaRegenPerSecond.Value!, techDuration.Value!, techRange.Value!, weaponPower.Value!, weaponPowerScale.Value!, airDashDistanceInMeters, airDashDuration, bulletArmorDamageReduction, groundDashDistanceInMeters, groundDashDuration, techArmorDamageReduction);
+            return new StartingStats(abilityResourceMax.Value!, abilityResourceRegenPerSecond.Value!, baseHealthRegen.Value!, critDamageReceivedScale.Value!, crouchSpeed.Value!, heavyMeleeDamage.Value!, lightMeleeDamage.Value!, maxHealth.Value!, maxMoveSpeed.Value!, moveAcceleration.Value!, procBuildUpRateScale.Value!, reloadSpeed.Value!, sprintSpeed.Value!, stamina.Value!, staminaRegenPerSecond.Value!, techDuration.Value!, techRange.Value!, weaponPower.Value!, weaponPowerScale.Value!, airDashDistanceInMeters, airDashDuration, bulletArmorDamageReduction, groundDashDistanceInMeters, groundDashDuration, oocHealthRegen, techArmorDamageReduction);
         }
 
         /// <summary>
@@ -761,6 +782,14 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("ground_dash_duration");
+            if (startingStats.OocHealthRegenOption.IsSet)
+                if (startingStats.OocHealthRegenOption.Value != null)
+                {
+                    writer.WritePropertyName("ooc_health_regen");
+                    JsonSerializer.Serialize(writer, startingStats.OocHealthRegen, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("ooc_health_regen");
             if (startingStats.TechArmorDamageReductionOption.IsSet)
                 if (startingStats.TechArmorDamageReductionOption.Value != null)
                 {

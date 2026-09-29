@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// List Ranked Seasons
         /// </summary>
         /// <remarks>
-        /// Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+        /// Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval&#39;s leaderboard ID.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
@@ -55,7 +55,7 @@ namespace DeadlockApiClient.Api
         /// List Ranked Seasons
         /// </summary>
         /// <remarks>
-        /// Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+        /// Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval&#39;s leaderboard ID.
         /// </remarks>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
@@ -208,7 +208,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorListRankedSeasons(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> language, Option<int?> clientVersion);
 
         /// <summary>
-        /// List Ranked Seasons Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+        /// List Ranked Seasons Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval&#39;s leaderboard ID.
         /// </summary>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
@@ -227,7 +227,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// List Ranked Seasons Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+        /// List Ranked Seasons Returns the ranked season definitions used by the game client, parsed from the patch&#39;s KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval&#39;s leaderboard ID.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="language">Language code. Defaults to &#x60;english&#x60;. (optional)</param>

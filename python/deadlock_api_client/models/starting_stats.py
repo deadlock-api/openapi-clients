@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from deadlock_api_client.models.starting_stat import StartingStat
 from typing import Optional, Set
@@ -43,6 +43,7 @@ class StartingStats(BaseModel):
     max_health: StartingStat
     max_move_speed: StartingStat
     move_acceleration: StartingStat
+    ooc_health_regen: Optional[StartingStat] = Field(default=None, description="Out-of-combat health regen (build 6711+).")
     proc_build_up_rate_scale: StartingStat
     reload_speed: StartingStat
     sprint_speed: StartingStat
@@ -53,7 +54,7 @@ class StartingStats(BaseModel):
     tech_range: StartingStat
     weapon_power: StartingStat
     weapon_power_scale: StartingStat
-    __properties: ClassVar[List[str]] = ["ability_resource_max", "ability_resource_regen_per_second", "air_dash_distance_in_meters", "air_dash_duration", "base_health_regen", "bullet_armor_damage_reduction", "crit_damage_received_scale", "crouch_speed", "ground_dash_distance_in_meters", "ground_dash_duration", "heavy_melee_damage", "light_melee_damage", "max_health", "max_move_speed", "move_acceleration", "proc_build_up_rate_scale", "reload_speed", "sprint_speed", "stamina", "stamina_regen_per_second", "tech_armor_damage_reduction", "tech_duration", "tech_range", "weapon_power", "weapon_power_scale"]
+    __properties: ClassVar[List[str]] = ["ability_resource_max", "ability_resource_regen_per_second", "air_dash_distance_in_meters", "air_dash_duration", "base_health_regen", "bullet_armor_damage_reduction", "crit_damage_received_scale", "crouch_speed", "ground_dash_distance_in_meters", "ground_dash_duration", "heavy_melee_damage", "light_melee_damage", "max_health", "max_move_speed", "move_acceleration", "ooc_health_regen", "proc_build_up_rate_scale", "reload_speed", "sprint_speed", "stamina", "stamina_regen_per_second", "tech_armor_damage_reduction", "tech_duration", "tech_range", "weapon_power", "weapon_power_scale"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -139,6 +140,9 @@ class StartingStats(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of move_acceleration
         if self.move_acceleration:
             _dict['move_acceleration'] = self.move_acceleration.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of ooc_health_regen
+        if self.ooc_health_regen:
+            _dict['ooc_health_regen'] = self.ooc_health_regen.to_dict()
         # override the default output from pydantic by calling `to_dict()` of proc_build_up_rate_scale
         if self.proc_build_up_rate_scale:
             _dict['proc_build_up_rate_scale'] = self.proc_build_up_rate_scale.to_dict()
@@ -194,6 +198,11 @@ class StartingStats(BaseModel):
         if self.ground_dash_duration is None and "ground_dash_duration" in self.model_fields_set:
             _dict['ground_dash_duration'] = None
 
+        # set to None if ooc_health_regen (nullable) is None
+        # and model_fields_set contains the field
+        if self.ooc_health_regen is None and "ooc_health_regen" in self.model_fields_set:
+            _dict['ooc_health_regen'] = None
+
         # set to None if tech_armor_damage_reduction (nullable) is None
         # and model_fields_set contains the field
         if self.tech_armor_damage_reduction is None and "tech_armor_damage_reduction" in self.model_fields_set:
@@ -226,6 +235,7 @@ class StartingStats(BaseModel):
             "max_health": StartingStat.from_dict(obj["max_health"]) if obj.get("max_health") is not None else None,
             "max_move_speed": StartingStat.from_dict(obj["max_move_speed"]) if obj.get("max_move_speed") is not None else None,
             "move_acceleration": StartingStat.from_dict(obj["move_acceleration"]) if obj.get("move_acceleration") is not None else None,
+            "ooc_health_regen": StartingStat.from_dict(obj["ooc_health_regen"]) if obj.get("ooc_health_regen") is not None else None,
             "proc_build_up_rate_scale": StartingStat.from_dict(obj["proc_build_up_rate_scale"]) if obj.get("proc_build_up_rate_scale") is not None else None,
             "reload_speed": StartingStat.from_dict(obj["reload_speed"]) if obj.get("reload_speed") is not None else None,
             "sprint_speed": StartingStat.from_dict(obj["sprint_speed"]) if obj.get("sprint_speed") is not None else None,

@@ -20,6 +20,7 @@ export * from './MMRApi';
 export * from './MapApi';
 export * from './MatchesApi';
 export * from './MiscEntitiesApi';
+export * from './ModifiersApi';
 export * from './NPCUnitsApi';
 export * from './PatchesApi';
 export * from './PlayersApi';

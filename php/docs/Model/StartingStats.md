@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **max_health** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **max_move_speed** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **move_acceleration** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
+**ooc_health_regen** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) | Out-of-combat health regen (build 6711+). | [optional]
 **proc_build_up_rate_scale** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **reload_speed** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |
 **sprint_speed** | [**\OpenAPI\Client\Model\StartingStat**](StartingStat.md) |  |

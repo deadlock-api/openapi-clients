@@ -19,11 +19,11 @@ import { exists, mapValues } from '../runtime';
  */
 export interface MapImages  {
     /**
-     * Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
+     * Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
      * @type {string}
      * @memberof MapImages
      */
-    background: string;
+    background?: string;
     /**
      * 
      * @type {string}
@@ -43,13 +43,13 @@ export interface MapImages  {
      */
     midTunnels?: string;
     /**
-     * Full minimap. From build 6711 on this is the midtown base layer.
+     * Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
      * @type {string}
      * @memberof MapImages
      */
     minimap: string;
     /**
-     * Minimap without overlays. From build 6711 on this is the midtown base layer.
+     * Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
      * @type {string}
      * @memberof MapImages
      */
@@ -64,7 +64,7 @@ export interface MapImages  {
 
 export function MapImagesFromJSON(json: any): MapImages {
     return {
-        'background': json['background'],
+        'background': !exists(json, 'background') ? undefined : json['background'],
         'frame': json['frame'],
         'mid': json['mid'],
         'midTunnels': !exists(json, 'mid_tunnels') ? undefined : json['mid_tunnels'],

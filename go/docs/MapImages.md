@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Background** | **string** | Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. | 
+**Background** | Pointer to **NullableString** | Background layer drawn under &#x60;mid&#x60;. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on. | [optional] 
 **Frame** | **string** |  | 
 **Mid** | **string** | Midtown base layer. | 
 **MidTunnels** | Pointer to **NullableString** | Mid tunnels overlay, drawn above &#x60;mid&#x60; (build 6711+). | [optional] 
-**Minimap** | **string** | Full minimap. From build 6711 on this is the midtown base layer. | 
-**Plain** | **string** | Minimap without overlays. From build 6711 on this is the midtown base layer. | 
+**Minimap** | **string** | Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as &#x60;mid&#x60;: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own. | 
+**Plain** | **string** | Minimap without overlays. From build 6711 on this is the same street mask as &#x60;mid&#x60; (see &#x60;minimap&#x60;). | 
 **RatTunnels** | Pointer to **NullableString** | Rat tunnels overlay, drawn above &#x60;mid_tunnels&#x60; (build 6711+). | [optional] 
 
 ## Methods
 
 ### NewMapImages
 
-`func NewMapImages(background string, frame string, mid string, minimap string, plain string, ) *MapImages`
+`func NewMapImages(frame string, mid string, minimap string, plain string, ) *MapImages`
 
 NewMapImages instantiates a new MapImages object
 This constructor will assign default values to properties that have it defined,
@@ -50,7 +50,22 @@ and a boolean to check if the value has been set.
 
 SetBackground sets Background field to given value.
 
+### HasBackground
 
+`func (o *MapImages) HasBackground() bool`
+
+HasBackground returns a boolean if a field has been set.
+
+### SetBackgroundNil
+
+`func (o *MapImages) SetBackgroundNil(b bool)`
+
+ SetBackgroundNil sets the value for Background to be an explicit nil
+
+### UnsetBackground
+`func (o *MapImages) UnsetBackground()`
+
+UnsetBackground ensures that no value is present for Background, not even an explicit nil
 ### GetFrame
 
 `func (o *MapImages) GetFrame() string`

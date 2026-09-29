@@ -16,7 +16,15 @@
 
 export interface RawAbilityUpgradePropertyUpgrade {
     'bonus': string;
+    /**
+     * Corrupted item bonuses only (build 6711+).
+     */
+    'fixed_corrupted_bonus'?: boolean | null;
     'name': string;
+    /**
+     * Corrupted item bonuses only (build 6711+).
+     */
+    'round_corrupted_bonus'?: boolean | null;
     'scale_stat_filter'?: string | null;
     'upgrade_type'?: string | null;
 }

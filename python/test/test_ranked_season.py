@@ -35,12 +35,14 @@ class TestRankedSeason(unittest.TestCase):
         model = RankedSeason()
         if include_optional:
             return RankedSeason(
+                base_win_loss_point_grant = 0,
                 calibration_matches = 0,
                 class_name = '',
                 intervals = [
                     deadlock_api_client.models.season_interval.SeasonInterval(
                         end_timestamp = 56, 
                         interval = 0, 
+                        leaderboard_id = 0, 
                         start_timestamp = 56, )
                     ],
                 min_hero_unlocks = 0,
@@ -60,6 +62,7 @@ class TestRankedSeason(unittest.TestCase):
                     deadlock_api_client.models.season_interval.SeasonInterval(
                         end_timestamp = 56, 
                         interval = 0, 
+                        leaderboard_id = 0, 
                         start_timestamp = 56, )
                     ],
                 min_hero_unlocks = 0,

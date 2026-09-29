@@ -60,6 +60,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => 'string[]',
         'class_name' => 'string',
         'duration' => 'float',
+        'enabled_state_mask' => 'string',
         'modifier_values' => '\OpenAPI\Client\Model\ModifierValue[]',
         'script_values' => '\OpenAPI\Client\Model\ModifierValue[]',
         'subclass_name' => 'string',
@@ -78,6 +79,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => null,
         'class_name' => null,
         'duration' => 'double',
+        'enabled_state_mask' => null,
         'modifier_values' => null,
         'script_values' => null,
         'subclass_name' => null,
@@ -94,6 +96,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => true,
         'class_name' => true,
         'duration' => true,
+        'enabled_state_mask' => true,
         'modifier_values' => true,
         'script_values' => true,
         'subclass_name' => true,
@@ -190,6 +193,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => 'always_show_in_ui',
         'class_name' => 'class_name',
         'duration' => 'duration',
+        'enabled_state_mask' => 'enabled_state_mask',
         'modifier_values' => 'modifier_values',
         'script_values' => 'script_values',
         'subclass_name' => 'subclass_name',
@@ -206,6 +210,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => 'setAlwaysShowInUi',
         'class_name' => 'setClassName',
         'duration' => 'setDuration',
+        'enabled_state_mask' => 'setEnabledStateMask',
         'modifier_values' => 'setModifierValues',
         'script_values' => 'setScriptValues',
         'subclass_name' => 'setSubclassName',
@@ -222,6 +227,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         'always_show_in_ui' => 'getAlwaysShowInUi',
         'class_name' => 'getClassName',
         'duration' => 'getDuration',
+        'enabled_state_mask' => 'getEnabledStateMask',
         'modifier_values' => 'getModifierValues',
         'script_values' => 'getScriptValues',
         'subclass_name' => 'getSubclassName',
@@ -289,6 +295,7 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
         $this->setIfExists('always_show_in_ui', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('duration', $data ?? [], null);
+        $this->setIfExists('enabled_state_mask', $data ?? [], null);
         $this->setIfExists('modifier_values', $data ?? [], null);
         $this->setIfExists('script_values', $data ?? [], null);
         $this->setIfExists('subclass_name', $data ?? [], null);
@@ -436,6 +443,40 @@ class SubclassModifierDefinitionSubclass implements ModelInterface, ArrayAccess,
             }
         }
         $this->container['duration'] = $duration;
+
+        return $this;
+    }
+
+    /**
+     * Gets enabled_state_mask
+     *
+     * @return string|null
+     */
+    public function getEnabledStateMask()
+    {
+        return $this->container['enabled_state_mask'];
+    }
+
+    /**
+     * Sets enabled_state_mask
+     *
+     * @param string|null $enabled_state_mask Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
+     *
+     * @return self
+     */
+    public function setEnabledStateMask($enabled_state_mask)
+    {
+        if (is_null($enabled_state_mask)) {
+            array_push($this->openAPINullablesSetToNull, 'enabled_state_mask');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('enabled_state_mask', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['enabled_state_mask'] = $enabled_state_mask;
 
         return $this;
     }

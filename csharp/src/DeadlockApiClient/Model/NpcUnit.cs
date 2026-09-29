@@ -57,6 +57,8 @@ namespace DeadlockApiClient.Model
         /// <param name="healthBarColorTeam1">healthBarColorTeam1</param>
         /// <param name="healthBarColorTeam2">healthBarColorTeam2</param>
         /// <param name="healthBarColorTeamNeutral">healthBarColorTeamNeutral</param>
+        /// <param name="image">Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png.</param>
+        /// <param name="imageWebp">Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp.</param>
         /// <param name="intrinsicModifiers">intrinsicModifiers</param>
         /// <param name="laserDpsMaxHealth">laserDpsMaxHealth</param>
         /// <param name="laserDpsToPlayers">laserDpsToPlayers</param>
@@ -67,7 +69,12 @@ namespace DeadlockApiClient.Model
         /// <param name="meleeDamage">meleeDamage</param>
         /// <param name="meleeDuration">meleeDuration</param>
         /// <param name="meleeHitRange">meleeHitRange</param>
+        /// <param name="name">Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;.</param>
         /// <param name="nearDeathDuration">nearDeathDuration</param>
+        /// <param name="neutralAbilities">Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).</param>
+        /// <param name="neutralDamageGrowth">neutralDamageGrowth</param>
+        /// <param name="neutralMelee">Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).</param>
+        /// <param name="neutralType">Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+).</param>
         /// <param name="noShieldLaserDpsToPlayers">noShieldLaserDpsToPlayers</param>
         /// <param name="objectiveHealthGrowthPhase1">objectiveHealthGrowthPhase1</param>
         /// <param name="objectiveHealthGrowthPhase2">objectiveHealthGrowthPhase2</param>
@@ -98,10 +105,11 @@ namespace DeadlockApiClient.Model
         /// <param name="t3BossDps">t3BossDps</param>
         /// <param name="trooperDamageResistPct">trooperDamageResistPct</param>
         /// <param name="trooperDps">trooperDps</param>
+        /// <param name="viewerSoulsClass">Distance threshold (as string key) → soul orb class shown to the viewer.</param>
         /// <param name="walkSpeed">walkSpeed</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<WeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<double?> nearDeathDuration = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<double?> walkSpeed = default, Option<WeaponInfo?> weaponInfo = default)
+        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<WeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<WeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
@@ -127,6 +135,8 @@ namespace DeadlockApiClient.Model
             HealthBarColorTeam1Option = healthBarColorTeam1;
             HealthBarColorTeam2Option = healthBarColorTeam2;
             HealthBarColorTeamNeutralOption = healthBarColorTeamNeutral;
+            ImageOption = image;
+            ImageWebpOption = imageWebp;
             IntrinsicModifiersOption = intrinsicModifiers;
             LaserDpsMaxHealthOption = laserDpsMaxHealth;
             LaserDpsToPlayersOption = laserDpsToPlayers;
@@ -137,7 +147,12 @@ namespace DeadlockApiClient.Model
             MeleeDamageOption = meleeDamage;
             MeleeDurationOption = meleeDuration;
             MeleeHitRangeOption = meleeHitRange;
+            NameOption = name;
             NearDeathDurationOption = nearDeathDuration;
+            NeutralAbilitiesOption = neutralAbilities;
+            NeutralDamageGrowthOption = neutralDamageGrowth;
+            NeutralMeleeOption = neutralMelee;
+            NeutralTypeOption = neutralType;
             NoShieldLaserDpsToPlayersOption = noShieldLaserDpsToPlayers;
             ObjectiveHealthGrowthPhase1Option = objectiveHealthGrowthPhase1;
             ObjectiveHealthGrowthPhase2Option = objectiveHealthGrowthPhase2;
@@ -168,6 +183,7 @@ namespace DeadlockApiClient.Model
             T3BossDpsOption = t3BossDps;
             TrooperDamageResistPctOption = trooperDamageResistPct;
             TrooperDpsOption = trooperDps;
+            ViewerSoulsClassOption = viewerSoulsClass;
             WalkSpeedOption = walkSpeed;
             WeaponInfoOption = weaponInfo;
             OnCreated();
@@ -475,6 +491,34 @@ namespace DeadlockApiClient.Model
         public Color? HealthBarColorTeamNeutral { get { return this.HealthBarColorTeamNeutralOption.Value; } set { this.HealthBarColorTeamNeutralOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of Image
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> ImageOption { get; private set; }
+
+        /// <summary>
+        /// Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png.
+        /// </summary>
+        /// <value>Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as png.</value>
+        [JsonPropertyName("image")]
+        public string? Image { get { return this.ImageOption.Value; } set { this.ImageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ImageWebp
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> ImageWebpOption { get; private set; }
+
+        /// <summary>
+        /// Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp.
+        /// </summary>
+        /// <value>Unit icon (&#x60;m_strCustomUnitIcon&#x60;) as webp.</value>
+        [JsonPropertyName("image_webp")]
+        public string? ImageWebp { get { return this.ImageWebpOption.Value; } set { this.ImageWebpOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of IntrinsicModifiers
         /// </summary>
         [JsonIgnore]
@@ -605,6 +649,20 @@ namespace DeadlockApiClient.Model
         public double? MeleeHitRange { get { return this.MeleeHitRangeOption.Value; } set { this.MeleeHitRangeOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of Name
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> NameOption { get; private set; }
+
+        /// <summary>
+        /// Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;.
+        /// </summary>
+        /// <value>Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;.</value>
+        [JsonPropertyName("name")]
+        public string? Name { get { return this.NameOption.Value; } set { this.NameOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of NearDeathDuration
         /// </summary>
         [JsonIgnore]
@@ -616,6 +674,61 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("near_death_duration")]
         public double? NearDeathDuration { get { return this.NearDeathDurationOption.Value; } set { this.NearDeathDurationOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of NeutralAbilities
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<string>?> NeutralAbilitiesOption { get; private set; }
+
+        /// <summary>
+        /// Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).
+        /// </summary>
+        /// <value>Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).</value>
+        [JsonPropertyName("neutral_abilities")]
+        public List<string>? NeutralAbilities { get { return this.NeutralAbilitiesOption.Value; } set { this.NeutralAbilitiesOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of NeutralDamageGrowth
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<SubclassNeutralDamageGrowth?> NeutralDamageGrowthOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets NeutralDamageGrowth
+        /// </summary>
+        [JsonPropertyName("neutral_damage_growth")]
+        public SubclassNeutralDamageGrowth? NeutralDamageGrowth { get { return this.NeutralDamageGrowthOption.Value; } set { this.NeutralDamageGrowthOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of NeutralMelee
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> NeutralMeleeOption { get; private set; }
+
+        /// <summary>
+        /// Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).
+        /// </summary>
+        /// <value>Neutral melee ability class name; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).</value>
+        [JsonPropertyName("neutral_melee")]
+        public string? NeutralMelee { get { return this.NeutralMeleeOption.Value; } set { this.NeutralMeleeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of NeutralType
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> NeutralTypeOption { get; private set; }
+
+        /// <summary>
+        /// Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+).
+        /// </summary>
+        /// <value>Neutral tier, e.g. &#x60;NEUTRAL_NPC_WEAK&#x60; (builds 6711+).</value>
+        [JsonPropertyName("neutral_type")]
+        public string? NeutralType { get { return this.NeutralTypeOption.Value; } set { this.NeutralTypeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of NoShieldLaserDpsToPlayers
@@ -1008,6 +1121,20 @@ namespace DeadlockApiClient.Model
         public double? TrooperDps { get { return this.TrooperDpsOption.Value; } set { this.TrooperDpsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of ViewerSoulsClass
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, string>?> ViewerSoulsClassOption { get; private set; }
+
+        /// <summary>
+        /// Distance threshold (as string key) → soul orb class shown to the viewer.
+        /// </summary>
+        /// <value>Distance threshold (as string key) → soul orb class shown to the viewer.</value>
+        [JsonPropertyName("viewer_souls_class")]
+        public Dictionary<string, string>? ViewerSoulsClass { get { return this.ViewerSoulsClassOption.Value; } set { this.ViewerSoulsClassOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of WalkSpeed
         /// </summary>
         [JsonIgnore]
@@ -1065,6 +1192,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  HealthBarColorTeam1: ").Append(HealthBarColorTeam1).Append("\n");
             sb.Append("  HealthBarColorTeam2: ").Append(HealthBarColorTeam2).Append("\n");
             sb.Append("  HealthBarColorTeamNeutral: ").Append(HealthBarColorTeamNeutral).Append("\n");
+            sb.Append("  Image: ").Append(Image).Append("\n");
+            sb.Append("  ImageWebp: ").Append(ImageWebp).Append("\n");
             sb.Append("  IntrinsicModifiers: ").Append(IntrinsicModifiers).Append("\n");
             sb.Append("  LaserDpsMaxHealth: ").Append(LaserDpsMaxHealth).Append("\n");
             sb.Append("  LaserDpsToPlayers: ").Append(LaserDpsToPlayers).Append("\n");
@@ -1075,7 +1204,12 @@ namespace DeadlockApiClient.Model
             sb.Append("  MeleeDamage: ").Append(MeleeDamage).Append("\n");
             sb.Append("  MeleeDuration: ").Append(MeleeDuration).Append("\n");
             sb.Append("  MeleeHitRange: ").Append(MeleeHitRange).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NearDeathDuration: ").Append(NearDeathDuration).Append("\n");
+            sb.Append("  NeutralAbilities: ").Append(NeutralAbilities).Append("\n");
+            sb.Append("  NeutralDamageGrowth: ").Append(NeutralDamageGrowth).Append("\n");
+            sb.Append("  NeutralMelee: ").Append(NeutralMelee).Append("\n");
+            sb.Append("  NeutralType: ").Append(NeutralType).Append("\n");
             sb.Append("  NoShieldLaserDpsToPlayers: ").Append(NoShieldLaserDpsToPlayers).Append("\n");
             sb.Append("  ObjectiveHealthGrowthPhase1: ").Append(ObjectiveHealthGrowthPhase1).Append("\n");
             sb.Append("  ObjectiveHealthGrowthPhase2: ").Append(ObjectiveHealthGrowthPhase2).Append("\n");
@@ -1106,6 +1240,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  T3BossDps: ").Append(T3BossDps).Append("\n");
             sb.Append("  TrooperDamageResistPct: ").Append(TrooperDamageResistPct).Append("\n");
             sb.Append("  TrooperDps: ").Append(TrooperDps).Append("\n");
+            sb.Append("  ViewerSoulsClass: ").Append(ViewerSoulsClass).Append("\n");
             sb.Append("  WalkSpeed: ").Append(WalkSpeed).Append("\n");
             sb.Append("  WeaponInfo: ").Append(WeaponInfo).Append("\n");
             sb.Append("}\n");
@@ -1185,6 +1320,8 @@ namespace DeadlockApiClient.Model
             Option<Color?> healthBarColorTeam1 = default;
             Option<Color?> healthBarColorTeam2 = default;
             Option<Color?> healthBarColorTeamNeutral = default;
+            Option<string?> image = default;
+            Option<string?> imageWebp = default;
             Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default;
             Option<double?> laserDpsMaxHealth = default;
             Option<double?> laserDpsToPlayers = default;
@@ -1195,7 +1332,12 @@ namespace DeadlockApiClient.Model
             Option<double?> meleeDamage = default;
             Option<double?> meleeDuration = default;
             Option<double?> meleeHitRange = default;
+            Option<string?> name = default;
             Option<double?> nearDeathDuration = default;
+            Option<List<string>?> neutralAbilities = default;
+            Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default;
+            Option<string?> neutralMelee = default;
+            Option<string?> neutralType = default;
             Option<double?> noShieldLaserDpsToPlayers = default;
             Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default;
             Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default;
@@ -1226,6 +1368,7 @@ namespace DeadlockApiClient.Model
             Option<double?> t3BossDps = default;
             Option<double?> trooperDamageResistPct = default;
             Option<double?> trooperDps = default;
+            Option<Dictionary<string, string>?> viewerSoulsClass = default;
             Option<double?> walkSpeed = default;
             Option<WeaponInfo?> weaponInfo = default;
 
@@ -1316,6 +1459,12 @@ namespace DeadlockApiClient.Model
                         case "health_bar_color_team_neutral":
                             healthBarColorTeamNeutral = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
+                        case "image":
+                            image = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "image_webp":
+                            imageWebp = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "intrinsic_modifiers":
                             intrinsicModifiers = new Option<List<SubclassIntrinsicModifiers>?>(JsonSerializer.Deserialize<List<SubclassIntrinsicModifiers>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
@@ -1346,8 +1495,23 @@ namespace DeadlockApiClient.Model
                         case "melee_hit_range":
                             meleeHitRange = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "name":
+                            name = new Option<string?>(utf8JsonReader.GetString());
+                            break;
                         case "near_death_duration":
                             nearDeathDuration = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "neutral_abilities":
+                            neutralAbilities = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "neutral_damage_growth":
+                            neutralDamageGrowth = new Option<SubclassNeutralDamageGrowth?>(JsonSerializer.Deserialize<SubclassNeutralDamageGrowth>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "neutral_melee":
+                            neutralMelee = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "neutral_type":
+                            neutralType = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "no_shield_laser_dps_to_players":
                             noShieldLaserDpsToPlayers = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -1439,6 +1603,9 @@ namespace DeadlockApiClient.Model
                         case "trooper_dps":
                             trooperDps = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "viewer_souls_class":
+                            viewerSoulsClass = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "walk_speed":
                             walkSpeed = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -1463,7 +1630,7 @@ namespace DeadlockApiClient.Model
             if (id.IsSet && id.Value == null)
                 throw new ArgumentNullException(nameof(id), "Property is not nullable for class NpcUnit.");
 
-            return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, bossWeaponInfo, boundAbilities, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, nearDeathDuration, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, trooperDamageResistPct, trooperDps, walkSpeed, weaponInfo);
+            return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, bossWeaponInfo, boundAbilities, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, image, imageWebp, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, name, nearDeathDuration, neutralAbilities, neutralDamageGrowth, neutralMelee, neutralType, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, trooperDamageResistPct, trooperDps, viewerSoulsClass, walkSpeed, weaponInfo);
         }
 
         /// <summary>
@@ -1651,6 +1818,18 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("health_bar_color_team_neutral");
+            if (npcUnit.ImageOption.IsSet)
+                if (npcUnit.ImageOption.Value != null)
+                    writer.WriteString("image", npcUnit.Image);
+                else
+                    writer.WriteNull("image");
+
+            if (npcUnit.ImageWebpOption.IsSet)
+                if (npcUnit.ImageWebpOption.Value != null)
+                    writer.WriteString("image_webp", npcUnit.ImageWebp);
+                else
+                    writer.WriteNull("image_webp");
+
             if (npcUnit.IntrinsicModifiersOption.IsSet)
                 if (npcUnit.IntrinsicModifiersOption.Value != null)
                 {
@@ -1713,11 +1892,45 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("melee_hit_range");
 
+            if (npcUnit.NameOption.IsSet)
+                if (npcUnit.NameOption.Value != null)
+                    writer.WriteString("name", npcUnit.Name);
+                else
+                    writer.WriteNull("name");
+
             if (npcUnit.NearDeathDurationOption.IsSet)
                 if (npcUnit.NearDeathDurationOption.Value != null)
                     writer.WriteNumber("near_death_duration", npcUnit.NearDeathDurationOption.Value!.Value);
                 else
                     writer.WriteNull("near_death_duration");
+
+            if (npcUnit.NeutralAbilitiesOption.IsSet)
+                if (npcUnit.NeutralAbilitiesOption.Value != null)
+                {
+                    writer.WritePropertyName("neutral_abilities");
+                    JsonSerializer.Serialize(writer, npcUnit.NeutralAbilities, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("neutral_abilities");
+            if (npcUnit.NeutralDamageGrowthOption.IsSet)
+                if (npcUnit.NeutralDamageGrowthOption.Value != null)
+                {
+                    writer.WritePropertyName("neutral_damage_growth");
+                    JsonSerializer.Serialize(writer, npcUnit.NeutralDamageGrowth, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("neutral_damage_growth");
+            if (npcUnit.NeutralMeleeOption.IsSet)
+                if (npcUnit.NeutralMeleeOption.Value != null)
+                    writer.WriteString("neutral_melee", npcUnit.NeutralMelee);
+                else
+                    writer.WriteNull("neutral_melee");
+
+            if (npcUnit.NeutralTypeOption.IsSet)
+                if (npcUnit.NeutralTypeOption.Value != null)
+                    writer.WriteString("neutral_type", npcUnit.NeutralType);
+                else
+                    writer.WriteNull("neutral_type");
 
             if (npcUnit.NoShieldLaserDpsToPlayersOption.IsSet)
                 if (npcUnit.NoShieldLaserDpsToPlayersOption.Value != null)
@@ -1907,6 +2120,14 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("trooper_dps");
 
+            if (npcUnit.ViewerSoulsClassOption.IsSet)
+                if (npcUnit.ViewerSoulsClassOption.Value != null)
+                {
+                    writer.WritePropertyName("viewer_souls_class");
+                    JsonSerializer.Serialize(writer, npcUnit.ViewerSoulsClass, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("viewer_souls_class");
             if (npcUnit.WalkSpeedOption.IsSet)
                 if (npcUnit.WalkSpeedOption.Value != null)
                     writer.WriteNumber("walk_speed", npcUnit.WalkSpeedOption.Value!.Value);

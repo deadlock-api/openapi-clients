@@ -19,11 +19,14 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams
 from deadlock_api_client.models.color import Color
+from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty
 from deadlock_api_client.models.damage_flash import DamageFlash
 from deadlock_api_client.models.glitch_settings import GlitchSettings
 from deadlock_api_client.models.item_group import ItemGroup
 from deadlock_api_client.models.lane_info import LaneInfo
+from deadlock_api_client.models.map_district import MapDistrict
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
 from deadlock_api_client.models.new_player_metrics import NewPlayerMetrics
 from deadlock_api_client.models.objective_params import ObjectiveParams
@@ -39,21 +42,26 @@ class GenericData(BaseModel):
     """ # noqa: E501
     aim_spring_strength: List[Union[StrictFloat, StrictInt]]
     armor_groups: List[ItemGroup]
+    breakable_powerup_loot_params: Optional[BreakablePowerupLootParams] = Field(default=None, description="Loot tables for breakable powerup props (build 6711+).")
     color_enemy: Optional[Color] = Field(default=None, description="Build 6711+.")
     color_friend: Optional[Color] = Field(default=None, description="Build 6711+.")
     color_team1: Optional[Color] = Field(default=None, description="Build 6711+.")
     color_team2: Optional[Color] = Field(default=None, description="Build 6711+.")
+    corrupted_penalties: Optional[List[CorruptedPenalty]] = Field(default=None, description="Penalties that can be rolled onto corrupted items (build 6711+).")
     damage_flash: DamageFlash
     enemy_objectives_and_zipline_color: Optional[Color] = None
     enemy_objectives_color: Optional[Color] = None
     enemy_zipline_color: Optional[Color] = None
     glitch_settings: GlitchSettings
     hero_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
+    item_corruption_price_per_tier: Optional[List[StrictInt]] = Field(default=None, description="Extra cost of corrupting an item, by item tier (build 6711+).")
     item_price_per_tier: List[StrictInt]
     lane_info: List[LaneInfo]
+    map_districts: Optional[List[MapDistrict]] = Field(default=None, description="District / building labels shown on the map (build 6711+).")
     mini_map_offsets: List[MiniMapOffsets]
     minimap_team_combine_color: Optional[Color] = None
     minimap_team_rebels_color: Optional[Color] = None
+    neutral_camp_respawn_timer_show_distance: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Distance within which a neutral camp's respawn timer is shown (build 6711+).")
     new_player_metrics: List[NewPlayerMetrics]
     objective_params: ObjectiveParams
     rejuv_params: RejuvParams
@@ -62,7 +70,7 @@ class GenericData(BaseModel):
     targeting_spring_strength: List[Union[StrictFloat, StrictInt]]
     trooper_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     weapon_groups: List[ItemGroup]
-    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "color_enemy", "color_friend", "color_team1", "color_team2", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_price_per_tier", "lane_info", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
+    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "breakable_powerup_loot_params", "color_enemy", "color_friend", "color_team1", "color_team2", "corrupted_penalties", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_corruption_price_per_tier", "item_price_per_tier", "lane_info", "map_districts", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "neutral_camp_respawn_timer_show_distance", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -109,6 +117,9 @@ class GenericData(BaseModel):
             for _item_armor_groups in self.armor_groups:
                 _items.append(_item_armor_groups.to_dict() if _item_armor_groups is not None else None)
             _dict['armor_groups'] = _items
+        # override the default output from pydantic by calling `to_dict()` of breakable_powerup_loot_params
+        if self.breakable_powerup_loot_params:
+            _dict['breakable_powerup_loot_params'] = self.breakable_powerup_loot_params.to_dict()
         # override the default output from pydantic by calling `to_dict()` of color_enemy
         if self.color_enemy:
             _dict['color_enemy'] = self.color_enemy.to_dict()
@@ -121,6 +132,12 @@ class GenericData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of color_team2
         if self.color_team2:
             _dict['color_team2'] = self.color_team2.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in corrupted_penalties (list)
+        _items = []
+        if self.corrupted_penalties:
+            for _item_corrupted_penalties in self.corrupted_penalties:
+                _items.append(_item_corrupted_penalties.to_dict() if _item_corrupted_penalties is not None else None)
+            _dict['corrupted_penalties'] = _items
         # override the default output from pydantic by calling `to_dict()` of damage_flash
         if self.damage_flash:
             _dict['damage_flash'] = self.damage_flash.to_dict()
@@ -142,6 +159,12 @@ class GenericData(BaseModel):
             for _item_lane_info in self.lane_info:
                 _items.append(_item_lane_info.to_dict() if _item_lane_info is not None else None)
             _dict['lane_info'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in map_districts (list)
+        _items = []
+        if self.map_districts:
+            for _item_map_districts in self.map_districts:
+                _items.append(_item_map_districts.to_dict() if _item_map_districts is not None else None)
+            _dict['map_districts'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in mini_map_offsets (list)
         _items = []
         if self.mini_map_offsets:
@@ -181,6 +204,11 @@ class GenericData(BaseModel):
             for _item_weapon_groups in self.weapon_groups:
                 _items.append(_item_weapon_groups.to_dict() if _item_weapon_groups is not None else None)
             _dict['weapon_groups'] = _items
+        # set to None if breakable_powerup_loot_params (nullable) is None
+        # and model_fields_set contains the field
+        if self.breakable_powerup_loot_params is None and "breakable_powerup_loot_params" in self.model_fields_set:
+            _dict['breakable_powerup_loot_params'] = None
+
         # set to None if color_enemy (nullable) is None
         # and model_fields_set contains the field
         if self.color_enemy is None and "color_enemy" in self.model_fields_set:
@@ -201,6 +229,11 @@ class GenericData(BaseModel):
         if self.color_team2 is None and "color_team2" in self.model_fields_set:
             _dict['color_team2'] = None
 
+        # set to None if corrupted_penalties (nullable) is None
+        # and model_fields_set contains the field
+        if self.corrupted_penalties is None and "corrupted_penalties" in self.model_fields_set:
+            _dict['corrupted_penalties'] = None
+
         # set to None if enemy_objectives_and_zipline_color (nullable) is None
         # and model_fields_set contains the field
         if self.enemy_objectives_and_zipline_color is None and "enemy_objectives_and_zipline_color" in self.model_fields_set:
@@ -216,6 +249,16 @@ class GenericData(BaseModel):
         if self.enemy_zipline_color is None and "enemy_zipline_color" in self.model_fields_set:
             _dict['enemy_zipline_color'] = None
 
+        # set to None if item_corruption_price_per_tier (nullable) is None
+        # and model_fields_set contains the field
+        if self.item_corruption_price_per_tier is None and "item_corruption_price_per_tier" in self.model_fields_set:
+            _dict['item_corruption_price_per_tier'] = None
+
+        # set to None if map_districts (nullable) is None
+        # and model_fields_set contains the field
+        if self.map_districts is None and "map_districts" in self.model_fields_set:
+            _dict['map_districts'] = None
+
         # set to None if minimap_team_combine_color (nullable) is None
         # and model_fields_set contains the field
         if self.minimap_team_combine_color is None and "minimap_team_combine_color" in self.model_fields_set:
@@ -225,6 +268,11 @@ class GenericData(BaseModel):
         # and model_fields_set contains the field
         if self.minimap_team_rebels_color is None and "minimap_team_rebels_color" in self.model_fields_set:
             _dict['minimap_team_rebels_color'] = None
+
+        # set to None if neutral_camp_respawn_timer_show_distance (nullable) is None
+        # and model_fields_set contains the field
+        if self.neutral_camp_respawn_timer_show_distance is None and "neutral_camp_respawn_timer_show_distance" in self.model_fields_set:
+            _dict['neutral_camp_respawn_timer_show_distance'] = None
 
         # set to None if street_brawl (nullable) is None
         # and model_fields_set contains the field
@@ -245,21 +293,26 @@ class GenericData(BaseModel):
         _obj = cls.model_validate({
             "aim_spring_strength": obj.get("aim_spring_strength"),
             "armor_groups": [ItemGroup.from_dict(_item) for _item in obj["armor_groups"]] if obj.get("armor_groups") is not None else None,
+            "breakable_powerup_loot_params": BreakablePowerupLootParams.from_dict(obj["breakable_powerup_loot_params"]) if obj.get("breakable_powerup_loot_params") is not None else None,
             "color_enemy": Color.from_dict(obj["color_enemy"]) if obj.get("color_enemy") is not None else None,
             "color_friend": Color.from_dict(obj["color_friend"]) if obj.get("color_friend") is not None else None,
             "color_team1": Color.from_dict(obj["color_team1"]) if obj.get("color_team1") is not None else None,
             "color_team2": Color.from_dict(obj["color_team2"]) if obj.get("color_team2") is not None else None,
+            "corrupted_penalties": [CorruptedPenalty.from_dict(_item) for _item in obj["corrupted_penalties"]] if obj.get("corrupted_penalties") is not None else None,
             "damage_flash": DamageFlash.from_dict(obj["damage_flash"]) if obj.get("damage_flash") is not None else None,
             "enemy_objectives_and_zipline_color": Color.from_dict(obj["enemy_objectives_and_zipline_color"]) if obj.get("enemy_objectives_and_zipline_color") is not None else None,
             "enemy_objectives_color": Color.from_dict(obj["enemy_objectives_color"]) if obj.get("enemy_objectives_color") is not None else None,
             "enemy_zipline_color": Color.from_dict(obj["enemy_zipline_color"]) if obj.get("enemy_zipline_color") is not None else None,
             "glitch_settings": GlitchSettings.from_dict(obj["glitch_settings"]) if obj.get("glitch_settings") is not None else None,
             "hero_kill_gold_share_frac": obj.get("hero_kill_gold_share_frac"),
+            "item_corruption_price_per_tier": obj.get("item_corruption_price_per_tier"),
             "item_price_per_tier": obj.get("item_price_per_tier"),
             "lane_info": [LaneInfo.from_dict(_item) for _item in obj["lane_info"]] if obj.get("lane_info") is not None else None,
+            "map_districts": [MapDistrict.from_dict(_item) for _item in obj["map_districts"]] if obj.get("map_districts") is not None else None,
             "mini_map_offsets": [MiniMapOffsets.from_dict(_item) for _item in obj["mini_map_offsets"]] if obj.get("mini_map_offsets") is not None else None,
             "minimap_team_combine_color": Color.from_dict(obj["minimap_team_combine_color"]) if obj.get("minimap_team_combine_color") is not None else None,
             "minimap_team_rebels_color": Color.from_dict(obj["minimap_team_rebels_color"]) if obj.get("minimap_team_rebels_color") is not None else None,
+            "neutral_camp_respawn_timer_show_distance": obj.get("neutral_camp_respawn_timer_show_distance"),
             "new_player_metrics": [NewPlayerMetrics.from_dict(_item) for _item in obj["new_player_metrics"]] if obj.get("new_player_metrics") is not None else None,
             "objective_params": ObjectiveParams.from_dict(obj["objective_params"]) if obj.get("objective_params") is not None else None,
             "rejuv_params": RejuvParams.from_dict(obj["rejuv_params"]) if obj.get("rejuv_params") is not None else None,

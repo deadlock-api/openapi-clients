@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **TrooperSpawnTimer** | **List&lt;double&gt;** |  | 
 **UltimateUnlockRound** | **long** |  | 
 **ZipBoostCooldownOnStart** | **double** |  | 
+**CorruptItemRound** | **long** | Round in which players may corrupt an item (build 6711+). | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

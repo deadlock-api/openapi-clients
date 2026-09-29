@@ -42,11 +42,12 @@ class ItemProperty(BaseModel):
     postvalue_label: Optional[StrictStr] = None
     prefix: Optional[StrictStr] = None
     provided_property_type: Optional[StrictStr] = None
+    required_upgrade_bits: Optional[List[StrictStr]] = Field(default=None, description="Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).")
     scale_function: Optional[RawItemPropertyScaleFunctionSubclass] = None
     street_brawl_value: Optional[StrictStr] = None
     usage_flags: Optional[List[StatsUsageFlag]] = None
     value: Optional[StrictStr] = Field(default=None, description="Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).")
-    __properties: ClassVar[List[str]] = ["can_set_token_override", "conditional", "css_class", "disable_value", "display_units", "icon", "label", "loc_token_override", "negative_attribute", "postfix", "postvalue_label", "prefix", "provided_property_type", "scale_function", "street_brawl_value", "usage_flags", "value"]
+    __properties: ClassVar[List[str]] = ["can_set_token_override", "conditional", "css_class", "disable_value", "display_units", "icon", "label", "loc_token_override", "negative_attribute", "postfix", "postvalue_label", "prefix", "provided_property_type", "required_upgrade_bits", "scale_function", "street_brawl_value", "usage_flags", "value"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -155,6 +156,11 @@ class ItemProperty(BaseModel):
         if self.provided_property_type is None and "provided_property_type" in self.model_fields_set:
             _dict['provided_property_type'] = None
 
+        # set to None if required_upgrade_bits (nullable) is None
+        # and model_fields_set contains the field
+        if self.required_upgrade_bits is None and "required_upgrade_bits" in self.model_fields_set:
+            _dict['required_upgrade_bits'] = None
+
         # set to None if scale_function (nullable) is None
         # and model_fields_set contains the field
         if self.scale_function is None and "scale_function" in self.model_fields_set:
@@ -200,6 +206,7 @@ class ItemProperty(BaseModel):
             "postvalue_label": obj.get("postvalue_label"),
             "prefix": obj.get("prefix"),
             "provided_property_type": obj.get("provided_property_type"),
+            "required_upgrade_bits": obj.get("required_upgrade_bits"),
             "scale_function": RawItemPropertyScaleFunctionSubclass.from_dict(obj["scale_function"]) if obj.get("scale_function") is not None else None,
             "street_brawl_value": obj.get("street_brawl_value"),
             "usage_flags": obj.get("usage_flags"),

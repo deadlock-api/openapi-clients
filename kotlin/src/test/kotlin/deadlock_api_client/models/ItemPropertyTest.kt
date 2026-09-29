@@ -113,6 +113,12 @@ class ItemPropertyTest : ShouldSpec() {
             //modelInstance.providedPropertyType shouldBe ("TODO")
         }
 
+        // to test the property `requiredUpgradeBits` - Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+        should("test requiredUpgradeBits") {
+            // uncomment below to test the property
+            //modelInstance.requiredUpgradeBits shouldBe ("TODO")
+        }
+
         // to test the property `scaleFunction`
         should("test scaleFunction") {
             // uncomment below to test the property

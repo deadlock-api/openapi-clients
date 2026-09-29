@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,8 +30,9 @@ class SeasonInterval(BaseModel):
     """ # noqa: E501
     end_timestamp: StrictInt = Field(description="Unix timestamp (seconds) at which the interval ends.")
     interval: Annotated[int, Field(strict=True, ge=0)]
+    leaderboard_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Leaderboard backing this interval (build 6701+).")
     start_timestamp: StrictInt = Field(description="Unix timestamp (seconds) at which the interval starts.")
-    __properties: ClassVar[List[str]] = ["end_timestamp", "interval", "start_timestamp"]
+    __properties: ClassVar[List[str]] = ["end_timestamp", "interval", "leaderboard_id", "start_timestamp"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -72,6 +73,11 @@ class SeasonInterval(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if leaderboard_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.leaderboard_id is None and "leaderboard_id" in self.model_fields_set:
+            _dict['leaderboard_id'] = None
+
         return _dict
 
     @classmethod
@@ -86,6 +92,7 @@ class SeasonInterval(BaseModel):
         _obj = cls.model_validate({
             "end_timestamp": obj.get("end_timestamp"),
             "interval": obj.get("interval"),
+            "leaderboard_id": obj.get("leaderboard_id"),
             "start_timestamp": obj.get("start_timestamp")
         })
         return _obj

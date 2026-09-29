@@ -183,6 +183,8 @@ Class | Method | HTTP request | Description
 *MatchesApi* | [**urls**](docs/Api/MatchesApi.md#urls) | **GET** /v1/matches/live/urls | Live Broadcast URLs
 *MiscEntitiesApi* | [**getMiscEntity**](docs/Api/MiscEntitiesApi.md#getmiscentity) | **GET** /v1/assets/misc-entities/{id_or_classname} | Get Misc Entity
 *MiscEntitiesApi* | [**listMiscEntities**](docs/Api/MiscEntitiesApi.md#listmiscentities) | **GET** /v1/assets/misc-entities | List Misc Entities
+*ModifiersApi* | [**getModifier**](docs/Api/ModifiersApi.md#getmodifier) | **GET** /v1/assets/modifiers/{id_or_classname} | Get Modifier
+*ModifiersApi* | [**listModifiers**](docs/Api/ModifiersApi.md#listmodifiers) | **GET** /v1/assets/modifiers | List Modifiers
 *NPCUnitsApi* | [**getNpcUnit**](docs/Api/NPCUnitsApi.md#getnpcunit) | **GET** /v1/assets/npc-units/{id_or_classname} | Get NPC Unit
 *NPCUnitsApi* | [**listNpcUnits**](docs/Api/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](docs/Api/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
@@ -237,6 +239,7 @@ Class | Method | HTTP request | Description
 - [AnalyticsGameStats](docs/Model/AnalyticsGameStats.md)
 - [AnalyticsHeroStats](docs/Model/AnalyticsHeroStats.md)
 - [BadgeDistribution](docs/Model/BadgeDistribution.md)
+- [BreakablePowerupLootParams](docs/Model/BreakablePowerupLootParams.md)
 - [Build](docs/Model/Build.md)
 - [BuildHero](docs/Model/BuildHero.md)
 - [BuildHeroDetails](docs/Model/BuildHeroDetails.md)
@@ -251,6 +254,9 @@ Class | Method | HTTP request | Description
 - [Color](docs/Model/Color.md)
 - [ColorGradientStop](docs/Model/ColorGradientStop.md)
 - [ColumnSchema](docs/Model/ColumnSchema.md)
+- [CorruptedItemInfo](docs/Model/CorruptedItemInfo.md)
+- [CorruptedPenalty](docs/Model/CorruptedPenalty.md)
+- [CorruptedPenaltyEffect](docs/Model/CorruptedPenaltyEffect.md)
 - [CreateCustomRequest](docs/Model/CreateCustomRequest.md)
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [Curve](docs/Model/Curve.md)
@@ -296,6 +302,8 @@ Class | Method | HTTP request | Description
 - [HeroEntry](docs/Model/HeroEntry.md)
 - [HeroImages](docs/Model/HeroImages.md)
 - [HeroPhysics](docs/Model/HeroPhysics.md)
+- [HeroPopularItem](docs/Model/HeroPopularItem.md)
+- [HeroPopularItems](docs/Model/HeroPopularItems.md)
 - [HeroStats](docs/Model/HeroStats.md)
 - [HeroStatsUI](docs/Model/HeroStatsUI.md)
 - [HeroStatsUIDisplay](docs/Model/HeroStatsUIDisplay.md)
@@ -332,6 +340,7 @@ Class | Method | HTTP request | Description
 - [LootTable](docs/Model/LootTable.md)
 - [MMRHistory](docs/Model/MMRHistory.md)
 - [MapData](docs/Model/MapData.md)
+- [MapDistrict](docs/Model/MapDistrict.md)
 - [MapImages](docs/Model/MapImages.md)
 - [MatchPlayer](docs/Model/MatchPlayer.md)
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)
@@ -339,7 +348,10 @@ Class | Method | HTTP request | Description
 - [MateStats](docs/Model/MateStats.md)
 - [MiniMapOffsets](docs/Model/MiniMapOffsets.md)
 - [MiscEntity](docs/Model/MiscEntity.md)
+- [Modifier](docs/Model/Modifier.md)
 - [ModifierValue](docs/Model/ModifierValue.md)
+- [NeutralCamp](docs/Model/NeutralCamp.md)
+- [NeutralCampKind](docs/Model/NeutralCampKind.md)
 - [NewPlayerMetrics](docs/Model/NewPlayerMetrics.md)
 - [NpcUnit](docs/Model/NpcUnit.md)
 - [ObjectiveParams](docs/Model/ObjectiveParams.md)
@@ -408,6 +420,8 @@ Class | Method | HTTP request | Description
 - [SubclassIntrinsicModifiersSubclass](docs/Model/SubclassIntrinsicModifiersSubclass.md)
 - [SubclassModifierDefinition](docs/Model/SubclassModifierDefinition.md)
 - [SubclassModifierDefinitionSubclass](docs/Model/SubclassModifierDefinitionSubclass.md)
+- [SubclassNeutralDamageGrowth](docs/Model/SubclassNeutralDamageGrowth.md)
+- [SubclassNeutralDamageGrowthSubclass](docs/Model/SubclassNeutralDamageGrowthSubclass.md)
 - [SubclassObjectiveHealthGrowthPhase](docs/Model/SubclassObjectiveHealthGrowthPhase.md)
 - [SubclassObjectiveHealthGrowthPhaseSubclass](docs/Model/SubclassObjectiveHealthGrowthPhaseSubclass.md)
 - [SubclassObjectiveRegen](docs/Model/SubclassObjectiveRegen.md)

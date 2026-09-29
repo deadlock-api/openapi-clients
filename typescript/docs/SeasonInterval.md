@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **end_timestamp** | **number** | Unix timestamp (seconds) at which the interval ends. | [default to undefined]
 **interval** | **number** |  | [default to undefined]
+**leaderboard_id** | **number** | Leaderboard backing this interval (build 6701+). | [optional] [default to undefined]
 **start_timestamp** | **number** | Unix timestamp (seconds) at which the interval starts. | [default to undefined]
 
 ## Example
@@ -17,6 +18,7 @@ import { SeasonInterval } from 'deadlock_api_client';
 const instance: SeasonInterval = {
     end_timestamp,
     interval,
+    leaderboard_id,
     start_timestamp,
 };
 ```

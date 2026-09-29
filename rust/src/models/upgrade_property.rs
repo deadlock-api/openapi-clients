@@ -39,6 +39,9 @@ pub struct UpgradeProperty {
     pub prefix: Option<String>,
     #[serde(rename = "provided_property_type", skip_serializing_if = "Option::is_none")]
     pub provided_property_type: Option<String>,
+    /// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
+    #[serde(rename = "required_upgrade_bits", skip_serializing_if = "Option::is_none")]
+    pub required_upgrade_bits: Option<Vec<String>>,
     #[serde(rename = "scale_function", skip_serializing_if = "Option::is_none")]
     pub scale_function: Option<Box<models::RawItemPropertyScaleFunctionSubclass>>,
     #[serde(rename = "street_brawl_value", skip_serializing_if = "Option::is_none")]
@@ -72,6 +75,7 @@ impl UpgradeProperty {
             postvalue_label: None,
             prefix: None,
             provided_property_type: None,
+            required_upgrade_bits: None,
             scale_function: None,
             street_brawl_value: None,
             usage_flags: None,

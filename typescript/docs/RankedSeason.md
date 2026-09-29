@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**base_win_loss_point_grant** | **number** | Base rank points granted per win / taken per loss (build 6701+). | [optional] [default to undefined]
 **calibration_matches** | **number** |  | [default to undefined]
 **class_name** | **string** |  | [default to undefined]
 **intervals** | [**Array&lt;SeasonInterval&gt;**](SeasonInterval.md) |  | [default to undefined]
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 import { RankedSeason } from 'deadlock_api_client';
 
 const instance: RankedSeason = {
+    base_win_loss_point_grant,
     calibration_matches,
     class_name,
     intervals,

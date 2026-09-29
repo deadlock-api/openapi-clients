@@ -21,19 +21,21 @@ export declare const NPCUnitsApiAxiosParamCreator: (configuration?: Configuratio
      * Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
      * @summary Get NPC Unit
      * @param {string} idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param {GetNpcUnitLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getNpcUnit: (idOrClassname: string, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getNpcUnit: (idOrClassname: string, language?: GetNpcUnitLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
      * @summary List NPC Units
+     * @param {ListNpcUnitsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listNpcUnits: (clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    listNpcUnits: (language?: ListNpcUnitsLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * NPCUnitsApi - functional programming interface
@@ -43,19 +45,21 @@ export declare const NPCUnitsApiFp: (configuration?: Configuration) => {
      * Returns a single NPC unit by numeric id or by `class_name` (case-insensitive).
      * @summary Get NPC Unit
      * @param {string} idOrClassname NPC unit id (&#x60;murmurhash2(class_name)&#x60;) or &#x60;class_name&#x60;
+     * @param {GetNpcUnitLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getNpcUnit(idOrClassname: string, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NpcUnit>>;
+    getNpcUnit(idOrClassname: string, language?: GetNpcUnitLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NpcUnit>>;
     /**
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
      * @summary List NPC Units
+     * @param {ListNpcUnitsLanguageEnum} [language] Language code. Defaults to &#x60;english&#x60;.
      * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listNpcUnits(clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NpcUnit>>>;
+    listNpcUnits(language?: ListNpcUnitsLanguageEnum, clientVersion?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NpcUnit>>>;
 };
 /**
  * NPCUnitsApi - factory interface
@@ -70,7 +74,7 @@ export declare const NPCUnitsApiFactory: (configuration?: Configuration, basePat
      */
     getNpcUnit(requestParameters: NPCUnitsApiGetNpcUnitRequest, options?: RawAxiosRequestConfig): AxiosPromise<NpcUnit>;
     /**
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
      * @summary List NPC Units
      * @param {NPCUnitsApiListNpcUnitsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -87,6 +91,10 @@ export interface NPCUnitsApiGetNpcUnitRequest {
      */
     readonly idOrClassname: string;
     /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: GetNpcUnitLanguageEnum;
+    /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
     readonly clientVersion?: number | null;
@@ -95,6 +103,10 @@ export interface NPCUnitsApiGetNpcUnitRequest {
  * Request parameters for listNpcUnits operation in NPCUnitsApi.
  */
 export interface NPCUnitsApiListNpcUnitsRequest {
+    /**
+     * Language code. Defaults to &#x60;english&#x60;.
+     */
+    readonly language?: ListNpcUnitsLanguageEnum;
     /**
      * Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
      */
@@ -113,7 +125,7 @@ export declare class NPCUnitsApi extends BaseAPI {
      */
     getNpcUnit(requestParameters: NPCUnitsApiGetNpcUnitRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit, any, {}, any>>;
     /**
-     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files.
+     * Returns the per-NPC-unit metadata used by the game client, parsed from the patch\'s KV3 source files. Unit names (`name`) are localized into the requested `language`; neutral (\"Haunt\") abilities referenced by `neutral_abilities` / `neutral_melee` are listed under `/v1/assets/modifiers`.
      * @summary List NPC Units
      * @param {NPCUnitsApiListNpcUnitsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -121,4 +133,68 @@ export declare class NPCUnitsApi extends BaseAPI {
      */
     listNpcUnits(requestParameters?: NPCUnitsApiListNpcUnitsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<NpcUnit[], any, {}, any>>;
 }
+export declare const GetNpcUnitLanguageEnum: {
+    readonly Brazilian: "brazilian";
+    readonly Bulgarian: "bulgarian";
+    readonly Czech: "czech";
+    readonly Danish: "danish";
+    readonly Dutch: "dutch";
+    readonly English: "english";
+    readonly Finnish: "finnish";
+    readonly French: "french";
+    readonly German: "german";
+    readonly Greek: "greek";
+    readonly Hungarian: "hungarian";
+    readonly Indonesian: "indonesian";
+    readonly Italian: "italian";
+    readonly Japanese: "japanese";
+    readonly Koreana: "koreana";
+    readonly Latam: "latam";
+    readonly Norwegian: "norwegian";
+    readonly Polish: "polish";
+    readonly Portuguese: "portuguese";
+    readonly Romanian: "romanian";
+    readonly Russian: "russian";
+    readonly Schinese: "schinese";
+    readonly Spanish: "spanish";
+    readonly Swedish: "swedish";
+    readonly Tchinese: "tchinese";
+    readonly Thai: "thai";
+    readonly Turkish: "turkish";
+    readonly Ukrainian: "ukrainian";
+    readonly Vietnamese: "vietnamese";
+};
+export type GetNpcUnitLanguageEnum = typeof GetNpcUnitLanguageEnum[keyof typeof GetNpcUnitLanguageEnum];
+export declare const ListNpcUnitsLanguageEnum: {
+    readonly Brazilian: "brazilian";
+    readonly Bulgarian: "bulgarian";
+    readonly Czech: "czech";
+    readonly Danish: "danish";
+    readonly Dutch: "dutch";
+    readonly English: "english";
+    readonly Finnish: "finnish";
+    readonly French: "french";
+    readonly German: "german";
+    readonly Greek: "greek";
+    readonly Hungarian: "hungarian";
+    readonly Indonesian: "indonesian";
+    readonly Italian: "italian";
+    readonly Japanese: "japanese";
+    readonly Koreana: "koreana";
+    readonly Latam: "latam";
+    readonly Norwegian: "norwegian";
+    readonly Polish: "polish";
+    readonly Portuguese: "portuguese";
+    readonly Romanian: "romanian";
+    readonly Russian: "russian";
+    readonly Schinese: "schinese";
+    readonly Spanish: "spanish";
+    readonly Swedish: "swedish";
+    readonly Tchinese: "tchinese";
+    readonly Thai: "thai";
+    readonly Turkish: "turkish";
+    readonly Ukrainian: "ukrainian";
+    readonly Vietnamese: "vietnamese";
+};
+export type ListNpcUnitsLanguageEnum = typeof ListNpcUnitsLanguageEnum[keyof typeof ListNpcUnitsLanguageEnum];
 //# sourceMappingURL=npcunits-api.d.ts.map

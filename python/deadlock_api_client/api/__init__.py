@@ -23,6 +23,7 @@ from deadlock_api_client.api.mmr_api import MMRApi
 from deadlock_api_client.api.map_api import MapApi
 from deadlock_api_client.api.matches_api import MatchesApi
 from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi
+from deadlock_api_client.api.modifiers_api import ModifiersApi
 from deadlock_api_client.api.npc_units_api import NPCUnitsApi
 from deadlock_api_client.api.patches_api import PatchesApi
 from deadlock_api_client.api.players_api import PlayersApi

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **BuyTimeGracePeriod** | **float64** |  | 
 **ComebackBonusHealth** | **int64** |  | 
 **ComebackBonusHealthCritical** | **int64** |  | 
+**CorruptItemRound** | Pointer to **NullableInt64** | Round in which players may corrupt an item (build 6711+). | [optional] 
 **GoldPerRound** | **[]int64** |  | 
 **ItemDraftRerollsPerRound** | **[]int64** |  | 
 **ItemDraftRoundsPerGameRound** | [**[]ItemDraftRoundPerGameRound**](ItemDraftRoundPerGameRound.md) |  | 
@@ -152,6 +153,41 @@ and a boolean to check if the value has been set.
 SetComebackBonusHealthCritical sets ComebackBonusHealthCritical field to given value.
 
 
+### GetCorruptItemRound
+
+`func (o *StreetBrawl) GetCorruptItemRound() int64`
+
+GetCorruptItemRound returns the CorruptItemRound field if non-nil, zero value otherwise.
+
+### GetCorruptItemRoundOk
+
+`func (o *StreetBrawl) GetCorruptItemRoundOk() (*int64, bool)`
+
+GetCorruptItemRoundOk returns a tuple with the CorruptItemRound field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptItemRound
+
+`func (o *StreetBrawl) SetCorruptItemRound(v int64)`
+
+SetCorruptItemRound sets CorruptItemRound field to given value.
+
+### HasCorruptItemRound
+
+`func (o *StreetBrawl) HasCorruptItemRound() bool`
+
+HasCorruptItemRound returns a boolean if a field has been set.
+
+### SetCorruptItemRoundNil
+
+`func (o *StreetBrawl) SetCorruptItemRoundNil(b bool)`
+
+ SetCorruptItemRoundNil sets the value for CorruptItemRound to be an explicit nil
+
+### UnsetCorruptItemRound
+`func (o *StreetBrawl) UnsetCorruptItemRound()`
+
+UnsetCorruptItemRound ensures that no value is present for CorruptItemRound, not even an explicit nil
 ### GetGoldPerRound
 
 `func (o *StreetBrawl) GetGoldPerRound() []int64`

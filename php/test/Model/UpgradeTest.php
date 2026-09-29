@@ -107,6 +107,15 @@ class UpgradeTest extends TestCase
     }
 
     /**
+     * Test attribute "corrupted_info"
+     */
+    public function testPropertyCorruptedInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "cost"
      */
     public function testPropertyCost()
@@ -125,9 +134,27 @@ class UpgradeTest extends TestCase
     }
 
     /**
+     * Test attribute "disable_item_target"
+     */
+    public function testPropertyDisableItemTarget()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "disabled"
      */
     public function testPropertyDisabled()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "disabled_shop_filters"
+     */
+    public function testPropertyDisabledShopFilters()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -233,6 +260,15 @@ class UpgradeTest extends TestCase
     }
 
     /**
+     * Test attribute "shop_filters"
+     */
+    public function testPropertyShopFilters()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "shop_image"
      */
     public function testPropertyShopImage()
@@ -263,6 +299,15 @@ class UpgradeTest extends TestCase
      * Test attribute "shop_image_webp"
      */
     public function testPropertyShopImageWebp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "shop_version"
+     */
+    public function testPropertyShopVersion()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

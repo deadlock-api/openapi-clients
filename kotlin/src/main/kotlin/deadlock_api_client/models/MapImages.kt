@@ -31,21 +31,17 @@ import java.io.Serializable
 /**
  * CDN URLs for the minimap image layers.
  *
- * @param background Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket.
  * @param frame 
  * @param mid Midtown base layer.
- * @param minimap Full minimap. From build 6711 on this is the midtown base layer.
- * @param plain Minimap without overlays. From build 6711 on this is the midtown base layer.
+ * @param minimap Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
+ * @param plain Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).
+ * @param background Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on.
  * @param midTunnels Mid tunnels overlay, drawn above `mid` (build 6711+).
  * @param ratTunnels Rat tunnels overlay, drawn above `mid_tunnels` (build 6711+).
  */
 
 
 data class MapImages (
-
-    /* Background layer. No longer shipped by the game from build 6711 on; the last extracted image is kept in the bucket. */
-    @Json(name = "background")
-    val background: kotlin.String,
 
     @Json(name = "frame")
     val frame: kotlin.String,
@@ -54,13 +50,17 @@ data class MapImages (
     @Json(name = "mid")
     val mid: kotlin.String,
 
-    /* Full minimap. From build 6711 on this is the midtown base layer. */
+    /* Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own. */
     @Json(name = "minimap")
     val minimap: kotlin.String,
 
-    /* Minimap without overlays. From build 6711 on this is the midtown base layer. */
+    /* Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`). */
     @Json(name = "plain")
     val plain: kotlin.String,
+
+    /* Background layer drawn under `mid`. Only for builds before 6711; the game no longer ships it, so it is omitted from build 6711 on. */
+    @Json(name = "background")
+    val background: kotlin.String? = null,
 
     /* Mid tunnels overlay, drawn above `mid` (build 6711+). */
     @Json(name = "mid_tunnels")

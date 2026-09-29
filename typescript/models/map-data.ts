@@ -18,6 +18,9 @@
 import type { MapImages } from './map-images.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { NeutralCamp } from './neutral-camp.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { ObjectivePosition } from './objective-position.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -28,6 +31,10 @@ import type { ZiplanePath } from './ziplane-path.js';
  */
 export interface MapData {
     'images': MapImages;
+    /**
+     * Neutral camps (build 6711+).
+     */
+    'neutral_camps'?: Array<NeutralCamp> | null;
     'objective_positions': { [key: string]: ObjectivePosition; };
     'radius': number;
     'zipline_paths': Array<ZiplanePath>;

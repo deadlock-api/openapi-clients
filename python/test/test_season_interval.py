@@ -37,6 +37,7 @@ class TestSeasonInterval(unittest.TestCase):
             return SeasonInterval(
                 end_timestamp = 56,
                 interval = 0,
+                leaderboard_id = 0,
                 start_timestamp = 56
             )
         else:

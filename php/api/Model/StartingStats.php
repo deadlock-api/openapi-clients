@@ -72,6 +72,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => '\OpenAPI\Client\Model\StartingStat',
         'max_move_speed' => '\OpenAPI\Client\Model\StartingStat',
         'move_acceleration' => '\OpenAPI\Client\Model\StartingStat',
+        'ooc_health_regen' => '\OpenAPI\Client\Model\StartingStat',
         'proc_build_up_rate_scale' => '\OpenAPI\Client\Model\StartingStat',
         'reload_speed' => '\OpenAPI\Client\Model\StartingStat',
         'sprint_speed' => '\OpenAPI\Client\Model\StartingStat',
@@ -107,6 +108,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => null,
         'max_move_speed' => null,
         'move_acceleration' => null,
+        'ooc_health_regen' => null,
         'proc_build_up_rate_scale' => null,
         'reload_speed' => null,
         'sprint_speed' => null,
@@ -140,6 +142,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => false,
         'max_move_speed' => false,
         'move_acceleration' => false,
+        'ooc_health_regen' => true,
         'proc_build_up_rate_scale' => false,
         'reload_speed' => false,
         'sprint_speed' => false,
@@ -253,6 +256,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => 'max_health',
         'max_move_speed' => 'max_move_speed',
         'move_acceleration' => 'move_acceleration',
+        'ooc_health_regen' => 'ooc_health_regen',
         'proc_build_up_rate_scale' => 'proc_build_up_rate_scale',
         'reload_speed' => 'reload_speed',
         'sprint_speed' => 'sprint_speed',
@@ -286,6 +290,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => 'setMaxHealth',
         'max_move_speed' => 'setMaxMoveSpeed',
         'move_acceleration' => 'setMoveAcceleration',
+        'ooc_health_regen' => 'setOocHealthRegen',
         'proc_build_up_rate_scale' => 'setProcBuildUpRateScale',
         'reload_speed' => 'setReloadSpeed',
         'sprint_speed' => 'setSprintSpeed',
@@ -319,6 +324,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'max_health' => 'getMaxHealth',
         'max_move_speed' => 'getMaxMoveSpeed',
         'move_acceleration' => 'getMoveAcceleration',
+        'ooc_health_regen' => 'getOocHealthRegen',
         'proc_build_up_rate_scale' => 'getProcBuildUpRateScale',
         'reload_speed' => 'getReloadSpeed',
         'sprint_speed' => 'getSprintSpeed',
@@ -403,6 +409,7 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('max_health', $data ?? [], null);
         $this->setIfExists('max_move_speed', $data ?? [], null);
         $this->setIfExists('move_acceleration', $data ?? [], null);
+        $this->setIfExists('ooc_health_regen', $data ?? [], null);
         $this->setIfExists('proc_build_up_rate_scale', $data ?? [], null);
         $this->setIfExists('reload_speed', $data ?? [], null);
         $this->setIfExists('sprint_speed', $data ?? [], null);
@@ -950,6 +957,40 @@ class StartingStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable move_acceleration cannot be null');
         }
         $this->container['move_acceleration'] = $move_acceleration;
+
+        return $this;
+    }
+
+    /**
+     * Gets ooc_health_regen
+     *
+     * @return \OpenAPI\Client\Model\StartingStat|null
+     */
+    public function getOocHealthRegen()
+    {
+        return $this->container['ooc_health_regen'];
+    }
+
+    /**
+     * Sets ooc_health_regen
+     *
+     * @param \OpenAPI\Client\Model\StartingStat|null $ooc_health_regen Out-of-combat health regen (build 6711+).
+     *
+     * @return self
+     */
+    public function setOocHealthRegen($ooc_health_regen)
+    {
+        if (is_null($ooc_health_regen)) {
+            array_push($this->openAPINullablesSetToNull, 'ooc_health_regen');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('ooc_health_regen', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['ooc_health_regen'] = $ooc_health_regen;
 
         return $this;
     }

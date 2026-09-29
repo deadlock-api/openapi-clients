@@ -34,7 +34,7 @@ pub enum ListRankedSeasonsError {
 }
 
 
-/// Returns the ranked season definitions used by the game client, parsed from the patch's KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds.
+/// Returns the ranked season definitions used by the game client, parsed from the patch's KV3 source files. Each season carries its eligibility requirements and the intervals it runs for, as unix timestamps in seconds, together with each interval's leaderboard ID.
 pub async fn list_ranked_seasons(configuration: &configuration::Configuration, params: ListRankedSeasonsParams) -> Result<Vec<models::RankedSeason>, Error<ListRankedSeasonsError>> {
 
     let uri_str = format!("{}/v1/assets/ranked-seasons", configuration.base_path);

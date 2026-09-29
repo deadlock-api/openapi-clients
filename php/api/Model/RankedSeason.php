@@ -57,6 +57,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'base_win_loss_point_grant' => 'int',
         'calibration_matches' => 'int',
         'class_name' => 'string',
         'intervals' => '\OpenAPI\Client\Model\SeasonInterval[]',
@@ -76,6 +77,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'base_win_loss_point_grant' => 'int32',
         'calibration_matches' => 'int32',
         'class_name' => null,
         'intervals' => null,
@@ -93,6 +95,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'base_win_loss_point_grant' => true,
         'calibration_matches' => false,
         'class_name' => false,
         'intervals' => false,
@@ -190,6 +193,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'base_win_loss_point_grant' => 'base_win_loss_point_grant',
         'calibration_matches' => 'calibration_matches',
         'class_name' => 'class_name',
         'intervals' => 'intervals',
@@ -207,6 +211,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'base_win_loss_point_grant' => 'setBaseWinLossPointGrant',
         'calibration_matches' => 'setCalibrationMatches',
         'class_name' => 'setClassName',
         'intervals' => 'setIntervals',
@@ -224,6 +229,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'base_win_loss_point_grant' => 'getBaseWinLossPointGrant',
         'calibration_matches' => 'getCalibrationMatches',
         'class_name' => 'getClassName',
         'intervals' => 'getIntervals',
@@ -292,6 +298,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('base_win_loss_point_grant', $data ?? [], null);
         $this->setIfExists('calibration_matches', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('intervals', $data ?? [], null);
@@ -329,6 +336,10 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['base_win_loss_point_grant']) && ($this->container['base_win_loss_point_grant'] < 0)) {
+            $invalidProperties[] = "invalid value for 'base_win_loss_point_grant', must be bigger than or equal to 0.";
+        }
 
         if ($this->container['calibration_matches'] === null) {
             $invalidProperties[] = "'calibration_matches' can't be null";
@@ -387,6 +398,44 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets base_win_loss_point_grant
+     *
+     * @return int|null
+     */
+    public function getBaseWinLossPointGrant()
+    {
+        return $this->container['base_win_loss_point_grant'];
+    }
+
+    /**
+     * Sets base_win_loss_point_grant
+     *
+     * @param int|null $base_win_loss_point_grant Base rank points granted per win / taken per loss (build 6701+).
+     *
+     * @return self
+     */
+    public function setBaseWinLossPointGrant($base_win_loss_point_grant)
+    {
+        if (is_null($base_win_loss_point_grant)) {
+            array_push($this->openAPINullablesSetToNull, 'base_win_loss_point_grant');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('base_win_loss_point_grant', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($base_win_loss_point_grant) && ($base_win_loss_point_grant < 0)) {
+            throw new \InvalidArgumentException('invalid value for $base_win_loss_point_grant when calling RankedSeason., must be bigger than or equal to 0.');
+        }
+
+        $this->container['base_win_loss_point_grant'] = $base_win_loss_point_grant;
+
+        return $this;
+    }
 
     /**
      * Gets calibration_matches
