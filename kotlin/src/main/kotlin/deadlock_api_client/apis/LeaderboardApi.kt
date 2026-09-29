@@ -78,6 +78,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Leaderboard
      *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return Leaderboard
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -87,8 +88,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboard(region: RegionLeaderboard) : Leaderboard {
-        val localVarResponse = leaderboardWithHttpInfo(region = region)
+    fun leaderboard(region: RegionLeaderboard, leaderboardId: kotlin.Int? = null) : Leaderboard {
+        val localVarResponse = leaderboardWithHttpInfo(region = region, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Leaderboard
@@ -110,14 +111,15 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Leaderboard
      *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return ApiResponse<Leaderboard?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardWithHttpInfo(region: RegionLeaderboard) : ApiResponse<Leaderboard?> {
-        val localVariableConfig = leaderboardRequestConfig(region = region)
+    fun leaderboardWithHttpInfo(region: RegionLeaderboard, leaderboardId: kotlin.Int?) : ApiResponse<Leaderboard?> {
+        val localVariableConfig = leaderboardRequestConfig(region = region, leaderboardId = leaderboardId)
 
         return request<Unit, Leaderboard>(
             localVariableConfig
@@ -128,11 +130,17 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation leaderboard
      *
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardRequestConfig(region: RegionLeaderboard) : RequestConfig<Unit> {
+    fun leaderboardRequestConfig(region: RegionLeaderboard, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (leaderboardId != null) {
+                    put("leaderboard_id", listOf(leaderboardId.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -172,6 +180,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return Leaderboard
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -181,8 +190,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHero(region: RegionLeaderboardHero, heroId: kotlin.Int) : Leaderboard {
-        val localVarResponse = leaderboardHeroWithHttpInfo(region = region, heroId = heroId)
+    fun leaderboardHero(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int? = null) : Leaderboard {
+        val localVarResponse = leaderboardHeroWithHttpInfo(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Leaderboard
@@ -205,14 +214,15 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return ApiResponse<Leaderboard?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroWithHttpInfo(region: RegionLeaderboardHero, heroId: kotlin.Int) : ApiResponse<Leaderboard?> {
-        val localVariableConfig = leaderboardHeroRequestConfig(region = region, heroId = heroId)
+    fun leaderboardHeroWithHttpInfo(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : ApiResponse<Leaderboard?> {
+        val localVariableConfig = leaderboardHeroRequestConfig(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return request<Unit, Leaderboard>(
             localVariableConfig
@@ -224,11 +234,17 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Int) : RequestConfig<Unit> {
+    fun leaderboardHeroRequestConfig(region: RegionLeaderboardHero, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (leaderboardId != null) {
+                    put("leaderboard_id", listOf(leaderboardId.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
 
@@ -268,6 +284,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -277,8 +294,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardHeroRaw(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = leaderboardHeroRawWithHttpInfo(region = region, heroId = heroId)
+    fun leaderboardHeroRaw(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = leaderboardHeroRawWithHttpInfo(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -301,14 +318,15 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardHeroRawWithHttpInfo(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = leaderboardHeroRawRequestConfig(region = region, heroId = heroId)
+    fun leaderboardHeroRawWithHttpInfo(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = leaderboardHeroRawRequestConfig(region = region, heroId = heroId, leaderboardId = leaderboardId)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -320,11 +338,17 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      *
      * @param region The region to fetch the leaderboard for.
      * @param heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int) : RequestConfig<Unit> {
+    fun leaderboardHeroRawRequestConfig(region: RegionLeaderboardHeroRaw, heroId: kotlin.Int, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (leaderboardId != null) {
+                    put("leaderboard_id", listOf(leaderboardId.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/octet-stream"
 
@@ -363,6 +387,7 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Leaderboard as Protobuf
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -372,8 +397,8 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun leaderboardRaw(region: RegionLeaderboardRaw) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = leaderboardRawWithHttpInfo(region = region)
+    fun leaderboardRaw(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int? = null) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = leaderboardRawWithHttpInfo(region = region, leaderboardId = leaderboardId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -395,14 +420,15 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * Leaderboard as Protobuf
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun leaderboardRawWithHttpInfo(region: RegionLeaderboardRaw) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = leaderboardRawRequestConfig(region = region)
+    fun leaderboardRawWithHttpInfo(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = leaderboardRawRequestConfig(region = region, leaderboardId = leaderboardId)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -413,11 +439,17 @@ open class LeaderboardApi(basePath: kotlin.String = defaultBasePath, client: Cal
      * To obtain the request config of the operation leaderboardRaw
      *
      * @param region The region to fetch the leaderboard for.
+     * @param leaderboardId Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @return RequestConfig
      */
-    fun leaderboardRawRequestConfig(region: RegionLeaderboardRaw) : RequestConfig<Unit> {
+    fun leaderboardRawRequestConfig(region: RegionLeaderboardRaw, leaderboardId: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
-        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                if (leaderboardId != null) {
+                    put("leaderboard_id", listOf(leaderboardId.toString()))
+                }
+            }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/octet-stream"
 

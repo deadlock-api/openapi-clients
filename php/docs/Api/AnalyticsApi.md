@@ -8,6 +8,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | ------------- | ------------- | ------------- |
 | [**abilityOrderStats()**](AnalyticsApi.md#abilityOrderStats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | [**badgeDistribution()**](AnalyticsApi.md#badgeDistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
+| [**buffStats()**](AnalyticsApi.md#buffStats) | **GET** /v1/analytics/buff-stats | Buff Stats |
 | [**buildItemStats()**](AnalyticsApi.md#buildItemStats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | [**gameStats()**](AnalyticsApi.md#gameStats) | **GET** /v1/analytics/game-stats | Game Stats |
 | [**heroBanStats()**](AnalyticsApi.md#heroBanStats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
@@ -188,6 +189,88 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\BadgeDistribution[]**](../Model/BadgeDistribution.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `buffStats()`
+
+```php
+buffStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids): \OpenAPI\Client\Model\AnalyticsBuffStats[]
+```
+
+Buff Stats
+
+Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+$match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+$min_unix_timestamp = 1788048000; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
+$min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
+$min_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+$max_average_badge = 56; // int | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+$min_match_id = 56; // int | Filter matches based on their ID.
+$max_match_id = 56; // int | Filter matches based on their ID.
+$min_networth = 56; // int | Filter players based on their final net worth.
+$max_networth = 56; // int | Filter players based on their final net worth.
+$hero_ids = array(56); // int[] | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+$account_ids = array(56); // int[] | Comma separated list of account ids to include
+
+try {
+    $result = $apiInstance->buffStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_networth, $max_networth, $hero_ids, $account_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AnalyticsApi->buffStats: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
+| **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
+| **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
+| **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
+| **min_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
+| **max_average_badge** | **int**| Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] |
+| **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
+| **min_networth** | **int**| Filter players based on their final net worth. | [optional] |
+| **max_networth** | **int**| Filter players based on their final net worth. | [optional] |
+| **hero_ids** | [**int[]**](../Model/int.md)| Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\AnalyticsBuffStats[]**](../Model/AnalyticsBuffStats.md)
 
 ### Authorization
 
@@ -1181,7 +1264,7 @@ No authorization required
 ## `itemStats()`
 
 ```php
-itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items): \OpenAPI\Client\Model\ItemStats[]
+itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items): \OpenAPI\Client\Model\ItemStats[]
 ```
 
 Item Stats
@@ -1232,10 +1315,11 @@ $account_ids = array(56); // int[] | Comma separated list of account ids to incl
 $min_bought_at_s = 56; // int | Filter items bought after this game time (seconds).
 $max_bought_at_s = 56; // int | Filter items bought before this game time (seconds).
 $item_order = array('item_order_example'); // string[] | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
-$include_corrupted_items = false; // bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.
+$corrupted_items = 'corrupted_items_example'; // string | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
+$include_corrupted_items = false; // bool | Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
 
 try {
-    $result = $apiInstance->itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $include_corrupted_items);
+    $result = $apiInstance->itemStats($bucket, $game_mode, $match_mode, $hero_ids, $hero_id, $enemy_hero_ids, $enemy_hero_ids_all_match, $min_enemy_networth, $max_enemy_networth, $same_lane_filter, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $min_matches, $max_matches, $account_id, $account_ids, $min_bought_at_s, $max_bought_at_s, $item_order, $corrupted_items, $include_corrupted_items);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->itemStats: ', $e->getMessage(), PHP_EOL;
@@ -1277,7 +1361,8 @@ try {
 | **min_bought_at_s** | **int**| Filter items bought after this game time (seconds). | [optional] |
 | **max_bought_at_s** | **int**| Filter items bought before this game time (seconds). | [optional] |
 | **item_order** | [**string[]**](../Model/string.md)| Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
-| **include_corrupted_items** | **bool**| Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | [optional] [default to false] |
+| **corrupted_items** | **string**| How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set. | [optional] |
+| **include_corrupted_items** | **bool**| Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set. | [optional] [default to false] |
 
 ### Return type
 
@@ -1773,7 +1858,7 @@ No authorization required
 ## `playerStatsMetrics()`
 
 ```php
-playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids): array<string,\OpenAPI\Client\Model\HashMapValue>
+playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics): array<string,\OpenAPI\Client\Model\HashMapValue>
 ```
 
 Player Stats Metrics
@@ -1812,9 +1897,10 @@ $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to ex
 $ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
 $ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
+$include_buff_metrics = false; // bool | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
 
 try {
-    $result = $apiInstance->playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids);
+    $result = $apiInstance->playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerStatsMetrics: ', $e->getMessage(), PHP_EOL;
@@ -1844,6 +1930,7 @@ try {
 | **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |
 | **ability_unlock_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+| **include_buff_metrics** | **bool**| Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. | [optional] [default to false] |
 
 ### Return type
 

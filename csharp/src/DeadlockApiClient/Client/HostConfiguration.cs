@@ -68,6 +68,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ActiveMatchTeamNullableJsonConverter());
             _jsonOptions.Converters.Add(new AddSteamAccountRequestJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsAbilityOrderStatsJsonConverter());
+            _jsonOptions.Converters.Add(new AnalyticsBuffStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsGameStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsHeroStatsJsonConverter());
             _jsonOptions.Converters.Add(new BadgeDistributionJsonConverter());
@@ -86,9 +87,11 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ColorJsonConverter());
             _jsonOptions.Converters.Add(new ColorGradientStopJsonConverter());
             _jsonOptions.Converters.Add(new ColumnSchemaJsonConverter());
+            _jsonOptions.Converters.Add(new CorruptedItemImagesJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedItemInfoJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedPenaltyJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedPenaltyEffectJsonConverter());
+            _jsonOptions.Converters.Add(new CorruptedTooltipBackersJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomRequestJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
             _jsonOptions.Converters.Add(new CurveJsonConverter());
@@ -146,6 +149,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HeroTypeJsonConverter());
             _jsonOptions.Converters.Add(new HeroTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new HorizontalRecoilJsonConverter());
+            _jsonOptions.Converters.Add(new ImagePairJsonConverter());
             _jsonOptions.Converters.Add(new IngestLiveUrlJsonConverter());
             _jsonOptions.Converters.Add(new ItemJsonConverter());
             _jsonOptions.Converters.Add(new ItemDraftRoundJsonConverter());

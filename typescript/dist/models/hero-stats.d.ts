@@ -14,6 +14,10 @@ export interface HeroStats {
     'accuracy': number;
     'assists': number;
     'assists_per_min': number;
+    /**
+     * Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+     */
+    'avg_first_permanent_buff_time_s'?: number | null;
     'creeps_per_min': number;
     'crit_shot_rate': number;
     'damage_mitigated_per_min': number;
@@ -47,6 +51,18 @@ export interface HeroStats {
     'networth_per_min': number;
     'obj_damage_per_min': number;
     'obj_damage_per_soul': number;
+    /**
+     * Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+     */
+    'permanent_buff_matches': number;
+    /**
+     * Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     */
+    'permanent_buffs': number;
+    /**
+     * Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+     */
+    'permanent_buffs_per_min'?: number | null;
     'time_played': number;
     'total_boss_damage': number;
     'total_creep_damage': number;

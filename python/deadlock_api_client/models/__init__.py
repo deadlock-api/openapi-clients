@@ -31,6 +31,7 @@ from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam
 from deadlock_api_client.models.add_steam_account_request import AddSteamAccountRequest
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
@@ -49,9 +50,11 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts
 from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema
+from deadlock_api_client.models.corrupted_item_images import CorruptedItemImages
 from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo
 from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty
 from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenaltyEffect
+from deadlock_api_client.models.corrupted_tooltip_backers import CorruptedTooltipBackers
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
 from deadlock_api_client.models.curve import Curve
@@ -105,6 +108,7 @@ from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock_api_client.models.hero_type import HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil
+from deadlock_api_client.models.image_pair import ImagePair
 from deadlock_api_client.models.ingest_live_url import IngestLiveUrl
 from deadlock_api_client.models.item import Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound

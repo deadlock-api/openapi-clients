@@ -9,16 +9,20 @@ Name | Type | Description | Notes
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **MatchesPerBucket** | **int64** |  | 
+**PermanentBuffMatches** | **int64** | Matches that carry buff pickup counts. Equals &#x60;matches&#x60;, except on account-scoped queries (&#x60;account_ids&#x60; without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026). | 
+**PermanentBuffTimingMatches** | **int64** | Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here. | 
 **TotalAssists** | **int64** |  | 
 **TotalBossDamage** | **int64** |  | 
 **TotalCreepDamage** | **int64** |  | 
 **TotalDeaths** | **int64** |  | 
 **TotalDenies** | **int64** |  | 
+**TotalFirstPermanentBuffTimeS** | **int64** | Sum of the game time (seconds) of each player&#39;s first permanent buff pickup, over the &#x60;permanent_buff_timing_matches&#x60; matches. Average: &#x60;total_first_permanent_buff_time_s / permanent_buff_timing_matches&#x60;. | 
 **TotalKills** | **int64** |  | 
 **TotalLastHits** | **int64** |  | 
 **TotalMaxHealth** | **int64** |  | 
 **TotalNetWorth** | **int64** |  | 
 **TotalNeutralDamage** | **int64** |  | 
+**TotalPermanentBuffs** | **int64** | Sum of permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Average per match: &#x60;total_permanent_buffs / permanent_buff_matches&#x60;. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; | 
 **TotalPlayerDamage** | **int64** |  | 
 **TotalPlayerDamageTaken** | **int64** |  | 
 **TotalShotsHit** | **int64** |  | 
@@ -29,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsHeroStats
 
-`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
+`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
 
 NewAnalyticsHeroStats instantiates a new AnalyticsHeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -144,6 +148,46 @@ and a boolean to check if the value has been set.
 SetMatchesPerBucket sets MatchesPerBucket field to given value.
 
 
+### GetPermanentBuffMatches
+
+`func (o *AnalyticsHeroStats) GetPermanentBuffMatches() int64`
+
+GetPermanentBuffMatches returns the PermanentBuffMatches field if non-nil, zero value otherwise.
+
+### GetPermanentBuffMatchesOk
+
+`func (o *AnalyticsHeroStats) GetPermanentBuffMatchesOk() (*int64, bool)`
+
+GetPermanentBuffMatchesOk returns a tuple with the PermanentBuffMatches field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffMatches
+
+`func (o *AnalyticsHeroStats) SetPermanentBuffMatches(v int64)`
+
+SetPermanentBuffMatches sets PermanentBuffMatches field to given value.
+
+
+### GetPermanentBuffTimingMatches
+
+`func (o *AnalyticsHeroStats) GetPermanentBuffTimingMatches() int64`
+
+GetPermanentBuffTimingMatches returns the PermanentBuffTimingMatches field if non-nil, zero value otherwise.
+
+### GetPermanentBuffTimingMatchesOk
+
+`func (o *AnalyticsHeroStats) GetPermanentBuffTimingMatchesOk() (*int64, bool)`
+
+GetPermanentBuffTimingMatchesOk returns a tuple with the PermanentBuffTimingMatches field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffTimingMatches
+
+`func (o *AnalyticsHeroStats) SetPermanentBuffTimingMatches(v int64)`
+
+SetPermanentBuffTimingMatches sets PermanentBuffTimingMatches field to given value.
+
+
 ### GetTotalAssists
 
 `func (o *AnalyticsHeroStats) GetTotalAssists() int64`
@@ -244,6 +288,26 @@ and a boolean to check if the value has been set.
 SetTotalDenies sets TotalDenies field to given value.
 
 
+### GetTotalFirstPermanentBuffTimeS
+
+`func (o *AnalyticsHeroStats) GetTotalFirstPermanentBuffTimeS() int64`
+
+GetTotalFirstPermanentBuffTimeS returns the TotalFirstPermanentBuffTimeS field if non-nil, zero value otherwise.
+
+### GetTotalFirstPermanentBuffTimeSOk
+
+`func (o *AnalyticsHeroStats) GetTotalFirstPermanentBuffTimeSOk() (*int64, bool)`
+
+GetTotalFirstPermanentBuffTimeSOk returns a tuple with the TotalFirstPermanentBuffTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalFirstPermanentBuffTimeS
+
+`func (o *AnalyticsHeroStats) SetTotalFirstPermanentBuffTimeS(v int64)`
+
+SetTotalFirstPermanentBuffTimeS sets TotalFirstPermanentBuffTimeS field to given value.
+
+
 ### GetTotalKills
 
 `func (o *AnalyticsHeroStats) GetTotalKills() int64`
@@ -342,6 +406,26 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsHeroStats) SetTotalNeutralDamage(v int64)`
 
 SetTotalNeutralDamage sets TotalNeutralDamage field to given value.
+
+
+### GetTotalPermanentBuffs
+
+`func (o *AnalyticsHeroStats) GetTotalPermanentBuffs() int64`
+
+GetTotalPermanentBuffs returns the TotalPermanentBuffs field if non-nil, zero value otherwise.
+
+### GetTotalPermanentBuffsOk
+
+`func (o *AnalyticsHeroStats) GetTotalPermanentBuffsOk() (*int64, bool)`
+
+GetTotalPermanentBuffsOk returns a tuple with the TotalPermanentBuffs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalPermanentBuffs
+
+`func (o *AnalyticsHeroStats) SetTotalPermanentBuffs(v int64)`
+
+SetTotalPermanentBuffs sets TotalPermanentBuffs field to given value.
 
 
 ### GetTotalPlayerDamage

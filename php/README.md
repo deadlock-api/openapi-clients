@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
 *AccoladesApi* | [**listAccolades**](docs/Api/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**abilityOrderStats**](docs/Api/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**badgeDistribution**](docs/Api/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
+*AnalyticsApi* | [**buffStats**](docs/Api/AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats
 *AnalyticsApi* | [**buildItemStats**](docs/Api/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**gameStats**](docs/Api/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats
 *AnalyticsApi* | [**heroBanStats**](docs/Api/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
@@ -236,6 +237,7 @@ Class | Method | HTTP request | Description
 - [ActiveMatchTeam](docs/Model/ActiveMatchTeam.md)
 - [AddSteamAccountRequest](docs/Model/AddSteamAccountRequest.md)
 - [AnalyticsAbilityOrderStats](docs/Model/AnalyticsAbilityOrderStats.md)
+- [AnalyticsBuffStats](docs/Model/AnalyticsBuffStats.md)
 - [AnalyticsGameStats](docs/Model/AnalyticsGameStats.md)
 - [AnalyticsHeroStats](docs/Model/AnalyticsHeroStats.md)
 - [BadgeDistribution](docs/Model/BadgeDistribution.md)
@@ -254,9 +256,11 @@ Class | Method | HTTP request | Description
 - [Color](docs/Model/Color.md)
 - [ColorGradientStop](docs/Model/ColorGradientStop.md)
 - [ColumnSchema](docs/Model/ColumnSchema.md)
+- [CorruptedItemImages](docs/Model/CorruptedItemImages.md)
 - [CorruptedItemInfo](docs/Model/CorruptedItemInfo.md)
 - [CorruptedPenalty](docs/Model/CorruptedPenalty.md)
 - [CorruptedPenaltyEffect](docs/Model/CorruptedPenaltyEffect.md)
+- [CorruptedTooltipBackers](docs/Model/CorruptedTooltipBackers.md)
 - [CreateCustomRequest](docs/Model/CreateCustomRequest.md)
 - [CreateCustomResponse](docs/Model/CreateCustomResponse.md)
 - [Curve](docs/Model/Curve.md)
@@ -310,6 +314,7 @@ Class | Method | HTTP request | Description
 - [HeroSynergyStats](docs/Model/HeroSynergyStats.md)
 - [HeroType](docs/Model/HeroType.md)
 - [HorizontalRecoil](docs/Model/HorizontalRecoil.md)
+- [ImagePair](docs/Model/ImagePair.md)
 - [IngestLiveUrl](docs/Model/IngestLiveUrl.md)
 - [Item](docs/Model/Item.md)
 - [ItemDraftRound](docs/Model/ItemDraftRound.md)

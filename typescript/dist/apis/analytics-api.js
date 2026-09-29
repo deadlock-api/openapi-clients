@@ -209,6 +209,88 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+         * @summary Buff Stats
+         * @param {BuffStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        buffStats: async (gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, accountIds, options = {}) => {
+            const localVarPath = `/v1/analytics/buff-stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (gameMode !== undefined) {
+                localVarQueryParameter['game_mode'] = gameMode;
+            }
+            if (matchMode !== undefined) {
+                localVarQueryParameter['match_mode'] = matchMode;
+            }
+            if (minUnixTimestamp !== undefined) {
+                localVarQueryParameter['min_unix_timestamp'] = minUnixTimestamp;
+            }
+            if (maxUnixTimestamp !== undefined) {
+                localVarQueryParameter['max_unix_timestamp'] = maxUnixTimestamp;
+            }
+            if (minDurationS !== undefined) {
+                localVarQueryParameter['min_duration_s'] = minDurationS;
+            }
+            if (maxDurationS !== undefined) {
+                localVarQueryParameter['max_duration_s'] = maxDurationS;
+            }
+            if (minAverageBadge !== undefined) {
+                localVarQueryParameter['min_average_badge'] = minAverageBadge;
+            }
+            if (maxAverageBadge !== undefined) {
+                localVarQueryParameter['max_average_badge'] = maxAverageBadge;
+            }
+            if (minMatchId !== undefined) {
+                localVarQueryParameter['min_match_id'] = minMatchId;
+            }
+            if (maxMatchId !== undefined) {
+                localVarQueryParameter['max_match_id'] = maxMatchId;
+            }
+            if (minNetworth !== undefined) {
+                localVarQueryParameter['min_networth'] = minNetworth;
+            }
+            if (maxNetworth !== undefined) {
+                localVarQueryParameter['max_networth'] = maxNetworth;
+            }
+            if (heroIds) {
+                localVarQueryParameter['hero_ids'] = heroIds;
+            }
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
          * @summary Build Item Stats
          * @param {number | null} [heroId] Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -1294,11 +1376,12 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {number | null} [minBoughtAtS] Filter items bought after this game time (seconds).
          * @param {number | null} [maxBoughtAtS] Filter items bought before this game time (seconds).
          * @param {Array<string> | null} [itemOrder] Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-         * @param {boolean | null} [includeCorruptedItems] Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower.
+         * @param {ItemStatsCorruptedItemsEnum} [corruptedItems] How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set.
+         * @param {boolean | null} [includeCorruptedItems] Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        itemStats: async (bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, includeCorruptedItems, options = {}) => {
+        itemStats: async (bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, corruptedItems, includeCorruptedItems, options = {}) => {
             const localVarPath = `/v1/analytics/item-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1401,6 +1484,9 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
             }
             if (itemOrder) {
                 localVarQueryParameter['item_order'] = itemOrder;
+            }
+            if (corruptedItems !== undefined) {
+                localVarQueryParameter['corrupted_items'] = corruptedItems;
             }
             if (includeCorruptedItems !== undefined) {
                 localVarQueryParameter['include_corrupted_items'] = includeCorruptedItems;
@@ -1976,10 +2062,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
          * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {boolean} [includeBuffMetrics] Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics: async (heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, options = {}) => {
+        playerStatsMetrics: async (heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, options = {}) => {
             const localVarPath = `/v1/analytics/player-stats/metrics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2046,6 +2133,9 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
             }
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+            if (includeBuffMetrics !== undefined) {
+                localVarQueryParameter['include_buff_metrics'] = includeBuffMetrics;
             }
             localVarHeaderParameter['Accept'] = 'application/json';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2119,6 +2209,32 @@ export const AnalyticsApiFp = function (configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.badgeDistribution(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, minMatchId, maxMatchId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.badgeDistribution']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+         * @summary Buff Stats
+         * @param {BuffStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+         * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+         * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+         * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+         * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+         * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+         * @param {number | null} [minMatchId] Filter matches based on their ID.
+         * @param {number | null} [maxMatchId] Filter matches based on their ID.
+         * @param {number | null} [minNetworth] Filter players based on their final net worth.
+         * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+         * @param {Array<number> | null} [heroIds] Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async buffStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, accountIds, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.buffStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minNetworth, maxNetworth, heroIds, accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.buffStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -2478,12 +2594,13 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {number | null} [minBoughtAtS] Filter items bought after this game time (seconds).
          * @param {number | null} [maxBoughtAtS] Filter items bought before this game time (seconds).
          * @param {Array<string> | null} [itemOrder] Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
-         * @param {boolean | null} [includeCorruptedItems] Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower.
+         * @param {ItemStatsCorruptedItemsEnum} [corruptedItems] How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set.
+         * @param {boolean | null} [includeCorruptedItems] Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, includeCorruptedItems, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, includeCorruptedItems, options);
+        async itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, corruptedItems, includeCorruptedItems, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.itemStats(bucket, gameMode, matchMode, heroIds, heroId, enemyHeroIds, enemyHeroIdsAllMatch, minEnemyNetworth, maxEnemyNetworth, sameLaneFilter, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, minMatches, maxMatches, accountId, accountIds, minBoughtAtS, maxBoughtAtS, itemOrder, corruptedItems, includeCorruptedItems, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.itemStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2672,11 +2789,12 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
          * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {boolean} [includeBuffMetrics] Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, options);
+        async playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerStatsMetrics']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2708,6 +2826,16 @@ export const AnalyticsApiFactory = function (configuration, basePath, axios) {
          */
         badgeDistribution(requestParameters = {}, options) {
             return localVarFp.badgeDistribution(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+         * @summary Buff Stats
+         * @param {AnalyticsApiBuffStatsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        buffStats(requestParameters = {}, options) {
+            return localVarFp.buffStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.heroIds, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -2827,7 +2955,7 @@ export const AnalyticsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         itemStats(requestParameters = {}, options) {
-            return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, requestParameters.itemOrder, requestParameters.includeCorruptedItems, options).then((request) => request(axios, basePath));
+            return localVarFp.itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, requestParameters.itemOrder, requestParameters.corruptedItems, requestParameters.includeCorruptedItems, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -2887,7 +3015,7 @@ export const AnalyticsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         playerStatsMetrics(requestParameters = {}, options) {
-            return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.playerStatsMetrics(requestParameters.heroIds, requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.accountIds, requestParameters.includeBuffMetrics, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2914,6 +3042,16 @@ export class AnalyticsApi extends BaseAPI {
      */
     badgeDistribution(requestParameters = {}, options) {
         return AnalyticsApiFp(this.configuration).badgeDistribution(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.minMatchId, requestParameters.maxMatchId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Buff Stats
+     * @param {AnalyticsApiBuffStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    buffStats(requestParameters = {}, options) {
+        return AnalyticsApiFp(this.configuration).buffStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.heroIds, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -3033,7 +3171,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     itemStats(requestParameters = {}, options) {
-        return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, requestParameters.itemOrder, requestParameters.includeCorruptedItems, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).itemStats(requestParameters.bucket, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroIds, requestParameters.heroId, requestParameters.enemyHeroIds, requestParameters.enemyHeroIdsAllMatch, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.sameLaneFilter, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.minBoughtAtS, requestParameters.maxBoughtAtS, requestParameters.itemOrder, requestParameters.corruptedItems, requestParameters.includeCorruptedItems, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -3093,7 +3231,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     playerStatsMetrics(requestParameters = {}, options) {
-        return AnalyticsApiFp(this.configuration).playerStatsMetrics(requestParameters.heroIds, requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).playerStatsMetrics(requestParameters.heroIds, requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.accountIds, requestParameters.includeBuffMetrics, options).then((request) => request(this.axios, this.basePath));
     }
 }
 export const AbilityOrderStatsGameModeEnum = {
@@ -3103,6 +3241,12 @@ export const AbilityOrderStatsGameModeEnum = {
     Internal: 'internal',
 };
 export const BadgeDistributionGameModeEnum = {
+    Normal: 'normal',
+    StreetBrawl: 'street_brawl',
+    ExploreNYC: 'explore_n_y_c',
+    Internal: 'internal',
+};
+export const BuffStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
@@ -3205,6 +3349,9 @@ export const HeroScoreboardSortByEnum = {
     MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
     HeroBulletsHitCrit: 'hero_bullets_hit_crit',
+    MaxPermanentBuffsPerMatch: 'max_permanent_buffs_per_match',
+    AvgPermanentBuffsPerMatch: 'avg_permanent_buffs_per_match',
+    PermanentBuffs: 'permanent_buffs',
 };
 export const HeroScoreboardSortDirectionEnum = {
     Desc: 'desc',
@@ -3269,6 +3416,11 @@ export const ItemStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+};
+export const ItemStatsCorruptedItemsEnum = {
+    Exclude: 'exclude',
+    Include: 'include',
+    Only: 'only',
 };
 export const KillDeathStatsGameModeEnum = {
     Normal: 'normal',
@@ -3357,6 +3509,9 @@ export const PlayerScoreboardSortByEnum = {
     MaxHeroBulletsHitCritPerMatch: 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch: 'avg_hero_bullets_hit_crit_per_match',
     HeroBulletsHitCrit: 'hero_bullets_hit_crit',
+    MaxPermanentBuffsPerMatch: 'max_permanent_buffs_per_match',
+    AvgPermanentBuffsPerMatch: 'avg_permanent_buffs_per_match',
+    PermanentBuffs: 'permanent_buffs',
 };
 export const PlayerScoreboardSortDirectionEnum = {
     Desc: 'desc',

@@ -67,6 +67,8 @@ namespace DeadlockApiClient.Model
         /// <param name="avgNetWorth">avgNetWorth</param>
         /// <param name="avgNeutralDamage">avgNeutralDamage</param>
         /// <param name="avgNeutralKills">avgNeutralKills</param>
+        /// <param name="avgPermanentBuffs">Average permanent buff (power-up) pickups per player per match. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;</param>
+        /// <param name="avgPermanentBuffsPerMin">Average permanent buff pickups per player per minute of match time.</param>
         /// <param name="avgPlayerDamage">avgPlayerDamage</param>
         /// <param name="avgPlayerDamageTaken">avgPlayerDamageTaken</param>
         /// <param name="avgPlayerHealing">avgPlayerHealing</param>
@@ -80,8 +82,9 @@ namespace DeadlockApiClient.Model
         /// <param name="team1Wins">team1Wins</param>
         /// <param name="totalMatches">totalMatches</param>
         /// <param name="totalPlayers">totalPlayers</param>
+        /// <param name="avgFirstPermanentBuffTimeS">Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none.</param>
         [JsonConstructor]
-        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgFirstObjectiveDestroyedTimeS, double avgGoldBoss, double avgGoldBossOrb, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches, long totalPlayers)
+        public AnalyticsGameStats(double abandonRate, double avgAccuracy, double avgAssists, double avgBossDamage, double avgCreepDamage, double avgCreepKills, double avgCritRate, double avgDamageAbsorbed, double avgDamageMitigated, double avgDeaths, double avgDenies, double avgDurationS, double avgEndingLevel, double avgFirstMidBossTimeS, double avgFirstObjectiveDestroyedTimeS, double avgGoldBoss, double avgGoldBossOrb, double avgGoldDeathLoss, double avgGoldDenied, double avgGoldLaneCreep, double avgGoldLaneCreepOrbs, double avgGoldNeutralCreep, double avgGoldNeutralCreepOrbs, double avgGoldPlayer, double avgGoldPlayerOrbs, double avgGoldTreasure, double avgHealPrevented, double avgKdRatio, double avgKills, double avgLastHits, double avgMaxHealth, double avgNetWorth, double avgNeutralDamage, double avgNeutralKills, double avgPermanentBuffs, double avgPermanentBuffsPerMin, double avgPlayerDamage, double avgPlayerDamageTaken, double avgPlayerHealing, double avgPossibleCreeps, double avgSelfHealing, double avgTechPower, double avgWeaponPower, int bucket, double midBossKillRate, long team0Wins, long team1Wins, long totalMatches, long totalPlayers, Option<double?> avgFirstPermanentBuffTimeS = default)
         {
             AbandonRate = abandonRate;
             AvgAccuracy = avgAccuracy;
@@ -117,6 +120,8 @@ namespace DeadlockApiClient.Model
             AvgNetWorth = avgNetWorth;
             AvgNeutralDamage = avgNeutralDamage;
             AvgNeutralKills = avgNeutralKills;
+            AvgPermanentBuffs = avgPermanentBuffs;
+            AvgPermanentBuffsPerMin = avgPermanentBuffsPerMin;
             AvgPlayerDamage = avgPlayerDamage;
             AvgPlayerDamageTaken = avgPlayerDamageTaken;
             AvgPlayerHealing = avgPlayerHealing;
@@ -130,6 +135,7 @@ namespace DeadlockApiClient.Model
             Team1Wins = team1Wins;
             TotalMatches = totalMatches;
             TotalPlayers = totalPlayers;
+            AvgFirstPermanentBuffTimeSOption = avgFirstPermanentBuffTimeS;
             OnCreated();
         }
 
@@ -340,6 +346,20 @@ namespace DeadlockApiClient.Model
         public double AvgNeutralKills { get; set; }
 
         /// <summary>
+        /// Average permanent buff (power-up) pickups per player per match. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;
+        /// </summary>
+        /// <value>Average permanent buff (power-up) pickups per player per match. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;</value>
+        [JsonPropertyName("avg_permanent_buffs")]
+        public double AvgPermanentBuffs { get; set; }
+
+        /// <summary>
+        /// Average permanent buff pickups per player per minute of match time.
+        /// </summary>
+        /// <value>Average permanent buff pickups per player per minute of match time.</value>
+        [JsonPropertyName("avg_permanent_buffs_per_min")]
+        public double AvgPermanentBuffsPerMin { get; set; }
+
+        /// <summary>
         /// Gets or Sets AvgPlayerDamage
         /// </summary>
         [JsonPropertyName("avg_player_damage")]
@@ -418,6 +438,20 @@ namespace DeadlockApiClient.Model
         public long TotalPlayers { get; set; }
 
         /// <summary>
+        /// Used to track the state of AvgFirstPermanentBuffTimeS
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> AvgFirstPermanentBuffTimeSOption { get; private set; }
+
+        /// <summary>
+        /// Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none.
+        /// </summary>
+        /// <value>Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none.</value>
+        [JsonPropertyName("avg_first_permanent_buff_time_s")]
+        public double? AvgFirstPermanentBuffTimeS { get { return this.AvgFirstPermanentBuffTimeSOption.Value; } set { this.AvgFirstPermanentBuffTimeSOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -459,6 +493,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  AvgNetWorth: ").Append(AvgNetWorth).Append("\n");
             sb.Append("  AvgNeutralDamage: ").Append(AvgNeutralDamage).Append("\n");
             sb.Append("  AvgNeutralKills: ").Append(AvgNeutralKills).Append("\n");
+            sb.Append("  AvgPermanentBuffs: ").Append(AvgPermanentBuffs).Append("\n");
+            sb.Append("  AvgPermanentBuffsPerMin: ").Append(AvgPermanentBuffsPerMin).Append("\n");
             sb.Append("  AvgPlayerDamage: ").Append(AvgPlayerDamage).Append("\n");
             sb.Append("  AvgPlayerDamageTaken: ").Append(AvgPlayerDamageTaken).Append("\n");
             sb.Append("  AvgPlayerHealing: ").Append(AvgPlayerHealing).Append("\n");
@@ -472,6 +508,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Team1Wins: ").Append(Team1Wins).Append("\n");
             sb.Append("  TotalMatches: ").Append(TotalMatches).Append("\n");
             sb.Append("  TotalPlayers: ").Append(TotalPlayers).Append("\n");
+            sb.Append("  AvgFirstPermanentBuffTimeS: ").Append(AvgFirstPermanentBuffTimeS).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -583,6 +620,8 @@ namespace DeadlockApiClient.Model
             Option<double?> avgNetWorth = default;
             Option<double?> avgNeutralDamage = default;
             Option<double?> avgNeutralKills = default;
+            Option<double?> avgPermanentBuffs = default;
+            Option<double?> avgPermanentBuffsPerMin = default;
             Option<double?> avgPlayerDamage = default;
             Option<double?> avgPlayerDamageTaken = default;
             Option<double?> avgPlayerHealing = default;
@@ -596,6 +635,7 @@ namespace DeadlockApiClient.Model
             Option<long?> team1Wins = default;
             Option<long?> totalMatches = default;
             Option<long?> totalPlayers = default;
+            Option<double?> avgFirstPermanentBuffTimeS = default;
 
             while (utf8JsonReader.Read())
             {
@@ -714,6 +754,12 @@ namespace DeadlockApiClient.Model
                         case "avg_neutral_kills":
                             avgNeutralKills = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "avg_permanent_buffs":
+                            avgPermanentBuffs = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "avg_permanent_buffs_per_min":
+                            avgPermanentBuffsPerMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "avg_player_damage":
                             avgPlayerDamage = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -752,6 +798,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "total_players":
                             totalPlayers = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "avg_first_permanent_buff_time_s":
+                            avgFirstPermanentBuffTimeS = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         default:
                             break;
@@ -860,6 +909,12 @@ namespace DeadlockApiClient.Model
 
             if (!avgNeutralKills.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgNeutralKills));
+
+            if (!avgPermanentBuffs.IsSet)
+                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPermanentBuffs));
+
+            if (!avgPermanentBuffsPerMin.IsSet)
+                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPermanentBuffsPerMin));
 
             if (!avgPlayerDamage.IsSet)
                 throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPlayerDamage));
@@ -1002,6 +1057,12 @@ namespace DeadlockApiClient.Model
             if (avgNeutralKills.IsSet && avgNeutralKills.Value == null)
                 throw new ArgumentNullException(nameof(avgNeutralKills), "Property is not nullable for class AnalyticsGameStats.");
 
+            if (avgPermanentBuffs.IsSet && avgPermanentBuffs.Value == null)
+                throw new ArgumentNullException(nameof(avgPermanentBuffs), "Property is not nullable for class AnalyticsGameStats.");
+
+            if (avgPermanentBuffsPerMin.IsSet && avgPermanentBuffsPerMin.Value == null)
+                throw new ArgumentNullException(nameof(avgPermanentBuffsPerMin), "Property is not nullable for class AnalyticsGameStats.");
+
             if (avgPlayerDamage.IsSet && avgPlayerDamage.Value == null)
                 throw new ArgumentNullException(nameof(avgPlayerDamage), "Property is not nullable for class AnalyticsGameStats.");
 
@@ -1041,7 +1102,7 @@ namespace DeadlockApiClient.Model
             if (totalPlayers.IsSet && totalPlayers.Value == null)
                 throw new ArgumentNullException(nameof(totalPlayers), "Property is not nullable for class AnalyticsGameStats.");
 
-            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgFirstObjectiveDestroyedTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldLaneCreepOrbs.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldNeutralCreepOrbs.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldPlayerOrbs.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, team0Wins.Value!.Value!, team1Wins.Value!.Value!, totalMatches.Value!.Value!, totalPlayers.Value!.Value!);
+            return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgFirstObjectiveDestroyedTimeS.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldLaneCreepOrbs.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldNeutralCreepOrbs.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldPlayerOrbs.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgPermanentBuffs.Value!.Value!, avgPermanentBuffsPerMin.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, team0Wins.Value!.Value!, team1Wins.Value!.Value!, totalMatches.Value!.Value!, totalPlayers.Value!.Value!, avgFirstPermanentBuffTimeS);
         }
 
         /// <summary>
@@ -1136,6 +1197,10 @@ namespace DeadlockApiClient.Model
 
             writer.WriteNumber("avg_neutral_kills", analyticsGameStats.AvgNeutralKills);
 
+            writer.WriteNumber("avg_permanent_buffs", analyticsGameStats.AvgPermanentBuffs);
+
+            writer.WriteNumber("avg_permanent_buffs_per_min", analyticsGameStats.AvgPermanentBuffsPerMin);
+
             writer.WriteNumber("avg_player_damage", analyticsGameStats.AvgPlayerDamage);
 
             writer.WriteNumber("avg_player_damage_taken", analyticsGameStats.AvgPlayerDamageTaken);
@@ -1161,6 +1226,12 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("total_matches", analyticsGameStats.TotalMatches);
 
             writer.WriteNumber("total_players", analyticsGameStats.TotalPlayers);
+
+            if (analyticsGameStats.AvgFirstPermanentBuffTimeSOption.IsSet)
+                if (analyticsGameStats.AvgFirstPermanentBuffTimeSOption.Value != null)
+                    writer.WriteNumber("avg_first_permanent_buff_time_s", analyticsGameStats.AvgFirstPermanentBuffTimeSOption.Value!.Value);
+                else
+                    writer.WriteNull("avg_first_permanent_buff_time_s");
         }
     }
 }

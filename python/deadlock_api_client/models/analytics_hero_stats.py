@@ -33,22 +33,26 @@ class AnalyticsHeroStats(BaseModel):
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     matches_per_bucket: Annotated[int, Field(strict=True, ge=0)]
+    permanent_buff_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).")
+    permanent_buff_timing_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.")
     total_assists: Annotated[int, Field(strict=True, ge=0)]
     total_boss_damage: Annotated[int, Field(strict=True, ge=0)]
     total_creep_damage: Annotated[int, Field(strict=True, ge=0)]
     total_deaths: Annotated[int, Field(strict=True, ge=0)]
     total_denies: Annotated[int, Field(strict=True, ge=0)]
+    total_first_permanent_buff_time_s: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.")
     total_kills: Annotated[int, Field(strict=True, ge=0)]
     total_last_hits: Annotated[int, Field(strict=True, ge=0)]
     total_max_health: Annotated[int, Field(strict=True, ge=0)]
     total_net_worth: Annotated[int, Field(strict=True, ge=0)]
     total_neutral_damage: Annotated[int, Field(strict=True, ge=0)]
+    total_permanent_buffs: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>")
     total_player_damage: Annotated[int, Field(strict=True, ge=0)]
     total_player_damage_taken: Annotated[int, Field(strict=True, ge=0)]
     total_shots_hit: Annotated[int, Field(strict=True, ge=0)]
     total_shots_missed: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["bucket", "hero_id", "losses", "matches", "matches_per_bucket", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
+    __properties: ClassVar[List[str]] = ["bucket", "hero_id", "losses", "matches", "matches_per_bucket", "permanent_buff_matches", "permanent_buff_timing_matches", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_first_permanent_buff_time_s", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_permanent_buffs", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -106,16 +110,20 @@ class AnalyticsHeroStats(BaseModel):
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),
             "matches_per_bucket": obj.get("matches_per_bucket"),
+            "permanent_buff_matches": obj.get("permanent_buff_matches"),
+            "permanent_buff_timing_matches": obj.get("permanent_buff_timing_matches"),
             "total_assists": obj.get("total_assists"),
             "total_boss_damage": obj.get("total_boss_damage"),
             "total_creep_damage": obj.get("total_creep_damage"),
             "total_deaths": obj.get("total_deaths"),
             "total_denies": obj.get("total_denies"),
+            "total_first_permanent_buff_time_s": obj.get("total_first_permanent_buff_time_s"),
             "total_kills": obj.get("total_kills"),
             "total_last_hits": obj.get("total_last_hits"),
             "total_max_health": obj.get("total_max_health"),
             "total_net_worth": obj.get("total_net_worth"),
             "total_neutral_damage": obj.get("total_neutral_damage"),
+            "total_permanent_buffs": obj.get("total_permanent_buffs"),
             "total_player_damage": obj.get("total_player_damage"),
             "total_player_damage_taken": obj.get("total_player_damage_taken"),
             "total_shots_hit": obj.get("total_shots_hit"),

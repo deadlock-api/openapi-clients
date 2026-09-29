@@ -72,6 +72,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'float',
         'avg_first_mid_boss_time_s' => 'float',
         'avg_first_objective_destroyed_time_s' => 'float',
+        'avg_first_permanent_buff_time_s' => 'float',
         'avg_gold_boss' => 'float',
         'avg_gold_boss_orb' => 'float',
         'avg_gold_death_loss' => 'float',
@@ -91,6 +92,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'float',
         'avg_neutral_damage' => 'float',
         'avg_neutral_kills' => 'float',
+        'avg_permanent_buffs' => 'float',
+        'avg_permanent_buffs_per_min' => 'float',
         'avg_player_damage' => 'float',
         'avg_player_damage_taken' => 'float',
         'avg_player_healing' => 'float',
@@ -129,6 +132,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'double',
         'avg_first_mid_boss_time_s' => 'double',
         'avg_first_objective_destroyed_time_s' => 'double',
+        'avg_first_permanent_buff_time_s' => 'double',
         'avg_gold_boss' => 'double',
         'avg_gold_boss_orb' => 'double',
         'avg_gold_death_loss' => 'double',
@@ -148,6 +152,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'double',
         'avg_neutral_damage' => 'double',
         'avg_neutral_kills' => 'double',
+        'avg_permanent_buffs' => 'double',
+        'avg_permanent_buffs_per_min' => 'double',
         'avg_player_damage' => 'double',
         'avg_player_damage_taken' => 'double',
         'avg_player_healing' => 'double',
@@ -184,6 +190,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => false,
         'avg_first_mid_boss_time_s' => false,
         'avg_first_objective_destroyed_time_s' => false,
+        'avg_first_permanent_buff_time_s' => true,
         'avg_gold_boss' => false,
         'avg_gold_boss_orb' => false,
         'avg_gold_death_loss' => false,
@@ -203,6 +210,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => false,
         'avg_neutral_damage' => false,
         'avg_neutral_kills' => false,
+        'avg_permanent_buffs' => false,
+        'avg_permanent_buffs_per_min' => false,
         'avg_player_damage' => false,
         'avg_player_damage_taken' => false,
         'avg_player_healing' => false,
@@ -319,6 +328,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'avg_ending_level',
         'avg_first_mid_boss_time_s' => 'avg_first_mid_boss_time_s',
         'avg_first_objective_destroyed_time_s' => 'avg_first_objective_destroyed_time_s',
+        'avg_first_permanent_buff_time_s' => 'avg_first_permanent_buff_time_s',
         'avg_gold_boss' => 'avg_gold_boss',
         'avg_gold_boss_orb' => 'avg_gold_boss_orb',
         'avg_gold_death_loss' => 'avg_gold_death_loss',
@@ -338,6 +348,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'avg_net_worth',
         'avg_neutral_damage' => 'avg_neutral_damage',
         'avg_neutral_kills' => 'avg_neutral_kills',
+        'avg_permanent_buffs' => 'avg_permanent_buffs',
+        'avg_permanent_buffs_per_min' => 'avg_permanent_buffs_per_min',
         'avg_player_damage' => 'avg_player_damage',
         'avg_player_damage_taken' => 'avg_player_damage_taken',
         'avg_player_healing' => 'avg_player_healing',
@@ -374,6 +386,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'setAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'setAvgFirstMidBossTimeS',
         'avg_first_objective_destroyed_time_s' => 'setAvgFirstObjectiveDestroyedTimeS',
+        'avg_first_permanent_buff_time_s' => 'setAvgFirstPermanentBuffTimeS',
         'avg_gold_boss' => 'setAvgGoldBoss',
         'avg_gold_boss_orb' => 'setAvgGoldBossOrb',
         'avg_gold_death_loss' => 'setAvgGoldDeathLoss',
@@ -393,6 +406,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'setAvgNetWorth',
         'avg_neutral_damage' => 'setAvgNeutralDamage',
         'avg_neutral_kills' => 'setAvgNeutralKills',
+        'avg_permanent_buffs' => 'setAvgPermanentBuffs',
+        'avg_permanent_buffs_per_min' => 'setAvgPermanentBuffsPerMin',
         'avg_player_damage' => 'setAvgPlayerDamage',
         'avg_player_damage_taken' => 'setAvgPlayerDamageTaken',
         'avg_player_healing' => 'setAvgPlayerHealing',
@@ -429,6 +444,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_ending_level' => 'getAvgEndingLevel',
         'avg_first_mid_boss_time_s' => 'getAvgFirstMidBossTimeS',
         'avg_first_objective_destroyed_time_s' => 'getAvgFirstObjectiveDestroyedTimeS',
+        'avg_first_permanent_buff_time_s' => 'getAvgFirstPermanentBuffTimeS',
         'avg_gold_boss' => 'getAvgGoldBoss',
         'avg_gold_boss_orb' => 'getAvgGoldBossOrb',
         'avg_gold_death_loss' => 'getAvgGoldDeathLoss',
@@ -448,6 +464,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'avg_net_worth' => 'getAvgNetWorth',
         'avg_neutral_damage' => 'getAvgNeutralDamage',
         'avg_neutral_kills' => 'getAvgNeutralKills',
+        'avg_permanent_buffs' => 'getAvgPermanentBuffs',
+        'avg_permanent_buffs_per_min' => 'getAvgPermanentBuffsPerMin',
         'avg_player_damage' => 'getAvgPlayerDamage',
         'avg_player_damage_taken' => 'getAvgPlayerDamageTaken',
         'avg_player_healing' => 'getAvgPlayerHealing',
@@ -535,6 +553,7 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_ending_level', $data ?? [], null);
         $this->setIfExists('avg_first_mid_boss_time_s', $data ?? [], null);
         $this->setIfExists('avg_first_objective_destroyed_time_s', $data ?? [], null);
+        $this->setIfExists('avg_first_permanent_buff_time_s', $data ?? [], null);
         $this->setIfExists('avg_gold_boss', $data ?? [], null);
         $this->setIfExists('avg_gold_boss_orb', $data ?? [], null);
         $this->setIfExists('avg_gold_death_loss', $data ?? [], null);
@@ -554,6 +573,8 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('avg_net_worth', $data ?? [], null);
         $this->setIfExists('avg_neutral_damage', $data ?? [], null);
         $this->setIfExists('avg_neutral_kills', $data ?? [], null);
+        $this->setIfExists('avg_permanent_buffs', $data ?? [], null);
+        $this->setIfExists('avg_permanent_buffs_per_min', $data ?? [], null);
         $this->setIfExists('avg_player_damage', $data ?? [], null);
         $this->setIfExists('avg_player_damage_taken', $data ?? [], null);
         $this->setIfExists('avg_player_healing', $data ?? [], null);
@@ -697,6 +718,12 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if ($this->container['avg_neutral_kills'] === null) {
             $invalidProperties[] = "'avg_neutral_kills' can't be null";
+        }
+        if ($this->container['avg_permanent_buffs'] === null) {
+            $invalidProperties[] = "'avg_permanent_buffs' can't be null";
+        }
+        if ($this->container['avg_permanent_buffs_per_min'] === null) {
+            $invalidProperties[] = "'avg_permanent_buffs_per_min' can't be null";
         }
         if ($this->container['avg_player_damage'] === null) {
             $invalidProperties[] = "'avg_player_damage' can't be null";
@@ -1173,6 +1200,40 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_first_objective_destroyed_time_s cannot be null');
         }
         $this->container['avg_first_objective_destroyed_time_s'] = $avg_first_objective_destroyed_time_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_first_permanent_buff_time_s
+     *
+     * @return float|null
+     */
+    public function getAvgFirstPermanentBuffTimeS()
+    {
+        return $this->container['avg_first_permanent_buff_time_s'];
+    }
+
+    /**
+     * Sets avg_first_permanent_buff_time_s
+     *
+     * @param float|null $avg_first_permanent_buff_time_s Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+     *
+     * @return self
+     */
+    public function setAvgFirstPermanentBuffTimeS($avg_first_permanent_buff_time_s)
+    {
+        if (is_null($avg_first_permanent_buff_time_s)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_first_permanent_buff_time_s');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avg_first_permanent_buff_time_s', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avg_first_permanent_buff_time_s'] = $avg_first_permanent_buff_time_s;
 
         return $this;
     }
@@ -1686,6 +1747,60 @@ class AnalyticsGameStats implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable avg_neutral_kills cannot be null');
         }
         $this->container['avg_neutral_kills'] = $avg_neutral_kills;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_permanent_buffs
+     *
+     * @return float
+     */
+    public function getAvgPermanentBuffs()
+    {
+        return $this->container['avg_permanent_buffs'];
+    }
+
+    /**
+     * Sets avg_permanent_buffs
+     *
+     * @param float $avg_permanent_buffs Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     *
+     * @return self
+     */
+    public function setAvgPermanentBuffs($avg_permanent_buffs)
+    {
+        if (is_null($avg_permanent_buffs)) {
+            throw new \InvalidArgumentException('non-nullable avg_permanent_buffs cannot be null');
+        }
+        $this->container['avg_permanent_buffs'] = $avg_permanent_buffs;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_permanent_buffs_per_min
+     *
+     * @return float
+     */
+    public function getAvgPermanentBuffsPerMin()
+    {
+        return $this->container['avg_permanent_buffs_per_min'];
+    }
+
+    /**
+     * Sets avg_permanent_buffs_per_min
+     *
+     * @param float $avg_permanent_buffs_per_min Average permanent buff pickups per player per minute of match time.
+     *
+     * @return self
+     */
+    public function setAvgPermanentBuffsPerMin($avg_permanent_buffs_per_min)
+    {
+        if (is_null($avg_permanent_buffs_per_min)) {
+            throw new \InvalidArgumentException('non-nullable avg_permanent_buffs_per_min cannot be null');
+        }
+        $this->container['avg_permanent_buffs_per_min'] = $avg_permanent_buffs_per_min;
 
         return $this;
     }

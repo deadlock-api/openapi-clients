@@ -38,6 +38,8 @@
 | **avgNetWorth** | **kotlin.Double** |  |  |
 | **avgNeutralDamage** | **kotlin.Double** |  |  |
 | **avgNeutralKills** | **kotlin.Double** |  |  |
+| **avgPermanentBuffs** | **kotlin.Double** | Average permanent buff (power-up) pickups per player per match. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; |  |
+| **avgPermanentBuffsPerMin** | **kotlin.Double** | Average permanent buff pickups per player per minute of match time. |  |
 | **avgPlayerDamage** | **kotlin.Double** |  |  |
 | **avgPlayerDamageTaken** | **kotlin.Double** |  |  |
 | **avgPlayerHealing** | **kotlin.Double** |  |  |
@@ -51,6 +53,7 @@
 | **team1Wins** | **kotlin.Long** |  |  |
 | **totalMatches** | **kotlin.Long** |  |  |
 | **totalPlayers** | **kotlin.Long** |  |  |
+| **avgFirstPermanentBuffTimeS** | **kotlin.Double** | Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none. |  [optional] |
 
 
 

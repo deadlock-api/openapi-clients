@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ColorFriend** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **ColorTeam1** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
 **ColorTeam2** | Pointer to [**NullableColor**](Color.md) | Build 6711+. | [optional] 
+**CorruptedItemImages** | Pointer to [**NullableCorruptedItemImages**](CorruptedItemImages.md) | Shop art for corrupted items (build 6711+). | [optional] 
 **CorruptedPenalties** | Pointer to [**[]CorruptedPenalty**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). | [optional] 
 **DamageFlash** | [**DamageFlash**](DamageFlash.md) |  | 
 **EnemyObjectivesAndZiplineColor** | Pointer to [**NullableColor**](Color.md) |  | [optional] 
@@ -269,6 +270,41 @@ HasColorTeam2 returns a boolean if a field has been set.
 `func (o *GenericData) UnsetColorTeam2()`
 
 UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
+### GetCorruptedItemImages
+
+`func (o *GenericData) GetCorruptedItemImages() CorruptedItemImages`
+
+GetCorruptedItemImages returns the CorruptedItemImages field if non-nil, zero value otherwise.
+
+### GetCorruptedItemImagesOk
+
+`func (o *GenericData) GetCorruptedItemImagesOk() (*CorruptedItemImages, bool)`
+
+GetCorruptedItemImagesOk returns a tuple with the CorruptedItemImages field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCorruptedItemImages
+
+`func (o *GenericData) SetCorruptedItemImages(v CorruptedItemImages)`
+
+SetCorruptedItemImages sets CorruptedItemImages field to given value.
+
+### HasCorruptedItemImages
+
+`func (o *GenericData) HasCorruptedItemImages() bool`
+
+HasCorruptedItemImages returns a boolean if a field has been set.
+
+### SetCorruptedItemImagesNil
+
+`func (o *GenericData) SetCorruptedItemImagesNil(b bool)`
+
+ SetCorruptedItemImagesNil sets the value for CorruptedItemImages to be an explicit nil
+
+### UnsetCorruptedItemImages
+`func (o *GenericData) UnsetCorruptedItemImages()`
+
+UnsetCorruptedItemImages ensures that no value is present for CorruptedItemImages, not even an explicit nil
 ### GetCorruptedPenalties
 
 `func (o *GenericData) GetCorruptedPenalties() []CorruptedPenalty`

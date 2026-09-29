@@ -116,6 +116,15 @@ class HeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_first_permanent_buff_time_s"
+     */
+    public function testPropertyAvgFirstPermanentBuffTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "creeps_per_min"
      */
     public function testPropertyCreepsPerMin()
@@ -326,6 +335,33 @@ class HeroStatsTest extends TestCase
      * Test attribute "obj_damage_per_soul"
      */
     public function testPropertyObjDamagePerSoul()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "permanent_buff_matches"
+     */
+    public function testPropertyPermanentBuffMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "permanent_buffs"
+     */
+    public function testPropertyPermanentBuffs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "permanent_buffs_per_min"
+     */
+    public function testPropertyPermanentBuffsPerMin()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

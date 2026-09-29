@@ -54,7 +54,8 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 kills_avg = 1.337,
                 kills_std = 1.337,
                 net_worth_avg = 1.337,
-                net_worth_std = 1.337
+                net_worth_std = 1.337,
+                permanent_buffs_avg = 1.337
             )
         else:
             return PlayerPerformanceCurvePoint(

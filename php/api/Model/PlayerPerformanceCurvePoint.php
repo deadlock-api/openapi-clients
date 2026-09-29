@@ -76,7 +76,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => 'float',
         'kills_std' => 'float',
         'net_worth_avg' => 'float',
-        'net_worth_std' => 'float'
+        'net_worth_std' => 'float',
+        'permanent_buffs_avg' => 'float'
     ];
 
     /**
@@ -106,7 +107,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => 'double',
         'kills_std' => 'double',
         'net_worth_avg' => 'double',
-        'net_worth_std' => 'double'
+        'net_worth_std' => 'double',
+        'permanent_buffs_avg' => 'double'
     ];
 
     /**
@@ -134,7 +136,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => false,
         'kills_std' => false,
         'net_worth_avg' => false,
-        'net_worth_std' => false
+        'net_worth_std' => false,
+        'permanent_buffs_avg' => true
     ];
 
     /**
@@ -242,7 +245,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => 'kills_avg',
         'kills_std' => 'kills_std',
         'net_worth_avg' => 'net_worth_avg',
-        'net_worth_std' => 'net_worth_std'
+        'net_worth_std' => 'net_worth_std',
+        'permanent_buffs_avg' => 'permanent_buffs_avg'
     ];
 
     /**
@@ -270,7 +274,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => 'setKillsAvg',
         'kills_std' => 'setKillsStd',
         'net_worth_avg' => 'setNetWorthAvg',
-        'net_worth_std' => 'setNetWorthStd'
+        'net_worth_std' => 'setNetWorthStd',
+        'permanent_buffs_avg' => 'setPermanentBuffsAvg'
     ];
 
     /**
@@ -298,7 +303,8 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_avg' => 'getKillsAvg',
         'kills_std' => 'getKillsStd',
         'net_worth_avg' => 'getNetWorthAvg',
-        'net_worth_std' => 'getNetWorthStd'
+        'net_worth_std' => 'getNetWorthStd',
+        'permanent_buffs_avg' => 'getPermanentBuffsAvg'
     ];
 
     /**
@@ -378,6 +384,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('kills_std', $data ?? [], null);
         $this->setIfExists('net_worth_avg', $data ?? [], null);
         $this->setIfExists('net_worth_std', $data ?? [], null);
+        $this->setIfExists('permanent_buffs_avg', $data ?? [], null);
     }
 
     /**
@@ -1026,6 +1033,40 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable net_worth_std cannot be null');
         }
         $this->container['net_worth_std'] = $net_worth_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets permanent_buffs_avg
+     *
+     * @return float|null
+     */
+    public function getPermanentBuffsAvg()
+    {
+        return $this->container['permanent_buffs_avg'];
+    }
+
+    /**
+     * Sets permanent_buffs_avg
+     *
+     * @param float|null $permanent_buffs_avg Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+     *
+     * @return self
+     */
+    public function setPermanentBuffsAvg($permanent_buffs_avg)
+    {
+        if (is_null($permanent_buffs_avg)) {
+            array_push($this->openAPINullablesSetToNull, 'permanent_buffs_avg');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('permanent_buffs_avg', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['permanent_buffs_avg'] = $permanent_buffs_avg;
 
         return $this;
     }

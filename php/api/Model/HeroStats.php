@@ -61,6 +61,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => 'float',
         'assists' => 'int',
         'assists_per_min' => 'float',
+        'avg_first_permanent_buff_time_s' => 'float',
         'creeps_per_min' => 'float',
         'crit_shot_rate' => 'float',
         'damage_mitigated_per_min' => 'float',
@@ -85,6 +86,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => 'float',
         'obj_damage_per_min' => 'float',
         'obj_damage_per_soul' => 'float',
+        'permanent_buff_matches' => 'int',
+        'permanent_buffs' => 'int',
+        'permanent_buffs_per_min' => 'float',
         'time_played' => 'int',
         'total_boss_damage' => 'int',
         'total_creep_damage' => 'int',
@@ -106,6 +110,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => 'double',
         'assists' => 'int64',
         'assists_per_min' => 'double',
+        'avg_first_permanent_buff_time_s' => 'double',
         'creeps_per_min' => 'double',
         'crit_shot_rate' => 'double',
         'damage_mitigated_per_min' => 'double',
@@ -130,6 +135,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => 'double',
         'obj_damage_per_min' => 'double',
         'obj_damage_per_soul' => 'double',
+        'permanent_buff_matches' => 'int64',
+        'permanent_buffs' => 'int64',
+        'permanent_buffs_per_min' => 'double',
         'time_played' => 'int64',
         'total_boss_damage' => 'int64',
         'total_creep_damage' => 'int64',
@@ -149,6 +157,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => false,
         'assists' => false,
         'assists_per_min' => false,
+        'avg_first_permanent_buff_time_s' => true,
         'creeps_per_min' => false,
         'crit_shot_rate' => false,
         'damage_mitigated_per_min' => false,
@@ -173,6 +182,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => false,
         'obj_damage_per_min' => false,
         'obj_damage_per_soul' => false,
+        'permanent_buff_matches' => false,
+        'permanent_buffs' => false,
+        'permanent_buffs_per_min' => true,
         'time_played' => false,
         'total_boss_damage' => false,
         'total_creep_damage' => false,
@@ -272,6 +284,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => 'accuracy',
         'assists' => 'assists',
         'assists_per_min' => 'assists_per_min',
+        'avg_first_permanent_buff_time_s' => 'avg_first_permanent_buff_time_s',
         'creeps_per_min' => 'creeps_per_min',
         'crit_shot_rate' => 'crit_shot_rate',
         'damage_mitigated_per_min' => 'damage_mitigated_per_min',
@@ -296,6 +309,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => 'networth_per_min',
         'obj_damage_per_min' => 'obj_damage_per_min',
         'obj_damage_per_soul' => 'obj_damage_per_soul',
+        'permanent_buff_matches' => 'permanent_buff_matches',
+        'permanent_buffs' => 'permanent_buffs',
+        'permanent_buffs_per_min' => 'permanent_buffs_per_min',
         'time_played' => 'time_played',
         'total_boss_damage' => 'total_boss_damage',
         'total_creep_damage' => 'total_creep_damage',
@@ -315,6 +331,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => 'setAccuracy',
         'assists' => 'setAssists',
         'assists_per_min' => 'setAssistsPerMin',
+        'avg_first_permanent_buff_time_s' => 'setAvgFirstPermanentBuffTimeS',
         'creeps_per_min' => 'setCreepsPerMin',
         'crit_shot_rate' => 'setCritShotRate',
         'damage_mitigated_per_min' => 'setDamageMitigatedPerMin',
@@ -339,6 +356,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => 'setNetworthPerMin',
         'obj_damage_per_min' => 'setObjDamagePerMin',
         'obj_damage_per_soul' => 'setObjDamagePerSoul',
+        'permanent_buff_matches' => 'setPermanentBuffMatches',
+        'permanent_buffs' => 'setPermanentBuffs',
+        'permanent_buffs_per_min' => 'setPermanentBuffsPerMin',
         'time_played' => 'setTimePlayed',
         'total_boss_damage' => 'setTotalBossDamage',
         'total_creep_damage' => 'setTotalCreepDamage',
@@ -358,6 +378,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'accuracy' => 'getAccuracy',
         'assists' => 'getAssists',
         'assists_per_min' => 'getAssistsPerMin',
+        'avg_first_permanent_buff_time_s' => 'getAvgFirstPermanentBuffTimeS',
         'creeps_per_min' => 'getCreepsPerMin',
         'crit_shot_rate' => 'getCritShotRate',
         'damage_mitigated_per_min' => 'getDamageMitigatedPerMin',
@@ -382,6 +403,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'networth_per_min' => 'getNetworthPerMin',
         'obj_damage_per_min' => 'getObjDamagePerMin',
         'obj_damage_per_soul' => 'getObjDamagePerSoul',
+        'permanent_buff_matches' => 'getPermanentBuffMatches',
+        'permanent_buffs' => 'getPermanentBuffs',
+        'permanent_buffs_per_min' => 'getPermanentBuffsPerMin',
         'time_played' => 'getTimePlayed',
         'total_boss_damage' => 'getTotalBossDamage',
         'total_creep_damage' => 'getTotalCreepDamage',
@@ -452,6 +476,7 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('accuracy', $data ?? [], null);
         $this->setIfExists('assists', $data ?? [], null);
         $this->setIfExists('assists_per_min', $data ?? [], null);
+        $this->setIfExists('avg_first_permanent_buff_time_s', $data ?? [], null);
         $this->setIfExists('creeps_per_min', $data ?? [], null);
         $this->setIfExists('crit_shot_rate', $data ?? [], null);
         $this->setIfExists('damage_mitigated_per_min', $data ?? [], null);
@@ -476,6 +501,9 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('networth_per_min', $data ?? [], null);
         $this->setIfExists('obj_damage_per_min', $data ?? [], null);
         $this->setIfExists('obj_damage_per_soul', $data ?? [], null);
+        $this->setIfExists('permanent_buff_matches', $data ?? [], null);
+        $this->setIfExists('permanent_buffs', $data ?? [], null);
+        $this->setIfExists('permanent_buffs_per_min', $data ?? [], null);
         $this->setIfExists('time_played', $data ?? [], null);
         $this->setIfExists('total_boss_damage', $data ?? [], null);
         $this->setIfExists('total_creep_damage', $data ?? [], null);
@@ -628,6 +656,20 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['obj_damage_per_soul'] === null) {
             $invalidProperties[] = "'obj_damage_per_soul' can't be null";
         }
+        if ($this->container['permanent_buff_matches'] === null) {
+            $invalidProperties[] = "'permanent_buff_matches' can't be null";
+        }
+        if (($this->container['permanent_buff_matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'permanent_buff_matches', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['permanent_buffs'] === null) {
+            $invalidProperties[] = "'permanent_buffs' can't be null";
+        }
+        if (($this->container['permanent_buffs'] < 0)) {
+            $invalidProperties[] = "invalid value for 'permanent_buffs', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['time_played'] === null) {
             $invalidProperties[] = "'time_played' can't be null";
         }
@@ -804,6 +846,40 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable assists_per_min cannot be null');
         }
         $this->container['assists_per_min'] = $assists_per_min;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_first_permanent_buff_time_s
+     *
+     * @return float|null
+     */
+    public function getAvgFirstPermanentBuffTimeS()
+    {
+        return $this->container['avg_first_permanent_buff_time_s'];
+    }
+
+    /**
+     * Sets avg_first_permanent_buff_time_s
+     *
+     * @param float|null $avg_first_permanent_buff_time_s Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+     *
+     * @return self
+     */
+    public function setAvgFirstPermanentBuffTimeS($avg_first_permanent_buff_time_s)
+    {
+        if (is_null($avg_first_permanent_buff_time_s)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_first_permanent_buff_time_s');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avg_first_permanent_buff_time_s', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avg_first_permanent_buff_time_s'] = $avg_first_permanent_buff_time_s;
 
         return $this;
     }
@@ -1476,6 +1552,102 @@ class HeroStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable obj_damage_per_soul cannot be null');
         }
         $this->container['obj_damage_per_soul'] = $obj_damage_per_soul;
+
+        return $this;
+    }
+
+    /**
+     * Gets permanent_buff_matches
+     *
+     * @return int
+     */
+    public function getPermanentBuffMatches()
+    {
+        return $this->container['permanent_buff_matches'];
+    }
+
+    /**
+     * Sets permanent_buff_matches
+     *
+     * @param int $permanent_buff_matches Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+     *
+     * @return self
+     */
+    public function setPermanentBuffMatches($permanent_buff_matches)
+    {
+        if (is_null($permanent_buff_matches)) {
+            throw new \InvalidArgumentException('non-nullable permanent_buff_matches cannot be null');
+        }
+        if (($permanent_buff_matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $permanent_buff_matches when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['permanent_buff_matches'] = $permanent_buff_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets permanent_buffs
+     *
+     * @return int
+     */
+    public function getPermanentBuffs()
+    {
+        return $this->container['permanent_buffs'];
+    }
+
+    /**
+     * Sets permanent_buffs
+     *
+     * @param int $permanent_buffs Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     *
+     * @return self
+     */
+    public function setPermanentBuffs($permanent_buffs)
+    {
+        if (is_null($permanent_buffs)) {
+            throw new \InvalidArgumentException('non-nullable permanent_buffs cannot be null');
+        }
+        if (($permanent_buffs < 0)) {
+            throw new \InvalidArgumentException('invalid value for $permanent_buffs when calling HeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['permanent_buffs'] = $permanent_buffs;
+
+        return $this;
+    }
+
+    /**
+     * Gets permanent_buffs_per_min
+     *
+     * @return float|null
+     */
+    public function getPermanentBuffsPerMin()
+    {
+        return $this->container['permanent_buffs_per_min'];
+    }
+
+    /**
+     * Sets permanent_buffs_per_min
+     *
+     * @param float|null $permanent_buffs_per_min Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+     *
+     * @return self
+     */
+    public function setPermanentBuffsPerMin($permanent_buffs_per_min)
+    {
+        if (is_null($permanent_buffs_per_min)) {
+            array_push($this->openAPINullablesSetToNull, 'permanent_buffs_per_min');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('permanent_buffs_per_min', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['permanent_buffs_per_min'] = $permanent_buffs_per_min;
 
         return $this;
     }

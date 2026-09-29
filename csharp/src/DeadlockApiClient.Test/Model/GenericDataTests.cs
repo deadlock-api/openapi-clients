@@ -234,6 +234,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CorruptedItemImages'
+        /// </summary>
+        [Fact]
+        public void CorruptedItemImagesTest()
+        {
+            // TODO unit test for the property 'CorruptedItemImages'
+        }
+
+        /// <summary>
         /// Test the property 'CorruptedPenalties'
         /// </summary>
         [Fact]

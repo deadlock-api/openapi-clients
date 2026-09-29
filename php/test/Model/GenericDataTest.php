@@ -143,6 +143,15 @@ class GenericDataTest extends TestCase
     }
 
     /**
+     * Test attribute "corrupted_item_images"
+     */
+    public function testPropertyCorruptedItemImages()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "corrupted_penalties"
      */
     public function testPropertyCorruptedPenalties()

@@ -32,6 +32,8 @@
 | **networthPerMin** | **kotlin.Double** |  |  |
 | **objDamagePerMin** | **kotlin.Double** |  |  |
 | **objDamagePerSoul** | **kotlin.Double** |  |  |
+| **permanentBuffMatches** | **kotlin.Long** | Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;. |  |
+| **permanentBuffs** | **kotlin.Long** | Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; |  |
 | **timePlayed** | **kotlin.Long** |  |  |
 | **totalBossDamage** | **kotlin.Long** |  |  |
 | **totalCreepDamage** | **kotlin.Long** |  |  |
@@ -39,6 +41,8 @@
 | **totalPlayerDamage** | **kotlin.Long** |  |  |
 | **totalPlayerDamageTaken** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
+| **avgFirstPermanentBuffTimeS** | **kotlin.Double** | Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any. |  [optional] |
+| **permanentBuffsPerMin** | **kotlin.Double** | Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any. |  [optional] |
 
 
 

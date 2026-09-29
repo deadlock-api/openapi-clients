@@ -125,6 +125,24 @@ class AnalyticsHeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "permanent_buff_matches"
+     */
+    public function testPropertyPermanentBuffMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "permanent_buff_timing_matches"
+     */
+    public function testPropertyPermanentBuffTimingMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "total_assists"
      */
     public function testPropertyTotalAssists()
@@ -170,6 +188,15 @@ class AnalyticsHeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "total_first_permanent_buff_time_s"
+     */
+    public function testPropertyTotalFirstPermanentBuffTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "total_kills"
      */
     public function testPropertyTotalKills()
@@ -209,6 +236,15 @@ class AnalyticsHeroStatsTest extends TestCase
      * Test attribute "total_neutral_damage"
      */
     public function testPropertyTotalNeutralDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_permanent_buffs"
+     */
+    public function testPropertyTotalPermanentBuffs()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

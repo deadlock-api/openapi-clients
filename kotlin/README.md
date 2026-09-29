@@ -68,6 +68,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AccoladesApi* | [**listAccolades**](docs/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades |
 | *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
+| *AnalyticsApi* | [**buffStats**](docs/AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | *AnalyticsApi* | [**gameStats**](docs/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
 | *AnalyticsApi* | [**heroBanStats**](docs/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
@@ -210,6 +211,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [deadlock_api_client.models.AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [deadlock_api_client.models.AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [deadlock_api_client.models.AnalyticsBuffStats](docs/AnalyticsBuffStats.md)
  - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [deadlock_api_client.models.BadgeDistribution](docs/BadgeDistribution.md)
@@ -228,9 +230,11 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Color](docs/Color.md)
  - [deadlock_api_client.models.ColorGradientStop](docs/ColorGradientStop.md)
  - [deadlock_api_client.models.ColumnSchema](docs/ColumnSchema.md)
+ - [deadlock_api_client.models.CorruptedItemImages](docs/CorruptedItemImages.md)
  - [deadlock_api_client.models.CorruptedItemInfo](docs/CorruptedItemInfo.md)
  - [deadlock_api_client.models.CorruptedPenalty](docs/CorruptedPenalty.md)
  - [deadlock_api_client.models.CorruptedPenaltyEffect](docs/CorruptedPenaltyEffect.md)
+ - [deadlock_api_client.models.CorruptedTooltipBackers](docs/CorruptedTooltipBackers.md)
  - [deadlock_api_client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
  - [deadlock_api_client.models.Curve](docs/Curve.md)
@@ -284,6 +288,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
  - [deadlock_api_client.models.HeroType](docs/HeroType.md)
  - [deadlock_api_client.models.HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [deadlock_api_client.models.ImagePair](docs/ImagePair.md)
  - [deadlock_api_client.models.IngestLiveUrl](docs/IngestLiveUrl.md)
  - [deadlock_api_client.models.Item](docs/Item.md)
  - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)

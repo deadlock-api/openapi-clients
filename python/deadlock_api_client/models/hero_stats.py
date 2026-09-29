@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,6 +32,7 @@ class HeroStats(BaseModel):
     accuracy: Union[StrictFloat, StrictInt]
     assists: Annotated[int, Field(strict=True, ge=0)]
     assists_per_min: Union[StrictFloat, StrictInt]
+    avg_first_permanent_buff_time_s: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.")
     creeps_per_min: Union[StrictFloat, StrictInt]
     crit_shot_rate: Union[StrictFloat, StrictInt]
     damage_mitigated_per_min: Union[StrictFloat, StrictInt]
@@ -56,6 +57,9 @@ class HeroStats(BaseModel):
     networth_per_min: Union[StrictFloat, StrictInt]
     obj_damage_per_min: Union[StrictFloat, StrictInt]
     obj_damage_per_soul: Union[StrictFloat, StrictInt]
+    permanent_buff_matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.")
+    permanent_buffs: Annotated[int, Field(strict=True, ge=0)] = Field(description="Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>")
+    permanent_buffs_per_min: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.")
     time_played: Annotated[int, Field(strict=True, ge=0)]
     total_boss_damage: Annotated[int, Field(strict=True, ge=0)]
     total_creep_damage: Annotated[int, Field(strict=True, ge=0)]
@@ -63,7 +67,7 @@ class HeroStats(BaseModel):
     total_player_damage: Annotated[int, Field(strict=True, ge=0)]
     total_player_damage_taken: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "mvp_rank_counts", "mvp_rated_matches", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "time_played", "total_boss_damage", "total_creep_damage", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "wins"]
+    __properties: ClassVar[List[str]] = ["account_id", "accuracy", "assists", "assists_per_min", "avg_first_permanent_buff_time_s", "creeps_per_min", "crit_shot_rate", "damage_mitigated_per_min", "damage_per_min", "damage_per_soul", "damage_taken_per_min", "damage_taken_per_soul", "deaths", "deaths_per_min", "denies_per_match", "denies_per_min", "ending_level", "hero_id", "kills", "kills_per_min", "last_hits_per_min", "last_played", "matches", "matches_played", "mvp_rank_counts", "mvp_rated_matches", "networth_per_min", "obj_damage_per_min", "obj_damage_per_soul", "permanent_buff_matches", "permanent_buffs", "permanent_buffs_per_min", "time_played", "total_boss_damage", "total_creep_damage", "total_neutral_damage", "total_player_damage", "total_player_damage_taken", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -104,6 +108,16 @@ class HeroStats(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if avg_first_permanent_buff_time_s (nullable) is None
+        # and model_fields_set contains the field
+        if self.avg_first_permanent_buff_time_s is None and "avg_first_permanent_buff_time_s" in self.model_fields_set:
+            _dict['avg_first_permanent_buff_time_s'] = None
+
+        # set to None if permanent_buffs_per_min (nullable) is None
+        # and model_fields_set contains the field
+        if self.permanent_buffs_per_min is None and "permanent_buffs_per_min" in self.model_fields_set:
+            _dict['permanent_buffs_per_min'] = None
+
         return _dict
 
     @classmethod
@@ -120,6 +134,7 @@ class HeroStats(BaseModel):
             "accuracy": obj.get("accuracy"),
             "assists": obj.get("assists"),
             "assists_per_min": obj.get("assists_per_min"),
+            "avg_first_permanent_buff_time_s": obj.get("avg_first_permanent_buff_time_s"),
             "creeps_per_min": obj.get("creeps_per_min"),
             "crit_shot_rate": obj.get("crit_shot_rate"),
             "damage_mitigated_per_min": obj.get("damage_mitigated_per_min"),
@@ -144,6 +159,9 @@ class HeroStats(BaseModel):
             "networth_per_min": obj.get("networth_per_min"),
             "obj_damage_per_min": obj.get("obj_damage_per_min"),
             "obj_damage_per_soul": obj.get("obj_damage_per_soul"),
+            "permanent_buff_matches": obj.get("permanent_buff_matches"),
+            "permanent_buffs": obj.get("permanent_buffs"),
+            "permanent_buffs_per_min": obj.get("permanent_buffs_per_min"),
             "time_played": obj.get("time_played"),
             "total_boss_damage": obj.get("total_boss_damage"),
             "total_creep_damage": obj.get("total_creep_damage"),

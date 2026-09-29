@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="leaderboard"></a>
 # **leaderboard**
-> Leaderboard leaderboard(region)
+> Leaderboard leaderboard(region, leaderboardId)
 
 Leaderboard
 
@@ -26,8 +26,9 @@ Leaderboard
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
+val leaderboardId : kotlin.Int = 56 // kotlin.Int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 try {
-    val result : Leaderboard = apiInstance.leaderboard(region)
+    val result : Leaderboard = apiInstance.leaderboard(region, leaderboardId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaderboardApi#leaderboard")
@@ -42,6 +43,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
+| **leaderboardId** | **kotlin.Int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -58,7 +60,7 @@ No authorization required
 
 <a id="leaderboardHero"></a>
 # **leaderboardHero**
-> Leaderboard leaderboardHero(region, heroId)
+> Leaderboard leaderboardHero(region, heroId, leaderboardId)
 
 Hero Leaderboard
 
@@ -73,8 +75,9 @@ Hero Leaderboard
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
 val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+val leaderboardId : kotlin.Int = 56 // kotlin.Int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 try {
-    val result : Leaderboard = apiInstance.leaderboardHero(region, heroId)
+    val result : Leaderboard = apiInstance.leaderboardHero(region, heroId, leaderboardId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaderboardApi#leaderboardHero")
@@ -90,6 +93,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
+| **leaderboardId** | **kotlin.Int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -106,7 +110,7 @@ No authorization required
 
 <a id="leaderboardHeroRaw"></a>
 # **leaderboardHeroRaw**
-> kotlin.collections.List&lt;kotlin.Int&gt; leaderboardHeroRaw(region, heroId)
+> kotlin.collections.List&lt;kotlin.Int&gt; leaderboardHeroRaw(region, heroId, leaderboardId)
 
 Hero Leaderboard as Protobuf
 
@@ -121,8 +125,9 @@ Hero Leaderboard as Protobuf
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
 val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+val leaderboardId : kotlin.Int = 56 // kotlin.Int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardHeroRaw(region, heroId)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardHeroRaw(region, heroId, leaderboardId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaderboardApi#leaderboardHeroRaw")
@@ -138,6 +143,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
 | **heroId** | **kotlin.Int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
+| **leaderboardId** | **kotlin.Int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -154,7 +160,7 @@ No authorization required
 
 <a id="leaderboardRaw"></a>
 # **leaderboardRaw**
-> kotlin.collections.List&lt;kotlin.Int&gt; leaderboardRaw(region)
+> kotlin.collections.List&lt;kotlin.Int&gt; leaderboardRaw(region, leaderboardId)
 
 Leaderboard as Protobuf
 
@@ -168,8 +174,9 @@ Leaderboard as Protobuf
 
 val apiInstance = LeaderboardApi()
 val region : kotlin.String = region_example // kotlin.String | The region to fetch the leaderboard for.
+val leaderboardId : kotlin.Int = 56 // kotlin.Int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardRaw(region)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.leaderboardRaw(region, leaderboardId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling LeaderboardApi#leaderboardRaw")
@@ -184,6 +191,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **kotlin.String**| The region to fetch the leaderboard for. | [enum: Europe, Asia, NAmerica, SAmerica, Oceania] |
+| **leaderboardId** | **kotlin.Int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 

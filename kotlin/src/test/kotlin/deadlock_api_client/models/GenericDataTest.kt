@@ -29,6 +29,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock_api_client.models.GenericData
 import deadlock_api_client.models.BreakablePowerupLootParams
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.CorruptedItemImages
 import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
@@ -164,6 +165,12 @@ class GenericDataTest : ShouldSpec() {
         should("test colorTeam2") {
             // uncomment below to test the property
             //modelInstance.colorTeam2 shouldBe ("TODO")
+        }
+
+        // to test the property `corruptedItemImages` - Shop art for corrupted items (build 6711+).
+        should("test corruptedItemImages") {
+            // uncomment below to test the property
+            //modelInstance.corruptedItemImages shouldBe ("TODO")
         }
 
         // to test the property `corruptedPenalties` - Penalties that can be rolled onto corrupted items (build 6711+).

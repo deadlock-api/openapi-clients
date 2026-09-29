@@ -232,5 +232,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'NetWorthStd'
         }
+
+        /// <summary>
+        /// Test the property 'PermanentBuffsAvg'
+        /// </summary>
+        [Fact]
+        public void PermanentBuffsAvgTest()
+        {
+            // TODO unit test for the property 'PermanentBuffsAvg'
+        }
     }
 }

@@ -608,6 +608,210 @@ paths:
       summary: Badge Distribution
       tags:
       - Analytics
+  /v1/analytics/buff-stats:
+    get:
+      description: "\nRetrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`):\
+        \ how often\nplayers pick each one up and, for matches since build 6712 (2026-09-29),\
+        \ when they pick it up\nand how much stat it grants.\n\nPickup counts cover\
+        \ every match. Pickup times and stat values are only recorded since build\n\
+        6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average\
+        \ times only cover\nthose matches. Temporary power-ups have no timings.\n\n\
+        Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>\n\
+        \nResults are cached for **1 hour** based on the unique combination of query\
+        \ parameters provided.\n\n### Rate Limits:\n> The rate limits below are **shared\
+        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
+        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      operationId: buff_stats
+      parameters:
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          - explore_n_y_c
+          - internal
+          nullable: true
+          type: string
+        style: form
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1788048000
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: min_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: max_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: hero_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/AnalyticsBuffStats"
+                type: array
+                default: null
+          description: Buff Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch buff stats
+      summary: Buff Stats
+      tags:
+      - Analytics
   /v1/analytics/build-item-stats:
     get:
       description: "\nRetrieves item statistics from hero builds.\n\nResults are cached\
@@ -3507,11 +3711,33 @@ paths:
           type: array
           default: null
         style: form
-      - description: "Count corrupted items (build 6712+: a T3/T4 upgrade the Broker\
-          \ swapped for a corrupted version with the same item id) as purchases of\
-          \ the normal item. **Default:** `false`, corrupted purchases are excluded\
-          \ from the stats. Setting it to `true` bypasses the pre-aggregated rollups,\
-          \ so requests are slower."
+      - description: "How to count corrupted items (build 6712+: a T3/T4 upgrade that\
+          \ the Broker swapped for a corrupted version with the same item id). `exclude`:\
+          \ only normal purchases. `include`: corrupted purchases count as the normal\
+          \ item. `only`: only corrupted purchases, so each row describes the corrupted\
+          \ variant of `item_id`. Compare it with the same request using `exclude`.\
+          \ Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores\
+          \ earlier time and match-id bounds. `include` and `only` skip the pre-aggregated\
+          \ rollups, so those requests are slower. **Default:** `exclude`, or `include`\
+          \ if the deprecated `include_corrupted_items=true` is set."
+        explode: true
+        in: query
+        name: corrupted_items
+        required: false
+        schema:
+          description: |-
+            How corrupted purchases are counted. Build 6712+: the Broker swaps a T3/T4 upgrade for a
+            corrupted version that keeps the normal item's id.
+          enum:
+          - exclude
+          - include
+          - only
+          nullable: true
+          type: string
+        style: form
+      - deprecated: true
+        description: Deprecated alias of `corrupted_items=include`. `corrupted_items`
+          takes precedence when both are set.
         explode: true
         in: query
         name: include_corrupted_items
@@ -4947,6 +5173,21 @@ paths:
           type: array
           default: null
         style: form
+      - description: |-
+          Also return the permanent buff (power-up) pickup metrics `permanent_buffs`,
+          `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because
+          the buff columns are not in the per-hero projection, which roughly doubles the cost of
+          hero-filtered requests.
+          `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which
+          record pickup times; its values are `null` when the filter matches none of them.
+        explode: true
+        in: query
+        name: include_buff_metrics
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -5038,6 +5279,9 @@ paths:
           - max_hero_bullets_hit_crit_per_match
           - avg_hero_bullets_hit_crit_per_match
           - hero_bullets_hit_crit
+          - max_permanent_buffs_per_match
+          - avg_permanent_buffs_per_match
+          - permanent_buffs
           type: string
         style: form
       - description: The direction to sort heroes in.
@@ -5326,6 +5570,9 @@ paths:
           - max_hero_bullets_hit_crit_per_match
           - avg_hero_bullets_hit_crit_per_match
           - hero_bullets_hit_crit
+          - max_permanent_buffs_per_match
+          - avg_permanent_buffs_per_match
+          - permanent_buffs
           type: string
         style: form
       - description: The direction to sort players in.
@@ -8313,6 +8560,18 @@ paths:
           - Oceania
           type: string
         style: simple
+      - description: |-
+          Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from
+          <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        explode: true
+        in: query
+        name: leaderboard_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -8352,6 +8611,18 @@ paths:
           - Oceania
           type: string
         style: simple
+      - description: |-
+          Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from
+          <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        explode: true
+        in: query
+        name: leaderboard_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -8403,6 +8674,18 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: |-
+          Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from
+          <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        explode: true
+        in: query
+        name: leaderboard_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -8452,6 +8735,18 @@ paths:
           minimum: 0
           type: integer
         style: simple
+      - description: |-
+          Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from
+          <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        explode: true
+        in: query
+        name: leaderboard_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -8789,6 +9084,10 @@ paths:
         Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation
         (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.
 
+        **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points
+        at a `CCitadelObserverPawn`, not the hero's `CCitadelPlayerPawn`. Join controllers to hero pawns by
+        hero id or pawn entity index rather than through `m_hPawn`.
+
         ### Rate Limits:
         | Type | Limit |
         | ---- | ----- |
@@ -8861,6 +9160,10 @@ paths:
         artifact (Parquet or NDJSON).
 
         Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.
+
+        **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points
+        at a `CCitadelObserverPawn`, not the hero's `CCitadelPlayerPawn`. Join controllers to hero pawns by
+        hero id or pawn entity index rather than through `m_hPawn`.
 
         ### Rate Limits:
         | Type | Limit |
@@ -12478,6 +12781,87 @@ components:
       - total_deaths
       - total_kills
       - wins
+    AnalyticsBuffStats:
+      example:
+        avg_first_pickup_time_s: 0.8008281904610115
+        avg_pickup_time_s: 6.027456183070403
+        buff_type: buff_type
+        is_permanent: true
+        matches: 0
+        matches_with_pickup: 0
+        pickups: 0
+        timed_matches: 0
+        timed_pickups: 0
+        total_stat_value: 9.301444243932576
+      properties:
+        avg_first_pickup_time_s:
+          description: |-
+            Average game time (seconds) of a player's first pickup of this buff type, over
+            player-matches with timings, `null` without any.
+          format: double
+          nullable: true
+          type: number
+        avg_pickup_time_s:
+          description: "Average game time (seconds) of the `timed_pickups`, `null`\
+            \ without any."
+          format: double
+          nullable: true
+          type: number
+        buff_type:
+          description: |-
+            Buff type, e.g. `hp_permanent_pickup_lv2`. Display names, units and colors:
+            <https://api.deadlock-api.com/v1/assets/misc-entities> (`buff_type_name`).
+          type: string
+        is_permanent:
+          description: Whether the buff is permanent. Temporary power-ups never carry
+            pickup timings.
+          type: boolean
+        matches:
+          description: |-
+            Player-matches matching the filters (the same for every buff type). Average pickups
+            per match: `pickups / matches`.
+          format: int64
+          minimum: 0
+          type: integer
+        matches_with_pickup:
+          description: Player-matches with at least one pickup of this buff type.
+          format: int64
+          minimum: 0
+          type: integer
+        pickups:
+          description: Total pickups of this buff type.
+          format: int64
+          minimum: 0
+          type: integer
+        timed_matches:
+          description: |-
+            Player-matches matching the filters that record pickup timings (the same for every buff
+            type): matches since build 6712 (2026-09-29) with at least one timed permanent pickup.
+            Average stat gained per match: `total_stat_value / timed_matches`.
+          format: int64
+          minimum: 0
+          type: integer
+        timed_pickups:
+          description: Pickups of this buff type with a recorded game time and stat
+            value (build 6712+).
+          format: int64
+          minimum: 0
+          type: integer
+        total_stat_value:
+          description: |-
+            Sum of the stat values granted by the `timed_pickups`, in the buff type's unit
+            (`buff_type_value_unit` in the assets).
+          format: double
+          type: number
+      required:
+      - buff_type
+      - is_permanent
+      - matches
+      - matches_with_pickup
+      - pickups
+      - timed_matches
+      - timed_pickups
+      - total_stat_value
     AnalyticsGameStats:
       example:
         abandon_rate: 0.8008281904610115
@@ -12495,34 +12879,37 @@ components:
         avg_ending_level: 1.2315135367772556
         avg_first_mid_boss_time_s: 1.0246457001441578
         avg_first_objective_destroyed_time_s: 1.4894159098541704
-        avg_gold_boss: 6.84685269835264
-        avg_gold_boss_orb: 7.457744773683766
-        avg_gold_death_loss: 1.1730742509559433
-        avg_gold_denied: 4.965218492984954
-        avg_gold_lane_creep: 5.025004791520295
-        avg_gold_lane_creep_orbs: 9.965781217890562
-        avg_gold_neutral_creep: 9.369310271410669
-        avg_gold_neutral_creep_orbs: 6.683562403749608
-        avg_gold_player: 8.762042012749001
-        avg_gold_player_orbs: 9.018348186070783
-        avg_gold_treasure: 6.438423552598547
-        avg_heal_prevented: 3.5571952270680973
-        avg_kd_ratio: 6.965117697638846
-        avg_kills: 1.284659006116532
-        avg_last_hits: 2.8841621266687802
-        avg_max_health: 6.778324963048013
-        avg_net_worth: 6.878052220127876
-        avg_neutral_damage: 5.944895607614016
-        avg_neutral_kills: 6.704019297950036
-        avg_player_damage: 3.353193347011243
-        avg_player_damage_taken: 3.0937452626664474
-        avg_player_healing: 7.143538047012306
-        avg_possible_creeps: 0.8851374739011653
-        avg_self_healing: 7.058770351582356
-        avg_tech_power: 6.519180951018382
-        avg_weapon_power: 0.10263654006109402
+        avg_first_permanent_buff_time_s: 6.84685269835264
+        avg_gold_boss: 7.457744773683766
+        avg_gold_boss_orb: 1.1730742509559433
+        avg_gold_death_loss: 4.965218492984954
+        avg_gold_denied: 5.025004791520295
+        avg_gold_lane_creep: 9.965781217890562
+        avg_gold_lane_creep_orbs: 9.369310271410669
+        avg_gold_neutral_creep: 6.683562403749608
+        avg_gold_neutral_creep_orbs: 8.762042012749001
+        avg_gold_player: 9.018348186070783
+        avg_gold_player_orbs: 6.438423552598547
+        avg_gold_treasure: 3.5571952270680973
+        avg_heal_prevented: 6.965117697638846
+        avg_kd_ratio: 1.284659006116532
+        avg_kills: 2.8841621266687802
+        avg_last_hits: 6.778324963048013
+        avg_max_health: 6.878052220127876
+        avg_net_worth: 5.944895607614016
+        avg_neutral_damage: 6.704019297950036
+        avg_neutral_kills: 3.353193347011243
+        avg_permanent_buffs: 3.0937452626664474
+        avg_permanent_buffs_per_min: 7.143538047012306
+        avg_player_damage: 0.8851374739011653
+        avg_player_damage_taken: 7.058770351582356
+        avg_player_healing: 6.519180951018382
+        avg_possible_creeps: 0.10263654006109402
+        avg_self_healing: 4.652396432933246
+        avg_tech_power: 8.969578798196912
+        avg_weapon_power: 7.740351818741173
         bucket: 0
-        mid_boss_kill_rate: 8.969578798196912
+        mid_boss_kill_rate: 3.0576100241049344
         team0_wins: 0
         team1_wins: 0
         total_matches: 0
@@ -12572,6 +12959,13 @@ components:
           type: number
         avg_first_objective_destroyed_time_s:
           format: double
+          type: number
+        avg_first_permanent_buff_time_s:
+          description: |-
+            Average game time (seconds) of a player's first permanent buff pickup. Only matches
+            since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+          format: double
+          nullable: true
           type: number
         avg_gold_boss:
           format: double
@@ -12628,6 +13022,17 @@ components:
           format: double
           type: number
         avg_neutral_kills:
+          format: double
+          type: number
+        avg_permanent_buffs:
+          description: |-
+            Average permanent buff (power-up) pickups per player per match. Buff types:
+            <https://api.deadlock-api.com/v1/assets/misc-entities>
+          format: double
+          type: number
+        avg_permanent_buffs_per_min:
+          description: Average permanent buff pickups per player per minute of match
+            time.
           format: double
           type: number
         avg_player_damage:
@@ -12709,6 +13114,8 @@ components:
       - avg_net_worth
       - avg_neutral_damage
       - avg_neutral_kills
+      - avg_permanent_buffs
+      - avg_permanent_buffs_per_min
       - avg_player_damage
       - avg_player_damage_taken
       - avg_player_healing
@@ -12729,16 +13136,20 @@ components:
         losses: 0
         matches: 0
         matches_per_bucket: 0
+        permanent_buff_matches: 0
+        permanent_buff_timing_matches: 0
         total_assists: 0
         total_boss_damage: 0
         total_creep_damage: 0
         total_deaths: 0
         total_denies: 0
+        total_first_permanent_buff_time_s: 0
         total_kills: 0
         total_last_hits: 0
         total_max_health: 0
         total_net_worth: 0
         total_neutral_damage: 0
+        total_permanent_buffs: 0
         total_player_damage: 0
         total_player_damage_taken: 0
         total_shots_hit: 0
@@ -12766,6 +13177,21 @@ components:
           format: int64
           minimum: 0
           type: integer
+        permanent_buff_matches:
+          description: |-
+            Matches that carry buff pickup counts. Equals `matches`, except on account-scoped
+            queries (`account_ids` without item or ability filters): those read a per-account table
+            that only has buff counts for matches ingested since build 6712 (late September 2026).
+          format: int64
+          minimum: 0
+          type: integer
+        permanent_buff_timing_matches:
+          description: |-
+            Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup
+            times, and only players with at least one permanent pickup count here.
+          format: int64
+          minimum: 0
+          type: integer
         total_assists:
           format: int64
           minimum: 0
@@ -12786,6 +13212,14 @@ components:
           format: int64
           minimum: 0
           type: integer
+        total_first_permanent_buff_time_s:
+          description: |-
+            Sum of the game time (seconds) of each player's first permanent buff pickup, over the
+            `permanent_buff_timing_matches` matches.
+            Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+          format: int64
+          minimum: 0
+          type: integer
         total_kills:
           format: int64
           minimum: 0
@@ -12803,6 +13237,14 @@ components:
           minimum: 0
           type: integer
         total_neutral_damage:
+          format: int64
+          minimum: 0
+          type: integer
+        total_permanent_buffs:
+          description: |-
+            Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches.
+            Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types:
+            <https://api.deadlock-api.com/v1/assets/misc-entities>
           format: int64
           minimum: 0
           type: integer
@@ -12832,16 +13274,20 @@ components:
       - losses
       - matches
       - matches_per_bucket
+      - permanent_buff_matches
+      - permanent_buff_timing_matches
       - total_assists
       - total_boss_damage
       - total_creep_damage
       - total_deaths
       - total_denies
+      - total_first_permanent_buff_time_s
       - total_kills
       - total_last_hits
       - total_max_health
       - total_net_worth
       - total_neutral_damage
+      - total_permanent_buffs
       - total_player_damage
       - total_player_damage_taken
       - total_shots_hit
@@ -13438,6 +13884,24 @@ components:
       - data_type
       - name
       - nullable
+    CorruptedItemImages:
+      description: |-
+        Shop art for corrupted items (build 6711+). The game has no per-item corrupted
+        icon: a corrupted item is its normal image drawn inside `frame`, with the tooltip
+        backer of its `item_slot_type`.
+      properties:
+        frame:
+          $ref: "#/components/schemas/ImagePair"
+        frame_active:
+          allOf:
+          - $ref: "#/components/schemas/ImagePair"
+          description: Frame for an active (usable) corrupted item.
+        tooltip_backers:
+          $ref: "#/components/schemas/CorruptedTooltipBackers"
+      required:
+      - frame
+      - frame_active
+      - tooltip_backers
     CorruptedItemInfo:
       description: "Broker (\"City Never Sleeps\", build 6711+) corruption data of\
         \ an upgrade."
@@ -13552,6 +14016,19 @@ components:
       - bonus_per_tier
       - display
       - modifier_value
+    CorruptedTooltipBackers:
+      description: "Corrupted item tooltip backers, one per item slot type."
+      properties:
+        spirit:
+          $ref: "#/components/schemas/ImagePair"
+        vitality:
+          $ref: "#/components/schemas/ImagePair"
+        weapon:
+          $ref: "#/components/schemas/ImagePair"
+      required:
+      - spirit
+      - vitality
+      - weapon
     CreateCustomRequest:
       example:
         callback_url: callback_url
@@ -14168,6 +14645,7 @@ components:
         color_friend: ""
         color_team1: ""
         color_team2: ""
+        corrupted_item_images: ""
         corrupted_penalties:
         - effects:
           - bonus_per_tier:
@@ -14488,6 +14966,11 @@ components:
           allOf:
           - $ref: "#/components/schemas/Color"
           description: Build 6711+.
+          nullable: true
+        corrupted_item_images:
+          allOf:
+          - $ref: "#/components/schemas/CorruptedItemImages"
+          description: Shop art for corrupted items (build 6711+).
           nullable: true
         corrupted_penalties:
           description: Penalties that can be rolled onto corrupted items (build 6711+).
@@ -15596,22 +16079,23 @@ components:
         accuracy: 6.027456183070403
         assists: 0
         assists_per_min: 5.962133916683182
-        creeps_per_min: 5.637376656633329
-        crit_shot_rate: 2.3021358869347655
-        damage_mitigated_per_min: 7.061401241503109
-        damage_per_min: 9.301444243932576
-        damage_per_soul: 3.616076749251911
-        damage_taken_per_min: 2.027123023002322
-        damage_taken_per_soul: 4.145608029883936
+        avg_first_permanent_buff_time_s: 5.637376656633329
+        creeps_per_min: 2.3021358869347655
+        crit_shot_rate: 7.061401241503109
+        damage_mitigated_per_min: 9.301444243932576
+        damage_per_min: 3.616076749251911
+        damage_per_soul: 2.027123023002322
+        damage_taken_per_min: 4.145608029883936
+        damage_taken_per_soul: 7.386281948385884
         deaths: 0
-        deaths_per_min: 1.2315135367772556
-        denies_per_match: 1.0246457001441578
-        denies_per_min: 1.4894159098541704
-        ending_level: 6.84685269835264
+        deaths_per_min: 1.0246457001441578
+        denies_per_match: 1.4894159098541704
+        denies_per_min: 6.84685269835264
+        ending_level: 7.457744773683766
         hero_id: 0
         kills: 0
-        kills_per_min: 4.965218492984954
-        last_hits_per_min: 5.025004791520295
+        kills_per_min: 5.025004791520295
+        last_hits_per_min: 9.965781217890562
         last_played: 0
         matches:
         - 0
@@ -15621,9 +16105,12 @@ components:
         - 0
         - 0
         mvp_rated_matches: 0
-        networth_per_min: 6.438423552598547
-        obj_damage_per_min: 3.5571952270680973
-        obj_damage_per_soul: 6.965117697638846
+        networth_per_min: 3.5571952270680973
+        obj_damage_per_min: 6.965117697638846
+        obj_damage_per_soul: 1.284659006116532
+        permanent_buff_matches: 0
+        permanent_buffs: 0
+        permanent_buffs_per_min: 6.878052220127876
         time_played: 0
         total_boss_damage: 0
         total_creep_damage: 0
@@ -15645,6 +16132,13 @@ components:
           type: integer
         assists_per_min:
           format: double
+          type: number
+        avg_first_permanent_buff_time_s:
+          description: |-
+            Average game time (seconds) of the first permanent buff pickup, over matches with
+            pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+          format: double
+          nullable: true
           type: number
         creeps_per_min:
           format: double
@@ -15740,6 +16234,27 @@ components:
         obj_damage_per_soul:
           format: double
           type: number
+        permanent_buff_matches:
+          description: |-
+            Matches that carry buff pickup counts. Only matches ingested since build 6712 (late
+            September 2026) have them here, so divide by this rather than `matches_played`.
+          format: int64
+          minimum: 0
+          type: integer
+        permanent_buffs:
+          description: |-
+            Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff
+            types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+          format: int64
+          minimum: 0
+          type: integer
+        permanent_buffs_per_min:
+          description: |-
+            Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null`
+            without any.
+          format: double
+          nullable: true
+          type: number
         time_played:
           format: int64
           minimum: 0
@@ -15797,6 +16312,8 @@ components:
       - networth_per_min
       - obj_damage_per_min
       - obj_damage_per_soul
+      - permanent_buff_matches
+      - permanent_buffs
       - time_played
       - total_boss_damage
       - total_creep_damage
@@ -16002,6 +16519,16 @@ components:
           allOf:
           - $ref: "#/components/schemas/RecoilRange"
           nullable: true
+    ImagePair:
+      description: A png image and its webp variant.
+      properties:
+        png:
+          type: string
+        webp:
+          type: string
+      required:
+      - png
+      - webp
     IngestLiveUrl:
       example:
         broadcast_url: broadcast_url
@@ -18983,6 +19510,7 @@ components:
         kills_std: 1.1730742509559433
         net_worth_avg: 4.965218492984954
         net_worth_std: 5.025004791520295
+        permanent_buffs_avg: 9.965781217890562
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -19072,6 +19600,14 @@ components:
         net_worth_std:
           description: Standard deviation of net worth at this time point
           format: double
+          type: number
+        permanent_buffs_avg:
+          description: |-
+            Average permanent buff (power-up) pickups collected up to this time point. Only
+            matches since build 6712 (2026-09-29) record pickup times, so only players with at
+            least one timed permanent pickup count; `null` when there are none.
+          format: double
+          nullable: true
           type: number
       required:
       - assists_avg

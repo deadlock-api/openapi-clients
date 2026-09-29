@@ -21,6 +21,9 @@ import type { BreakablePowerupLootParams } from './breakable-powerup-loot-params
 import type { Color } from './color.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { CorruptedItemImages } from './corrupted-item-images.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { CorruptedPenalty } from './corrupted-penalty.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -76,6 +79,10 @@ export interface GenericData {
      * Build 6711+.
      */
     'color_team2'?: Color | null;
+    /**
+     * Shop art for corrupted items (build 6711+).
+     */
+    'corrupted_item_images'?: CorruptedItemImages | null;
     /**
      * Penalties that can be rolled onto corrupted items (build 6711+).
      */

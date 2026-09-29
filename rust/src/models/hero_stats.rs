@@ -21,6 +21,9 @@ pub struct HeroStats {
     pub assists: u64,
     #[serde(rename = "assists_per_min")]
     pub assists_per_min: f64,
+    /// Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+    #[serde(rename = "avg_first_permanent_buff_time_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub avg_first_permanent_buff_time_s: Option<Option<f64>>,
     #[serde(rename = "creeps_per_min")]
     pub creeps_per_min: f64,
     #[serde(rename = "crit_shot_rate")]
@@ -72,6 +75,15 @@ pub struct HeroStats {
     pub obj_damage_per_min: f64,
     #[serde(rename = "obj_damage_per_soul")]
     pub obj_damage_per_soul: f64,
+    /// Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+    #[serde(rename = "permanent_buff_matches")]
+    pub permanent_buff_matches: u64,
+    /// Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+    #[serde(rename = "permanent_buffs")]
+    pub permanent_buffs: u64,
+    /// Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+    #[serde(rename = "permanent_buffs_per_min", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub permanent_buffs_per_min: Option<Option<f64>>,
     #[serde(rename = "time_played")]
     pub time_played: u64,
     #[serde(rename = "total_boss_damage")]
@@ -89,12 +101,13 @@ pub struct HeroStats {
 }
 
 impl HeroStats {
-    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, mvp_rank_counts: Vec<u64>, mvp_rated_matches: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, time_played: u64, total_boss_damage: u64, total_creep_damage: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, wins: u64) -> HeroStats {
+    pub fn new(account_id: u32, accuracy: f64, assists: u64, assists_per_min: f64, creeps_per_min: f64, crit_shot_rate: f64, damage_mitigated_per_min: f64, damage_per_min: f64, damage_per_soul: f64, damage_taken_per_min: f64, damage_taken_per_soul: f64, deaths: u64, deaths_per_min: f64, denies_per_match: f64, denies_per_min: f64, ending_level: f64, hero_id: u32, kills: u64, kills_per_min: f64, last_hits_per_min: f64, last_played: u32, matches: Vec<u64>, matches_played: u64, mvp_rank_counts: Vec<u64>, mvp_rated_matches: u64, networth_per_min: f64, obj_damage_per_min: f64, obj_damage_per_soul: f64, permanent_buff_matches: u64, permanent_buffs: u64, time_played: u64, total_boss_damage: u64, total_creep_damage: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, wins: u64) -> HeroStats {
         HeroStats {
             account_id,
             accuracy,
             assists,
             assists_per_min,
+            avg_first_permanent_buff_time_s: None,
             creeps_per_min,
             crit_shot_rate,
             damage_mitigated_per_min,
@@ -119,6 +132,9 @@ impl HeroStats {
             networth_per_min,
             obj_damage_per_min,
             obj_damage_per_soul,
+            permanent_buff_matches,
+            permanent_buffs,
+            permanent_buffs_per_min: None,
             time_played,
             total_boss_damage,
             total_creep_damage,

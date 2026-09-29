@@ -201,6 +201,18 @@ class HeroStatsTest : ShouldSpec() {
             //modelInstance.objDamagePerSoul shouldBe ("TODO")
         }
 
+        // to test the property `permanentBuffMatches` - Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+        should("test permanentBuffMatches") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffMatches shouldBe ("TODO")
+        }
+
+        // to test the property `permanentBuffs` - Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+        should("test permanentBuffs") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffs shouldBe ("TODO")
+        }
+
         // to test the property `timePlayed`
         should("test timePlayed") {
             // uncomment below to test the property
@@ -241,6 +253,18 @@ class HeroStatsTest : ShouldSpec() {
         should("test wins") {
             // uncomment below to test the property
             //modelInstance.wins shouldBe ("TODO")
+        }
+
+        // to test the property `avgFirstPermanentBuffTimeS` - Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+        should("test avgFirstPermanentBuffTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgFirstPermanentBuffTimeS shouldBe ("TODO")
+        }
+
+        // to test the property `permanentBuffsPerMin` - Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+        should("test permanentBuffsPerMin") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffsPerMin shouldBe ("TODO")
         }
 
     }

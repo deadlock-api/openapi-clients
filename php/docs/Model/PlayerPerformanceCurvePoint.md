@@ -24,5 +24,6 @@ Name | Type | Description | Notes
 **kills_std** | **float** | Standard deviation of kills at this time point |
 **net_worth_avg** | **float** | Average net worth at this time point |
 **net_worth_std** | **float** | Standard deviation of net worth at this time point |
+**permanent_buffs_avg** | **float** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

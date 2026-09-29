@@ -56,6 +56,7 @@ docs/ActiveMatchTeam.md
 docs/AddSteamAccountRequest.md
 docs/AnalyticsAPI.md
 docs/AnalyticsAbilityOrderStats.md
+docs/AnalyticsBuffStats.md
 docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketAPI.md
@@ -80,9 +81,11 @@ docs/ColorGradientStop.md
 docs/ColorsAPI.md
 docs/ColumnSchema.md
 docs/CommandsAPI.md
+docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
 docs/CorruptedPenaltyEffect.md
+docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -141,6 +144,7 @@ docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesAPI.md
 docs/HorizontalRecoil.md
+docs/ImagePair.md
 docs/InfoAPI.md
 docs/IngestLiveUrl.md
 docs/InternalAPI.md
@@ -317,6 +321,7 @@ model_active_match_player.go
 model_active_match_team.go
 model_add_steam_account_request.go
 model_analytics_ability_order_stats.go
+model_analytics_buff_stats.go
 model_analytics_game_stats.go
 model_analytics_hero_stats.go
 model_api_info.go
@@ -336,9 +341,11 @@ model_clickhouse_salts.go
 model_color.go
 model_color_gradient_stop.go
 model_column_schema.go
+model_corrupted_item_images.go
 model_corrupted_item_info.go
 model_corrupted_penalty.go
 model_corrupted_penalty_effect.go
+model_corrupted_tooltip_backers.go
 model_create_custom_request.go
 model_create_custom_response.go
 model_curve.go
@@ -392,6 +399,7 @@ model_hero_stats_ui_display.go
 model_hero_synergy_stats.go
 model_hero_type.go
 model_horizontal_recoil.go
+model_image_pair.go
 model_ingest_live_url.go
 model_item.go
 model_item_draft_round.go

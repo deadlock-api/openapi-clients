@@ -59,6 +59,8 @@ import java.io.Serializable
  * @param networthPerMin 
  * @param objDamagePerMin 
  * @param objDamagePerSoul 
+ * @param permanentBuffMatches Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+ * @param permanentBuffs Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
  * @param timePlayed 
  * @param totalBossDamage 
  * @param totalCreepDamage 
@@ -66,6 +68,8 @@ import java.io.Serializable
  * @param totalPlayerDamage 
  * @param totalPlayerDamageTaken 
  * @param wins 
+ * @param avgFirstPermanentBuffTimeS Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+ * @param permanentBuffsPerMin Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
  */
 
 
@@ -158,6 +162,14 @@ data class HeroStats (
     @Json(name = "obj_damage_per_soul")
     val objDamagePerSoul: kotlin.Double,
 
+    /* Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`. */
+    @Json(name = "permanent_buff_matches")
+    val permanentBuffMatches: kotlin.Long,
+
+    /* Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities> */
+    @Json(name = "permanent_buffs")
+    val permanentBuffs: kotlin.Long,
+
     @Json(name = "time_played")
     val timePlayed: kotlin.Long,
 
@@ -177,7 +189,15 @@ data class HeroStats (
     val totalPlayerDamageTaken: kotlin.Long,
 
     @Json(name = "wins")
-    val wins: kotlin.Long
+    val wins: kotlin.Long,
+
+    /* Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any. */
+    @Json(name = "avg_first_permanent_buff_time_s")
+    val avgFirstPermanentBuffTimeS: kotlin.Double? = null,
+
+    /* Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any. */
+    @Json(name = "permanent_buffs_per_min")
+    val permanentBuffsPerMin: kotlin.Double? = null
 
 ) : Serializable {
     companion object {

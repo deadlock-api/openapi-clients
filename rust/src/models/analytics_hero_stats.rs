@@ -24,6 +24,12 @@ pub struct AnalyticsHeroStats {
     pub matches: u64,
     #[serde(rename = "matches_per_bucket")]
     pub matches_per_bucket: u64,
+    /// Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+    #[serde(rename = "permanent_buff_matches")]
+    pub permanent_buff_matches: u64,
+    /// Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+    #[serde(rename = "permanent_buff_timing_matches")]
+    pub permanent_buff_timing_matches: u64,
     #[serde(rename = "total_assists")]
     pub total_assists: u64,
     #[serde(rename = "total_boss_damage")]
@@ -34,6 +40,9 @@ pub struct AnalyticsHeroStats {
     pub total_deaths: u64,
     #[serde(rename = "total_denies")]
     pub total_denies: u64,
+    /// Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+    #[serde(rename = "total_first_permanent_buff_time_s")]
+    pub total_first_permanent_buff_time_s: u64,
     #[serde(rename = "total_kills")]
     pub total_kills: u64,
     #[serde(rename = "total_last_hits")]
@@ -44,6 +53,9 @@ pub struct AnalyticsHeroStats {
     pub total_net_worth: u64,
     #[serde(rename = "total_neutral_damage")]
     pub total_neutral_damage: u64,
+    /// Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+    #[serde(rename = "total_permanent_buffs")]
+    pub total_permanent_buffs: u64,
     #[serde(rename = "total_player_damage")]
     pub total_player_damage: u64,
     #[serde(rename = "total_player_damage_taken")]
@@ -57,23 +69,27 @@ pub struct AnalyticsHeroStats {
 }
 
 impl AnalyticsHeroStats {
-    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
+    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, permanent_buff_matches: u64, permanent_buff_timing_matches: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_first_permanent_buff_time_s: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_permanent_buffs: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
         AnalyticsHeroStats {
             bucket,
             hero_id,
             losses,
             matches,
             matches_per_bucket,
+            permanent_buff_matches,
+            permanent_buff_timing_matches,
             total_assists,
             total_boss_damage,
             total_creep_damage,
             total_deaths,
             total_denies,
+            total_first_permanent_buff_time_s,
             total_kills,
             total_last_hits,
             total_max_health,
             total_net_worth,
             total_neutral_damage,
+            total_permanent_buffs,
             total_player_damage,
             total_player_damage_taken,
             total_shots_hit,

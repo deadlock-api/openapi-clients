@@ -24,6 +24,7 @@
 | **colorFriend** | [**Color**](Color.md) | Build 6711+. |  [optional] |
 | **colorTeam1** | [**Color**](Color.md) | Build 6711+. |  [optional] |
 | **colorTeam2** | [**Color**](Color.md) | Build 6711+. |  [optional] |
+| **corruptedItemImages** | [**CorruptedItemImages**](CorruptedItemImages.md) | Shop art for corrupted items (build 6711+). |  [optional] |
 | **corruptedPenalties** | [**kotlin.collections.List&lt;CorruptedPenalty&gt;**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). |  [optional] |
 | **enemyObjectivesAndZiplineColor** | [**Color**](Color.md) |  |  [optional] |
 | **enemyObjectivesColor** | [**Color**](Color.md) |  |  [optional] |

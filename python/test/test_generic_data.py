@@ -72,6 +72,17 @@ class TestGenericData(unittest.TestCase):
                     blue = 0, 
                     green = 0, 
                     red = 0, ),
+                corrupted_item_images = deadlock_api_client.models.corrupted_item_images.CorruptedItemImages(
+                    frame = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), 
+                    frame_active = null, 
+                    tooltip_backers = deadlock_api_client.models.corrupted_tooltip_backers.CorruptedTooltipBackers(
+                        spirit = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        vitality = , 
+                        weapon = , ), ),
                 corrupted_penalties = [
                     deadlock_api_client.models.corrupted_penalty.CorruptedPenalty(
                         effects = [

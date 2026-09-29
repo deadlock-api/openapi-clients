@@ -96,6 +96,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for buffStats
+     *
+     * Buff Stats.
+     *
+     */
+    public function testBuffStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for buildItemStats
      *
      * Build Item Stats.

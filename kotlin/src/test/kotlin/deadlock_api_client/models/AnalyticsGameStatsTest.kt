@@ -237,6 +237,18 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgNeutralKills shouldBe ("TODO")
         }
 
+        // to test the property `avgPermanentBuffs` - Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+        should("test avgPermanentBuffs") {
+            // uncomment below to test the property
+            //modelInstance.avgPermanentBuffs shouldBe ("TODO")
+        }
+
+        // to test the property `avgPermanentBuffsPerMin` - Average permanent buff pickups per player per minute of match time.
+        should("test avgPermanentBuffsPerMin") {
+            // uncomment below to test the property
+            //modelInstance.avgPermanentBuffsPerMin shouldBe ("TODO")
+        }
+
         // to test the property `avgPlayerDamage`
         should("test avgPlayerDamage") {
             // uncomment below to test the property
@@ -313,6 +325,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
         should("test totalPlayers") {
             // uncomment below to test the property
             //modelInstance.totalPlayers shouldBe ("TODO")
+        }
+
+        // to test the property `avgFirstPermanentBuffTimeS` - Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+        should("test avgFirstPermanentBuffTimeS") {
+            // uncomment below to test the property
+            //modelInstance.avgFirstPermanentBuffTimeS shouldBe ("TODO")
         }
 
     }

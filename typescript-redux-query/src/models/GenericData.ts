@@ -19,6 +19,9 @@ import {
     Color,
     ColorFromJSON,
     ColorToJSON,
+    CorruptedItemImages,
+    CorruptedItemImagesFromJSON,
+    CorruptedItemImagesToJSON,
     CorruptedPenalty,
     CorruptedPenaltyFromJSON,
     CorruptedPenaltyToJSON,
@@ -102,6 +105,12 @@ export interface GenericData  {
      * @memberof GenericData
      */
     colorTeam2?: Color;
+    /**
+     * Shop art for corrupted items (build 6711+).
+     * @type {CorruptedItemImages}
+     * @memberof GenericData
+     */
+    corruptedItemImages?: CorruptedItemImages;
     /**
      * Penalties that can be rolled onto corrupted items (build 6711+).
      * @type {Array<CorruptedPenalty>}
@@ -251,6 +260,7 @@ export function GenericDataFromJSON(json: any): GenericData {
         'colorFriend': !exists(json, 'color_friend') ? undefined : ColorFromJSON(json['color_friend']),
         'colorTeam1': !exists(json, 'color_team1') ? undefined : ColorFromJSON(json['color_team1']),
         'colorTeam2': !exists(json, 'color_team2') ? undefined : ColorFromJSON(json['color_team2']),
+        'corruptedItemImages': !exists(json, 'corrupted_item_images') ? undefined : CorruptedItemImagesFromJSON(json['corrupted_item_images']),
         'corruptedPenalties': !exists(json, 'corrupted_penalties') ? undefined : (json['corrupted_penalties'] as Array<any>).map(CorruptedPenaltyFromJSON),
         'damageFlash': DamageFlashFromJSON(json['damage_flash']),
         'enemyObjectivesAndZiplineColor': !exists(json, 'enemy_objectives_and_zipline_color') ? undefined : ColorFromJSON(json['enemy_objectives_and_zipline_color']),
@@ -289,6 +299,7 @@ export function GenericDataToJSON(value?: GenericData): any {
         'color_friend': ColorToJSON(value.colorFriend),
         'color_team1': ColorToJSON(value.colorTeam1),
         'color_team2': ColorToJSON(value.colorTeam2),
+        'corrupted_item_images': CorruptedItemImagesToJSON(value.corruptedItemImages),
         'corrupted_penalties': value.corruptedPenalties === undefined ? undefined : (value.corruptedPenalties as Array<any>).map(CorruptedPenaltyToJSON),
         'damage_flash': DamageFlashToJSON(value.damageFlash),
         'enemy_objectives_and_zipline_color': ColorToJSON(value.enemyObjectivesAndZiplineColor),

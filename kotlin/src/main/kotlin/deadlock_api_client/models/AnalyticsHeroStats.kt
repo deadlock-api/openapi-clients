@@ -36,16 +36,20 @@ import java.io.Serializable
  * @param losses 
  * @param matches 
  * @param matchesPerBucket 
+ * @param permanentBuffMatches Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+ * @param permanentBuffTimingMatches Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
  * @param totalAssists 
  * @param totalBossDamage 
  * @param totalCreepDamage 
  * @param totalDeaths 
  * @param totalDenies 
+ * @param totalFirstPermanentBuffTimeS Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
  * @param totalKills 
  * @param totalLastHits 
  * @param totalMaxHealth 
  * @param totalNetWorth 
  * @param totalNeutralDamage 
+ * @param totalPermanentBuffs Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
  * @param totalPlayerDamage 
  * @param totalPlayerDamageTaken 
  * @param totalShotsHit 
@@ -72,6 +76,14 @@ data class AnalyticsHeroStats (
     @Json(name = "matches_per_bucket")
     val matchesPerBucket: kotlin.Long,
 
+    /* Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026). */
+    @Json(name = "permanent_buff_matches")
+    val permanentBuffMatches: kotlin.Long,
+
+    /* Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here. */
+    @Json(name = "permanent_buff_timing_matches")
+    val permanentBuffTimingMatches: kotlin.Long,
+
     @Json(name = "total_assists")
     val totalAssists: kotlin.Long,
 
@@ -87,6 +99,10 @@ data class AnalyticsHeroStats (
     @Json(name = "total_denies")
     val totalDenies: kotlin.Long,
 
+    /* Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`. */
+    @Json(name = "total_first_permanent_buff_time_s")
+    val totalFirstPermanentBuffTimeS: kotlin.Long,
+
     @Json(name = "total_kills")
     val totalKills: kotlin.Long,
 
@@ -101,6 +117,10 @@ data class AnalyticsHeroStats (
 
     @Json(name = "total_neutral_damage")
     val totalNeutralDamage: kotlin.Long,
+
+    /* Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities> */
+    @Json(name = "total_permanent_buffs")
+    val totalPermanentBuffs: kotlin.Long,
 
     @Json(name = "total_player_damage")
     val totalPlayerDamage: kotlin.Long,

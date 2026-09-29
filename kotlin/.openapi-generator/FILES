@@ -21,6 +21,7 @@ docs/ActiveMatchTeam.md
 docs/AddSteamAccountRequest.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
+docs/AnalyticsBuffStats.md
 docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
@@ -45,9 +46,11 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
 docs/CorruptedPenaltyEffect.md
+docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -106,6 +109,7 @@ docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
+docs/ImagePair.md
 docs/InfoApi.md
 docs/IngestLiveUrl.md
 docs/InternalApi.md
@@ -329,6 +333,7 @@ src/main/kotlin/deadlock_api_client/models/ActiveMatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchTeam.kt
 src/main/kotlin/deadlock_api_client/models/AddSteamAccountRequest.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStats.kt
+src/main/kotlin/deadlock_api_client/models/AnalyticsBuffStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsGameStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsHeroStats.kt
 src/main/kotlin/deadlock_api_client/models/BadgeDistribution.kt
@@ -347,9 +352,11 @@ src/main/kotlin/deadlock_api_client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock_api_client/models/Color.kt
 src/main/kotlin/deadlock_api_client/models/ColorGradientStop.kt
 src/main/kotlin/deadlock_api_client/models/ColumnSchema.kt
+src/main/kotlin/deadlock_api_client/models/CorruptedItemImages.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedItemInfo.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedPenalty.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedPenaltyEffect.kt
+src/main/kotlin/deadlock_api_client/models/CorruptedTooltipBackers.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
 src/main/kotlin/deadlock_api_client/models/Curve.kt
@@ -403,6 +410,7 @@ src/main/kotlin/deadlock_api_client/models/HeroStatsUIDisplay.kt
 src/main/kotlin/deadlock_api_client/models/HeroSynergyStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroType.kt
 src/main/kotlin/deadlock_api_client/models/HorizontalRecoil.kt
+src/main/kotlin/deadlock_api_client/models/ImagePair.kt
 src/main/kotlin/deadlock_api_client/models/IngestLiveUrl.kt
 src/main/kotlin/deadlock_api_client/models/Item.kt
 src/main/kotlin/deadlock_api_client/models/ItemDraftRound.kt
@@ -590,6 +598,7 @@ src/test/kotlin/deadlock_api_client/models/ActiveMatchTeamTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/AddSteamAccountRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/AnalyticsBuffStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsGameStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsHeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/BadgeDistributionTest.kt
@@ -608,9 +617,11 @@ src/test/kotlin/deadlock_api_client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorGradientStopTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorTest.kt
 src/test/kotlin/deadlock_api_client/models/ColumnSchemaTest.kt
+src/test/kotlin/deadlock_api_client/models/CorruptedItemImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedItemInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyEffectTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyTest.kt
+src/test/kotlin/deadlock_api_client/models/CorruptedTooltipBackersTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveOrFloatTest.kt
@@ -664,6 +675,7 @@ src/test/kotlin/deadlock_api_client/models/HeroSynergyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/HorizontalRecoilTest.kt
+src/test/kotlin/deadlock_api_client/models/ImagePairTest.kt
 src/test/kotlin/deadlock_api_client/models/IngestLiveUrlTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundPerGameRoundTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemDraftRoundTest.kt

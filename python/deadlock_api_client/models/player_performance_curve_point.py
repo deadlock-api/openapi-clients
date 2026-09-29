@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -48,7 +48,8 @@ class PlayerPerformanceCurvePoint(BaseModel):
     kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this time point")
     net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this time point")
     net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this time point")
-    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "gold_boss_avg", "gold_boss_orb_avg", "gold_death_loss_avg", "gold_denied_avg", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_player_avg", "gold_player_orbs_avg", "gold_treasure_avg", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std"]
+    permanent_buffs_avg: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.")
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "gold_boss_avg", "gold_boss_orb_avg", "gold_death_loss_avg", "gold_denied_avg", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_player_avg", "gold_player_orbs_avg", "gold_treasure_avg", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "permanent_buffs_avg"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,6 +90,11 @@ class PlayerPerformanceCurvePoint(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if permanent_buffs_avg (nullable) is None
+        # and model_fields_set contains the field
+        if self.permanent_buffs_avg is None and "permanent_buffs_avg" in self.model_fields_set:
+            _dict['permanent_buffs_avg'] = None
+
         return _dict
 
     @classmethod
@@ -120,7 +126,8 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "kills_avg": obj.get("kills_avg"),
             "kills_std": obj.get("kills_std"),
             "net_worth_avg": obj.get("net_worth_avg"),
-            "net_worth_std": obj.get("net_worth_std")
+            "net_worth_std": obj.get("net_worth_std"),
+            "permanent_buffs_avg": obj.get("permanent_buffs_avg")
         })
         return _obj
 

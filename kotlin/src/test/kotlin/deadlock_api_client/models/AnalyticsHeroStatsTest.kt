@@ -63,6 +63,18 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
             //modelInstance.matchesPerBucket shouldBe ("TODO")
         }
 
+        // to test the property `permanentBuffMatches` - Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+        should("test permanentBuffMatches") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffMatches shouldBe ("TODO")
+        }
+
+        // to test the property `permanentBuffTimingMatches` - Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+        should("test permanentBuffTimingMatches") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffTimingMatches shouldBe ("TODO")
+        }
+
         // to test the property `totalAssists`
         should("test totalAssists") {
             // uncomment below to test the property
@@ -93,6 +105,12 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
             //modelInstance.totalDenies shouldBe ("TODO")
         }
 
+        // to test the property `totalFirstPermanentBuffTimeS` - Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+        should("test totalFirstPermanentBuffTimeS") {
+            // uncomment below to test the property
+            //modelInstance.totalFirstPermanentBuffTimeS shouldBe ("TODO")
+        }
+
         // to test the property `totalKills`
         should("test totalKills") {
             // uncomment below to test the property
@@ -121,6 +139,12 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
         should("test totalNeutralDamage") {
             // uncomment below to test the property
             //modelInstance.totalNeutralDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalPermanentBuffs` - Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+        should("test totalPermanentBuffs") {
+            // uncomment below to test the property
+            //modelInstance.totalPermanentBuffs shouldBe ("TODO")
         }
 
         // to test the property `totalPlayerDamage`

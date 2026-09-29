@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr, field_validator
-from typing import List
+from typing import List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.leaderboard import Leaderboard
 
@@ -42,6 +42,7 @@ class LeaderboardApi:
     def leaderboard(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -61,6 +62,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -85,6 +88,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -111,6 +115,7 @@ class LeaderboardApi:
     def leaderboard_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -130,6 +135,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -154,6 +161,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -180,6 +188,7 @@ class LeaderboardApi:
     def leaderboard_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -199,6 +208,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -223,6 +234,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -244,6 +256,7 @@ class LeaderboardApi:
     def _leaderboard_serialize(
         self,
         region,
+        leaderboard_id,
         _request_auth,
         _content_type,
         _headers,
@@ -268,6 +281,10 @@ class LeaderboardApi:
         if region is not None:
             _path_params['region'] = region
         # process the query parameters
+        if leaderboard_id is not None:
+            
+            _query_params.append(('leaderboard_id', leaderboard_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -309,6 +326,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -330,6 +348,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -355,6 +375,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -382,6 +403,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -403,6 +425,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -428,6 +452,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -455,6 +480,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -476,6 +502,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -501,6 +529,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -523,6 +552,7 @@ class LeaderboardApi:
         self,
         region,
         hero_id,
+        leaderboard_id,
         _request_auth,
         _content_type,
         _headers,
@@ -549,6 +579,10 @@ class LeaderboardApi:
         if hero_id is not None:
             _path_params['hero_id'] = hero_id
         # process the query parameters
+        if leaderboard_id is not None:
+            
+            _query_params.append(('leaderboard_id', leaderboard_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -590,6 +624,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -611,6 +646,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -636,6 +673,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_raw_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -663,6 +701,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -684,6 +723,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -709,6 +750,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_raw_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -736,6 +778,7 @@ class LeaderboardApi:
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -757,6 +800,8 @@ class LeaderboardApi:
         :type region: str
         :param hero_id: The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -782,6 +827,7 @@ class LeaderboardApi:
         _param = self._leaderboard_hero_raw_serialize(
             region=region,
             hero_id=hero_id,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -804,6 +850,7 @@ class LeaderboardApi:
         self,
         region,
         hero_id,
+        leaderboard_id,
         _request_auth,
         _content_type,
         _headers,
@@ -830,6 +877,10 @@ class LeaderboardApi:
         if hero_id is not None:
             _path_params['hero_id'] = hero_id
         # process the query parameters
+        if leaderboard_id is not None:
+            
+            _query_params.append(('leaderboard_id', leaderboard_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -870,6 +921,7 @@ class LeaderboardApi:
     def leaderboard_raw(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -889,6 +941,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -913,6 +967,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_raw_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -939,6 +994,7 @@ class LeaderboardApi:
     def leaderboard_raw_with_http_info(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -958,6 +1014,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -982,6 +1040,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_raw_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1008,6 +1067,7 @@ class LeaderboardApi:
     def leaderboard_raw_without_preload_content(
         self,
         region: Annotated[StrictStr, Field(description="The region to fetch the leaderboard for.")],
+        leaderboard_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1027,6 +1087,8 @@ class LeaderboardApi:
 
         :param region: The region to fetch the leaderboard for. (required)
         :type region: str
+        :param leaderboard_id: Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+        :type leaderboard_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1051,6 +1113,7 @@ class LeaderboardApi:
 
         _param = self._leaderboard_raw_serialize(
             region=region,
+            leaderboard_id=leaderboard_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1072,6 +1135,7 @@ class LeaderboardApi:
     def _leaderboard_raw_serialize(
         self,
         region,
+        leaderboard_id,
         _request_auth,
         _content_type,
         _headers,
@@ -1096,6 +1160,10 @@ class LeaderboardApi:
         if region is not None:
             _path_params['region'] = region
         # process the query parameters
+        if leaderboard_id is not None:
+            
+            _query_params.append(('leaderboard_id', leaderboard_id))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter

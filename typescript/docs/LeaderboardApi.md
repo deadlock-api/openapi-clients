@@ -26,9 +26,11 @@ const configuration = new Configuration();
 const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
+let leaderboardId: number; //Leaderboard to fetch, e.g. a ranked season\'s `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.leaderboard(
-    region
+    region,
+    leaderboardId
 );
 ```
 
@@ -37,6 +39,7 @@ const { status, data } = await apiInstance.leaderboard(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
+| **leaderboardId** | [**number**] | Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -80,10 +83,12 @@ const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
 let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
+let leaderboardId: number; //Leaderboard to fetch, e.g. a ranked season\'s `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.leaderboardHero(
     region,
-    heroId
+    heroId,
+    leaderboardId
 );
 ```
 
@@ -93,6 +98,7 @@ const { status, data } = await apiInstance.leaderboardHero(
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
 | **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
+| **leaderboardId** | [**number**] | Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -136,10 +142,12 @@ const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
 let heroId: number; //The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
+let leaderboardId: number; //Leaderboard to fetch, e.g. a ranked season\'s `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.leaderboardHeroRaw(
     region,
-    heroId
+    heroId,
+    leaderboardId
 );
 ```
 
@@ -149,6 +157,7 @@ const { status, data } = await apiInstance.leaderboardHeroRaw(
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
 | **heroId** | [**number**] | The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
+| **leaderboardId** | [**number**] | Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | (optional) defaults to undefined|
 
 
 ### Return type
@@ -191,9 +200,11 @@ const configuration = new Configuration();
 const apiInstance = new LeaderboardApi(configuration);
 
 let region: 'Europe' | 'Asia' | 'NAmerica' | 'SAmerica' | 'Oceania'; //The region to fetch the leaderboard for. (default to undefined)
+let leaderboardId: number; //Leaderboard to fetch, e.g. a ranked season\'s `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.leaderboardRaw(
-    region
+    region,
+    leaderboardId
 );
 ```
 
@@ -202,6 +213,7 @@ const { status, data } = await apiInstance.leaderboardRaw(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **region** | [**&#39;Europe&#39; | &#39;Asia&#39; | &#39;NAmerica&#39; | &#39;SAmerica&#39; | &#39;Oceania&#39;**]**Array<&#39;Europe&#39; &#124; &#39;Asia&#39; &#124; &#39;NAmerica&#39; &#124; &#39;SAmerica&#39; &#124; &#39;Oceania&#39;>** | The region to fetch the leaderboard for. | defaults to undefined|
+| **leaderboardId** | [**number**] | Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | (optional) defaults to undefined|
 
 
 ### Return type

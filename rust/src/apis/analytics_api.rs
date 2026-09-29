@@ -90,6 +90,39 @@ pub struct BadgeDistributionParams {
     pub max_match_id: Option<u64>
 }
 
+/// struct for passing parameters to the method [`buff_stats`]
+#[derive(Clone, Debug)]
+pub struct BuffStatsParams {
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+    pub game_mode: Option<String>,
+    /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+    pub match_mode: Option<String>,
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub max_networth: Option<u64>,
+    /// Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub hero_ids: Option<Vec<u32>>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>
+}
+
 /// struct for passing parameters to the method [`build_item_stats`]
 #[derive(Clone, Debug)]
 pub struct BuildItemStatsParams {
@@ -592,7 +625,9 @@ pub struct ItemStatsParams {
     pub max_bought_at_s: Option<u32>,
     /// Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
     pub item_order: Option<Vec<String>>,
-    /// Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.
+    /// How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
+    pub corrupted_items: Option<String>,
+    /// Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
     pub include_corrupted_items: Option<bool>
 }
 
@@ -865,7 +900,9 @@ pub struct PlayerStatsMetricsParams {
     /// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub ability_unlock_order_prefix: Option<Vec<u32>>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<u32>>
+    pub account_ids: Option<Vec<u32>>,
+    /// Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
+    pub include_buff_metrics: Option<bool>
 }
 
 
@@ -882,6 +919,15 @@ pub enum AbilityOrderStatsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum BadgeDistributionError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`buff_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BuffStatsError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1228,6 +1274,89 @@ pub async fn badge_distribution(configuration: &configuration::Configuration, pa
     } else {
         let content = resp.text().await?;
         let entity: Option<BadgeDistributionError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+pub async fn buff_stats(configuration: &configuration::Configuration, params: BuffStatsParams) -> Result<Vec<models::AnalyticsBuffStats>, Error<BuffStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/buff-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.match_mode {
+        req_builder = req_builder.query(&[("match_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("hero_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("hero_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AnalyticsBuffStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AnalyticsBuffStats&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BuffStatsError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
@@ -2401,6 +2530,9 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
             _ => req_builder.query(&[("item_order", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
+    if let Some(ref param_value) = params.corrupted_items {
+        req_builder = req_builder.query(&[("corrupted_items", &param_value.to_string())]);
+    }
     if let Some(ref param_value) = params.include_corrupted_items {
         req_builder = req_builder.query(&[("include_corrupted_items", &param_value.to_string())]);
     }
@@ -3028,6 +3160,9 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.include_buff_metrics {
+        req_builder = req_builder.query(&[("include_buff_metrics", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

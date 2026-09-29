@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **accuracy** | **f64** |  | 
 **assists** | **u64** |  | 
 **assists_per_min** | **f64** |  | 
+**avg_first_permanent_buff_time_s** | Option<**f64**> | Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any. | [optional]
 **creeps_per_min** | **f64** |  | 
 **crit_shot_rate** | **f64** |  | 
 **damage_mitigated_per_min** | **f64** |  | 
@@ -32,6 +33,9 @@ Name | Type | Description | Notes
 **networth_per_min** | **f64** |  | 
 **obj_damage_per_min** | **f64** |  | 
 **obj_damage_per_soul** | **f64** |  | 
+**permanent_buff_matches** | **u64** | Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`. | 
+**permanent_buffs** | **u64** | Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities> | 
+**permanent_buffs_per_min** | Option<**f64**> | Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any. | [optional]
 **time_played** | **u64** |  | 
 **total_boss_damage** | **u64** |  | 
 **total_creep_damage** | **u64** |  | 

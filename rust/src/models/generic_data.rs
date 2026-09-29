@@ -32,6 +32,9 @@ pub struct GenericData {
     /// Build 6711+.
     #[serde(rename = "color_team2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub color_team2: Option<Option<Box<models::Color>>>,
+    /// Shop art for corrupted items (build 6711+).
+    #[serde(rename = "corrupted_item_images", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub corrupted_item_images: Option<Option<Box<models::CorruptedItemImages>>>,
     /// Penalties that can be rolled onto corrupted items (build 6711+).
     #[serde(rename = "corrupted_penalties", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub corrupted_penalties: Option<Option<Vec<models::CorruptedPenalty>>>,
@@ -94,6 +97,7 @@ impl GenericData {
             color_friend: None,
             color_team1: None,
             color_team2: None,
+            corrupted_item_images: None,
             corrupted_penalties: None,
             damage_flash: Box::new(damage_flash),
             enemy_objectives_and_zipline_color: None,

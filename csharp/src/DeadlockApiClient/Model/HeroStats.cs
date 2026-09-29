@@ -61,6 +61,8 @@ namespace DeadlockApiClient.Model
         /// <param name="networthPerMin">networthPerMin</param>
         /// <param name="objDamagePerMin">objDamagePerMin</param>
         /// <param name="objDamagePerSoul">objDamagePerSoul</param>
+        /// <param name="permanentBuffMatches">Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;.</param>
+        /// <param name="permanentBuffs">Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;</param>
         /// <param name="timePlayed">timePlayed</param>
         /// <param name="totalBossDamage">totalBossDamage</param>
         /// <param name="totalCreepDamage">totalCreepDamage</param>
@@ -68,8 +70,10 @@ namespace DeadlockApiClient.Model
         /// <param name="totalPlayerDamage">totalPlayerDamage</param>
         /// <param name="totalPlayerDamageTaken">totalPlayerDamageTaken</param>
         /// <param name="wins">wins</param>
+        /// <param name="avgFirstPermanentBuffTimeS">Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any.</param>
+        /// <param name="permanentBuffsPerMin">Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any.</param>
         [JsonConstructor]
-        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, List<long> mvpRankCounts, long mvpRatedMatches, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins)
+        public HeroStats(int accountId, double accuracy, long assists, double assistsPerMin, double creepsPerMin, double critShotRate, double damageMitigatedPerMin, double damagePerMin, double damagePerSoul, double damageTakenPerMin, double damageTakenPerSoul, long deaths, double deathsPerMin, double deniesPerMatch, double deniesPerMin, double endingLevel, int heroId, long kills, double killsPerMin, double lastHitsPerMin, int lastPlayed, List<long> matches, long matchesPlayed, List<long> mvpRankCounts, long mvpRatedMatches, double networthPerMin, double objDamagePerMin, double objDamagePerSoul, long permanentBuffMatches, long permanentBuffs, long timePlayed, long totalBossDamage, long totalCreepDamage, long totalNeutralDamage, long totalPlayerDamage, long totalPlayerDamageTaken, long wins, Option<double?> avgFirstPermanentBuffTimeS = default, Option<double?> permanentBuffsPerMin = default)
         {
             AccountId = accountId;
             Accuracy = accuracy;
@@ -99,6 +103,8 @@ namespace DeadlockApiClient.Model
             NetworthPerMin = networthPerMin;
             ObjDamagePerMin = objDamagePerMin;
             ObjDamagePerSoul = objDamagePerSoul;
+            PermanentBuffMatches = permanentBuffMatches;
+            PermanentBuffs = permanentBuffs;
             TimePlayed = timePlayed;
             TotalBossDamage = totalBossDamage;
             TotalCreepDamage = totalCreepDamage;
@@ -106,6 +112,8 @@ namespace DeadlockApiClient.Model
             TotalPlayerDamage = totalPlayerDamage;
             TotalPlayerDamageTaken = totalPlayerDamageTaken;
             Wins = wins;
+            AvgFirstPermanentBuffTimeSOption = avgFirstPermanentBuffTimeS;
+            PermanentBuffsPerMinOption = permanentBuffsPerMin;
             OnCreated();
         }
 
@@ -283,6 +291,20 @@ namespace DeadlockApiClient.Model
         public double ObjDamagePerSoul { get; set; }
 
         /// <summary>
+        /// Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;.
+        /// </summary>
+        /// <value>Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;.</value>
+        [JsonPropertyName("permanent_buff_matches")]
+        public long PermanentBuffMatches { get; set; }
+
+        /// <summary>
+        /// Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;
+        /// </summary>
+        /// <value>Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;</value>
+        [JsonPropertyName("permanent_buffs")]
+        public long PermanentBuffs { get; set; }
+
+        /// <summary>
         /// Gets or Sets TimePlayed
         /// </summary>
         [JsonPropertyName("time_played")]
@@ -325,6 +347,34 @@ namespace DeadlockApiClient.Model
         public long Wins { get; set; }
 
         /// <summary>
+        /// Used to track the state of AvgFirstPermanentBuffTimeS
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> AvgFirstPermanentBuffTimeSOption { get; private set; }
+
+        /// <summary>
+        /// Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any.
+        /// </summary>
+        /// <value>Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any.</value>
+        [JsonPropertyName("avg_first_permanent_buff_time_s")]
+        public double? AvgFirstPermanentBuffTimeS { get { return this.AvgFirstPermanentBuffTimeSOption.Value; } set { this.AvgFirstPermanentBuffTimeSOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of PermanentBuffsPerMin
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> PermanentBuffsPerMinOption { get; private set; }
+
+        /// <summary>
+        /// Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any.
+        /// </summary>
+        /// <value>Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any.</value>
+        [JsonPropertyName("permanent_buffs_per_min")]
+        public double? PermanentBuffsPerMin { get { return this.PermanentBuffsPerMinOption.Value; } set { this.PermanentBuffsPerMinOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -360,6 +410,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  NetworthPerMin: ").Append(NetworthPerMin).Append("\n");
             sb.Append("  ObjDamagePerMin: ").Append(ObjDamagePerMin).Append("\n");
             sb.Append("  ObjDamagePerSoul: ").Append(ObjDamagePerSoul).Append("\n");
+            sb.Append("  PermanentBuffMatches: ").Append(PermanentBuffMatches).Append("\n");
+            sb.Append("  PermanentBuffs: ").Append(PermanentBuffs).Append("\n");
             sb.Append("  TimePlayed: ").Append(TimePlayed).Append("\n");
             sb.Append("  TotalBossDamage: ").Append(TotalBossDamage).Append("\n");
             sb.Append("  TotalCreepDamage: ").Append(TotalCreepDamage).Append("\n");
@@ -367,6 +419,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  TotalPlayerDamage: ").Append(TotalPlayerDamage).Append("\n");
             sb.Append("  TotalPlayerDamageTaken: ").Append(TotalPlayerDamageTaken).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
+            sb.Append("  AvgFirstPermanentBuffTimeS: ").Append(AvgFirstPermanentBuffTimeS).Append("\n");
+            sb.Append("  PermanentBuffsPerMin: ").Append(PermanentBuffsPerMin).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -424,6 +478,18 @@ namespace DeadlockApiClient.Model
             if (this.MvpRatedMatches < (long)0)
             {
                 yield return new ValidationResult("Invalid value for MvpRatedMatches, must be a value greater than or equal to 0.", new [] { "MvpRatedMatches" });
+            }
+
+            // PermanentBuffMatches (long) minimum
+            if (this.PermanentBuffMatches < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for PermanentBuffMatches, must be a value greater than or equal to 0.", new [] { "PermanentBuffMatches" });
+            }
+
+            // PermanentBuffs (long) minimum
+            if (this.PermanentBuffs < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for PermanentBuffs, must be a value greater than or equal to 0.", new [] { "PermanentBuffs" });
             }
 
             // TimePlayed (long) minimum
@@ -532,6 +598,8 @@ namespace DeadlockApiClient.Model
             Option<double?> networthPerMin = default;
             Option<double?> objDamagePerMin = default;
             Option<double?> objDamagePerSoul = default;
+            Option<long?> permanentBuffMatches = default;
+            Option<long?> permanentBuffs = default;
             Option<long?> timePlayed = default;
             Option<long?> totalBossDamage = default;
             Option<long?> totalCreepDamage = default;
@@ -539,6 +607,8 @@ namespace DeadlockApiClient.Model
             Option<long?> totalPlayerDamage = default;
             Option<long?> totalPlayerDamageTaken = default;
             Option<long?> wins = default;
+            Option<double?> avgFirstPermanentBuffTimeS = default;
+            Option<double?> permanentBuffsPerMin = default;
 
             while (utf8JsonReader.Read())
             {
@@ -639,6 +709,12 @@ namespace DeadlockApiClient.Model
                         case "obj_damage_per_soul":
                             objDamagePerSoul = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "permanent_buff_matches":
+                            permanentBuffMatches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "permanent_buffs":
+                            permanentBuffs = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         case "time_played":
                             timePlayed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
@@ -659,6 +735,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "avg_first_permanent_buff_time_s":
+                            avgFirstPermanentBuffTimeS = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "permanent_buffs_per_min":
+                            permanentBuffsPerMin = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         default:
                             break;
@@ -749,6 +831,12 @@ namespace DeadlockApiClient.Model
 
             if (!objDamagePerSoul.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(objDamagePerSoul));
+
+            if (!permanentBuffMatches.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(permanentBuffMatches));
+
+            if (!permanentBuffs.IsSet)
+                throw new ArgumentException("Property is required for class HeroStats.", nameof(permanentBuffs));
 
             if (!timePlayed.IsSet)
                 throw new ArgumentException("Property is required for class HeroStats.", nameof(timePlayed));
@@ -855,6 +943,12 @@ namespace DeadlockApiClient.Model
             if (objDamagePerSoul.IsSet && objDamagePerSoul.Value == null)
                 throw new ArgumentNullException(nameof(objDamagePerSoul), "Property is not nullable for class HeroStats.");
 
+            if (permanentBuffMatches.IsSet && permanentBuffMatches.Value == null)
+                throw new ArgumentNullException(nameof(permanentBuffMatches), "Property is not nullable for class HeroStats.");
+
+            if (permanentBuffs.IsSet && permanentBuffs.Value == null)
+                throw new ArgumentNullException(nameof(permanentBuffs), "Property is not nullable for class HeroStats.");
+
             if (timePlayed.IsSet && timePlayed.Value == null)
                 throw new ArgumentNullException(nameof(timePlayed), "Property is not nullable for class HeroStats.");
 
@@ -876,7 +970,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroStats.");
 
-            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, mvpRankCounts.Value!, mvpRatedMatches.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, timePlayed.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, wins.Value!.Value!);
+            return new HeroStats(accountId.Value!.Value!, accuracy.Value!.Value!, assists.Value!.Value!, assistsPerMin.Value!.Value!, creepsPerMin.Value!.Value!, critShotRate.Value!.Value!, damageMitigatedPerMin.Value!.Value!, damagePerMin.Value!.Value!, damagePerSoul.Value!.Value!, damageTakenPerMin.Value!.Value!, damageTakenPerSoul.Value!.Value!, deaths.Value!.Value!, deathsPerMin.Value!.Value!, deniesPerMatch.Value!.Value!, deniesPerMin.Value!.Value!, endingLevel.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, killsPerMin.Value!.Value!, lastHitsPerMin.Value!.Value!, lastPlayed.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, mvpRankCounts.Value!, mvpRatedMatches.Value!.Value!, networthPerMin.Value!.Value!, objDamagePerMin.Value!.Value!, objDamagePerSoul.Value!.Value!, permanentBuffMatches.Value!.Value!, permanentBuffs.Value!.Value!, timePlayed.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, wins.Value!.Value!, avgFirstPermanentBuffTimeS, permanentBuffsPerMin);
         }
 
         /// <summary>
@@ -965,6 +1059,10 @@ namespace DeadlockApiClient.Model
 
             writer.WriteNumber("obj_damage_per_soul", heroStats.ObjDamagePerSoul);
 
+            writer.WriteNumber("permanent_buff_matches", heroStats.PermanentBuffMatches);
+
+            writer.WriteNumber("permanent_buffs", heroStats.PermanentBuffs);
+
             writer.WriteNumber("time_played", heroStats.TimePlayed);
 
             writer.WriteNumber("total_boss_damage", heroStats.TotalBossDamage);
@@ -978,6 +1076,18 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("total_player_damage_taken", heroStats.TotalPlayerDamageTaken);
 
             writer.WriteNumber("wins", heroStats.Wins);
+
+            if (heroStats.AvgFirstPermanentBuffTimeSOption.IsSet)
+                if (heroStats.AvgFirstPermanentBuffTimeSOption.Value != null)
+                    writer.WriteNumber("avg_first_permanent_buff_time_s", heroStats.AvgFirstPermanentBuffTimeSOption.Value!.Value);
+                else
+                    writer.WriteNull("avg_first_permanent_buff_time_s");
+
+            if (heroStats.PermanentBuffsPerMinOption.IsSet)
+                if (heroStats.PermanentBuffsPerMinOption.Value != null)
+                    writer.WriteNumber("permanent_buffs_per_min", heroStats.PermanentBuffsPerMinOption.Value!.Value);
+                else
+                    writer.WriteNull("permanent_buffs_per_min");
         }
     }
 }

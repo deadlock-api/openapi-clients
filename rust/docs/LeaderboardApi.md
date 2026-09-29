@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## leaderboard
 
-> models::Leaderboard leaderboard(region)
+> models::Leaderboard leaderboard(region, leaderboard_id)
 Leaderboard
 
  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -24,6 +24,7 @@ Leaderboard
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
+**leaderboard_id** | Option<**u32**> | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. |  |
 
 ### Return type
 
@@ -43,7 +44,7 @@ No authorization required
 
 ## leaderboard_hero
 
-> models::Leaderboard leaderboard_hero(region, hero_id)
+> models::Leaderboard leaderboard_hero(region, hero_id, leaderboard_id)
 Hero Leaderboard
 
  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -55,6 +56,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
 **hero_id** | **u32** | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
+**leaderboard_id** | Option<**u32**> | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. |  |
 
 ### Return type
 
@@ -74,7 +76,7 @@ No authorization required
 
 ## leaderboard_hero_raw
 
-> Vec<u32> leaderboard_hero_raw(region, hero_id)
+> Vec<u32> leaderboard_hero_raw(region, hero_id, leaderboard_id)
 Hero Leaderboard as Protobuf
 
  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -86,6 +88,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
 **hero_id** | **u32** | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
+**leaderboard_id** | Option<**u32**> | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. |  |
 
 ### Return type
 
@@ -105,7 +108,7 @@ No authorization required
 
 ## leaderboard_raw
 
-> Vec<u32> leaderboard_raw(region)
+> Vec<u32> leaderboard_raw(region, leaderboard_id)
 Leaderboard as Protobuf
 
  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -116,6 +119,7 @@ Leaderboard as Protobuf
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **region** | **String** | The region to fetch the leaderboard for. | [required] |
+**leaderboard_id** | Option<**u32**> | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. |  |
 
 ### Return type
 

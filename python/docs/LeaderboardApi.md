@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **leaderboard**
-> Leaderboard leaderboard(region)
+> Leaderboard leaderboard(region, leaderboard_id=leaderboard_id)
 
 Leaderboard
 
@@ -51,10 +51,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
+    leaderboard_id = 56 # int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
     try:
         # Leaderboard
-        api_response = api_instance.leaderboard(region)
+        api_response = api_instance.leaderboard(region, leaderboard_id=leaderboard_id)
         print("The response of LeaderboardApi->leaderboard:\n")
         pprint(api_response)
     except Exception as e:
@@ -69,6 +70,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
+ **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] 
 
 ### Return type
 
@@ -94,7 +96,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **leaderboard_hero**
-> Leaderboard leaderboard_hero(region, hero_id)
+> Leaderboard leaderboard_hero(region, hero_id, leaderboard_id=leaderboard_id)
 
 Hero Leaderboard
 
@@ -135,10 +137,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
     hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    leaderboard_id = 56 # int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
     try:
         # Hero Leaderboard
-        api_response = api_instance.leaderboard_hero(region, hero_id)
+        api_response = api_instance.leaderboard_hero(region, hero_id, leaderboard_id=leaderboard_id)
         print("The response of LeaderboardApi->leaderboard_hero:\n")
         pprint(api_response)
     except Exception as e:
@@ -154,6 +157,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
  **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] 
 
 ### Return type
 
@@ -179,7 +183,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **leaderboard_hero_raw**
-> List[int] leaderboard_hero_raw(region, hero_id)
+> List[int] leaderboard_hero_raw(region, hero_id, leaderboard_id=leaderboard_id)
 
 Hero Leaderboard as Protobuf
 
@@ -226,10 +230,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
     hero_id = 56 # int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    leaderboard_id = 56 # int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
     try:
         # Hero Leaderboard as Protobuf
-        api_response = api_instance.leaderboard_hero_raw(region, hero_id)
+        api_response = api_instance.leaderboard_hero_raw(region, hero_id, leaderboard_id=leaderboard_id)
         print("The response of LeaderboardApi->leaderboard_hero_raw:\n")
         pprint(api_response)
     except Exception as e:
@@ -245,6 +250,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
  **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] 
 
 ### Return type
 
@@ -270,7 +276,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **leaderboard_raw**
-> List[int] leaderboard_raw(region)
+> List[int] leaderboard_raw(region, leaderboard_id=leaderboard_id)
 
 Leaderboard as Protobuf
 
@@ -316,10 +322,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.LeaderboardApi(api_client)
     region = 'region_example' # str | The region to fetch the leaderboard for.
+    leaderboard_id = 56 # int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
     try:
         # Leaderboard as Protobuf
-        api_response = api_instance.leaderboard_raw(region)
+        api_response = api_instance.leaderboard_raw(region, leaderboard_id=leaderboard_id)
         print("The response of LeaderboardApi->leaderboard_raw:\n")
         pprint(api_response)
     except Exception as e:
@@ -334,6 +341,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **region** | **str**| The region to fetch the leaderboard for. | 
+ **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] 
 
 ### Return type
 

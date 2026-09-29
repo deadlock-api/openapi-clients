@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *AccoladesAPI* | [**ListAccolades**](docs/AccoladesAPI.md#listaccolades) | **Get** /v1/assets/accolades | List Accolades
 *AnalyticsAPI* | [**AbilityOrderStats**](docs/AnalyticsAPI.md#abilityorderstats) | **Get** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsAPI* | [**BadgeDistribution**](docs/AnalyticsAPI.md#badgedistribution) | **Get** /v1/analytics/badge-distribution | Badge Distribution
+*AnalyticsAPI* | [**BuffStats**](docs/AnalyticsAPI.md#buffstats) | **Get** /v1/analytics/buff-stats | Buff Stats
 *AnalyticsAPI* | [**BuildItemStats**](docs/AnalyticsAPI.md#builditemstats) | **Get** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsAPI* | [**GameStats**](docs/AnalyticsAPI.md#gamestats) | **Get** /v1/analytics/game-stats | Game Stats
 *AnalyticsAPI* | [**HeroBanStats**](docs/AnalyticsAPI.md#herobanstats) | **Get** /v1/analytics/hero-ban-stats | Hero Ban Stats
@@ -235,6 +236,7 @@ Class | Method | HTTP request | Description
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [AnalyticsBuffStats](docs/AnalyticsBuffStats.md)
  - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [BadgeDistribution](docs/BadgeDistribution.md)
@@ -253,9 +255,11 @@ Class | Method | HTTP request | Description
  - [Color](docs/Color.md)
  - [ColorGradientStop](docs/ColorGradientStop.md)
  - [ColumnSchema](docs/ColumnSchema.md)
+ - [CorruptedItemImages](docs/CorruptedItemImages.md)
  - [CorruptedItemInfo](docs/CorruptedItemInfo.md)
  - [CorruptedPenalty](docs/CorruptedPenalty.md)
  - [CorruptedPenaltyEffect](docs/CorruptedPenaltyEffect.md)
+ - [CorruptedTooltipBackers](docs/CorruptedTooltipBackers.md)
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
  - [Curve](docs/Curve.md)
@@ -309,6 +313,7 @@ Class | Method | HTTP request | Description
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [HeroType](docs/HeroType.md)
  - [HorizontalRecoil](docs/HorizontalRecoil.md)
+ - [ImagePair](docs/ImagePair.md)
  - [IngestLiveUrl](docs/IngestLiveUrl.md)
  - [Item](docs/Item.md)
  - [ItemDraftRound](docs/ItemDraftRound.md)

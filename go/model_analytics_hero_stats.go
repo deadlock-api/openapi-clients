@@ -27,16 +27,24 @@ type AnalyticsHeroStats struct {
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	MatchesPerBucket int64 `json:"matches_per_bucket"`
+	// Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+	PermanentBuffMatches int64 `json:"permanent_buff_matches"`
+	// Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+	PermanentBuffTimingMatches int64 `json:"permanent_buff_timing_matches"`
 	TotalAssists int64 `json:"total_assists"`
 	TotalBossDamage int64 `json:"total_boss_damage"`
 	TotalCreepDamage int64 `json:"total_creep_damage"`
 	TotalDeaths int64 `json:"total_deaths"`
 	TotalDenies int64 `json:"total_denies"`
+	// Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+	TotalFirstPermanentBuffTimeS int64 `json:"total_first_permanent_buff_time_s"`
 	TotalKills int64 `json:"total_kills"`
 	TotalLastHits int64 `json:"total_last_hits"`
 	TotalMaxHealth int64 `json:"total_max_health"`
 	TotalNetWorth int64 `json:"total_net_worth"`
 	TotalNeutralDamage int64 `json:"total_neutral_damage"`
+	// Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+	TotalPermanentBuffs int64 `json:"total_permanent_buffs"`
 	TotalPlayerDamage int64 `json:"total_player_damage"`
 	TotalPlayerDamageTaken int64 `json:"total_player_damage_taken"`
 	TotalShotsHit int64 `json:"total_shots_hit"`
@@ -50,23 +58,27 @@ type _AnalyticsHeroStats AnalyticsHeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64) *AnalyticsHeroStats {
+func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64) *AnalyticsHeroStats {
 	this := AnalyticsHeroStats{}
 	this.Bucket = bucket
 	this.HeroId = heroId
 	this.Losses = losses
 	this.Matches = matches
 	this.MatchesPerBucket = matchesPerBucket
+	this.PermanentBuffMatches = permanentBuffMatches
+	this.PermanentBuffTimingMatches = permanentBuffTimingMatches
 	this.TotalAssists = totalAssists
 	this.TotalBossDamage = totalBossDamage
 	this.TotalCreepDamage = totalCreepDamage
 	this.TotalDeaths = totalDeaths
 	this.TotalDenies = totalDenies
+	this.TotalFirstPermanentBuffTimeS = totalFirstPermanentBuffTimeS
 	this.TotalKills = totalKills
 	this.TotalLastHits = totalLastHits
 	this.TotalMaxHealth = totalMaxHealth
 	this.TotalNetWorth = totalNetWorth
 	this.TotalNeutralDamage = totalNeutralDamage
+	this.TotalPermanentBuffs = totalPermanentBuffs
 	this.TotalPlayerDamage = totalPlayerDamage
 	this.TotalPlayerDamageTaken = totalPlayerDamageTaken
 	this.TotalShotsHit = totalShotsHit
@@ -203,6 +215,54 @@ func (o *AnalyticsHeroStats) SetMatchesPerBucket(v int64) {
 	o.MatchesPerBucket = v
 }
 
+// GetPermanentBuffMatches returns the PermanentBuffMatches field value
+func (o *AnalyticsHeroStats) GetPermanentBuffMatches() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.PermanentBuffMatches
+}
+
+// GetPermanentBuffMatchesOk returns a tuple with the PermanentBuffMatches field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsHeroStats) GetPermanentBuffMatchesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PermanentBuffMatches, true
+}
+
+// SetPermanentBuffMatches sets field value
+func (o *AnalyticsHeroStats) SetPermanentBuffMatches(v int64) {
+	o.PermanentBuffMatches = v
+}
+
+// GetPermanentBuffTimingMatches returns the PermanentBuffTimingMatches field value
+func (o *AnalyticsHeroStats) GetPermanentBuffTimingMatches() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.PermanentBuffTimingMatches
+}
+
+// GetPermanentBuffTimingMatchesOk returns a tuple with the PermanentBuffTimingMatches field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsHeroStats) GetPermanentBuffTimingMatchesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PermanentBuffTimingMatches, true
+}
+
+// SetPermanentBuffTimingMatches sets field value
+func (o *AnalyticsHeroStats) SetPermanentBuffTimingMatches(v int64) {
+	o.PermanentBuffTimingMatches = v
+}
+
 // GetTotalAssists returns the TotalAssists field value
 func (o *AnalyticsHeroStats) GetTotalAssists() int64 {
 	if o == nil {
@@ -323,6 +383,30 @@ func (o *AnalyticsHeroStats) SetTotalDenies(v int64) {
 	o.TotalDenies = v
 }
 
+// GetTotalFirstPermanentBuffTimeS returns the TotalFirstPermanentBuffTimeS field value
+func (o *AnalyticsHeroStats) GetTotalFirstPermanentBuffTimeS() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalFirstPermanentBuffTimeS
+}
+
+// GetTotalFirstPermanentBuffTimeSOk returns a tuple with the TotalFirstPermanentBuffTimeS field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsHeroStats) GetTotalFirstPermanentBuffTimeSOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalFirstPermanentBuffTimeS, true
+}
+
+// SetTotalFirstPermanentBuffTimeS sets field value
+func (o *AnalyticsHeroStats) SetTotalFirstPermanentBuffTimeS(v int64) {
+	o.TotalFirstPermanentBuffTimeS = v
+}
+
 // GetTotalKills returns the TotalKills field value
 func (o *AnalyticsHeroStats) GetTotalKills() int64 {
 	if o == nil {
@@ -441,6 +525,30 @@ func (o *AnalyticsHeroStats) GetTotalNeutralDamageOk() (*int64, bool) {
 // SetTotalNeutralDamage sets field value
 func (o *AnalyticsHeroStats) SetTotalNeutralDamage(v int64) {
 	o.TotalNeutralDamage = v
+}
+
+// GetTotalPermanentBuffs returns the TotalPermanentBuffs field value
+func (o *AnalyticsHeroStats) GetTotalPermanentBuffs() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.TotalPermanentBuffs
+}
+
+// GetTotalPermanentBuffsOk returns a tuple with the TotalPermanentBuffs field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsHeroStats) GetTotalPermanentBuffsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TotalPermanentBuffs, true
+}
+
+// SetTotalPermanentBuffs sets field value
+func (o *AnalyticsHeroStats) SetTotalPermanentBuffs(v int64) {
+	o.TotalPermanentBuffs = v
 }
 
 // GetTotalPlayerDamage returns the TotalPlayerDamage field value
@@ -578,16 +686,20 @@ func (o AnalyticsHeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
 	toSerialize["matches_per_bucket"] = o.MatchesPerBucket
+	toSerialize["permanent_buff_matches"] = o.PermanentBuffMatches
+	toSerialize["permanent_buff_timing_matches"] = o.PermanentBuffTimingMatches
 	toSerialize["total_assists"] = o.TotalAssists
 	toSerialize["total_boss_damage"] = o.TotalBossDamage
 	toSerialize["total_creep_damage"] = o.TotalCreepDamage
 	toSerialize["total_deaths"] = o.TotalDeaths
 	toSerialize["total_denies"] = o.TotalDenies
+	toSerialize["total_first_permanent_buff_time_s"] = o.TotalFirstPermanentBuffTimeS
 	toSerialize["total_kills"] = o.TotalKills
 	toSerialize["total_last_hits"] = o.TotalLastHits
 	toSerialize["total_max_health"] = o.TotalMaxHealth
 	toSerialize["total_net_worth"] = o.TotalNetWorth
 	toSerialize["total_neutral_damage"] = o.TotalNeutralDamage
+	toSerialize["total_permanent_buffs"] = o.TotalPermanentBuffs
 	toSerialize["total_player_damage"] = o.TotalPlayerDamage
 	toSerialize["total_player_damage_taken"] = o.TotalPlayerDamageTaken
 	toSerialize["total_shots_hit"] = o.TotalShotsHit
@@ -606,16 +718,20 @@ func (o *AnalyticsHeroStats) UnmarshalJSON(data []byte) (err error) {
 		"losses",
 		"matches",
 		"matches_per_bucket",
+		"permanent_buff_matches",
+		"permanent_buff_timing_matches",
 		"total_assists",
 		"total_boss_damage",
 		"total_creep_damage",
 		"total_deaths",
 		"total_denies",
+		"total_first_permanent_buff_time_s",
 		"total_kills",
 		"total_last_hits",
 		"total_max_health",
 		"total_net_worth",
 		"total_neutral_damage",
+		"total_permanent_buffs",
 		"total_player_damage",
 		"total_player_damage_taken",
 		"total_shots_hit",

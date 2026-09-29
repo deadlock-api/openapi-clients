@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **color_friend** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
 **color_team1** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
 **color_team2** | Option<[**models::Color**](Color.md)> | Build 6711+. | [optional]
+**corrupted_item_images** | Option<[**models::CorruptedItemImages**](CorruptedItemImages.md)> | Shop art for corrupted items (build 6711+). | [optional]
 **corrupted_penalties** | Option<[**Vec<models::CorruptedPenalty>**](CorruptedPenalty.md)> | Penalties that can be rolled onto corrupted items (build 6711+). | [optional]
 **damage_flash** | [**models::DamageFlash**](DamageFlash.md) |  | 
 **enemy_objectives_and_zipline_color** | Option<[**models::Color**](Color.md)> |  | [optional]

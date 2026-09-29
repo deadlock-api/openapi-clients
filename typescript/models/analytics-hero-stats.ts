@@ -23,16 +23,32 @@ export interface AnalyticsHeroStats {
     'losses': number;
     'matches': number;
     'matches_per_bucket': number;
+    /**
+     * Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+     */
+    'permanent_buff_matches': number;
+    /**
+     * Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+     */
+    'permanent_buff_timing_matches': number;
     'total_assists': number;
     'total_boss_damage': number;
     'total_creep_damage': number;
     'total_deaths': number;
     'total_denies': number;
+    /**
+     * Sum of the game time (seconds) of each player\'s first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+     */
+    'total_first_permanent_buff_time_s': number;
     'total_kills': number;
     'total_last_hits': number;
     'total_max_health': number;
     'total_net_worth': number;
     'total_neutral_damage': number;
+    /**
+     * Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     */
+    'total_permanent_buffs': number;
     'total_player_damage': number;
     'total_player_damage_taken': number;
     'total_shots_hit': number;

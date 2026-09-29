@@ -64,6 +64,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => '\OpenAPI\Client\Model\Color',
         'color_team1' => '\OpenAPI\Client\Model\Color',
         'color_team2' => '\OpenAPI\Client\Model\Color',
+        'corrupted_item_images' => '\OpenAPI\Client\Model\CorruptedItemImages',
         'corrupted_penalties' => '\OpenAPI\Client\Model\CorruptedPenalty[]',
         'damage_flash' => '\OpenAPI\Client\Model\DamageFlash',
         'enemy_objectives_and_zipline_color' => '\OpenAPI\Client\Model\Color',
@@ -104,6 +105,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => null,
         'color_team1' => null,
         'color_team2' => null,
+        'corrupted_item_images' => null,
         'corrupted_penalties' => null,
         'damage_flash' => null,
         'enemy_objectives_and_zipline_color' => null,
@@ -142,6 +144,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => true,
         'color_team1' => true,
         'color_team2' => true,
+        'corrupted_item_images' => true,
         'corrupted_penalties' => true,
         'damage_flash' => false,
         'enemy_objectives_and_zipline_color' => true,
@@ -260,6 +263,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => 'color_friend',
         'color_team1' => 'color_team1',
         'color_team2' => 'color_team2',
+        'corrupted_item_images' => 'corrupted_item_images',
         'corrupted_penalties' => 'corrupted_penalties',
         'damage_flash' => 'damage_flash',
         'enemy_objectives_and_zipline_color' => 'enemy_objectives_and_zipline_color',
@@ -298,6 +302,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => 'setColorFriend',
         'color_team1' => 'setColorTeam1',
         'color_team2' => 'setColorTeam2',
+        'corrupted_item_images' => 'setCorruptedItemImages',
         'corrupted_penalties' => 'setCorruptedPenalties',
         'damage_flash' => 'setDamageFlash',
         'enemy_objectives_and_zipline_color' => 'setEnemyObjectivesAndZiplineColor',
@@ -336,6 +341,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'color_friend' => 'getColorFriend',
         'color_team1' => 'getColorTeam1',
         'color_team2' => 'getColorTeam2',
+        'corrupted_item_images' => 'getCorruptedItemImages',
         'corrupted_penalties' => 'getCorruptedPenalties',
         'damage_flash' => 'getDamageFlash',
         'enemy_objectives_and_zipline_color' => 'getEnemyObjectivesAndZiplineColor',
@@ -425,6 +431,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('color_friend', $data ?? [], null);
         $this->setIfExists('color_team1', $data ?? [], null);
         $this->setIfExists('color_team2', $data ?? [], null);
+        $this->setIfExists('corrupted_item_images', $data ?? [], null);
         $this->setIfExists('corrupted_penalties', $data ?? [], null);
         $this->setIfExists('damage_flash', $data ?? [], null);
         $this->setIfExists('enemy_objectives_and_zipline_color', $data ?? [], null);
@@ -757,6 +764,40 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['color_team2'] = $color_team2;
+
+        return $this;
+    }
+
+    /**
+     * Gets corrupted_item_images
+     *
+     * @return \OpenAPI\Client\Model\CorruptedItemImages|null
+     */
+    public function getCorruptedItemImages()
+    {
+        return $this->container['corrupted_item_images'];
+    }
+
+    /**
+     * Sets corrupted_item_images
+     *
+     * @param \OpenAPI\Client\Model\CorruptedItemImages|null $corrupted_item_images Shop art for corrupted items (build 6711+).
+     *
+     * @return self
+     */
+    public function setCorruptedItemImages($corrupted_item_images)
+    {
+        if (is_null($corrupted_item_images)) {
+            array_push($this->openAPINullablesSetToNull, 'corrupted_item_images');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('corrupted_item_images', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['corrupted_item_images'] = $corrupted_item_images;
 
         return $this;
     }

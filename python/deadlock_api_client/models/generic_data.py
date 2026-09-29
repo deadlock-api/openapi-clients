@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams
 from deadlock_api_client.models.color import Color
+from deadlock_api_client.models.corrupted_item_images import CorruptedItemImages
 from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty
 from deadlock_api_client.models.damage_flash import DamageFlash
 from deadlock_api_client.models.glitch_settings import GlitchSettings
@@ -47,6 +48,7 @@ class GenericData(BaseModel):
     color_friend: Optional[Color] = Field(default=None, description="Build 6711+.")
     color_team1: Optional[Color] = Field(default=None, description="Build 6711+.")
     color_team2: Optional[Color] = Field(default=None, description="Build 6711+.")
+    corrupted_item_images: Optional[CorruptedItemImages] = Field(default=None, description="Shop art for corrupted items (build 6711+).")
     corrupted_penalties: Optional[List[CorruptedPenalty]] = Field(default=None, description="Penalties that can be rolled onto corrupted items (build 6711+).")
     damage_flash: DamageFlash
     enemy_objectives_and_zipline_color: Optional[Color] = None
@@ -70,7 +72,7 @@ class GenericData(BaseModel):
     targeting_spring_strength: List[Union[StrictFloat, StrictInt]]
     trooper_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     weapon_groups: List[ItemGroup]
-    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "breakable_powerup_loot_params", "color_enemy", "color_friend", "color_team1", "color_team2", "corrupted_penalties", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_corruption_price_per_tier", "item_price_per_tier", "lane_info", "map_districts", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "neutral_camp_respawn_timer_show_distance", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
+    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "breakable_powerup_loot_params", "color_enemy", "color_friend", "color_team1", "color_team2", "corrupted_item_images", "corrupted_penalties", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_corruption_price_per_tier", "item_price_per_tier", "lane_info", "map_districts", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "neutral_camp_respawn_timer_show_distance", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -132,6 +134,9 @@ class GenericData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of color_team2
         if self.color_team2:
             _dict['color_team2'] = self.color_team2.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of corrupted_item_images
+        if self.corrupted_item_images:
+            _dict['corrupted_item_images'] = self.corrupted_item_images.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in corrupted_penalties (list)
         _items = []
         if self.corrupted_penalties:
@@ -229,6 +234,11 @@ class GenericData(BaseModel):
         if self.color_team2 is None and "color_team2" in self.model_fields_set:
             _dict['color_team2'] = None
 
+        # set to None if corrupted_item_images (nullable) is None
+        # and model_fields_set contains the field
+        if self.corrupted_item_images is None and "corrupted_item_images" in self.model_fields_set:
+            _dict['corrupted_item_images'] = None
+
         # set to None if corrupted_penalties (nullable) is None
         # and model_fields_set contains the field
         if self.corrupted_penalties is None and "corrupted_penalties" in self.model_fields_set:
@@ -298,6 +308,7 @@ class GenericData(BaseModel):
             "color_friend": Color.from_dict(obj["color_friend"]) if obj.get("color_friend") is not None else None,
             "color_team1": Color.from_dict(obj["color_team1"]) if obj.get("color_team1") is not None else None,
             "color_team2": Color.from_dict(obj["color_team2"]) if obj.get("color_team2") is not None else None,
+            "corrupted_item_images": CorruptedItemImages.from_dict(obj["corrupted_item_images"]) if obj.get("corrupted_item_images") is not None else None,
             "corrupted_penalties": [CorruptedPenalty.from_dict(_item) for _item in obj["corrupted_penalties"]] if obj.get("corrupted_penalties") is not None else None,
             "damage_flash": DamageFlash.from_dict(obj["damage_flash"]) if obj.get("damage_flash") is not None else None,
             "enemy_objectives_and_zipline_color": Color.from_dict(obj["enemy_objectives_and_zipline_color"]) if obj.get("enemy_objectives_and_zipline_color") is not None else None,

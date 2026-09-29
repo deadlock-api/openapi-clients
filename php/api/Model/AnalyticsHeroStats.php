@@ -62,16 +62,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'int',
         'matches' => 'int',
         'matches_per_bucket' => 'int',
+        'permanent_buff_matches' => 'int',
+        'permanent_buff_timing_matches' => 'int',
         'total_assists' => 'int',
         'total_boss_damage' => 'int',
         'total_creep_damage' => 'int',
         'total_deaths' => 'int',
         'total_denies' => 'int',
+        'total_first_permanent_buff_time_s' => 'int',
         'total_kills' => 'int',
         'total_last_hits' => 'int',
         'total_max_health' => 'int',
         'total_net_worth' => 'int',
         'total_neutral_damage' => 'int',
+        'total_permanent_buffs' => 'int',
         'total_player_damage' => 'int',
         'total_player_damage_taken' => 'int',
         'total_shots_hit' => 'int',
@@ -92,16 +96,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'int64',
         'matches' => 'int64',
         'matches_per_bucket' => 'int64',
+        'permanent_buff_matches' => 'int64',
+        'permanent_buff_timing_matches' => 'int64',
         'total_assists' => 'int64',
         'total_boss_damage' => 'int64',
         'total_creep_damage' => 'int64',
         'total_deaths' => 'int64',
         'total_denies' => 'int64',
+        'total_first_permanent_buff_time_s' => 'int64',
         'total_kills' => 'int64',
         'total_last_hits' => 'int64',
         'total_max_health' => 'int64',
         'total_net_worth' => 'int64',
         'total_neutral_damage' => 'int64',
+        'total_permanent_buffs' => 'int64',
         'total_player_damage' => 'int64',
         'total_player_damage_taken' => 'int64',
         'total_shots_hit' => 'int64',
@@ -120,16 +128,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => false,
         'matches' => false,
         'matches_per_bucket' => false,
+        'permanent_buff_matches' => false,
+        'permanent_buff_timing_matches' => false,
         'total_assists' => false,
         'total_boss_damage' => false,
         'total_creep_damage' => false,
         'total_deaths' => false,
         'total_denies' => false,
+        'total_first_permanent_buff_time_s' => false,
         'total_kills' => false,
         'total_last_hits' => false,
         'total_max_health' => false,
         'total_net_worth' => false,
         'total_neutral_damage' => false,
+        'total_permanent_buffs' => false,
         'total_player_damage' => false,
         'total_player_damage_taken' => false,
         'total_shots_hit' => false,
@@ -228,16 +240,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'losses',
         'matches' => 'matches',
         'matches_per_bucket' => 'matches_per_bucket',
+        'permanent_buff_matches' => 'permanent_buff_matches',
+        'permanent_buff_timing_matches' => 'permanent_buff_timing_matches',
         'total_assists' => 'total_assists',
         'total_boss_damage' => 'total_boss_damage',
         'total_creep_damage' => 'total_creep_damage',
         'total_deaths' => 'total_deaths',
         'total_denies' => 'total_denies',
+        'total_first_permanent_buff_time_s' => 'total_first_permanent_buff_time_s',
         'total_kills' => 'total_kills',
         'total_last_hits' => 'total_last_hits',
         'total_max_health' => 'total_max_health',
         'total_net_worth' => 'total_net_worth',
         'total_neutral_damage' => 'total_neutral_damage',
+        'total_permanent_buffs' => 'total_permanent_buffs',
         'total_player_damage' => 'total_player_damage',
         'total_player_damage_taken' => 'total_player_damage_taken',
         'total_shots_hit' => 'total_shots_hit',
@@ -256,16 +272,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'setLosses',
         'matches' => 'setMatches',
         'matches_per_bucket' => 'setMatchesPerBucket',
+        'permanent_buff_matches' => 'setPermanentBuffMatches',
+        'permanent_buff_timing_matches' => 'setPermanentBuffTimingMatches',
         'total_assists' => 'setTotalAssists',
         'total_boss_damage' => 'setTotalBossDamage',
         'total_creep_damage' => 'setTotalCreepDamage',
         'total_deaths' => 'setTotalDeaths',
         'total_denies' => 'setTotalDenies',
+        'total_first_permanent_buff_time_s' => 'setTotalFirstPermanentBuffTimeS',
         'total_kills' => 'setTotalKills',
         'total_last_hits' => 'setTotalLastHits',
         'total_max_health' => 'setTotalMaxHealth',
         'total_net_worth' => 'setTotalNetWorth',
         'total_neutral_damage' => 'setTotalNeutralDamage',
+        'total_permanent_buffs' => 'setTotalPermanentBuffs',
         'total_player_damage' => 'setTotalPlayerDamage',
         'total_player_damage_taken' => 'setTotalPlayerDamageTaken',
         'total_shots_hit' => 'setTotalShotsHit',
@@ -284,16 +304,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         'losses' => 'getLosses',
         'matches' => 'getMatches',
         'matches_per_bucket' => 'getMatchesPerBucket',
+        'permanent_buff_matches' => 'getPermanentBuffMatches',
+        'permanent_buff_timing_matches' => 'getPermanentBuffTimingMatches',
         'total_assists' => 'getTotalAssists',
         'total_boss_damage' => 'getTotalBossDamage',
         'total_creep_damage' => 'getTotalCreepDamage',
         'total_deaths' => 'getTotalDeaths',
         'total_denies' => 'getTotalDenies',
+        'total_first_permanent_buff_time_s' => 'getTotalFirstPermanentBuffTimeS',
         'total_kills' => 'getTotalKills',
         'total_last_hits' => 'getTotalLastHits',
         'total_max_health' => 'getTotalMaxHealth',
         'total_net_worth' => 'getTotalNetWorth',
         'total_neutral_damage' => 'getTotalNeutralDamage',
+        'total_permanent_buffs' => 'getTotalPermanentBuffs',
         'total_player_damage' => 'getTotalPlayerDamage',
         'total_player_damage_taken' => 'getTotalPlayerDamageTaken',
         'total_shots_hit' => 'getTotalShotsHit',
@@ -363,16 +387,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('matches_per_bucket', $data ?? [], null);
+        $this->setIfExists('permanent_buff_matches', $data ?? [], null);
+        $this->setIfExists('permanent_buff_timing_matches', $data ?? [], null);
         $this->setIfExists('total_assists', $data ?? [], null);
         $this->setIfExists('total_boss_damage', $data ?? [], null);
         $this->setIfExists('total_creep_damage', $data ?? [], null);
         $this->setIfExists('total_deaths', $data ?? [], null);
         $this->setIfExists('total_denies', $data ?? [], null);
+        $this->setIfExists('total_first_permanent_buff_time_s', $data ?? [], null);
         $this->setIfExists('total_kills', $data ?? [], null);
         $this->setIfExists('total_last_hits', $data ?? [], null);
         $this->setIfExists('total_max_health', $data ?? [], null);
         $this->setIfExists('total_net_worth', $data ?? [], null);
         $this->setIfExists('total_neutral_damage', $data ?? [], null);
+        $this->setIfExists('total_permanent_buffs', $data ?? [], null);
         $this->setIfExists('total_player_damage', $data ?? [], null);
         $this->setIfExists('total_player_damage_taken', $data ?? [], null);
         $this->setIfExists('total_shots_hit', $data ?? [], null);
@@ -442,6 +470,20 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'matches_per_bucket', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['permanent_buff_matches'] === null) {
+            $invalidProperties[] = "'permanent_buff_matches' can't be null";
+        }
+        if (($this->container['permanent_buff_matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'permanent_buff_matches', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['permanent_buff_timing_matches'] === null) {
+            $invalidProperties[] = "'permanent_buff_timing_matches' can't be null";
+        }
+        if (($this->container['permanent_buff_timing_matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'permanent_buff_timing_matches', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['total_assists'] === null) {
             $invalidProperties[] = "'total_assists' can't be null";
         }
@@ -477,6 +519,13 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
             $invalidProperties[] = "invalid value for 'total_denies', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['total_first_permanent_buff_time_s'] === null) {
+            $invalidProperties[] = "'total_first_permanent_buff_time_s' can't be null";
+        }
+        if (($this->container['total_first_permanent_buff_time_s'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_first_permanent_buff_time_s', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['total_kills'] === null) {
             $invalidProperties[] = "'total_kills' can't be null";
         }
@@ -510,6 +559,13 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if (($this->container['total_neutral_damage'] < 0)) {
             $invalidProperties[] = "invalid value for 'total_neutral_damage', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['total_permanent_buffs'] === null) {
+            $invalidProperties[] = "'total_permanent_buffs' can't be null";
+        }
+        if (($this->container['total_permanent_buffs'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_permanent_buffs', must be bigger than or equal to 0.";
         }
 
         if ($this->container['total_player_damage'] === null) {
@@ -718,6 +774,68 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets permanent_buff_matches
+     *
+     * @return int
+     */
+    public function getPermanentBuffMatches()
+    {
+        return $this->container['permanent_buff_matches'];
+    }
+
+    /**
+     * Sets permanent_buff_matches
+     *
+     * @param int $permanent_buff_matches Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+     *
+     * @return self
+     */
+    public function setPermanentBuffMatches($permanent_buff_matches)
+    {
+        if (is_null($permanent_buff_matches)) {
+            throw new \InvalidArgumentException('non-nullable permanent_buff_matches cannot be null');
+        }
+        if (($permanent_buff_matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $permanent_buff_matches when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['permanent_buff_matches'] = $permanent_buff_matches;
+
+        return $this;
+    }
+
+    /**
+     * Gets permanent_buff_timing_matches
+     *
+     * @return int
+     */
+    public function getPermanentBuffTimingMatches()
+    {
+        return $this->container['permanent_buff_timing_matches'];
+    }
+
+    /**
+     * Sets permanent_buff_timing_matches
+     *
+     * @param int $permanent_buff_timing_matches Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+     *
+     * @return self
+     */
+    public function setPermanentBuffTimingMatches($permanent_buff_timing_matches)
+    {
+        if (is_null($permanent_buff_timing_matches)) {
+            throw new \InvalidArgumentException('non-nullable permanent_buff_timing_matches cannot be null');
+        }
+        if (($permanent_buff_timing_matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $permanent_buff_timing_matches when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['permanent_buff_timing_matches'] = $permanent_buff_timing_matches;
+
+        return $this;
+    }
+
+    /**
      * Gets total_assists
      *
      * @return int
@@ -873,6 +991,37 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
+     * Gets total_first_permanent_buff_time_s
+     *
+     * @return int
+     */
+    public function getTotalFirstPermanentBuffTimeS()
+    {
+        return $this->container['total_first_permanent_buff_time_s'];
+    }
+
+    /**
+     * Sets total_first_permanent_buff_time_s
+     *
+     * @param int $total_first_permanent_buff_time_s Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+     *
+     * @return self
+     */
+    public function setTotalFirstPermanentBuffTimeS($total_first_permanent_buff_time_s)
+    {
+        if (is_null($total_first_permanent_buff_time_s)) {
+            throw new \InvalidArgumentException('non-nullable total_first_permanent_buff_time_s cannot be null');
+        }
+        if (($total_first_permanent_buff_time_s < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_first_permanent_buff_time_s when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_first_permanent_buff_time_s'] = $total_first_permanent_buff_time_s;
+
+        return $this;
+    }
+
+    /**
      * Gets total_kills
      *
      * @return int
@@ -1023,6 +1172,37 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['total_neutral_damage'] = $total_neutral_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_permanent_buffs
+     *
+     * @return int
+     */
+    public function getTotalPermanentBuffs()
+    {
+        return $this->container['total_permanent_buffs'];
+    }
+
+    /**
+     * Sets total_permanent_buffs
+     *
+     * @param int $total_permanent_buffs Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     *
+     * @return self
+     */
+    public function setTotalPermanentBuffs($total_permanent_buffs)
+    {
+        if (is_null($total_permanent_buffs)) {
+            throw new \InvalidArgumentException('non-nullable total_permanent_buffs cannot be null');
+        }
+        if (($total_permanent_buffs < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_permanent_buffs when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_permanent_buffs'] = $total_permanent_buffs;
 
         return $this;
     }

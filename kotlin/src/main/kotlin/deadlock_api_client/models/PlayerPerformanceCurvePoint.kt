@@ -51,6 +51,7 @@ import java.io.Serializable
  * @param killsStd Standard deviation of kills at this time point
  * @param netWorthAvg Average net worth at this time point
  * @param netWorthStd Standard deviation of net worth at this time point
+ * @param permanentBuffsAvg Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
  */
 
 
@@ -134,7 +135,11 @@ data class PlayerPerformanceCurvePoint (
 
     /* Standard deviation of net worth at this time point */
     @Json(name = "net_worth_std")
-    val netWorthStd: kotlin.Double
+    val netWorthStd: kotlin.Double,
+
+    /* Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none. */
+    @Json(name = "permanent_buffs_avg")
+    val permanentBuffsAvg: kotlin.Double? = null
 
 ) : Serializable {
     companion object {

@@ -53,6 +53,7 @@ namespace DeadlockApiClient.Model
         /// <param name="colorFriend">Build 6711+.</param>
         /// <param name="colorTeam1">Build 6711+.</param>
         /// <param name="colorTeam2">Build 6711+.</param>
+        /// <param name="corruptedItemImages">Shop art for corrupted items (build 6711+).</param>
         /// <param name="corruptedPenalties">Penalties that can be rolled onto corrupted items (build 6711+).</param>
         /// <param name="enemyObjectivesAndZiplineColor">enemyObjectivesAndZiplineColor</param>
         /// <param name="enemyObjectivesColor">enemyObjectivesColor</param>
@@ -64,7 +65,7 @@ namespace DeadlockApiClient.Model
         /// <param name="neutralCampRespawnTimerShowDistance">Distance within which a neutral camp&#39;s respawn timer is shown (build 6711+).</param>
         /// <param name="streetBrawl">streetBrawl</param>
         [JsonConstructor]
-        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<BreakablePowerupLootParams?> breakablePowerupLootParams = default, Option<Color?> colorEnemy = default, Option<Color?> colorFriend = default, Option<Color?> colorTeam1 = default, Option<Color?> colorTeam2 = default, Option<List<CorruptedPenalty>?> corruptedPenalties = default, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<List<long>?> itemCorruptionPricePerTier = default, Option<List<MapDistrict>?> mapDistricts = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<double?> neutralCampRespawnTimerShowDistance = default, Option<StreetBrawl?> streetBrawl = default)
+        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<BreakablePowerupLootParams?> breakablePowerupLootParams = default, Option<Color?> colorEnemy = default, Option<Color?> colorFriend = default, Option<Color?> colorTeam1 = default, Option<Color?> colorTeam2 = default, Option<CorruptedItemImages?> corruptedItemImages = default, Option<List<CorruptedPenalty>?> corruptedPenalties = default, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<List<long>?> itemCorruptionPricePerTier = default, Option<List<MapDistrict>?> mapDistricts = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<double?> neutralCampRespawnTimerShowDistance = default, Option<StreetBrawl?> streetBrawl = default)
         {
             AimSpringStrength = aimSpringStrength;
             ArmorGroups = armorGroups;
@@ -86,6 +87,7 @@ namespace DeadlockApiClient.Model
             ColorFriendOption = colorFriend;
             ColorTeam1Option = colorTeam1;
             ColorTeam2Option = colorTeam2;
+            CorruptedItemImagesOption = corruptedItemImages;
             CorruptedPenaltiesOption = corruptedPenalties;
             EnemyObjectivesAndZiplineColorOption = enemyObjectivesAndZiplineColor;
             EnemyObjectivesColorOption = enemyObjectivesColor;
@@ -262,6 +264,20 @@ namespace DeadlockApiClient.Model
         public Color? ColorTeam2 { get { return this.ColorTeam2Option.Value; } set { this.ColorTeam2Option = new(value); } }
 
         /// <summary>
+        /// Used to track the state of CorruptedItemImages
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<CorruptedItemImages?> CorruptedItemImagesOption { get; private set; }
+
+        /// <summary>
+        /// Shop art for corrupted items (build 6711+).
+        /// </summary>
+        /// <value>Shop art for corrupted items (build 6711+).</value>
+        [JsonPropertyName("corrupted_item_images")]
+        public CorruptedItemImages? CorruptedItemImages { get { return this.CorruptedItemImagesOption.Value; } set { this.CorruptedItemImagesOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of CorruptedPenalties
         /// </summary>
         [JsonIgnore]
@@ -423,6 +439,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  ColorFriend: ").Append(ColorFriend).Append("\n");
             sb.Append("  ColorTeam1: ").Append(ColorTeam1).Append("\n");
             sb.Append("  ColorTeam2: ").Append(ColorTeam2).Append("\n");
+            sb.Append("  CorruptedItemImages: ").Append(CorruptedItemImages).Append("\n");
             sb.Append("  CorruptedPenalties: ").Append(CorruptedPenalties).Append("\n");
             sb.Append("  EnemyObjectivesAndZiplineColor: ").Append(EnemyObjectivesAndZiplineColor).Append("\n");
             sb.Append("  EnemyObjectivesColor: ").Append(EnemyObjectivesColor).Append("\n");
@@ -500,6 +517,7 @@ namespace DeadlockApiClient.Model
             Option<Color?> colorFriend = default;
             Option<Color?> colorTeam1 = default;
             Option<Color?> colorTeam2 = default;
+            Option<CorruptedItemImages?> corruptedItemImages = default;
             Option<List<CorruptedPenalty>?> corruptedPenalties = default;
             Option<Color?> enemyObjectivesAndZiplineColor = default;
             Option<Color?> enemyObjectivesColor = default;
@@ -585,6 +603,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "color_team2":
                             colorTeam2 = new Option<Color?>(JsonSerializer.Deserialize<Color>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "corrupted_item_images":
+                            corruptedItemImages = new Option<CorruptedItemImages?>(JsonSerializer.Deserialize<CorruptedItemImages>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "corrupted_penalties":
                             corruptedPenalties = new Option<List<CorruptedPenalty>?>(JsonSerializer.Deserialize<List<CorruptedPenalty>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -712,7 +733,7 @@ namespace DeadlockApiClient.Model
             if (weaponGroups.IsSet && weaponGroups.Value == null)
                 throw new ArgumentNullException(nameof(weaponGroups), "Property is not nullable for class GenericData.");
 
-            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, breakablePowerupLootParams, colorEnemy, colorFriend, colorTeam1, colorTeam2, corruptedPenalties, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, itemCorruptionPricePerTier, mapDistricts, minimapTeamCombineColor, minimapTeamRebelsColor, neutralCampRespawnTimerShowDistance, streetBrawl);
+            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, breakablePowerupLootParams, colorEnemy, colorFriend, colorTeam1, colorTeam2, corruptedItemImages, corruptedPenalties, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, itemCorruptionPricePerTier, mapDistricts, minimapTeamCombineColor, minimapTeamRebelsColor, neutralCampRespawnTimerShowDistance, streetBrawl);
         }
 
         /// <summary>
@@ -854,6 +875,14 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("color_team2");
+            if (genericData.CorruptedItemImagesOption.IsSet)
+                if (genericData.CorruptedItemImagesOption.Value != null)
+                {
+                    writer.WritePropertyName("corrupted_item_images");
+                    JsonSerializer.Serialize(writer, genericData.CorruptedItemImages, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("corrupted_item_images");
             if (genericData.CorruptedPenaltiesOption.IsSet)
                 if (genericData.CorruptedPenaltiesOption.Value != null)
                 {

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **color_friend** | [**Color**](Color.md) | Build 6711+. | [optional] 
 **color_team1** | [**Color**](Color.md) | Build 6711+. | [optional] 
 **color_team2** | [**Color**](Color.md) | Build 6711+. | [optional] 
+**corrupted_item_images** | [**CorruptedItemImages**](CorruptedItemImages.md) | Shop art for corrupted items (build 6711+). | [optional] 
 **corrupted_penalties** | [**List[CorruptedPenalty]**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). | [optional] 
 **damage_flash** | [**DamageFlash**](DamageFlash.md) |  | 
 **enemy_objectives_and_zipline_color** | [**Color**](Color.md) |  | [optional] 

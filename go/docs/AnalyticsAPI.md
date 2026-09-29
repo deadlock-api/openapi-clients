@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AbilityOrderStats**](AnalyticsAPI.md#AbilityOrderStats) | **Get** /v1/analytics/ability-order-stats | Ability Order Stats
 [**BadgeDistribution**](AnalyticsAPI.md#BadgeDistribution) | **Get** /v1/analytics/badge-distribution | Badge Distribution
+[**BuffStats**](AnalyticsAPI.md#BuffStats) | **Get** /v1/analytics/buff-stats | Buff Stats
 [**BuildItemStats**](AnalyticsAPI.md#BuildItemStats) | **Get** /v1/analytics/build-item-stats | Build Item Stats
 [**GameStats**](AnalyticsAPI.md#GameStats) | **Get** /v1/analytics/game-stats | Game Stats
 [**HeroBanStats**](AnalyticsAPI.md#HeroBanStats) | **Get** /v1/analytics/hero-ban-stats | Hero Ban Stats
@@ -206,6 +207,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**[]BadgeDistribution**](BadgeDistribution.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BuffStats
+
+> []AnalyticsBuffStats BuffStats(ctx).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinNetworth(minNetworth).MaxNetworth(maxNetworth).HeroIds(heroIds).AccountIds(accountIds).Execute()
+
+Buff Stats
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
+	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1788048000)
+	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
+	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
+	minAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
+	maxAverageBadge := int32(56) // int32 | Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks> (optional)
+	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
+	minNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
+	maxNetworth := int64(789) // int64 | Filter players based on their final net worth. (optional)
+	heroIds := []int32{int32(123)} // []int32 | Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AnalyticsAPI.BuffStats(context.Background()).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinNetworth(minNetworth).MaxNetworth(maxNetworth).HeroIds(heroIds).AccountIds(accountIds).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.BuffStats``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BuffStats`: []AnalyticsBuffStats
+	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.BuffStats`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBuffStatsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
+ **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1788048000]
+ **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
+ **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
+ **minAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+ **maxAverageBadge** | **int32** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | 
+ **minMatchId** | **int64** | Filter matches based on their ID. | 
+ **maxMatchId** | **int64** | Filter matches based on their ID. | 
+ **minNetworth** | **int64** | Filter players based on their final net worth. | 
+ **maxNetworth** | **int64** | Filter players based on their final net worth. | 
+ **heroIds** | **[]int32** | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+
+### Return type
+
+[**[]AnalyticsBuffStats**](AnalyticsBuffStats.md)
 
 ### Authorization
 
@@ -1313,7 +1406,7 @@ No authorization required
 
 ## ItemStats
 
-> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).IncludeCorruptedItems(includeCorruptedItems).Execute()
+> []ItemStats ItemStats(ctx).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).CorruptedItems(corruptedItems).IncludeCorruptedItems(includeCorruptedItems).Execute()
 
 Item Stats
 
@@ -1363,11 +1456,12 @@ func main() {
 	minBoughtAtS := int32(56) // int32 | Filter items bought after this game time (seconds). (optional)
 	maxBoughtAtS := int32(56) // int32 | Filter items bought before this game time (seconds). (optional)
 	itemOrder := []string{"Inner_example"} // []string | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
-	includeCorruptedItems := true // bool | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower. (optional) (default to false)
+	corruptedItems := "corruptedItems_example" // string | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set. (optional)
+	includeCorruptedItems := true // bool | Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).IncludeCorruptedItems(includeCorruptedItems).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.ItemStats(context.Background()).Bucket(bucket).GameMode(gameMode).MatchMode(matchMode).HeroIds(heroIds).HeroId(heroId).EnemyHeroIds(enemyHeroIds).EnemyHeroIdsAllMatch(enemyHeroIdsAllMatch).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).SameLaneFilter(sameLaneFilter).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).MinBoughtAtS(minBoughtAtS).MaxBoughtAtS(maxBoughtAtS).ItemOrder(itemOrder).CorruptedItems(corruptedItems).IncludeCorruptedItems(includeCorruptedItems).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.ItemStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1419,7 +1513,8 @@ Name | Type | Description  | Notes
  **minBoughtAtS** | **int32** | Filter items bought after this game time (seconds). | 
  **maxBoughtAtS** | **int32** | Filter items bought before this game time (seconds). | 
  **itemOrder** | **[]string** | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
- **includeCorruptedItems** | **bool** | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | [default to false]
+ **corruptedItems** | **string** | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set. | 
+ **includeCorruptedItems** | **bool** | Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set. | [default to false]
 
 ### Return type
 
@@ -1965,7 +2060,7 @@ No authorization required
 
 ## PlayerStatsMetrics
 
-> map[string]HashMapValue PlayerStatsMetrics(ctx).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).Execute()
+> map[string]HashMapValue PlayerStatsMetrics(ctx).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
 
 Player Stats Metrics
 
@@ -2003,10 +2098,11 @@ func main() {
 	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
 	abilityUnlockOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	includeBuffMetrics := true // bool | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them. (optional) (default to false)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.PlayerStatsMetrics(context.Background()).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.PlayerStatsMetrics(context.Background()).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerStatsMetrics``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2046,6 +2142,7 @@ Name | Type | Description  | Notes
  **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 
  **abilityUnlockOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **includeBuffMetrics** | **bool** | Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. | [default to false]
 
 ### Return type
 

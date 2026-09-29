@@ -99,6 +99,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PermanentBuffMatches'
+        /// </summary>
+        [Fact]
+        public void PermanentBuffMatchesTest()
+        {
+            // TODO unit test for the property 'PermanentBuffMatches'
+        }
+
+        /// <summary>
+        /// Test the property 'PermanentBuffTimingMatches'
+        /// </summary>
+        [Fact]
+        public void PermanentBuffTimingMatchesTest()
+        {
+            // TODO unit test for the property 'PermanentBuffTimingMatches'
+        }
+
+        /// <summary>
         /// Test the property 'TotalAssists'
         /// </summary>
         [Fact]
@@ -144,6 +162,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'TotalFirstPermanentBuffTimeS'
+        /// </summary>
+        [Fact]
+        public void TotalFirstPermanentBuffTimeSTest()
+        {
+            // TODO unit test for the property 'TotalFirstPermanentBuffTimeS'
+        }
+
+        /// <summary>
         /// Test the property 'TotalKills'
         /// </summary>
         [Fact]
@@ -186,6 +213,15 @@ namespace DeadlockApiClient.Test.Model
         public void TotalNeutralDamageTest()
         {
             // TODO unit test for the property 'TotalNeutralDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPermanentBuffs'
+        /// </summary>
+        [Fact]
+        public void TotalPermanentBuffsTest()
+        {
+            // TODO unit test for the property 'TotalPermanentBuffs'
         }
 
         /// <summary>

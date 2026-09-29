@@ -138,6 +138,12 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     netWorthStd: number;
+    /**
+     * Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    permanentBuffsAvg?: number;
 }
 
 export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanceCurvePoint {
@@ -162,6 +168,7 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'killsStd': json['kills_std'],
         'netWorthAvg': json['net_worth_avg'],
         'netWorthStd': json['net_worth_std'],
+        'permanentBuffsAvg': !exists(json, 'permanent_buffs_avg') ? undefined : json['permanent_buffs_avg'],
     };
 }
 
@@ -190,6 +197,7 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'kills_std': value.killsStd,
         'net_worth_avg': value.netWorthAvg,
         'net_worth_std': value.netWorthStd,
+        'permanent_buffs_avg': value.permanentBuffsAvg,
     };
 }
 

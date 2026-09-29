@@ -638,6 +638,286 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiBuffStatsRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	gameMode *string
+	matchMode *string
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+	minNetworth *int64
+	maxNetworth *int64
+	heroIds *[]int32
+	accountIds *[]int32
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+func (r ApiBuffStatsRequest) GameMode(gameMode string) ApiBuffStatsRequest {
+	r.gameMode = &gameMode
+	return r
+}
+
+// Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+func (r ApiBuffStatsRequest) MatchMode(matchMode string) ApiBuffStatsRequest {
+	r.matchMode = &matchMode
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiBuffStatsRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiBuffStatsRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiBuffStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiBuffStatsRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiBuffStatsRequest) MinDurationS(minDurationS int64) ApiBuffStatsRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiBuffStatsRequest) MaxDurationS(maxDurationS int64) ApiBuffStatsRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+func (r ApiBuffStatsRequest) MinAverageBadge(minAverageBadge int32) ApiBuffStatsRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+func (r ApiBuffStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiBuffStatsRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiBuffStatsRequest) MinMatchId(minMatchId int64) ApiBuffStatsRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiBuffStatsRequest) MaxMatchId(maxMatchId int64) ApiBuffStatsRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiBuffStatsRequest) MinNetworth(minNetworth int64) ApiBuffStatsRequest {
+	r.minNetworth = &minNetworth
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiBuffStatsRequest) MaxNetworth(maxNetworth int64) ApiBuffStatsRequest {
+	r.maxNetworth = &maxNetworth
+	return r
+}
+
+// Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiBuffStatsRequest) HeroIds(heroIds []int32) ApiBuffStatsRequest {
+	r.heroIds = &heroIds
+	return r
+}
+
+// Comma separated list of account ids to include
+func (r ApiBuffStatsRequest) AccountIds(accountIds []int32) ApiBuffStatsRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+func (r ApiBuffStatsRequest) Execute() ([]AnalyticsBuffStats, *http.Response, error) {
+	return r.ApiService.BuffStatsExecute(r)
+}
+
+/*
+BuffStats Buff Stats
+
+
+Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often
+players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up
+and how much stat it grants.
+
+Pickup counts cover every match. Pickup times and stat values are only recorded since build
+6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover
+those matches. Temporary power-ups have no timings.
+
+Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>
+
+Results are cached for **1 hour** based on the unique combination of query parameters provided.
+
+### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiBuffStatsRequest
+*/
+func (a *AnalyticsAPIService) BuffStats(ctx context.Context) ApiBuffStatsRequest {
+	return ApiBuffStatsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []AnalyticsBuffStats
+func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]AnalyticsBuffStats, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []AnalyticsBuffStats
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.BuffStats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/buff-stats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
+	if r.matchMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
+	}
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1788048000
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	if r.minNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_networth", r.minNetworth, "form", "")
+	}
+	if r.maxNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_networth", r.maxNetworth, "form", "")
+	}
+	if r.heroIds != nil {
+		t := *r.heroIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", t, "form", "multi")
+		}
+	}
+	if r.accountIds != nil {
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiBuildItemStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
@@ -4201,6 +4481,7 @@ type ApiItemStatsRequest struct {
 	minBoughtAtS *int32
 	maxBoughtAtS *int32
 	itemOrder *[]string
+	corruptedItems *string
 	includeCorruptedItems *bool
 }
 
@@ -4392,7 +4673,14 @@ func (r ApiItemStatsRequest) ItemOrder(itemOrder []string) ApiItemStatsRequest {
 	return r
 }
 
-// Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower.
+// How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set.
+func (r ApiItemStatsRequest) CorruptedItems(corruptedItems string) ApiItemStatsRequest {
+	r.corruptedItems = &corruptedItems
+	return r
+}
+
+// Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set.
+// Deprecated
 func (r ApiItemStatsRequest) IncludeCorruptedItems(includeCorruptedItems bool) ApiItemStatsRequest {
 	r.includeCorruptedItems = &includeCorruptedItems
 	return r
@@ -4599,6 +4887,9 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "item_order", t, "form", "multi")
 		}
+	}
+	if r.corruptedItems != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "corrupted_items", r.corruptedItems, "form", "")
 	}
 	if r.includeCorruptedItems != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", r.includeCorruptedItems, "form", "")
@@ -6430,6 +6721,7 @@ type ApiPlayerStatsMetricsRequest struct {
 	abilityOrderPrefix *[]int32
 	abilityUnlockOrderPrefix *[]int32
 	accountIds *[]int32
+	includeBuffMetrics *bool
 }
 
 // Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -6543,6 +6835,12 @@ func (r ApiPlayerStatsMetricsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrde
 // Comma separated list of account ids to include
 func (r ApiPlayerStatsMetricsRequest) AccountIds(accountIds []int32) ApiPlayerStatsMetricsRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them.
+func (r ApiPlayerStatsMetricsRequest) IncludeBuffMetrics(includeBuffMetrics bool) ApiPlayerStatsMetricsRequest {
+	r.includeBuffMetrics = &includeBuffMetrics
 	return r
 }
 
@@ -6701,6 +6999,13 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.includeBuffMetrics != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_buff_metrics", r.includeBuffMetrics, "form", "")
+	} else {
+		var defaultValue bool = false
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_buff_metrics", defaultValue, "form", "")
+		r.includeBuffMetrics = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

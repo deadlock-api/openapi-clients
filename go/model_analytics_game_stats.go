@@ -36,6 +36,8 @@ type AnalyticsGameStats struct {
 	AvgEndingLevel float64 `json:"avg_ending_level"`
 	AvgFirstMidBossTimeS float64 `json:"avg_first_mid_boss_time_s"`
 	AvgFirstObjectiveDestroyedTimeS float64 `json:"avg_first_objective_destroyed_time_s"`
+	// Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+	AvgFirstPermanentBuffTimeS NullableFloat64 `json:"avg_first_permanent_buff_time_s,omitempty"`
 	AvgGoldBoss float64 `json:"avg_gold_boss"`
 	AvgGoldBossOrb float64 `json:"avg_gold_boss_orb"`
 	AvgGoldDeathLoss float64 `json:"avg_gold_death_loss"`
@@ -55,6 +57,10 @@ type AnalyticsGameStats struct {
 	AvgNetWorth float64 `json:"avg_net_worth"`
 	AvgNeutralDamage float64 `json:"avg_neutral_damage"`
 	AvgNeutralKills float64 `json:"avg_neutral_kills"`
+	// Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+	AvgPermanentBuffs float64 `json:"avg_permanent_buffs"`
+	// Average permanent buff pickups per player per minute of match time.
+	AvgPermanentBuffsPerMin float64 `json:"avg_permanent_buffs_per_min"`
 	AvgPlayerDamage float64 `json:"avg_player_damage"`
 	AvgPlayerDamageTaken float64 `json:"avg_player_damage_taken"`
 	AvgPlayerHealing float64 `json:"avg_player_healing"`
@@ -76,7 +82,7 @@ type _AnalyticsGameStats AnalyticsGameStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64) *AnalyticsGameStats {
+func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64) *AnalyticsGameStats {
 	this := AnalyticsGameStats{}
 	this.AbandonRate = abandonRate
 	this.AvgAccuracy = avgAccuracy
@@ -112,6 +118,8 @@ func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists 
 	this.AvgNetWorth = avgNetWorth
 	this.AvgNeutralDamage = avgNeutralDamage
 	this.AvgNeutralKills = avgNeutralKills
+	this.AvgPermanentBuffs = avgPermanentBuffs
+	this.AvgPermanentBuffsPerMin = avgPermanentBuffsPerMin
 	this.AvgPlayerDamage = avgPlayerDamage
 	this.AvgPlayerDamageTaken = avgPlayerDamageTaken
 	this.AvgPlayerHealing = avgPlayerHealing
@@ -494,6 +502,48 @@ func (o *AnalyticsGameStats) GetAvgFirstObjectiveDestroyedTimeSOk() (*float64, b
 // SetAvgFirstObjectiveDestroyedTimeS sets field value
 func (o *AnalyticsGameStats) SetAvgFirstObjectiveDestroyedTimeS(v float64) {
 	o.AvgFirstObjectiveDestroyedTimeS = v
+}
+
+// GetAvgFirstPermanentBuffTimeS returns the AvgFirstPermanentBuffTimeS field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *AnalyticsGameStats) GetAvgFirstPermanentBuffTimeS() float64 {
+	if o == nil || IsNil(o.AvgFirstPermanentBuffTimeS.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.AvgFirstPermanentBuffTimeS.Get()
+}
+
+// GetAvgFirstPermanentBuffTimeSOk returns a tuple with the AvgFirstPermanentBuffTimeS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *AnalyticsGameStats) GetAvgFirstPermanentBuffTimeSOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AvgFirstPermanentBuffTimeS.Get(), o.AvgFirstPermanentBuffTimeS.IsSet()
+}
+
+// HasAvgFirstPermanentBuffTimeS returns a boolean if a field has been set.
+func (o *AnalyticsGameStats) HasAvgFirstPermanentBuffTimeS() bool {
+	if o != nil && o.AvgFirstPermanentBuffTimeS.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgFirstPermanentBuffTimeS gets a reference to the given NullableFloat64 and assigns it to the AvgFirstPermanentBuffTimeS field.
+func (o *AnalyticsGameStats) SetAvgFirstPermanentBuffTimeS(v float64) {
+	o.AvgFirstPermanentBuffTimeS.Set(&v)
+}
+// SetAvgFirstPermanentBuffTimeSNil sets the value for AvgFirstPermanentBuffTimeS to be an explicit nil
+func (o *AnalyticsGameStats) SetAvgFirstPermanentBuffTimeSNil() {
+	o.AvgFirstPermanentBuffTimeS.Set(nil)
+}
+
+// UnsetAvgFirstPermanentBuffTimeS ensures that no value is present for AvgFirstPermanentBuffTimeS, not even an explicit nil
+func (o *AnalyticsGameStats) UnsetAvgFirstPermanentBuffTimeS() {
+	o.AvgFirstPermanentBuffTimeS.Unset()
 }
 
 // GetAvgGoldBoss returns the AvgGoldBoss field value
@@ -952,6 +1002,54 @@ func (o *AnalyticsGameStats) SetAvgNeutralKills(v float64) {
 	o.AvgNeutralKills = v
 }
 
+// GetAvgPermanentBuffs returns the AvgPermanentBuffs field value
+func (o *AnalyticsGameStats) GetAvgPermanentBuffs() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgPermanentBuffs
+}
+
+// GetAvgPermanentBuffsOk returns a tuple with the AvgPermanentBuffs field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgPermanentBuffsOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgPermanentBuffs, true
+}
+
+// SetAvgPermanentBuffs sets field value
+func (o *AnalyticsGameStats) SetAvgPermanentBuffs(v float64) {
+	o.AvgPermanentBuffs = v
+}
+
+// GetAvgPermanentBuffsPerMin returns the AvgPermanentBuffsPerMin field value
+func (o *AnalyticsGameStats) GetAvgPermanentBuffsPerMin() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.AvgPermanentBuffsPerMin
+}
+
+// GetAvgPermanentBuffsPerMinOk returns a tuple with the AvgPermanentBuffsPerMin field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsGameStats) GetAvgPermanentBuffsPerMinOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.AvgPermanentBuffsPerMin, true
+}
+
+// SetAvgPermanentBuffsPerMin sets field value
+func (o *AnalyticsGameStats) SetAvgPermanentBuffsPerMin(v float64) {
+	o.AvgPermanentBuffsPerMin = v
+}
+
 // GetAvgPlayerDamage returns the AvgPlayerDamage field value
 func (o *AnalyticsGameStats) GetAvgPlayerDamage() float64 {
 	if o == nil {
@@ -1289,6 +1387,9 @@ func (o AnalyticsGameStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["avg_ending_level"] = o.AvgEndingLevel
 	toSerialize["avg_first_mid_boss_time_s"] = o.AvgFirstMidBossTimeS
 	toSerialize["avg_first_objective_destroyed_time_s"] = o.AvgFirstObjectiveDestroyedTimeS
+	if o.AvgFirstPermanentBuffTimeS.IsSet() {
+		toSerialize["avg_first_permanent_buff_time_s"] = o.AvgFirstPermanentBuffTimeS.Get()
+	}
 	toSerialize["avg_gold_boss"] = o.AvgGoldBoss
 	toSerialize["avg_gold_boss_orb"] = o.AvgGoldBossOrb
 	toSerialize["avg_gold_death_loss"] = o.AvgGoldDeathLoss
@@ -1308,6 +1409,8 @@ func (o AnalyticsGameStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["avg_net_worth"] = o.AvgNetWorth
 	toSerialize["avg_neutral_damage"] = o.AvgNeutralDamage
 	toSerialize["avg_neutral_kills"] = o.AvgNeutralKills
+	toSerialize["avg_permanent_buffs"] = o.AvgPermanentBuffs
+	toSerialize["avg_permanent_buffs_per_min"] = o.AvgPermanentBuffsPerMin
 	toSerialize["avg_player_damage"] = o.AvgPlayerDamage
 	toSerialize["avg_player_damage_taken"] = o.AvgPlayerDamageTaken
 	toSerialize["avg_player_healing"] = o.AvgPlayerHealing
@@ -1363,6 +1466,8 @@ func (o *AnalyticsGameStats) UnmarshalJSON(data []byte) (err error) {
 		"avg_net_worth",
 		"avg_neutral_damage",
 		"avg_neutral_kills",
+		"avg_permanent_buffs",
+		"avg_permanent_buffs_per_min",
 		"avg_player_damage",
 		"avg_player_damage_taken",
 		"avg_player_healing",

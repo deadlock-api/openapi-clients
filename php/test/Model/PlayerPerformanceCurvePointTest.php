@@ -258,4 +258,13 @@ class PlayerPerformanceCurvePointTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "permanent_buffs_avg"
+     */
+    public function testPropertyPermanentBuffsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

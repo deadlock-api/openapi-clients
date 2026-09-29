@@ -27,6 +27,13 @@ type ApiLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
+	leaderboardId *int32
+}
+
+// Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+func (r ApiLeaderboardRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardRequest {
+	r.leaderboardId = &leaderboardId
+	return r
 }
 
 func (r ApiLeaderboardRequest) Execute() (*Leaderboard, *http.Response, error) {
@@ -85,6 +92,9 @@ func (a *LeaderboardAPIService) LeaderboardExecute(r ApiLeaderboardRequest) (*Le
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.leaderboardId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "leaderboard_id", r.leaderboardId, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -144,6 +154,13 @@ type ApiLeaderboardHeroRequest struct {
 	ApiService *LeaderboardAPIService
 	region string
 	heroId int32
+	leaderboardId *int32
+}
+
+// Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+func (r ApiLeaderboardHeroRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardHeroRequest {
+	r.leaderboardId = &leaderboardId
+	return r
 }
 
 func (r ApiLeaderboardHeroRequest) Execute() (*Leaderboard, *http.Response, error) {
@@ -208,6 +225,9 @@ func (a *LeaderboardAPIService) LeaderboardHeroExecute(r ApiLeaderboardHeroReque
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
 
+	if r.leaderboardId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "leaderboard_id", r.leaderboardId, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -267,6 +287,13 @@ type ApiLeaderboardHeroRawRequest struct {
 	ApiService *LeaderboardAPIService
 	region string
 	heroId int32
+	leaderboardId *int32
+}
+
+// Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+func (r ApiLeaderboardHeroRawRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardHeroRawRequest {
+	r.leaderboardId = &leaderboardId
+	return r
 }
 
 func (r ApiLeaderboardHeroRawRequest) Execute() ([]int32, *http.Response, error) {
@@ -338,6 +365,9 @@ func (a *LeaderboardAPIService) LeaderboardHeroRawExecute(r ApiLeaderboardHeroRa
 		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
 	}
 
+	if r.leaderboardId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "leaderboard_id", r.leaderboardId, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -396,6 +426,13 @@ type ApiLeaderboardRawRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
 	region string
+	leaderboardId *int32
+}
+
+// Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+func (r ApiLeaderboardRawRequest) LeaderboardId(leaderboardId int32) ApiLeaderboardRawRequest {
+	r.leaderboardId = &leaderboardId
+	return r
 }
 
 func (r ApiLeaderboardRawRequest) Execute() ([]int32, *http.Response, error) {
@@ -461,6 +498,9 @@ func (a *LeaderboardAPIService) LeaderboardRawExecute(r ApiLeaderboardRawRequest
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.leaderboardId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "leaderboard_id", r.leaderboardId, "form", "")
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 

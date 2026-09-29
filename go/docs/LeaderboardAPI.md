@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## Leaderboard
 
-> Leaderboard Leaderboard(ctx, region).Execute()
+> Leaderboard Leaderboard(ctx, region).LeaderboardId(leaderboardId).Execute()
 
 Leaderboard
 
@@ -33,10 +33,11 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
+	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LeaderboardAPI.Leaderboard(context.Background(), region).Execute()
+	resp, r, err := apiClient.LeaderboardAPI.Leaderboard(context.Background(), region).LeaderboardId(leaderboardId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LeaderboardAPI.Leaderboard``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -62,6 +63,7 @@ Other parameters are passed through a pointer to a apiLeaderboardRequest struct 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -83,7 +85,7 @@ No authorization required
 
 ## LeaderboardHero
 
-> Leaderboard LeaderboardHero(ctx, region, heroId).Execute()
+> Leaderboard LeaderboardHero(ctx, region, heroId).LeaderboardId(leaderboardId).Execute()
 
 Hero Leaderboard
 
@@ -104,10 +106,11 @@ import (
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
 	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LeaderboardAPI.LeaderboardHero(context.Background(), region, heroId).Execute()
+	resp, r, err := apiClient.LeaderboardAPI.LeaderboardHero(context.Background(), region, heroId).LeaderboardId(leaderboardId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LeaderboardAPI.LeaderboardHero``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,6 +138,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -156,7 +160,7 @@ No authorization required
 
 ## LeaderboardHeroRaw
 
-> []int32 LeaderboardHeroRaw(ctx, region, heroId).Execute()
+> []int32 LeaderboardHeroRaw(ctx, region, heroId).LeaderboardId(leaderboardId).Execute()
 
 Hero Leaderboard as Protobuf
 
@@ -177,10 +181,11 @@ import (
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
 	heroId := int32(56) // int32 | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LeaderboardAPI.LeaderboardHeroRaw(context.Background(), region, heroId).Execute()
+	resp, r, err := apiClient.LeaderboardAPI.LeaderboardHeroRaw(context.Background(), region, heroId).LeaderboardId(leaderboardId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LeaderboardAPI.LeaderboardHeroRaw``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -208,6 +213,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+ **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 
@@ -229,7 +235,7 @@ No authorization required
 
 ## LeaderboardRaw
 
-> []int32 LeaderboardRaw(ctx, region).Execute()
+> []int32 LeaderboardRaw(ctx, region).LeaderboardId(leaderboardId).Execute()
 
 Leaderboard as Protobuf
 
@@ -249,10 +255,11 @@ import (
 
 func main() {
 	region := "region_example" // string | The region to fetch the leaderboard for.
+	leaderboardId := int32(56) // int32 | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.LeaderboardAPI.LeaderboardRaw(context.Background(), region).Execute()
+	resp, r, err := apiClient.LeaderboardAPI.LeaderboardRaw(context.Background(), region).LeaderboardId(leaderboardId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `LeaderboardAPI.LeaderboardRaw``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -278,6 +285,7 @@ Other parameters are passed through a pointer to a apiLeaderboardRawRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **leaderboardId** | **int32** | Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | 
 
 ### Return type
 

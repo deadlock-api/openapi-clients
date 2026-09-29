@@ -53,6 +53,7 @@ docs/models/ActiveMatchPlayer.md
 docs/models/ActiveMatchTeam.md
 docs/models/AddSteamAccountRequest.md
 docs/models/AnalyticsAbilityOrderStats.md
+docs/models/AnalyticsBuffStats.md
 docs/models/AnalyticsGameStats.md
 docs/models/AnalyticsHeroStats.md
 docs/models/BadgeDistribution.md
@@ -71,9 +72,11 @@ docs/models/ClickhouseSalts.md
 docs/models/Color.md
 docs/models/ColorGradientStop.md
 docs/models/ColumnSchema.md
+docs/models/CorruptedItemImages.md
 docs/models/CorruptedItemInfo.md
 docs/models/CorruptedPenalty.md
 docs/models/CorruptedPenaltyEffect.md
+docs/models/CorruptedTooltipBackers.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
 docs/models/Curve.md
@@ -127,6 +130,7 @@ docs/models/HeroStatsUIDisplay.md
 docs/models/HeroSynergyStats.md
 docs/models/HeroType.md
 docs/models/HorizontalRecoil.md
+docs/models/ImagePair.md
 docs/models/IngestLiveUrl.md
 docs/models/Item.md
 docs/models/ItemDraftRound.md
@@ -319,6 +323,7 @@ src/DeadlockApiClient.Test/Model/ActiveMatchTeamTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchTests.cs
 src/DeadlockApiClient.Test/Model/AddSteamAccountRequestTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsAbilityOrderStatsTests.cs
+src/DeadlockApiClient.Test/Model/AnalyticsBuffStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsGameStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsHeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/BadgeDistributionTests.cs
@@ -337,9 +342,11 @@ src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
 src/DeadlockApiClient.Test/Model/ColorGradientStopTests.cs
 src/DeadlockApiClient.Test/Model/ColorTests.cs
 src/DeadlockApiClient.Test/Model/ColumnSchemaTests.cs
+src/DeadlockApiClient.Test/Model/CorruptedItemImagesTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedItemInfoTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedPenaltyEffectTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedPenaltyTests.cs
+src/DeadlockApiClient.Test/Model/CorruptedTooltipBackersTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
 src/DeadlockApiClient.Test/Model/CurveOrFloatTests.cs
@@ -393,6 +400,7 @@ src/DeadlockApiClient.Test/Model/HeroSynergyStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroTests.cs
 src/DeadlockApiClient.Test/Model/HeroTypeTests.cs
 src/DeadlockApiClient.Test/Model/HorizontalRecoilTests.cs
+src/DeadlockApiClient.Test/Model/ImagePairTests.cs
 src/DeadlockApiClient.Test/Model/IngestLiveUrlTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundPerGameRoundTests.cs
 src/DeadlockApiClient.Test/Model/ItemDraftRoundTests.cs
@@ -607,6 +615,7 @@ src/DeadlockApiClient/Model/ActiveMatchPlayer.cs
 src/DeadlockApiClient/Model/ActiveMatchTeam.cs
 src/DeadlockApiClient/Model/AddSteamAccountRequest.cs
 src/DeadlockApiClient/Model/AnalyticsAbilityOrderStats.cs
+src/DeadlockApiClient/Model/AnalyticsBuffStats.cs
 src/DeadlockApiClient/Model/AnalyticsGameStats.cs
 src/DeadlockApiClient/Model/AnalyticsHeroStats.cs
 src/DeadlockApiClient/Model/BadgeDistribution.cs
@@ -625,9 +634,11 @@ src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/Color.cs
 src/DeadlockApiClient/Model/ColorGradientStop.cs
 src/DeadlockApiClient/Model/ColumnSchema.cs
+src/DeadlockApiClient/Model/CorruptedItemImages.cs
 src/DeadlockApiClient/Model/CorruptedItemInfo.cs
 src/DeadlockApiClient/Model/CorruptedPenalty.cs
 src/DeadlockApiClient/Model/CorruptedPenaltyEffect.cs
+src/DeadlockApiClient/Model/CorruptedTooltipBackers.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
 src/DeadlockApiClient/Model/Curve.cs
@@ -681,6 +692,7 @@ src/DeadlockApiClient/Model/HeroStatsUIDisplay.cs
 src/DeadlockApiClient/Model/HeroSynergyStats.cs
 src/DeadlockApiClient/Model/HeroType.cs
 src/DeadlockApiClient/Model/HorizontalRecoil.cs
+src/DeadlockApiClient/Model/ImagePair.cs
 src/DeadlockApiClient/Model/IngestLiveUrl.cs
 src/DeadlockApiClient/Model/Item.cs
 src/DeadlockApiClient/Model/ItemDraftRound.cs

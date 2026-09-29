@@ -25,6 +25,7 @@ package deadlock_api_client.models
 
 import deadlock_api_client.models.BreakablePowerupLootParams
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.CorruptedItemImages
 import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
@@ -64,6 +65,7 @@ import java.io.Serializable
  * @param colorFriend Build 6711+.
  * @param colorTeam1 Build 6711+.
  * @param colorTeam2 Build 6711+.
+ * @param corruptedItemImages Shop art for corrupted items (build 6711+).
  * @param corruptedPenalties Penalties that can be rolled onto corrupted items (build 6711+).
  * @param enemyObjectivesAndZiplineColor 
  * @param enemyObjectivesColor 
@@ -143,6 +145,10 @@ data class GenericData (
     /* Build 6711+. */
     @Json(name = "color_team2")
     val colorTeam2: Color? = null,
+
+    /* Shop art for corrupted items (build 6711+). */
+    @Json(name = "corrupted_item_images")
+    val corruptedItemImages: CorruptedItemImages? = null,
 
     /* Penalties that can be rolled onto corrupted items (build 6711+). */
     @Json(name = "corrupted_penalties")

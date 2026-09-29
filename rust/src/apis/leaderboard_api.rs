@@ -18,7 +18,9 @@ use super::{Error, configuration, ContentType};
 #[derive(Clone, Debug)]
 pub struct LeaderboardParams {
     /// The region to fetch the leaderboard for.
-    pub region: String
+    pub region: String,
+    /// Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+    pub leaderboard_id: Option<u32>
 }
 
 /// struct for passing parameters to the method [`leaderboard_hero`]
@@ -27,7 +29,9 @@ pub struct LeaderboardHeroParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
     /// The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-    pub hero_id: u32
+    pub hero_id: u32,
+    /// Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+    pub leaderboard_id: Option<u32>
 }
 
 /// struct for passing parameters to the method [`leaderboard_hero_raw`]
@@ -36,14 +40,18 @@ pub struct LeaderboardHeroRawParams {
     /// The region to fetch the leaderboard for.
     pub region: String,
     /// The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-    pub hero_id: u32
+    pub hero_id: u32,
+    /// Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+    pub leaderboard_id: Option<u32>
 }
 
 /// struct for passing parameters to the method [`leaderboard_raw`]
 #[derive(Clone, Debug)]
 pub struct LeaderboardRawParams {
     /// The region to fetch the leaderboard for.
-    pub region: String
+    pub region: String,
+    /// Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
+    pub leaderboard_id: Option<u32>
 }
 
 
@@ -90,6 +98,9 @@ pub async fn leaderboard(configuration: &configuration::Configuration, params: L
     let uri_str = format!("{}/v1/leaderboard/{region}", configuration.base_path, region=crate::apis::urlencode(params.region));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.leaderboard_id {
+        req_builder = req_builder.query(&[("leaderboard_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -125,6 +136,9 @@ pub async fn leaderboard_hero(configuration: &configuration::Configuration, para
     let uri_str = format!("{}/v1/leaderboard/{region}/{hero_id}", configuration.base_path, region=crate::apis::urlencode(params.region), hero_id=params.hero_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.leaderboard_id {
+        req_builder = req_builder.query(&[("leaderboard_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -160,6 +174,9 @@ pub async fn leaderboard_hero_raw(configuration: &configuration::Configuration, 
     let uri_str = format!("{}/v1/leaderboard/{region}/{hero_id}/raw", configuration.base_path, region=crate::apis::urlencode(params.region), hero_id=params.hero_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.leaderboard_id {
+        req_builder = req_builder.query(&[("leaderboard_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }
@@ -195,6 +212,9 @@ pub async fn leaderboard_raw(configuration: &configuration::Configuration, param
     let uri_str = format!("{}/v1/leaderboard/{region}/raw", configuration.base_path, region=crate::apis::urlencode(params.region));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
+    if let Some(ref param_value) = params.leaderboard_id {
+        req_builder = req_builder.query(&[("leaderboard_id", &param_value.to_string())]);
+    }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
     }

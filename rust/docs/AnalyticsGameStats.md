@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **avg_ending_level** | **f64** |  | 
 **avg_first_mid_boss_time_s** | **f64** |  | 
 **avg_first_objective_destroyed_time_s** | **f64** |  | 
+**avg_first_permanent_buff_time_s** | Option<**f64**> | Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none. | [optional]
 **avg_gold_boss** | **f64** |  | 
 **avg_gold_boss_orb** | **f64** |  | 
 **avg_gold_death_loss** | **f64** |  | 
@@ -38,6 +39,8 @@ Name | Type | Description | Notes
 **avg_net_worth** | **f64** |  | 
 **avg_neutral_damage** | **f64** |  | 
 **avg_neutral_kills** | **f64** |  | 
+**avg_permanent_buffs** | **f64** | Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities> | 
+**avg_permanent_buffs_per_min** | **f64** | Average permanent buff pickups per player per minute of match time. | 
 **avg_player_damage** | **f64** |  | 
 **avg_player_damage_taken** | **f64** |  | 
 **avg_player_healing** | **f64** |  | 

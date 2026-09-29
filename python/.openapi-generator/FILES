@@ -59,6 +59,7 @@ deadlock_api_client/models/active_match_player.py
 deadlock_api_client/models/active_match_team.py
 deadlock_api_client/models/add_steam_account_request.py
 deadlock_api_client/models/analytics_ability_order_stats.py
+deadlock_api_client/models/analytics_buff_stats.py
 deadlock_api_client/models/analytics_game_stats.py
 deadlock_api_client/models/analytics_hero_stats.py
 deadlock_api_client/models/api_info.py
@@ -78,9 +79,11 @@ deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/color.py
 deadlock_api_client/models/color_gradient_stop.py
 deadlock_api_client/models/column_schema.py
+deadlock_api_client/models/corrupted_item_images.py
 deadlock_api_client/models/corrupted_item_info.py
 deadlock_api_client/models/corrupted_penalty.py
 deadlock_api_client/models/corrupted_penalty_effect.py
+deadlock_api_client/models/corrupted_tooltip_backers.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
 deadlock_api_client/models/curve.py
@@ -134,6 +137,7 @@ deadlock_api_client/models/hero_stats_ui_display.py
 deadlock_api_client/models/hero_synergy_stats.py
 deadlock_api_client/models/hero_type.py
 deadlock_api_client/models/horizontal_recoil.py
+deadlock_api_client/models/image_pair.py
 deadlock_api_client/models/ingest_live_url.py
 deadlock_api_client/models/item.py
 deadlock_api_client/models/item_draft_round.py
@@ -294,6 +298,7 @@ docs/ActiveMatchTeam.md
 docs/AddSteamAccountRequest.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsApi.md
+docs/AnalyticsBuffStats.md
 docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
@@ -318,9 +323,11 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
 docs/CorruptedPenaltyEffect.md
+docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
 docs/Curve.md
@@ -379,6 +386,7 @@ docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesApi.md
 docs/HorizontalRecoil.md
+docs/ImagePair.md
 docs/InfoApi.md
 docs/IngestLiveUrl.md
 docs/InternalApi.md
@@ -561,6 +569,7 @@ test/test_active_match_team.py
 test/test_add_steam_account_request.py
 test/test_analytics_ability_order_stats.py
 test/test_analytics_api.py
+test/test_analytics_buff_stats.py
 test/test_analytics_game_stats.py
 test/test_analytics_hero_stats.py
 test/test_api_info.py
@@ -586,9 +595,11 @@ test/test_color_gradient_stop.py
 test/test_colors_api.py
 test/test_column_schema.py
 test/test_commands_api.py
+test/test_corrupted_item_images.py
 test/test_corrupted_item_info.py
 test/test_corrupted_penalty.py
 test/test_corrupted_penalty_effect.py
+test/test_corrupted_tooltip_backers.py
 test/test_create_custom_request.py
 test/test_create_custom_response.py
 test/test_curve.py
@@ -647,6 +658,7 @@ test/test_hero_synergy_stats.py
 test/test_hero_type.py
 test/test_heroes_api.py
 test/test_horizontal_recoil.py
+test/test_image_pair.py
 test/test_info_api.py
 test/test_ingest_live_url.py
 test/test_internal_api.py

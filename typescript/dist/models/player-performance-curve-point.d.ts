@@ -90,5 +90,9 @@ export interface PlayerPerformanceCurvePoint {
      * Standard deviation of net worth at this time point
      */
     'net_worth_std': number;
+    /**
+     * Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+     */
+    'permanent_buffs_avg'?: number | null;
 }
 //# sourceMappingURL=player-performance-curve-point.d.ts.map

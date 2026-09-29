@@ -153,5 +153,11 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.netWorthStd shouldBe ("TODO")
         }
 
+        // to test the property `permanentBuffsAvg` - Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+        should("test permanentBuffsAvg") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffsAvg shouldBe ("TODO")
+        }
+
     }
 }

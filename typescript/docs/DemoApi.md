@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **liveQuery**
 > liveQuery()
 
- Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h | | Key | With broadcast_url: -<br>With match_id: 20req/10m, 100req/h | | Global | With broadcast_url: 100req/m<br>With match_id: 100req/10m, 500req/h | 
+ Run a SQL query over a match\'s **live** broadcast and stream result rows over Server-Sent Events as the match plays, instead of waiting for the demo to finish (see the async `/demo/query`).  Provide either `match_id` (the server spectates the lobby to obtain the broadcast URL) or an explicit `broadcast_url` from `/live/urls`.  Projection/filter queries emit rows continuously as they are decoded. A whole-match aggregation (`GROUP BY` / `ORDER BY`) can only produce its final rows once the broadcast ends.  **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points at a `CCitadelObserverPawn`, not the hero\'s `CCitadelPlayerPawn`. Join controllers to hero pawns by hero id or pawn entity index rather than through `m_hPawn`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h | | Key | With broadcast_url: -<br>With match_id: 20req/10m, 100req/h | | Global | With broadcast_url: 100req/m<br>With match_id: 100req/10m, 500req/h | 
 
 ### Example
 
@@ -181,7 +181,7 @@ No authorization required
 # **submit**
 > DemoQueryJobResponse submit(demoQueryRequest)
 
- Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+ Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points at a `CCitadelObserverPawn`, not the hero\'s `CCitadelPlayerPawn`. Join controllers to hero pawns by hero id or pawn entity index rather than through `m_hPawn`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
 
 ### Example
 

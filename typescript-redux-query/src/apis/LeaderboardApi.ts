@@ -22,20 +22,24 @@ import {
 
 export interface LeaderboardRequest {
     region: LeaderboardRegionEnum;
+    leaderboardId?: number;
 }
 
 export interface LeaderboardHeroRequest {
     region: LeaderboardHeroRegionEnum;
     heroId: number;
+    leaderboardId?: number;
 }
 
 export interface LeaderboardHeroRawRequest {
     region: LeaderboardHeroRawRegionEnum;
     heroId: number;
+    leaderboardId?: number;
 }
 
 export interface LeaderboardRawRequest {
     region: LeaderboardRawRegionEnum;
+    leaderboardId?: number;
 }
 
 
@@ -50,6 +54,12 @@ function leaderboardRaw<T>(requestParameters: LeaderboardRequest, requestConfig:
 
     let queryParameters = null;
 
+    queryParameters = {};
+
+
+    if (requestParameters.leaderboardId !== undefined) {
+        queryParameters['leaderboard_id'] = requestParameters.leaderboardId;
+    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -102,6 +112,12 @@ function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRequest, reques
 
     let queryParameters = null;
 
+    queryParameters = {};
+
+
+    if (requestParameters.leaderboardId !== undefined) {
+        queryParameters['leaderboard_id'] = requestParameters.leaderboardId;
+    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -154,6 +170,12 @@ function leaderboardHeroRawRaw<T>(requestParameters: LeaderboardHeroRawRequest, 
 
     let queryParameters = null;
 
+    queryParameters = {};
+
+
+    if (requestParameters.leaderboardId !== undefined) {
+        queryParameters['leaderboard_id'] = requestParameters.leaderboardId;
+    }
 
     const headerParameters : runtime.HttpHeaders = {};
 
@@ -201,6 +223,12 @@ function leaderboardRawRaw<T>(requestParameters: LeaderboardRawRequest, requestC
 
     let queryParameters = null;
 
+    queryParameters = {};
+
+
+    if (requestParameters.leaderboardId !== undefined) {
+        queryParameters['leaderboard_id'] = requestParameters.leaderboardId;
+    }
 
     const headerParameters : runtime.HttpHeaders = {};
 

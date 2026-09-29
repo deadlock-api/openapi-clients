@@ -25,6 +25,8 @@ type HeroStats struct {
 	Accuracy float64 `json:"accuracy"`
 	Assists int64 `json:"assists"`
 	AssistsPerMin float64 `json:"assists_per_min"`
+	// Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+	AvgFirstPermanentBuffTimeS NullableFloat64 `json:"avg_first_permanent_buff_time_s,omitempty"`
 	CreepsPerMin float64 `json:"creeps_per_min"`
 	CritShotRate float64 `json:"crit_shot_rate"`
 	DamageMitigatedPerMin float64 `json:"damage_mitigated_per_min"`
@@ -52,6 +54,12 @@ type HeroStats struct {
 	NetworthPerMin float64 `json:"networth_per_min"`
 	ObjDamagePerMin float64 `json:"obj_damage_per_min"`
 	ObjDamagePerSoul float64 `json:"obj_damage_per_soul"`
+	// Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+	PermanentBuffMatches int64 `json:"permanent_buff_matches"`
+	// Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+	PermanentBuffs int64 `json:"permanent_buffs"`
+	// Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+	PermanentBuffsPerMin NullableFloat64 `json:"permanent_buffs_per_min,omitempty"`
 	TimePlayed int64 `json:"time_played"`
 	TotalBossDamage int64 `json:"total_boss_damage"`
 	TotalCreepDamage int64 `json:"total_creep_damage"`
@@ -67,7 +75,7 @@ type _HeroStats HeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
+func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, permanentBuffMatches int64, permanentBuffs int64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64) *HeroStats {
 	this := HeroStats{}
 	this.AccountId = accountId
 	this.Accuracy = accuracy
@@ -97,6 +105,8 @@ func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMi
 	this.NetworthPerMin = networthPerMin
 	this.ObjDamagePerMin = objDamagePerMin
 	this.ObjDamagePerSoul = objDamagePerSoul
+	this.PermanentBuffMatches = permanentBuffMatches
+	this.PermanentBuffs = permanentBuffs
 	this.TimePlayed = timePlayed
 	this.TotalBossDamage = totalBossDamage
 	this.TotalCreepDamage = totalCreepDamage
@@ -209,6 +219,48 @@ func (o *HeroStats) GetAssistsPerMinOk() (*float64, bool) {
 // SetAssistsPerMin sets field value
 func (o *HeroStats) SetAssistsPerMin(v float64) {
 	o.AssistsPerMin = v
+}
+
+// GetAvgFirstPermanentBuffTimeS returns the AvgFirstPermanentBuffTimeS field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroStats) GetAvgFirstPermanentBuffTimeS() float64 {
+	if o == nil || IsNil(o.AvgFirstPermanentBuffTimeS.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.AvgFirstPermanentBuffTimeS.Get()
+}
+
+// GetAvgFirstPermanentBuffTimeSOk returns a tuple with the AvgFirstPermanentBuffTimeS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroStats) GetAvgFirstPermanentBuffTimeSOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AvgFirstPermanentBuffTimeS.Get(), o.AvgFirstPermanentBuffTimeS.IsSet()
+}
+
+// HasAvgFirstPermanentBuffTimeS returns a boolean if a field has been set.
+func (o *HeroStats) HasAvgFirstPermanentBuffTimeS() bool {
+	if o != nil && o.AvgFirstPermanentBuffTimeS.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgFirstPermanentBuffTimeS gets a reference to the given NullableFloat64 and assigns it to the AvgFirstPermanentBuffTimeS field.
+func (o *HeroStats) SetAvgFirstPermanentBuffTimeS(v float64) {
+	o.AvgFirstPermanentBuffTimeS.Set(&v)
+}
+// SetAvgFirstPermanentBuffTimeSNil sets the value for AvgFirstPermanentBuffTimeS to be an explicit nil
+func (o *HeroStats) SetAvgFirstPermanentBuffTimeSNil() {
+	o.AvgFirstPermanentBuffTimeS.Set(nil)
+}
+
+// UnsetAvgFirstPermanentBuffTimeS ensures that no value is present for AvgFirstPermanentBuffTimeS, not even an explicit nil
+func (o *HeroStats) UnsetAvgFirstPermanentBuffTimeS() {
+	o.AvgFirstPermanentBuffTimeS.Unset()
 }
 
 // GetCreepsPerMin returns the CreepsPerMin field value
@@ -787,6 +839,96 @@ func (o *HeroStats) SetObjDamagePerSoul(v float64) {
 	o.ObjDamagePerSoul = v
 }
 
+// GetPermanentBuffMatches returns the PermanentBuffMatches field value
+func (o *HeroStats) GetPermanentBuffMatches() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.PermanentBuffMatches
+}
+
+// GetPermanentBuffMatchesOk returns a tuple with the PermanentBuffMatches field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetPermanentBuffMatchesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PermanentBuffMatches, true
+}
+
+// SetPermanentBuffMatches sets field value
+func (o *HeroStats) SetPermanentBuffMatches(v int64) {
+	o.PermanentBuffMatches = v
+}
+
+// GetPermanentBuffs returns the PermanentBuffs field value
+func (o *HeroStats) GetPermanentBuffs() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.PermanentBuffs
+}
+
+// GetPermanentBuffsOk returns a tuple with the PermanentBuffs field value
+// and a boolean to check if the value has been set.
+func (o *HeroStats) GetPermanentBuffsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PermanentBuffs, true
+}
+
+// SetPermanentBuffs sets field value
+func (o *HeroStats) SetPermanentBuffs(v int64) {
+	o.PermanentBuffs = v
+}
+
+// GetPermanentBuffsPerMin returns the PermanentBuffsPerMin field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroStats) GetPermanentBuffsPerMin() float64 {
+	if o == nil || IsNil(o.PermanentBuffsPerMin.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.PermanentBuffsPerMin.Get()
+}
+
+// GetPermanentBuffsPerMinOk returns a tuple with the PermanentBuffsPerMin field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroStats) GetPermanentBuffsPerMinOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PermanentBuffsPerMin.Get(), o.PermanentBuffsPerMin.IsSet()
+}
+
+// HasPermanentBuffsPerMin returns a boolean if a field has been set.
+func (o *HeroStats) HasPermanentBuffsPerMin() bool {
+	if o != nil && o.PermanentBuffsPerMin.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPermanentBuffsPerMin gets a reference to the given NullableFloat64 and assigns it to the PermanentBuffsPerMin field.
+func (o *HeroStats) SetPermanentBuffsPerMin(v float64) {
+	o.PermanentBuffsPerMin.Set(&v)
+}
+// SetPermanentBuffsPerMinNil sets the value for PermanentBuffsPerMin to be an explicit nil
+func (o *HeroStats) SetPermanentBuffsPerMinNil() {
+	o.PermanentBuffsPerMin.Set(nil)
+}
+
+// UnsetPermanentBuffsPerMin ensures that no value is present for PermanentBuffsPerMin, not even an explicit nil
+func (o *HeroStats) UnsetPermanentBuffsPerMin() {
+	o.PermanentBuffsPerMin.Unset()
+}
+
 // GetTimePlayed returns the TimePlayed field value
 func (o *HeroStats) GetTimePlayed() int64 {
 	if o == nil {
@@ -969,6 +1111,9 @@ func (o HeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["accuracy"] = o.Accuracy
 	toSerialize["assists"] = o.Assists
 	toSerialize["assists_per_min"] = o.AssistsPerMin
+	if o.AvgFirstPermanentBuffTimeS.IsSet() {
+		toSerialize["avg_first_permanent_buff_time_s"] = o.AvgFirstPermanentBuffTimeS.Get()
+	}
 	toSerialize["creeps_per_min"] = o.CreepsPerMin
 	toSerialize["crit_shot_rate"] = o.CritShotRate
 	toSerialize["damage_mitigated_per_min"] = o.DamageMitigatedPerMin
@@ -993,6 +1138,11 @@ func (o HeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["networth_per_min"] = o.NetworthPerMin
 	toSerialize["obj_damage_per_min"] = o.ObjDamagePerMin
 	toSerialize["obj_damage_per_soul"] = o.ObjDamagePerSoul
+	toSerialize["permanent_buff_matches"] = o.PermanentBuffMatches
+	toSerialize["permanent_buffs"] = o.PermanentBuffs
+	if o.PermanentBuffsPerMin.IsSet() {
+		toSerialize["permanent_buffs_per_min"] = o.PermanentBuffsPerMin.Get()
+	}
 	toSerialize["time_played"] = o.TimePlayed
 	toSerialize["total_boss_damage"] = o.TotalBossDamage
 	toSerialize["total_creep_damage"] = o.TotalCreepDamage
@@ -1036,6 +1186,8 @@ func (o *HeroStats) UnmarshalJSON(data []byte) (err error) {
 		"networth_per_min",
 		"obj_damage_per_min",
 		"obj_damage_per_soul",
+		"permanent_buff_matches",
+		"permanent_buffs",
 		"time_played",
 		"total_boss_damage",
 		"total_creep_damage",

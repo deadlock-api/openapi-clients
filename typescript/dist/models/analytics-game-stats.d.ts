@@ -25,6 +25,10 @@ export interface AnalyticsGameStats {
     'avg_ending_level': number;
     'avg_first_mid_boss_time_s': number;
     'avg_first_objective_destroyed_time_s': number;
+    /**
+     * Average game time (seconds) of a player\'s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+     */
+    'avg_first_permanent_buff_time_s'?: number | null;
     'avg_gold_boss': number;
     'avg_gold_boss_orb': number;
     'avg_gold_death_loss': number;
@@ -44,6 +48,14 @@ export interface AnalyticsGameStats {
     'avg_net_worth': number;
     'avg_neutral_damage': number;
     'avg_neutral_kills': number;
+    /**
+     * Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     */
+    'avg_permanent_buffs': number;
+    /**
+     * Average permanent buff pickups per player per minute of match time.
+     */
+    'avg_permanent_buffs_per_min': number;
     'avg_player_damage': number;
     'avg_player_damage_taken': number;
     'avg_player_healing': number;

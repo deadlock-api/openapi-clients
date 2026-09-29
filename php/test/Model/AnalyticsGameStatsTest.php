@@ -215,6 +215,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_first_permanent_buff_time_s"
+     */
+    public function testPropertyAvgFirstPermanentBuffTimeS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_boss"
      */
     public function testPropertyAvgGoldBoss()
@@ -380,6 +389,24 @@ class AnalyticsGameStatsTest extends TestCase
      * Test attribute "avg_neutral_kills"
      */
     public function testPropertyAvgNeutralKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_permanent_buffs"
+     */
+    public function testPropertyAvgPermanentBuffs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_permanent_buffs_per_min"
+     */
+    public function testPropertyAvgPermanentBuffsPerMin()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

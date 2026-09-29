@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **KillsStd** | **float64** | Standard deviation of kills at this time point | 
 **NetWorthAvg** | **float64** | Average net worth at this time point | 
 **NetWorthStd** | **float64** | Standard deviation of net worth at this time point | 
+**PermanentBuffsAvg** | Pointer to **NullableFloat64** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 
 ## Methods
 
@@ -444,6 +445,41 @@ and a boolean to check if the value has been set.
 SetNetWorthStd sets NetWorthStd field to given value.
 
 
+### GetPermanentBuffsAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetPermanentBuffsAvg() float64`
+
+GetPermanentBuffsAvg returns the PermanentBuffsAvg field if non-nil, zero value otherwise.
+
+### GetPermanentBuffsAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetPermanentBuffsAvgOk() (*float64, bool)`
+
+GetPermanentBuffsAvgOk returns a tuple with the PermanentBuffsAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffsAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetPermanentBuffsAvg(v float64)`
+
+SetPermanentBuffsAvg sets PermanentBuffsAvg field to given value.
+
+### HasPermanentBuffsAvg
+
+`func (o *PlayerPerformanceCurvePoint) HasPermanentBuffsAvg() bool`
+
+HasPermanentBuffsAvg returns a boolean if a field has been set.
+
+### SetPermanentBuffsAvgNil
+
+`func (o *PlayerPerformanceCurvePoint) SetPermanentBuffsAvgNil(b bool)`
+
+ SetPermanentBuffsAvgNil sets the value for PermanentBuffsAvg to be an explicit nil
+
+### UnsetPermanentBuffsAvg
+`func (o *PlayerPerformanceCurvePoint) UnsetPermanentBuffsAvg()`
+
+UnsetPermanentBuffsAvg ensures that no value is present for PermanentBuffsAvg, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

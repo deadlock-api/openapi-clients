@@ -73,6 +73,9 @@ pub struct PlayerPerformanceCurvePoint {
     /// Standard deviation of net worth at this time point
     #[serde(rename = "net_worth_std")]
     pub net_worth_std: f64,
+    /// Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+    #[serde(rename = "permanent_buffs_avg", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub permanent_buffs_avg: Option<Option<f64>>,
 }
 
 impl PlayerPerformanceCurvePoint {
@@ -98,6 +101,7 @@ impl PlayerPerformanceCurvePoint {
             kills_std,
             net_worth_avg,
             net_worth_std,
+            permanent_buffs_avg: None,
         }
     }
 }

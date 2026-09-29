@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **accuracy** | **number** |  | [default to undefined]
 **assists** | **number** |  | [default to undefined]
 **assists_per_min** | **number** |  | [default to undefined]
+**avg_first_permanent_buff_time_s** | **number** | Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any. | [optional] [default to undefined]
 **creeps_per_min** | **number** |  | [default to undefined]
 **crit_shot_rate** | **number** |  | [default to undefined]
 **damage_mitigated_per_min** | **number** |  | [default to undefined]
@@ -33,6 +34,9 @@ Name | Type | Description | Notes
 **networth_per_min** | **number** |  | [default to undefined]
 **obj_damage_per_min** | **number** |  | [default to undefined]
 **obj_damage_per_soul** | **number** |  | [default to undefined]
+**permanent_buff_matches** | **number** | Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;. | [default to undefined]
+**permanent_buffs** | **number** | Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; | [default to undefined]
+**permanent_buffs_per_min** | **number** | Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any. | [optional] [default to undefined]
 **time_played** | **number** |  | [default to undefined]
 **total_boss_damage** | **number** |  | [default to undefined]
 **total_creep_damage** | **number** |  | [default to undefined]
@@ -51,6 +55,7 @@ const instance: HeroStats = {
     accuracy,
     assists,
     assists_per_min,
+    avg_first_permanent_buff_time_s,
     creeps_per_min,
     crit_shot_rate,
     damage_mitigated_per_min,
@@ -75,6 +80,9 @@ const instance: HeroStats = {
     networth_per_min,
     obj_damage_per_min,
     obj_damage_per_soul,
+    permanent_buff_matches,
+    permanent_buffs,
+    permanent_buffs_per_min,
     time_played,
     total_boss_damage,
     total_creep_damage,

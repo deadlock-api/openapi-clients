@@ -2,20 +2,20 @@
 
 ### Leaderboard
 ## Leaderboard
-GET https://api.deadlock-api.com/v1/leaderboard/{{region}}
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}?leaderboardId={{leaderboardId}}
 Accept: application/json
 
 ### Hero Leaderboard
 ## Hero Leaderboard
-GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}?leaderboardId={{leaderboardId}}
 Accept: application/json
 
 ### Hero Leaderboard as Protobuf
 ## Hero Leaderboard as Protobuf
-GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}/raw
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/{{hero_id}}/raw?leaderboardId={{leaderboardId}}
 Accept: application/octet-stream
 
 ### Leaderboard as Protobuf
 ## Leaderboard as Protobuf
-GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/raw
+GET https://api.deadlock-api.com/v1/leaderboard/{{region}}/raw?leaderboardId={{leaderboardId}}
 Accept: application/octet-stream

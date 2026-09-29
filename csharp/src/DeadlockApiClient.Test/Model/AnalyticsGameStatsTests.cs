@@ -360,6 +360,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgPermanentBuffs'
+        /// </summary>
+        [Fact]
+        public void AvgPermanentBuffsTest()
+        {
+            // TODO unit test for the property 'AvgPermanentBuffs'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgPermanentBuffsPerMin'
+        /// </summary>
+        [Fact]
+        public void AvgPermanentBuffsPerMinTest()
+        {
+            // TODO unit test for the property 'AvgPermanentBuffsPerMin'
+        }
+
+        /// <summary>
         /// Test the property 'AvgPlayerDamage'
         /// </summary>
         [Fact]
@@ -474,6 +492,15 @@ namespace DeadlockApiClient.Test.Model
         public void TotalPlayersTest()
         {
             // TODO unit test for the property 'TotalPlayers'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgFirstPermanentBuffTimeS'
+        /// </summary>
+        [Fact]
+        public void AvgFirstPermanentBuffTimeSTest()
+        {
+            // TODO unit test for the property 'AvgFirstPermanentBuffTimeS'
         }
     }
 }

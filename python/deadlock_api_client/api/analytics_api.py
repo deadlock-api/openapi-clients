@@ -19,6 +19,7 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
@@ -1110,6 +1111,497 @@ class AnalyticsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/analytics/badge-distribution',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def buff_stats(
+        self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[AnalyticsBuffStats]:
+        """Buff Stats
+
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._buff_stats_serialize(
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsBuffStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def buff_stats_with_http_info(
+        self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[AnalyticsBuffStats]]:
+        """Buff Stats
+
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._buff_stats_serialize(
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsBuffStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def buff_stats_without_preload_content(
+        self,
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        hero_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Buff Stats
+
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param hero_ids: Comma separated list of hero ids to include. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type hero_ids: List[int]
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._buff_stats_serialize(
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            hero_ids=hero_ids,
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsBuffStats]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _buff_stats_serialize(
+        self,
+        game_mode,
+        match_mode,
+        min_unix_timestamp,
+        max_unix_timestamp,
+        min_duration_s,
+        max_duration_s,
+        min_average_badge,
+        max_average_badge,
+        min_match_id,
+        max_match_id,
+        min_networth,
+        max_networth,
+        hero_ids,
+        account_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'hero_ids': 'multi',
+            'account_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
+        if match_mode is not None:
+            
+            _query_params.append(('match_mode', match_mode))
+            
+        if min_unix_timestamp is not None:
+            
+            _query_params.append(('min_unix_timestamp', min_unix_timestamp))
+            
+        if max_unix_timestamp is not None:
+            
+            _query_params.append(('max_unix_timestamp', max_unix_timestamp))
+            
+        if min_duration_s is not None:
+            
+            _query_params.append(('min_duration_s', min_duration_s))
+            
+        if max_duration_s is not None:
+            
+            _query_params.append(('max_duration_s', max_duration_s))
+            
+        if min_average_badge is not None:
+            
+            _query_params.append(('min_average_badge', min_average_badge))
+            
+        if max_average_badge is not None:
+            
+            _query_params.append(('max_average_badge', max_average_badge))
+            
+        if min_match_id is not None:
+            
+            _query_params.append(('min_match_id', min_match_id))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
+            
+        if min_networth is not None:
+            
+            _query_params.append(('min_networth', min_networth))
+            
+        if max_networth is not None:
+            
+            _query_params.append(('max_networth', max_networth))
+            
+        if hero_ids is not None:
+            
+            _query_params.append(('hero_ids', hero_ids))
+            
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/analytics/buff-stats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7198,7 +7690,8 @@ class AnalyticsApi:
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
-        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.")] = None,
+        corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
+        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7278,7 +7771,9 @@ class AnalyticsApi:
         :type max_bought_at_s: int
         :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_order: List[str]
-        :param include_corrupted_items: Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.
+        :param corrupted_items: How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
+        :type corrupted_items: str
+        :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7334,6 +7829,7 @@ class AnalyticsApi:
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
             item_order=item_order,
+            corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7391,7 +7887,8 @@ class AnalyticsApi:
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
-        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.")] = None,
+        corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
+        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7471,7 +7968,9 @@ class AnalyticsApi:
         :type max_bought_at_s: int
         :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_order: List[str]
-        :param include_corrupted_items: Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.
+        :param corrupted_items: How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
+        :type corrupted_items: str
+        :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7527,6 +8026,7 @@ class AnalyticsApi:
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
             item_order=item_order,
+            corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7584,7 +8084,8 @@ class AnalyticsApi:
         min_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought after this game time (seconds).")] = None,
         max_bought_at_s: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter items bought before this game time (seconds).")] = None,
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
-        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.")] = None,
+        corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
+        include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7664,7 +8165,9 @@ class AnalyticsApi:
         :type max_bought_at_s: int
         :param item_order: Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_order: List[str]
-        :param include_corrupted_items: Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** `false`, corrupted purchases are excluded from the stats. Setting it to `true` bypasses the pre-aggregated rollups, so requests are slower.
+        :param corrupted_items: How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
+        :type corrupted_items: str
+        :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -7720,6 +8223,7 @@ class AnalyticsApi:
             min_bought_at_s=min_bought_at_s,
             max_bought_at_s=max_bought_at_s,
             item_order=item_order,
+            corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -7772,6 +8276,7 @@ class AnalyticsApi:
         min_bought_at_s,
         max_bought_at_s,
         item_order,
+        corrupted_items,
         include_corrupted_items,
         _request_auth,
         _content_type,
@@ -7924,6 +8429,10 @@ class AnalyticsApi:
         if item_order is not None:
             
             _query_params.append(('item_order', item_order))
+            
+        if corrupted_items is not None:
+            
+            _query_params.append(('corrupted_items', corrupted_items))
             
         if include_corrupted_items is not None:
             
@@ -10989,6 +11498,7 @@ class AnalyticsApi:
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_buff_metrics: Annotated[Optional[StrictBool], Field(description="Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11044,6 +11554,8 @@ class AnalyticsApi:
         :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_buff_metrics: Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
+        :type include_buff_metrics: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11086,6 +11598,7 @@ class AnalyticsApi:
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
+            include_buff_metrics=include_buff_metrics,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11130,6 +11643,7 @@ class AnalyticsApi:
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_buff_metrics: Annotated[Optional[StrictBool], Field(description="Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11185,6 +11699,8 @@ class AnalyticsApi:
         :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_buff_metrics: Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
+        :type include_buff_metrics: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11227,6 +11743,7 @@ class AnalyticsApi:
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
+            include_buff_metrics=include_buff_metrics,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11271,6 +11788,7 @@ class AnalyticsApi:
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        include_buff_metrics: Annotated[Optional[StrictBool], Field(description="Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11326,6 +11844,8 @@ class AnalyticsApi:
         :type ability_unlock_order_prefix: List[int]
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param include_buff_metrics: Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
+        :type include_buff_metrics: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -11368,6 +11888,7 @@ class AnalyticsApi:
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
             account_ids=account_ids,
+            include_buff_metrics=include_buff_metrics,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -11407,6 +11928,7 @@ class AnalyticsApi:
         ability_order_prefix,
         ability_unlock_order_prefix,
         account_ids,
+        include_buff_metrics,
         _request_auth,
         _content_type,
         _headers,
@@ -11509,6 +12031,10 @@ class AnalyticsApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if include_buff_metrics is not None:
+            
+            _query_params.append(('include_buff_metrics', include_buff_metrics))
             
         # process the header parameters
         # process the form parameters

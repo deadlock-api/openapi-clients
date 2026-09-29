@@ -65,6 +65,8 @@ import java.io.Serializable
  * @param avgNetWorth 
  * @param avgNeutralDamage 
  * @param avgNeutralKills 
+ * @param avgPermanentBuffs Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+ * @param avgPermanentBuffsPerMin Average permanent buff pickups per player per minute of match time.
  * @param avgPlayerDamage 
  * @param avgPlayerDamageTaken 
  * @param avgPlayerHealing 
@@ -78,6 +80,7 @@ import java.io.Serializable
  * @param team1Wins 
  * @param totalMatches 
  * @param totalPlayers 
+ * @param avgFirstPermanentBuffTimeS Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
  */
 
 
@@ -185,6 +188,14 @@ data class AnalyticsGameStats (
     @Json(name = "avg_neutral_kills")
     val avgNeutralKills: kotlin.Double,
 
+    /* Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities> */
+    @Json(name = "avg_permanent_buffs")
+    val avgPermanentBuffs: kotlin.Double,
+
+    /* Average permanent buff pickups per player per minute of match time. */
+    @Json(name = "avg_permanent_buffs_per_min")
+    val avgPermanentBuffsPerMin: kotlin.Double,
+
     @Json(name = "avg_player_damage")
     val avgPlayerDamage: kotlin.Double,
 
@@ -222,7 +233,11 @@ data class AnalyticsGameStats (
     val totalMatches: kotlin.Long,
 
     @Json(name = "total_players")
-    val totalPlayers: kotlin.Long
+    val totalPlayers: kotlin.Long,
+
+    /* Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none. */
+    @Json(name = "avg_first_permanent_buff_time_s")
+    val avgFirstPermanentBuffTimeS: kotlin.Double? = null
 
 ) : Serializable {
     companion object {

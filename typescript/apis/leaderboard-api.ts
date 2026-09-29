@@ -32,10 +32,11 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
          *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Leaderboard
          * @param {LeaderboardRegionEnum} region The region to fetch the leaderboard for.
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        leaderboard: async (region: LeaderboardRegionEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        leaderboard: async (region: LeaderboardRegionEnum, leaderboardId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboard', 'region', region)
             const localVarPath = `/v1/leaderboard/{region}`
@@ -50,6 +51,10 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (leaderboardId !== undefined) {
+                localVarQueryParameter['leaderboard_id'] = leaderboardId;
+            }
 
             localVarHeaderParameter['Accept'] = 'application/json';
 
@@ -67,10 +72,11 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
          * @summary Hero Leaderboard
          * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
          * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        leaderboardHero: async (region: LeaderboardHeroRegionEnum, heroId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        leaderboardHero: async (region: LeaderboardHeroRegionEnum, heroId: number, leaderboardId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboardHero', 'region', region)
             // verify required parameter 'heroId' is not null or undefined
@@ -89,6 +95,10 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            if (leaderboardId !== undefined) {
+                localVarQueryParameter['leaderboard_id'] = leaderboardId;
+            }
+
             localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -105,10 +115,11 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
          * @summary Hero Leaderboard as Protobuf
          * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
          * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        leaderboardHeroRaw: async (region: LeaderboardHeroRawRegionEnum, heroId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        leaderboardHeroRaw: async (region: LeaderboardHeroRawRegionEnum, heroId: number, leaderboardId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboardHeroRaw', 'region', region)
             // verify required parameter 'heroId' is not null or undefined
@@ -127,6 +138,10 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            if (leaderboardId !== undefined) {
+                localVarQueryParameter['leaderboard_id'] = leaderboardId;
+            }
+
             localVarHeaderParameter['Accept'] = 'application/octet-stream';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -142,10 +157,11 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
          *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Leaderboard as Protobuf
          * @param {LeaderboardRawRegionEnum} region The region to fetch the leaderboard for.
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        leaderboardRaw: async (region: LeaderboardRawRegionEnum, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        leaderboardRaw: async (region: LeaderboardRawRegionEnum, leaderboardId?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'region' is not null or undefined
             assertParamExists('leaderboardRaw', 'region', region)
             const localVarPath = `/v1/leaderboard/{region}/raw`
@@ -160,6 +176,10 @@ export const LeaderboardApiAxiosParamCreator = function (configuration?: Configu
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (leaderboardId !== undefined) {
+                localVarQueryParameter['leaderboard_id'] = leaderboardId;
+            }
 
             localVarHeaderParameter['Accept'] = 'application/octet-stream';
 
@@ -185,11 +205,12 @@ export const LeaderboardApiFp = function(configuration?: Configuration) {
          *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Leaderboard
          * @param {LeaderboardRegionEnum} region The region to fetch the leaderboard for.
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async leaderboard(region: LeaderboardRegionEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboard(region, options);
+        async leaderboard(region: LeaderboardRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboard(region, leaderboardId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LeaderboardApi.leaderboard']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -199,11 +220,12 @@ export const LeaderboardApiFp = function(configuration?: Configuration) {
          * @summary Hero Leaderboard
          * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
          * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async leaderboardHero(region: LeaderboardHeroRegionEnum, heroId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardHero(region, heroId, options);
+        async leaderboardHero(region: LeaderboardHeroRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardHero(region, heroId, leaderboardId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LeaderboardApi.leaderboardHero']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -213,11 +235,12 @@ export const LeaderboardApiFp = function(configuration?: Configuration) {
          * @summary Hero Leaderboard as Protobuf
          * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
          * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async leaderboardHeroRaw(region: LeaderboardHeroRawRegionEnum, heroId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardHeroRaw(region, heroId, options);
+        async leaderboardHeroRaw(region: LeaderboardHeroRawRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardHeroRaw(region, heroId, leaderboardId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LeaderboardApi.leaderboardHeroRaw']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -226,11 +249,12 @@ export const LeaderboardApiFp = function(configuration?: Configuration) {
          *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Leaderboard as Protobuf
          * @param {LeaderboardRawRegionEnum} region The region to fetch the leaderboard for.
+         * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async leaderboardRaw(region: LeaderboardRawRegionEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardRaw(region, options);
+        async leaderboardRaw(region: LeaderboardRawRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.leaderboardRaw(region, leaderboardId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['LeaderboardApi.leaderboardRaw']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -252,7 +276,7 @@ export const LeaderboardApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         leaderboard(requestParameters: LeaderboardApiLeaderboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Leaderboard> {
-            return localVarFp.leaderboard(requestParameters.region, options).then((request) => request(axios, basePath));
+            return localVarFp.leaderboard(requestParameters.region, requestParameters.leaderboardId, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -262,7 +286,7 @@ export const LeaderboardApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         leaderboardHero(requestParameters: LeaderboardApiLeaderboardHeroRequest, options?: RawAxiosRequestConfig): AxiosPromise<Leaderboard> {
-            return localVarFp.leaderboardHero(requestParameters.region, requestParameters.heroId, options).then((request) => request(axios, basePath));
+            return localVarFp.leaderboardHero(requestParameters.region, requestParameters.heroId, requestParameters.leaderboardId, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -272,7 +296,7 @@ export const LeaderboardApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         leaderboardHeroRaw(requestParameters: LeaderboardApiLeaderboardHeroRawRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.leaderboardHeroRaw(requestParameters.region, requestParameters.heroId, options).then((request) => request(axios, basePath));
+            return localVarFp.leaderboardHeroRaw(requestParameters.region, requestParameters.heroId, requestParameters.leaderboardId, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
@@ -282,7 +306,7 @@ export const LeaderboardApiFactory = function (configuration?: Configuration, ba
          * @throws {RequiredError}
          */
         leaderboardRaw(requestParameters: LeaderboardApiLeaderboardRawRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
-            return localVarFp.leaderboardRaw(requestParameters.region, options).then((request) => request(axios, basePath));
+            return localVarFp.leaderboardRaw(requestParameters.region, requestParameters.leaderboardId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -295,6 +319,11 @@ export interface LeaderboardApiLeaderboardRequest {
      * The region to fetch the leaderboard for.
      */
     readonly region: LeaderboardRegionEnum
+
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number
 }
 
 /**
@@ -310,6 +339,11 @@ export interface LeaderboardApiLeaderboardHeroRequest {
      * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number
+
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number
 }
 
 /**
@@ -325,6 +359,11 @@ export interface LeaderboardApiLeaderboardHeroRawRequest {
      * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number
+
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number
 }
 
 /**
@@ -335,6 +374,11 @@ export interface LeaderboardApiLeaderboardRawRequest {
      * The region to fetch the leaderboard for.
      */
     readonly region: LeaderboardRawRegionEnum
+
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number
 }
 
 /**
@@ -349,7 +393,7 @@ export class LeaderboardApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public leaderboard(requestParameters: LeaderboardApiLeaderboardRequest, options?: RawAxiosRequestConfig) {
-        return LeaderboardApiFp(this.configuration).leaderboard(requestParameters.region, options).then((request) => request(this.axios, this.basePath));
+        return LeaderboardApiFp(this.configuration).leaderboard(requestParameters.region, requestParameters.leaderboardId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -360,7 +404,7 @@ export class LeaderboardApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public leaderboardHero(requestParameters: LeaderboardApiLeaderboardHeroRequest, options?: RawAxiosRequestConfig) {
-        return LeaderboardApiFp(this.configuration).leaderboardHero(requestParameters.region, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
+        return LeaderboardApiFp(this.configuration).leaderboardHero(requestParameters.region, requestParameters.heroId, requestParameters.leaderboardId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -371,7 +415,7 @@ export class LeaderboardApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public leaderboardHeroRaw(requestParameters: LeaderboardApiLeaderboardHeroRawRequest, options?: RawAxiosRequestConfig) {
-        return LeaderboardApiFp(this.configuration).leaderboardHeroRaw(requestParameters.region, requestParameters.heroId, options).then((request) => request(this.axios, this.basePath));
+        return LeaderboardApiFp(this.configuration).leaderboardHeroRaw(requestParameters.region, requestParameters.heroId, requestParameters.leaderboardId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -382,7 +426,7 @@ export class LeaderboardApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public leaderboardRaw(requestParameters: LeaderboardApiLeaderboardRawRequest, options?: RawAxiosRequestConfig) {
-        return LeaderboardApiFp(this.configuration).leaderboardRaw(requestParameters.region, options).then((request) => request(this.axios, this.basePath));
+        return LeaderboardApiFp(this.configuration).leaderboardRaw(requestParameters.region, requestParameters.leaderboardId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

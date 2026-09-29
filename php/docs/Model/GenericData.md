@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **color_friend** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
 **color_team1** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
 **color_team2** | [**\OpenAPI\Client\Model\Color**](Color.md) | Build 6711+. | [optional]
+**corrupted_item_images** | [**\OpenAPI\Client\Model\CorruptedItemImages**](CorruptedItemImages.md) | Shop art for corrupted items (build 6711+). | [optional]
 **corrupted_penalties** | [**\OpenAPI\Client\Model\CorruptedPenalty[]**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). | [optional]
 **damage_flash** | [**\OpenAPI\Client\Model\DamageFlash**](DamageFlash.md) |  |
 **enemy_objectives_and_zipline_color** | [**\OpenAPI\Client\Model\Color**](Color.md) |  | [optional]

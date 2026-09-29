@@ -18,6 +18,9 @@ import {
     AnalyticsAbilityOrderStats,
     AnalyticsAbilityOrderStatsFromJSON,
     AnalyticsAbilityOrderStatsToJSON,
+    AnalyticsBuffStats,
+    AnalyticsBuffStatsFromJSON,
+    AnalyticsBuffStatsToJSON,
     AnalyticsGameStats,
     AnalyticsGameStatsFromJSON,
     AnalyticsGameStatsToJSON,
@@ -114,6 +117,23 @@ export interface BadgeDistributionRequest {
     isNewPlayerPool?: boolean;
     minMatchId?: number;
     maxMatchId?: number;
+}
+
+export interface BuffStatsRequest {
+    gameMode?: BuffStatsGameModeEnum;
+    matchMode?: string;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    minNetworth?: number;
+    maxNetworth?: number;
+    heroIds?: Array<number>;
+    accountIds?: Array<number>;
 }
 
 export interface BuildItemStatsRequest {
@@ -372,6 +392,7 @@ export interface ItemStatsRequest {
     minBoughtAtS?: number;
     maxBoughtAtS?: number;
     itemOrder?: Array<string>;
+    corruptedItems?: ItemStatsCorruptedItemsEnum;
     includeCorruptedItems?: boolean;
 }
 
@@ -512,6 +533,7 @@ export interface PlayerStatsMetricsRequest {
     abilityOrderPrefix?: Array<number>;
     abilityUnlockOrderPrefix?: Array<number>;
     accountIds?: Array<number>;
+    includeBuffMetrics?: boolean;
 }
 
 
@@ -772,6 +794,121 @@ function badgeDistributionRaw<T>(requestParameters: BadgeDistributionRequest, re
 */
 export function badgeDistribution<T>(requestParameters: BadgeDistributionRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<BadgeDistribution>>): QueryConfig<T> {
     return badgeDistributionRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ * Buff Stats
+ */
+function buffStatsRaw<T>(requestParameters: BuffStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsBuffStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.gameMode !== undefined) {
+        queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.minNetworth !== undefined) {
+        queryParameters['min_networth'] = requestParameters.minNetworth;
+    }
+
+
+    if (requestParameters.maxNetworth !== undefined) {
+        queryParameters['max_networth'] = requestParameters.maxNetworth;
+    }
+
+
+    if (requestParameters.heroIds) {
+        queryParameters['hero_ids'] = requestParameters.heroIds;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/buff-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(AnalyticsBuffStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+* Buff Stats
+*/
+export function buffStats<T>(requestParameters: BuffStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsBuffStats>>): QueryConfig<T> {
+    return buffStatsRaw(requestParameters, requestConfig);
 }
 
 /**
@@ -2392,6 +2529,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
     }
 
 
+    if (requestParameters.corruptedItems !== undefined) {
+        queryParameters['corrupted_items'] = requestParameters.corruptedItems;
+    }
+
+
     if (requestParameters.includeCorruptedItems !== undefined) {
         queryParameters['include_corrupted_items'] = requestParameters.includeCorruptedItems;
     }
@@ -3275,6 +3417,11 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
         queryParameters['account_ids'] = requestParameters.accountIds;
     }
 
+
+    if (requestParameters.includeBuffMetrics !== undefined) {
+        queryParameters['include_buff_metrics'] = requestParameters.includeBuffMetrics;
+    }
+
     const headerParameters : runtime.HttpHeaders = {};
 
 
@@ -3327,6 +3474,16 @@ export enum AbilityOrderStatsGameModeEnum {
     * @enum {string}
     */
 export enum BadgeDistributionGameModeEnum {
+    Normal = 'normal',
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BuffStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
@@ -3452,7 +3609,10 @@ export enum HeroScoreboardSortByEnum {
     HeroBulletsHit = 'hero_bullets_hit',
     MaxHeroBulletsHitCritPerMatch = 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch = 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit = 'hero_bullets_hit_crit'
+    HeroBulletsHitCrit = 'hero_bullets_hit_crit',
+    MaxPermanentBuffsPerMatch = 'max_permanent_buffs_per_match',
+    AvgPermanentBuffsPerMatch = 'avg_permanent_buffs_per_match',
+    PermanentBuffs = 'permanent_buffs'
 }
 /**
     * @export
@@ -3553,6 +3713,15 @@ export enum ItemStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ItemStatsCorruptedItemsEnum {
+    Exclude = 'exclude',
+    Include = 'include',
+    Only = 'only'
 }
 /**
     * @export
@@ -3660,7 +3829,10 @@ export enum PlayerScoreboardSortByEnum {
     HeroBulletsHit = 'hero_bullets_hit',
     MaxHeroBulletsHitCritPerMatch = 'max_hero_bullets_hit_crit_per_match',
     AvgHeroBulletsHitCritPerMatch = 'avg_hero_bullets_hit_crit_per_match',
-    HeroBulletsHitCrit = 'hero_bullets_hit_crit'
+    HeroBulletsHitCrit = 'hero_bullets_hit_crit',
+    MaxPermanentBuffsPerMatch = 'max_permanent_buffs_per_match',
+    AvgPermanentBuffsPerMatch = 'avg_permanent_buffs_per_match',
+    PermanentBuffs = 'permanent_buffs'
 }
 /**
     * @export

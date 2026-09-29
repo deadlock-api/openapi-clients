@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Accuracy** | **float64** |  | 
 **Assists** | **int64** |  | 
 **AssistsPerMin** | **float64** |  | 
+**AvgFirstPermanentBuffTimeS** | Pointer to **NullableFloat64** | Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any. | [optional] 
 **CreepsPerMin** | **float64** |  | 
 **CritShotRate** | **float64** |  | 
 **DamageMitigatedPerMin** | **float64** |  | 
@@ -32,6 +33,9 @@ Name | Type | Description | Notes
 **NetworthPerMin** | **float64** |  | 
 **ObjDamagePerMin** | **float64** |  | 
 **ObjDamagePerSoul** | **float64** |  | 
+**PermanentBuffMatches** | **int64** | Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;. | 
+**PermanentBuffs** | **int64** | Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; | 
+**PermanentBuffsPerMin** | Pointer to **NullableFloat64** | Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any. | [optional] 
 **TimePlayed** | **int64** |  | 
 **TotalBossDamage** | **int64** |  | 
 **TotalCreepDamage** | **int64** |  | 
@@ -44,7 +48,7 @@ Name | Type | Description | Notes
 
 ### NewHeroStats
 
-`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64, ) *HeroStats`
+`func NewHeroStats(accountId int32, accuracy float64, assists int64, assistsPerMin float64, creepsPerMin float64, critShotRate float64, damageMitigatedPerMin float64, damagePerMin float64, damagePerSoul float64, damageTakenPerMin float64, damageTakenPerSoul float64, deaths int64, deathsPerMin float64, deniesPerMatch float64, deniesPerMin float64, endingLevel float64, heroId int32, kills int64, killsPerMin float64, lastHitsPerMin float64, lastPlayed int32, matches []int64, matchesPlayed int64, mvpRankCounts []int64, mvpRatedMatches int64, networthPerMin float64, objDamagePerMin float64, objDamagePerSoul float64, permanentBuffMatches int64, permanentBuffs int64, timePlayed int64, totalBossDamage int64, totalCreepDamage int64, totalNeutralDamage int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, wins int64, ) *HeroStats`
 
 NewHeroStats instantiates a new HeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -139,6 +143,41 @@ and a boolean to check if the value has been set.
 SetAssistsPerMin sets AssistsPerMin field to given value.
 
 
+### GetAvgFirstPermanentBuffTimeS
+
+`func (o *HeroStats) GetAvgFirstPermanentBuffTimeS() float64`
+
+GetAvgFirstPermanentBuffTimeS returns the AvgFirstPermanentBuffTimeS field if non-nil, zero value otherwise.
+
+### GetAvgFirstPermanentBuffTimeSOk
+
+`func (o *HeroStats) GetAvgFirstPermanentBuffTimeSOk() (*float64, bool)`
+
+GetAvgFirstPermanentBuffTimeSOk returns a tuple with the AvgFirstPermanentBuffTimeS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgFirstPermanentBuffTimeS
+
+`func (o *HeroStats) SetAvgFirstPermanentBuffTimeS(v float64)`
+
+SetAvgFirstPermanentBuffTimeS sets AvgFirstPermanentBuffTimeS field to given value.
+
+### HasAvgFirstPermanentBuffTimeS
+
+`func (o *HeroStats) HasAvgFirstPermanentBuffTimeS() bool`
+
+HasAvgFirstPermanentBuffTimeS returns a boolean if a field has been set.
+
+### SetAvgFirstPermanentBuffTimeSNil
+
+`func (o *HeroStats) SetAvgFirstPermanentBuffTimeSNil(b bool)`
+
+ SetAvgFirstPermanentBuffTimeSNil sets the value for AvgFirstPermanentBuffTimeS to be an explicit nil
+
+### UnsetAvgFirstPermanentBuffTimeS
+`func (o *HeroStats) UnsetAvgFirstPermanentBuffTimeS()`
+
+UnsetAvgFirstPermanentBuffTimeS ensures that no value is present for AvgFirstPermanentBuffTimeS, not even an explicit nil
 ### GetCreepsPerMin
 
 `func (o *HeroStats) GetCreepsPerMin() float64`
@@ -619,6 +658,81 @@ and a boolean to check if the value has been set.
 SetObjDamagePerSoul sets ObjDamagePerSoul field to given value.
 
 
+### GetPermanentBuffMatches
+
+`func (o *HeroStats) GetPermanentBuffMatches() int64`
+
+GetPermanentBuffMatches returns the PermanentBuffMatches field if non-nil, zero value otherwise.
+
+### GetPermanentBuffMatchesOk
+
+`func (o *HeroStats) GetPermanentBuffMatchesOk() (*int64, bool)`
+
+GetPermanentBuffMatchesOk returns a tuple with the PermanentBuffMatches field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffMatches
+
+`func (o *HeroStats) SetPermanentBuffMatches(v int64)`
+
+SetPermanentBuffMatches sets PermanentBuffMatches field to given value.
+
+
+### GetPermanentBuffs
+
+`func (o *HeroStats) GetPermanentBuffs() int64`
+
+GetPermanentBuffs returns the PermanentBuffs field if non-nil, zero value otherwise.
+
+### GetPermanentBuffsOk
+
+`func (o *HeroStats) GetPermanentBuffsOk() (*int64, bool)`
+
+GetPermanentBuffsOk returns a tuple with the PermanentBuffs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffs
+
+`func (o *HeroStats) SetPermanentBuffs(v int64)`
+
+SetPermanentBuffs sets PermanentBuffs field to given value.
+
+
+### GetPermanentBuffsPerMin
+
+`func (o *HeroStats) GetPermanentBuffsPerMin() float64`
+
+GetPermanentBuffsPerMin returns the PermanentBuffsPerMin field if non-nil, zero value otherwise.
+
+### GetPermanentBuffsPerMinOk
+
+`func (o *HeroStats) GetPermanentBuffsPerMinOk() (*float64, bool)`
+
+GetPermanentBuffsPerMinOk returns a tuple with the PermanentBuffsPerMin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPermanentBuffsPerMin
+
+`func (o *HeroStats) SetPermanentBuffsPerMin(v float64)`
+
+SetPermanentBuffsPerMin sets PermanentBuffsPerMin field to given value.
+
+### HasPermanentBuffsPerMin
+
+`func (o *HeroStats) HasPermanentBuffsPerMin() bool`
+
+HasPermanentBuffsPerMin returns a boolean if a field has been set.
+
+### SetPermanentBuffsPerMinNil
+
+`func (o *HeroStats) SetPermanentBuffsPerMinNil(b bool)`
+
+ SetPermanentBuffsPerMinNil sets the value for PermanentBuffsPerMin to be an explicit nil
+
+### UnsetPermanentBuffsPerMin
+`func (o *HeroStats) UnsetPermanentBuffsPerMin()`
+
+UnsetPermanentBuffsPerMin ensures that no value is present for PermanentBuffsPerMin, not even an explicit nil
 ### GetTimePlayed
 
 `func (o *HeroStats) GetTimePlayed() int64`

@@ -15,7 +15,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `leaderboard()`
 
 ```php
-leaderboard($region): \OpenAPI\Client\Model\Leaderboard
+leaderboard($region, $leaderboard_id): \OpenAPI\Client\Model\Leaderboard
 ```
 
 Leaderboard
@@ -36,9 +36,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
     new GuzzleHttp\Client()
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
+$leaderboard_id = 56; // int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 
 try {
-    $result = $apiInstance->leaderboard($region);
+    $result = $apiInstance->leaderboard($region, $leaderboard_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaderboardApi->leaderboard: ', $e->getMessage(), PHP_EOL;
@@ -50,6 +51,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
+| **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -71,7 +73,7 @@ No authorization required
 ## `leaderboardHero()`
 
 ```php
-leaderboardHero($region, $hero_id): \OpenAPI\Client\Model\Leaderboard
+leaderboardHero($region, $hero_id, $leaderboard_id): \OpenAPI\Client\Model\Leaderboard
 ```
 
 Hero Leaderboard
@@ -93,9 +95,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
 $hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+$leaderboard_id = 56; // int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 
 try {
-    $result = $apiInstance->leaderboardHero($region, $hero_id);
+    $result = $apiInstance->leaderboardHero($region, $hero_id, $leaderboard_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaderboardApi->leaderboardHero: ', $e->getMessage(), PHP_EOL;
@@ -108,6 +111,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
 | **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
+| **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -129,7 +133,7 @@ No authorization required
 ## `leaderboardHeroRaw()`
 
 ```php
-leaderboardHeroRaw($region, $hero_id): int[]
+leaderboardHeroRaw($region, $hero_id, $leaderboard_id): int[]
 ```
 
 Hero Leaderboard as Protobuf
@@ -151,9 +155,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
 $hero_id = 56; // int | The hero ID to fetch the leaderboard for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+$leaderboard_id = 56; // int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 
 try {
-    $result = $apiInstance->leaderboardHeroRaw($region, $hero_id);
+    $result = $apiInstance->leaderboardHeroRaw($region, $hero_id, $leaderboard_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaderboardApi->leaderboardHeroRaw: ', $e->getMessage(), PHP_EOL;
@@ -166,6 +171,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
 | **hero_id** | **int**| The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
+| **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 
@@ -187,7 +193,7 @@ No authorization required
 ## `leaderboardRaw()`
 
 ```php
-leaderboardRaw($region): int[]
+leaderboardRaw($region, $leaderboard_id): int[]
 ```
 
 Leaderboard as Protobuf
@@ -208,9 +214,10 @@ $apiInstance = new OpenAPI\Client\Api\LeaderboardApi(
     new GuzzleHttp\Client()
 );
 $region = 'region_example'; // string | The region to fetch the leaderboard for.
+$leaderboard_id = 56; // int | Leaderboard to fetch, e.g. a ranked season's `leaderboard_id` from <https://api.deadlock-api.com/v1/assets/ranked-seasons>. Defaults to the current one.
 
 try {
-    $result = $apiInstance->leaderboardRaw($region);
+    $result = $apiInstance->leaderboardRaw($region, $leaderboard_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LeaderboardApi->leaderboardRaw: ', $e->getMessage(), PHP_EOL;
@@ -222,6 +229,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **region** | **string**| The region to fetch the leaderboard for. | |
+| **leaderboard_id** | **int**| Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. | [optional] |
 
 ### Return type
 

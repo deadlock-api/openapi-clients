@@ -56,6 +56,7 @@ api/Model/ActiveMatchPlayer.php
 api/Model/ActiveMatchTeam.php
 api/Model/AddSteamAccountRequest.php
 api/Model/AnalyticsAbilityOrderStats.php
+api/Model/AnalyticsBuffStats.php
 api/Model/AnalyticsGameStats.php
 api/Model/AnalyticsHeroStats.php
 api/Model/BadgeDistribution.php
@@ -74,9 +75,11 @@ api/Model/ClickhouseSalts.php
 api/Model/Color.php
 api/Model/ColorGradientStop.php
 api/Model/ColumnSchema.php
+api/Model/CorruptedItemImages.php
 api/Model/CorruptedItemInfo.php
 api/Model/CorruptedPenalty.php
 api/Model/CorruptedPenaltyEffect.php
+api/Model/CorruptedTooltipBackers.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
 api/Model/Curve.php
@@ -130,6 +133,7 @@ api/Model/HeroStatsUIDisplay.php
 api/Model/HeroSynergyStats.php
 api/Model/HeroType.php
 api/Model/HorizontalRecoil.php
+api/Model/ImagePair.php
 api/Model/IngestLiveUrl.php
 api/Model/Item.php
 api/Model/ItemDraftRound.php
@@ -320,6 +324,7 @@ docs/Model/ActiveMatchPlayer.md
 docs/Model/ActiveMatchTeam.md
 docs/Model/AddSteamAccountRequest.md
 docs/Model/AnalyticsAbilityOrderStats.md
+docs/Model/AnalyticsBuffStats.md
 docs/Model/AnalyticsGameStats.md
 docs/Model/AnalyticsHeroStats.md
 docs/Model/BadgeDistribution.md
@@ -338,9 +343,11 @@ docs/Model/ClickhouseSalts.md
 docs/Model/Color.md
 docs/Model/ColorGradientStop.md
 docs/Model/ColumnSchema.md
+docs/Model/CorruptedItemImages.md
 docs/Model/CorruptedItemInfo.md
 docs/Model/CorruptedPenalty.md
 docs/Model/CorruptedPenaltyEffect.md
+docs/Model/CorruptedTooltipBackers.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
 docs/Model/Curve.md
@@ -394,6 +401,7 @@ docs/Model/HeroStatsUIDisplay.md
 docs/Model/HeroSynergyStats.md
 docs/Model/HeroType.md
 docs/Model/HorizontalRecoil.md
+docs/Model/ImagePair.md
 docs/Model/IngestLiveUrl.md
 docs/Model/Item.md
 docs/Model/ItemDraftRound.md
@@ -583,6 +591,7 @@ test/Model/ActiveMatchTeamTest.php
 test/Model/ActiveMatchTest.php
 test/Model/AddSteamAccountRequestTest.php
 test/Model/AnalyticsAbilityOrderStatsTest.php
+test/Model/AnalyticsBuffStatsTest.php
 test/Model/AnalyticsGameStatsTest.php
 test/Model/AnalyticsHeroStatsTest.php
 test/Model/BadgeDistributionTest.php
@@ -601,9 +610,11 @@ test/Model/ClickhouseSaltsTest.php
 test/Model/ColorGradientStopTest.php
 test/Model/ColorTest.php
 test/Model/ColumnSchemaTest.php
+test/Model/CorruptedItemImagesTest.php
 test/Model/CorruptedItemInfoTest.php
 test/Model/CorruptedPenaltyEffectTest.php
 test/Model/CorruptedPenaltyTest.php
+test/Model/CorruptedTooltipBackersTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
 test/Model/CurveOrFloatTest.php
@@ -657,6 +668,7 @@ test/Model/HeroSynergyStatsTest.php
 test/Model/HeroTest.php
 test/Model/HeroTypeTest.php
 test/Model/HorizontalRecoilTest.php
+test/Model/ImagePairTest.php
 test/Model/IngestLiveUrlTest.php
 test/Model/ItemDraftRoundPerGameRoundTest.php
 test/Model/ItemDraftRoundTest.php

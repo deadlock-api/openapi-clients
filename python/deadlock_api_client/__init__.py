@@ -76,6 +76,7 @@ __all__ = [
     "ActiveMatchTeam",
     "AddSteamAccountRequest",
     "AnalyticsAbilityOrderStats",
+    "AnalyticsBuffStats",
     "AnalyticsGameStats",
     "AnalyticsHeroStats",
     "BadgeDistribution",
@@ -94,9 +95,11 @@ __all__ = [
     "Color",
     "ColorGradientStop",
     "ColumnSchema",
+    "CorruptedItemImages",
     "CorruptedItemInfo",
     "CorruptedPenalty",
     "CorruptedPenaltyEffect",
+    "CorruptedTooltipBackers",
     "CreateCustomRequest",
     "CreateCustomResponse",
     "Curve",
@@ -150,6 +153,7 @@ __all__ = [
     "HeroSynergyStats",
     "HeroType",
     "HorizontalRecoil",
+    "ImagePair",
     "IngestLiveUrl",
     "Item",
     "ItemDraftRound",
@@ -353,6 +357,7 @@ from deadlock_api_client.models.active_match_player import ActiveMatchPlayer as 
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam as ActiveMatchTeam
 from deadlock_api_client.models.add_steam_account_request import AddSteamAccountRequest as AddSteamAccountRequest
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats as AnalyticsAbilityOrderStats
+from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats as AnalyticsBuffStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats as AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats as AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution as BadgeDistribution
@@ -371,9 +376,11 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as Click
 from deadlock_api_client.models.color import Color as Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop as ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema as ColumnSchema
+from deadlock_api_client.models.corrupted_item_images import CorruptedItemImages as CorruptedItemImages
 from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo as CorruptedItemInfo
 from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty as CorruptedPenalty
 from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenaltyEffect as CorruptedPenaltyEffect
+from deadlock_api_client.models.corrupted_tooltip_backers import CorruptedTooltipBackers as CorruptedTooltipBackers
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
 from deadlock_api_client.models.curve import Curve as Curve
@@ -427,6 +434,7 @@ from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay 
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
 from deadlock_api_client.models.hero_type import HeroType as HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil as HorizontalRecoil
+from deadlock_api_client.models.image_pair import ImagePair as ImagePair
 from deadlock_api_client.models.ingest_live_url import IngestLiveUrl as IngestLiveUrl
 from deadlock_api_client.models.item import Item as Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound

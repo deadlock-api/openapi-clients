@@ -33,6 +33,8 @@ type GenericData struct {
 	ColorTeam1 NullableColor `json:"color_team1,omitempty"`
 	// Build 6711+.
 	ColorTeam2 NullableColor `json:"color_team2,omitempty"`
+	// Shop art for corrupted items (build 6711+).
+	CorruptedItemImages NullableCorruptedItemImages `json:"corrupted_item_images,omitempty"`
 	// Penalties that can be rolled onto corrupted items (build 6711+).
 	CorruptedPenalties []CorruptedPenalty `json:"corrupted_penalties,omitempty"`
 	DamageFlash DamageFlash `json:"damage_flash"`
@@ -352,6 +354,48 @@ func (o *GenericData) SetColorTeam2Nil() {
 // UnsetColorTeam2 ensures that no value is present for ColorTeam2, not even an explicit nil
 func (o *GenericData) UnsetColorTeam2() {
 	o.ColorTeam2.Unset()
+}
+
+// GetCorruptedItemImages returns the CorruptedItemImages field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *GenericData) GetCorruptedItemImages() CorruptedItemImages {
+	if o == nil || IsNil(o.CorruptedItemImages.Get()) {
+		var ret CorruptedItemImages
+		return ret
+	}
+	return *o.CorruptedItemImages.Get()
+}
+
+// GetCorruptedItemImagesOk returns a tuple with the CorruptedItemImages field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *GenericData) GetCorruptedItemImagesOk() (*CorruptedItemImages, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CorruptedItemImages.Get(), o.CorruptedItemImages.IsSet()
+}
+
+// HasCorruptedItemImages returns a boolean if a field has been set.
+func (o *GenericData) HasCorruptedItemImages() bool {
+	if o != nil && o.CorruptedItemImages.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCorruptedItemImages gets a reference to the given NullableCorruptedItemImages and assigns it to the CorruptedItemImages field.
+func (o *GenericData) SetCorruptedItemImages(v CorruptedItemImages) {
+	o.CorruptedItemImages.Set(&v)
+}
+// SetCorruptedItemImagesNil sets the value for CorruptedItemImages to be an explicit nil
+func (o *GenericData) SetCorruptedItemImagesNil() {
+	o.CorruptedItemImages.Set(nil)
+}
+
+// UnsetCorruptedItemImages ensures that no value is present for CorruptedItemImages, not even an explicit nil
+func (o *GenericData) UnsetCorruptedItemImages() {
+	o.CorruptedItemImages.Unset()
 }
 
 // GetCorruptedPenalties returns the CorruptedPenalties field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1085,6 +1129,9 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 	}
 	if o.ColorTeam2.IsSet() {
 		toSerialize["color_team2"] = o.ColorTeam2.Get()
+	}
+	if o.CorruptedItemImages.IsSet() {
+		toSerialize["corrupted_item_images"] = o.CorruptedItemImages.Get()
 	}
 	if o.CorruptedPenalties != nil {
 		toSerialize["corrupted_penalties"] = o.CorruptedPenalties

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **color_friend** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
 **color_team1** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
 **color_team2** | [**Color**](Color.md) | Build 6711+. | [optional] [default to undefined]
+**corrupted_item_images** | [**CorruptedItemImages**](CorruptedItemImages.md) | Shop art for corrupted items (build 6711+). | [optional] [default to undefined]
 **corrupted_penalties** | [**Array&lt;CorruptedPenalty&gt;**](CorruptedPenalty.md) | Penalties that can be rolled onto corrupted items (build 6711+). | [optional] [default to undefined]
 **damage_flash** | [**DamageFlash**](DamageFlash.md) |  | [default to undefined]
 **enemy_objectives_and_zipline_color** | [**Color**](Color.md) |  | [optional] [default to undefined]
@@ -49,6 +50,7 @@ const instance: GenericData = {
     color_friend,
     color_team1,
     color_team2,
+    corrupted_item_images,
     corrupted_penalties,
     damage_flash,
     enemy_objectives_and_zipline_color,

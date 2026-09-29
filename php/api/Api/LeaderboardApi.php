@@ -140,15 +140,16 @@ class LeaderboardApi
      * Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboard'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Leaderboard
      */
-    public function leaderboard($region, string $contentType = self::contentTypes['leaderboard'][0])
+    public function leaderboard($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboard'][0])
     {
-        list($response) = $this->leaderboardWithHttpInfo($region, $contentType);
+        list($response) = $this->leaderboardWithHttpInfo($region, $leaderboard_id, $contentType);
         return $response;
     }
 
@@ -158,15 +159,16 @@ class LeaderboardApi
      * Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboard'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Leaderboard, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaderboardWithHttpInfo($region, string $contentType = self::contentTypes['leaderboard'][0])
+    public function leaderboardWithHttpInfo($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboard'][0])
     {
-        $request = $this->leaderboardRequest($region, $contentType);
+        $request = $this->leaderboardRequest($region, $leaderboard_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -243,14 +245,15 @@ class LeaderboardApi
      * Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboard'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardAsync($region, string $contentType = self::contentTypes['leaderboard'][0])
+    public function leaderboardAsync($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboard'][0])
     {
-        return $this->leaderboardAsyncWithHttpInfo($region, $contentType)
+        return $this->leaderboardAsyncWithHttpInfo($region, $leaderboard_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -264,15 +267,16 @@ class LeaderboardApi
      * Leaderboard
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboard'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardAsyncWithHttpInfo($region, string $contentType = self::contentTypes['leaderboard'][0])
+    public function leaderboardAsyncWithHttpInfo($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Leaderboard';
-        $request = $this->leaderboardRequest($region, $contentType);
+        $request = $this->leaderboardRequest($region, $leaderboard_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -314,12 +318,13 @@ class LeaderboardApi
      * Create request for operation 'leaderboard'
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboard'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaderboardRequest($region, string $contentType = self::contentTypes['leaderboard'][0])
+    public function leaderboardRequest($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboard'][0])
     {
 
         // verify the required parameter 'region' is set
@@ -329,6 +334,10 @@ class LeaderboardApi
             );
         }
 
+        if ($leaderboard_id !== null && $leaderboard_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboard, must be bigger than or equal to 0.');
+        }
+        
 
         $resourcePath = '/v1/leaderboard/{region}';
         $formParams = [];
@@ -337,6 +346,15 @@ class LeaderboardApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $leaderboard_id,
+            'leaderboard_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -413,15 +431,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\Leaderboard
      */
-    public function leaderboardHero($region, $hero_id, string $contentType = self::contentTypes['leaderboardHero'][0])
+    public function leaderboardHero($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHero'][0])
     {
-        list($response) = $this->leaderboardHeroWithHttpInfo($region, $hero_id, $contentType);
+        list($response) = $this->leaderboardHeroWithHttpInfo($region, $hero_id, $leaderboard_id, $contentType);
         return $response;
     }
 
@@ -432,15 +451,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\Leaderboard, HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaderboardHeroWithHttpInfo($region, $hero_id, string $contentType = self::contentTypes['leaderboardHero'][0])
+    public function leaderboardHeroWithHttpInfo($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHero'][0])
     {
-        $request = $this->leaderboardHeroRequest($region, $hero_id, $contentType);
+        $request = $this->leaderboardHeroRequest($region, $hero_id, $leaderboard_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -518,14 +538,15 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardHeroAsync($region, $hero_id, string $contentType = self::contentTypes['leaderboardHero'][0])
+    public function leaderboardHeroAsync($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHero'][0])
     {
-        return $this->leaderboardHeroAsyncWithHttpInfo($region, $hero_id, $contentType)
+        return $this->leaderboardHeroAsyncWithHttpInfo($region, $hero_id, $leaderboard_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -540,15 +561,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardHeroAsyncWithHttpInfo($region, $hero_id, string $contentType = self::contentTypes['leaderboardHero'][0])
+    public function leaderboardHeroAsyncWithHttpInfo($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHero'][0])
     {
         $returnType = '\OpenAPI\Client\Model\Leaderboard';
-        $request = $this->leaderboardHeroRequest($region, $hero_id, $contentType);
+        $request = $this->leaderboardHeroRequest($region, $hero_id, $leaderboard_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -591,12 +613,13 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHero'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaderboardHeroRequest($region, $hero_id, string $contentType = self::contentTypes['leaderboardHero'][0])
+    public function leaderboardHeroRequest($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHero'][0])
     {
 
         // verify the required parameter 'region' is set
@@ -616,6 +639,10 @@ class LeaderboardApi
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHero, must be bigger than or equal to 0.');
         }
         
+        if ($leaderboard_id !== null && $leaderboard_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHero, must be bigger than or equal to 0.');
+        }
+        
 
         $resourcePath = '/v1/leaderboard/{region}/{hero_id}';
         $formParams = [];
@@ -624,6 +651,15 @@ class LeaderboardApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $leaderboard_id,
+            'leaderboard_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -708,15 +744,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function leaderboardHeroRaw($region, $hero_id, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
+    public function leaderboardHeroRaw($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
     {
-        list($response) = $this->leaderboardHeroRawWithHttpInfo($region, $hero_id, $contentType);
+        list($response) = $this->leaderboardHeroRawWithHttpInfo($region, $hero_id, $leaderboard_id, $contentType);
         return $response;
     }
 
@@ -727,15 +764,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaderboardHeroRawWithHttpInfo($region, $hero_id, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
+    public function leaderboardHeroRawWithHttpInfo($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
     {
-        $request = $this->leaderboardHeroRawRequest($region, $hero_id, $contentType);
+        $request = $this->leaderboardHeroRawRequest($region, $hero_id, $leaderboard_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -813,14 +851,15 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardHeroRawAsync($region, $hero_id, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
+    public function leaderboardHeroRawAsync($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
     {
-        return $this->leaderboardHeroRawAsyncWithHttpInfo($region, $hero_id, $contentType)
+        return $this->leaderboardHeroRawAsyncWithHttpInfo($region, $hero_id, $leaderboard_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -835,15 +874,16 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardHeroRawAsyncWithHttpInfo($region, $hero_id, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
+    public function leaderboardHeroRawAsyncWithHttpInfo($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
     {
         $returnType = 'int[]';
-        $request = $this->leaderboardHeroRawRequest($region, $hero_id, $contentType);
+        $request = $this->leaderboardHeroRawRequest($region, $hero_id, $leaderboard_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -886,12 +926,13 @@ class LeaderboardApi
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
      * @param  int $hero_id The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardHeroRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaderboardHeroRawRequest($region, $hero_id, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
+    public function leaderboardHeroRawRequest($region, $hero_id, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardHeroRaw'][0])
     {
 
         // verify the required parameter 'region' is set
@@ -911,6 +952,10 @@ class LeaderboardApi
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling LeaderboardApi.leaderboardHeroRaw, must be bigger than or equal to 0.');
         }
         
+        if ($leaderboard_id !== null && $leaderboard_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardHeroRaw, must be bigger than or equal to 0.');
+        }
+        
 
         $resourcePath = '/v1/leaderboard/{region}/{hero_id}/raw';
         $formParams = [];
@@ -919,6 +964,15 @@ class LeaderboardApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $leaderboard_id,
+            'leaderboard_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params
@@ -1002,15 +1056,16 @@ class LeaderboardApi
      * Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function leaderboardRaw($region, string $contentType = self::contentTypes['leaderboardRaw'][0])
+    public function leaderboardRaw($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardRaw'][0])
     {
-        list($response) = $this->leaderboardRawWithHttpInfo($region, $contentType);
+        list($response) = $this->leaderboardRawWithHttpInfo($region, $leaderboard_id, $contentType);
         return $response;
     }
 
@@ -1020,15 +1075,16 @@ class LeaderboardApi
      * Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardRaw'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function leaderboardRawWithHttpInfo($region, string $contentType = self::contentTypes['leaderboardRaw'][0])
+    public function leaderboardRawWithHttpInfo($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardRaw'][0])
     {
-        $request = $this->leaderboardRawRequest($region, $contentType);
+        $request = $this->leaderboardRawRequest($region, $leaderboard_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1105,14 +1161,15 @@ class LeaderboardApi
      * Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardRawAsync($region, string $contentType = self::contentTypes['leaderboardRaw'][0])
+    public function leaderboardRawAsync($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardRaw'][0])
     {
-        return $this->leaderboardRawAsyncWithHttpInfo($region, $contentType)
+        return $this->leaderboardRawAsyncWithHttpInfo($region, $leaderboard_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1126,15 +1183,16 @@ class LeaderboardApi
      * Leaderboard as Protobuf
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function leaderboardRawAsyncWithHttpInfo($region, string $contentType = self::contentTypes['leaderboardRaw'][0])
+    public function leaderboardRawAsyncWithHttpInfo($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardRaw'][0])
     {
         $returnType = 'int[]';
-        $request = $this->leaderboardRawRequest($region, $contentType);
+        $request = $this->leaderboardRawRequest($region, $leaderboard_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1176,12 +1234,13 @@ class LeaderboardApi
      * Create request for operation 'leaderboardRaw'
      *
      * @param  string $region The region to fetch the leaderboard for. (required)
+     * @param  int|null $leaderboard_id Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['leaderboardRaw'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function leaderboardRawRequest($region, string $contentType = self::contentTypes['leaderboardRaw'][0])
+    public function leaderboardRawRequest($region, $leaderboard_id = null, string $contentType = self::contentTypes['leaderboardRaw'][0])
     {
 
         // verify the required parameter 'region' is set
@@ -1191,6 +1250,10 @@ class LeaderboardApi
             );
         }
 
+        if ($leaderboard_id !== null && $leaderboard_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$leaderboard_id" when calling LeaderboardApi.leaderboardRaw, must be bigger than or equal to 0.');
+        }
+        
 
         $resourcePath = '/v1/leaderboard/{region}/raw';
         $formParams = [];
@@ -1199,6 +1262,15 @@ class LeaderboardApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $leaderboard_id,
+            'leaderboard_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
         // path params

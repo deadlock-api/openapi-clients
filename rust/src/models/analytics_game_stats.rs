@@ -43,6 +43,9 @@ pub struct AnalyticsGameStats {
     pub avg_first_mid_boss_time_s: f64,
     #[serde(rename = "avg_first_objective_destroyed_time_s")]
     pub avg_first_objective_destroyed_time_s: f64,
+    /// Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+    #[serde(rename = "avg_first_permanent_buff_time_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub avg_first_permanent_buff_time_s: Option<Option<f64>>,
     #[serde(rename = "avg_gold_boss")]
     pub avg_gold_boss: f64,
     #[serde(rename = "avg_gold_boss_orb")]
@@ -81,6 +84,12 @@ pub struct AnalyticsGameStats {
     pub avg_neutral_damage: f64,
     #[serde(rename = "avg_neutral_kills")]
     pub avg_neutral_kills: f64,
+    /// Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+    #[serde(rename = "avg_permanent_buffs")]
+    pub avg_permanent_buffs: f64,
+    /// Average permanent buff pickups per player per minute of match time.
+    #[serde(rename = "avg_permanent_buffs_per_min")]
+    pub avg_permanent_buffs_per_min: f64,
     #[serde(rename = "avg_player_damage")]
     pub avg_player_damage: f64,
     #[serde(rename = "avg_player_damage_taken")]
@@ -110,7 +119,7 @@ pub struct AnalyticsGameStats {
 }
 
 impl AnalyticsGameStats {
-    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_creep_damage: f64, avg_creep_kills: f64, avg_crit_rate: f64, avg_damage_absorbed: f64, avg_damage_mitigated: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_first_objective_destroyed_time_s: f64, avg_gold_boss: f64, avg_gold_boss_orb: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_lane_creep_orbs: f64, avg_gold_neutral_creep: f64, avg_gold_neutral_creep_orbs: f64, avg_gold_player: f64, avg_gold_player_orbs: f64, avg_gold_treasure: f64, avg_heal_prevented: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_max_health: f64, avg_net_worth: f64, avg_neutral_damage: f64, avg_neutral_kills: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, avg_possible_creeps: f64, avg_self_healing: f64, avg_tech_power: f64, avg_weapon_power: f64, bucket: u32, mid_boss_kill_rate: f64, team0_wins: u64, team1_wins: u64, total_matches: u64, total_players: u64) -> AnalyticsGameStats {
+    pub fn new(abandon_rate: f64, avg_accuracy: f64, avg_assists: f64, avg_boss_damage: f64, avg_creep_damage: f64, avg_creep_kills: f64, avg_crit_rate: f64, avg_damage_absorbed: f64, avg_damage_mitigated: f64, avg_deaths: f64, avg_denies: f64, avg_duration_s: f64, avg_ending_level: f64, avg_first_mid_boss_time_s: f64, avg_first_objective_destroyed_time_s: f64, avg_gold_boss: f64, avg_gold_boss_orb: f64, avg_gold_death_loss: f64, avg_gold_denied: f64, avg_gold_lane_creep: f64, avg_gold_lane_creep_orbs: f64, avg_gold_neutral_creep: f64, avg_gold_neutral_creep_orbs: f64, avg_gold_player: f64, avg_gold_player_orbs: f64, avg_gold_treasure: f64, avg_heal_prevented: f64, avg_kd_ratio: f64, avg_kills: f64, avg_last_hits: f64, avg_max_health: f64, avg_net_worth: f64, avg_neutral_damage: f64, avg_neutral_kills: f64, avg_permanent_buffs: f64, avg_permanent_buffs_per_min: f64, avg_player_damage: f64, avg_player_damage_taken: f64, avg_player_healing: f64, avg_possible_creeps: f64, avg_self_healing: f64, avg_tech_power: f64, avg_weapon_power: f64, bucket: u32, mid_boss_kill_rate: f64, team0_wins: u64, team1_wins: u64, total_matches: u64, total_players: u64) -> AnalyticsGameStats {
         AnalyticsGameStats {
             abandon_rate,
             avg_accuracy,
@@ -127,6 +136,7 @@ impl AnalyticsGameStats {
             avg_ending_level,
             avg_first_mid_boss_time_s,
             avg_first_objective_destroyed_time_s,
+            avg_first_permanent_buff_time_s: None,
             avg_gold_boss,
             avg_gold_boss_orb,
             avg_gold_death_loss,
@@ -146,6 +156,8 @@ impl AnalyticsGameStats {
             avg_net_worth,
             avg_neutral_damage,
             avg_neutral_kills,
+            avg_permanent_buffs,
+            avg_permanent_buffs_per_min,
             avg_player_damage,
             avg_player_damage_taken,
             avg_player_healing,

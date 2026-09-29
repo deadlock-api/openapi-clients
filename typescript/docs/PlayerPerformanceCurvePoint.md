@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **kills_std** | **number** | Standard deviation of kills at this time point | [default to undefined]
 **net_worth_avg** | **number** | Average net worth at this time point | [default to undefined]
 **net_worth_std** | **number** | Standard deviation of net worth at this time point | [default to undefined]
+**permanent_buffs_avg** | **number** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] [default to undefined]
 
 ## Example
 
@@ -52,6 +53,7 @@ const instance: PlayerPerformanceCurvePoint = {
     kills_std,
     net_worth_avg,
     net_worth_std,
+    permanent_buffs_avg,
 };
 ```
 

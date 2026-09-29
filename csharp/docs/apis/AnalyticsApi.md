@@ -6,6 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |--------|--------------|-------------|
 | [**AbilityOrderStats**](AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
 | [**BadgeDistribution**](AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
+| [**BuffStats**](AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats |
 | [**BuildItemStats**](AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | [**GameStats**](AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
 | [**HeroBanStats**](AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
@@ -129,6 +130,57 @@ No authorization required
 | **200** | Badge Distribution |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Failed to fetch badge distribution |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="buffstats"></a>
+# **BuffStats**
+> List&lt;AnalyticsBuffStats&gt; BuffStats (string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long minNetworth = null, long maxNetworth = null, List<int> heroIds = null, List<int> accountIds = null)
+
+Buff Stats
+
+ Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
+| **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1788048000] |
+| **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
+| **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
+| **minAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional]  |
+| **maxAverageBadge** | **int** | Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional]  |
+| **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+| **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
+| **minNetworth** | **long** | Filter players based on their final net worth. | [optional]  |
+| **maxNetworth** | **long** | Filter players based on their final net worth. | [optional]  |
+| **heroIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of hero ids to include. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
+| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+
+### Return type
+
+[**List&lt;AnalyticsBuffStats&gt;**](AnalyticsBuffStats.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Buff Stats |  -  |
+| **400** | Provided parameters are invalid. |  -  |
+| **500** | Failed to fetch buff stats |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -732,7 +784,7 @@ No authorization required
 
 <a id="itemstats"></a>
 # **ItemStats**
-> List&lt;ItemStats&gt; ItemStats (string bucket = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, string enemyHeroIds = null, bool enemyHeroIdsAllMatch = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, bool sameLaneFilter = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, int minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null, int minBoughtAtS = null, int maxBoughtAtS = null, List<string> itemOrder = null, bool includeCorruptedItems = null)
+> List&lt;ItemStats&gt; ItemStats (string bucket = null, string gameMode = null, string matchMode = null, string heroIds = null, int heroId = null, string enemyHeroIds = null, bool enemyHeroIdsAllMatch = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, bool sameLaneFilter = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, int minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null, int minBoughtAtS = null, int maxBoughtAtS = null, List<string> itemOrder = null, string corruptedItems = null, bool includeCorruptedItems = null)
 
 Item Stats
 
@@ -774,7 +826,8 @@ Item Stats
 | **minBoughtAtS** | **int** | Filter items bought after this game time (seconds). | [optional]  |
 | **maxBoughtAtS** | **int** | Filter items bought before this game time (seconds). | [optional]  |
 | **itemOrder** | [**List&lt;string&gt;**](string.md) | Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. &#x60;1396247347,3977876567&#x60;). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
-| **includeCorruptedItems** | **bool** | Count corrupted items (build 6712+: a T3/T4 upgrade the Broker swapped for a corrupted version with the same item id) as purchases of the normal item. **Default:** &#x60;false&#x60;, corrupted purchases are excluded from the stats. Setting it to &#x60;true&#x60; bypasses the pre-aggregated rollups, so requests are slower. | [optional] [default to false] |
+| **corruptedItems** | **string** | How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). &#x60;exclude&#x60;: only normal purchases. &#x60;include&#x60;: corrupted purchases count as the normal item. &#x60;only&#x60;: only corrupted purchases, so each row describes the corrupted variant of &#x60;item_id&#x60;. Compare it with the same request using &#x60;exclude&#x60;. Corrupted items only exist in matches from 2026-09-29 on, so &#x60;only&#x60; ignores earlier time and match-id bounds. &#x60;include&#x60; and &#x60;only&#x60; skip the pre-aggregated rollups, so those requests are slower. **Default:** &#x60;exclude&#x60;, or &#x60;include&#x60; if the deprecated &#x60;include_corrupted_items&#x3D;true&#x60; is set. | [optional]  |
+| **includeCorruptedItems** | **bool** | Deprecated alias of &#x60;corrupted_items&#x3D;include&#x60;. &#x60;corrupted_items&#x60; takes precedence when both are set. | [optional] [default to false] |
 
 ### Return type
 
@@ -1088,7 +1141,7 @@ No authorization required
 
 <a id="playerstatsmetrics"></a>
 # **PlayerStatsMetrics**
-> Dictionary&lt;string, HashMapValue&gt; PlayerStatsMetrics (string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null)
+> Dictionary&lt;string, HashMapValue&gt; PlayerStatsMetrics (string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null, bool includeBuffMetrics = null)
 
 Player Stats Metrics
 
@@ -1118,6 +1171,7 @@ Player Stats Metrics
 | **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |
 | **abilityUnlockOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **includeBuffMetrics** | **bool** | Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. | [optional] [default to false] |
 
 ### Return type
 

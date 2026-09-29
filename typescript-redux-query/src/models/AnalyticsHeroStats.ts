@@ -49,6 +49,18 @@ export interface AnalyticsHeroStats  {
      */
     matchesPerBucket: number;
     /**
+     * Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
+     * @type {number}
+     * @memberof AnalyticsHeroStats
+     */
+    permanentBuffMatches: number;
+    /**
+     * Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
+     * @type {number}
+     * @memberof AnalyticsHeroStats
+     */
+    permanentBuffTimingMatches: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsHeroStats
@@ -79,6 +91,12 @@ export interface AnalyticsHeroStats  {
      */
     totalDenies: number;
     /**
+     * Sum of the game time (seconds) of each player\'s first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
+     * @type {number}
+     * @memberof AnalyticsHeroStats
+     */
+    totalFirstPermanentBuffTimeS: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsHeroStats
@@ -108,6 +126,12 @@ export interface AnalyticsHeroStats  {
      * @memberof AnalyticsHeroStats
      */
     totalNeutralDamage: number;
+    /**
+     * Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     * @type {number}
+     * @memberof AnalyticsHeroStats
+     */
+    totalPermanentBuffs: number;
     /**
      * 
      * @type {number}
@@ -147,16 +171,20 @@ export function AnalyticsHeroStatsFromJSON(json: any): AnalyticsHeroStats {
         'losses': json['losses'],
         'matches': json['matches'],
         'matchesPerBucket': json['matches_per_bucket'],
+        'permanentBuffMatches': json['permanent_buff_matches'],
+        'permanentBuffTimingMatches': json['permanent_buff_timing_matches'],
         'totalAssists': json['total_assists'],
         'totalBossDamage': json['total_boss_damage'],
         'totalCreepDamage': json['total_creep_damage'],
         'totalDeaths': json['total_deaths'],
         'totalDenies': json['total_denies'],
+        'totalFirstPermanentBuffTimeS': json['total_first_permanent_buff_time_s'],
         'totalKills': json['total_kills'],
         'totalLastHits': json['total_last_hits'],
         'totalMaxHealth': json['total_max_health'],
         'totalNetWorth': json['total_net_worth'],
         'totalNeutralDamage': json['total_neutral_damage'],
+        'totalPermanentBuffs': json['total_permanent_buffs'],
         'totalPlayerDamage': json['total_player_damage'],
         'totalPlayerDamageTaken': json['total_player_damage_taken'],
         'totalShotsHit': json['total_shots_hit'],
@@ -175,16 +203,20 @@ export function AnalyticsHeroStatsToJSON(value?: AnalyticsHeroStats): any {
         'losses': value.losses,
         'matches': value.matches,
         'matches_per_bucket': value.matchesPerBucket,
+        'permanent_buff_matches': value.permanentBuffMatches,
+        'permanent_buff_timing_matches': value.permanentBuffTimingMatches,
         'total_assists': value.totalAssists,
         'total_boss_damage': value.totalBossDamage,
         'total_creep_damage': value.totalCreepDamage,
         'total_deaths': value.totalDeaths,
         'total_denies': value.totalDenies,
+        'total_first_permanent_buff_time_s': value.totalFirstPermanentBuffTimeS,
         'total_kills': value.totalKills,
         'total_last_hits': value.totalLastHits,
         'total_max_health': value.totalMaxHealth,
         'total_net_worth': value.totalNetWorth,
         'total_neutral_damage': value.totalNeutralDamage,
+        'total_permanent_buffs': value.totalPermanentBuffs,
         'total_player_damage': value.totalPlayerDamage,
         'total_player_damage_taken': value.totalPlayerDamageTaken,
         'total_shots_hit': value.totalShotsHit,

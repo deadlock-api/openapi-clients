@@ -43,6 +43,12 @@ export interface HeroStats  {
      */
     assistsPerMin: number;
     /**
+     * Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
+     * @type {number}
+     * @memberof HeroStats
+     */
+    avgFirstPermanentBuffTimeS?: number;
+    /**
      * 
      * @type {number}
      * @memberof HeroStats
@@ -187,6 +193,24 @@ export interface HeroStats  {
      */
     objDamagePerSoul: number;
     /**
+     * Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
+     * @type {number}
+     * @memberof HeroStats
+     */
+    permanentBuffMatches: number;
+    /**
+     * Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     * @type {number}
+     * @memberof HeroStats
+     */
+    permanentBuffs: number;
+    /**
+     * Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
+     * @type {number}
+     * @memberof HeroStats
+     */
+    permanentBuffsPerMin?: number;
+    /**
      * 
      * @type {number}
      * @memberof HeroStats
@@ -236,6 +260,7 @@ export function HeroStatsFromJSON(json: any): HeroStats {
         'accuracy': json['accuracy'],
         'assists': json['assists'],
         'assistsPerMin': json['assists_per_min'],
+        'avgFirstPermanentBuffTimeS': !exists(json, 'avg_first_permanent_buff_time_s') ? undefined : json['avg_first_permanent_buff_time_s'],
         'creepsPerMin': json['creeps_per_min'],
         'critShotRate': json['crit_shot_rate'],
         'damageMitigatedPerMin': json['damage_mitigated_per_min'],
@@ -260,6 +285,9 @@ export function HeroStatsFromJSON(json: any): HeroStats {
         'networthPerMin': json['networth_per_min'],
         'objDamagePerMin': json['obj_damage_per_min'],
         'objDamagePerSoul': json['obj_damage_per_soul'],
+        'permanentBuffMatches': json['permanent_buff_matches'],
+        'permanentBuffs': json['permanent_buffs'],
+        'permanentBuffsPerMin': !exists(json, 'permanent_buffs_per_min') ? undefined : json['permanent_buffs_per_min'],
         'timePlayed': json['time_played'],
         'totalBossDamage': json['total_boss_damage'],
         'totalCreepDamage': json['total_creep_damage'],
@@ -279,6 +307,7 @@ export function HeroStatsToJSON(value?: HeroStats): any {
         'accuracy': value.accuracy,
         'assists': value.assists,
         'assists_per_min': value.assistsPerMin,
+        'avg_first_permanent_buff_time_s': value.avgFirstPermanentBuffTimeS,
         'creeps_per_min': value.creepsPerMin,
         'crit_shot_rate': value.critShotRate,
         'damage_mitigated_per_min': value.damageMitigatedPerMin,
@@ -303,6 +332,9 @@ export function HeroStatsToJSON(value?: HeroStats): any {
         'networth_per_min': value.networthPerMin,
         'obj_damage_per_min': value.objDamagePerMin,
         'obj_damage_per_soul': value.objDamagePerSoul,
+        'permanent_buff_matches': value.permanentBuffMatches,
+        'permanent_buffs': value.permanentBuffs,
+        'permanent_buffs_per_min': value.permanentBuffsPerMin,
         'time_played': value.timePlayed,
         'total_boss_damage': value.totalBossDamage,
         'total_creep_damage': value.totalCreepDamage,

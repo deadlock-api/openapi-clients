@@ -32,6 +32,8 @@ Name | Type | Description | Notes
 **NetworthPerMin** | **double** |  | 
 **ObjDamagePerMin** | **double** |  | 
 **ObjDamagePerSoul** | **double** |  | 
+**PermanentBuffMatches** | **long** | Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than &#x60;matches_played&#x60;. | 
+**PermanentBuffs** | **long** | Permanent buff (power-up) pickups over the &#x60;permanent_buff_matches&#x60; matches. Buff types: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt; | 
 **TimePlayed** | **long** |  | 
 **TotalBossDamage** | **long** |  | 
 **TotalCreepDamage** | **long** |  | 
@@ -39,6 +41,8 @@ Name | Type | Description | Notes
 **TotalPlayerDamage** | **long** |  | 
 **TotalPlayerDamageTaken** | **long** |  | 
 **Wins** | **long** |  | 
+**AvgFirstPermanentBuffTimeS** | **double** | Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), &#x60;null&#x60; without any. | [optional] 
+**PermanentBuffsPerMin** | **double** | Permanent buff pickups per minute over the &#x60;permanent_buff_matches&#x60; matches, &#x60;null&#x60; without any. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

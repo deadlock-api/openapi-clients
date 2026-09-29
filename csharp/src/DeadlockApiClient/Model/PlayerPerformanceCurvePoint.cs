@@ -53,8 +53,9 @@ namespace DeadlockApiClient.Model
         /// <param name="killsStd">Standard deviation of kills at this time point</param>
         /// <param name="netWorthAvg">Average net worth at this time point</param>
         /// <param name="netWorthStd">Standard deviation of net worth at this time point</param>
+        /// <param name="permanentBuffsAvg">Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.</param>
         [JsonConstructor]
-        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double deathsAvg, double deathsStd, int gameTime, double goldBossAvg, double goldBossOrbAvg, double goldDeathLossAvg, double goldDeniedAvg, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldTreasureAvg, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd)
+        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double deathsAvg, double deathsStd, int gameTime, double goldBossAvg, double goldBossOrbAvg, double goldDeathLossAvg, double goldDeniedAvg, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldTreasureAvg, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, Option<double?> permanentBuffsAvg = default)
         {
             AssistsAvg = assistsAvg;
             AssistsStd = assistsStd;
@@ -76,6 +77,7 @@ namespace DeadlockApiClient.Model
             KillsStd = killsStd;
             NetWorthAvg = netWorthAvg;
             NetWorthStd = netWorthStd;
+            PermanentBuffsAvgOption = permanentBuffsAvg;
             OnCreated();
         }
 
@@ -222,6 +224,20 @@ namespace DeadlockApiClient.Model
         public double NetWorthStd { get; set; }
 
         /// <summary>
+        /// Used to track the state of PermanentBuffsAvg
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> PermanentBuffsAvgOption { get; private set; }
+
+        /// <summary>
+        /// Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.
+        /// </summary>
+        /// <value>Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.</value>
+        [JsonPropertyName("permanent_buffs_avg")]
+        public double? PermanentBuffsAvg { get { return this.PermanentBuffsAvgOption.Value; } set { this.PermanentBuffsAvgOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -249,6 +265,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  KillsStd: ").Append(KillsStd).Append("\n");
             sb.Append("  NetWorthAvg: ").Append(NetWorthAvg).Append("\n");
             sb.Append("  NetWorthStd: ").Append(NetWorthStd).Append("\n");
+            sb.Append("  PermanentBuffsAvg: ").Append(PermanentBuffsAvg).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -322,6 +339,7 @@ namespace DeadlockApiClient.Model
             Option<double?> killsStd = default;
             Option<double?> netWorthAvg = default;
             Option<double?> netWorthStd = default;
+            Option<double?> permanentBuffsAvg = default;
 
             while (utf8JsonReader.Read())
             {
@@ -397,6 +415,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "net_worth_std":
                             netWorthStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "permanent_buffs_avg":
+                            permanentBuffsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         default:
                             break;
@@ -524,7 +545,7 @@ namespace DeadlockApiClient.Model
             if (netWorthStd.IsSet && netWorthStd.Value == null)
                 throw new ArgumentNullException(nameof(netWorthStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
-            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, gameTime.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeniedAvg.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldTreasureAvg.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!);
+            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, gameTime.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeniedAvg.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldTreasureAvg.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, permanentBuffsAvg);
         }
 
         /// <summary>
@@ -590,6 +611,12 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("net_worth_avg", playerPerformanceCurvePoint.NetWorthAvg);
 
             writer.WriteNumber("net_worth_std", playerPerformanceCurvePoint.NetWorthStd);
+
+            if (playerPerformanceCurvePoint.PermanentBuffsAvgOption.IsSet)
+                if (playerPerformanceCurvePoint.PermanentBuffsAvgOption.Value != null)
+                    writer.WriteNumber("permanent_buffs_avg", playerPerformanceCurvePoint.PermanentBuffsAvgOption.Value!.Value);
+                else
+                    writer.WriteNull("permanent_buffs_avg");
         }
     }
 }

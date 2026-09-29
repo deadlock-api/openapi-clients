@@ -21,36 +21,40 @@ export declare const LeaderboardApiAxiosParamCreator: (configuration?: Configura
      *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Leaderboard
      * @param {LeaderboardRegionEnum} region The region to fetch the leaderboard for.
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboard: (region: LeaderboardRegionEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    leaderboard: (region: LeaderboardRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard
      * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
      * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHero: (region: LeaderboardHeroRegionEnum, heroId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    leaderboardHero: (region: LeaderboardHeroRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard as Protobuf
      * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
      * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHeroRaw: (region: LeaderboardHeroRawRegionEnum, heroId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    leaderboardHeroRaw: (region: LeaderboardHeroRawRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Leaderboard as Protobuf
      * @param {LeaderboardRawRegionEnum} region The region to fetch the leaderboard for.
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardRaw: (region: LeaderboardRawRegionEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    leaderboardRaw: (region: LeaderboardRawRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * LeaderboardApi - functional programming interface
@@ -60,36 +64,40 @@ export declare const LeaderboardApiFp: (configuration?: Configuration) => {
      *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Leaderboard
      * @param {LeaderboardRegionEnum} region The region to fetch the leaderboard for.
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboard(region: LeaderboardRegionEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>>;
+    leaderboard(region: LeaderboardRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>>;
     /**
      *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard
      * @param {LeaderboardHeroRegionEnum} region The region to fetch the leaderboard for.
      * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHero(region: LeaderboardHeroRegionEnum, heroId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>>;
+    leaderboardHero(region: LeaderboardHeroRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Leaderboard>>;
     /**
      *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Hero Leaderboard as Protobuf
      * @param {LeaderboardHeroRawRegionEnum} region The region to fetch the leaderboard for.
      * @param {number} heroId The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardHeroRaw(region: LeaderboardHeroRawRegionEnum, heroId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    leaderboardHeroRaw(region: LeaderboardHeroRawRegionEnum, heroId: number, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
     /**
      *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Leaderboard as Protobuf
      * @param {LeaderboardRawRegionEnum} region The region to fetch the leaderboard for.
+     * @param {number} [leaderboardId] Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    leaderboardRaw(region: LeaderboardRawRegionEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    leaderboardRaw(region: LeaderboardRawRegionEnum, leaderboardId?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
 };
 /**
  * LeaderboardApi - factory interface
@@ -136,6 +144,10 @@ export interface LeaderboardApiLeaderboardRequest {
      * The region to fetch the leaderboard for.
      */
     readonly region: LeaderboardRegionEnum;
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number;
 }
 /**
  * Request parameters for leaderboardHero operation in LeaderboardApi.
@@ -149,6 +161,10 @@ export interface LeaderboardApiLeaderboardHeroRequest {
      * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number;
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number;
 }
 /**
  * Request parameters for leaderboardHeroRaw operation in LeaderboardApi.
@@ -162,6 +178,10 @@ export interface LeaderboardApiLeaderboardHeroRawRequest {
      * The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId: number;
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number;
 }
 /**
  * Request parameters for leaderboardRaw operation in LeaderboardApi.
@@ -171,6 +191,10 @@ export interface LeaderboardApiLeaderboardRawRequest {
      * The region to fetch the leaderboard for.
      */
     readonly region: LeaderboardRawRegionEnum;
+    /**
+     * Leaderboard to fetch, e.g. a ranked season\&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one.
+     */
+    readonly leaderboardId?: number;
 }
 /**
  * LeaderboardApi - object-oriented interface

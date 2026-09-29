@@ -46,9 +46,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardApiResponse"/>&gt;</returns>
-        Task<ILeaderboardApiResponse> LeaderboardAsync(string region, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardApiResponse> LeaderboardAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leaderboard
@@ -57,9 +58,10 @@ namespace DeadlockApiClient.Api
         ///  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardApiResponse"/>?&gt;</returns>
-        Task<ILeaderboardApiResponse?> LeaderboardOrDefaultAsync(string region, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardApiResponse?> LeaderboardOrDefaultAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Leaderboard
@@ -70,9 +72,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
-        Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Leaderboard
@@ -82,9 +85,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>?&gt;</returns>
-        Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Leaderboard as Protobuf
@@ -95,9 +99,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
-        Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Leaderboard as Protobuf
@@ -107,9 +112,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>?&gt;</returns>
-        Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leaderboard as Protobuf
@@ -119,9 +125,10 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardRawApiResponse"/>&gt;</returns>
-        Task<ILeaderboardRawApiResponse> LeaderboardRawAsync(string region, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardRawApiResponse> LeaderboardRawAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Leaderboard as Protobuf
@@ -130,9 +137,10 @@ namespace DeadlockApiClient.Api
         ///  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardRawApiResponse"/>?&gt;</returns>
-        Task<ILeaderboardRawApiResponse?> LeaderboardRawOrDefaultAsync(string region, System.Threading.CancellationToken cancellationToken = default);
+        Task<ILeaderboardRawApiResponse?> LeaderboardRawOrDefaultAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -358,7 +366,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatLeaderboard(ref string region);
+        partial void FormatLeaderboard(ref string region, ref Option<int> leaderboardId);
 
         /// <summary>
         /// Validates the request parameters
@@ -376,10 +384,11 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
-        private void AfterLeaderboardDefaultImplementation(ILeaderboardApiResponse apiResponseLocalVar, string region)
+        /// <param name="leaderboardId"></param>
+        private void AfterLeaderboardDefaultImplementation(ILeaderboardApiResponse apiResponseLocalVar, string region, Option<int> leaderboardId)
         {
             bool suppressDefaultLog = false;
-            AfterLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, region);
+            AfterLeaderboard(ref suppressDefaultLog, apiResponseLocalVar, region, leaderboardId);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -390,7 +399,8 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
-        partial void AfterLeaderboard(ref bool suppressDefaultLog, ILeaderboardApiResponse apiResponseLocalVar, string region);
+        /// <param name="leaderboardId"></param>
+        partial void AfterLeaderboard(ref bool suppressDefaultLog, ILeaderboardApiResponse apiResponseLocalVar, string region, Option<int> leaderboardId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -399,10 +409,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
-        private void OnErrorLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region)
+        /// <param name="leaderboardId"></param>
+        private void OnErrorLeaderboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, Option<int> leaderboardId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region);
+            OnErrorLeaderboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, leaderboardId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -415,19 +426,21 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
-        partial void OnErrorLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region);
+        /// <param name="leaderboardId"></param>
+        partial void OnErrorLeaderboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, Option<int> leaderboardId);
 
         /// <summary>
         /// Leaderboard  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardApiResponse?> LeaderboardOrDefaultAsync(string region, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardApiResponse?> LeaderboardOrDefaultAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaderboardAsync(region, cancellationToken).ConfigureAwait(false);
+                return await LeaderboardAsync(region, leaderboardId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -440,9 +453,10 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardApiResponse> LeaderboardAsync(string region, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardApiResponse> LeaderboardAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -450,7 +464,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateLeaderboard(region);
 
-                FormatLeaderboard(ref region);
+                FormatLeaderboard(ref region, ref leaderboardId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -461,6 +475,13 @@ namespace DeadlockApiClient.Api
                         ? "/v1/leaderboard/{region}"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (leaderboardId.IsSet)
+                        parseQueryStringLocalVar["leaderboard_id"] = ClientUtils.ParameterToString(leaderboardId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -490,7 +511,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterLeaderboardDefaultImplementation(apiResponseLocalVar, region);
+                        AfterLeaderboardDefaultImplementation(apiResponseLocalVar, region, leaderboardId);
 
                         Events.ExecuteOnLeaderboard(apiResponseLocalVar);
 
@@ -500,7 +521,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaderboardDefaultImplementation(e, "/v1/leaderboard/{region}", uriBuilderLocalVar.Path, region);
+                OnErrorLeaderboardDefaultImplementation(e, "/v1/leaderboard/{region}", uriBuilderLocalVar.Path, region, leaderboardId);
                 Events.ExecuteOnErrorLeaderboard(e);
                 throw;
             }
@@ -623,7 +644,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLeaderboardHero(ref string region, ref int heroId);
+        partial void FormatLeaderboardHero(ref string region, ref int heroId, ref Option<int> leaderboardId);
 
         /// <summary>
         /// Validates the request parameters
@@ -642,10 +663,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        private void AfterLeaderboardHeroDefaultImplementation(ILeaderboardHeroApiResponse apiResponseLocalVar, string region, int heroId)
+        /// <param name="leaderboardId"></param>
+        private void AfterLeaderboardHeroDefaultImplementation(ILeaderboardHeroApiResponse apiResponseLocalVar, string region, int heroId, Option<int> leaderboardId)
         {
             bool suppressDefaultLog = false;
-            AfterLeaderboardHero(ref suppressDefaultLog, apiResponseLocalVar, region, heroId);
+            AfterLeaderboardHero(ref suppressDefaultLog, apiResponseLocalVar, region, heroId, leaderboardId);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -657,7 +679,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        partial void AfterLeaderboardHero(ref bool suppressDefaultLog, ILeaderboardHeroApiResponse apiResponseLocalVar, string region, int heroId);
+        /// <param name="leaderboardId"></param>
+        partial void AfterLeaderboardHero(ref bool suppressDefaultLog, ILeaderboardHeroApiResponse apiResponseLocalVar, string region, int heroId, Option<int> leaderboardId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -667,10 +690,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        private void OnErrorLeaderboardHeroDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId)
+        /// <param name="leaderboardId"></param>
+        private void OnErrorLeaderboardHeroDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId, Option<int> leaderboardId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaderboardHero(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, heroId);
+            OnErrorLeaderboardHero(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, heroId, leaderboardId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -684,20 +708,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        partial void OnErrorLeaderboardHero(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId);
+        /// <param name="leaderboardId"></param>
+        partial void OnErrorLeaderboardHero(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId, Option<int> leaderboardId);
 
         /// <summary>
         /// Hero Leaderboard  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardHeroApiResponse?> LeaderboardHeroOrDefaultAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaderboardHeroAsync(region, heroId, cancellationToken).ConfigureAwait(false);
+                return await LeaderboardHeroAsync(region, heroId, leaderboardId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -711,9 +737,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardHeroApiResponse> LeaderboardHeroAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -721,7 +748,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateLeaderboardHero(region);
 
-                FormatLeaderboardHero(ref region, ref heroId);
+                FormatLeaderboardHero(ref region, ref heroId, ref leaderboardId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -733,6 +760,13 @@ namespace DeadlockApiClient.Api
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/{hero_id}");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (leaderboardId.IsSet)
+                        parseQueryStringLocalVar["leaderboard_id"] = ClientUtils.ParameterToString(leaderboardId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -762,7 +796,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterLeaderboardHeroDefaultImplementation(apiResponseLocalVar, region, heroId);
+                        AfterLeaderboardHeroDefaultImplementation(apiResponseLocalVar, region, heroId, leaderboardId);
 
                         Events.ExecuteOnLeaderboardHero(apiResponseLocalVar);
 
@@ -772,7 +806,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaderboardHeroDefaultImplementation(e, "/v1/leaderboard/{region}/{hero_id}", uriBuilderLocalVar.Path, region, heroId);
+                OnErrorLeaderboardHeroDefaultImplementation(e, "/v1/leaderboard/{region}/{hero_id}", uriBuilderLocalVar.Path, region, heroId, leaderboardId);
                 Events.ExecuteOnErrorLeaderboardHero(e);
                 throw;
             }
@@ -895,7 +929,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLeaderboardHeroRaw(ref string region, ref int heroId);
+        partial void FormatLeaderboardHeroRaw(ref string region, ref int heroId, ref Option<int> leaderboardId);
 
         /// <summary>
         /// Validates the request parameters
@@ -914,10 +948,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        private void AfterLeaderboardHeroRawDefaultImplementation(ILeaderboardHeroRawApiResponse apiResponseLocalVar, string region, int heroId)
+        /// <param name="leaderboardId"></param>
+        private void AfterLeaderboardHeroRawDefaultImplementation(ILeaderboardHeroRawApiResponse apiResponseLocalVar, string region, int heroId, Option<int> leaderboardId)
         {
             bool suppressDefaultLog = false;
-            AfterLeaderboardHeroRaw(ref suppressDefaultLog, apiResponseLocalVar, region, heroId);
+            AfterLeaderboardHeroRaw(ref suppressDefaultLog, apiResponseLocalVar, region, heroId, leaderboardId);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -929,7 +964,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        partial void AfterLeaderboardHeroRaw(ref bool suppressDefaultLog, ILeaderboardHeroRawApiResponse apiResponseLocalVar, string region, int heroId);
+        /// <param name="leaderboardId"></param>
+        partial void AfterLeaderboardHeroRaw(ref bool suppressDefaultLog, ILeaderboardHeroRawApiResponse apiResponseLocalVar, string region, int heroId, Option<int> leaderboardId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -939,10 +975,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        private void OnErrorLeaderboardHeroRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId)
+        /// <param name="leaderboardId"></param>
+        private void OnErrorLeaderboardHeroRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId, Option<int> leaderboardId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaderboardHeroRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, heroId);
+            OnErrorLeaderboardHeroRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, heroId, leaderboardId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -956,20 +993,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
         /// <param name="heroId"></param>
-        partial void OnErrorLeaderboardHeroRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId);
+        /// <param name="leaderboardId"></param>
+        partial void OnErrorLeaderboardHeroRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, int heroId, Option<int> leaderboardId);
 
         /// <summary>
         /// Hero Leaderboard as Protobuf  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardHeroRawApiResponse?> LeaderboardHeroRawOrDefaultAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaderboardHeroRawAsync(region, heroId, cancellationToken).ConfigureAwait(false);
+                return await LeaderboardHeroRawAsync(region, heroId, leaderboardId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -983,9 +1022,10 @@ namespace DeadlockApiClient.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
         /// <param name="heroId">The hero ID to fetch the leaderboard for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardHeroRawApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardHeroRawApiResponse> LeaderboardHeroRawAsync(string region, int heroId, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -993,7 +1033,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateLeaderboardHeroRaw(region);
 
-                FormatLeaderboardHeroRaw(ref region, ref heroId);
+                FormatLeaderboardHeroRaw(ref region, ref heroId, ref leaderboardId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1005,6 +1045,13 @@ namespace DeadlockApiClient.Api
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/{hero_id}/raw");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bhero_id%7D", Uri.EscapeDataString(heroId.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (leaderboardId.IsSet)
+                        parseQueryStringLocalVar["leaderboard_id"] = ClientUtils.ParameterToString(leaderboardId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -1034,7 +1081,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterLeaderboardHeroRawDefaultImplementation(apiResponseLocalVar, region, heroId);
+                        AfterLeaderboardHeroRawDefaultImplementation(apiResponseLocalVar, region, heroId, leaderboardId);
 
                         Events.ExecuteOnLeaderboardHeroRaw(apiResponseLocalVar);
 
@@ -1044,7 +1091,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaderboardHeroRawDefaultImplementation(e, "/v1/leaderboard/{region}/{hero_id}/raw", uriBuilderLocalVar.Path, region, heroId);
+                OnErrorLeaderboardHeroRawDefaultImplementation(e, "/v1/leaderboard/{region}/{hero_id}/raw", uriBuilderLocalVar.Path, region, heroId, leaderboardId);
                 Events.ExecuteOnErrorLeaderboardHeroRaw(e);
                 throw;
             }
@@ -1167,7 +1214,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatLeaderboardRaw(ref string region);
+        partial void FormatLeaderboardRaw(ref string region, ref Option<int> leaderboardId);
 
         /// <summary>
         /// Validates the request parameters
@@ -1185,10 +1232,11 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
-        private void AfterLeaderboardRawDefaultImplementation(ILeaderboardRawApiResponse apiResponseLocalVar, string region)
+        /// <param name="leaderboardId"></param>
+        private void AfterLeaderboardRawDefaultImplementation(ILeaderboardRawApiResponse apiResponseLocalVar, string region, Option<int> leaderboardId)
         {
             bool suppressDefaultLog = false;
-            AfterLeaderboardRaw(ref suppressDefaultLog, apiResponseLocalVar, region);
+            AfterLeaderboardRaw(ref suppressDefaultLog, apiResponseLocalVar, region, leaderboardId);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1199,7 +1247,8 @@ namespace DeadlockApiClient.Api
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="region"></param>
-        partial void AfterLeaderboardRaw(ref bool suppressDefaultLog, ILeaderboardRawApiResponse apiResponseLocalVar, string region);
+        /// <param name="leaderboardId"></param>
+        partial void AfterLeaderboardRaw(ref bool suppressDefaultLog, ILeaderboardRawApiResponse apiResponseLocalVar, string region, Option<int> leaderboardId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1208,10 +1257,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
-        private void OnErrorLeaderboardRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region)
+        /// <param name="leaderboardId"></param>
+        private void OnErrorLeaderboardRawDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, Option<int> leaderboardId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorLeaderboardRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region);
+            OnErrorLeaderboardRaw(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, region, leaderboardId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1224,19 +1274,21 @@ namespace DeadlockApiClient.Api
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
         /// <param name="region"></param>
-        partial void OnErrorLeaderboardRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region);
+        /// <param name="leaderboardId"></param>
+        partial void OnErrorLeaderboardRaw(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string region, Option<int> leaderboardId);
 
         /// <summary>
         /// Leaderboard as Protobuf  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardRawApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardRawApiResponse?> LeaderboardRawOrDefaultAsync(string region, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardRawApiResponse?> LeaderboardRawOrDefaultAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await LeaderboardRawAsync(region, cancellationToken).ConfigureAwait(false);
+                return await LeaderboardRawAsync(region, leaderboardId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1249,9 +1301,10 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="region">The region to fetch the leaderboard for.</param>
+        /// <param name="leaderboardId">Leaderboard to fetch, e.g. a ranked season&#39;s &#x60;leaderboard_id&#x60; from &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. Defaults to the current one. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILeaderboardRawApiResponse"/>&gt;</returns>
-        public async Task<ILeaderboardRawApiResponse> LeaderboardRawAsync(string region, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ILeaderboardRawApiResponse> LeaderboardRawAsync(string region, Option<int> leaderboardId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -1259,7 +1312,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateLeaderboardRaw(region);
 
-                FormatLeaderboardRaw(ref region);
+                FormatLeaderboardRaw(ref region, ref leaderboardId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1270,6 +1323,13 @@ namespace DeadlockApiClient.Api
                         ? "/v1/leaderboard/{region}/raw"
                         : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/leaderboard/{region}/raw");
                     uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Bregion%7D", Uri.EscapeDataString(region.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    if (leaderboardId.IsSet)
+                        parseQueryStringLocalVar["leaderboard_id"] = ClientUtils.ParameterToString(leaderboardId.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
@@ -1299,7 +1359,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterLeaderboardRawDefaultImplementation(apiResponseLocalVar, region);
+                        AfterLeaderboardRawDefaultImplementation(apiResponseLocalVar, region, leaderboardId);
 
                         Events.ExecuteOnLeaderboardRaw(apiResponseLocalVar);
 
@@ -1309,7 +1369,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorLeaderboardRawDefaultImplementation(e, "/v1/leaderboard/{region}/raw", uriBuilderLocalVar.Path, region);
+                OnErrorLeaderboardRawDefaultImplementation(e, "/v1/leaderboard/{region}/raw", uriBuilderLocalVar.Path, region, leaderboardId);
                 Events.ExecuteOnErrorLeaderboardRaw(e);
                 throw;
             }

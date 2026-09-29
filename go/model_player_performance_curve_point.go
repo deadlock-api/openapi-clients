@@ -61,6 +61,8 @@ type PlayerPerformanceCurvePoint struct {
 	NetWorthAvg float64 `json:"net_worth_avg"`
 	// Standard deviation of net worth at this time point
 	NetWorthStd float64 `json:"net_worth_std"`
+	// Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+	PermanentBuffsAvg NullableFloat64 `json:"permanent_buffs_avg,omitempty"`
 }
 
 type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
@@ -582,6 +584,48 @@ func (o *PlayerPerformanceCurvePoint) SetNetWorthStd(v float64) {
 	o.NetWorthStd = v
 }
 
+// GetPermanentBuffsAvg returns the PermanentBuffsAvg field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerPerformanceCurvePoint) GetPermanentBuffsAvg() float64 {
+	if o == nil || IsNil(o.PermanentBuffsAvg.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.PermanentBuffsAvg.Get()
+}
+
+// GetPermanentBuffsAvgOk returns a tuple with the PermanentBuffsAvg field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerPerformanceCurvePoint) GetPermanentBuffsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.PermanentBuffsAvg.Get(), o.PermanentBuffsAvg.IsSet()
+}
+
+// HasPermanentBuffsAvg returns a boolean if a field has been set.
+func (o *PlayerPerformanceCurvePoint) HasPermanentBuffsAvg() bool {
+	if o != nil && o.PermanentBuffsAvg.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetPermanentBuffsAvg gets a reference to the given NullableFloat64 and assigns it to the PermanentBuffsAvg field.
+func (o *PlayerPerformanceCurvePoint) SetPermanentBuffsAvg(v float64) {
+	o.PermanentBuffsAvg.Set(&v)
+}
+// SetPermanentBuffsAvgNil sets the value for PermanentBuffsAvg to be an explicit nil
+func (o *PlayerPerformanceCurvePoint) SetPermanentBuffsAvgNil() {
+	o.PermanentBuffsAvg.Set(nil)
+}
+
+// UnsetPermanentBuffsAvg ensures that no value is present for PermanentBuffsAvg, not even an explicit nil
+func (o *PlayerPerformanceCurvePoint) UnsetPermanentBuffsAvg() {
+	o.PermanentBuffsAvg.Unset()
+}
+
 func (o PlayerPerformanceCurvePoint) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -612,6 +656,9 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["kills_std"] = o.KillsStd
 	toSerialize["net_worth_avg"] = o.NetWorthAvg
 	toSerialize["net_worth_std"] = o.NetWorthStd
+	if o.PermanentBuffsAvg.IsSet() {
+		toSerialize["permanent_buffs_avg"] = o.PermanentBuffsAvg.Get()
+	}
 	return toSerialize, nil
 }
 

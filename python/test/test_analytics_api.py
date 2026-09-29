@@ -40,6 +40,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_buff_stats(self) -> None:
+        """Test case for buff_stats
+
+        Buff Stats
+        """
+        pass
+
     def test_build_item_stats(self) -> None:
         """Test case for build_item_stats
 

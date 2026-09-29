@@ -109,6 +109,12 @@ export interface AnalyticsGameStats  {
      */
     avgFirstObjectiveDestroyedTimeS: number;
     /**
+     * Average game time (seconds) of a player\'s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgFirstPermanentBuffTimeS?: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsGameStats
@@ -223,6 +229,18 @@ export interface AnalyticsGameStats  {
      */
     avgNeutralKills: number;
     /**
+     * Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgPermanentBuffs: number;
+    /**
+     * Average permanent buff pickups per player per minute of match time.
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgPermanentBuffsPerMin: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsGameStats
@@ -319,6 +337,7 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgEndingLevel': json['avg_ending_level'],
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
         'avgFirstObjectiveDestroyedTimeS': json['avg_first_objective_destroyed_time_s'],
+        'avgFirstPermanentBuffTimeS': !exists(json, 'avg_first_permanent_buff_time_s') ? undefined : json['avg_first_permanent_buff_time_s'],
         'avgGoldBoss': json['avg_gold_boss'],
         'avgGoldBossOrb': json['avg_gold_boss_orb'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
@@ -338,6 +357,8 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgNetWorth': json['avg_net_worth'],
         'avgNeutralDamage': json['avg_neutral_damage'],
         'avgNeutralKills': json['avg_neutral_kills'],
+        'avgPermanentBuffs': json['avg_permanent_buffs'],
+        'avgPermanentBuffsPerMin': json['avg_permanent_buffs_per_min'],
         'avgPlayerDamage': json['avg_player_damage'],
         'avgPlayerDamageTaken': json['avg_player_damage_taken'],
         'avgPlayerHealing': json['avg_player_healing'],
@@ -374,6 +395,7 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_ending_level': value.avgEndingLevel,
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
         'avg_first_objective_destroyed_time_s': value.avgFirstObjectiveDestroyedTimeS,
+        'avg_first_permanent_buff_time_s': value.avgFirstPermanentBuffTimeS,
         'avg_gold_boss': value.avgGoldBoss,
         'avg_gold_boss_orb': value.avgGoldBossOrb,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
@@ -393,6 +415,8 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_net_worth': value.avgNetWorth,
         'avg_neutral_damage': value.avgNeutralDamage,
         'avg_neutral_kills': value.avgNeutralKills,
+        'avg_permanent_buffs': value.avgPermanentBuffs,
+        'avg_permanent_buffs_per_min': value.avgPermanentBuffsPerMin,
         'avg_player_damage': value.avgPlayerDamage,
         'avg_player_damage_taken': value.avgPlayerDamageTaken,
         'avg_player_healing': value.avgPlayerHealing,

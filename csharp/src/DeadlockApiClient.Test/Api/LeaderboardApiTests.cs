@@ -57,7 +57,8 @@ namespace DeadlockApiClient.Test.Api
         public async Task LeaderboardAsyncTest()
         {
             string region = default!;
-            var response = await _instance.LeaderboardAsync(region);
+            Client.Option<int> leaderboardId = default!;
+            var response = await _instance.LeaderboardAsync(region, leaderboardId);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Leaderboard>(model);
         }
@@ -70,7 +71,8 @@ namespace DeadlockApiClient.Test.Api
         {
             string region = default!;
             int heroId = default!;
-            var response = await _instance.LeaderboardHeroAsync(region, heroId);
+            Client.Option<int> leaderboardId = default!;
+            var response = await _instance.LeaderboardHeroAsync(region, heroId, leaderboardId);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Leaderboard>(model);
         }
@@ -83,7 +85,8 @@ namespace DeadlockApiClient.Test.Api
         {
             string region = default!;
             int heroId = default!;
-            var response = await _instance.LeaderboardHeroRawAsync(region, heroId);
+            Client.Option<int> leaderboardId = default!;
+            var response = await _instance.LeaderboardHeroRawAsync(region, heroId, leaderboardId);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }
@@ -95,7 +98,8 @@ namespace DeadlockApiClient.Test.Api
         public async Task LeaderboardRawAsyncTest()
         {
             string region = default!;
-            var response = await _instance.LeaderboardRawAsync(region);
+            Client.Option<int> leaderboardId = default!;
+            var response = await _instance.LeaderboardRawAsync(region, leaderboardId);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }
