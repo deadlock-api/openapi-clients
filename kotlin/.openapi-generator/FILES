@@ -53,6 +53,8 @@ docs/CorruptedPenaltyEffect.md
 docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
+docs/CrosshairApi.md
+docs/CrosshairCode.md
 docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
@@ -277,6 +279,7 @@ src/main/kotlin/deadlock_api_client/apis/BuildsApi.kt
 src/main/kotlin/deadlock_api_client/apis/ClientVersionsApi.kt
 src/main/kotlin/deadlock_api_client/apis/ColorsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CommandsApi.kt
+src/main/kotlin/deadlock_api_client/apis/CrosshairApi.kt
 src/main/kotlin/deadlock_api_client/apis/CustomMatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/DemoApi.kt
 src/main/kotlin/deadlock_api_client/apis/GenericDataApi.kt
@@ -361,6 +364,7 @@ src/main/kotlin/deadlock_api_client/models/CorruptedPenaltyEffect.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedTooltipBackers.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomRequest.kt
 src/main/kotlin/deadlock_api_client/models/CreateCustomResponse.kt
+src/main/kotlin/deadlock_api_client/models/CrosshairCode.kt
 src/main/kotlin/deadlock_api_client/models/Curve.kt
 src/main/kotlin/deadlock_api_client/models/CurveOrFloat.kt
 src/main/kotlin/deadlock_api_client/models/DamageFlash.kt
@@ -561,6 +565,7 @@ src/test/kotlin/deadlock_api_client/apis/BuildsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/ClientVersionsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/ColorsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CommandsApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/CrosshairApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CustomMatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/DemoApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/GenericDataApiTest.kt
@@ -628,6 +633,7 @@ src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedTooltipBackersTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/CreateCustomResponseTest.kt
+src/test/kotlin/deadlock_api_client/models/CrosshairCodeTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveOrFloatTest.kt
 src/test/kotlin/deadlock_api_client/models/CurveTest.kt
 src/test/kotlin/deadlock_api_client/models/DamageFlashTest.kt

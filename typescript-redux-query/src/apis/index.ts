@@ -6,6 +6,7 @@ export * from './BuildsApi';
 export * from './ClientVersionsApi';
 export * from './ColorsApi';
 export * from './CommandsApi';
+export * from './CrosshairApi';
 export * from './CustomMatchesApi';
 export * from './DemoApi';
 export * from './GenericDataApi';

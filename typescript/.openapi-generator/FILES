@@ -11,6 +11,7 @@ apis/builds-api.ts
 apis/client-versions-api.ts
 apis/colors-api.ts
 apis/commands-api.ts
+apis/crosshair-api.ts
 apis/custom-matches-api.ts
 apis/demo-api.ts
 apis/generic-data-api.ts
@@ -89,6 +90,8 @@ docs/CorruptedPenaltyEffect.md
 docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
+docs/CrosshairApi.md
+docs/CrosshairCode.md
 docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
@@ -350,6 +353,7 @@ models/corrupted-penalty.ts
 models/corrupted-tooltip-backers.ts
 models/create-custom-request.ts
 models/create-custom-response.ts
+models/crosshair-code.ts
 models/curve-or-float.ts
 models/curve.ts
 models/damage-flash.ts

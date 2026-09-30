@@ -94,6 +94,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new CorruptedTooltipBackersJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomRequestJsonConverter());
             _jsonOptions.Converters.Add(new CreateCustomResponseJsonConverter());
+            _jsonOptions.Converters.Add(new CrosshairCodeJsonConverter());
             _jsonOptions.Converters.Add(new CurveJsonConverter());
             _jsonOptions.Converters.Add(new CurveOrFloatJsonConverter());
             _jsonOptions.Converters.Add(new DamageFlashJsonConverter());
@@ -310,6 +311,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<ClientVersionsApiEvents>();
             _services.AddSingleton<ColorsApiEvents>();
             _services.AddSingleton<CommandsApiEvents>();
+            _services.AddSingleton<CrosshairApiEvents>();
             _services.AddSingleton<CustomMatchesApiEvents>();
             _services.AddSingleton<DemoApiEvents>();
             _services.AddSingleton<GenericDataApiEvents>();
@@ -386,6 +388,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IClientVersionsApi, ClientVersionsApi>("DeadlockApiClient.Api.IClientVersionsApi", client));
             builders.Add(_services.AddHttpClient<IColorsApi, ColorsApi>("DeadlockApiClient.Api.IColorsApi", client));
             builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>("DeadlockApiClient.Api.ICommandsApi", client));
+            builders.Add(_services.AddHttpClient<ICrosshairApi, CrosshairApi>("DeadlockApiClient.Api.ICrosshairApi", client));
             builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>("DeadlockApiClient.Api.ICustomMatchesApi", client));
             builders.Add(_services.AddHttpClient<IDemoApi, DemoApi>("DeadlockApiClient.Api.IDemoApi", client));
             builders.Add(_services.AddHttpClient<IGenericDataApi, GenericDataApi>("DeadlockApiClient.Api.IGenericDataApi", client));

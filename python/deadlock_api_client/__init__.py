@@ -26,6 +26,7 @@ __all__ = [
     "ClientVersionsApi",
     "ColorsApi",
     "CommandsApi",
+    "CrosshairApi",
     "CustomMatchesApi",
     "DemoApi",
     "GenericDataApi",
@@ -102,6 +103,7 @@ __all__ = [
     "CorruptedTooltipBackers",
     "CreateCustomRequest",
     "CreateCustomResponse",
+    "CrosshairCode",
     "Curve",
     "CurveOrFloat",
     "DamageFlash",
@@ -305,6 +307,7 @@ from deadlock_api_client.api.builds_api import BuildsApi as BuildsApi
 from deadlock_api_client.api.client_versions_api import ClientVersionsApi as ClientVersionsApi
 from deadlock_api_client.api.colors_api import ColorsApi as ColorsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
+from deadlock_api_client.api.crosshair_api import CrosshairApi as CrosshairApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
 from deadlock_api_client.api.demo_api import DemoApi as DemoApi
 from deadlock_api_client.api.generic_data_api import GenericDataApi as GenericDataApi
@@ -385,6 +388,7 @@ from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenalty
 from deadlock_api_client.models.corrupted_tooltip_backers import CorruptedTooltipBackers as CorruptedTooltipBackers
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest as CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse as CreateCustomResponse
+from deadlock_api_client.models.crosshair_code import CrosshairCode as CrosshairCode
 from deadlock_api_client.models.curve import Curve as Curve
 from deadlock_api_client.models.curve_or_float import CurveOrFloat as CurveOrFloat
 from deadlock_api_client.models.damage_flash import DamageFlash as DamageFlash

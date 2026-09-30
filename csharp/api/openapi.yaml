@@ -88,6 +88,9 @@ tags:
     Provides functionality to resolve dynamic command templates and variables for streaming overlays and chat commands.
     Includes endpoints to retrieve available variables, resolve specific variables or command templates, and get widget version information.
   name: Commands
+- description: "Convert between in-game crosshair share codes (`DL.…`), crosshair\
+    \ settings and rendered crosshair images."
+  name: Crosshair
 - description: |2
 
     System status and info endpoints.
@@ -8455,6 +8458,492 @@ paths:
       summary: Widget Versions
       tags:
       - Commands
+  /v1/crosshair/code/image:
+    get:
+      description: "Renders a crosshair share code as a PNG, pixel for pixel as the\
+        \ game draws it at the given screen height. The image is square, centred on\
+        \ the crosshair and has a transparent background."
+      operationId: code_image
+      parameters:
+      - description: "Crosshair share code, as copied from the game's crosshair settings\
+          \ (`DL.…`)."
+        explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Height of the screen to render for, in pixels. Crosshair sizes\
+          \ scale with it."
+        explode: true
+        in: query
+        name: screen_height
+        required: false
+        schema:
+          default: 1080
+          format: int32
+          maximum: 4320
+          minimum: 480
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+          description: Crosshair image with a transparent background
+        "400":
+          description: "Invalid crosshair code or screen height, or the crosshair\
+            \ is too large to render"
+      summary: Crosshair Code Image
+      tags:
+      - Crosshair
+  /v1/crosshair/settings/code:
+    get:
+      description: Encodes crosshair settings into a share code that can be imported
+        in the game. Settings that are not given keep the game's defaults.
+      operationId: settings_code
+      parameters:
+      - description: Use the hero's own crosshair instead of these settings.
+        explode: true
+        in: query
+        name: themed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: Keep the pips at a fixed distance instead of spreading them with
+          weapon spread.
+        explode: true
+        in: query
+        name: pip_gap_static
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: pip_width
+        required: false
+        schema:
+          default: 2
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_height
+        required: false
+        schema:
+          default: 16
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_gap
+        required: false
+        schema:
+          default: 4
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: pip_opacity
+        required: false
+        schema:
+          default: 0.5
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: pip_outline_border
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_outline_gap
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: pip_outline_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: dot_size
+        required: false
+        schema:
+          default: 4
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: dot_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: dot_outline_border
+        required: false
+        schema:
+          default: 2
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: dot_outline_gap
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: dot_outline_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: color_r
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: color_g
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: color_b
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_r
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_g
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_b
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CrosshairCode"
+          description: OK
+        "400":
+          description: Invalid settings
+      summary: Crosshair Settings Code
+      tags:
+      - Crosshair
+  /v1/crosshair/settings/image:
+    get:
+      description: "Renders crosshair settings as a PNG, pixel for pixel as the game\
+        \ draws them at the given screen height. Settings that are not given keep\
+        \ the game's defaults. The image is square, centred on the crosshair and has\
+        \ a transparent background."
+      operationId: settings_image
+      parameters:
+      - description: Use the hero's own crosshair instead of these settings.
+        explode: true
+        in: query
+        name: themed
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - description: Keep the pips at a fixed distance instead of spreading them with
+          weapon spread.
+        explode: true
+        in: query
+        name: pip_gap_static
+        required: false
+        schema:
+          default: false
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: pip_width
+        required: false
+        schema:
+          default: 2
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_height
+        required: false
+        schema:
+          default: 16
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_gap
+        required: false
+        schema:
+          default: 4
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: pip_opacity
+        required: false
+        schema:
+          default: 0.5
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: pip_outline_border
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pip_outline_gap
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: pip_outline_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: dot_size
+        required: false
+        schema:
+          default: 4
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: dot_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: dot_outline_border
+        required: false
+        schema:
+          default: 2
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: dot_outline_gap
+        required: false
+        schema:
+          default: 0
+          format: int32
+          type: integer
+        style: form
+      - description: 0 to 1.
+        explode: true
+        in: query
+        name: dot_outline_opacity
+        required: false
+        schema:
+          default: 0.7
+          format: float
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: color_r
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: color_g
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: color_b
+        required: false
+        schema:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_r
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_g
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: outline_color_b
+        required: false
+        schema:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - description: "Height of the screen to render for, in pixels. Crosshair sizes\
+          \ scale with it."
+        explode: true
+        in: query
+        name: screen_height
+        required: false
+        schema:
+          default: 1080
+          format: int32
+          maximum: 4320
+          minimum: 480
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            image/png:
+              schema:
+                items:
+                  format: int32
+                  minimum: 0
+                  type: integer
+                type: array
+                default: null
+          description: Crosshair image with a transparent background
+        "400":
+          description: "Invalid settings or screen height, or the crosshair is too\
+            \ large to render"
+      summary: Crosshair Settings Image
+      tags:
+      - Crosshair
   /v1/feedback:
     post:
       description: "\nStores a component annotation or general feedback submitted\
@@ -14112,6 +14601,16 @@ components:
       required:
       - party_code
       - party_id
+    CrosshairCode:
+      example:
+        code: code
+      properties:
+        code:
+          description: Crosshair share code that can be imported in the game's crosshair
+            settings.
+          type: string
+      required:
+      - code
     Curve:
       properties:
         base:
@@ -22564,6 +23063,7 @@ x-tagGroups:
   tags:
   - Info
   - Patches
+  - Crosshair
 - name: Developer
   tags:
   - GraphQL

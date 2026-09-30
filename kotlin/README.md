@@ -103,6 +103,9 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CommandsApi* | [**commandResolve**](docs/CommandsApi.md#commandresolve) | **GET** /v1/commands/resolve | Resolve Command |
 | *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables |
 | *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions |
+| *CrosshairApi* | [**codeImage**](docs/CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
+| *CrosshairApi* | [**settingsCode**](docs/CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
+| *CrosshairApi* | [**settingsImage**](docs/CrosshairApi.md#settingsimage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image |
 | *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match |
 | *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID |
 | *CustomMatchesApi* | [**leave**](docs/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby |
@@ -237,6 +240,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.CorruptedTooltipBackers](docs/CorruptedTooltipBackers.md)
  - [deadlock_api_client.models.CreateCustomRequest](docs/CreateCustomRequest.md)
  - [deadlock_api_client.models.CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [deadlock_api_client.models.CrosshairCode](docs/CrosshairCode.md)
  - [deadlock_api_client.models.Curve](docs/Curve.md)
  - [deadlock_api_client.models.CurveOrFloat](docs/CurveOrFloat.md)
  - [deadlock_api_client.models.DamageFlash](docs/DamageFlash.md)

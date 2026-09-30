@@ -12,6 +12,7 @@ docs/apis/BuildsApi.md
 docs/apis/ClientVersionsApi.md
 docs/apis/ColorsApi.md
 docs/apis/CommandsApi.md
+docs/apis/CrosshairApi.md
 docs/apis/CustomMatchesApi.md
 docs/apis/DemoApi.md
 docs/apis/GenericDataApi.md
@@ -79,6 +80,7 @@ docs/models/CorruptedPenaltyEffect.md
 docs/models/CorruptedTooltipBackers.md
 docs/models/CreateCustomRequest.md
 docs/models/CreateCustomResponse.md
+docs/models/CrosshairCode.md
 docs/models/Curve.md
 docs/models/CurveOrFloat.md
 docs/models/DamageFlash.md
@@ -282,6 +284,7 @@ src/DeadlockApiClient.Test/Api/BuildsApiTests.cs
 src/DeadlockApiClient.Test/Api/ClientVersionsApiTests.cs
 src/DeadlockApiClient.Test/Api/ColorsApiTests.cs
 src/DeadlockApiClient.Test/Api/CommandsApiTests.cs
+src/DeadlockApiClient.Test/Api/CrosshairApiTests.cs
 src/DeadlockApiClient.Test/Api/CustomMatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/DemoApiTests.cs
 src/DeadlockApiClient.Test/Api/DependencyInjectionTests.cs
@@ -351,6 +354,7 @@ src/DeadlockApiClient.Test/Model/CorruptedPenaltyTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedTooltipBackersTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomRequestTests.cs
 src/DeadlockApiClient.Test/Model/CreateCustomResponseTests.cs
+src/DeadlockApiClient.Test/Model/CrosshairCodeTests.cs
 src/DeadlockApiClient.Test/Model/CurveOrFloatTests.cs
 src/DeadlockApiClient.Test/Model/CurveTests.cs
 src/DeadlockApiClient.Test/Model/DamageFlashTests.cs
@@ -552,6 +556,7 @@ src/DeadlockApiClient/Api/BuildsApi.cs
 src/DeadlockApiClient/Api/ClientVersionsApi.cs
 src/DeadlockApiClient/Api/ColorsApi.cs
 src/DeadlockApiClient/Api/CommandsApi.cs
+src/DeadlockApiClient/Api/CrosshairApi.cs
 src/DeadlockApiClient/Api/CustomMatchesApi.cs
 src/DeadlockApiClient/Api/DemoApi.cs
 src/DeadlockApiClient/Api/GenericDataApi.cs
@@ -645,6 +650,7 @@ src/DeadlockApiClient/Model/CorruptedPenaltyEffect.cs
 src/DeadlockApiClient/Model/CorruptedTooltipBackers.cs
 src/DeadlockApiClient/Model/CreateCustomRequest.cs
 src/DeadlockApiClient/Model/CreateCustomResponse.cs
+src/DeadlockApiClient/Model/CrosshairCode.cs
 src/DeadlockApiClient/Model/Curve.cs
 src/DeadlockApiClient/Model/CurveOrFloat.cs
 src/DeadlockApiClient/Model/DamageFlash.cs

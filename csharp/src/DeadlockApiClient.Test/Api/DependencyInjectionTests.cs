@@ -106,6 +106,9 @@ namespace DeadlockApiClient.Test.Api
             var commandsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
 
+            var crosshairApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICrosshairApi>();
+            Assert.True(crosshairApi.HttpClient.BaseAddress != null);
+
             var customMatchesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
 
@@ -205,6 +208,9 @@ namespace DeadlockApiClient.Test.Api
 
             var commandsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
+
+            var crosshairApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICrosshairApi>();
+            Assert.True(crosshairApi.HttpClient.BaseAddress != null);
 
             var customMatchesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
@@ -306,6 +312,9 @@ namespace DeadlockApiClient.Test.Api
             var commandsApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
             
+            var crosshairApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICrosshairApi>();
+            Assert.True(crosshairApi.HttpClient.BaseAddress != null);
+            
             var customMatchesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);
             
@@ -405,6 +414,9 @@ namespace DeadlockApiClient.Test.Api
 
             var commandsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICommandsApi>();
             Assert.True(commandsApi.HttpClient.BaseAddress != null);
+
+            var crosshairApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICrosshairApi>();
+            Assert.True(crosshairApi.HttpClient.BaseAddress != null);
 
             var customMatchesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ICustomMatchesApi>();
             Assert.True(customMatchesApi.HttpClient.BaseAddress != null);

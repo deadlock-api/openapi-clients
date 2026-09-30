@@ -11,6 +11,7 @@ api/Api/BuildsApi.php
 api/Api/ClientVersionsApi.php
 api/Api/ColorsApi.php
 api/Api/CommandsApi.php
+api/Api/CrosshairApi.php
 api/Api/CustomMatchesApi.php
 api/Api/DemoApi.php
 api/Api/GenericDataApi.php
@@ -82,6 +83,7 @@ api/Model/CorruptedPenaltyEffect.php
 api/Model/CorruptedTooltipBackers.php
 api/Model/CreateCustomRequest.php
 api/Model/CreateCustomResponse.php
+api/Model/CrosshairCode.php
 api/Model/Curve.php
 api/Model/CurveOrFloat.php
 api/Model/DamageFlash.php
@@ -285,6 +287,7 @@ docs/Api/BuildsApi.md
 docs/Api/ClientVersionsApi.md
 docs/Api/ColorsApi.md
 docs/Api/CommandsApi.md
+docs/Api/CrosshairApi.md
 docs/Api/CustomMatchesApi.md
 docs/Api/DemoApi.md
 docs/Api/GenericDataApi.md
@@ -352,6 +355,7 @@ docs/Model/CorruptedPenaltyEffect.md
 docs/Model/CorruptedTooltipBackers.md
 docs/Model/CreateCustomRequest.md
 docs/Model/CreateCustomResponse.md
+docs/Model/CrosshairCode.md
 docs/Model/Curve.md
 docs/Model/CurveOrFloat.md
 docs/Model/DamageFlash.md
@@ -554,6 +558,7 @@ test/Api/BuildsApiTest.php
 test/Api/ClientVersionsApiTest.php
 test/Api/ColorsApiTest.php
 test/Api/CommandsApiTest.php
+test/Api/CrosshairApiTest.php
 test/Api/CustomMatchesApiTest.php
 test/Api/DemoApiTest.php
 test/Api/GenericDataApiTest.php
@@ -621,6 +626,7 @@ test/Model/CorruptedPenaltyTest.php
 test/Model/CorruptedTooltipBackersTest.php
 test/Model/CreateCustomRequestTest.php
 test/Model/CreateCustomResponseTest.php
+test/Model/CrosshairCodeTest.php
 test/Model/CurveOrFloatTest.php
 test/Model/CurveTest.php
 test/Model/DamageFlashTest.php

@@ -54,6 +54,9 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandResolve**](Apis/CommandsApi.http#commandresolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variablesResolve**](Apis/CommandsApi.http#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
 *CommandsApi* | [**widgetVersions**](Apis/CommandsApi.http#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
+*CrosshairApi* | [**codeImage**](Apis/CrosshairApi.http#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image
+*CrosshairApi* | [**settingsCode**](Apis/CrosshairApi.http#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
+*CrosshairApi* | [**settingsImage**](Apis/CrosshairApi.http#settingsimage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image
 *CustomMatchesApi* | [**createCustom**](Apis/CustomMatchesApi.http#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](Apis/CustomMatchesApi.http#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**leave**](Apis/CustomMatchesApi.http#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby

@@ -42,6 +42,7 @@ export * from './CorruptedPenaltyEffect';
 export * from './CorruptedTooltipBackers';
 export * from './CreateCustomRequest';
 export * from './CreateCustomResponse';
+export * from './CrosshairCode';
 export * from './Curve';
 export * from './CurveOrFloat';
 export * from './DamageFlash';

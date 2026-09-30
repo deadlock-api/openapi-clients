@@ -57,6 +57,7 @@ from deadlock_api_client.models.corrupted_penalty_effect import CorruptedPenalty
 from deadlock_api_client.models.corrupted_tooltip_backers import CorruptedTooltipBackers
 from deadlock_api_client.models.create_custom_request import CreateCustomRequest
 from deadlock_api_client.models.create_custom_response import CreateCustomResponse
+from deadlock_api_client.models.crosshair_code import CrosshairCode
 from deadlock_api_client.models.curve import Curve
 from deadlock_api_client.models.curve_or_float import CurveOrFloat
 from deadlock_api_client.models.damage_flash import DamageFlash

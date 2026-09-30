@@ -14,6 +14,7 @@ deadlock_api_client/api/builds_api.py
 deadlock_api_client/api/client_versions_api.py
 deadlock_api_client/api/colors_api.py
 deadlock_api_client/api/commands_api.py
+deadlock_api_client/api/crosshair_api.py
 deadlock_api_client/api/custom_matches_api.py
 deadlock_api_client/api/demo_api.py
 deadlock_api_client/api/generic_data_api.py
@@ -86,6 +87,7 @@ deadlock_api_client/models/corrupted_penalty_effect.py
 deadlock_api_client/models/corrupted_tooltip_backers.py
 deadlock_api_client/models/create_custom_request.py
 deadlock_api_client/models/create_custom_response.py
+deadlock_api_client/models/crosshair_code.py
 deadlock_api_client/models/curve.py
 deadlock_api_client/models/curve_or_float.py
 deadlock_api_client/models/damage_flash.py
@@ -332,6 +334,8 @@ docs/CorruptedPenaltyEffect.md
 docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
+docs/CrosshairApi.md
+docs/CrosshairCode.md
 docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
@@ -606,6 +610,8 @@ test/test_corrupted_penalty_effect.py
 test/test_corrupted_tooltip_backers.py
 test/test_create_custom_request.py
 test/test_create_custom_response.py
+test/test_crosshair_api.py
+test/test_crosshair_code.py
 test/test_curve.py
 test/test_curve_or_float.py
 test/test_custom_matches_api.py

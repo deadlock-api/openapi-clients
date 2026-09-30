@@ -55,6 +55,8 @@ docs/CorruptedPenaltyEffect.md
 docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
+docs/CrosshairApi.md
+docs/CrosshairCode.md
 docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesApi.md
@@ -280,6 +282,7 @@ src/apis/client_versions_api.rs
 src/apis/colors_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
+src/apis/crosshair_api.rs
 src/apis/custom_matches_api.rs
 src/apis/demo_api.rs
 src/apis/generic_data_api.rs
@@ -349,6 +352,7 @@ src/models/corrupted_penalty_effect.rs
 src/models/corrupted_tooltip_backers.rs
 src/models/create_custom_request.rs
 src/models/create_custom_response.rs
+src/models/crosshair_code.rs
 src/models/curve.rs
 src/models/curve_or_float.rs
 src/models/damage_flash.rs

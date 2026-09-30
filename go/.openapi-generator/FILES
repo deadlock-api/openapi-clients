@@ -11,6 +11,7 @@ api_builds.go
 api_client_versions.go
 api_colors.go
 api_commands.go
+api_crosshair.go
 api_custom_matches.go
 api_demo.go
 api_generic_data.go
@@ -88,6 +89,8 @@ docs/CorruptedPenaltyEffect.md
 docs/CorruptedTooltipBackers.md
 docs/CreateCustomRequest.md
 docs/CreateCustomResponse.md
+docs/CrosshairAPI.md
+docs/CrosshairCode.md
 docs/Curve.md
 docs/CurveOrFloat.md
 docs/CustomMatchesAPI.md
@@ -350,6 +353,7 @@ model_corrupted_penalty_effect.go
 model_corrupted_tooltip_backers.go
 model_create_custom_request.go
 model_create_custom_response.go
+model_crosshair_code.go
 model_curve.go
 model_curve_or_float.go
 model_damage_flash.go
@@ -551,6 +555,7 @@ test/api_builds_test.go
 test/api_client_versions_test.go
 test/api_colors_test.go
 test/api_commands_test.go
+test/api_crosshair_test.go
 test/api_custom_matches_test.go
 test/api_demo_test.go
 test/api_generic_data_test.go

@@ -91,6 +91,9 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandResolve**](docs/CommandsApi.md#commandresolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
 *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
+*CrosshairApi* | [**codeImage**](docs/CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image
+*CrosshairApi* | [**settingsCode**](docs/CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
+*CrosshairApi* | [**settingsImage**](docs/CrosshairApi.md#settingsimage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image
 *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match
 *CustomMatchesApi* | [**getCustom**](docs/CustomMatchesApi.md#getcustom) | **GET** /v1/matches/custom/{party_id}/match-id | Get Match ID
 *CustomMatchesApi* | [**leave**](docs/CustomMatchesApi.md#leave) | **POST** /v1/matches/custom/{lobby_id}/leave | Leave Lobby
@@ -224,6 +227,7 @@ Class | Method | HTTP request | Description
  - [CorruptedTooltipBackers](docs/CorruptedTooltipBackers.md)
  - [CreateCustomRequest](docs/CreateCustomRequest.md)
  - [CreateCustomResponse](docs/CreateCustomResponse.md)
+ - [CrosshairCode](docs/CrosshairCode.md)
  - [Curve](docs/Curve.md)
  - [CurveOrFloat](docs/CurveOrFloat.md)
  - [DamageFlash](docs/DamageFlash.md)

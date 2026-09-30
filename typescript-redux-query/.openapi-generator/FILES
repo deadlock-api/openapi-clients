@@ -11,6 +11,7 @@ src/apis/BuildsApi.ts
 src/apis/ClientVersionsApi.ts
 src/apis/ColorsApi.ts
 src/apis/CommandsApi.ts
+src/apis/CrosshairApi.ts
 src/apis/CustomMatchesApi.ts
 src/apis/DemoApi.ts
 src/apis/GenericDataApi.ts
@@ -80,6 +81,7 @@ src/models/CorruptedPenaltyEffect.ts
 src/models/CorruptedTooltipBackers.ts
 src/models/CreateCustomRequest.ts
 src/models/CreateCustomResponse.ts
+src/models/CrosshairCode.ts
 src/models/Curve.ts
 src/models/CurveOrFloat.ts
 src/models/DamageFlash.ts
