@@ -89,6 +89,24 @@ class PlayerEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "badge"
+     */
+    public function testPropertyBadge()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "badge_progress"
+     */
+    public function testPropertyBadgeProgress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "matches"
      */
     public function testPropertyMatches()

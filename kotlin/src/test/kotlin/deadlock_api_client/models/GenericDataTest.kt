@@ -34,6 +34,7 @@ import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
 import deadlock_api_client.models.ItemGroup
+import deadlock_api_client.models.ItemTooltipBackers
 import deadlock_api_client.models.LaneInfo
 import deadlock_api_client.models.MapDistrict
 import deadlock_api_client.models.MiniMapOffsets
@@ -81,6 +82,12 @@ class GenericDataTest : ShouldSpec() {
         should("test itemPricePerTier") {
             // uncomment below to test the property
             //modelInstance.itemPricePerTier shouldBe ("TODO")
+        }
+
+        // to test the property `itemTooltipBackers` - Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+        should("test itemTooltipBackers") {
+            // uncomment below to test the property
+            //modelInstance.itemTooltipBackers shouldBe ("TODO")
         }
 
         // to test the property `laneInfo`

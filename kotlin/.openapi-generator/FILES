@@ -125,6 +125,8 @@ docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
 docs/ItemStats.md
+docs/ItemTooltipBacker.md
+docs/ItemTooltipBackers.md
 docs/ItemType.md
 docs/ItemsApi.md
 docs/JobStatus.md
@@ -424,6 +426,8 @@ src/main/kotlin/deadlock_api_client/models/ItemPermutationStats.kt
 src/main/kotlin/deadlock_api_client/models/ItemProperty.kt
 src/main/kotlin/deadlock_api_client/models/ItemSlotType.kt
 src/main/kotlin/deadlock_api_client/models/ItemStats.kt
+src/main/kotlin/deadlock_api_client/models/ItemTooltipBacker.kt
+src/main/kotlin/deadlock_api_client/models/ItemTooltipBackers.kt
 src/main/kotlin/deadlock_api_client/models/ItemType.kt
 src/main/kotlin/deadlock_api_client/models/JobStatus.kt
 src/main/kotlin/deadlock_api_client/models/KillDeathStats.kt
@@ -689,6 +693,8 @@ src/test/kotlin/deadlock_api_client/models/ItemPropertyTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemSlotTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemTooltipBackerTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemTooltipBackersTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/JobStatusTest.kt
 src/test/kotlin/deadlock_api_client/models/KillDeathStatsTest.kt

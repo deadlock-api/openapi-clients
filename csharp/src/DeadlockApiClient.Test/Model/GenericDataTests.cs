@@ -108,6 +108,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ItemTooltipBackers'
+        /// </summary>
+        [Fact]
+        public void ItemTooltipBackersTest()
+        {
+            // TODO unit test for the property 'ItemTooltipBackers'
+        }
+
+        /// <summary>
         /// Test the property 'LaneInfo'
         /// </summary>
         [Fact]

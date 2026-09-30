@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **hero_kill_gold_share_frac** | **Array&lt;number&gt;** |  | [default to undefined]
 **item_corruption_price_per_tier** | **Array&lt;number&gt;** | Extra cost of corrupting an item, by item tier (build 6711+). | [optional] [default to undefined]
 **item_price_per_tier** | **Array&lt;number&gt;** |  | [default to undefined]
+**item_tooltip_backers** | [**ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;). | [default to undefined]
 **lane_info** | [**Array&lt;LaneInfo&gt;**](LaneInfo.md) |  | [default to undefined]
 **map_districts** | [**Array&lt;MapDistrict&gt;**](MapDistrict.md) | District / building labels shown on the map (build 6711+). | [optional] [default to undefined]
 **mini_map_offsets** | [**Array&lt;MiniMapOffsets&gt;**](MiniMapOffsets.md) |  | [default to undefined]
@@ -60,6 +61,7 @@ const instance: GenericData = {
     hero_kill_gold_share_frac,
     item_corruption_price_per_tier,
     item_price_per_tier,
+    item_tooltip_backers,
     lane_info,
     map_districts,
     mini_map_offsets,

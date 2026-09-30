@@ -167,6 +167,9 @@ Card Card
 
 This endpoint returns the player card for the given `account_id`.
 
+Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and
+`ranked_subrank` are the rank after the player's latest ranked match (same as `/v1/players/{account_id}/rank`).
+
 !THIS IS A PATREON ONLY ENDPOINT!
 
 You have to be friend with one of the bots to use this endpoint.

@@ -88,5 +88,23 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Value'
         }
+
+        /// <summary>
+        /// Test the property 'Badge'
+        /// </summary>
+        [Fact]
+        public void BadgeTest()
+        {
+            // TODO unit test for the property 'Badge'
+        }
+
+        /// <summary>
+        /// Test the property 'BadgeProgress'
+        /// </summary>
+        [Fact]
+        public void BadgeProgressTest()
+        {
+            // TODO unit test for the property 'BadgeProgress'
+        }
     }
 }

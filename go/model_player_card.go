@@ -22,7 +22,7 @@ var _ MappedNullable = &PlayerCard{}
 // PlayerCard struct for PlayerCard
 type PlayerCard struct {
 	AccountId int32 `json:"account_id"`
-	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	// Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedBadgeLevel NullableInt32 `json:"ranked_badge_level,omitempty"`
 	// See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	RankedRank NullableInt32 `json:"ranked_rank,omitempty"`

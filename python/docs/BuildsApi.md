@@ -97,7 +97,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **404** | Build not found |  -  |
 **429** | Rate limit exceeded |  -  |
@@ -187,7 +187,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Fetching builds failed |  -  |
@@ -303,7 +303,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Internal server error |  -  |

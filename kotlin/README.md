@@ -302,6 +302,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ItemProperty](docs/ItemProperty.md)
  - [deadlock_api_client.models.ItemSlotType](docs/ItemSlotType.md)
  - [deadlock_api_client.models.ItemStats](docs/ItemStats.md)
+ - [deadlock_api_client.models.ItemTooltipBacker](docs/ItemTooltipBacker.md)
+ - [deadlock_api_client.models.ItemTooltipBackers](docs/ItemTooltipBackers.md)
  - [deadlock_api_client.models.ItemType](docs/ItemType.md)
  - [deadlock_api_client.models.JobStatus](docs/JobStatus.md)
  - [deadlock_api_client.models.KillDeathStats](docs/KillDeathStats.md)

@@ -25,6 +25,18 @@ export interface PlayerEntry  {
      */
     accountId: number;
     /**
+     * `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @type {number}
+     * @memberof PlayerEntry
+     */
+    badge?: number;
+    /**
+     * `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+     * @type {number}
+     * @memberof PlayerEntry
+     */
+    badgeProgress?: number;
+    /**
      * 
      * @type {number}
      * @memberof PlayerEntry
@@ -47,6 +59,8 @@ export interface PlayerEntry  {
 export function PlayerEntryFromJSON(json: any): PlayerEntry {
     return {
         'accountId': json['account_id'],
+        'badge': !exists(json, 'badge') ? undefined : json['badge'],
+        'badgeProgress': !exists(json, 'badge_progress') ? undefined : json['badge_progress'],
         'matches': json['matches'],
         'rank': json['rank'],
         'value': json['value'],
@@ -59,6 +73,8 @@ export function PlayerEntryToJSON(value?: PlayerEntry): any {
     }
     return {
         'account_id': value.accountId,
+        'badge': value.badge,
+        'badge_progress': value.badgeProgress,
         'matches': value.matches,
         'rank': value.rank,
         'value': value.value,

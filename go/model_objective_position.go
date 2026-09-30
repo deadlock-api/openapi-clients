@@ -19,7 +19,7 @@ import (
 // checks if the ObjectivePosition type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ObjectivePosition{}
 
-// ObjectivePosition A position on the minimap, as fractions of its width/height.
+// ObjectivePosition The top-left corner of an objective marker on the minimap, as fractions of its width/height (like a CSS `margin-left`/`margin-top`). The marker is a `Core` (30% x 8%) for the cores and an `Icon` (10% x 10%) otherwise, so its centre is this position plus half that size. Unlike `neutral_camps`, whose `left_relative`/`top_relative` are the point itself. Before build 6711 these are the HUD's schematic layout; from 6711 on they are real map positions.
 type ObjectivePosition struct {
 	LeftRelative float64 `json:"left_relative"`
 	TopRelative float64 `json:"top_relative"`

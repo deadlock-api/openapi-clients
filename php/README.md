@@ -328,6 +328,8 @@ Class | Method | HTTP request | Description
 - [ItemProperty](docs/Model/ItemProperty.md)
 - [ItemSlotType](docs/Model/ItemSlotType.md)
 - [ItemStats](docs/Model/ItemStats.md)
+- [ItemTooltipBacker](docs/Model/ItemTooltipBacker.md)
+- [ItemTooltipBackers](docs/Model/ItemTooltipBackers.md)
 - [ItemType](docs/Model/ItemType.md)
 - [JobStatus](docs/Model/JobStatus.md)
 - [KillDeathStats](docs/Model/KillDeathStats.md)

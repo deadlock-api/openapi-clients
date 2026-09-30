@@ -48,7 +48,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Fetching or parsing active matches failed |  -  |
 
@@ -82,7 +82,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **500** | Fetching active matches failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -135,7 +135,7 @@ Bulk Metadata
 | **orderBy** | **string** | The field to order the results by. | [optional]  |
 | **orderDirection** | **string** | The direction to order the results by. | [optional]  |
 | **limit** | **int** | The maximum number of matches to return. | [optional] [default to 1000] |
-| **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional]  |
+| **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to json] |
 
 ### Return type
 
@@ -154,7 +154,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
 
@@ -192,7 +192,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Ingesting live URLs failed |  -  |
@@ -275,7 +275,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **404** | Match metadata not found |  -  |
 | **429** | Rate limit exceeded |  -  |
@@ -349,7 +349,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Fetching match salts failed |  -  |
@@ -388,7 +388,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Spectating match failed |  -  |
@@ -423,7 +423,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

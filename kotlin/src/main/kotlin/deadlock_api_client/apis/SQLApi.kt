@@ -149,7 +149,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Query
      *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
-     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -160,7 +160,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
     @Deprecated(message = "This operation is deprecated.")
-    fun sql(query: kotlin.String, format: FormatSql? = null) : kotlin.String {
+    fun sql(query: kotlin.String, format: FormatSql? = FormatSql.json) : kotlin.String {
         @Suppress("DEPRECATION")
         val localVarResponse = sqlWithHttpInfo(query = query, format = format)
 
@@ -184,7 +184,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Query
      *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
-     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -205,7 +205,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * To obtain the request config of the operation sql
      *
      * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
-     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)
+     * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return RequestConfig
      */
     @Deprecated(message = "This operation is deprecated.")

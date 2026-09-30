@@ -65,7 +65,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**500** | Fetching or parsing active matches failed |  -  |
 
@@ -111,7 +111,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**500** | Fetching active matches failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -167,7 +167,7 @@ let extraPlayerColumns: string; //Comma separated list of extra player-level col
 let orderBy: 'match_id' | 'start_time' | 'average_badge'; //The field to order the results by. (optional) (default to undefined)
 let orderDirection: 'desc' | 'asc'; //The direction to order the results by. (optional) (default to undefined)
 let limit: number; //The maximum number of matches to return. (optional) (default to 1000)
-let format: 'json' | 'ndjson'; //The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to undefined)
+let format: 'json' | 'ndjson'; //The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to 'json')
 
 const { status, data } = await apiInstance.bulkMetadata(
     includeInfo,
@@ -248,7 +248,7 @@ const { status, data } = await apiInstance.bulkMetadata(
 | **orderBy** | [**&#39;match_id&#39; | &#39;start_time&#39; | &#39;average_badge&#39;**]**Array<&#39;match_id&#39; &#124; &#39;start_time&#39; &#124; &#39;average_badge&#39;>** | The field to order the results by. | (optional) defaults to undefined|
 | **orderDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to order the results by. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum number of matches to return. | (optional) defaults to 1000|
-| **format** | [**&#39;json&#39; | &#39;ndjson&#39;**]**Array<&#39;json&#39; &#124; &#39;ndjson&#39;>** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | (optional) defaults to undefined|
+| **format** | [**&#39;json&#39; | &#39;ndjson&#39;**]**Array<&#39;json&#39; &#124; &#39;ndjson&#39;>** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | (optional) defaults to 'json'|
 
 
 ### Return type
@@ -268,7 +268,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 
@@ -321,7 +321,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Ingesting live URLs failed |  -  |
@@ -442,7 +442,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**404** | Match metadata not found |  -  |
 |**429** | Rate limit exceeded |  -  |
@@ -545,7 +545,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Fetching match salts failed |  -  |
@@ -599,7 +599,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**400** | Provided parameters are invalid. |  -  |
 |**429** | Rate limit exceeded |  -  |
 |**500** | Spectating match failed |  -  |
@@ -646,7 +646,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

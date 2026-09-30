@@ -74,7 +74,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **404** | Unknown modifier id/class_name or client_version, or no modifiers data for that version |  -  |
 **500** | Failed to load source assets |  -  |
 
@@ -144,7 +144,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **404** | Requested client_version is not available, or it has no modifiers data (published from build 6712 on) |  -  |
 **500** | Failed to load source assets |  -  |
 

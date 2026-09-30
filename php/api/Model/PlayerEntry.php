@@ -58,6 +58,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'account_id' => 'int',
+        'badge' => 'int',
+        'badge_progress' => 'int',
         'matches' => 'int',
         'rank' => 'int',
         'value' => 'float'
@@ -72,6 +74,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'account_id' => 'int32',
+        'badge' => 'int32',
+        'badge_progress' => 'int32',
         'matches' => 'int64',
         'rank' => 'int64',
         'value' => 'double'
@@ -84,6 +88,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'account_id' => false,
+        'badge' => true,
+        'badge_progress' => true,
         'matches' => false,
         'rank' => false,
         'value' => false
@@ -176,6 +182,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'account_id' => 'account_id',
+        'badge' => 'badge',
+        'badge_progress' => 'badge_progress',
         'matches' => 'matches',
         'rank' => 'rank',
         'value' => 'value'
@@ -188,6 +196,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'account_id' => 'setAccountId',
+        'badge' => 'setBadge',
+        'badge_progress' => 'setBadgeProgress',
         'matches' => 'setMatches',
         'rank' => 'setRank',
         'value' => 'setValue'
@@ -200,6 +210,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'account_id' => 'getAccountId',
+        'badge' => 'getBadge',
+        'badge_progress' => 'getBadgeProgress',
         'matches' => 'getMatches',
         'rank' => 'getRank',
         'value' => 'getValue'
@@ -263,6 +275,8 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('account_id', $data ?? [], null);
+        $this->setIfExists('badge', $data ?? [], null);
+        $this->setIfExists('badge_progress', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('rank', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
@@ -300,6 +314,14 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['account_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'account_id', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['badge']) && ($this->container['badge'] < 0)) {
+            $invalidProperties[] = "invalid value for 'badge', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['badge_progress']) && ($this->container['badge_progress'] < 0)) {
+            $invalidProperties[] = "invalid value for 'badge_progress', must be bigger than or equal to 0.";
         }
 
         if ($this->container['matches'] === null) {
@@ -361,6 +383,82 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets badge
+     *
+     * @return int|null
+     */
+    public function getBadge()
+    {
+        return $this->container['badge'];
+    }
+
+    /**
+     * Sets badge
+     *
+     * @param int|null $badge `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     *
+     * @return self
+     */
+    public function setBadge($badge)
+    {
+        if (is_null($badge)) {
+            array_push($this->openAPINullablesSetToNull, 'badge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('badge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($badge) && ($badge < 0)) {
+            throw new \InvalidArgumentException('invalid value for $badge when calling PlayerEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['badge'] = $badge;
+
+        return $this;
+    }
+
+    /**
+     * Gets badge_progress
+     *
+     * @return int|null
+     */
+    public function getBadgeProgress()
+    {
+        return $this->container['badge_progress'];
+    }
+
+    /**
+     * Sets badge_progress
+     *
+     * @param int|null $badge_progress `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+     *
+     * @return self
+     */
+    public function setBadgeProgress($badge_progress)
+    {
+        if (is_null($badge_progress)) {
+            array_push($this->openAPINullablesSetToNull, 'badge_progress');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('badge_progress', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($badge_progress) && ($badge_progress < 0)) {
+            throw new \InvalidArgumentException('invalid value for $badge_progress when calling PlayerEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['badge_progress'] = $badge_progress;
 
         return $this;
     }

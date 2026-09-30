@@ -61,7 +61,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**404** | Unknown tier or client_version |  -  |
 |**500** | Failed to load source assets |  -  |
 
@@ -117,7 +117,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
+|**200** | OK |  -  |
 |**404** | Requested client_version is not available |  -  |
 |**500** | Failed to load source assets |  -  |
 

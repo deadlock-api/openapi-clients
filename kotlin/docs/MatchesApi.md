@@ -208,7 +208,7 @@ try {
 | **orderBy** | **kotlin.String**| The field to order the results by. | [optional] [enum: match_id, start_time, average_badge] |
 | **orderDirection** | **kotlin.String**| The direction to order the results by. | [optional] [enum: desc, asc] |
 | **limit** | **kotlin.Int**| The maximum number of matches to return. | [optional] [default to 1000] |
-| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [enum: json, ndjson] |
+| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to Format.json] [enum: json, ndjson] |
 
 ### Return type
 

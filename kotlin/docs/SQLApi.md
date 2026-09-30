@@ -85,7 +85,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **query** | **kotlin.String**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
-| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [enum: json, ndjson] |
+| **format** | **kotlin.String**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to Format.json] [enum: json, ndjson] |
 
 ### Return type
 

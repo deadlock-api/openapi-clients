@@ -151,6 +151,8 @@ deadlock_api_client/models/item_permutation_stats.py
 deadlock_api_client/models/item_property.py
 deadlock_api_client/models/item_slot_type.py
 deadlock_api_client/models/item_stats.py
+deadlock_api_client/models/item_tooltip_backer.py
+deadlock_api_client/models/item_tooltip_backers.py
 deadlock_api_client/models/item_type.py
 deadlock_api_client/models/job_status.py
 deadlock_api_client/models/kill_death_stats.py
@@ -402,6 +404,8 @@ docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
 docs/ItemStats.md
+docs/ItemTooltipBacker.md
+docs/ItemTooltipBackers.md
 docs/ItemType.md
 docs/ItemsApi.md
 docs/JobStatus.md
@@ -674,6 +678,8 @@ test/test_item_permutation_stats.py
 test/test_item_property.py
 test/test_item_slot_type.py
 test/test_item_stats.py
+test/test_item_tooltip_backer.py
+test/test_item_tooltip_backers.py
 test/test_item_type.py
 test/test_items_api.py
 test/test_job_status.py

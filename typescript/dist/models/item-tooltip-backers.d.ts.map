@@ -1,0 +1,1 @@
+{"version":3,"file":"item-tooltip-backers.d.ts","sourceRoot":"","sources":["../../models/item-tooltip-backers.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,iBAAiB,EAAE,MAAM,0BAA0B,CAAC;AAElE;;GAEG;AACH,MAAM,WAAW,kBAAkB;IAC/B,QAAQ,EAAE,iBAAiB,CAAC;IAC5B,UAAU,EAAE,iBAAiB,CAAC;IAC9B,QAAQ,EAAE,iBAAiB,CAAC;CAC/B"}

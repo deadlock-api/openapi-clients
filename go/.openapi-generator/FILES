@@ -160,6 +160,8 @@ docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
 docs/ItemStats.md
+docs/ItemTooltipBacker.md
+docs/ItemTooltipBackers.md
 docs/ItemType.md
 docs/ItemsAPI.md
 docs/JobStatus.md
@@ -413,6 +415,8 @@ model_item_permutation_stats.go
 model_item_property.go
 model_item_slot_type.go
 model_item_stats.go
+model_item_tooltip_backer.go
+model_item_tooltip_backers.go
 model_item_type.go
 model_job_status.go
 model_kill_death_stats.go

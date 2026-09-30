@@ -165,6 +165,20 @@ class TestGenericData(unittest.TestCase):
                 item_price_per_tier = [
                     56
                     ],
+                item_tooltip_backers = deadlock_api_client.models.item_tooltip_backers.ItemTooltipBackers(
+                    spirit = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = , ), 
+                    vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = , 
+                        color = , 
+                        mask = , ), 
+                    weapon = , ),
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
                         color = null, 
@@ -397,6 +411,20 @@ class TestGenericData(unittest.TestCase):
                 item_price_per_tier = [
                     56
                     ],
+                item_tooltip_backers = deadlock_api_client.models.item_tooltip_backers.ItemTooltipBackers(
+                    spirit = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = , ), 
+                    vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = , 
+                        color = , 
+                        mask = , ), 
+                    weapon = , ),
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
                         color = null, 

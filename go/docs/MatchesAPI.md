@@ -202,7 +202,7 @@ func main() {
 	orderBy := "orderBy_example" // string | The field to order the results by. (optional)
 	orderDirection := "orderDirection_example" // string | The direction to order the results by. (optional)
 	limit := int32(56) // int32 | The maximum number of matches to return. (optional) (default to 1000)
-	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
+	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
  **orderBy** | **string** | The field to order the results by. | 
  **orderDirection** | **string** | The direction to order the results by. | 
  **limit** | **int32** | The maximum number of matches to return. | [default to 1000]
- **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | 
+ **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [default to &quot;json&quot;]
 
 ### Return type
 

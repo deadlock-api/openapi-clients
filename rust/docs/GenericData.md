@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **hero_kill_gold_share_frac** | **Vec<f64>** |  | 
 **item_corruption_price_per_tier** | Option<**Vec<i64>**> | Extra cost of corrupting an item, by item tier (build 6711+). | [optional]
 **item_price_per_tier** | **Vec<i64>** |  | 
+**item_tooltip_backers** | [**models::ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`). | 
 **lane_info** | [**Vec<models::LaneInfo>**](LaneInfo.md) |  | 
 **map_districts** | Option<[**Vec<models::MapDistrict>**](MapDistrict.md)> | District / building labels shown on the map (build 6711+). | [optional]
 **mini_map_offsets** | [**Vec<models::MiniMapOffsets>**](MiniMapOffsets.md) |  | 

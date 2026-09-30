@@ -51,7 +51,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **403** | Account is not a Patreon subscriber or not prioritized. |  -  |
 | **429** | Rate limit exceeded |  -  |
@@ -65,7 +65,7 @@ No authorization required
 
 Card
 
- This endpoint returns the player card for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
+ This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player's latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
 
 
 ### Parameters
@@ -91,7 +91,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **403** | Account is not a Patreon subscriber or not prioritized. |  -  |
 | **429** | Rate limit exceeded |  -  |
@@ -179,7 +179,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **429** | Rate limit exceeded. Returns stored match history from ClickHouse as a fallback. When &#x60;force_refetch&#x3D;true&#x60;, returns an error instead. |  -  |
 | **500** | Fetching player match history failed |  -  |
@@ -317,7 +317,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Invalid account ID |  -  |
 | **403** | User is protected or endpoint unavailable |  -  |
 | **500** | Rank lookup failed |  -  |
@@ -397,7 +397,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Invalid or missing account IDs |  -  |
 | **500** | Rank lookup failed |  -  |
 
@@ -443,7 +443,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Failed to fetch rank distribution |  -  |
 
@@ -522,7 +522,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Invalid account ID |  -  |
 | **403** | User is protected or endpoint unavailable |  -  |
 | **500** | Rank lookup failed |  -  |

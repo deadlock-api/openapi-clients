@@ -167,6 +167,8 @@ __all__ = [
     "ItemProperty",
     "ItemSlotType",
     "ItemStats",
+    "ItemTooltipBacker",
+    "ItemTooltipBackers",
     "ItemType",
     "JobStatus",
     "KillDeathStats",
@@ -448,6 +450,8 @@ from deadlock_api_client.models.item_permutation_stats import ItemPermutationSta
 from deadlock_api_client.models.item_property import ItemProperty as ItemProperty
 from deadlock_api_client.models.item_slot_type import ItemSlotType as ItemSlotType
 from deadlock_api_client.models.item_stats import ItemStats as ItemStats
+from deadlock_api_client.models.item_tooltip_backer import ItemTooltipBacker as ItemTooltipBacker
+from deadlock_api_client.models.item_tooltip_backers import ItemTooltipBackers as ItemTooltipBackers
 from deadlock_api_client.models.item_type import ItemType as ItemType
 from deadlock_api_client.models.job_status import JobStatus as JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats as KillDeathStats

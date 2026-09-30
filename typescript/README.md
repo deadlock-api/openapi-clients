@@ -289,6 +289,8 @@ Class | Method | HTTP request | Description
  - [ItemProperty](docs/ItemProperty.md)
  - [ItemSlotType](docs/ItemSlotType.md)
  - [ItemStats](docs/ItemStats.md)
+ - [ItemTooltipBacker](docs/ItemTooltipBacker.md)
+ - [ItemTooltipBackers](docs/ItemTooltipBackers.md)
  - [ItemType](docs/ItemType.md)
  - [JobStatus](docs/JobStatus.md)
  - [KillDeathStats](docs/KillDeathStats.md)

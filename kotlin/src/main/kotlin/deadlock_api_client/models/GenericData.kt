@@ -30,6 +30,7 @@ import deadlock_api_client.models.CorruptedPenalty
 import deadlock_api_client.models.DamageFlash
 import deadlock_api_client.models.GlitchSettings
 import deadlock_api_client.models.ItemGroup
+import deadlock_api_client.models.ItemTooltipBackers
 import deadlock_api_client.models.LaneInfo
 import deadlock_api_client.models.MapDistrict
 import deadlock_api_client.models.MiniMapOffsets
@@ -51,6 +52,7 @@ import java.io.Serializable
  * @param glitchSettings 
  * @param heroKillGoldShareFrac 
  * @param itemPricePerTier 
+ * @param itemTooltipBackers Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
  * @param laneInfo 
  * @param miniMapOffsets 
  * @param newPlayerMetrics 
@@ -98,6 +100,10 @@ data class GenericData (
 
     @Json(name = "item_price_per_tier")
     val itemPricePerTier: kotlin.collections.List<kotlin.Long>,
+
+    /* Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`). */
+    @Json(name = "item_tooltip_backers")
+    val itemTooltipBackers: ItemTooltipBackers,
 
     @Json(name = "lane_info")
     val laneInfo: kotlin.collections.List<LaneInfo>,

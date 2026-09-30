@@ -34,7 +34,7 @@ import java.io.Serializable
  *
  * @param accountId 
  * @param slots 
- * @param rankedBadgeLevel See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param rankedBadgeLevel Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param rankedRank See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param rankedSubrank See more: <https://api.deadlock-api.com/v1/assets/ranks>
  */
@@ -48,7 +48,7 @@ data class PlayerCard (
     @Json(name = "slots")
     val slots: kotlin.collections.List<PlayerCardSlot>,
 
-    /* See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    /* Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
     @Json(name = "ranked_badge_level")
     val rankedBadgeLevel: kotlin.Int? = null,
 

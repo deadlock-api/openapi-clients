@@ -35,7 +35,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="accountId">accountId</param>
         /// <param name="slots">slots</param>
-        /// <param name="rankedBadgeLevel">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="rankedBadgeLevel">Rank badge after the player&#39;s latest ranked match (player cards no longer carry a rank since build 6711), &#x60;null&#x60; when no recent ranked match reports one. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedRank">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedSubrank">See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
@@ -71,9 +71,9 @@ namespace DeadlockApiClient.Model
         public Option<int?> RankedBadgeLevelOption { get; private set; }
 
         /// <summary>
-        /// See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// Rank badge after the player&#39;s latest ranked match (player cards no longer carry a rank since build 6711), &#x60;null&#x60; when no recent ranked match reports one. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
         /// </summary>
-        /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        /// <value>Rank badge after the player&#39;s latest ranked match (player cards no longer carry a rank since build 6711), &#x60;null&#x60; when no recent ranked match reports one. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
         [JsonPropertyName("ranked_badge_level")]
         public int? RankedBadgeLevel { get { return this.RankedBadgeLevelOption.Value; } set { this.RankedBadgeLevelOption = new(value); } }
 

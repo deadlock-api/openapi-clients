@@ -39,6 +39,7 @@ namespace DeadlockApiClient.Model
         /// <param name="glitchSettings">glitchSettings</param>
         /// <param name="heroKillGoldShareFrac">heroKillGoldShareFrac</param>
         /// <param name="itemPricePerTier">itemPricePerTier</param>
+        /// <param name="itemTooltipBackers">Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;).</param>
         /// <param name="laneInfo">laneInfo</param>
         /// <param name="miniMapOffsets">miniMapOffsets</param>
         /// <param name="newPlayerMetrics">newPlayerMetrics</param>
@@ -65,7 +66,7 @@ namespace DeadlockApiClient.Model
         /// <param name="neutralCampRespawnTimerShowDistance">Distance within which a neutral camp&#39;s respawn timer is shown (build 6711+).</param>
         /// <param name="streetBrawl">streetBrawl</param>
         [JsonConstructor]
-        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<BreakablePowerupLootParams?> breakablePowerupLootParams = default, Option<Color?> colorEnemy = default, Option<Color?> colorFriend = default, Option<Color?> colorTeam1 = default, Option<Color?> colorTeam2 = default, Option<CorruptedItemImages?> corruptedItemImages = default, Option<List<CorruptedPenalty>?> corruptedPenalties = default, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<List<long>?> itemCorruptionPricePerTier = default, Option<List<MapDistrict>?> mapDistricts = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<double?> neutralCampRespawnTimerShowDistance = default, Option<StreetBrawl?> streetBrawl = default)
+        public GenericData(List<double> aimSpringStrength, List<ItemGroup> armorGroups, DamageFlash damageFlash, GlitchSettings glitchSettings, List<double> heroKillGoldShareFrac, List<long> itemPricePerTier, ItemTooltipBackers itemTooltipBackers, List<LaneInfo> laneInfo, List<MiniMapOffsets> miniMapOffsets, List<NewPlayerMetrics> newPlayerMetrics, ObjectiveParams objectiveParams, RejuvParams rejuvParams, List<ItemGroup> spiritGroups, List<double> targetingSpringStrength, List<double> trooperKillGoldShareFrac, List<ItemGroup> weaponGroups, Option<BreakablePowerupLootParams?> breakablePowerupLootParams = default, Option<Color?> colorEnemy = default, Option<Color?> colorFriend = default, Option<Color?> colorTeam1 = default, Option<Color?> colorTeam2 = default, Option<CorruptedItemImages?> corruptedItemImages = default, Option<List<CorruptedPenalty>?> corruptedPenalties = default, Option<Color?> enemyObjectivesAndZiplineColor = default, Option<Color?> enemyObjectivesColor = default, Option<Color?> enemyZiplineColor = default, Option<List<long>?> itemCorruptionPricePerTier = default, Option<List<MapDistrict>?> mapDistricts = default, Option<Color?> minimapTeamCombineColor = default, Option<Color?> minimapTeamRebelsColor = default, Option<double?> neutralCampRespawnTimerShowDistance = default, Option<StreetBrawl?> streetBrawl = default)
         {
             AimSpringStrength = aimSpringStrength;
             ArmorGroups = armorGroups;
@@ -73,6 +74,7 @@ namespace DeadlockApiClient.Model
             GlitchSettings = glitchSettings;
             HeroKillGoldShareFrac = heroKillGoldShareFrac;
             ItemPricePerTier = itemPricePerTier;
+            ItemTooltipBackers = itemTooltipBackers;
             LaneInfo = laneInfo;
             MiniMapOffsets = miniMapOffsets;
             NewPlayerMetrics = newPlayerMetrics;
@@ -138,6 +140,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("item_price_per_tier")]
         public List<long> ItemPricePerTier { get; set; }
+
+        /// <summary>
+        /// Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;).
+        /// </summary>
+        /// <value>Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;).</value>
+        [JsonPropertyName("item_tooltip_backers")]
+        public ItemTooltipBackers ItemTooltipBackers { get; set; }
 
         /// <summary>
         /// Gets or Sets LaneInfo
@@ -425,6 +434,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  GlitchSettings: ").Append(GlitchSettings).Append("\n");
             sb.Append("  HeroKillGoldShareFrac: ").Append(HeroKillGoldShareFrac).Append("\n");
             sb.Append("  ItemPricePerTier: ").Append(ItemPricePerTier).Append("\n");
+            sb.Append("  ItemTooltipBackers: ").Append(ItemTooltipBackers).Append("\n");
             sb.Append("  LaneInfo: ").Append(LaneInfo).Append("\n");
             sb.Append("  MiniMapOffsets: ").Append(MiniMapOffsets).Append("\n");
             sb.Append("  NewPlayerMetrics: ").Append(NewPlayerMetrics).Append("\n");
@@ -503,6 +513,7 @@ namespace DeadlockApiClient.Model
             Option<GlitchSettings?> glitchSettings = default;
             Option<List<double>?> heroKillGoldShareFrac = default;
             Option<List<long>?> itemPricePerTier = default;
+            Option<ItemTooltipBackers?> itemTooltipBackers = default;
             Option<List<LaneInfo>?> laneInfo = default;
             Option<List<MiniMapOffsets>?> miniMapOffsets = default;
             Option<List<NewPlayerMetrics>?> newPlayerMetrics = default;
@@ -561,6 +572,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "item_price_per_tier":
                             itemPricePerTier = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "item_tooltip_backers":
+                            itemTooltipBackers = new Option<ItemTooltipBackers?>(JsonSerializer.Deserialize<ItemTooltipBackers>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "lane_info":
                             laneInfo = new Option<List<LaneInfo>?>(JsonSerializer.Deserialize<List<LaneInfo>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -661,6 +675,9 @@ namespace DeadlockApiClient.Model
             if (!itemPricePerTier.IsSet)
                 throw new ArgumentException("Property is required for class GenericData.", nameof(itemPricePerTier));
 
+            if (!itemTooltipBackers.IsSet)
+                throw new ArgumentException("Property is required for class GenericData.", nameof(itemTooltipBackers));
+
             if (!laneInfo.IsSet)
                 throw new ArgumentException("Property is required for class GenericData.", nameof(laneInfo));
 
@@ -706,6 +723,9 @@ namespace DeadlockApiClient.Model
             if (itemPricePerTier.IsSet && itemPricePerTier.Value == null)
                 throw new ArgumentNullException(nameof(itemPricePerTier), "Property is not nullable for class GenericData.");
 
+            if (itemTooltipBackers.IsSet && itemTooltipBackers.Value == null)
+                throw new ArgumentNullException(nameof(itemTooltipBackers), "Property is not nullable for class GenericData.");
+
             if (laneInfo.IsSet && laneInfo.Value == null)
                 throw new ArgumentNullException(nameof(laneInfo), "Property is not nullable for class GenericData.");
 
@@ -733,7 +753,7 @@ namespace DeadlockApiClient.Model
             if (weaponGroups.IsSet && weaponGroups.Value == null)
                 throw new ArgumentNullException(nameof(weaponGroups), "Property is not nullable for class GenericData.");
 
-            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, breakablePowerupLootParams, colorEnemy, colorFriend, colorTeam1, colorTeam2, corruptedItemImages, corruptedPenalties, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, itemCorruptionPricePerTier, mapDistricts, minimapTeamCombineColor, minimapTeamRebelsColor, neutralCampRespawnTimerShowDistance, streetBrawl);
+            return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, itemTooltipBackers.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, breakablePowerupLootParams, colorEnemy, colorFriend, colorTeam1, colorTeam2, corruptedItemImages, corruptedPenalties, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, itemCorruptionPricePerTier, mapDistricts, minimapTeamCombineColor, minimapTeamRebelsColor, neutralCampRespawnTimerShowDistance, streetBrawl);
         }
 
         /// <summary>
@@ -778,6 +798,9 @@ namespace DeadlockApiClient.Model
             if (genericData.ItemPricePerTier == null)
                 throw new ArgumentNullException(nameof(genericData.ItemPricePerTier), "Property is required for class GenericData.");
 
+            if (genericData.ItemTooltipBackers == null)
+                throw new ArgumentNullException(nameof(genericData.ItemTooltipBackers), "Property is required for class GenericData.");
+
             if (genericData.LaneInfo == null)
                 throw new ArgumentNullException(nameof(genericData.LaneInfo), "Property is required for class GenericData.");
 
@@ -817,6 +840,8 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, genericData.HeroKillGoldShareFrac, jsonSerializerOptions);
             writer.WritePropertyName("item_price_per_tier");
             JsonSerializer.Serialize(writer, genericData.ItemPricePerTier, jsonSerializerOptions);
+            writer.WritePropertyName("item_tooltip_backers");
+            JsonSerializer.Serialize(writer, genericData.ItemTooltipBackers, jsonSerializerOptions);
             writer.WritePropertyName("lane_info");
             JsonSerializer.Serialize(writer, genericData.LaneInfo, jsonSerializerOptions);
             writer.WritePropertyName("mini_map_offsets");

@@ -16,6 +16,7 @@ import type { CorruptedPenalty } from './corrupted-penalty.js';
 import type { DamageFlash } from './damage-flash.js';
 import type { GlitchSettings } from './glitch-settings.js';
 import type { ItemGroup } from './item-group.js';
+import type { ItemTooltipBackers } from './item-tooltip-backers.js';
 import type { LaneInfo } from './lane-info.js';
 import type { MapDistrict } from './map-district.js';
 import type { MiniMapOffsets } from './mini-map-offsets.js';
@@ -65,6 +66,10 @@ export interface GenericData {
      */
     'item_corruption_price_per_tier'?: Array<number> | null;
     'item_price_per_tier': Array<number>;
+    /**
+     * Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+     */
+    'item_tooltip_backers': ItemTooltipBackers;
     'lane_info': Array<LaneInfo>;
     /**
      * District / building labels shown on the map (build 6711+).

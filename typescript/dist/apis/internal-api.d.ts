@@ -40,7 +40,7 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      */
     deleteSteamAccount: (accountId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to `api-ingest`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Match Salts Ingest
      * @param {Array<ClickhouseSalts>} clickhouseSalts
      * @param {*} [options] Override http request option.
@@ -101,7 +101,7 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     deleteSteamAccount(accountId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSteamAccountResponse>>;
     /**
-     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to `api-ingest`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Match Salts Ingest
      * @param {Array<ClickhouseSalts>} clickhouseSalts
      * @param {*} [options] Override http request option.
@@ -162,7 +162,7 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     deleteSteamAccount(requestParameters: InternalApiDeleteSteamAccountRequest, options?: RawAxiosRequestConfig): AxiosPromise<DeleteSteamAccountResponse>;
     /**
-     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to `api-ingest`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Match Salts Ingest
      * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -268,7 +268,7 @@ export declare class InternalApi extends BaseAPI {
      */
     deleteSteamAccount(requestParameters: InternalApiDeleteSteamAccountRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<DeleteSteamAccountResponse, any, {}, any>>;
     /**
-     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to `api-ingest`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Match Salts Ingest
      * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

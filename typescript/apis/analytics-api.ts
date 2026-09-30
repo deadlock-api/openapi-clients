@@ -5913,6 +5913,7 @@ export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum
 export const HeroScoreboardSortByEnum = {
     Matches: 'matches',
     Rank: 'rank',
+    PeakRank: 'peak_rank',
     Wins: 'wins',
     Losses: 'losses',
     Winrate: 'winrate',
@@ -6088,6 +6089,7 @@ export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGa
 export const PlayerScoreboardSortByEnum = {
     Matches: 'matches',
     Rank: 'rank',
+    PeakRank: 'peak_rank',
     Wins: 'wins',
     Losses: 'losses',
     Winrate: 'winrate',

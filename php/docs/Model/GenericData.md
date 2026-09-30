@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **hero_kill_gold_share_frac** | **float[]** |  |
 **item_corruption_price_per_tier** | **int[]** | Extra cost of corrupting an item, by item tier (build 6711+). | [optional]
 **item_price_per_tier** | **int[]** |  |
+**item_tooltip_backers** | [**\OpenAPI\Client\Model\ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;). |
 **lane_info** | [**\OpenAPI\Client\Model\LaneInfo[]**](LaneInfo.md) |  |
 **map_districts** | [**\OpenAPI\Client\Model\MapDistrict[]**](MapDistrict.md) | District / building labels shown on the map (build 6711+). | [optional]
 **mini_map_offsets** | [**\OpenAPI\Client\Model\MiniMapOffsets[]**](MiniMapOffsets.md) |  |

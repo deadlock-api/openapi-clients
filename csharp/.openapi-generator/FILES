@@ -144,6 +144,8 @@ docs/models/ItemPermutationStats.md
 docs/models/ItemProperty.md
 docs/models/ItemSlotType.md
 docs/models/ItemStats.md
+docs/models/ItemTooltipBacker.md
+docs/models/ItemTooltipBackers.md
 docs/models/ItemType.md
 docs/models/JobStatus.md
 docs/models/KillDeathStats.md
@@ -414,6 +416,8 @@ src/DeadlockApiClient.Test/Model/ItemPropertyTests.cs
 src/DeadlockApiClient.Test/Model/ItemSlotTypeTests.cs
 src/DeadlockApiClient.Test/Model/ItemStatsTests.cs
 src/DeadlockApiClient.Test/Model/ItemTests.cs
+src/DeadlockApiClient.Test/Model/ItemTooltipBackerTests.cs
+src/DeadlockApiClient.Test/Model/ItemTooltipBackersTests.cs
 src/DeadlockApiClient.Test/Model/ItemTypeTests.cs
 src/DeadlockApiClient.Test/Model/JobStatusTests.cs
 src/DeadlockApiClient.Test/Model/KillDeathStatsTests.cs
@@ -706,6 +710,8 @@ src/DeadlockApiClient/Model/ItemPermutationStats.cs
 src/DeadlockApiClient/Model/ItemProperty.cs
 src/DeadlockApiClient/Model/ItemSlotType.cs
 src/DeadlockApiClient/Model/ItemStats.cs
+src/DeadlockApiClient/Model/ItemTooltipBacker.cs
+src/DeadlockApiClient/Model/ItemTooltipBackers.cs
 src/DeadlockApiClient/Model/ItemType.cs
 src/DeadlockApiClient/Model/JobStatus.cs
 src/DeadlockApiClient/Model/KillDeathStats.cs

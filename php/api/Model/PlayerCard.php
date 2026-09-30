@@ -383,7 +383,7 @@ class PlayerCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets ranked_badge_level
      *
-     * @param int|null $ranked_badge_level See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @param int|null $ranked_badge_level Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      *
      * @return self
      */

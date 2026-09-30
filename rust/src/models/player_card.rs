@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 pub struct PlayerCard {
     #[serde(rename = "account_id")]
     pub account_id: u32,
-    /// See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    /// Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "ranked_badge_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ranked_badge_level: Option<Option<u32>>,
     /// See more: <https://api.deadlock-api.com/v1/assets/ranks>

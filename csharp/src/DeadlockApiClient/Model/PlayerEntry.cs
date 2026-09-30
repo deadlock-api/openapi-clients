@@ -37,13 +37,17 @@ namespace DeadlockApiClient.Model
         /// <param name="matches">matches</param>
         /// <param name="rank">rank</param>
         /// <param name="value">value</param>
+        /// <param name="badge">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="badgeProgress">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.</param>
         [JsonConstructor]
-        public PlayerEntry(int accountId, long matches, long rank, double value)
+        public PlayerEntry(int accountId, long matches, long rank, double value, Option<int?> badge = default, Option<int?> badgeProgress = default)
         {
             AccountId = accountId;
             Matches = matches;
             Rank = rank;
             Value = value;
+            BadgeOption = badge;
+            BadgeProgressOption = badgeProgress;
             OnCreated();
         }
 
@@ -74,6 +78,34 @@ namespace DeadlockApiClient.Model
         public double Value { get; set; }
 
         /// <summary>
+        /// Used to track the state of Badge
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> BadgeOption { get; private set; }
+
+        /// <summary>
+        /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// </summary>
+        /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        [JsonPropertyName("badge")]
+        public int? Badge { get { return this.BadgeOption.Value; } set { this.BadgeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BadgeProgress
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> BadgeProgressOption { get; private set; }
+
+        /// <summary>
+        /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+        /// </summary>
+        /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.</value>
+        [JsonPropertyName("badge_progress")]
+        public int? BadgeProgress { get { return this.BadgeProgressOption.Value; } set { this.BadgeProgressOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,6 +117,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Badge: ").Append(Badge).Append("\n");
+            sb.Append("  BadgeProgress: ").Append(BadgeProgress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +146,18 @@ namespace DeadlockApiClient.Model
             if (this.Rank < (long)0)
             {
                 yield return new ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
+            }
+
+            // Badge (int) minimum
+            if (this.BadgeOption.IsSet && this.BadgeOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Badge, must be a value greater than or equal to 0.", new [] { "Badge" });
+            }
+
+            // BadgeProgress (int) minimum
+            if (this.BadgeProgressOption.IsSet && this.BadgeProgressOption.Value < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for BadgeProgress, must be a value greater than or equal to 0.", new [] { "BadgeProgress" });
             }
 
             yield break;
@@ -154,6 +200,8 @@ namespace DeadlockApiClient.Model
             Option<long?> matches = default;
             Option<long?> rank = default;
             Option<double?> value = default;
+            Option<int?> badge = default;
+            Option<int?> badgeProgress = default;
 
             while (utf8JsonReader.Read())
             {
@@ -181,6 +229,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "value":
                             value = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "badge":
+                            badge = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "badge_progress":
+                            badgeProgress = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;
@@ -212,7 +266,7 @@ namespace DeadlockApiClient.Model
             if (value.IsSet && value.Value == null)
                 throw new ArgumentNullException(nameof(value), "Property is not nullable for class PlayerEntry.");
 
-            return new PlayerEntry(accountId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!);
+            return new PlayerEntry(accountId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!, badge, badgeProgress);
         }
 
         /// <summary>
@@ -246,6 +300,18 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("rank", playerEntry.Rank);
 
             writer.WriteNumber("value", playerEntry.Value);
+
+            if (playerEntry.BadgeOption.IsSet)
+                if (playerEntry.BadgeOption.Value != null)
+                    writer.WriteNumber("badge", playerEntry.BadgeOption.Value!.Value);
+                else
+                    writer.WriteNull("badge");
+
+            if (playerEntry.BadgeProgressOption.IsSet)
+                if (playerEntry.BadgeProgressOption.Value != null)
+                    writer.WriteNumber("badge_progress", playerEntry.BadgeProgressOption.Value!.Value);
+                else
+                    writer.WriteNull("badge_progress");
         }
     }
 }

@@ -42,7 +42,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Fetching or parsing the leaderboard failed |  -  |
 
@@ -82,7 +82,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Fetching or parsing the hero leaderboard failed |  -  |
 
@@ -122,7 +122,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Fetching the hero leaderboard failed |  -  |
 
@@ -161,7 +161,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **200** | OK |  -  |
 | **400** | Provided parameters are invalid. |  -  |
 | **500** | Fetching the leaderboard failed |  -  |
 

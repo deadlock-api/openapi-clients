@@ -74,6 +74,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => 'float[]',
         'item_corruption_price_per_tier' => 'int[]',
         'item_price_per_tier' => 'int[]',
+        'item_tooltip_backers' => '\OpenAPI\Client\Model\ItemTooltipBackers',
         'lane_info' => '\OpenAPI\Client\Model\LaneInfo[]',
         'map_districts' => '\OpenAPI\Client\Model\MapDistrict[]',
         'mini_map_offsets' => '\OpenAPI\Client\Model\MiniMapOffsets[]',
@@ -115,6 +116,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => 'double',
         'item_corruption_price_per_tier' => 'int64',
         'item_price_per_tier' => 'int64',
+        'item_tooltip_backers' => null,
         'lane_info' => null,
         'map_districts' => null,
         'mini_map_offsets' => null,
@@ -154,6 +156,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => false,
         'item_corruption_price_per_tier' => true,
         'item_price_per_tier' => false,
+        'item_tooltip_backers' => false,
         'lane_info' => false,
         'map_districts' => true,
         'mini_map_offsets' => false,
@@ -273,6 +276,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => 'hero_kill_gold_share_frac',
         'item_corruption_price_per_tier' => 'item_corruption_price_per_tier',
         'item_price_per_tier' => 'item_price_per_tier',
+        'item_tooltip_backers' => 'item_tooltip_backers',
         'lane_info' => 'lane_info',
         'map_districts' => 'map_districts',
         'mini_map_offsets' => 'mini_map_offsets',
@@ -312,6 +316,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => 'setHeroKillGoldShareFrac',
         'item_corruption_price_per_tier' => 'setItemCorruptionPricePerTier',
         'item_price_per_tier' => 'setItemPricePerTier',
+        'item_tooltip_backers' => 'setItemTooltipBackers',
         'lane_info' => 'setLaneInfo',
         'map_districts' => 'setMapDistricts',
         'mini_map_offsets' => 'setMiniMapOffsets',
@@ -351,6 +356,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         'hero_kill_gold_share_frac' => 'getHeroKillGoldShareFrac',
         'item_corruption_price_per_tier' => 'getItemCorruptionPricePerTier',
         'item_price_per_tier' => 'getItemPricePerTier',
+        'item_tooltip_backers' => 'getItemTooltipBackers',
         'lane_info' => 'getLaneInfo',
         'map_districts' => 'getMapDistricts',
         'mini_map_offsets' => 'getMiniMapOffsets',
@@ -441,6 +447,7 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('hero_kill_gold_share_frac', $data ?? [], null);
         $this->setIfExists('item_corruption_price_per_tier', $data ?? [], null);
         $this->setIfExists('item_price_per_tier', $data ?? [], null);
+        $this->setIfExists('item_tooltip_backers', $data ?? [], null);
         $this->setIfExists('lane_info', $data ?? [], null);
         $this->setIfExists('map_districts', $data ?? [], null);
         $this->setIfExists('mini_map_offsets', $data ?? [], null);
@@ -501,6 +508,9 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['item_price_per_tier'] === null) {
             $invalidProperties[] = "'item_price_per_tier' can't be null";
+        }
+        if ($this->container['item_tooltip_backers'] === null) {
+            $invalidProperties[] = "'item_tooltip_backers' can't be null";
         }
         if ($this->container['lane_info'] === null) {
             $invalidProperties[] = "'lane_info' can't be null";
@@ -1076,6 +1086,33 @@ class GenericData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable item_price_per_tier cannot be null');
         }
         $this->container['item_price_per_tier'] = $item_price_per_tier;
+
+        return $this;
+    }
+
+    /**
+     * Gets item_tooltip_backers
+     *
+     * @return \OpenAPI\Client\Model\ItemTooltipBackers
+     */
+    public function getItemTooltipBackers()
+    {
+        return $this->container['item_tooltip_backers'];
+    }
+
+    /**
+     * Sets item_tooltip_backers
+     *
+     * @param \OpenAPI\Client\Model\ItemTooltipBackers $item_tooltip_backers Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+     *
+     * @return self
+     */
+    public function setItemTooltipBackers($item_tooltip_backers)
+    {
+        if (is_null($item_tooltip_backers)) {
+            throw new \InvalidArgumentException('non-nullable item_tooltip_backers cannot be null');
+        }
+        $this->container['item_tooltip_backers'] = $item_tooltip_backers;
 
         return $this;
     }

@@ -68,7 +68,7 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
-        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to json)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
         [Obsolete]
@@ -81,7 +81,7 @@ namespace DeadlockApiClient.Api
         ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </remarks>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
-        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to json)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>?&gt;</returns>
         [Obsolete]
@@ -625,7 +625,7 @@ namespace DeadlockApiClient.Api
         /// Query  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
         /// </summary>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
-        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to json)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
         public async Task<ISqlApiResponse?> SqlOrDefaultAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)
@@ -645,7 +645,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">The SQL query to execute. It must follow the Clickhouse SQL syntax.</param>
-        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional)</param>
+        /// <param name="format">The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to json)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISqlApiResponse"/>&gt;</returns>
         public async Task<ISqlApiResponse> SqlAsync(string query, Option<string> format = default, System.Threading.CancellationToken cancellationToken = default)

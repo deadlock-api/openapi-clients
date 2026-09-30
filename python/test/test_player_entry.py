@@ -36,6 +36,8 @@ class TestPlayerEntry(unittest.TestCase):
         if include_optional:
             return PlayerEntry(
                 account_id = 0,
+                badge = 0,
+                badge_progress = 0,
                 matches = 0,
                 rank = 0,
                 value = 1.337

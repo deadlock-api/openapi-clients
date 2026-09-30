@@ -127,6 +127,8 @@ docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
 docs/ItemStats.md
+docs/ItemTooltipBacker.md
+docs/ItemTooltipBackers.md
 docs/ItemType.md
 docs/ItemsApi.md
 docs/JobStatus.md
@@ -412,6 +414,8 @@ src/models/item_permutation_stats.rs
 src/models/item_property.rs
 src/models/item_slot_type.rs
 src/models/item_stats.rs
+src/models/item_tooltip_backer.rs
+src/models/item_tooltip_backers.rs
 src/models/item_type.rs
 src/models/job_status.rs
 src/models/kill_death_stats.rs

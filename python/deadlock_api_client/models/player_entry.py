@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,12 @@ class PlayerEntry(BaseModel):
     PlayerEntry
     """ # noqa: E501
     account_id: Annotated[int, Field(strict=True, ge=0)]
+    badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    badge_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.")
     matches: Annotated[int, Field(strict=True, ge=0)]
     rank: Annotated[int, Field(strict=True, ge=0)]
     value: Union[StrictFloat, StrictInt]
-    __properties: ClassVar[List[str]] = ["account_id", "matches", "rank", "value"]
+    __properties: ClassVar[List[str]] = ["account_id", "badge", "badge_progress", "matches", "rank", "value"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -73,6 +75,16 @@ class PlayerEntry(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if badge (nullable) is None
+        # and model_fields_set contains the field
+        if self.badge is None and "badge" in self.model_fields_set:
+            _dict['badge'] = None
+
+        # set to None if badge_progress (nullable) is None
+        # and model_fields_set contains the field
+        if self.badge_progress is None and "badge_progress" in self.model_fields_set:
+            _dict['badge_progress'] = None
+
         return _dict
 
     @classmethod
@@ -86,6 +98,8 @@ class PlayerEntry(BaseModel):
 
         _obj = cls.model_validate({
             "account_id": obj.get("account_id"),
+            "badge": obj.get("badge"),
+            "badge_progress": obj.get("badge_progress"),
             "matches": obj.get("matches"),
             "rank": obj.get("rank"),
             "value": obj.get("value")

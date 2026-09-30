@@ -122,6 +122,8 @@ from deadlock_api_client.models.item_permutation_stats import ItemPermutationSta
 from deadlock_api_client.models.item_property import ItemProperty
 from deadlock_api_client.models.item_slot_type import ItemSlotType
 from deadlock_api_client.models.item_stats import ItemStats
+from deadlock_api_client.models.item_tooltip_backer import ItemTooltipBacker
+from deadlock_api_client.models.item_tooltip_backers import ItemTooltipBackers
 from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.job_status import JobStatus
 from deadlock_api_client.models.kill_death_stats import KillDeathStats

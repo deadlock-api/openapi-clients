@@ -1688,6 +1688,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      enum class SortByHeroScoreboard(val value: kotlin.String) {
          @Json(name = "matches") matches("matches"),
          @Json(name = "rank") rank("rank"),
+         @Json(name = "peak_rank") peak_rank("peak_rank"),
          @Json(name = "wins") wins("wins"),
          @Json(name = "losses") losses("losses"),
          @Json(name = "winrate") winrate("winrate"),
@@ -4069,6 +4070,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      enum class SortByPlayerScoreboard(val value: kotlin.String) {
          @Json(name = "matches") matches("matches"),
          @Json(name = "rank") rank("rank"),
+         @Json(name = "peak_rank") peak_rank("peak_rank"),
          @Json(name = "wins") wins("wins"),
          @Json(name = "losses") losses("losses"),
          @Json(name = "winrate") winrate("winrate"),

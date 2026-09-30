@@ -3215,6 +3215,7 @@ export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum
 export declare const HeroScoreboardSortByEnum: {
     readonly Matches: "matches";
     readonly Rank: "rank";
+    readonly PeakRank: "peak_rank";
     readonly Wins: "wins";
     readonly Losses: "losses";
     readonly Winrate: "winrate";
@@ -3390,6 +3391,7 @@ export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGa
 export declare const PlayerScoreboardSortByEnum: {
     readonly Matches: "matches";
     readonly Rank: "rank";
+    readonly PeakRank: "peak_rank";
     readonly Wins: "wins";
     readonly Losses: "losses";
     readonly Winrate: "winrate";

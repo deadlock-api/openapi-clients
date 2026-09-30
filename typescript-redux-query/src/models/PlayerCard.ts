@@ -31,7 +31,7 @@ export interface PlayerCard  {
      */
     accountId: number;
     /**
-     * See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * Rank badge after the player\'s latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
      * @memberof PlayerCard
      */

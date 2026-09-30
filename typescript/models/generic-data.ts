@@ -36,6 +36,9 @@ import type { GlitchSettings } from './glitch-settings.js';
 import type { ItemGroup } from './item-group.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { ItemTooltipBackers } from './item-tooltip-backers.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { LaneInfo } from './lane-info.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -98,6 +101,10 @@ export interface GenericData {
      */
     'item_corruption_price_per_tier'?: Array<number> | null;
     'item_price_per_tier': Array<number>;
+    /**
+     * Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+     */
+    'item_tooltip_backers': ItemTooltipBackers;
     'lane_info': Array<LaneInfo>;
     /**
      * District / building labels shown on the map (build 6711+).

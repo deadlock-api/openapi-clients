@@ -147,6 +147,8 @@ api/Model/ItemPermutationStats.php
 api/Model/ItemProperty.php
 api/Model/ItemSlotType.php
 api/Model/ItemStats.php
+api/Model/ItemTooltipBacker.php
+api/Model/ItemTooltipBackers.php
 api/Model/ItemType.php
 api/Model/JobStatus.php
 api/Model/KillDeathStats.php
@@ -415,6 +417,8 @@ docs/Model/ItemPermutationStats.md
 docs/Model/ItemProperty.md
 docs/Model/ItemSlotType.md
 docs/Model/ItemStats.md
+docs/Model/ItemTooltipBacker.md
+docs/Model/ItemTooltipBackers.md
 docs/Model/ItemType.md
 docs/Model/JobStatus.md
 docs/Model/KillDeathStats.md
@@ -682,6 +686,8 @@ test/Model/ItemPropertyTest.php
 test/Model/ItemSlotTypeTest.php
 test/Model/ItemStatsTest.php
 test/Model/ItemTest.php
+test/Model/ItemTooltipBackerTest.php
+test/Model/ItemTooltipBackersTest.php
 test/Model/ItemTypeTest.php
 test/Model/JobStatusTest.php
 test/Model/KillDeathStatsTest.php

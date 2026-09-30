@@ -73,7 +73,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **404** | Requested client_version is not available, or it has no loot tables (build 6711+) |  -  |
 **500** | Failed to load source assets |  -  |
 

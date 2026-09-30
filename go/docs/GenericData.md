@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **HeroKillGoldShareFrac** | **[]float64** |  | 
 **ItemCorruptionPricePerTier** | Pointer to **[]int64** | Extra cost of corrupting an item, by item tier (build 6711+). | [optional] 
 **ItemPricePerTier** | **[]int64** |  | 
+**ItemTooltipBackers** | [**ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;). | 
 **LaneInfo** | [**[]LaneInfo**](LaneInfo.md) |  | 
 **MapDistricts** | Pointer to [**[]MapDistrict**](MapDistrict.md) | District / building labels shown on the map (build 6711+). | [optional] 
 **MiniMapOffsets** | [**[]MiniMapOffsets**](MiniMapOffsets.md) |  | 
@@ -40,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewGenericData
 
-`func NewGenericData(aimSpringStrength []float64, armorGroups []ItemGroup, damageFlash DamageFlash, glitchSettings GlitchSettings, heroKillGoldShareFrac []float64, itemPricePerTier []int64, laneInfo []LaneInfo, miniMapOffsets []MiniMapOffsets, newPlayerMetrics []NewPlayerMetrics, objectiveParams ObjectiveParams, rejuvParams RejuvParams, spiritGroups []ItemGroup, targetingSpringStrength []float64, trooperKillGoldShareFrac []float64, weaponGroups []ItemGroup, ) *GenericData`
+`func NewGenericData(aimSpringStrength []float64, armorGroups []ItemGroup, damageFlash DamageFlash, glitchSettings GlitchSettings, heroKillGoldShareFrac []float64, itemPricePerTier []int64, itemTooltipBackers ItemTooltipBackers, laneInfo []LaneInfo, miniMapOffsets []MiniMapOffsets, newPlayerMetrics []NewPlayerMetrics, objectiveParams ObjectiveParams, rejuvParams RejuvParams, spiritGroups []ItemGroup, targetingSpringStrength []float64, trooperKillGoldShareFrac []float64, weaponGroups []ItemGroup, ) *GenericData`
 
 NewGenericData instantiates a new GenericData object
 This constructor will assign default values to properties that have it defined,
@@ -558,6 +559,26 @@ and a boolean to check if the value has been set.
 `func (o *GenericData) SetItemPricePerTier(v []int64)`
 
 SetItemPricePerTier sets ItemPricePerTier field to given value.
+
+
+### GetItemTooltipBackers
+
+`func (o *GenericData) GetItemTooltipBackers() ItemTooltipBackers`
+
+GetItemTooltipBackers returns the ItemTooltipBackers field if non-nil, zero value otherwise.
+
+### GetItemTooltipBackersOk
+
+`func (o *GenericData) GetItemTooltipBackersOk() (*ItemTooltipBackers, bool)`
+
+GetItemTooltipBackersOk returns a tuple with the ItemTooltipBackers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetItemTooltipBackers
+
+`func (o *GenericData) SetItemTooltipBackers(v ItemTooltipBackers)`
+
+SetItemTooltipBackers sets ItemTooltipBackers field to given value.
 
 
 ### GetLaneInfo

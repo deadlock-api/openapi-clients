@@ -93,7 +93,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **500** | Fetching or parsing active matches failed |  -  |
 
@@ -176,7 +176,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **500** | Fetching active matches failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -257,7 +257,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     order_by = 'order_by_example' # str | The field to order the results by. (optional)
     order_direction = 'order_direction_example' # str | The direction to order the results by. (optional)
     limit = 1000 # int | The maximum number of matches to return. (optional) (default to 1000)
-    format = 'format_example' # str | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
+    format = 'json' # str | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to 'json')
 
     try:
         # Bulk Metadata
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| The field to order the results by. | [optional] 
  **order_direction** | **str**| The direction to order the results by. | [optional] 
  **limit** | **int**| The maximum number of matches to return. | [optional] [default to 1000]
- **format** | **str**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] 
+ **format** | **str**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to &#39;json&#39;]
 
 ### Return type
 
@@ -329,7 +329,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 
@@ -413,7 +413,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Ingesting live URLs failed |  -  |
@@ -598,7 +598,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **404** | Match metadata not found |  -  |
 **429** | Rate limit exceeded |  -  |
@@ -757,7 +757,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Fetching match salts failed |  -  |
@@ -841,7 +841,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Spectating match failed |  -  |
@@ -921,7 +921,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **500** | Fetching live URLs failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

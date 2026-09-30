@@ -145,6 +145,8 @@ src/models/ItemPermutationStats.ts
 src/models/ItemProperty.ts
 src/models/ItemSlotType.ts
 src/models/ItemStats.ts
+src/models/ItemTooltipBacker.ts
+src/models/ItemTooltipBackers.ts
 src/models/ItemType.ts
 src/models/JobStatus.ts
 src/models/KillDeathStats.ts

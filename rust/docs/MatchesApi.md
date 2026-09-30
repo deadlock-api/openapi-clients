@@ -122,7 +122,7 @@ Name | Type | Description  | Required | Notes
 **order_by** | Option<**String**> | The field to order the results by. |  |
 **order_direction** | Option<**String**> | The direction to order the results by. |  |
 **limit** | Option<**u32**> | The maximum number of matches to return. |  |[default to 1000]
-**format** | Option<**String**> | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). |  |
+**format** | Option<**String**> | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). |  |[default to json]
 
 ### Return type
 

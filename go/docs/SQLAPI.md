@@ -93,7 +93,7 @@ import (
 
 func main() {
 	query := "query_example" // string | The SQL query to execute. It must follow the Clickhouse SQL syntax.
-	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional)
+	format := "format_example" // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to "json")
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -119,7 +119,7 @@ Other parameters are passed through a pointer to a apiSqlRequest struct via the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string** | The SQL query to execute. It must follow the Clickhouse SQL syntax. | 
- **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | 
+ **format** | **string** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [default to &quot;json&quot;]
 
 ### Return type
 

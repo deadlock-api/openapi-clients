@@ -10,6 +10,7 @@
 | **glitchSettings** | [**GlitchSettings**](GlitchSettings.md) |  |  |
 | **heroKillGoldShareFrac** | **kotlin.collections.List&lt;kotlin.Double&gt;** |  |  |
 | **itemPricePerTier** | **kotlin.collections.List&lt;kotlin.Long&gt;** |  |  |
+| **itemTooltipBackers** | [**ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;). |  |
 | **laneInfo** | [**kotlin.collections.List&lt;LaneInfo&gt;**](LaneInfo.md) |  |  |
 | **miniMapOffsets** | [**kotlin.collections.List&lt;MiniMapOffsets&gt;**](MiniMapOffsets.md) |  |  |
 | **newPlayerMetrics** | [**kotlin.collections.List&lt;NewPlayerMetrics&gt;**](NewPlayerMetrics.md) |  |  |

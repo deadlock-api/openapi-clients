@@ -48,8 +48,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
-|**500** |  |  -  |
+|**200** | OK |  -  |
+|**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -70,7 +70,7 @@ const configuration = new Configuration();
 const apiInstance = new SQLApi(configuration);
 
 let query: string; //The SQL query to execute. It must follow the Clickhouse SQL syntax. (default to undefined)
-let format: 'json' | 'ndjson'; //The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to undefined)
+let format: 'json' | 'ndjson'; //The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to 'json')
 
 const { status, data } = await apiInstance.sql(
     query,
@@ -83,7 +83,7 @@ const { status, data } = await apiInstance.sql(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **query** | [**string**] | The SQL query to execute. It must follow the Clickhouse SQL syntax. | defaults to undefined|
-| **format** | [**&#39;json&#39; | &#39;ndjson&#39;**]**Array<&#39;json&#39; &#124; &#39;ndjson&#39;>** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | (optional) defaults to undefined|
+| **format** | [**&#39;json&#39; | &#39;ndjson&#39;**]**Array<&#39;json&#39; &#124; &#39;ndjson&#39;>** | The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | (optional) defaults to 'json'|
 
 
 ### Return type
@@ -103,8 +103,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
-|**500** |  |  -  |
+|**200** | OK |  -  |
+|**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -155,8 +155,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-|**200** |  |  -  |
-|**500** |  |  -  |
+|**200** | OK |  -  |
+|**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

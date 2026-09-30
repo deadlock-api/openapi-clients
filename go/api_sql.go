@@ -229,6 +229,10 @@ func (a *SQLAPIService) SqlExecute(r ApiSqlRequest) (string, *http.Response, err
 	parameterAddToHeaderOrQuery(localVarQueryParams, "query", r.query, "form", "")
 	if r.format != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "format", r.format, "form", "")
+	} else {
+		var defaultValue string = "json"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "format", defaultValue, "form", "")
+		r.format = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

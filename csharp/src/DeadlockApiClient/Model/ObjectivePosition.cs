@@ -26,7 +26,7 @@ using DeadlockApiClient.Client;
 namespace DeadlockApiClient.Model
 {
     /// <summary>
-    /// A position on the minimap, as fractions of its width/height.
+    /// The top-left corner of an objective marker on the minimap, as fractions of its width/height (like a CSS &#x60;margin-left&#x60;/&#x60;margin-top&#x60;). The marker is a &#x60;Core&#x60; (30% x 8%) for the cores and an &#x60;Icon&#x60; (10% x 10%) otherwise, so its centre is this position plus half that size. Unlike &#x60;neutral_camps&#x60;, whose &#x60;left_relative&#x60;/&#x60;top_relative&#x60; are the point itself. Before build 6711 these are the HUD&#39;s schematic layout; from 6711 on they are real map positions.
     /// </summary>
     public partial class ObjectivePosition : IValidatableObject
     {

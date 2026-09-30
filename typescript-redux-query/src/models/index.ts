@@ -107,6 +107,8 @@ export * from './ItemPermutationStats';
 export * from './ItemProperty';
 export * from './ItemSlotType';
 export * from './ItemStats';
+export * from './ItemTooltipBacker';
+export * from './ItemTooltipBackers';
 export * from './ItemType';
 export * from './JobStatus';
 export * from './KillDeathStats';

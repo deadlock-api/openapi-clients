@@ -26,6 +26,7 @@ from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty
 from deadlock_api_client.models.damage_flash import DamageFlash
 from deadlock_api_client.models.glitch_settings import GlitchSettings
 from deadlock_api_client.models.item_group import ItemGroup
+from deadlock_api_client.models.item_tooltip_backers import ItemTooltipBackers
 from deadlock_api_client.models.lane_info import LaneInfo
 from deadlock_api_client.models.map_district import MapDistrict
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
@@ -58,6 +59,7 @@ class GenericData(BaseModel):
     hero_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     item_corruption_price_per_tier: Optional[List[StrictInt]] = Field(default=None, description="Extra cost of corrupting an item, by item tier (build 6711+).")
     item_price_per_tier: List[StrictInt]
+    item_tooltip_backers: ItemTooltipBackers = Field(description="Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).")
     lane_info: List[LaneInfo]
     map_districts: Optional[List[MapDistrict]] = Field(default=None, description="District / building labels shown on the map (build 6711+).")
     mini_map_offsets: List[MiniMapOffsets]
@@ -72,7 +74,7 @@ class GenericData(BaseModel):
     targeting_spring_strength: List[Union[StrictFloat, StrictInt]]
     trooper_kill_gold_share_frac: List[Union[StrictFloat, StrictInt]]
     weapon_groups: List[ItemGroup]
-    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "breakable_powerup_loot_params", "color_enemy", "color_friend", "color_team1", "color_team2", "corrupted_item_images", "corrupted_penalties", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_corruption_price_per_tier", "item_price_per_tier", "lane_info", "map_districts", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "neutral_camp_respawn_timer_show_distance", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
+    __properties: ClassVar[List[str]] = ["aim_spring_strength", "armor_groups", "breakable_powerup_loot_params", "color_enemy", "color_friend", "color_team1", "color_team2", "corrupted_item_images", "corrupted_penalties", "damage_flash", "enemy_objectives_and_zipline_color", "enemy_objectives_color", "enemy_zipline_color", "glitch_settings", "hero_kill_gold_share_frac", "item_corruption_price_per_tier", "item_price_per_tier", "item_tooltip_backers", "lane_info", "map_districts", "mini_map_offsets", "minimap_team_combine_color", "minimap_team_rebels_color", "neutral_camp_respawn_timer_show_distance", "new_player_metrics", "objective_params", "rejuv_params", "spirit_groups", "street_brawl", "targeting_spring_strength", "trooper_kill_gold_share_frac", "weapon_groups"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -158,6 +160,9 @@ class GenericData(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of glitch_settings
         if self.glitch_settings:
             _dict['glitch_settings'] = self.glitch_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of item_tooltip_backers
+        if self.item_tooltip_backers:
+            _dict['item_tooltip_backers'] = self.item_tooltip_backers.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in lane_info (list)
         _items = []
         if self.lane_info:
@@ -318,6 +323,7 @@ class GenericData(BaseModel):
             "hero_kill_gold_share_frac": obj.get("hero_kill_gold_share_frac"),
             "item_corruption_price_per_tier": obj.get("item_corruption_price_per_tier"),
             "item_price_per_tier": obj.get("item_price_per_tier"),
+            "item_tooltip_backers": ItemTooltipBackers.from_dict(obj["item_tooltip_backers"]) if obj.get("item_tooltip_backers") is not None else None,
             "lane_info": [LaneInfo.from_dict(_item) for _item in obj["lane_info"]] if obj.get("lane_info") is not None else None,
             "map_districts": [MapDistrict.from_dict(_item) for _item in obj["map_districts"]] if obj.get("map_districts") is not None else None,
             "mini_map_offsets": [MiniMapOffsets.from_dict(_item) for _item in obj["mini_map_offsets"]] if obj.get("mini_map_offsets") is not None else None,

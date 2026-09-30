@@ -46,6 +46,8 @@ type GenericData struct {
 	// Extra cost of corrupting an item, by item tier (build 6711+).
 	ItemCorruptionPricePerTier []int64 `json:"item_corruption_price_per_tier,omitempty"`
 	ItemPricePerTier []int64 `json:"item_price_per_tier"`
+	// Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+	ItemTooltipBackers ItemTooltipBackers `json:"item_tooltip_backers"`
 	LaneInfo []LaneInfo `json:"lane_info"`
 	// District / building labels shown on the map (build 6711+).
 	MapDistricts []MapDistrict `json:"map_districts,omitempty"`
@@ -70,7 +72,7 @@ type _GenericData GenericData
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGenericData(aimSpringStrength []float64, armorGroups []ItemGroup, damageFlash DamageFlash, glitchSettings GlitchSettings, heroKillGoldShareFrac []float64, itemPricePerTier []int64, laneInfo []LaneInfo, miniMapOffsets []MiniMapOffsets, newPlayerMetrics []NewPlayerMetrics, objectiveParams ObjectiveParams, rejuvParams RejuvParams, spiritGroups []ItemGroup, targetingSpringStrength []float64, trooperKillGoldShareFrac []float64, weaponGroups []ItemGroup) *GenericData {
+func NewGenericData(aimSpringStrength []float64, armorGroups []ItemGroup, damageFlash DamageFlash, glitchSettings GlitchSettings, heroKillGoldShareFrac []float64, itemPricePerTier []int64, itemTooltipBackers ItemTooltipBackers, laneInfo []LaneInfo, miniMapOffsets []MiniMapOffsets, newPlayerMetrics []NewPlayerMetrics, objectiveParams ObjectiveParams, rejuvParams RejuvParams, spiritGroups []ItemGroup, targetingSpringStrength []float64, trooperKillGoldShareFrac []float64, weaponGroups []ItemGroup) *GenericData {
 	this := GenericData{}
 	this.AimSpringStrength = aimSpringStrength
 	this.ArmorGroups = armorGroups
@@ -78,6 +80,7 @@ func NewGenericData(aimSpringStrength []float64, armorGroups []ItemGroup, damage
 	this.GlitchSettings = glitchSettings
 	this.HeroKillGoldShareFrac = heroKillGoldShareFrac
 	this.ItemPricePerTier = itemPricePerTier
+	this.ItemTooltipBackers = itemTooltipBackers
 	this.LaneInfo = laneInfo
 	this.MiniMapOffsets = miniMapOffsets
 	this.NewPlayerMetrics = newPlayerMetrics
@@ -686,6 +689,30 @@ func (o *GenericData) SetItemPricePerTier(v []int64) {
 	o.ItemPricePerTier = v
 }
 
+// GetItemTooltipBackers returns the ItemTooltipBackers field value
+func (o *GenericData) GetItemTooltipBackers() ItemTooltipBackers {
+	if o == nil {
+		var ret ItemTooltipBackers
+		return ret
+	}
+
+	return o.ItemTooltipBackers
+}
+
+// GetItemTooltipBackersOk returns a tuple with the ItemTooltipBackers field value
+// and a boolean to check if the value has been set.
+func (o *GenericData) GetItemTooltipBackersOk() (*ItemTooltipBackers, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.ItemTooltipBackers, true
+}
+
+// SetItemTooltipBackers sets field value
+func (o *GenericData) SetItemTooltipBackers(v ItemTooltipBackers) {
+	o.ItemTooltipBackers = v
+}
+
 // GetLaneInfo returns the LaneInfo field value
 func (o *GenericData) GetLaneInfo() []LaneInfo {
 	if o == nil {
@@ -1152,6 +1179,7 @@ func (o GenericData) ToMap() (map[string]interface{}, error) {
 		toSerialize["item_corruption_price_per_tier"] = o.ItemCorruptionPricePerTier
 	}
 	toSerialize["item_price_per_tier"] = o.ItemPricePerTier
+	toSerialize["item_tooltip_backers"] = o.ItemTooltipBackers
 	toSerialize["lane_info"] = o.LaneInfo
 	if o.MapDistricts != nil {
 		toSerialize["map_districts"] = o.MapDistricts
@@ -1190,6 +1218,7 @@ func (o *GenericData) UnmarshalJSON(data []byte) (err error) {
 		"glitch_settings",
 		"hero_kill_gold_share_frac",
 		"item_price_per_tier",
+		"item_tooltip_backers",
 		"lane_info",
 		"mini_map_offsets",
 		"new_player_metrics",

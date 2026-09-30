@@ -46,7 +46,7 @@ class PlayerCardTest : ShouldSpec() {
             //modelInstance.slots shouldBe ("TODO")
         }
 
-        // to test the property `rankedBadgeLevel` - See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        // to test the property `rankedBadgeLevel` - Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>
         should("test rankedBadgeLevel") {
             // uncomment below to test the property
             //modelInstance.rankedBadgeLevel shouldBe ("TODO")

@@ -72,7 +72,7 @@ No authorization required
 
 Card
 
- This endpoint returns the player card for the given &#x60;account_id&#x60;.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
+ This endpoint returns the player card for the given &#x60;account_id&#x60;.  Since build 6711 player cards no longer carry a rank, so &#x60;ranked_badge_level&#x60;, &#x60;ranked_rank&#x60; and &#x60;ranked_subrank&#x60; are the rank after the player&#39;s latest ranked match (same as &#x60;/v1/players/{account_id}/rank&#x60;).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min &amp; 800req/h | | Global | 200req/min |     
 
 ### Example
 ```kotlin

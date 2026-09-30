@@ -50,7 +50,7 @@ Query
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **query** | **String** | The SQL query to execute. It must follow the Clickhouse SQL syntax. | [required] |
-**format** | Option<**String**> | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). |  |
+**format** | Option<**String**> | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). |  |[default to json]
 
 ### Return type
 

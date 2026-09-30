@@ -11,7 +11,7 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// ObjectivePosition : A position on the minimap, as fractions of its width/height.
+/// ObjectivePosition : The top-left corner of an objective marker on the minimap, as fractions of its width/height (like a CSS `margin-left`/`margin-top`). The marker is a `Core` (30% x 8%) for the cores and an `Icon` (10% x 10%) otherwise, so its centre is this position plus half that size. Unlike `neutral_camps`, whose `left_relative`/`top_relative` are the point itself. Before build 6711 these are the HUD's schematic layout; from 6711 on they are real map positions.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ObjectivePosition {
     #[serde(rename = "left_relative")]
@@ -21,7 +21,7 @@ pub struct ObjectivePosition {
 }
 
 impl ObjectivePosition {
-    /// A position on the minimap, as fractions of its width/height.
+    /// The top-left corner of an objective marker on the minimap, as fractions of its width/height (like a CSS `margin-left`/`margin-top`). The marker is a `Core` (30% x 8%) for the cores and an `Icon` (10% x 10%) otherwise, so its centre is this position plus half that size. Unlike `neutral_camps`, whose `left_relative`/`top_relative` are the point itself. Before build 6711 these are the HUD's schematic layout; from 6711 on they are real map positions.
     pub fn new(left_relative: f64, top_relative: f64) -> ObjectivePosition {
         ObjectivePosition {
             left_relative,

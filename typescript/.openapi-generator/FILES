@@ -161,6 +161,8 @@ docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
 docs/ItemStats.md
+docs/ItemTooltipBacker.md
+docs/ItemTooltipBackers.md
 docs/ItemType.md
 docs/ItemsApi.md
 docs/JobStatus.md
@@ -413,6 +415,8 @@ models/item-permutation-stats.ts
 models/item-property.ts
 models/item-slot-type.ts
 models/item-stats.ts
+models/item-tooltip-backer.ts
+models/item-tooltip-backers.ts
 models/item-type.ts
 models/item.ts
 models/job-status.ts

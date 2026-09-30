@@ -107,6 +107,8 @@ export * from './item-permutation-stats.js';
 export * from './item-property.js';
 export * from './item-slot-type.js';
 export * from './item-stats.js';
+export * from './item-tooltip-backer.js';
+export * from './item-tooltip-backers.js';
 export * from './item-type.js';
 export * from './job-status.js';
 export * from './kill-death-stats.js';

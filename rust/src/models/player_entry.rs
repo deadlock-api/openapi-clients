@@ -15,6 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct PlayerEntry {
     #[serde(rename = "account_id")]
     pub account_id: u32,
+    /// `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    #[serde(rename = "badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub badge: Option<Option<u32>>,
+    /// `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+    #[serde(rename = "badge_progress", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub badge_progress: Option<Option<u32>>,
     #[serde(rename = "matches")]
     pub matches: u64,
     #[serde(rename = "rank")]
@@ -27,6 +33,8 @@ impl PlayerEntry {
     pub fn new(account_id: u32, matches: u64, rank: u64, value: f64) -> PlayerEntry {
         PlayerEntry {
             account_id,
+            badge: None,
+            badge_progress: None,
             matches,
             rank,
             value,

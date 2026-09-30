@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **GlitchSettings** | [**GlitchSettings**](GlitchSettings.md) |  | 
 **HeroKillGoldShareFrac** | **List&lt;double&gt;** |  | 
 **ItemPricePerTier** | **List&lt;long&gt;** |  | 
+**ItemTooltipBackers** | [**ItemTooltipBackers**](ItemTooltipBackers.md) | Item tooltip backgrounds per slot type (the corrupted variants are in &#x60;corrupted_item_images&#x60;). | 
 **LaneInfo** | [**List&lt;LaneInfo&gt;**](LaneInfo.md) |  | 
 **MiniMapOffsets** | [**List&lt;MiniMapOffsets&gt;**](MiniMapOffsets.md) |  | 
 **NewPlayerMetrics** | [**List&lt;NewPlayerMetrics&gt;**](NewPlayerMetrics.md) |  | 

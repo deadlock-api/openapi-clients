@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** |  |  -  |
+**201** | Created |  -  |
 **400** | Invalid &#x60;steam_id3&#x60; or no free slot left |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
 **404** | Account not found or does not belong to the patron |  -  |
 
@@ -220,7 +220,7 @@ The endpoint accepts a list of MatchSalts objects, which contain the following f
 - `cluster_id`: The cluster ID
 - `metadata_salt`: The metadata salt
 - `replay_salt`: The replay salt
-- `username`: The username of the person who submitted the match
+- `username`: The username of the person who submitted the match (defaults to `api-ingest`)
 
 ### Rate Limits:
 | Type | Limit |
@@ -285,7 +285,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Provided parameters are invalid or the salt check failed. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Ingest failed |  -  |
@@ -377,7 +377,7 @@ This endpoint does not need any parameter.
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -471,7 +471,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | The account is already active, or no free slot left |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
 **404** | Account not found or does not belong to the patron |  -  |
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**200** | OK |  -  |
 **400** | Invalid &#x60;steam_id3&#x60;, the account is still active, or its cooldown has not passed |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
 **404** | Account not found or does not belong to the patron |  -  |

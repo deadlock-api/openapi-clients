@@ -55,6 +55,9 @@ pub struct GenericData {
     pub item_corruption_price_per_tier: Option<Option<Vec<i64>>>,
     #[serde(rename = "item_price_per_tier")]
     pub item_price_per_tier: Vec<i64>,
+    /// Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+    #[serde(rename = "item_tooltip_backers")]
+    pub item_tooltip_backers: Box<models::ItemTooltipBackers>,
     #[serde(rename = "lane_info")]
     pub lane_info: Vec<models::LaneInfo>,
     /// District / building labels shown on the map (build 6711+).
@@ -88,7 +91,7 @@ pub struct GenericData {
 }
 
 impl GenericData {
-    pub fn new(aim_spring_strength: Vec<f64>, armor_groups: Vec<models::ItemGroup>, damage_flash: models::DamageFlash, glitch_settings: models::GlitchSettings, hero_kill_gold_share_frac: Vec<f64>, item_price_per_tier: Vec<i64>, lane_info: Vec<models::LaneInfo>, mini_map_offsets: Vec<models::MiniMapOffsets>, new_player_metrics: Vec<models::NewPlayerMetrics>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, spirit_groups: Vec<models::ItemGroup>, targeting_spring_strength: Vec<f64>, trooper_kill_gold_share_frac: Vec<f64>, weapon_groups: Vec<models::ItemGroup>) -> GenericData {
+    pub fn new(aim_spring_strength: Vec<f64>, armor_groups: Vec<models::ItemGroup>, damage_flash: models::DamageFlash, glitch_settings: models::GlitchSettings, hero_kill_gold_share_frac: Vec<f64>, item_price_per_tier: Vec<i64>, item_tooltip_backers: models::ItemTooltipBackers, lane_info: Vec<models::LaneInfo>, mini_map_offsets: Vec<models::MiniMapOffsets>, new_player_metrics: Vec<models::NewPlayerMetrics>, objective_params: models::ObjectiveParams, rejuv_params: models::RejuvParams, spirit_groups: Vec<models::ItemGroup>, targeting_spring_strength: Vec<f64>, trooper_kill_gold_share_frac: Vec<f64>, weapon_groups: Vec<models::ItemGroup>) -> GenericData {
         GenericData {
             aim_spring_strength,
             armor_groups,
@@ -107,6 +110,7 @@ impl GenericData {
             hero_kill_gold_share_frac,
             item_corruption_price_per_tier: None,
             item_price_per_tier,
+            item_tooltip_backers: Box::new(item_tooltip_backers),
             lane_info,
             map_districts: None,
             mini_map_offsets,

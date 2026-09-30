@@ -34,6 +34,9 @@ import {
     ItemGroup,
     ItemGroupFromJSON,
     ItemGroupToJSON,
+    ItemTooltipBackers,
+    ItemTooltipBackersFromJSON,
+    ItemTooltipBackersToJSON,
     LaneInfo,
     LaneInfoFromJSON,
     LaneInfoToJSON,
@@ -166,6 +169,12 @@ export interface GenericData  {
      */
     itemPricePerTier: Array<number>;
     /**
+     * Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
+     * @type {ItemTooltipBackers}
+     * @memberof GenericData
+     */
+    itemTooltipBackers: ItemTooltipBackers;
+    /**
      * 
      * @type {Array<LaneInfo>}
      * @memberof GenericData
@@ -270,6 +279,7 @@ export function GenericDataFromJSON(json: any): GenericData {
         'heroKillGoldShareFrac': json['hero_kill_gold_share_frac'],
         'itemCorruptionPricePerTier': !exists(json, 'item_corruption_price_per_tier') ? undefined : json['item_corruption_price_per_tier'],
         'itemPricePerTier': json['item_price_per_tier'],
+        'itemTooltipBackers': ItemTooltipBackersFromJSON(json['item_tooltip_backers']),
         'laneInfo': (json['lane_info'] as Array<any>).map(LaneInfoFromJSON),
         'mapDistricts': !exists(json, 'map_districts') ? undefined : (json['map_districts'] as Array<any>).map(MapDistrictFromJSON),
         'miniMapOffsets': (json['mini_map_offsets'] as Array<any>).map(MiniMapOffsetsFromJSON),
@@ -309,6 +319,7 @@ export function GenericDataToJSON(value?: GenericData): any {
         'hero_kill_gold_share_frac': value.heroKillGoldShareFrac,
         'item_corruption_price_per_tier': value.itemCorruptionPricePerTier,
         'item_price_per_tier': value.itemPricePerTier,
+        'item_tooltip_backers': ItemTooltipBackersToJSON(value.itemTooltipBackers),
         'lane_info': (value.laneInfo as Array<any>).map(LaneInfoToJSON),
         'map_districts': value.mapDistricts === undefined ? undefined : (value.mapDistricts as Array<any>).map(MapDistrictToJSON),
         'mini_map_offsets': (value.miniMapOffsets as Array<any>).map(MiniMapOffsetsToJSON),

@@ -22,6 +22,10 @@ var _ MappedNullable = &PlayerEntry{}
 // PlayerEntry struct for PlayerEntry
 type PlayerEntry struct {
 	AccountId int32 `json:"account_id"`
+	// `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	Badge NullableInt32 `json:"badge,omitempty"`
+	// `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+	BadgeProgress NullableInt32 `json:"badge_progress,omitempty"`
 	Matches int64 `json:"matches"`
 	Rank int64 `json:"rank"`
 	Value float64 `json:"value"`
@@ -72,6 +76,90 @@ func (o *PlayerEntry) GetAccountIdOk() (*int32, bool) {
 // SetAccountId sets field value
 func (o *PlayerEntry) SetAccountId(v int32) {
 	o.AccountId = v
+}
+
+// GetBadge returns the Badge field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerEntry) GetBadge() int32 {
+	if o == nil || IsNil(o.Badge.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.Badge.Get()
+}
+
+// GetBadgeOk returns a tuple with the Badge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerEntry) GetBadgeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Badge.Get(), o.Badge.IsSet()
+}
+
+// HasBadge returns a boolean if a field has been set.
+func (o *PlayerEntry) HasBadge() bool {
+	if o != nil && o.Badge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBadge gets a reference to the given NullableInt32 and assigns it to the Badge field.
+func (o *PlayerEntry) SetBadge(v int32) {
+	o.Badge.Set(&v)
+}
+// SetBadgeNil sets the value for Badge to be an explicit nil
+func (o *PlayerEntry) SetBadgeNil() {
+	o.Badge.Set(nil)
+}
+
+// UnsetBadge ensures that no value is present for Badge, not even an explicit nil
+func (o *PlayerEntry) UnsetBadge() {
+	o.Badge.Unset()
+}
+
+// GetBadgeProgress returns the BadgeProgress field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerEntry) GetBadgeProgress() int32 {
+	if o == nil || IsNil(o.BadgeProgress.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BadgeProgress.Get()
+}
+
+// GetBadgeProgressOk returns a tuple with the BadgeProgress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerEntry) GetBadgeProgressOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BadgeProgress.Get(), o.BadgeProgress.IsSet()
+}
+
+// HasBadgeProgress returns a boolean if a field has been set.
+func (o *PlayerEntry) HasBadgeProgress() bool {
+	if o != nil && o.BadgeProgress.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBadgeProgress gets a reference to the given NullableInt32 and assigns it to the BadgeProgress field.
+func (o *PlayerEntry) SetBadgeProgress(v int32) {
+	o.BadgeProgress.Set(&v)
+}
+// SetBadgeProgressNil sets the value for BadgeProgress to be an explicit nil
+func (o *PlayerEntry) SetBadgeProgressNil() {
+	o.BadgeProgress.Set(nil)
+}
+
+// UnsetBadgeProgress ensures that no value is present for BadgeProgress, not even an explicit nil
+func (o *PlayerEntry) UnsetBadgeProgress() {
+	o.BadgeProgress.Unset()
 }
 
 // GetMatches returns the Matches field value
@@ -157,6 +245,12 @@ func (o PlayerEntry) MarshalJSON() ([]byte, error) {
 func (o PlayerEntry) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["account_id"] = o.AccountId
+	if o.Badge.IsSet() {
+		toSerialize["badge"] = o.Badge.Get()
+	}
+	if o.BadgeProgress.IsSet() {
+		toSerialize["badge_progress"] = o.BadgeProgress.Get()
+	}
 	toSerialize["matches"] = o.Matches
 	toSerialize["rank"] = o.Rank
 	toSerialize["value"] = o.Value

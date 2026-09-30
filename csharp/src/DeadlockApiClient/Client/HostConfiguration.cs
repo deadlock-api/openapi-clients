@@ -164,6 +164,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ItemSlotTypeJsonConverter());
             _jsonOptions.Converters.Add(new ItemSlotTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new ItemStatsJsonConverter());
+            _jsonOptions.Converters.Add(new ItemTooltipBackerJsonConverter());
+            _jsonOptions.Converters.Add(new ItemTooltipBackersJsonConverter());
             _jsonOptions.Converters.Add(new ItemTypeJsonConverter());
             _jsonOptions.Converters.Add(new ItemTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new JobStatusJsonConverter());

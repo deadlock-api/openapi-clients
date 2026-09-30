@@ -233,6 +233,15 @@ class GenericDataTest extends TestCase
     }
 
     /**
+     * Test attribute "item_tooltip_backers"
+     */
+    public function testPropertyItemTooltipBackers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "lane_info"
      */
     public function testPropertyLaneInfo()

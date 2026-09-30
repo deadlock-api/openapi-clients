@@ -30,7 +30,7 @@ class PlayerCard(BaseModel):
     PlayerCard
     """ # noqa: E501
     account_id: Annotated[int, Field(strict=True, ge=0)]
-    ranked_badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
+    ranked_badge_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Rank badge after the player's latest ranked match (player cards no longer carry a rank since build 6711), `null` when no recent ranked match reports one. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     ranked_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     ranked_subrank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     slots: List[PlayerCardSlot]
