@@ -249,6 +249,7 @@ docs/SQLApi.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
+docs/Settings.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
@@ -491,6 +492,7 @@ models/replace-steam-account-request.ts
 models/script-values.ts
 models/season-interval.ts
 models/server-region.ts
+models/settings.ts
 models/shop-spirit-stats-display.ts
 models/shop-stat-display.ts
 models/shop-vitality-stats-display.ts

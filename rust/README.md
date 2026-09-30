@@ -85,6 +85,7 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**variables_resolve**](docs/CommandsApi.md#variables_resolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
 *CommandsApi* | [**widget_versions**](docs/CommandsApi.md#widget_versions) | **GET** /v1/commands/widgets/versions | Widget Versions
 *CrosshairApi* | [**code_image**](docs/CrosshairApi.md#code_image) | **GET** /v1/crosshair/code/image | Crosshair Code Image
+*CrosshairApi* | [**code_settings**](docs/CrosshairApi.md#code_settings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings
 *CrosshairApi* | [**settings_code**](docs/CrosshairApi.md#settings_code) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
 *CrosshairApi* | [**settings_image**](docs/CrosshairApi.md#settings_image) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image
 *CustomMatchesApi* | [**create_custom**](docs/CustomMatchesApi.md#create_custom) | **POST** /v1/matches/custom/create | Create Match
@@ -357,6 +358,7 @@ Class | Method | HTTP request | Description
  - [ScriptValues](docs/ScriptValues.md)
  - [SeasonInterval](docs/SeasonInterval.md)
  - [ServerRegion](docs/ServerRegion.md)
+ - [Settings](docs/Settings.md)
  - [ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
  - [ShopStatDisplay](docs/ShopStatDisplay.md)
  - [ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)

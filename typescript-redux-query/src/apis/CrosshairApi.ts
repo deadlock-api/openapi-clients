@@ -18,11 +18,18 @@ import {
     CrosshairCode,
     CrosshairCodeFromJSON,
     CrosshairCodeToJSON,
+    Settings,
+    SettingsFromJSON,
+    SettingsToJSON,
 } from '../models';
 
 export interface CodeImageRequest {
     code: string;
     screenHeight?: number;
+}
+
+export interface CodeSettingsRequest {
+    code: string;
 }
 
 export interface SettingsCodeRequest {
@@ -129,6 +136,60 @@ function codeImageRaw<T>(requestParameters: CodeImageRequest, requestConfig: run
 */
 export function codeImage<T>(requestParameters: CodeImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return codeImageRaw(requestParameters, requestConfig);
+}
+
+/**
+ * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+ * Crosshair Code Settings
+ */
+function codeSettingsRaw<T>(requestParameters: CodeSettingsRequest, requestConfig: runtime.TypedQueryConfig<T, Settings> = {}): QueryConfig<T> {
+    if (requestParameters.code === null || requestParameters.code === undefined) {
+        throw new runtime.RequiredError('code','Required parameter requestParameters.code was null or undefined when calling codeSettings.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.code !== undefined) {
+        queryParameters['code'] = requestParameters.code;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/crosshair/code/settings`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(SettingsFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+* Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+* Crosshair Code Settings
+*/
+export function codeSettings<T>(requestParameters: CodeSettingsRequest, requestConfig?: runtime.TypedQueryConfig<T, Settings>): QueryConfig<T> {
+    return codeSettingsRaw(requestParameters, requestConfig);
 }
 
 /**

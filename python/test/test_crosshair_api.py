@@ -33,6 +33,13 @@ class TestCrosshairApi(unittest.TestCase):
         """
         pass
 
+    def test_code_settings(self) -> None:
+        """Test case for code_settings
+
+        Crosshair Code Settings
+        """
+        pass
+
     def test_settings_code(self) -> None:
         """Test case for settings_code
 

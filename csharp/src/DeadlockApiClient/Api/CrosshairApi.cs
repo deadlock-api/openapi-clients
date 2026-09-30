@@ -64,6 +64,29 @@ namespace DeadlockApiClient.Api
         Task<ICodeImageApiResponse?> CodeImageOrDefaultAsync(string code, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Crosshair Code Settings
+        /// </summary>
+        /// <remarks>
+        /// Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
+        Task<ICodeSettingsApiResponse> CodeSettingsAsync(string code, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Crosshair Code Settings
+        /// </summary>
+        /// <remarks>
+        /// Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+        /// </remarks>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>?&gt;</returns>
+        Task<ICodeSettingsApiResponse?> CodeSettingsOrDefaultAsync(string code, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Crosshair Settings Code
         /// </summary>
         /// <remarks>
@@ -207,6 +230,24 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
+    /// The <see cref="ICodeSettingsApiResponse"/>
+    /// </summary>
+    public interface ICodeSettingsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Settings?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+    }
+
+    /// <summary>
     /// The <see cref="ISettingsCodeApiResponse"/>
     /// </summary>
     public interface ISettingsCodeApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.CrosshairCode?>
@@ -265,6 +306,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorCodeImage(Exception exception)
         {
             OnErrorCodeImage?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnCodeSettings;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorCodeSettings;
+
+        internal void ExecuteOnCodeSettings(CrosshairApi.CodeSettingsApiResponse apiResponse)
+        {
+            OnCodeSettings?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorCodeSettings(Exception exception)
+        {
+            OnErrorCodeSettings?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -591,6 +652,270 @@ namespace DeadlockApiClient.Api
             /// <param name="result"></param>
             /// <returns></returns>
             public bool TryOk([NotNullWhen(true)]out List<int>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatCodeSettings(ref string code);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        private void ValidateCodeSettings(string code)
+        {
+            if (code == null)
+                throw new ArgumentNullException(nameof(code));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="code"></param>
+        private void AfterCodeSettingsDefaultImplementation(ICodeSettingsApiResponse apiResponseLocalVar, string code)
+        {
+            bool suppressDefaultLog = false;
+            AfterCodeSettings(ref suppressDefaultLog, apiResponseLocalVar, code);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="code"></param>
+        partial void AfterCodeSettings(ref bool suppressDefaultLog, ICodeSettingsApiResponse apiResponseLocalVar, string code);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="code"></param>
+        private void OnErrorCodeSettingsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorCodeSettings(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, code);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="code"></param>
+        partial void OnErrorCodeSettings(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code);
+
+        /// <summary>
+        /// Crosshair Code Settings Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+        /// </summary>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
+        public async Task<ICodeSettingsApiResponse?> CodeSettingsOrDefaultAsync(string code, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await CodeSettingsAsync(code, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Crosshair Code Settings Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
+        public async Task<ICodeSettingsApiResponse> CodeSettingsAsync(string code, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateCodeSettings(code);
+
+                FormatCodeSettings(ref code);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/crosshair/code/settings"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/crosshair/code/settings");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    parseQueryStringLocalVar["code"] = ClientUtils.ParameterToString(code);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        CodeSettingsApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/crosshair/code/settings", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterCodeSettingsDefaultImplementation(apiResponseLocalVar, code);
+
+                        Events.ExecuteOnCodeSettings(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorCodeSettingsDefaultImplementation(e, "/v1/crosshair/code/settings", uriBuilderLocalVar.Path, code);
+                Events.ExecuteOnErrorCodeSettings(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="CodeSettingsApiResponse"/>
+        /// </summary>
+        public partial class CodeSettingsApiResponse : DeadlockApiClient.Client.ApiResponse, ICodeSettingsApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<CrosshairApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="CodeSettingsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public CodeSettingsApiResponse(ILogger<CrosshairApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="CodeSettingsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public CodeSettingsApiResponse(ILogger<CrosshairApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public DeadlockApiClient.Model.Settings? Ok()
+            {
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.Settings? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.Settings? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Settings>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Settings? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Settings? result)
             {
                 result = null;
 

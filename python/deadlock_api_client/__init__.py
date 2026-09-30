@@ -240,6 +240,7 @@ __all__ = [
     "ScriptValues",
     "SeasonInterval",
     "ServerRegion",
+    "Settings",
     "ShopSpiritStatsDisplay",
     "ShopStatDisplay",
     "ShopVitalityStatsDisplay",
@@ -525,6 +526,7 @@ from deadlock_api_client.models.replace_steam_account_request import ReplaceStea
 from deadlock_api_client.models.script_values import ScriptValues as ScriptValues
 from deadlock_api_client.models.season_interval import SeasonInterval as SeasonInterval
 from deadlock_api_client.models.server_region import ServerRegion as ServerRegion
+from deadlock_api_client.models.settings import Settings as Settings
 from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStatsDisplay as ShopSpiritStatsDisplay
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay as ShopStatDisplay
 from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay as ShopVitalityStatsDisplay

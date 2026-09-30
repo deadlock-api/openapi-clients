@@ -179,6 +179,7 @@ export * from './replace-steam-account-request.js';
 export * from './script-values.js';
 export * from './season-interval.js';
 export * from './server-region.js';
+export * from './settings.js';
 export * from './shop-spirit-stats-display.js';
 export * from './shop-stat-display.js';
 export * from './shop-vitality-stats-display.js';

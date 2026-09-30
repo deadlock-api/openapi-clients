@@ -224,6 +224,7 @@ deadlock_api_client/models/replace_steam_account_request.py
 deadlock_api_client/models/script_values.py
 deadlock_api_client/models/season_interval.py
 deadlock_api_client/models/server_region.py
+deadlock_api_client/models/settings.py
 deadlock_api_client/models/shop_spirit_stats_display.py
 deadlock_api_client/models/shop_stat_display.py
 deadlock_api_client/models/shop_vitality_stats_display.py
@@ -493,6 +494,7 @@ docs/SQLApi.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
+docs/Settings.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
@@ -768,6 +770,7 @@ test/test_replace_steam_account_request.py
 test/test_script_values.py
 test/test_season_interval.py
 test/test_server_region.py
+test/test_settings.py
 test/test_shop_spirit_stats_display.py
 test/test_shop_stat_display.py
 test/test_shop_vitality_stats_display.py

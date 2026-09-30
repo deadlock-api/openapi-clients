@@ -13,6 +13,7 @@ import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { type RequestArgs, BaseAPI } from '../base.js';
 import type { CrosshairCode } from '../models/index.js';
+import type { Settings } from '../models/index.js';
 /**
  * CrosshairApi - axios parameter creator
  */
@@ -26,6 +27,14 @@ export declare const CrosshairApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     codeImage: (code: string, screenHeight?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+     * @summary Crosshair Code Settings
+     * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    codeSettings: (code: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
      * @summary Crosshair Settings Code
@@ -96,6 +105,14 @@ export declare const CrosshairApiFp: (configuration?: Configuration) => {
      */
     codeImage(code: string, screenHeight?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
     /**
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+     * @summary Crosshair Code Settings
+     * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    codeSettings(code: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Settings>>;
+    /**
      * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
      * @summary Crosshair Settings Code
      * @param {boolean} [themed] Use the hero\&#39;s own crosshair instead of these settings.
@@ -164,6 +181,14 @@ export declare const CrosshairApiFactory: (configuration?: Configuration, basePa
      */
     codeImage(requestParameters: CrosshairApiCodeImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
     /**
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+     * @summary Crosshair Code Settings
+     * @param {CrosshairApiCodeSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    codeSettings(requestParameters: CrosshairApiCodeSettingsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Settings>;
+    /**
      * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
      * @summary Crosshair Settings Code
      * @param {CrosshairApiSettingsCodeRequest} requestParameters Request parameters.
@@ -192,6 +217,15 @@ export interface CrosshairApiCodeImageRequest {
      * Height of the screen to render for, in pixels. Crosshair sizes scale with it.
      */
     readonly screenHeight?: number;
+}
+/**
+ * Request parameters for codeSettings operation in CrosshairApi.
+ */
+export interface CrosshairApiCodeSettingsRequest {
+    /**
+     * Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     */
+    readonly code: string;
 }
 /**
  * Request parameters for settingsCode operation in CrosshairApi.
@@ -295,6 +329,14 @@ export declare class CrosshairApi extends BaseAPI {
      * @throws {RequiredError}
      */
     codeImage(requestParameters: CrosshairApiCodeImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
+    /**
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+     * @summary Crosshair Code Settings
+     * @param {CrosshairApiCodeSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    codeSettings(requestParameters: CrosshairApiCodeSettingsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Settings, any, {}, any>>;
     /**
      * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
      * @summary Crosshair Settings Code

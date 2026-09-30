@@ -360,6 +360,8 @@ pub mod season_interval;
 pub use self::season_interval::SeasonInterval;
 pub mod server_region;
 pub use self::server_region::ServerRegion;
+pub mod settings;
+pub use self::settings::Settings;
 pub mod shop_spirit_stats_display;
 pub use self::shop_spirit_stats_display::ShopSpiritStatsDisplay;
 pub mod shop_stat_display;

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CodeImage**](CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
+| [**CodeSettings**](CrosshairApi.md#codesettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings |
 | [**SettingsCode**](CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
 | [**SettingsImage**](CrosshairApi.md#settingsimage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image |
 
@@ -43,6 +44,43 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Crosshair image with a transparent background |  -  |
 | **400** | Invalid crosshair code or screen height, or the crosshair is too large to render |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="codesettings"></a>
+# **CodeSettings**
+> Settings CodeSettings (string code)
+
+Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). |  |
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid crosshair code |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

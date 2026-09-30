@@ -213,6 +213,7 @@ docs/ReplaceSteamAccountRequest.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
+docs/Settings.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
@@ -490,6 +491,7 @@ src/models/replace_steam_account_request.rs
 src/models/script_values.rs
 src/models/season_interval.rs
 src/models/server_region.rs
+src/models/settings.rs
 src/models/shop_spirit_stats_display.rs
 src/models/shop_stat_display.rs
 src/models/shop_vitality_stats_display.rs

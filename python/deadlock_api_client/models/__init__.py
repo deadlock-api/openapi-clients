@@ -194,6 +194,7 @@ from deadlock_api_client.models.replace_steam_account_request import ReplaceStea
 from deadlock_api_client.models.script_values import ScriptValues
 from deadlock_api_client.models.season_interval import SeasonInterval
 from deadlock_api_client.models.server_region import ServerRegion
+from deadlock_api_client.models.settings import Settings
 from deadlock_api_client.models.shop_spirit_stats_display import ShopSpiritStatsDisplay
 from deadlock_api_client.models.shop_stat_display import ShopStatDisplay
 from deadlock_api_client.models.shop_vitality_stats_display import ShopVitalityStatsDisplay

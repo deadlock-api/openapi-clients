@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**code_image**](CrosshairApi.md#code_image) | **GET** /v1/crosshair/code/image | Crosshair Code Image
+[**code_settings**](CrosshairApi.md#code_settings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings
 [**settings_code**](CrosshairApi.md#settings_code) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
 [**settings_image**](CrosshairApi.md#settings_image) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image
 
@@ -37,6 +38,36 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: image/png
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## code_settings
+
+> models::Settings code_settings(code)
+Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**code** | **String** | Crosshair share code, as copied from the game's crosshair settings (`DL.…`). | [required] |
+
+### Return type
+
+[**models::Settings**](Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

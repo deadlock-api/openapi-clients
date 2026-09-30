@@ -242,6 +242,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new SeasonIntervalJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionJsonConverter());
             _jsonOptions.Converters.Add(new ServerRegionNullableJsonConverter());
+            _jsonOptions.Converters.Add(new SettingsJsonConverter());
             _jsonOptions.Converters.Add(new ShopSpiritStatsDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopStatDisplayJsonConverter());
             _jsonOptions.Converters.Add(new ShopVitalityStatsDisplayJsonConverter());

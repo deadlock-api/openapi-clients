@@ -84,6 +84,18 @@ class CrosshairApiTest extends TestCase
     }
 
     /**
+     * Test case for codeSettings
+     *
+     * Crosshair Code Settings.
+     *
+     */
+    public function testCodeSettings()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for settingsCode
      *
      * Crosshair Settings Code.

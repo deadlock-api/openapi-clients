@@ -77,6 +77,9 @@ class CrosshairApi
         'codeImage' => [
             'application/json',
         ],
+        'codeSettings' => [
+            'application/json',
+        ],
         'settingsCode' => [
             'application/json',
         ],
@@ -370,6 +373,279 @@ class CrosshairApi
 
         $headers = $this->headerSelector->selectHeaders(
             ['image/png', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation codeSettings
+     *
+     * Crosshair Code Settings
+     *
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\Settings
+     */
+    public function codeSettings($code, string $contentType = self::contentTypes['codeSettings'][0])
+    {
+        list($response) = $this->codeSettingsWithHttpInfo($code, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation codeSettingsWithHttpInfo
+     *
+     * Crosshair Code Settings
+     *
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\Settings, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function codeSettingsWithHttpInfo($code, string $contentType = self::contentTypes['codeSettings'][0])
+    {
+        $request = $this->codeSettingsRequest($code, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\Settings',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\Settings',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\Settings',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation codeSettingsAsync
+     *
+     * Crosshair Code Settings
+     *
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function codeSettingsAsync($code, string $contentType = self::contentTypes['codeSettings'][0])
+    {
+        return $this->codeSettingsAsyncWithHttpInfo($code, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation codeSettingsAsyncWithHttpInfo
+     *
+     * Crosshair Code Settings
+     *
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function codeSettingsAsyncWithHttpInfo($code, string $contentType = self::contentTypes['codeSettings'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\Settings';
+        $request = $this->codeSettingsRequest($code, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'codeSettings'
+     *
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function codeSettingsRequest($code, string $contentType = self::contentTypes['codeSettings'][0])
+    {
+
+        // verify the required parameter 'code' is set
+        if ($code === null || (is_array($code) && count($code) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $code when calling codeSettings'
+            );
+        }
+
+
+        $resourcePath = '/v1/crosshair/code/settings';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $code,
+            'code', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
             $contentType,
             $multipart
         );

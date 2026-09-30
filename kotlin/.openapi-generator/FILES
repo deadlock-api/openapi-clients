@@ -212,6 +212,7 @@ docs/SQLApi.md
 docs/ScriptValues.md
 docs/SeasonInterval.md
 docs/ServerRegion.md
+docs/Settings.md
 docs/ShopSpiritStatsDisplay.md
 docs/ShopStatDisplay.md
 docs/ShopVitalityStatsDisplay.md
@@ -501,6 +502,7 @@ src/main/kotlin/deadlock_api_client/models/ReplaceSteamAccountRequest.kt
 src/main/kotlin/deadlock_api_client/models/ScriptValues.kt
 src/main/kotlin/deadlock_api_client/models/SeasonInterval.kt
 src/main/kotlin/deadlock_api_client/models/ServerRegion.kt
+src/main/kotlin/deadlock_api_client/models/Settings.kt
 src/main/kotlin/deadlock_api_client/models/ShopSpiritStatsDisplay.kt
 src/main/kotlin/deadlock_api_client/models/ShopStatDisplay.kt
 src/main/kotlin/deadlock_api_client/models/ShopVitalityStatsDisplay.kt
@@ -770,6 +772,7 @@ src/test/kotlin/deadlock_api_client/models/ReplaceSteamAccountRequestTest.kt
 src/test/kotlin/deadlock_api_client/models/ScriptValuesTest.kt
 src/test/kotlin/deadlock_api_client/models/SeasonIntervalTest.kt
 src/test/kotlin/deadlock_api_client/models/ServerRegionTest.kt
+src/test/kotlin/deadlock_api_client/models/SettingsTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopSpiritStatsDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopStatDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/ShopVitalityStatsDisplayTest.kt

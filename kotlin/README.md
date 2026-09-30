@@ -104,6 +104,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables |
 | *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions |
 | *CrosshairApi* | [**codeImage**](docs/CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
+| *CrosshairApi* | [**codeSettings**](docs/CrosshairApi.md#codesettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings |
 | *CrosshairApi* | [**settingsCode**](docs/CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
 | *CrosshairApi* | [**settingsImage**](docs/CrosshairApi.md#settingsimage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image |
 | *CustomMatchesApi* | [**createCustom**](docs/CustomMatchesApi.md#createcustom) | **POST** /v1/matches/custom/create | Create Match |
@@ -377,6 +378,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ScriptValues](docs/ScriptValues.md)
  - [deadlock_api_client.models.SeasonInterval](docs/SeasonInterval.md)
  - [deadlock_api_client.models.ServerRegion](docs/ServerRegion.md)
+ - [deadlock_api_client.models.Settings](docs/Settings.md)
  - [deadlock_api_client.models.ShopSpiritStatsDisplay](docs/ShopSpiritStatsDisplay.md)
  - [deadlock_api_client.models.ShopStatDisplay](docs/ShopStatDisplay.md)
  - [deadlock_api_client.models.ShopVitalityStatsDisplay](docs/ShopVitalityStatsDisplay.md)

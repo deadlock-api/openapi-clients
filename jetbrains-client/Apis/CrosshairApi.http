@@ -5,6 +5,11 @@
 GET https://api.deadlock-api.com/v1/crosshair/code/image?code={{code}}&screenHeight={{screenHeight}}
 Accept: image/png
 
+### Crosshair Code Settings
+## Crosshair Code Settings
+GET https://api.deadlock-api.com/v1/crosshair/code/settings?code={{code}}
+Accept: application/json
+
 ### Crosshair Settings Code
 ## Crosshair Settings Code
 GET https://api.deadlock-api.com/v1/crosshair/settings/code?themed={{themed}}&pipGapStatic={{pipGapStatic}}&pipWidth={{pipWidth}}&pipHeight={{pipHeight}}&pipGap={{pipGap}}&pipOpacity={{pipOpacity}}&pipOutlineBorder={{pipOutlineBorder}}&pipOutlineGap={{pipOutlineGap}}&pipOutlineOpacity={{pipOutlineOpacity}}&dotSize={{dotSize}}&dotOpacity={{dotOpacity}}&dotOutlineBorder={{dotOutlineBorder}}&dotOutlineGap={{dotOutlineGap}}&dotOutlineOpacity={{dotOutlineOpacity}}&colorR={{colorR}}&colorG={{colorG}}&colorB={{colorB}}&outlineColorR={{outlineColorR}}&outlineColorG={{outlineColorG}}&outlineColorB={{outlineColorB}}

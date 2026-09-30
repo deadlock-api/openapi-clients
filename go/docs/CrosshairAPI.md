@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CodeImage**](CrosshairAPI.md#CodeImage) | **Get** /v1/crosshair/code/image | Crosshair Code Image
+[**CodeSettings**](CrosshairAPI.md#CodeSettings) | **Get** /v1/crosshair/code/settings | Crosshair Code Settings
 [**SettingsCode**](CrosshairAPI.md#SettingsCode) | **Get** /v1/crosshair/settings/code | Crosshair Settings Code
 [**SettingsImage**](CrosshairAPI.md#SettingsImage) | **Get** /v1/crosshair/settings/image | Crosshair Settings Image
 
@@ -72,6 +73,72 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: image/png
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CodeSettings
+
+> Settings CodeSettings(ctx).Code(code).Execute()
+
+Crosshair Code Settings
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	code := "code_example" // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CrosshairAPI.CodeSettings(context.Background()).Code(code).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CrosshairAPI.CodeSettings``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CodeSettings`: Settings
+	fmt.Fprintf(os.Stdout, "Response from `CrosshairAPI.CodeSettings`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCodeSettingsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

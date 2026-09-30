@@ -28,6 +28,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock_api_client.models.CrosshairCode
+import deadlock_api_client.models.Settings
 
 import com.squareup.moshi.Json
 
@@ -128,6 +129,82 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/crosshair/code/image",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/crosshair/code/settings
+     * Crosshair Code Settings
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @return Settings
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun codeSettings(code: kotlin.String) : Settings {
+        val localVarResponse = codeSettingsWithHttpInfo(code = code)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as Settings
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/crosshair/code/settings
+     * Crosshair Code Settings
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @return ApiResponse<Settings?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun codeSettingsWithHttpInfo(code: kotlin.String) : ApiResponse<Settings?> {
+        val localVariableConfig = codeSettingsRequestConfig(code = code)
+
+        return request<Unit, Settings>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation codeSettings
+     *
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @return RequestConfig
+     */
+    fun codeSettingsRequestConfig(code: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("code", listOf(code.toString()))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/crosshair/code/settings",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

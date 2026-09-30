@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**codeImage**](CrosshairApi.md#codeImage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
+| [**codeSettings**](CrosshairApi.md#codeSettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings |
 | [**settingsCode**](CrosshairApi.md#settingsCode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
 | [**settingsImage**](CrosshairApi.md#settingsImage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image |
 
@@ -56,6 +57,52 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+<a id="codeSettings"></a>
+# **codeSettings**
+> Settings codeSettings(code)
+
+Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = CrosshairApi()
+val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+try {
+    val result : Settings = apiInstance.codeSettings(code)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling CrosshairApi#codeSettings")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling CrosshairApi#codeSettings")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **code** | **kotlin.String**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="settingsCode"></a>
 # **settingsCode**

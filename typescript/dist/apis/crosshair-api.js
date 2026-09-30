@@ -59,6 +59,38 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+         * @summary Crosshair Code Settings
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        codeSettings: async (code, options = {}) => {
+            // verify required parameter 'code' is not null or undefined
+            assertParamExists('codeSettings', 'code', code);
+            const localVarPath = `/v1/crosshair/code/settings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (code !== undefined) {
+                localVarQueryParameter['code'] = code;
+            }
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
          * @summary Crosshair Settings Code
          * @param {boolean} [themed] Use the hero\&#39;s own crosshair instead of these settings.
@@ -297,6 +329,19 @@ export const CrosshairApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+         * @summary Crosshair Code Settings
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async codeSettings(code, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.codeSettings(code, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CrosshairApi.codeSettings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
          * @summary Crosshair Settings Code
          * @param {boolean} [themed] Use the hero\&#39;s own crosshair instead of these settings.
@@ -380,6 +425,16 @@ export const CrosshairApiFactory = function (configuration, basePath, axios) {
             return localVarFp.codeImage(requestParameters.code, requestParameters.screenHeight, options).then((request) => request(axios, basePath));
         },
         /**
+         * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+         * @summary Crosshair Code Settings
+         * @param {CrosshairApiCodeSettingsRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        codeSettings(requestParameters, options) {
+            return localVarFp.codeSettings(requestParameters.code, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.
          * @summary Crosshair Settings Code
          * @param {CrosshairApiSettingsCodeRequest} requestParameters Request parameters.
@@ -414,6 +469,16 @@ export class CrosshairApi extends BaseAPI {
      */
     codeImage(requestParameters, options) {
         return CrosshairApiFp(this.configuration).codeImage(requestParameters.code, requestParameters.screenHeight, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
+     * @summary Crosshair Code Settings
+     * @param {CrosshairApiCodeSettingsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    codeSettings(requestParameters, options) {
+        return CrosshairApiFp(this.configuration).codeSettings(requestParameters.code, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Encodes crosshair settings into a share code that can be imported in the game. Settings that are not given keep the game\'s defaults.

@@ -64,6 +64,18 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test CodeSettings
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task CodeSettingsAsyncTest()
+        {
+            string code = default!;
+            var response = await _instance.CodeSettingsAsync(code);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.Settings>(model);
+        }
+
+        /// <summary>
         /// Test SettingsCode
         /// </summary>
         [Fact (Skip = "not implemented")]

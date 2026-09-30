@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.CrosshairApi
 import deadlock_api_client.models.CrosshairCode
+import deadlock_api_client.models.Settings
 
 class CrosshairApiTest : ShouldSpec() {
     init {
@@ -40,6 +41,14 @@ class CrosshairApiTest : ShouldSpec() {
             //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
             //val screenHeight : kotlin.Int = 56 // kotlin.Int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.codeImage(code, screenHeight)
+            //result shouldBe ("TODO")
+        }
+
+        // to test codeSettings
+        should("test codeSettings") {
+            // uncomment below to test codeSettings
+            //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+            //val result : Settings = apiInstance.codeSettings(code)
             //result shouldBe ("TODO")
         }
 

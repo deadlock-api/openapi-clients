@@ -179,6 +179,7 @@ export * from './ReplaceSteamAccountRequest';
 export * from './ScriptValues';
 export * from './SeasonInterval';
 export * from './ServerRegion';
+export * from './Settings';
 export * from './ShopSpiritStatsDisplay';
 export * from './ShopStatDisplay';
 export * from './ShopVitalityStatsDisplay';

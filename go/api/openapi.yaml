@@ -8505,6 +8505,33 @@ paths:
       summary: Crosshair Code Image
       tags:
       - Crosshair
+  /v1/crosshair/code/settings:
+    get:
+      description: Decodes a crosshair share code into its settings. Settings the
+        code does not carry have the game's defaults.
+      operationId: code_settings
+      parameters:
+      - description: "Crosshair share code, as copied from the game's crosshair settings\
+          \ (`DL.…`)."
+        explode: true
+        in: query
+        name: code
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Settings"
+          description: OK
+        "400":
+          description: Invalid crosshair code
+      summary: Crosshair Code Settings
+      tags:
+      - Crosshair
   /v1/crosshair/settings/code:
     get:
       description: Encodes crosshair settings into a share code that can be imported
@@ -20997,6 +21024,121 @@ components:
       - argentina
       - south_america
       type: string
+    Settings:
+      description: Crosshair convars. Anything not given keeps the game's default.
+      example:
+        color_b: 0
+        color_g: 0
+        color_r: 0
+        dot_opacity: 5.962134
+        dot_outline_border: 5
+        dot_outline_gap: 2
+        dot_outline_opacity: 7.0614014
+        dot_size: 9
+        outline_color_b: 0
+        outline_color_g: 0
+        outline_color_r: 0
+        pip_gap: 7
+        pip_gap_static: false
+        pip_height: 1
+        pip_opacity: 1.0246457
+        pip_outline_border: 1
+        pip_outline_gap: 6
+        pip_outline_opacity: 7.4577446
+        pip_width: 1
+        themed: false
+      properties:
+        color_b:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        color_g:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        color_r:
+          default: 255
+          format: int32
+          minimum: 0
+          type: integer
+        dot_opacity:
+          default: 0.7
+          description: 0 to 1.
+          format: float
+          type: number
+        dot_outline_border:
+          default: 2
+          format: int32
+          type: integer
+        dot_outline_gap:
+          default: 0
+          format: int32
+          type: integer
+        dot_outline_opacity:
+          default: 0.7
+          description: 0 to 1.
+          format: float
+          type: number
+        dot_size:
+          default: 4
+          format: int32
+          type: integer
+        outline_color_b:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        outline_color_g:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        outline_color_r:
+          default: 0
+          format: int32
+          minimum: 0
+          type: integer
+        pip_gap:
+          default: 4
+          format: int32
+          type: integer
+        pip_gap_static:
+          default: false
+          description: Keep the pips at a fixed distance instead of spreading them
+            with weapon spread.
+          type: boolean
+        pip_height:
+          default: 16
+          format: int32
+          type: integer
+        pip_opacity:
+          default: 0.5
+          description: 0 to 1.
+          format: float
+          type: number
+        pip_outline_border:
+          default: 1
+          format: int32
+          type: integer
+        pip_outline_gap:
+          default: 0
+          format: int32
+          type: integer
+        pip_outline_opacity:
+          default: 0.7
+          description: 0 to 1.
+          format: float
+          type: number
+        pip_width:
+          default: 2
+          format: int32
+          type: integer
+        themed:
+          default: false
+          description: Use the hero's own crosshair instead of these settings.
+          type: boolean
     ShopSpiritStatsDisplay:
       example:
         display_stats:

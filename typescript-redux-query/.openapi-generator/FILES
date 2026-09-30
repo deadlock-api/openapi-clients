@@ -218,6 +218,7 @@ src/models/ReplaceSteamAccountRequest.ts
 src/models/ScriptValues.ts
 src/models/SeasonInterval.ts
 src/models/ServerRegion.ts
+src/models/Settings.ts
 src/models/ShopSpiritStatsDisplay.ts
 src/models/ShopStatDisplay.ts
 src/models/ShopVitalityStatsDisplay.ts

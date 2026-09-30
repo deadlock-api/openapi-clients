@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**code_image**](CrosshairApi.md#code_image) | **GET** /v1/crosshair/code/image | Crosshair Code Image
+[**code_settings**](CrosshairApi.md#code_settings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings
 [**settings_code**](CrosshairApi.md#settings_code) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
 [**settings_image**](CrosshairApi.md#settings_image) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image
 
@@ -76,6 +77,75 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Crosshair image with a transparent background |  -  |
 **400** | Invalid crosshair code or screen height, or the crosshair is too large to render |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **code_settings**
+> Settings code_settings(code)
+
+Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.settings import Settings
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.CrosshairApi(api_client)
+    code = 'code_example' # str | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+
+    try:
+        # Crosshair Code Settings
+        api_response = api_instance.code_settings(code)
+        print("The response of CrosshairApi->code_settings:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling CrosshairApi->code_settings: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **str**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+
+### Return type
+
+[**Settings**](Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Invalid crosshair code |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -217,6 +217,7 @@ docs/models/ReplaceSteamAccountRequest.md
 docs/models/ScriptValues.md
 docs/models/SeasonInterval.md
 docs/models/ServerRegion.md
+docs/models/Settings.md
 docs/models/ShopSpiritStatsDisplay.md
 docs/models/ShopStatDisplay.md
 docs/models/ShopVitalityStatsDisplay.md
@@ -491,6 +492,7 @@ src/DeadlockApiClient.Test/Model/ReplaceSteamAccountRequestTests.cs
 src/DeadlockApiClient.Test/Model/ScriptValuesTests.cs
 src/DeadlockApiClient.Test/Model/SeasonIntervalTests.cs
 src/DeadlockApiClient.Test/Model/ServerRegionTests.cs
+src/DeadlockApiClient.Test/Model/SettingsTests.cs
 src/DeadlockApiClient.Test/Model/ShopSpiritStatsDisplayTests.cs
 src/DeadlockApiClient.Test/Model/ShopStatDisplayTests.cs
 src/DeadlockApiClient.Test/Model/ShopVitalityStatsDisplayTests.cs
@@ -787,6 +789,7 @@ src/DeadlockApiClient/Model/ReplaceSteamAccountRequest.cs
 src/DeadlockApiClient/Model/ScriptValues.cs
 src/DeadlockApiClient/Model/SeasonInterval.cs
 src/DeadlockApiClient/Model/ServerRegion.cs
+src/DeadlockApiClient/Model/Settings.cs
 src/DeadlockApiClient/Model/ShopSpiritStatsDisplay.cs
 src/DeadlockApiClient/Model/ShopStatDisplay.cs
 src/DeadlockApiClient/Model/ShopVitalityStatsDisplay.cs

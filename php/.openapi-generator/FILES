@@ -221,6 +221,7 @@ api/Model/ReplaceSteamAccountRequest.php
 api/Model/ScriptValues.php
 api/Model/SeasonInterval.php
 api/Model/ServerRegion.php
+api/Model/Settings.php
 api/Model/ShopSpiritStatsDisplay.php
 api/Model/ShopStatDisplay.php
 api/Model/ShopVitalityStatsDisplay.php
@@ -492,6 +493,7 @@ docs/Model/ReplaceSteamAccountRequest.md
 docs/Model/ScriptValues.md
 docs/Model/SeasonInterval.md
 docs/Model/ServerRegion.md
+docs/Model/Settings.md
 docs/Model/ShopSpiritStatsDisplay.md
 docs/Model/ShopStatDisplay.md
 docs/Model/ShopVitalityStatsDisplay.md
@@ -763,6 +765,7 @@ test/Model/ReplaceSteamAccountRequestTest.php
 test/Model/ScriptValuesTest.php
 test/Model/SeasonIntervalTest.php
 test/Model/ServerRegionTest.php
+test/Model/SettingsTest.php
 test/Model/ShopSpiritStatsDisplayTest.php
 test/Model/ShopStatDisplayTest.php
 test/Model/ShopVitalityStatsDisplayTest.php

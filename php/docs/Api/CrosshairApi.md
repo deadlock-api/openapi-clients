@@ -7,6 +7,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**codeImage()**](CrosshairApi.md#codeImage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
+| [**codeSettings()**](CrosshairApi.md#codeSettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings |
 | [**settingsCode()**](CrosshairApi.md#settingsCode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
 | [**settingsImage()**](CrosshairApi.md#settingsImage) | **GET** /v1/crosshair/settings/image | Crosshair Settings Image |
 
@@ -64,6 +65,62 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `image/png`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `codeSettings()`
+
+```php
+codeSettings($code): \OpenAPI\Client\Model\Settings
+```
+
+Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\CrosshairApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$code = 'code_example'; // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+
+try {
+    $result = $apiInstance->codeSettings($code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling CrosshairApi->codeSettings: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **code** | **string**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\Settings**](../Model/Settings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

@@ -146,6 +146,116 @@ func (a *CrosshairAPIService) CodeImageExecute(r ApiCodeImageRequest) ([]int32, 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiCodeSettingsRequest struct {
+	ctx context.Context
+	ApiService *CrosshairAPIService
+	code *string
+}
+
+// Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+func (r ApiCodeSettingsRequest) Code(code string) ApiCodeSettingsRequest {
+	r.code = &code
+	return r
+}
+
+func (r ApiCodeSettingsRequest) Execute() (*Settings, *http.Response, error) {
+	return r.ApiService.CodeSettingsExecute(r)
+}
+
+/*
+CodeSettings Crosshair Code Settings
+
+Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiCodeSettingsRequest
+*/
+func (a *CrosshairAPIService) CodeSettings(ctx context.Context) ApiCodeSettingsRequest {
+	return ApiCodeSettingsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return Settings
+func (a *CrosshairAPIService) CodeSettingsExecute(r ApiCodeSettingsRequest) (*Settings, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *Settings
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CrosshairAPIService.CodeSettings")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/crosshair/code/settings"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.code == nil {
+		return localVarReturnValue, nil, reportError("code is required and must be specified")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "code", r.code, "form", "")
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiSettingsCodeRequest struct {
 	ctx context.Context
 	ApiService *CrosshairAPIService
