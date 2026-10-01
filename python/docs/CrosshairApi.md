@@ -11,11 +11,11 @@ Method | HTTP request | Description
 
 
 # **code_image**
-> List[int] code_image(code, screen_height=screen_height)
+> List[int] code_image(code, screen_height=screen_height, scale=scale)
 
 Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -36,12 +36,13 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.CrosshairApi(api_client)
-    code = 'code_example' # str | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+    code = 'code_example' # str | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
     screen_height = 1080 # int | Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+    scale = 1 # int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
     try:
         # Crosshair Code Image
-        api_response = api_instance.code_image(code, screen_height=screen_height)
+        api_response = api_instance.code_image(code, screen_height=screen_height, scale=scale)
         print("The response of CrosshairApi->code_image:\n")
         pprint(api_response)
     except Exception as e:
@@ -55,8 +56,9 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+ **code** | **str**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | 
  **screen_height** | **int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080]
+ **scale** | **int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1]
 
 ### Return type
 
@@ -107,7 +109,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.CrosshairApi(api_client)
-    code = 'code_example' # str | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+    code = 'code_example' # str | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 
     try:
         # Crosshair Code Settings
@@ -125,7 +127,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+ **code** | **str**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | 
 
 ### Return type
 
@@ -257,11 +259,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **settings_image**
-> List[int] settings_image(themed=themed, pip_gap_static=pip_gap_static, pip_width=pip_width, pip_height=pip_height, pip_gap=pip_gap, pip_opacity=pip_opacity, pip_outline_border=pip_outline_border, pip_outline_gap=pip_outline_gap, pip_outline_opacity=pip_outline_opacity, dot_size=dot_size, dot_opacity=dot_opacity, dot_outline_border=dot_outline_border, dot_outline_gap=dot_outline_gap, dot_outline_opacity=dot_outline_opacity, color_r=color_r, color_g=color_g, color_b=color_b, outline_color_r=outline_color_r, outline_color_g=outline_color_g, outline_color_b=outline_color_b, screen_height=screen_height)
+> List[int] settings_image(themed=themed, pip_gap_static=pip_gap_static, pip_width=pip_width, pip_height=pip_height, pip_gap=pip_gap, pip_opacity=pip_opacity, pip_outline_border=pip_outline_border, pip_outline_gap=pip_outline_gap, pip_outline_opacity=pip_outline_opacity, dot_size=dot_size, dot_opacity=dot_opacity, dot_outline_border=dot_outline_border, dot_outline_gap=dot_outline_gap, dot_outline_opacity=dot_outline_opacity, color_r=color_r, color_g=color_g, color_b=color_b, outline_color_r=outline_color_r, outline_color_g=outline_color_g, outline_color_b=outline_color_b, screen_height=screen_height, scale=scale)
 
 Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -303,10 +305,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     outline_color_g = 0 # int |  (optional) (default to 0)
     outline_color_b = 0 # int |  (optional) (default to 0)
     screen_height = 1080 # int | Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+    scale = 1 # int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
     try:
         # Crosshair Settings Image
-        api_response = api_instance.settings_image(themed=themed, pip_gap_static=pip_gap_static, pip_width=pip_width, pip_height=pip_height, pip_gap=pip_gap, pip_opacity=pip_opacity, pip_outline_border=pip_outline_border, pip_outline_gap=pip_outline_gap, pip_outline_opacity=pip_outline_opacity, dot_size=dot_size, dot_opacity=dot_opacity, dot_outline_border=dot_outline_border, dot_outline_gap=dot_outline_gap, dot_outline_opacity=dot_outline_opacity, color_r=color_r, color_g=color_g, color_b=color_b, outline_color_r=outline_color_r, outline_color_g=outline_color_g, outline_color_b=outline_color_b, screen_height=screen_height)
+        api_response = api_instance.settings_image(themed=themed, pip_gap_static=pip_gap_static, pip_width=pip_width, pip_height=pip_height, pip_gap=pip_gap, pip_opacity=pip_opacity, pip_outline_border=pip_outline_border, pip_outline_gap=pip_outline_gap, pip_outline_opacity=pip_outline_opacity, dot_size=dot_size, dot_opacity=dot_opacity, dot_outline_border=dot_outline_border, dot_outline_gap=dot_outline_gap, dot_outline_opacity=dot_outline_opacity, color_r=color_r, color_g=color_g, color_b=color_b, outline_color_r=outline_color_r, outline_color_g=outline_color_g, outline_color_b=outline_color_b, screen_height=screen_height, scale=scale)
         print("The response of CrosshairApi->settings_image:\n")
         pprint(api_response)
     except Exception as e:
@@ -341,6 +344,7 @@ Name | Type | Description  | Notes
  **outline_color_g** | **int**|  | [optional] [default to 0]
  **outline_color_b** | **int**|  | [optional] [default to 0]
  **screen_height** | **int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080]
+ **scale** | **int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1]
 
 ### Return type
 

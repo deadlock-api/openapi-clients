@@ -13,18 +13,19 @@ Method | HTTP request | Description
 
 ## code_image
 
-> Vec<u32> code_image(code, screen_height)
+> Vec<u32> code_image(code, screen_height, scale)
 Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Parameters
 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**code** | **String** | Crosshair share code, as copied from the game's crosshair settings (`DL.…`). | [required] |
+**code** | **String** | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). | [required] |
 **screen_height** | Option<**u32**> | Height of the screen to render for, in pixels. Crosshair sizes scale with it. |  |[default to 1080]
+**scale** | Option<**u32**> | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. |  |[default to 1]
 
 ### Return type
 
@@ -54,7 +55,7 @@ Decodes a crosshair share code into its settings. Settings the code does not car
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**code** | **String** | Crosshair share code, as copied from the game's crosshair settings (`DL.…`). | [required] |
+**code** | **String** | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). | [required] |
 
 ### Return type
 
@@ -123,10 +124,10 @@ No authorization required
 
 ## settings_image
 
-> Vec<u32> settings_image(themed, pip_gap_static, pip_width, pip_height, pip_gap, pip_opacity, pip_outline_border, pip_outline_gap, pip_outline_opacity, dot_size, dot_opacity, dot_outline_border, dot_outline_gap, dot_outline_opacity, color_r, color_g, color_b, outline_color_r, outline_color_g, outline_color_b, screen_height)
+> Vec<u32> settings_image(themed, pip_gap_static, pip_width, pip_height, pip_gap, pip_opacity, pip_outline_border, pip_outline_gap, pip_outline_opacity, dot_size, dot_opacity, dot_outline_border, dot_outline_gap, dot_outline_opacity, color_r, color_g, color_b, outline_color_r, outline_color_g, outline_color_b, screen_height, scale)
 Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Parameters
 
@@ -154,6 +155,7 @@ Name | Type | Description  | Required | Notes
 **outline_color_g** | Option<**u32**> |  |  |[default to 0]
 **outline_color_b** | Option<**u32**> |  |  |[default to 0]
 **screen_height** | Option<**u32**> | Height of the screen to render for, in pixels. Crosshair sizes scale with it. |  |[default to 1080]
+**scale** | Option<**u32**> | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. |  |[default to 1]
 
 ### Return type
 

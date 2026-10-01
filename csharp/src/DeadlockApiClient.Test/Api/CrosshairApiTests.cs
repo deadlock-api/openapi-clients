@@ -58,7 +58,8 @@ namespace DeadlockApiClient.Test.Api
         {
             string code = default!;
             Client.Option<int> screenHeight = default!;
-            var response = await _instance.CodeImageAsync(code, screenHeight);
+            Client.Option<int> scale = default!;
+            var response = await _instance.CodeImageAsync(code, screenHeight, scale);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }
@@ -133,7 +134,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int> outlineColorG = default!;
             Client.Option<int> outlineColorB = default!;
             Client.Option<int> screenHeight = default!;
-            var response = await _instance.SettingsImageAsync(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight);
+            Client.Option<int> scale = default!;
+            var response = await _instance.SettingsImageAsync(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale);
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }

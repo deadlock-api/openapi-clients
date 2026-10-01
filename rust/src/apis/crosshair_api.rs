@@ -17,16 +17,18 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`code_image`]
 #[derive(Clone, Debug)]
 pub struct CodeImageParams {
-    /// Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+    /// Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
     pub code: String,
     /// Height of the screen to render for, in pixels. Crosshair sizes scale with it.
-    pub screen_height: Option<u32>
+    pub screen_height: Option<u32>,
+    /// Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+    pub scale: Option<u32>
 }
 
 /// struct for passing parameters to the method [`code_settings`]
 #[derive(Clone, Debug)]
 pub struct CodeSettingsParams {
-    /// Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+    /// Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
     pub code: String
 }
 
@@ -91,7 +93,9 @@ pub struct SettingsImageParams {
     pub outline_color_g: Option<u32>,
     pub outline_color_b: Option<u32>,
     /// Height of the screen to render for, in pixels. Crosshair sizes scale with it.
-    pub screen_height: Option<u32>
+    pub screen_height: Option<u32>,
+    /// Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+    pub scale: Option<u32>
 }
 
 
@@ -128,7 +132,7 @@ pub enum SettingsImageError {
 }
 
 
-/// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+/// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 pub async fn code_image(configuration: &configuration::Configuration, params: CodeImageParams) -> Result<Vec<u32>, Error<CodeImageError>> {
 
     let uri_str = format!("{}/v1/crosshair/code/image", configuration.base_path);
@@ -137,6 +141,9 @@ pub async fn code_image(configuration: &configuration::Configuration, params: Co
     req_builder = req_builder.query(&[("code", &params.code.to_string())]);
     if let Some(ref param_value) = params.screen_height {
         req_builder = req_builder.query(&[("screen_height", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.scale {
+        req_builder = req_builder.query(&[("scale", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
@@ -298,7 +305,7 @@ pub async fn settings_code(configuration: &configuration::Configuration, params:
     }
 }
 
-/// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+/// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 pub async fn settings_image(configuration: &configuration::Configuration, params: SettingsImageParams) -> Result<Vec<u32>, Error<SettingsImageError>> {
 
     let uri_str = format!("{}/v1/crosshair/settings/image", configuration.base_path);
@@ -366,6 +373,9 @@ pub async fn settings_image(configuration: &configuration::Configuration, params
     }
     if let Some(ref param_value) = params.screen_height {
         req_builder = req_builder.query(&[("screen_height", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.scale {
+        req_builder = req_builder.query(&[("scale", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

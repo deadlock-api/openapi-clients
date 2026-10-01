@@ -15,12 +15,12 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 ## `codeImage()`
 
 ```php
-codeImage($code, $screen_height): int[]
+codeImage($code, $screen_height, $scale): int[]
 ```
 
 Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -35,11 +35,12 @@ $apiInstance = new OpenAPI\Client\Api\CrosshairApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$code = 'code_example'; // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+$code = 'code_example'; // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 $screen_height = 1080; // int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+$scale = 1; // int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
 
 try {
-    $result = $apiInstance->codeImage($code, $screen_height);
+    $result = $apiInstance->codeImage($code, $screen_height, $scale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CrosshairApi->codeImage: ', $e->getMessage(), PHP_EOL;
@@ -50,8 +51,9 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+| **code** | **string**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | |
 | **screen_height** | **int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 
@@ -93,7 +95,7 @@ $apiInstance = new OpenAPI\Client\Api\CrosshairApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$code = 'code_example'; // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+$code = 'code_example'; // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 
 try {
     $result = $apiInstance->codeSettings($code);
@@ -107,7 +109,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **string**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+| **code** | **string**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | |
 
 ### Return type
 
@@ -223,12 +225,12 @@ No authorization required
 ## `settingsImage()`
 
 ```php
-settingsImage($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height): int[]
+settingsImage($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale): int[]
 ```
 
 Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -264,9 +266,10 @@ $outline_color_r = 0; // int
 $outline_color_g = 0; // int
 $outline_color_b = 0; // int
 $screen_height = 1080; // int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+$scale = 1; // int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
 
 try {
-    $result = $apiInstance->settingsImage($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height);
+    $result = $apiInstance->settingsImage($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CrosshairApi->settingsImage: ', $e->getMessage(), PHP_EOL;
@@ -298,6 +301,7 @@ try {
 | **outline_color_g** | **int**|  | [optional] [default to 0] |
 | **outline_color_b** | **int**|  | [optional] [default to 0] |
 | **screen_height** | **int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 

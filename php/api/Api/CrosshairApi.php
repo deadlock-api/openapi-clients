@@ -139,17 +139,18 @@ class CrosshairApi
      *
      * Crosshair Code Image
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function codeImage($code, $screen_height = 1080, string $contentType = self::contentTypes['codeImage'][0])
+    public function codeImage($code, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['codeImage'][0])
     {
-        list($response) = $this->codeImageWithHttpInfo($code, $screen_height, $contentType);
+        list($response) = $this->codeImageWithHttpInfo($code, $screen_height, $scale, $contentType);
         return $response;
     }
 
@@ -158,17 +159,18 @@ class CrosshairApi
      *
      * Crosshair Code Image
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function codeImageWithHttpInfo($code, $screen_height = 1080, string $contentType = self::contentTypes['codeImage'][0])
+    public function codeImageWithHttpInfo($code, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['codeImage'][0])
     {
-        $request = $this->codeImageRequest($code, $screen_height, $contentType);
+        $request = $this->codeImageRequest($code, $screen_height, $scale, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -244,16 +246,17 @@ class CrosshairApi
      *
      * Crosshair Code Image
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function codeImageAsync($code, $screen_height = 1080, string $contentType = self::contentTypes['codeImage'][0])
+    public function codeImageAsync($code, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['codeImage'][0])
     {
-        return $this->codeImageAsyncWithHttpInfo($code, $screen_height, $contentType)
+        return $this->codeImageAsyncWithHttpInfo($code, $screen_height, $scale, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -266,17 +269,18 @@ class CrosshairApi
      *
      * Crosshair Code Image
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function codeImageAsyncWithHttpInfo($code, $screen_height = 1080, string $contentType = self::contentTypes['codeImage'][0])
+    public function codeImageAsyncWithHttpInfo($code, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['codeImage'][0])
     {
         $returnType = 'int[]';
-        $request = $this->codeImageRequest($code, $screen_height, $contentType);
+        $request = $this->codeImageRequest($code, $screen_height, $scale, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -317,14 +321,15 @@ class CrosshairApi
     /**
      * Create request for operation 'codeImage'
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function codeImageRequest($code, $screen_height = 1080, string $contentType = self::contentTypes['codeImage'][0])
+    public function codeImageRequest($code, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['codeImage'][0])
     {
 
         // verify the required parameter 'code' is set
@@ -339,6 +344,13 @@ class CrosshairApi
         }
         if ($screen_height !== null && $screen_height < 480) {
             throw new \InvalidArgumentException('invalid value for "$screen_height" when calling CrosshairApi.codeImage, must be bigger than or equal to 480.');
+        }
+        
+        if ($scale !== null && $scale > 16) {
+            throw new \InvalidArgumentException('invalid value for "$scale" when calling CrosshairApi.codeImage, must be smaller than or equal to 16.');
+        }
+        if ($scale !== null && $scale < 1) {
+            throw new \InvalidArgumentException('invalid value for "$scale" when calling CrosshairApi.codeImage, must be bigger than or equal to 1.');
         }
         
 
@@ -362,6 +374,15 @@ class CrosshairApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $screen_height,
             'screen_height', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $scale,
+            'scale', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode
@@ -433,7 +454,7 @@ class CrosshairApi
      *
      * Crosshair Code Settings
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -451,7 +472,7 @@ class CrosshairApi
      *
      * Crosshair Code Settings
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
@@ -536,7 +557,7 @@ class CrosshairApi
      *
      * Crosshair Code Settings
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -557,7 +578,7 @@ class CrosshairApi
      *
      * Crosshair Code Settings
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -607,7 +628,7 @@ class CrosshairApi
     /**
      * Create request for operation 'codeSettings'
      *
-     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). (required)
+     * @param  string $code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['codeSettings'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1297,15 +1318,16 @@ class CrosshairApi
      * @param  int|null $outline_color_g outline_color_g (optional, default to 0)
      * @param  int|null $outline_color_b outline_color_b (optional, default to 0)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['settingsImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return int[]
      */
-    public function settingsImage($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, string $contentType = self::contentTypes['settingsImage'][0])
+    public function settingsImage($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['settingsImage'][0])
     {
-        list($response) = $this->settingsImageWithHttpInfo($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $contentType);
+        list($response) = $this->settingsImageWithHttpInfo($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale, $contentType);
         return $response;
     }
 
@@ -1335,15 +1357,16 @@ class CrosshairApi
      * @param  int|null $outline_color_g (optional, default to 0)
      * @param  int|null $outline_color_b (optional, default to 0)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['settingsImage'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of int[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function settingsImageWithHttpInfo($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, string $contentType = self::contentTypes['settingsImage'][0])
+    public function settingsImageWithHttpInfo($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['settingsImage'][0])
     {
-        $request = $this->settingsImageRequest($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $contentType);
+        $request = $this->settingsImageRequest($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1440,14 +1463,15 @@ class CrosshairApi
      * @param  int|null $outline_color_g (optional, default to 0)
      * @param  int|null $outline_color_b (optional, default to 0)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['settingsImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function settingsImageAsync($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, string $contentType = self::contentTypes['settingsImage'][0])
+    public function settingsImageAsync($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['settingsImage'][0])
     {
-        return $this->settingsImageAsyncWithHttpInfo($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $contentType)
+        return $this->settingsImageAsyncWithHttpInfo($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1481,15 +1505,16 @@ class CrosshairApi
      * @param  int|null $outline_color_g (optional, default to 0)
      * @param  int|null $outline_color_b (optional, default to 0)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['settingsImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function settingsImageAsyncWithHttpInfo($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, string $contentType = self::contentTypes['settingsImage'][0])
+    public function settingsImageAsyncWithHttpInfo($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['settingsImage'][0])
     {
         $returnType = 'int[]';
-        $request = $this->settingsImageRequest($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $contentType);
+        $request = $this->settingsImageRequest($themed, $pip_gap_static, $pip_width, $pip_height, $pip_gap, $pip_opacity, $pip_outline_border, $pip_outline_gap, $pip_outline_opacity, $dot_size, $dot_opacity, $dot_outline_border, $dot_outline_gap, $dot_outline_opacity, $color_r, $color_g, $color_b, $outline_color_r, $outline_color_g, $outline_color_b, $screen_height, $scale, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1551,12 +1576,13 @@ class CrosshairApi
      * @param  int|null $outline_color_g (optional, default to 0)
      * @param  int|null $outline_color_b (optional, default to 0)
      * @param  int|null $screen_height Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param  int|null $scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['settingsImage'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function settingsImageRequest($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, string $contentType = self::contentTypes['settingsImage'][0])
+    public function settingsImageRequest($themed = false, $pip_gap_static = false, $pip_width = 2, $pip_height = 16, $pip_gap = 4, $pip_opacity = 0.5, $pip_outline_border = 1, $pip_outline_gap = 0, $pip_outline_opacity = 0.7, $dot_size = 4, $dot_opacity = 0.7, $dot_outline_border = 2, $dot_outline_gap = 0, $dot_outline_opacity = 0.7, $color_r = 255, $color_g = 255, $color_b = 255, $outline_color_r = 0, $outline_color_g = 0, $outline_color_b = 0, $screen_height = 1080, $scale = 1, string $contentType = self::contentTypes['settingsImage'][0])
     {
 
 
@@ -1602,6 +1628,13 @@ class CrosshairApi
         }
         if ($screen_height !== null && $screen_height < 480) {
             throw new \InvalidArgumentException('invalid value for "$screen_height" when calling CrosshairApi.settingsImage, must be bigger than or equal to 480.');
+        }
+        
+        if ($scale !== null && $scale > 16) {
+            throw new \InvalidArgumentException('invalid value for "$scale" when calling CrosshairApi.settingsImage, must be smaller than or equal to 16.');
+        }
+        if ($scale !== null && $scale < 1) {
+            throw new \InvalidArgumentException('invalid value for "$scale" when calling CrosshairApi.settingsImage, must be bigger than or equal to 1.');
         }
         
 
@@ -1796,6 +1829,15 @@ class CrosshairApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $screen_height,
             'screen_height', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $scale,
+            'scale', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

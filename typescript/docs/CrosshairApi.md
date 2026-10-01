@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **codeImage**
 > Array<number> codeImage()
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -25,12 +25,14 @@ import {
 const configuration = new Configuration();
 const apiInstance = new CrosshairApi(configuration);
 
-let code: string; //Crosshair share code, as copied from the game\'s crosshair settings (`DL.…`). (default to undefined)
+let code: string; //Crosshair share code, as copied from the game\'s crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (default to undefined)
 let screenHeight: number; //Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+let scale: number; //Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
 const { status, data } = await apiInstance.codeImage(
     code,
-    screenHeight
+    screenHeight,
+    scale
 );
 ```
 
@@ -38,8 +40,9 @@ const { status, data } = await apiInstance.codeImage(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **code** | [**string**] | Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;). | defaults to undefined|
+| **code** | [**string**] | Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | defaults to undefined|
 | **screenHeight** | [**number**] | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | (optional) defaults to 1080|
+| **scale** | [**number**] | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | (optional) defaults to 1|
 
 
 ### Return type
@@ -80,7 +83,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new CrosshairApi(configuration);
 
-let code: string; //Crosshair share code, as copied from the game\'s crosshair settings (`DL.…`). (default to undefined)
+let code: string; //Crosshair share code, as copied from the game\'s crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (default to undefined)
 
 const { status, data } = await apiInstance.codeSettings(
     code
@@ -91,7 +94,7 @@ const { status, data } = await apiInstance.codeSettings(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **code** | [**string**] | Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;). | defaults to undefined|
+| **code** | [**string**] | Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | defaults to undefined|
 
 
 ### Return type
@@ -228,7 +231,7 @@ No authorization required
 # **settingsImage**
 > Array<number> settingsImage()
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 ### Example
 
@@ -262,6 +265,7 @@ let outlineColorR: number; // (optional) (default to 0)
 let outlineColorG: number; // (optional) (default to 0)
 let outlineColorB: number; // (optional) (default to 0)
 let screenHeight: number; //Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+let scale: number; //Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
 const { status, data } = await apiInstance.settingsImage(
     themed,
@@ -284,7 +288,8 @@ const { status, data } = await apiInstance.settingsImage(
     outlineColorR,
     outlineColorG,
     outlineColorB,
-    screenHeight
+    screenHeight,
+    scale
 );
 ```
 
@@ -313,6 +318,7 @@ const { status, data } = await apiInstance.settingsImage(
 | **outlineColorG** | [**number**] |  | (optional) defaults to 0|
 | **outlineColorB** | [**number**] |  | (optional) defaults to 0|
 | **screenHeight** | [**number**] | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | (optional) defaults to 1080|
+| **scale** | [**number**] | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | (optional) defaults to 1|
 
 
 ### Return type

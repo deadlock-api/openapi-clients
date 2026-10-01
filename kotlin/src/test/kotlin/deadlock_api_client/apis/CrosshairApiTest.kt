@@ -38,16 +38,17 @@ class CrosshairApiTest : ShouldSpec() {
         // to test codeImage
         should("test codeImage") {
             // uncomment below to test codeImage
-            //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+            //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
             //val screenHeight : kotlin.Int = 56 // kotlin.Int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.codeImage(code, screenHeight)
+            //val scale : kotlin.Int = 56 // kotlin.Int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.codeImage(code, screenHeight, scale)
             //result shouldBe ("TODO")
         }
 
         // to test codeSettings
         should("test codeSettings") {
             // uncomment below to test codeSettings
-            //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+            //val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
             //val result : Settings = apiInstance.codeSettings(code)
             //result shouldBe ("TODO")
         }
@@ -103,7 +104,8 @@ class CrosshairApiTest : ShouldSpec() {
             //val outlineColorG : kotlin.Int = 56 // kotlin.Int | 
             //val outlineColorB : kotlin.Int = 56 // kotlin.Int | 
             //val screenHeight : kotlin.Int = 56 // kotlin.Int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight)
+            //val scale : kotlin.Int = 56 // kotlin.Int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale)
             //result shouldBe ("TODO")
         }
 

@@ -11,19 +11,20 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="codeimage"></a>
 # **CodeImage**
-> List&lt;int&gt; CodeImage (string code, int screenHeight = null)
+> List&lt;int&gt; CodeImage (string code, int screenHeight = null, int scale = null)
 
 Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). |  |
+| **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). |  |
 | **screenHeight** | **int** | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **int** | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 
@@ -60,7 +61,7 @@ Decodes a crosshair share code into its settings. Settings the code does not car
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). |  |
+| **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). |  |
 
 ### Return type
 
@@ -142,11 +143,11 @@ No authorization required
 
 <a id="settingsimage"></a>
 # **SettingsImage**
-> List&lt;int&gt; SettingsImage (bool themed = null, bool pipGapStatic = null, int pipWidth = null, int pipHeight = null, int pipGap = null, float pipOpacity = null, int pipOutlineBorder = null, int pipOutlineGap = null, float pipOutlineOpacity = null, int dotSize = null, float dotOpacity = null, int dotOutlineBorder = null, int dotOutlineGap = null, float dotOutlineOpacity = null, int colorR = null, int colorG = null, int colorB = null, int outlineColorR = null, int outlineColorG = null, int outlineColorB = null, int screenHeight = null)
+> List&lt;int&gt; SettingsImage (bool themed = null, bool pipGapStatic = null, int pipWidth = null, int pipHeight = null, int pipGap = null, float pipOpacity = null, int pipOutlineBorder = null, int pipOutlineGap = null, float pipOutlineOpacity = null, int dotSize = null, float dotOpacity = null, int dotOutlineBorder = null, int dotOutlineGap = null, float dotOutlineOpacity = null, int colorR = null, int colorG = null, int colorB = null, int outlineColorR = null, int outlineColorG = null, int outlineColorB = null, int screenHeight = null, int scale = null)
 
 Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
 
 ### Parameters
@@ -174,6 +175,7 @@ Renders crosshair settings as a PNG, pixel for pixel as the game draws them at t
 | **outlineColorG** | **int** |  | [optional] [default to 0] |
 | **outlineColorB** | **int** |  | [optional] [default to 0] |
 | **screenHeight** | **int** | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **int** | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 

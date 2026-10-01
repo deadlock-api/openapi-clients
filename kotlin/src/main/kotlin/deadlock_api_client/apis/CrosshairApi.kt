@@ -57,9 +57,10 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/crosshair/code/image
      * Crosshair Code Image
-     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -69,8 +70,8 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun codeImage(code: kotlin.String, screenHeight: kotlin.Int? = 1080) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = codeImageWithHttpInfo(code = code, screenHeight = screenHeight)
+    fun codeImage(code: kotlin.String, screenHeight: kotlin.Int? = 1080, scale: kotlin.Int? = 1) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = codeImageWithHttpInfo(code = code, screenHeight = screenHeight, scale = scale)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -90,17 +91,18 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/crosshair/code/image
      * Crosshair Code Image
-     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun codeImageWithHttpInfo(code: kotlin.String, screenHeight: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = codeImageRequestConfig(code = code, screenHeight = screenHeight)
+    fun codeImageWithHttpInfo(code: kotlin.String, screenHeight: kotlin.Int?, scale: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = codeImageRequestConfig(code = code, screenHeight = screenHeight, scale = scale)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -110,17 +112,21 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation codeImage
      *
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return RequestConfig
      */
-    fun codeImageRequestConfig(code: kotlin.String, screenHeight: kotlin.Int?) : RequestConfig<Unit> {
+    fun codeImageRequestConfig(code: kotlin.String, screenHeight: kotlin.Int?, scale: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 put("code", listOf(code.toString()))
                 if (screenHeight != null) {
                     put("screen_height", listOf(screenHeight.toString()))
+                }
+                if (scale != null) {
+                    put("scale", listOf(scale.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -140,7 +146,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/crosshair/code/settings
      * Crosshair Code Settings
      * Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @return Settings
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -172,7 +178,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * GET /v1/crosshair/code/settings
      * Crosshair Code Settings
      * Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @return ApiResponse<Settings?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -190,7 +196,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * To obtain the request config of the operation codeSettings
      *
-     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+     * @param code Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
      * @return RequestConfig
      */
     fun codeSettingsRequestConfig(code: kotlin.String) : RequestConfig<Unit> {
@@ -407,7 +413,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/crosshair/settings/image
      * Crosshair Settings Image
-     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
      * @param themed Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)
      * @param pipGapStatic Keep the pips at a fixed distance instead of spreading them with weapon spread. (optional, default to false)
      * @param pipWidth  (optional, default to 2)
@@ -429,6 +435,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param outlineColorG  (optional, default to 0)
      * @param outlineColorB  (optional, default to 0)
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return kotlin.collections.List<kotlin.Int>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -438,8 +445,8 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun settingsImage(themed: kotlin.Boolean? = false, pipGapStatic: kotlin.Boolean? = false, pipWidth: kotlin.Int? = 2, pipHeight: kotlin.Int? = 16, pipGap: kotlin.Int? = 4, pipOpacity: kotlin.Float? = 0.5f, pipOutlineBorder: kotlin.Int? = 1, pipOutlineGap: kotlin.Int? = 0, pipOutlineOpacity: kotlin.Float? = 0.7f, dotSize: kotlin.Int? = 4, dotOpacity: kotlin.Float? = 0.7f, dotOutlineBorder: kotlin.Int? = 2, dotOutlineGap: kotlin.Int? = 0, dotOutlineOpacity: kotlin.Float? = 0.7f, colorR: kotlin.Int? = 255, colorG: kotlin.Int? = 255, colorB: kotlin.Int? = 255, outlineColorR: kotlin.Int? = 0, outlineColorG: kotlin.Int? = 0, outlineColorB: kotlin.Int? = 0, screenHeight: kotlin.Int? = 1080) : kotlin.collections.List<kotlin.Int> {
-        val localVarResponse = settingsImageWithHttpInfo(themed = themed, pipGapStatic = pipGapStatic, pipWidth = pipWidth, pipHeight = pipHeight, pipGap = pipGap, pipOpacity = pipOpacity, pipOutlineBorder = pipOutlineBorder, pipOutlineGap = pipOutlineGap, pipOutlineOpacity = pipOutlineOpacity, dotSize = dotSize, dotOpacity = dotOpacity, dotOutlineBorder = dotOutlineBorder, dotOutlineGap = dotOutlineGap, dotOutlineOpacity = dotOutlineOpacity, colorR = colorR, colorG = colorG, colorB = colorB, outlineColorR = outlineColorR, outlineColorG = outlineColorG, outlineColorB = outlineColorB, screenHeight = screenHeight)
+    fun settingsImage(themed: kotlin.Boolean? = false, pipGapStatic: kotlin.Boolean? = false, pipWidth: kotlin.Int? = 2, pipHeight: kotlin.Int? = 16, pipGap: kotlin.Int? = 4, pipOpacity: kotlin.Float? = 0.5f, pipOutlineBorder: kotlin.Int? = 1, pipOutlineGap: kotlin.Int? = 0, pipOutlineOpacity: kotlin.Float? = 0.7f, dotSize: kotlin.Int? = 4, dotOpacity: kotlin.Float? = 0.7f, dotOutlineBorder: kotlin.Int? = 2, dotOutlineGap: kotlin.Int? = 0, dotOutlineOpacity: kotlin.Float? = 0.7f, colorR: kotlin.Int? = 255, colorG: kotlin.Int? = 255, colorB: kotlin.Int? = 255, outlineColorR: kotlin.Int? = 0, outlineColorG: kotlin.Int? = 0, outlineColorB: kotlin.Int? = 0, screenHeight: kotlin.Int? = 1080, scale: kotlin.Int? = 1) : kotlin.collections.List<kotlin.Int> {
+        val localVarResponse = settingsImageWithHttpInfo(themed = themed, pipGapStatic = pipGapStatic, pipWidth = pipWidth, pipHeight = pipHeight, pipGap = pipGap, pipOpacity = pipOpacity, pipOutlineBorder = pipOutlineBorder, pipOutlineGap = pipOutlineGap, pipOutlineOpacity = pipOutlineOpacity, dotSize = dotSize, dotOpacity = dotOpacity, dotOutlineBorder = dotOutlineBorder, dotOutlineGap = dotOutlineGap, dotOutlineOpacity = dotOutlineOpacity, colorR = colorR, colorG = colorG, colorB = colorB, outlineColorR = outlineColorR, outlineColorG = outlineColorG, outlineColorB = outlineColorB, screenHeight = screenHeight, scale = scale)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<kotlin.Int>
@@ -459,7 +466,7 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/crosshair/settings/image
      * Crosshair Settings Image
-     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
      * @param themed Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)
      * @param pipGapStatic Keep the pips at a fixed distance instead of spreading them with weapon spread. (optional, default to false)
      * @param pipWidth  (optional, default to 2)
@@ -481,14 +488,15 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param outlineColorG  (optional, default to 0)
      * @param outlineColorB  (optional, default to 0)
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return ApiResponse<kotlin.collections.List<kotlin.Int>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun settingsImageWithHttpInfo(themed: kotlin.Boolean?, pipGapStatic: kotlin.Boolean?, pipWidth: kotlin.Int?, pipHeight: kotlin.Int?, pipGap: kotlin.Int?, pipOpacity: kotlin.Float?, pipOutlineBorder: kotlin.Int?, pipOutlineGap: kotlin.Int?, pipOutlineOpacity: kotlin.Float?, dotSize: kotlin.Int?, dotOpacity: kotlin.Float?, dotOutlineBorder: kotlin.Int?, dotOutlineGap: kotlin.Int?, dotOutlineOpacity: kotlin.Float?, colorR: kotlin.Int?, colorG: kotlin.Int?, colorB: kotlin.Int?, outlineColorR: kotlin.Int?, outlineColorG: kotlin.Int?, outlineColorB: kotlin.Int?, screenHeight: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
-        val localVariableConfig = settingsImageRequestConfig(themed = themed, pipGapStatic = pipGapStatic, pipWidth = pipWidth, pipHeight = pipHeight, pipGap = pipGap, pipOpacity = pipOpacity, pipOutlineBorder = pipOutlineBorder, pipOutlineGap = pipOutlineGap, pipOutlineOpacity = pipOutlineOpacity, dotSize = dotSize, dotOpacity = dotOpacity, dotOutlineBorder = dotOutlineBorder, dotOutlineGap = dotOutlineGap, dotOutlineOpacity = dotOutlineOpacity, colorR = colorR, colorG = colorG, colorB = colorB, outlineColorR = outlineColorR, outlineColorG = outlineColorG, outlineColorB = outlineColorB, screenHeight = screenHeight)
+    fun settingsImageWithHttpInfo(themed: kotlin.Boolean?, pipGapStatic: kotlin.Boolean?, pipWidth: kotlin.Int?, pipHeight: kotlin.Int?, pipGap: kotlin.Int?, pipOpacity: kotlin.Float?, pipOutlineBorder: kotlin.Int?, pipOutlineGap: kotlin.Int?, pipOutlineOpacity: kotlin.Float?, dotSize: kotlin.Int?, dotOpacity: kotlin.Float?, dotOutlineBorder: kotlin.Int?, dotOutlineGap: kotlin.Int?, dotOutlineOpacity: kotlin.Float?, colorR: kotlin.Int?, colorG: kotlin.Int?, colorB: kotlin.Int?, outlineColorR: kotlin.Int?, outlineColorG: kotlin.Int?, outlineColorB: kotlin.Int?, screenHeight: kotlin.Int?, scale: kotlin.Int?) : ApiResponse<kotlin.collections.List<kotlin.Int>?> {
+        val localVariableConfig = settingsImageRequestConfig(themed = themed, pipGapStatic = pipGapStatic, pipWidth = pipWidth, pipHeight = pipHeight, pipGap = pipGap, pipOpacity = pipOpacity, pipOutlineBorder = pipOutlineBorder, pipOutlineGap = pipOutlineGap, pipOutlineOpacity = pipOutlineOpacity, dotSize = dotSize, dotOpacity = dotOpacity, dotOutlineBorder = dotOutlineBorder, dotOutlineGap = dotOutlineGap, dotOutlineOpacity = dotOutlineOpacity, colorR = colorR, colorG = colorG, colorB = colorB, outlineColorR = outlineColorR, outlineColorG = outlineColorG, outlineColorB = outlineColorB, screenHeight = screenHeight, scale = scale)
 
         return request<Unit, kotlin.collections.List<kotlin.Int>>(
             localVariableConfig
@@ -519,9 +527,10 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param outlineColorG  (optional, default to 0)
      * @param outlineColorB  (optional, default to 0)
      * @param screenHeight Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)
+     * @param scale Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)
      * @return RequestConfig
      */
-    fun settingsImageRequestConfig(themed: kotlin.Boolean?, pipGapStatic: kotlin.Boolean?, pipWidth: kotlin.Int?, pipHeight: kotlin.Int?, pipGap: kotlin.Int?, pipOpacity: kotlin.Float?, pipOutlineBorder: kotlin.Int?, pipOutlineGap: kotlin.Int?, pipOutlineOpacity: kotlin.Float?, dotSize: kotlin.Int?, dotOpacity: kotlin.Float?, dotOutlineBorder: kotlin.Int?, dotOutlineGap: kotlin.Int?, dotOutlineOpacity: kotlin.Float?, colorR: kotlin.Int?, colorG: kotlin.Int?, colorB: kotlin.Int?, outlineColorR: kotlin.Int?, outlineColorG: kotlin.Int?, outlineColorB: kotlin.Int?, screenHeight: kotlin.Int?) : RequestConfig<Unit> {
+    fun settingsImageRequestConfig(themed: kotlin.Boolean?, pipGapStatic: kotlin.Boolean?, pipWidth: kotlin.Int?, pipHeight: kotlin.Int?, pipGap: kotlin.Int?, pipOpacity: kotlin.Float?, pipOutlineBorder: kotlin.Int?, pipOutlineGap: kotlin.Int?, pipOutlineOpacity: kotlin.Float?, dotSize: kotlin.Int?, dotOpacity: kotlin.Float?, dotOutlineBorder: kotlin.Int?, dotOutlineGap: kotlin.Int?, dotOutlineOpacity: kotlin.Float?, colorR: kotlin.Int?, colorG: kotlin.Int?, colorB: kotlin.Int?, outlineColorR: kotlin.Int?, outlineColorG: kotlin.Int?, outlineColorB: kotlin.Int?, screenHeight: kotlin.Int?, scale: kotlin.Int?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -587,6 +596,9 @@ open class CrosshairApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (screenHeight != null) {
                     put("screen_height", listOf(screenHeight.toString()))
+                }
+                if (scale != null) {
+                    put("scale", listOf(scale.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

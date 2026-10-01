@@ -42,8 +42,9 @@ class CrosshairApi:
     @validate_call
     def code_image(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,12 +60,14 @@ class CrosshairApi:
     ) -> List[int]:
         """Crosshair Code Image
 
-        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -90,6 +93,7 @@ class CrosshairApi:
         _param = self._code_image_serialize(
             code=code,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -114,8 +118,9 @@ class CrosshairApi:
     @validate_call
     def code_image_with_http_info(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -131,12 +136,14 @@ class CrosshairApi:
     ) -> ApiResponse[List[int]]:
         """Crosshair Code Image
 
-        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -162,6 +169,7 @@ class CrosshairApi:
         _param = self._code_image_serialize(
             code=code,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -186,8 +194,9 @@ class CrosshairApi:
     @validate_call
     def code_image_without_preload_content(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -203,12 +212,14 @@ class CrosshairApi:
     ) -> RESTResponseType:
         """Crosshair Code Image
 
-        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -234,6 +245,7 @@ class CrosshairApi:
         _param = self._code_image_serialize(
             code=code,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -255,6 +267,7 @@ class CrosshairApi:
         self,
         code,
         screen_height,
+        scale,
         _request_auth,
         _content_type,
         _headers,
@@ -284,6 +297,10 @@ class CrosshairApi:
         if screen_height is not None:
             
             _query_params.append(('screen_height', screen_height))
+            
+        if scale is not None:
+            
+            _query_params.append(('scale', scale))
             
         # process the header parameters
         # process the form parameters
@@ -324,7 +341,7 @@ class CrosshairApi:
     @validate_call
     def code_settings(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -342,7 +359,7 @@ class CrosshairApi:
 
         Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -392,7 +409,7 @@ class CrosshairApi:
     @validate_call
     def code_settings_with_http_info(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -410,7 +427,7 @@ class CrosshairApi:
 
         Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -460,7 +477,7 @@ class CrosshairApi:
     @validate_call
     def code_settings_without_preload_content(
         self,
-        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`).")],
+        code: Annotated[StrictStr, Field(description="Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -478,7 +495,7 @@ class CrosshairApi:
 
         Decodes a crosshair share code into its settings. Settings the code does not carry have the game's defaults.
 
-        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`). (required)
+        :param code: Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`). (required)
         :type code: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1198,6 +1215,7 @@ class CrosshairApi:
         outline_color_g: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         outline_color_b: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1213,7 +1231,7 @@ class CrosshairApi:
     ) -> List[int]:
         """Crosshair Settings Image
 
-        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
         :param themed: Use the hero's own crosshair instead of these settings.
         :type themed: bool
@@ -1257,6 +1275,8 @@ class CrosshairApi:
         :type outline_color_b: int
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1301,6 +1321,7 @@ class CrosshairApi:
             outline_color_g=outline_color_g,
             outline_color_b=outline_color_b,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1346,6 +1367,7 @@ class CrosshairApi:
         outline_color_g: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         outline_color_b: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1361,7 +1383,7 @@ class CrosshairApi:
     ) -> ApiResponse[List[int]]:
         """Crosshair Settings Image
 
-        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
         :param themed: Use the hero's own crosshair instead of these settings.
         :type themed: bool
@@ -1405,6 +1427,8 @@ class CrosshairApi:
         :type outline_color_b: int
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1449,6 +1473,7 @@ class CrosshairApi:
             outline_color_g=outline_color_g,
             outline_color_b=outline_color_b,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1494,6 +1519,7 @@ class CrosshairApi:
         outline_color_g: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         outline_color_b: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         screen_height: Annotated[Optional[Annotated[int, Field(le=4320, strict=True, ge=480)]], Field(description="Height of the screen to render for, in pixels. Crosshair sizes scale with it.")] = None,
+        scale: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1509,7 +1535,7 @@ class CrosshairApi:
     ) -> RESTResponseType:
         """Crosshair Settings Image
 
-        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+        Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
         :param themed: Use the hero's own crosshair instead of these settings.
         :type themed: bool
@@ -1553,6 +1579,8 @@ class CrosshairApi:
         :type outline_color_b: int
         :param screen_height: Height of the screen to render for, in pixels. Crosshair sizes scale with it.
         :type screen_height: int
+        :param scale: Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        :type scale: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1597,6 +1625,7 @@ class CrosshairApi:
             outline_color_g=outline_color_g,
             outline_color_b=outline_color_b,
             screen_height=screen_height,
+            scale=scale,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1637,6 +1666,7 @@ class CrosshairApi:
         outline_color_g,
         outline_color_b,
         screen_height,
+        scale,
         _request_auth,
         _content_type,
         _headers,
@@ -1742,6 +1772,10 @@ class CrosshairApi:
         if screen_height is not None:
             
             _query_params.append(('screen_height', screen_height))
+            
+        if scale is not None:
+            
+            _query_params.append(('scale', scale))
             
         # process the header parameters
         # process the form parameters

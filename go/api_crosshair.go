@@ -27,9 +27,10 @@ type ApiCodeImageRequest struct {
 	ApiService *CrosshairAPIService
 	code *string
 	screenHeight *int32
+	scale *int32
 }
 
-// Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+// Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
 func (r ApiCodeImageRequest) Code(code string) ApiCodeImageRequest {
 	r.code = &code
 	return r
@@ -41,6 +42,12 @@ func (r ApiCodeImageRequest) ScreenHeight(screenHeight int32) ApiCodeImageReques
 	return r
 }
 
+// Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+func (r ApiCodeImageRequest) Scale(scale int32) ApiCodeImageRequest {
+	r.scale = &scale
+	return r
+}
+
 func (r ApiCodeImageRequest) Execute() ([]int32, *http.Response, error) {
 	return r.ApiService.CodeImageExecute(r)
 }
@@ -48,7 +55,7 @@ func (r ApiCodeImageRequest) Execute() ([]int32, *http.Response, error) {
 /*
 CodeImage Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCodeImageRequest
@@ -91,6 +98,13 @@ func (a *CrosshairAPIService) CodeImageExecute(r ApiCodeImageRequest) ([]int32, 
 		var defaultValue int32 = 1080
 		parameterAddToHeaderOrQuery(localVarQueryParams, "screen_height", defaultValue, "form", "")
 		r.screenHeight = &defaultValue
+	}
+	if r.scale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "scale", r.scale, "form", "")
+	} else {
+		var defaultValue int32 = 1
+		parameterAddToHeaderOrQuery(localVarQueryParams, "scale", defaultValue, "form", "")
+		r.scale = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -152,7 +166,7 @@ type ApiCodeSettingsRequest struct {
 	code *string
 }
 
-// Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).
+// Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
 func (r ApiCodeSettingsRequest) Code(code string) ApiCodeSettingsRequest {
 	r.code = &code
 	return r
@@ -645,6 +659,7 @@ type ApiSettingsImageRequest struct {
 	outlineColorG *int32
 	outlineColorB *int32
 	screenHeight *int32
+	scale *int32
 }
 
 // Use the hero&#39;s own crosshair instead of these settings.
@@ -759,6 +774,12 @@ func (r ApiSettingsImageRequest) ScreenHeight(screenHeight int32) ApiSettingsIma
 	return r
 }
 
+// Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+func (r ApiSettingsImageRequest) Scale(scale int32) ApiSettingsImageRequest {
+	r.scale = &scale
+	return r
+}
+
 func (r ApiSettingsImageRequest) Execute() ([]int32, *http.Response, error) {
 	return r.ApiService.SettingsImageExecute(r)
 }
@@ -766,7 +787,7 @@ func (r ApiSettingsImageRequest) Execute() ([]int32, *http.Response, error) {
 /*
 SettingsImage Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game's defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSettingsImageRequest
@@ -945,6 +966,13 @@ func (a *CrosshairAPIService) SettingsImageExecute(r ApiSettingsImageRequest) ([
 		var defaultValue int32 = 1080
 		parameterAddToHeaderOrQuery(localVarQueryParams, "screen_height", defaultValue, "form", "")
 		r.screenHeight = &defaultValue
+	}
+	if r.scale != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "scale", r.scale, "form", "")
+	} else {
+		var defaultValue int32 = 1
+		parameterAddToHeaderOrQuery(localVarQueryParams, "scale", defaultValue, "form", "")
+		r.scale = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

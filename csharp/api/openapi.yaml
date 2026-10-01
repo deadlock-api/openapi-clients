@@ -8462,11 +8462,13 @@ paths:
     get:
       description: "Renders a crosshair share code as a PNG, pixel for pixel as the\
         \ game draws it at the given screen height. The image is square, centred on\
-        \ the crosshair and has a transparent background."
+        \ the crosshair and has a transparent background; `scale` enlarges it with\
+        \ crisp pixels, for a link preview."
       operationId: code_image
       parameters:
-      - description: "Crosshair share code, as copied from the game's crosshair settings\
-          \ (`DL.…`)."
+      - description: |-
+          Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands
+          (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
         explode: true
         in: query
         name: code
@@ -8485,6 +8487,20 @@ paths:
           format: int32
           maximum: 4320
           minimum: 480
+          type: integer
+        style: form
+      - description: |-
+          Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than
+          the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        explode: true
+        in: query
+        name: scale
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 16
+          minimum: 1
           type: integer
         style: form
       responses:
@@ -8511,8 +8527,9 @@ paths:
         code does not carry have the game's defaults.
       operationId: code_settings
       parameters:
-      - description: "Crosshair share code, as copied from the game's crosshair settings\
-          \ (`DL.…`)."
+      - description: |-
+          Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands
+          (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
         explode: true
         in: query
         name: code
@@ -8746,7 +8763,8 @@ paths:
       description: "Renders crosshair settings as a PNG, pixel for pixel as the game\
         \ draws them at the given screen height. Settings that are not given keep\
         \ the game's defaults. The image is square, centred on the crosshair and has\
-        \ a transparent background."
+        \ a transparent background; `scale` enlarges it with crisp pixels, for a link\
+        \ preview."
       operationId: settings_image
       parameters:
       - description: Use the hero's own crosshair instead of these settings.
@@ -8951,6 +8969,20 @@ paths:
           format: int32
           maximum: 4320
           minimum: 480
+          type: integer
+        style: form
+      - description: |-
+          Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than
+          the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
+        explode: true
+        in: query
+        name: scale
+        required: false
+        schema:
+          default: 1
+          format: int32
+          maximum: 16
+          minimum: 1
           type: integer
         style: form
       responses:

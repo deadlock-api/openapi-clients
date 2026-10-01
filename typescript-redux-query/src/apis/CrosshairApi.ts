@@ -26,6 +26,7 @@ import {
 export interface CodeImageRequest {
     code: string;
     screenHeight?: number;
+    scale?: number;
 }
 
 export interface CodeSettingsRequest {
@@ -77,11 +78,12 @@ export interface SettingsImageRequest {
     outlineColorG?: number;
     outlineColorB?: number;
     screenHeight?: number;
+    scale?: number;
 }
 
 
 /**
- * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+ * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
  * Crosshair Code Image
  */
 function codeImageRaw<T>(requestParameters: CodeImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -101,6 +103,11 @@ function codeImageRaw<T>(requestParameters: CodeImageRequest, requestConfig: run
 
     if (requestParameters.screenHeight !== undefined) {
         queryParameters['screen_height'] = requestParameters.screenHeight;
+    }
+
+
+    if (requestParameters.scale !== undefined) {
+        queryParameters['scale'] = requestParameters.scale;
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -131,7 +138,7 @@ function codeImageRaw<T>(requestParameters: CodeImageRequest, requestConfig: run
 }
 
 /**
-* Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+* Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 * Crosshair Code Image
 */
 export function codeImage<T>(requestParameters: CodeImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -338,7 +345,7 @@ export function settingsCode<T>(requestParameters: SettingsCodeRequest, requestC
 }
 
 /**
- * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+ * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
  * Crosshair Settings Image
  */
 function settingsImageRaw<T>(requestParameters: SettingsImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -451,6 +458,11 @@ function settingsImageRaw<T>(requestParameters: SettingsImageRequest, requestCon
         queryParameters['screen_height'] = requestParameters.screenHeight;
     }
 
+
+    if (requestParameters.scale !== undefined) {
+        queryParameters['scale'] = requestParameters.scale;
+    }
+
     const headerParameters : runtime.HttpHeaders = {};
 
 
@@ -479,7 +491,7 @@ function settingsImageRaw<T>(requestParameters: SettingsImageRequest, requestCon
 }
 
 /**
-* Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+* Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
 * Crosshair Settings Image
 */
 export function settingsImage<T>(requestParameters: SettingsImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {

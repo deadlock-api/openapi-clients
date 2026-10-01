@@ -42,26 +42,28 @@ namespace DeadlockApiClient.Api
         /// Crosshair Code Image
         /// </summary>
         /// <remarks>
-        /// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        /// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeImageApiResponse"/>&gt;</returns>
-        Task<ICodeImageApiResponse> CodeImageAsync(string code, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICodeImageApiResponse> CodeImageAsync(string code, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Crosshair Code Image
         /// </summary>
         /// <remarks>
-        /// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        /// Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </remarks>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeImageApiResponse"/>?&gt;</returns>
-        Task<ICodeImageApiResponse?> CodeImageOrDefaultAsync(string code, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ICodeImageApiResponse?> CodeImageOrDefaultAsync(string code, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Crosshair Code Settings
@@ -70,7 +72,7 @@ namespace DeadlockApiClient.Api
         /// Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
         Task<ICodeSettingsApiResponse> CodeSettingsAsync(string code, System.Threading.CancellationToken cancellationToken = default);
@@ -81,7 +83,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         /// Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
         /// </remarks>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>?&gt;</returns>
         Task<ICodeSettingsApiResponse?> CodeSettingsOrDefaultAsync(string code, System.Threading.CancellationToken cancellationToken = default);
@@ -151,7 +153,7 @@ namespace DeadlockApiClient.Api
         /// Crosshair Settings Image
         /// </summary>
         /// <remarks>
-        /// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+        /// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="themed">Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)</param>
@@ -175,15 +177,16 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"> (optional, default to 0)</param>
         /// <param name="outlineColorB"> (optional, default to 0)</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISettingsImageApiResponse"/>&gt;</returns>
-        Task<ISettingsImageApiResponse> SettingsImageAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISettingsImageApiResponse> SettingsImageAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Crosshair Settings Image
         /// </summary>
         /// <remarks>
-        /// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+        /// Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </remarks>
         /// <param name="themed">Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)</param>
         /// <param name="pipGapStatic">Keep the pips at a fixed distance instead of spreading them with weapon spread. (optional, default to false)</param>
@@ -206,9 +209,10 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"> (optional, default to 0)</param>
         /// <param name="outlineColorB"> (optional, default to 0)</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISettingsImageApiResponse"/>?&gt;</returns>
-        Task<ISettingsImageApiResponse?> SettingsImageOrDefaultAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<ISettingsImageApiResponse?> SettingsImageOrDefaultAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -410,7 +414,7 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
-        partial void FormatCodeImage(ref string code, ref Option<int> screenHeight);
+        partial void FormatCodeImage(ref string code, ref Option<int> screenHeight, ref Option<int> scale);
 
         /// <summary>
         /// Validates the request parameters
@@ -429,10 +433,11 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="code"></param>
         /// <param name="screenHeight"></param>
-        private void AfterCodeImageDefaultImplementation(ICodeImageApiResponse apiResponseLocalVar, string code, Option<int> screenHeight)
+        /// <param name="scale"></param>
+        private void AfterCodeImageDefaultImplementation(ICodeImageApiResponse apiResponseLocalVar, string code, Option<int> screenHeight, Option<int> scale)
         {
             bool suppressDefaultLog = false;
-            AfterCodeImage(ref suppressDefaultLog, apiResponseLocalVar, code, screenHeight);
+            AfterCodeImage(ref suppressDefaultLog, apiResponseLocalVar, code, screenHeight, scale);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -444,7 +449,8 @@ namespace DeadlockApiClient.Api
         /// <param name="apiResponseLocalVar"></param>
         /// <param name="code"></param>
         /// <param name="screenHeight"></param>
-        partial void AfterCodeImage(ref bool suppressDefaultLog, ICodeImageApiResponse apiResponseLocalVar, string code, Option<int> screenHeight);
+        /// <param name="scale"></param>
+        partial void AfterCodeImage(ref bool suppressDefaultLog, ICodeImageApiResponse apiResponseLocalVar, string code, Option<int> screenHeight, Option<int> scale);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -454,10 +460,11 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="code"></param>
         /// <param name="screenHeight"></param>
-        private void OnErrorCodeImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code, Option<int> screenHeight)
+        /// <param name="scale"></param>
+        private void OnErrorCodeImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code, Option<int> screenHeight, Option<int> scale)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorCodeImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, code, screenHeight);
+            OnErrorCodeImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, code, screenHeight, scale);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -471,20 +478,22 @@ namespace DeadlockApiClient.Api
         /// <param name="pathLocalVar"></param>
         /// <param name="code"></param>
         /// <param name="screenHeight"></param>
-        partial void OnErrorCodeImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code, Option<int> screenHeight);
+        /// <param name="scale"></param>
+        partial void OnErrorCodeImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string code, Option<int> screenHeight, Option<int> scale);
 
         /// <summary>
-        /// Crosshair Code Image Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        /// Crosshair Code Image Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </summary>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeImageApiResponse"/>&gt;</returns>
-        public async Task<ICodeImageApiResponse?> CodeImageOrDefaultAsync(string code, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICodeImageApiResponse?> CodeImageOrDefaultAsync(string code, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await CodeImageAsync(code, screenHeight, cancellationToken).ConfigureAwait(false);
+                return await CodeImageAsync(code, screenHeight, scale, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -493,14 +502,15 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Crosshair Code Image Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+        /// Crosshair Code Image Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeImageApiResponse"/>&gt;</returns>
-        public async Task<ICodeImageApiResponse> CodeImageAsync(string code, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ICodeImageApiResponse> CodeImageAsync(string code, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -508,7 +518,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidateCodeImage(code);
 
-                FormatCodeImage(ref code, ref screenHeight);
+                FormatCodeImage(ref code, ref screenHeight, ref scale);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -525,6 +535,9 @@ namespace DeadlockApiClient.Api
 
                     if (screenHeight.IsSet)
                         parseQueryStringLocalVar["screen_height"] = ClientUtils.ParameterToString(screenHeight.Value);
+
+                    if (scale.IsSet)
+                        parseQueryStringLocalVar["scale"] = ClientUtils.ParameterToString(scale.Value);
 
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
@@ -556,7 +569,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterCodeImageDefaultImplementation(apiResponseLocalVar, code, screenHeight);
+                        AfterCodeImageDefaultImplementation(apiResponseLocalVar, code, screenHeight, scale);
 
                         Events.ExecuteOnCodeImage(apiResponseLocalVar);
 
@@ -566,7 +579,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorCodeImageDefaultImplementation(e, "/v1/crosshair/code/image", uriBuilderLocalVar.Path, code, screenHeight);
+                OnErrorCodeImageDefaultImplementation(e, "/v1/crosshair/code/image", uriBuilderLocalVar.Path, code, screenHeight, scale);
                 Events.ExecuteOnErrorCodeImage(e);
                 throw;
             }
@@ -745,7 +758,7 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// Crosshair Code Settings Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
         /// </summary>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
         public async Task<ICodeSettingsApiResponse?> CodeSettingsOrDefaultAsync(string code, System.Threading.CancellationToken cancellationToken = default)
@@ -764,7 +777,7 @@ namespace DeadlockApiClient.Api
         /// Crosshair Code Settings Decodes a crosshair share code into its settings. Settings the code does not carry have the game&#39;s defaults.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;).</param>
+        /// <param name="code">Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ICodeSettingsApiResponse"/>&gt;</returns>
         public async Task<ICodeSettingsApiResponse> CodeSettingsAsync(string code, System.Threading.CancellationToken cancellationToken = default)
@@ -1370,7 +1383,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatSettingsImage(ref Option<bool> themed, ref Option<bool> pipGapStatic, ref Option<int> pipWidth, ref Option<int> pipHeight, ref Option<int> pipGap, ref Option<float> pipOpacity, ref Option<int> pipOutlineBorder, ref Option<int> pipOutlineGap, ref Option<float> pipOutlineOpacity, ref Option<int> dotSize, ref Option<float> dotOpacity, ref Option<int> dotOutlineBorder, ref Option<int> dotOutlineGap, ref Option<float> dotOutlineOpacity, ref Option<int> colorR, ref Option<int> colorG, ref Option<int> colorB, ref Option<int> outlineColorR, ref Option<int> outlineColorG, ref Option<int> outlineColorB, ref Option<int> screenHeight);
+        partial void FormatSettingsImage(ref Option<bool> themed, ref Option<bool> pipGapStatic, ref Option<int> pipWidth, ref Option<int> pipHeight, ref Option<int> pipGap, ref Option<float> pipOpacity, ref Option<int> pipOutlineBorder, ref Option<int> pipOutlineGap, ref Option<float> pipOutlineOpacity, ref Option<int> dotSize, ref Option<float> dotOpacity, ref Option<int> dotOutlineBorder, ref Option<int> dotOutlineGap, ref Option<float> dotOutlineOpacity, ref Option<int> colorR, ref Option<int> colorG, ref Option<int> colorB, ref Option<int> outlineColorR, ref Option<int> outlineColorG, ref Option<int> outlineColorB, ref Option<int> screenHeight, ref Option<int> scale);
 
         /// <summary>
         /// Processes the server response
@@ -1397,10 +1410,11 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"></param>
         /// <param name="outlineColorB"></param>
         /// <param name="screenHeight"></param>
-        private void AfterSettingsImageDefaultImplementation(ISettingsImageApiResponse apiResponseLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight)
+        /// <param name="scale"></param>
+        private void AfterSettingsImageDefaultImplementation(ISettingsImageApiResponse apiResponseLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight, Option<int> scale)
         {
             bool suppressDefaultLog = false;
-            AfterSettingsImage(ref suppressDefaultLog, apiResponseLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight);
+            AfterSettingsImage(ref suppressDefaultLog, apiResponseLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -1431,7 +1445,8 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"></param>
         /// <param name="outlineColorB"></param>
         /// <param name="screenHeight"></param>
-        partial void AfterSettingsImage(ref bool suppressDefaultLog, ISettingsImageApiResponse apiResponseLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight);
+        /// <param name="scale"></param>
+        partial void AfterSettingsImage(ref bool suppressDefaultLog, ISettingsImageApiResponse apiResponseLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight, Option<int> scale);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -1460,10 +1475,11 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"></param>
         /// <param name="outlineColorB"></param>
         /// <param name="screenHeight"></param>
-        private void OnErrorSettingsImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight)
+        /// <param name="scale"></param>
+        private void OnErrorSettingsImageDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight, Option<int> scale)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorSettingsImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight);
+            OnErrorSettingsImage(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -1496,10 +1512,11 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"></param>
         /// <param name="outlineColorB"></param>
         /// <param name="screenHeight"></param>
-        partial void OnErrorSettingsImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight);
+        /// <param name="scale"></param>
+        partial void OnErrorSettingsImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<bool> themed, Option<bool> pipGapStatic, Option<int> pipWidth, Option<int> pipHeight, Option<int> pipGap, Option<float> pipOpacity, Option<int> pipOutlineBorder, Option<int> pipOutlineGap, Option<float> pipOutlineOpacity, Option<int> dotSize, Option<float> dotOpacity, Option<int> dotOutlineBorder, Option<int> dotOutlineGap, Option<float> dotOutlineOpacity, Option<int> colorR, Option<int> colorG, Option<int> colorB, Option<int> outlineColorR, Option<int> outlineColorG, Option<int> outlineColorB, Option<int> screenHeight, Option<int> scale);
 
         /// <summary>
-        /// Crosshair Settings Image Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+        /// Crosshair Settings Image Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </summary>
         /// <param name="themed">Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)</param>
         /// <param name="pipGapStatic">Keep the pips at a fixed distance instead of spreading them with weapon spread. (optional, default to false)</param>
@@ -1522,13 +1539,14 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"> (optional, default to 0)</param>
         /// <param name="outlineColorB"> (optional, default to 0)</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISettingsImageApiResponse"/>&gt;</returns>
-        public async Task<ISettingsImageApiResponse?> SettingsImageOrDefaultAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISettingsImageApiResponse?> SettingsImageOrDefaultAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await SettingsImageAsync(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, cancellationToken).ConfigureAwait(false);
+                return await SettingsImageAsync(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -1537,7 +1555,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Crosshair Settings Image Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+        /// Crosshair Settings Image Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="themed">Use the hero&#39;s own crosshair instead of these settings. (optional, default to false)</param>
@@ -1561,15 +1579,16 @@ namespace DeadlockApiClient.Api
         /// <param name="outlineColorG"> (optional, default to 0)</param>
         /// <param name="outlineColorB"> (optional, default to 0)</param>
         /// <param name="screenHeight">Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional, default to 1080)</param>
+        /// <param name="scale">Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ISettingsImageApiResponse"/>&gt;</returns>
-        public async Task<ISettingsImageApiResponse> SettingsImageAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ISettingsImageApiResponse> SettingsImageAsync(Option<bool> themed = default, Option<bool> pipGapStatic = default, Option<int> pipWidth = default, Option<int> pipHeight = default, Option<int> pipGap = default, Option<float> pipOpacity = default, Option<int> pipOutlineBorder = default, Option<int> pipOutlineGap = default, Option<float> pipOutlineOpacity = default, Option<int> dotSize = default, Option<float> dotOpacity = default, Option<int> dotOutlineBorder = default, Option<int> dotOutlineGap = default, Option<float> dotOutlineOpacity = default, Option<int> colorR = default, Option<int> colorG = default, Option<int> colorB = default, Option<int> outlineColorR = default, Option<int> outlineColorG = default, Option<int> outlineColorB = default, Option<int> screenHeight = default, Option<int> scale = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatSettingsImage(ref themed, ref pipGapStatic, ref pipWidth, ref pipHeight, ref pipGap, ref pipOpacity, ref pipOutlineBorder, ref pipOutlineGap, ref pipOutlineOpacity, ref dotSize, ref dotOpacity, ref dotOutlineBorder, ref dotOutlineGap, ref dotOutlineOpacity, ref colorR, ref colorG, ref colorB, ref outlineColorR, ref outlineColorG, ref outlineColorB, ref screenHeight);
+                FormatSettingsImage(ref themed, ref pipGapStatic, ref pipWidth, ref pipHeight, ref pipGap, ref pipOpacity, ref pipOutlineBorder, ref pipOutlineGap, ref pipOutlineOpacity, ref dotSize, ref dotOpacity, ref dotOutlineBorder, ref dotOutlineGap, ref dotOutlineOpacity, ref colorR, ref colorG, ref colorB, ref outlineColorR, ref outlineColorG, ref outlineColorB, ref screenHeight, ref scale);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -1645,6 +1664,9 @@ namespace DeadlockApiClient.Api
                     if (screenHeight.IsSet)
                         parseQueryStringLocalVar["screen_height"] = ClientUtils.ParameterToString(screenHeight.Value);
 
+                    if (scale.IsSet)
+                        parseQueryStringLocalVar["scale"] = ClientUtils.ParameterToString(scale.Value);
+
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -1675,7 +1697,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterSettingsImageDefaultImplementation(apiResponseLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight);
+                        AfterSettingsImageDefaultImplementation(apiResponseLocalVar, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale);
 
                         Events.ExecuteOnSettingsImage(apiResponseLocalVar);
 
@@ -1685,7 +1707,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorSettingsImageDefaultImplementation(e, "/v1/crosshair/settings/image", uriBuilderLocalVar.Path, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight);
+                OnErrorSettingsImageDefaultImplementation(e, "/v1/crosshair/settings/image", uriBuilderLocalVar.Path, themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale);
                 Events.ExecuteOnErrorSettingsImage(e);
                 throw;
             }

@@ -12,11 +12,11 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="codeImage"></a>
 # **codeImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; codeImage(code, screenHeight)
+> kotlin.collections.List&lt;kotlin.Int&gt; codeImage(code, screenHeight, scale)
 
 Crosshair Code Image
 
-Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
 
 ### Example
 ```kotlin
@@ -25,10 +25,11 @@ Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at
 //import deadlock_api_client.models.*
 
 val apiInstance = CrosshairApi()
-val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 val screenHeight : kotlin.Int = 56 // kotlin.Int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+val scale : kotlin.Int = 56 // kotlin.Int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.codeImage(code, screenHeight)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.codeImage(code, screenHeight, scale)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CrosshairApi#codeImage")
@@ -42,8 +43,9 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **kotlin.String**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+| **code** | **kotlin.String**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | |
 | **screenHeight** | **kotlin.Int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **kotlin.Int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 
@@ -73,7 +75,7 @@ Decodes a crosshair share code into its settings. Settings the code does not car
 //import deadlock_api_client.models.*
 
 val apiInstance = CrosshairApi()
-val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+val code : kotlin.String = code_example // kotlin.String | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 try {
     val result : Settings = apiInstance.codeSettings(code)
     println(result)
@@ -89,7 +91,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **code** | **kotlin.String**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | |
+| **code** | **kotlin.String**| Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | |
 
 ### Return type
 
@@ -190,11 +192,11 @@ No authorization required
 
 <a id="settingsImage"></a>
 # **settingsImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight)
+> kotlin.collections.List&lt;kotlin.Int&gt; settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale)
 
 Crosshair Settings Image
 
-Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background.
+Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game&#39;s defaults. The image is square, centred on the crosshair and has a transparent background; &#x60;scale&#x60; enlarges it with crisp pixels, for a link preview.
 
 ### Example
 ```kotlin
@@ -224,8 +226,9 @@ val outlineColorR : kotlin.Int = 56 // kotlin.Int |
 val outlineColorG : kotlin.Int = 56 // kotlin.Int | 
 val outlineColorB : kotlin.Int = 56 // kotlin.Int | 
 val screenHeight : kotlin.Int = 56 // kotlin.Int | Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+val scale : kotlin.Int = 56 // kotlin.Int | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight)
+    val result : kotlin.collections.List<kotlin.Int> = apiInstance.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling CrosshairApi#settingsImage")
@@ -260,6 +263,7 @@ try {
 | **outlineColorG** | **kotlin.Int**|  | [optional] [default to 0] |
 | **outlineColorB** | **kotlin.Int**|  | [optional] [default to 0] |
 | **screenHeight** | **kotlin.Int**| Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [optional] [default to 1080] |
+| **scale** | **kotlin.Int**| Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [optional] [default to 1] |
 
 ### Return type
 

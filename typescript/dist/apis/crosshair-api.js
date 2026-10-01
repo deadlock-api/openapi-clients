@@ -23,14 +23,15 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 export const CrosshairApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Code Image
-         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
          * @param {number} [screenHeight] Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+         * @param {number} [scale] Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        codeImage: async (code, screenHeight, options = {}) => {
+        codeImage: async (code, screenHeight, scale, options = {}) => {
             // verify required parameter 'code' is not null or undefined
             assertParamExists('codeImage', 'code', code);
             const localVarPath = `/v1/crosshair/code/image`;
@@ -49,6 +50,9 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
             if (screenHeight !== undefined) {
                 localVarQueryParameter['screen_height'] = screenHeight;
             }
+            if (scale !== undefined) {
+                localVarQueryParameter['scale'] = scale;
+            }
             localVarHeaderParameter['Accept'] = 'image/png';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -61,7 +65,7 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
         /**
          * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
          * @summary Crosshair Code Settings
-         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -197,7 +201,7 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Settings Image
          * @param {boolean} [themed] Use the hero\&#39;s own crosshair instead of these settings.
          * @param {boolean} [pipGapStatic] Keep the pips at a fixed distance instead of spreading them with weapon spread.
@@ -220,10 +224,11 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
          * @param {number} [outlineColorG]
          * @param {number} [outlineColorB]
          * @param {number} [screenHeight] Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+         * @param {number} [scale] Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        settingsImage: async (themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, options = {}) => {
+        settingsImage: async (themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale, options = {}) => {
             const localVarPath = `/v1/crosshair/settings/image`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -297,6 +302,9 @@ export const CrosshairApiAxiosParamCreator = function (configuration) {
             if (screenHeight !== undefined) {
                 localVarQueryParameter['screen_height'] = screenHeight;
             }
+            if (scale !== undefined) {
+                localVarQueryParameter['scale'] = scale;
+            }
             localVarHeaderParameter['Accept'] = 'image/png';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -315,15 +323,16 @@ export const CrosshairApiFp = function (configuration) {
     const localVarAxiosParamCreator = CrosshairApiAxiosParamCreator(configuration);
     return {
         /**
-         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Code Image
-         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
          * @param {number} [screenHeight] Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+         * @param {number} [scale] Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async codeImage(code, screenHeight, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.codeImage(code, screenHeight, options);
+        async codeImage(code, screenHeight, scale, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.codeImage(code, screenHeight, scale, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CrosshairApi.codeImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -331,7 +340,7 @@ export const CrosshairApiFp = function (configuration) {
         /**
          * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
          * @summary Crosshair Code Settings
-         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;).
+         * @param {string} code Crosshair share code, as copied from the game\&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;).
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -374,7 +383,7 @@ export const CrosshairApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Settings Image
          * @param {boolean} [themed] Use the hero\&#39;s own crosshair instead of these settings.
          * @param {boolean} [pipGapStatic] Keep the pips at a fixed distance instead of spreading them with weapon spread.
@@ -397,11 +406,12 @@ export const CrosshairApiFp = function (configuration) {
          * @param {number} [outlineColorG]
          * @param {number} [outlineColorB]
          * @param {number} [screenHeight] Height of the screen to render for, in pixels. Crosshair sizes scale with it.
+         * @param {number} [scale] Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, options);
+        async settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.settingsImage(themed, pipGapStatic, pipWidth, pipHeight, pipGap, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, dotSize, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, colorR, colorG, colorB, outlineColorR, outlineColorG, outlineColorB, screenHeight, scale, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CrosshairApi.settingsImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -415,14 +425,14 @@ export const CrosshairApiFactory = function (configuration, basePath, axios) {
     const localVarFp = CrosshairApiFp(configuration);
     return {
         /**
-         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+         * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Code Image
          * @param {CrosshairApiCodeImageRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         codeImage(requestParameters, options) {
-            return localVarFp.codeImage(requestParameters.code, requestParameters.screenHeight, options).then((request) => request(axios, basePath));
+            return localVarFp.codeImage(requestParameters.code, requestParameters.screenHeight, requestParameters.scale, options).then((request) => request(axios, basePath));
         },
         /**
          * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
@@ -445,14 +455,14 @@ export const CrosshairApiFactory = function (configuration, basePath, axios) {
             return localVarFp.settingsCode(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, options).then((request) => request(axios, basePath));
         },
         /**
-         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+         * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
          * @summary Crosshair Settings Image
          * @param {CrosshairApiSettingsImageRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
         settingsImage(requestParameters = {}, options) {
-            return localVarFp.settingsImage(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, requestParameters.screenHeight, options).then((request) => request(axios, basePath));
+            return localVarFp.settingsImage(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, requestParameters.screenHeight, requestParameters.scale, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -461,14 +471,14 @@ export const CrosshairApiFactory = function (configuration, basePath, axios) {
  */
 export class CrosshairApi extends BaseAPI {
     /**
-     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background.
+     * Renders a crosshair share code as a PNG, pixel for pixel as the game draws it at the given screen height. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
      * @summary Crosshair Code Image
      * @param {CrosshairApiCodeImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     codeImage(requestParameters, options) {
-        return CrosshairApiFp(this.configuration).codeImage(requestParameters.code, requestParameters.screenHeight, options).then((request) => request(this.axios, this.basePath));
+        return CrosshairApiFp(this.configuration).codeImage(requestParameters.code, requestParameters.screenHeight, requestParameters.scale, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Decodes a crosshair share code into its settings. Settings the code does not carry have the game\'s defaults.
@@ -491,14 +501,14 @@ export class CrosshairApi extends BaseAPI {
         return CrosshairApiFp(this.configuration).settingsCode(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background.
+     * Renders crosshair settings as a PNG, pixel for pixel as the game draws them at the given screen height. Settings that are not given keep the game\'s defaults. The image is square, centred on the crosshair and has a transparent background; `scale` enlarges it with crisp pixels, for a link preview.
      * @summary Crosshair Settings Image
      * @param {CrosshairApiSettingsImageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
     settingsImage(requestParameters = {}, options) {
-        return CrosshairApiFp(this.configuration).settingsImage(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, requestParameters.screenHeight, options).then((request) => request(this.axios, this.basePath));
+        return CrosshairApiFp(this.configuration).settingsImage(requestParameters.themed, requestParameters.pipGapStatic, requestParameters.pipWidth, requestParameters.pipHeight, requestParameters.pipGap, requestParameters.pipOpacity, requestParameters.pipOutlineBorder, requestParameters.pipOutlineGap, requestParameters.pipOutlineOpacity, requestParameters.dotSize, requestParameters.dotOpacity, requestParameters.dotOutlineBorder, requestParameters.dotOutlineGap, requestParameters.dotOutlineOpacity, requestParameters.colorR, requestParameters.colorG, requestParameters.colorB, requestParameters.outlineColorR, requestParameters.outlineColorG, requestParameters.outlineColorB, requestParameters.screenHeight, requestParameters.scale, options).then((request) => request(this.axios, this.basePath));
     }
 }
 //# sourceMappingURL=crosshair-api.js.map

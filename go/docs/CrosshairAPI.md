@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## CodeImage
 
-> []int32 CodeImage(ctx).Code(code).ScreenHeight(screenHeight).Execute()
+> []int32 CodeImage(ctx).Code(code).ScreenHeight(screenHeight).Scale(scale).Execute()
 
 Crosshair Code Image
 
@@ -32,12 +32,13 @@ import (
 )
 
 func main() {
-	code := "code_example" // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+	code := "code_example" // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 	screenHeight := int32(56) // int32 | Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+	scale := int32(56) // int32 | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CrosshairAPI.CodeImage(context.Background()).Code(code).ScreenHeight(screenHeight).Execute()
+	resp, r, err := apiClient.CrosshairAPI.CodeImage(context.Background()).Code(code).ScreenHeight(screenHeight).Scale(scale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CrosshairAPI.CodeImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -58,8 +59,9 @@ Other parameters are passed through a pointer to a apiCodeImageRequest struct vi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+ **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | 
  **screenHeight** | **int32** | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [default to 1080]
+ **scale** | **int32** | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [default to 1]
 
 ### Return type
 
@@ -100,7 +102,7 @@ import (
 )
 
 func main() {
-	code := "code_example" // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`).
+	code := "code_example" // string | Crosshair share code, as copied from the game's crosshair settings (`DL.…`), or crosshair console commands (`citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245`).
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -125,7 +127,7 @@ Other parameters are passed through a pointer to a apiCodeSettingsRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;). | 
+ **code** | **string** | Crosshair share code, as copied from the game&#39;s crosshair settings (&#x60;DL.…&#x60;), or crosshair console commands (&#x60;citadel_crosshair_dot_size 4; citadel_crosshair_color_r 245&#x60;). | 
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ## SettingsImage
 
-> []int32 SettingsImage(ctx).Themed(themed).PipGapStatic(pipGapStatic).PipWidth(pipWidth).PipHeight(pipHeight).PipGap(pipGap).PipOpacity(pipOpacity).PipOutlineBorder(pipOutlineBorder).PipOutlineGap(pipOutlineGap).PipOutlineOpacity(pipOutlineOpacity).DotSize(dotSize).DotOpacity(dotOpacity).DotOutlineBorder(dotOutlineBorder).DotOutlineGap(dotOutlineGap).DotOutlineOpacity(dotOutlineOpacity).ColorR(colorR).ColorG(colorG).ColorB(colorB).OutlineColorR(outlineColorR).OutlineColorG(outlineColorG).OutlineColorB(outlineColorB).ScreenHeight(screenHeight).Execute()
+> []int32 SettingsImage(ctx).Themed(themed).PipGapStatic(pipGapStatic).PipWidth(pipWidth).PipHeight(pipHeight).PipGap(pipGap).PipOpacity(pipOpacity).PipOutlineBorder(pipOutlineBorder).PipOutlineGap(pipOutlineGap).PipOutlineOpacity(pipOutlineOpacity).DotSize(dotSize).DotOpacity(dotOpacity).DotOutlineBorder(dotOutlineBorder).DotOutlineGap(dotOutlineGap).DotOutlineOpacity(dotOutlineOpacity).ColorR(colorR).ColorG(colorG).ColorB(colorB).OutlineColorR(outlineColorR).OutlineColorG(outlineColorG).OutlineColorB(outlineColorB).ScreenHeight(screenHeight).Scale(scale).Execute()
 
 Crosshair Settings Image
 
@@ -291,10 +293,11 @@ func main() {
 	outlineColorG := int32(56) // int32 |  (optional) (default to 0)
 	outlineColorB := int32(56) // int32 |  (optional) (default to 0)
 	screenHeight := int32(56) // int32 | Height of the screen to render for, in pixels. Crosshair sizes scale with it. (optional) (default to 1080)
+	scale := int32(56) // int32 | Enlarges the image, drawing every pixel as a `scale`-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. (optional) (default to 1)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CrosshairAPI.SettingsImage(context.Background()).Themed(themed).PipGapStatic(pipGapStatic).PipWidth(pipWidth).PipHeight(pipHeight).PipGap(pipGap).PipOpacity(pipOpacity).PipOutlineBorder(pipOutlineBorder).PipOutlineGap(pipOutlineGap).PipOutlineOpacity(pipOutlineOpacity).DotSize(dotSize).DotOpacity(dotOpacity).DotOutlineBorder(dotOutlineBorder).DotOutlineGap(dotOutlineGap).DotOutlineOpacity(dotOutlineOpacity).ColorR(colorR).ColorG(colorG).ColorB(colorB).OutlineColorR(outlineColorR).OutlineColorG(outlineColorG).OutlineColorB(outlineColorB).ScreenHeight(screenHeight).Execute()
+	resp, r, err := apiClient.CrosshairAPI.SettingsImage(context.Background()).Themed(themed).PipGapStatic(pipGapStatic).PipWidth(pipWidth).PipHeight(pipHeight).PipGap(pipGap).PipOpacity(pipOpacity).PipOutlineBorder(pipOutlineBorder).PipOutlineGap(pipOutlineGap).PipOutlineOpacity(pipOutlineOpacity).DotSize(dotSize).DotOpacity(dotOpacity).DotOutlineBorder(dotOutlineBorder).DotOutlineGap(dotOutlineGap).DotOutlineOpacity(dotOutlineOpacity).ColorR(colorR).ColorG(colorG).ColorB(colorB).OutlineColorR(outlineColorR).OutlineColorG(outlineColorG).OutlineColorB(outlineColorB).ScreenHeight(screenHeight).Scale(scale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CrosshairAPI.SettingsImage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -336,6 +339,7 @@ Name | Type | Description  | Notes
  **outlineColorG** | **int32** |  | [default to 0]
  **outlineColorB** | **int32** |  | [default to 0]
  **screenHeight** | **int32** | Height of the screen to render for, in pixels. Crosshair sizes scale with it. | [default to 1080]
+ **scale** | **int32** | Enlarges the image, drawing every pixel as a &#x60;scale&#x60;-sized square, for a picture larger than the crosshair itself (a link preview). Lowered when the image would pass 2048 pixels. | [default to 1]
 
 ### Return type
 
