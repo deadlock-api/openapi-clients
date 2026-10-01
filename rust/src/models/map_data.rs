@@ -14,6 +14,9 @@ use serde::{Deserialize, Serialize};
 /// MapData : The `/v1/assets/map` response.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MapData {
+    /// Interactable map entities; only for builds whose assets were built with the map entity extraction.
+    #[serde(rename = "entities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub entities: Option<Option<Box<models::MapEntities>>>,
     #[serde(rename = "images")]
     pub images: Box<models::MapImages>,
     /// Neutral camps (build 6711+).
@@ -31,6 +34,7 @@ impl MapData {
     /// The `/v1/assets/map` response.
     pub fn new(images: models::MapImages, objective_positions: std::collections::HashMap<String, models::ObjectivePosition>, radius: u32, zipline_paths: Vec<models::ZiplanePath>) -> MapData {
         MapData {
+            entities: None,
             images: Box::new(images),
             neutral_camps: None,
             objective_positions,

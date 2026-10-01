@@ -35,6 +35,72 @@ class TestMapData(unittest.TestCase):
         model = MapData()
         if include_optional:
             return MapData(
+                entities = deadlock_api_client.models.map_entities.MapEntities(
+                    base_sentries = [
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
+                        ], 
+                    bells = [
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
+                        ], 
+                    bounce_pads = [
+                        
+                        ], 
+                    bridge_buffs = [
+                        
+                        ], 
+                    climb_ropes = [
+                        
+                        ], 
+                    cosmic_veils = [
+                        
+                        ], 
+                    crates = [
+                        
+                        ], 
+                    golden_statues = [
+                        
+                        ], 
+                    healing_snacks = [
+                        
+                        ], 
+                    shops = [
+                        
+                        ], 
+                    soul_urn_pads = [
+                        
+                        ], 
+                    soul_urn_spawns = [
+                        
+                        ], 
+                    steam_vents = [
+                        
+                        ], 
+                    teleporters = [
+                        
+                        ], 
+                    tough_crates = [
+                        
+                        ], 
+                    unstable_rifts = [
+                        
+                        ], ),
                 images = deadlock_api_client.models.map_images.MapImages(
                     background = '', 
                     frame = '', 

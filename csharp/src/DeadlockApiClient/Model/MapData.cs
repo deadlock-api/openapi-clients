@@ -37,14 +37,16 @@ namespace DeadlockApiClient.Model
         /// <param name="objectivePositions">objectivePositions</param>
         /// <param name="radius">radius</param>
         /// <param name="ziplinePaths">ziplinePaths</param>
+        /// <param name="entities">Interactable map entities; only for builds whose assets were built with the map entity extraction.</param>
         /// <param name="neutralCamps">Neutral camps (build 6711+).</param>
         [JsonConstructor]
-        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths, Option<List<NeutralCamp>?> neutralCamps = default)
+        public MapData(MapImages images, Dictionary<string, ObjectivePosition> objectivePositions, int radius, List<ZiplanePath> ziplinePaths, Option<MapEntities?> entities = default, Option<List<NeutralCamp>?> neutralCamps = default)
         {
             Images = images;
             ObjectivePositions = objectivePositions;
             Radius = radius;
             ZiplinePaths = ziplinePaths;
+            EntitiesOption = entities;
             NeutralCampsOption = neutralCamps;
             OnCreated();
         }
@@ -76,6 +78,20 @@ namespace DeadlockApiClient.Model
         public List<ZiplanePath> ZiplinePaths { get; set; }
 
         /// <summary>
+        /// Used to track the state of Entities
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<MapEntities?> EntitiesOption { get; private set; }
+
+        /// <summary>
+        /// Interactable map entities; only for builds whose assets were built with the map entity extraction.
+        /// </summary>
+        /// <value>Interactable map entities; only for builds whose assets were built with the map entity extraction.</value>
+        [JsonPropertyName("entities")]
+        public MapEntities? Entities { get { return this.EntitiesOption.Value; } set { this.EntitiesOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of NeutralCamps
         /// </summary>
         [JsonIgnore]
@@ -101,6 +117,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  ObjectivePositions: ").Append(ObjectivePositions).Append("\n");
             sb.Append("  Radius: ").Append(Radius).Append("\n");
             sb.Append("  ZiplinePaths: ").Append(ZiplinePaths).Append("\n");
+            sb.Append("  Entities: ").Append(Entities).Append("\n");
             sb.Append("  NeutralCamps: ").Append(NeutralCamps).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,6 +176,7 @@ namespace DeadlockApiClient.Model
             Option<Dictionary<string, ObjectivePosition>?> objectivePositions = default;
             Option<int?> radius = default;
             Option<List<ZiplanePath>?> ziplinePaths = default;
+            Option<MapEntities?> entities = default;
             Option<List<NeutralCamp>?> neutralCamps = default;
 
             while (utf8JsonReader.Read())
@@ -187,6 +205,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "zipline_paths":
                             ziplinePaths = new Option<List<ZiplanePath>?>(JsonSerializer.Deserialize<List<ZiplanePath>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "entities":
+                            entities = new Option<MapEntities?>(JsonSerializer.Deserialize<MapEntities>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "neutral_camps":
                             neutralCamps = new Option<List<NeutralCamp>?>(JsonSerializer.Deserialize<List<NeutralCamp>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -221,7 +242,7 @@ namespace DeadlockApiClient.Model
             if (ziplinePaths.IsSet && ziplinePaths.Value == null)
                 throw new ArgumentNullException(nameof(ziplinePaths), "Property is not nullable for class MapData.");
 
-            return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!, neutralCamps);
+            return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!, entities, neutralCamps);
         }
 
         /// <summary>
@@ -265,6 +286,14 @@ namespace DeadlockApiClient.Model
 
             writer.WritePropertyName("zipline_paths");
             JsonSerializer.Serialize(writer, mapData.ZiplinePaths, jsonSerializerOptions);
+            if (mapData.EntitiesOption.IsSet)
+                if (mapData.EntitiesOption.Value != null)
+                {
+                    writer.WritePropertyName("entities");
+                    JsonSerializer.Serialize(writer, mapData.Entities, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("entities");
             if (mapData.NeutralCampsOption.IsSet)
                 if (mapData.NeutralCampsOption.Value != null)
                 {

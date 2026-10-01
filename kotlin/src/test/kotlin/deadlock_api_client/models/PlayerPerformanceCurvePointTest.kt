@@ -69,10 +69,22 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldAbilityAssassinateAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldAbilityAssassinateStd` - Standard deviation of `gold_ability_assassinate_avg` at this time point
+        should("test goldAbilityAssassinateStd") {
+            // uncomment below to test the property
+            //modelInstance.goldAbilityAssassinateStd shouldBe ("TODO")
+        }
+
         // to test the property `goldAssistsAvg` - Average souls earned from assists at this time point (part of `gold_player_avg`)
         should("test goldAssistsAvg") {
             // uncomment below to test the property
             //modelInstance.goldAssistsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldAssistsStd` - Standard deviation of `gold_assists_avg` at this time point
+        should("test goldAssistsStd") {
+            // uncomment below to test the property
+            //modelInstance.goldAssistsStd shouldBe ("TODO")
         }
 
         // to test the property `goldBossAvg` - Average souls earned from objectives at this time point
@@ -87,10 +99,28 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldBossOrbAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldBossOrbStd` - Standard deviation of `gold_boss_orb_avg` at this time point
+        should("test goldBossOrbStd") {
+            // uncomment below to test the property
+            //modelInstance.goldBossOrbStd shouldBe ("TODO")
+        }
+
+        // to test the property `goldBossStd` - Standard deviation of `gold_boss_avg` at this time point
+        should("test goldBossStd") {
+            // uncomment below to test the property
+            //modelInstance.goldBossStd shouldBe ("TODO")
+        }
+
         // to test the property `goldBreakableAvg` - Average souls earned from breakables (crates, statues) at this time point
         should("test goldBreakableAvg") {
             // uncomment below to test the property
             //modelInstance.goldBreakableAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldBreakableStd` - Standard deviation of `gold_breakable_avg` at this time point
+        should("test goldBreakableStd") {
+            // uncomment below to test the property
+            //modelInstance.goldBreakableStd shouldBe ("TODO")
         }
 
         // to test the property `goldDeathLossAvg` - Average souls lost on death at this time point
@@ -99,10 +129,22 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldDeathLossAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldDeathLossStd` - Standard deviation of `gold_death_loss_avg` at this time point
+        should("test goldDeathLossStd") {
+            // uncomment below to test the property
+            //modelInstance.goldDeathLossStd shouldBe ("TODO")
+        }
+
         // to test the property `goldDeniedAvg` - Average souls denied to enemies at this time point
         should("test goldDeniedAvg") {
             // uncomment below to test the property
             //modelInstance.goldDeniedAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldDeniedStd` - Standard deviation of `gold_denied_avg` at this time point
+        should("test goldDeniedStd") {
+            // uncomment below to test the property
+            //modelInstance.goldDeniedStd shouldBe ("TODO")
         }
 
         // to test the property `goldItemCultistSacrificeAvg` - Average souls earned from the Cultist Sacrifice item at this time point
@@ -111,16 +153,34 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldItemCultistSacrificeAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldItemCultistSacrificeStd` - Standard deviation of `gold_item_cultist_sacrifice_avg` at this time point
+        should("test goldItemCultistSacrificeStd") {
+            // uncomment below to test the property
+            //modelInstance.goldItemCultistSacrificeStd shouldBe ("TODO")
+        }
+
         // to test the property `goldItemGooseEggAvg` - Average souls earned from the Golden Goose Egg item at this time point
         should("test goldItemGooseEggAvg") {
             // uncomment below to test the property
             //modelInstance.goldItemGooseEggAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldItemGooseEggStd` - Standard deviation of `gold_item_goose_egg_avg` at this time point
+        should("test goldItemGooseEggStd") {
+            // uncomment below to test the property
+            //modelInstance.goldItemGooseEggStd shouldBe ("TODO")
+        }
+
         // to test the property `goldItemTrophyCollectorAvg` - Average souls earned from the Trophy Collector item at this time point
         should("test goldItemTrophyCollectorAvg") {
             // uncomment below to test the property
             //modelInstance.goldItemTrophyCollectorAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldItemTrophyCollectorStd` - Standard deviation of `gold_item_trophy_collector_avg` at this time point
+        should("test goldItemTrophyCollectorStd") {
+            // uncomment below to test the property
+            //modelInstance.goldItemTrophyCollectorStd shouldBe ("TODO")
         }
 
         // to test the property `goldLaneCreepAvg` - Average souls earned from lane creeps at this time point
@@ -135,6 +195,18 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldLaneCreepOrbsAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldLaneCreepOrbsStd` - Standard deviation of `gold_lane_creep_orbs_avg` at this time point
+        should("test goldLaneCreepOrbsStd") {
+            // uncomment below to test the property
+            //modelInstance.goldLaneCreepOrbsStd shouldBe ("TODO")
+        }
+
+        // to test the property `goldLaneCreepStd` - Standard deviation of `gold_lane_creep_avg` at this time point
+        should("test goldLaneCreepStd") {
+            // uncomment below to test the property
+            //modelInstance.goldLaneCreepStd shouldBe ("TODO")
+        }
+
         // to test the property `goldNeutralCreepAvg` - Average souls earned from neutral (jungle) creeps at this time point
         should("test goldNeutralCreepAvg") {
             // uncomment below to test the property
@@ -145,6 +217,18 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test goldNeutralCreepOrbsAvg") {
             // uncomment below to test the property
             //modelInstance.goldNeutralCreepOrbsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldNeutralCreepOrbsStd` - Standard deviation of `gold_neutral_creep_orbs_avg` at this time point
+        should("test goldNeutralCreepOrbsStd") {
+            // uncomment below to test the property
+            //modelInstance.goldNeutralCreepOrbsStd shouldBe ("TODO")
+        }
+
+        // to test the property `goldNeutralCreepStd` - Standard deviation of `gold_neutral_creep_avg` at this time point
+        should("test goldNeutralCreepStd") {
+            // uncomment below to test the property
+            //modelInstance.goldNeutralCreepStd shouldBe ("TODO")
         }
 
         // to test the property `goldPlayerAvg` - Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
@@ -159,16 +243,40 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldPlayerOrbsAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldPlayerOrbsStd` - Standard deviation of `gold_player_orbs_avg` at this time point
+        should("test goldPlayerOrbsStd") {
+            // uncomment below to test the property
+            //modelInstance.goldPlayerOrbsStd shouldBe ("TODO")
+        }
+
+        // to test the property `goldPlayerStd` - Standard deviation of `gold_player_avg` at this time point
+        should("test goldPlayerStd") {
+            // uncomment below to test the property
+            //modelInstance.goldPlayerStd shouldBe ("TODO")
+        }
+
         // to test the property `goldTeamBonusAvg` - Average souls earned from the team bonus at this time point
         should("test goldTeamBonusAvg") {
             // uncomment below to test the property
             //modelInstance.goldTeamBonusAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldTeamBonusStd` - Standard deviation of `gold_team_bonus_avg` at this time point
+        should("test goldTeamBonusStd") {
+            // uncomment below to test the property
+            //modelInstance.goldTeamBonusStd shouldBe ("TODO")
+        }
+
         // to test the property `goldTreasureAvg` - Average souls earned from the urn at this time point
         should("test goldTreasureAvg") {
             // uncomment below to test the property
             //modelInstance.goldTreasureAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldTreasureStd` - Standard deviation of `gold_treasure_avg` at this time point
+        should("test goldTreasureStd") {
+            // uncomment below to test the property
+            //modelInstance.goldTreasureStd shouldBe ("TODO")
         }
 
         // to test the property `killsAvg` - Average kills at this time point
@@ -199,6 +307,12 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test permanentBuffsAvg") {
             // uncomment below to test the property
             //modelInstance.permanentBuffsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `permanentBuffsStd` - Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
+        should("test permanentBuffsStd") {
+            // uncomment below to test the property
+            //modelInstance.permanentBuffsStd shouldBe ("TODO")
         }
 
     }

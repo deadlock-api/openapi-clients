@@ -90,6 +90,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Entities'
+        /// </summary>
+        [Fact]
+        public void EntitiesTest()
+        {
+            // TODO unit test for the property 'Entities'
+        }
+
+        /// <summary>
         /// Test the property 'NeutralCamps'
         /// </summary>
         [Fact]

@@ -80,6 +80,15 @@ class MapDataTest extends TestCase
     }
 
     /**
+     * Test attribute "entities"
+     */
+    public function testPropertyEntities()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "images"
      */
     public function testPropertyImages()

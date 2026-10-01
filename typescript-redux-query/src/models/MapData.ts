@@ -13,6 +13,9 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    MapEntities,
+    MapEntitiesFromJSON,
+    MapEntitiesToJSON,
     MapImages,
     MapImagesFromJSON,
     MapImagesToJSON,
@@ -33,6 +36,12 @@ import {
  * @interface MapData
  */
 export interface MapData  {
+    /**
+     * Interactable map entities; only for builds whose assets were built with the map entity extraction.
+     * @type {MapEntities}
+     * @memberof MapData
+     */
+    entities?: MapEntities;
     /**
      * 
      * @type {MapImages}
@@ -67,6 +76,7 @@ export interface MapData  {
 
 export function MapDataFromJSON(json: any): MapData {
     return {
+        'entities': !exists(json, 'entities') ? undefined : MapEntitiesFromJSON(json['entities']),
         'images': MapImagesFromJSON(json['images']),
         'neutralCamps': !exists(json, 'neutral_camps') ? undefined : (json['neutral_camps'] as Array<any>).map(NeutralCampFromJSON),
         'objectivePositions': mapValues(json['objective_positions'], ObjectivePositionFromJSON),
@@ -80,6 +90,7 @@ export function MapDataToJSON(value?: MapData): any {
         return undefined;
     }
     return {
+        'entities': MapEntitiesToJSON(value.entities),
         'images': MapImagesToJSON(value.images),
         'neutral_camps': value.neutralCamps === undefined ? undefined : (value.neutralCamps as Array<any>).map(NeutralCampToJSON),
         'objective_positions': mapValues(value.objectivePositions, ObjectivePositionToJSON),

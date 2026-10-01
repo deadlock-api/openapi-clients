@@ -37,28 +37,47 @@ import java.io.Serializable
  * @param deathsStd Standard deviation of deaths at this time point
  * @param gameTime The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
  * @param goldAbilityAssassinateAvg Average souls earned from the Assassinate ability at this time point
+ * @param goldAbilityAssassinateStd Standard deviation of `gold_ability_assassinate_avg` at this time point
  * @param goldAssistsAvg Average souls earned from assists at this time point (part of `gold_player_avg`)
+ * @param goldAssistsStd Standard deviation of `gold_assists_avg` at this time point
  * @param goldBossAvg Average souls earned from objectives at this time point
  * @param goldBossOrbAvg Average souls earned from secured objective orbs at this time point
+ * @param goldBossOrbStd Standard deviation of `gold_boss_orb_avg` at this time point
+ * @param goldBossStd Standard deviation of `gold_boss_avg` at this time point
  * @param goldBreakableAvg Average souls earned from breakables (crates, statues) at this time point
+ * @param goldBreakableStd Standard deviation of `gold_breakable_avg` at this time point
  * @param goldDeathLossAvg Average souls lost on death at this time point
+ * @param goldDeathLossStd Standard deviation of `gold_death_loss_avg` at this time point
  * @param goldDeniedAvg Average souls denied to enemies at this time point
+ * @param goldDeniedStd Standard deviation of `gold_denied_avg` at this time point
  * @param goldItemCultistSacrificeAvg Average souls earned from the Cultist Sacrifice item at this time point
+ * @param goldItemCultistSacrificeStd Standard deviation of `gold_item_cultist_sacrifice_avg` at this time point
  * @param goldItemGooseEggAvg Average souls earned from the Golden Goose Egg item at this time point
+ * @param goldItemGooseEggStd Standard deviation of `gold_item_goose_egg_avg` at this time point
  * @param goldItemTrophyCollectorAvg Average souls earned from the Trophy Collector item at this time point
+ * @param goldItemTrophyCollectorStd Standard deviation of `gold_item_trophy_collector_avg` at this time point
  * @param goldLaneCreepAvg Average souls earned from lane creeps at this time point
  * @param goldLaneCreepOrbsAvg Average souls earned from secured lane-creep orbs at this time point
+ * @param goldLaneCreepOrbsStd Standard deviation of `gold_lane_creep_orbs_avg` at this time point
+ * @param goldLaneCreepStd Standard deviation of `gold_lane_creep_avg` at this time point
  * @param goldNeutralCreepAvg Average souls earned from neutral (jungle) creeps at this time point
  * @param goldNeutralCreepOrbsAvg Average souls earned from secured neutral-creep orbs at this time point
+ * @param goldNeutralCreepOrbsStd Standard deviation of `gold_neutral_creep_orbs_avg` at this time point
+ * @param goldNeutralCreepStd Standard deviation of `gold_neutral_creep_avg` at this time point
  * @param goldPlayerAvg Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
  * @param goldPlayerOrbsAvg Average souls earned from secured hero-kill orbs at this time point
+ * @param goldPlayerOrbsStd Standard deviation of `gold_player_orbs_avg` at this time point
+ * @param goldPlayerStd Standard deviation of `gold_player_avg` at this time point
  * @param goldTeamBonusAvg Average souls earned from the team bonus at this time point
+ * @param goldTeamBonusStd Standard deviation of `gold_team_bonus_avg` at this time point
  * @param goldTreasureAvg Average souls earned from the urn at this time point
+ * @param goldTreasureStd Standard deviation of `gold_treasure_avg` at this time point
  * @param killsAvg Average kills at this time point
  * @param killsStd Standard deviation of kills at this time point
  * @param netWorthAvg Average net worth at this time point
  * @param netWorthStd Standard deviation of net worth at this time point
  * @param permanentBuffsAvg Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
+ * @param permanentBuffsStd Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
  */
 
 
@@ -88,9 +107,17 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "gold_ability_assassinate_avg")
     val goldAbilityAssassinateAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_ability_assassinate_avg` at this time point */
+    @Json(name = "gold_ability_assassinate_std")
+    val goldAbilityAssassinateStd: kotlin.Double,
+
     /* Average souls earned from assists at this time point (part of `gold_player_avg`) */
     @Json(name = "gold_assists_avg")
     val goldAssistsAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_assists_avg` at this time point */
+    @Json(name = "gold_assists_std")
+    val goldAssistsStd: kotlin.Double,
 
     /* Average souls earned from objectives at this time point */
     @Json(name = "gold_boss_avg")
@@ -100,29 +127,61 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "gold_boss_orb_avg")
     val goldBossOrbAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_boss_orb_avg` at this time point */
+    @Json(name = "gold_boss_orb_std")
+    val goldBossOrbStd: kotlin.Double,
+
+    /* Standard deviation of `gold_boss_avg` at this time point */
+    @Json(name = "gold_boss_std")
+    val goldBossStd: kotlin.Double,
+
     /* Average souls earned from breakables (crates, statues) at this time point */
     @Json(name = "gold_breakable_avg")
     val goldBreakableAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_breakable_avg` at this time point */
+    @Json(name = "gold_breakable_std")
+    val goldBreakableStd: kotlin.Double,
 
     /* Average souls lost on death at this time point */
     @Json(name = "gold_death_loss_avg")
     val goldDeathLossAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_death_loss_avg` at this time point */
+    @Json(name = "gold_death_loss_std")
+    val goldDeathLossStd: kotlin.Double,
+
     /* Average souls denied to enemies at this time point */
     @Json(name = "gold_denied_avg")
     val goldDeniedAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_denied_avg` at this time point */
+    @Json(name = "gold_denied_std")
+    val goldDeniedStd: kotlin.Double,
 
     /* Average souls earned from the Cultist Sacrifice item at this time point */
     @Json(name = "gold_item_cultist_sacrifice_avg")
     val goldItemCultistSacrificeAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_item_cultist_sacrifice_avg` at this time point */
+    @Json(name = "gold_item_cultist_sacrifice_std")
+    val goldItemCultistSacrificeStd: kotlin.Double,
+
     /* Average souls earned from the Golden Goose Egg item at this time point */
     @Json(name = "gold_item_goose_egg_avg")
     val goldItemGooseEggAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_item_goose_egg_avg` at this time point */
+    @Json(name = "gold_item_goose_egg_std")
+    val goldItemGooseEggStd: kotlin.Double,
+
     /* Average souls earned from the Trophy Collector item at this time point */
     @Json(name = "gold_item_trophy_collector_avg")
     val goldItemTrophyCollectorAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_item_trophy_collector_avg` at this time point */
+    @Json(name = "gold_item_trophy_collector_std")
+    val goldItemTrophyCollectorStd: kotlin.Double,
 
     /* Average souls earned from lane creeps at this time point */
     @Json(name = "gold_lane_creep_avg")
@@ -132,6 +191,14 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "gold_lane_creep_orbs_avg")
     val goldLaneCreepOrbsAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_lane_creep_orbs_avg` at this time point */
+    @Json(name = "gold_lane_creep_orbs_std")
+    val goldLaneCreepOrbsStd: kotlin.Double,
+
+    /* Standard deviation of `gold_lane_creep_avg` at this time point */
+    @Json(name = "gold_lane_creep_std")
+    val goldLaneCreepStd: kotlin.Double,
+
     /* Average souls earned from neutral (jungle) creeps at this time point */
     @Json(name = "gold_neutral_creep_avg")
     val goldNeutralCreepAvg: kotlin.Double,
@@ -139,6 +206,14 @@ data class PlayerPerformanceCurvePoint (
     /* Average souls earned from secured neutral-creep orbs at this time point */
     @Json(name = "gold_neutral_creep_orbs_avg")
     val goldNeutralCreepOrbsAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_neutral_creep_orbs_avg` at this time point */
+    @Json(name = "gold_neutral_creep_orbs_std")
+    val goldNeutralCreepOrbsStd: kotlin.Double,
+
+    /* Standard deviation of `gold_neutral_creep_avg` at this time point */
+    @Json(name = "gold_neutral_creep_std")
+    val goldNeutralCreepStd: kotlin.Double,
 
     /* Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`) */
     @Json(name = "gold_player_avg")
@@ -148,13 +223,29 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "gold_player_orbs_avg")
     val goldPlayerOrbsAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_player_orbs_avg` at this time point */
+    @Json(name = "gold_player_orbs_std")
+    val goldPlayerOrbsStd: kotlin.Double,
+
+    /* Standard deviation of `gold_player_avg` at this time point */
+    @Json(name = "gold_player_std")
+    val goldPlayerStd: kotlin.Double,
+
     /* Average souls earned from the team bonus at this time point */
     @Json(name = "gold_team_bonus_avg")
     val goldTeamBonusAvg: kotlin.Double,
 
+    /* Standard deviation of `gold_team_bonus_avg` at this time point */
+    @Json(name = "gold_team_bonus_std")
+    val goldTeamBonusStd: kotlin.Double,
+
     /* Average souls earned from the urn at this time point */
     @Json(name = "gold_treasure_avg")
     val goldTreasureAvg: kotlin.Double,
+
+    /* Standard deviation of `gold_treasure_avg` at this time point */
+    @Json(name = "gold_treasure_std")
+    val goldTreasureStd: kotlin.Double,
 
     /* Average kills at this time point */
     @Json(name = "kills_avg")
@@ -174,7 +265,11 @@ data class PlayerPerformanceCurvePoint (
 
     /* Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none. */
     @Json(name = "permanent_buffs_avg")
-    val permanentBuffsAvg: kotlin.Double? = null
+    val permanentBuffsAvg: kotlin.Double? = null,
+
+    /* Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups. */
+    @Json(name = "permanent_buffs_std")
+    val permanentBuffsStd: kotlin.Double? = null
 
 ) : Serializable {
     companion object {

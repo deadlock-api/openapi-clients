@@ -58,6 +58,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'entities' => '\OpenAPI\Client\Model\MapEntities',
         'images' => '\OpenAPI\Client\Model\MapImages',
         'neutral_camps' => '\OpenAPI\Client\Model\NeutralCamp[]',
         'objective_positions' => 'array<string,\OpenAPI\Client\Model\ObjectivePosition>',
@@ -73,6 +74,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'entities' => null,
         'images' => null,
         'neutral_camps' => null,
         'objective_positions' => null,
@@ -86,6 +88,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'entities' => true,
         'images' => false,
         'neutral_camps' => true,
         'objective_positions' => false,
@@ -179,6 +182,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'entities' => 'entities',
         'images' => 'images',
         'neutral_camps' => 'neutral_camps',
         'objective_positions' => 'objective_positions',
@@ -192,6 +196,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'entities' => 'setEntities',
         'images' => 'setImages',
         'neutral_camps' => 'setNeutralCamps',
         'objective_positions' => 'setObjectivePositions',
@@ -205,6 +210,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'entities' => 'getEntities',
         'images' => 'getImages',
         'neutral_camps' => 'getNeutralCamps',
         'objective_positions' => 'getObjectivePositions',
@@ -269,6 +275,7 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('entities', $data ?? [], null);
         $this->setIfExists('images', $data ?? [], null);
         $this->setIfExists('neutral_camps', $data ?? [], null);
         $this->setIfExists('objective_positions', $data ?? [], null);
@@ -333,6 +340,40 @@ class MapData implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets entities
+     *
+     * @return \OpenAPI\Client\Model\MapEntities|null
+     */
+    public function getEntities()
+    {
+        return $this->container['entities'];
+    }
+
+    /**
+     * Sets entities
+     *
+     * @param \OpenAPI\Client\Model\MapEntities|null $entities Interactable map entities; only for builds whose assets were built with the map entity extraction.
+     *
+     * @return self
+     */
+    public function setEntities($entities)
+    {
+        if (is_null($entities)) {
+            array_push($this->openAPINullablesSetToNull, 'entities');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('entities', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['entities'] = $entities;
+
+        return $this;
+    }
 
     /**
      * Gets images

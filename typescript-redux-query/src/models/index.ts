@@ -128,6 +128,8 @@ export * from './LootTable';
 export * from './MMRHistory';
 export * from './MapData';
 export * from './MapDistrict';
+export * from './MapEntities';
+export * from './MapEntity';
 export * from './MapImages';
 export * from './MatchPlayer';
 export * from './MatchSaltsResponse';

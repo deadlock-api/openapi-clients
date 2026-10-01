@@ -29,7 +29,7 @@ import type { MapData } from '../models/index.js';
 export const MapApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. `entities` lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
          * @summary Map
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
@@ -73,7 +73,7 @@ export const MapApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MapApiAxiosParamCreator(configuration)
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. `entities` lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
          * @summary Map
          * @param {number | null} [clientVersion] Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version.
          * @param {*} [options] Override http request option.
@@ -95,7 +95,7 @@ export const MapApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = MapApiFp(configuration)
     return {
         /**
-         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+         * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. `entities` lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
          * @summary Map
          * @param {MapApiGetMapRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -122,7 +122,7 @@ export interface MapApiGetMapRequest {
  */
 export class MapApi extends BaseAPI {
     /**
-     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+     * Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. `entities` lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
      * @summary Map
      * @param {MapApiGetMapRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

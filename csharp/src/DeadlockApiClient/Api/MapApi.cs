@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Map
         /// </summary>
         /// <remarks>
-        /// Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+        /// Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. &#x60;entities&#x60; lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
@@ -54,7 +54,7 @@ namespace DeadlockApiClient.Api
         /// Map
         /// </summary>
         /// <remarks>
-        /// Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+        /// Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. &#x60;entities&#x60; lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
         /// </remarks>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -202,7 +202,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorGetMap(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> clientVersion);
 
         /// <summary>
-        /// Map Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+        /// Map Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. &#x60;entities&#x60; lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
         /// </summary>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -220,7 +220,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Map Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. Defaults to the latest known client version.
+        /// Map Map metadata for a client version: the minimap radius, image-layer CDN URLs, the relative positions of every objective/tower marker, the three zip-line lane cubic splines and, from build 6711 on, the neutral camps. &#x60;entities&#x60; lists the interactable map entities (crates, golden statues, bounce pads, shops, teleporters, ...) for builds whose assets include the map entity lump extract. Defaults to the latest known client version.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientVersion">Client/game version (e.g. &#x60;6518&#x60;). Defaults to the latest known version. (optional)</param>

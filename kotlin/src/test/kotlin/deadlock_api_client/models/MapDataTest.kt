@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.MapData
+import deadlock_api_client.models.MapEntities
 import deadlock_api_client.models.MapImages
 import deadlock_api_client.models.NeutralCamp
 import deadlock_api_client.models.ObjectivePosition
@@ -59,6 +60,12 @@ class MapDataTest : ShouldSpec() {
         should("test ziplinePaths") {
             // uncomment below to test the property
             //modelInstance.ziplinePaths shouldBe ("TODO")
+        }
+
+        // to test the property `entities` - Interactable map entities; only for builds whose assets were built with the map entity extraction.
+        should("test entities") {
+            // uncomment below to test the property
+            //modelInstance.entities shouldBe ("TODO")
         }
 
         // to test the property `neutralCamps` - Neutral camps (build 6711+).

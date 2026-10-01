@@ -55,11 +55,23 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldAbilityAssassinateAvg: number;
     /**
+     * Standard deviation of `gold_ability_assassinate_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldAbilityAssassinateStd: number;
+    /**
      * Average souls earned from assists at this time point (part of `gold_player_avg`)
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldAssistsAvg: number;
+    /**
+     * Standard deviation of `gold_assists_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldAssistsStd: number;
     /**
      * Average souls earned from objectives at this time point
      * @type {number}
@@ -73,11 +85,29 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldBossOrbAvg: number;
     /**
+     * Standard deviation of `gold_boss_orb_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBossOrbStd: number;
+    /**
+     * Standard deviation of `gold_boss_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBossStd: number;
+    /**
      * Average souls earned from breakables (crates, statues) at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldBreakableAvg: number;
+    /**
+     * Standard deviation of `gold_breakable_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBreakableStd: number;
     /**
      * Average souls lost on death at this time point
      * @type {number}
@@ -85,11 +115,23 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldDeathLossAvg: number;
     /**
+     * Standard deviation of `gold_death_loss_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldDeathLossStd: number;
+    /**
      * Average souls denied to enemies at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldDeniedAvg: number;
+    /**
+     * Standard deviation of `gold_denied_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldDeniedStd: number;
     /**
      * Average souls earned from the Cultist Sacrifice item at this time point
      * @type {number}
@@ -97,17 +139,35 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldItemCultistSacrificeAvg: number;
     /**
+     * Standard deviation of `gold_item_cultist_sacrifice_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemCultistSacrificeStd: number;
+    /**
      * Average souls earned from the Golden Goose Egg item at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldItemGooseEggAvg: number;
     /**
+     * Standard deviation of `gold_item_goose_egg_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemGooseEggStd: number;
+    /**
      * Average souls earned from the Trophy Collector item at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldItemTrophyCollectorAvg: number;
+    /**
+     * Standard deviation of `gold_item_trophy_collector_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemTrophyCollectorStd: number;
     /**
      * Average souls earned from lane creeps at this time point
      * @type {number}
@@ -121,6 +181,18 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldLaneCreepOrbsAvg: number;
     /**
+     * Standard deviation of `gold_lane_creep_orbs_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldLaneCreepOrbsStd: number;
+    /**
+     * Standard deviation of `gold_lane_creep_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldLaneCreepStd: number;
+    /**
      * Average souls earned from neutral (jungle) creeps at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -132,6 +204,18 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     goldNeutralCreepOrbsAvg: number;
+    /**
+     * Standard deviation of `gold_neutral_creep_orbs_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldNeutralCreepOrbsStd: number;
+    /**
+     * Standard deviation of `gold_neutral_creep_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldNeutralCreepStd: number;
     /**
      * Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
      * @type {number}
@@ -145,17 +229,41 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldPlayerOrbsAvg: number;
     /**
+     * Standard deviation of `gold_player_orbs_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldPlayerOrbsStd: number;
+    /**
+     * Standard deviation of `gold_player_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldPlayerStd: number;
+    /**
      * Average souls earned from the team bonus at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldTeamBonusAvg: number;
     /**
+     * Standard deviation of `gold_team_bonus_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldTeamBonusStd: number;
+    /**
      * Average souls earned from the urn at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
     goldTreasureAvg: number;
+    /**
+     * Standard deviation of `gold_treasure_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldTreasureStd: number;
     /**
      * Average kills at this time point
      * @type {number}
@@ -186,6 +294,12 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     permanentBuffsAvg?: number;
+    /**
+     * Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    permanentBuffsStd?: number;
 }
 
 export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanceCurvePoint {
@@ -196,28 +310,47 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'deathsStd': json['deaths_std'],
         'gameTime': json['game_time'],
         'goldAbilityAssassinateAvg': json['gold_ability_assassinate_avg'],
+        'goldAbilityAssassinateStd': json['gold_ability_assassinate_std'],
         'goldAssistsAvg': json['gold_assists_avg'],
+        'goldAssistsStd': json['gold_assists_std'],
         'goldBossAvg': json['gold_boss_avg'],
         'goldBossOrbAvg': json['gold_boss_orb_avg'],
+        'goldBossOrbStd': json['gold_boss_orb_std'],
+        'goldBossStd': json['gold_boss_std'],
         'goldBreakableAvg': json['gold_breakable_avg'],
+        'goldBreakableStd': json['gold_breakable_std'],
         'goldDeathLossAvg': json['gold_death_loss_avg'],
+        'goldDeathLossStd': json['gold_death_loss_std'],
         'goldDeniedAvg': json['gold_denied_avg'],
+        'goldDeniedStd': json['gold_denied_std'],
         'goldItemCultistSacrificeAvg': json['gold_item_cultist_sacrifice_avg'],
+        'goldItemCultistSacrificeStd': json['gold_item_cultist_sacrifice_std'],
         'goldItemGooseEggAvg': json['gold_item_goose_egg_avg'],
+        'goldItemGooseEggStd': json['gold_item_goose_egg_std'],
         'goldItemTrophyCollectorAvg': json['gold_item_trophy_collector_avg'],
+        'goldItemTrophyCollectorStd': json['gold_item_trophy_collector_std'],
         'goldLaneCreepAvg': json['gold_lane_creep_avg'],
         'goldLaneCreepOrbsAvg': json['gold_lane_creep_orbs_avg'],
+        'goldLaneCreepOrbsStd': json['gold_lane_creep_orbs_std'],
+        'goldLaneCreepStd': json['gold_lane_creep_std'],
         'goldNeutralCreepAvg': json['gold_neutral_creep_avg'],
         'goldNeutralCreepOrbsAvg': json['gold_neutral_creep_orbs_avg'],
+        'goldNeutralCreepOrbsStd': json['gold_neutral_creep_orbs_std'],
+        'goldNeutralCreepStd': json['gold_neutral_creep_std'],
         'goldPlayerAvg': json['gold_player_avg'],
         'goldPlayerOrbsAvg': json['gold_player_orbs_avg'],
+        'goldPlayerOrbsStd': json['gold_player_orbs_std'],
+        'goldPlayerStd': json['gold_player_std'],
         'goldTeamBonusAvg': json['gold_team_bonus_avg'],
+        'goldTeamBonusStd': json['gold_team_bonus_std'],
         'goldTreasureAvg': json['gold_treasure_avg'],
+        'goldTreasureStd': json['gold_treasure_std'],
         'killsAvg': json['kills_avg'],
         'killsStd': json['kills_std'],
         'netWorthAvg': json['net_worth_avg'],
         'netWorthStd': json['net_worth_std'],
         'permanentBuffsAvg': !exists(json, 'permanent_buffs_avg') ? undefined : json['permanent_buffs_avg'],
+        'permanentBuffsStd': !exists(json, 'permanent_buffs_std') ? undefined : json['permanent_buffs_std'],
     };
 }
 
@@ -232,28 +365,47 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'deaths_std': value.deathsStd,
         'game_time': value.gameTime,
         'gold_ability_assassinate_avg': value.goldAbilityAssassinateAvg,
+        'gold_ability_assassinate_std': value.goldAbilityAssassinateStd,
         'gold_assists_avg': value.goldAssistsAvg,
+        'gold_assists_std': value.goldAssistsStd,
         'gold_boss_avg': value.goldBossAvg,
         'gold_boss_orb_avg': value.goldBossOrbAvg,
+        'gold_boss_orb_std': value.goldBossOrbStd,
+        'gold_boss_std': value.goldBossStd,
         'gold_breakable_avg': value.goldBreakableAvg,
+        'gold_breakable_std': value.goldBreakableStd,
         'gold_death_loss_avg': value.goldDeathLossAvg,
+        'gold_death_loss_std': value.goldDeathLossStd,
         'gold_denied_avg': value.goldDeniedAvg,
+        'gold_denied_std': value.goldDeniedStd,
         'gold_item_cultist_sacrifice_avg': value.goldItemCultistSacrificeAvg,
+        'gold_item_cultist_sacrifice_std': value.goldItemCultistSacrificeStd,
         'gold_item_goose_egg_avg': value.goldItemGooseEggAvg,
+        'gold_item_goose_egg_std': value.goldItemGooseEggStd,
         'gold_item_trophy_collector_avg': value.goldItemTrophyCollectorAvg,
+        'gold_item_trophy_collector_std': value.goldItemTrophyCollectorStd,
         'gold_lane_creep_avg': value.goldLaneCreepAvg,
         'gold_lane_creep_orbs_avg': value.goldLaneCreepOrbsAvg,
+        'gold_lane_creep_orbs_std': value.goldLaneCreepOrbsStd,
+        'gold_lane_creep_std': value.goldLaneCreepStd,
         'gold_neutral_creep_avg': value.goldNeutralCreepAvg,
         'gold_neutral_creep_orbs_avg': value.goldNeutralCreepOrbsAvg,
+        'gold_neutral_creep_orbs_std': value.goldNeutralCreepOrbsStd,
+        'gold_neutral_creep_std': value.goldNeutralCreepStd,
         'gold_player_avg': value.goldPlayerAvg,
         'gold_player_orbs_avg': value.goldPlayerOrbsAvg,
+        'gold_player_orbs_std': value.goldPlayerOrbsStd,
+        'gold_player_std': value.goldPlayerStd,
         'gold_team_bonus_avg': value.goldTeamBonusAvg,
+        'gold_team_bonus_std': value.goldTeamBonusStd,
         'gold_treasure_avg': value.goldTreasureAvg,
+        'gold_treasure_std': value.goldTreasureStd,
         'kills_avg': value.killsAvg,
         'kills_std': value.killsStd,
         'net_worth_avg': value.netWorthAvg,
         'net_worth_std': value.netWorthStd,
         'permanent_buffs_avg': value.permanentBuffsAvg,
+        'permanent_buffs_std': value.permanentBuffsStd,
     };
 }
 

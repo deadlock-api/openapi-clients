@@ -152,6 +152,8 @@ docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
+docs/MapEntities.md
+docs/MapEntity.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -451,6 +453,8 @@ src/main/kotlin/deadlock_api_client/models/LootTable.kt
 src/main/kotlin/deadlock_api_client/models/MMRHistory.kt
 src/main/kotlin/deadlock_api_client/models/MapData.kt
 src/main/kotlin/deadlock_api_client/models/MapDistrict.kt
+src/main/kotlin/deadlock_api_client/models/MapEntities.kt
+src/main/kotlin/deadlock_api_client/models/MapEntity.kt
 src/main/kotlin/deadlock_api_client/models/MapImages.kt
 src/main/kotlin/deadlock_api_client/models/MatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/MatchSaltsResponse.kt
@@ -721,6 +725,8 @@ src/test/kotlin/deadlock_api_client/models/LootTableTest.kt
 src/test/kotlin/deadlock_api_client/models/MMRHistoryTest.kt
 src/test/kotlin/deadlock_api_client/models/MapDataTest.kt
 src/test/kotlin/deadlock_api_client/models/MapDistrictTest.kt
+src/test/kotlin/deadlock_api_client/models/MapEntitiesTest.kt
+src/test/kotlin/deadlock_api_client/models/MapEntityTest.kt
 src/test/kotlin/deadlock_api_client/models/MapImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchPlayerTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSaltsResponseTest.kt

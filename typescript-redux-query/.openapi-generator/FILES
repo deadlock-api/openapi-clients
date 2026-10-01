@@ -167,6 +167,8 @@ src/models/LootTable.ts
 src/models/MMRHistory.ts
 src/models/MapData.ts
 src/models/MapDistrict.ts
+src/models/MapEntities.ts
+src/models/MapEntity.ts
 src/models/MapImages.ts
 src/models/MatchPlayer.ts
 src/models/MatchSaltsResponse.ts

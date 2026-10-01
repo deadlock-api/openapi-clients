@@ -169,6 +169,8 @@ api/Model/LootTable.php
 api/Model/MMRHistory.php
 api/Model/MapData.php
 api/Model/MapDistrict.php
+api/Model/MapEntities.php
+api/Model/MapEntity.php
 api/Model/MapImages.php
 api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
@@ -442,6 +444,8 @@ docs/Model/LootTable.md
 docs/Model/MMRHistory.md
 docs/Model/MapData.md
 docs/Model/MapDistrict.md
+docs/Model/MapEntities.md
+docs/Model/MapEntity.md
 docs/Model/MapImages.md
 docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
@@ -714,6 +718,8 @@ test/Model/LootTableTest.php
 test/Model/MMRHistoryTest.php
 test/Model/MapDataTest.php
 test/Model/MapDistrictTest.php
+test/Model/MapEntitiesTest.php
+test/Model/MapEntityTest.php
 test/Model/MapImagesTest.php
 test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php

@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.MapEntities
 import deadlock_api_client.models.MapImages
 import deadlock_api_client.models.NeutralCamp
 import deadlock_api_client.models.ObjectivePosition
@@ -39,6 +40,7 @@ import java.io.Serializable
  * @param objectivePositions 
  * @param radius 
  * @param ziplinePaths 
+ * @param entities Interactable map entities; only for builds whose assets were built with the map entity extraction.
  * @param neutralCamps Neutral camps (build 6711+).
  */
 
@@ -56,6 +58,10 @@ data class MapData (
 
     @Json(name = "zipline_paths")
     val ziplinePaths: kotlin.collections.List<ZiplanePath>,
+
+    /* Interactable map entities; only for builds whose assets were built with the map entity extraction. */
+    @Json(name = "entities")
+    val entities: MapEntities? = null,
 
     /* Neutral camps (build 6711+). */
     @Json(name = "neutral_camps")

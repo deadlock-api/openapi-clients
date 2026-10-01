@@ -128,6 +128,8 @@ export * from './loot-table.js';
 export * from './mmrhistory.js';
 export * from './map-data.js';
 export * from './map-district.js';
+export * from './map-entities.js';
+export * from './map-entity.js';
 export * from './map-images.js';
 export * from './match-player.js';
 export * from './match-salts-response.js';

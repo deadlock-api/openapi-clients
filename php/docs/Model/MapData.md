@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**entities** | [**\OpenAPI\Client\Model\MapEntities**](MapEntities.md) | Interactable map entities; only for builds whose assets were built with the map entity extraction. | [optional]
 **images** | [**\OpenAPI\Client\Model\MapImages**](MapImages.md) |  |
 **neutral_camps** | [**\OpenAPI\Client\Model\NeutralCamp[]**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional]
 **objective_positions** | [**array<string,\OpenAPI\Client\Model\ObjectivePosition>**](ObjectivePosition.md) |  |

@@ -21,6 +21,8 @@ var _ MappedNullable = &MapData{}
 
 // MapData The `/v1/assets/map` response.
 type MapData struct {
+	// Interactable map entities; only for builds whose assets were built with the map entity extraction.
+	Entities NullableMapEntities `json:"entities,omitempty"`
 	Images MapImages `json:"images"`
 	// Neutral camps (build 6711+).
 	NeutralCamps []NeutralCamp `json:"neutral_camps,omitempty"`
@@ -50,6 +52,48 @@ func NewMapData(images MapImages, objectivePositions map[string]ObjectivePositio
 func NewMapDataWithDefaults() *MapData {
 	this := MapData{}
 	return &this
+}
+
+// GetEntities returns the Entities field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *MapData) GetEntities() MapEntities {
+	if o == nil || IsNil(o.Entities.Get()) {
+		var ret MapEntities
+		return ret
+	}
+	return *o.Entities.Get()
+}
+
+// GetEntitiesOk returns a tuple with the Entities field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *MapData) GetEntitiesOk() (*MapEntities, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Entities.Get(), o.Entities.IsSet()
+}
+
+// HasEntities returns a boolean if a field has been set.
+func (o *MapData) HasEntities() bool {
+	if o != nil && o.Entities.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEntities gets a reference to the given NullableMapEntities and assigns it to the Entities field.
+func (o *MapData) SetEntities(v MapEntities) {
+	o.Entities.Set(&v)
+}
+// SetEntitiesNil sets the value for Entities to be an explicit nil
+func (o *MapData) SetEntitiesNil() {
+	o.Entities.Set(nil)
+}
+
+// UnsetEntities ensures that no value is present for Entities, not even an explicit nil
+func (o *MapData) UnsetEntities() {
+	o.Entities.Unset()
 }
 
 // GetImages returns the Images field value
@@ -191,6 +235,9 @@ func (o MapData) MarshalJSON() ([]byte, error) {
 
 func (o MapData) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Entities.IsSet() {
+		toSerialize["entities"] = o.Entities.Get()
+	}
 	toSerialize["images"] = o.Images
 	if o.NeutralCamps != nil {
 		toSerialize["neutral_camps"] = o.NeutralCamps

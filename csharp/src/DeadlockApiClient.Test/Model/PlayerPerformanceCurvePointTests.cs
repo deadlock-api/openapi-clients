@@ -108,12 +108,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldAbilityAssassinateStd'
+        /// </summary>
+        [Fact]
+        public void GoldAbilityAssassinateStdTest()
+        {
+            // TODO unit test for the property 'GoldAbilityAssassinateStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldAssistsAvg'
         /// </summary>
         [Fact]
         public void GoldAssistsAvgTest()
         {
             // TODO unit test for the property 'GoldAssistsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldAssistsStd'
+        /// </summary>
+        [Fact]
+        public void GoldAssistsStdTest()
+        {
+            // TODO unit test for the property 'GoldAssistsStd'
         }
 
         /// <summary>
@@ -135,12 +153,39 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldBossOrbStd'
+        /// </summary>
+        [Fact]
+        public void GoldBossOrbStdTest()
+        {
+            // TODO unit test for the property 'GoldBossOrbStd'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldBossStd'
+        /// </summary>
+        [Fact]
+        public void GoldBossStdTest()
+        {
+            // TODO unit test for the property 'GoldBossStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldBreakableAvg'
         /// </summary>
         [Fact]
         public void GoldBreakableAvgTest()
         {
             // TODO unit test for the property 'GoldBreakableAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldBreakableStd'
+        /// </summary>
+        [Fact]
+        public void GoldBreakableStdTest()
+        {
+            // TODO unit test for the property 'GoldBreakableStd'
         }
 
         /// <summary>
@@ -153,12 +198,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldDeathLossStd'
+        /// </summary>
+        [Fact]
+        public void GoldDeathLossStdTest()
+        {
+            // TODO unit test for the property 'GoldDeathLossStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldDeniedAvg'
         /// </summary>
         [Fact]
         public void GoldDeniedAvgTest()
         {
             // TODO unit test for the property 'GoldDeniedAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldDeniedStd'
+        /// </summary>
+        [Fact]
+        public void GoldDeniedStdTest()
+        {
+            // TODO unit test for the property 'GoldDeniedStd'
         }
 
         /// <summary>
@@ -171,6 +234,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldItemCultistSacrificeStd'
+        /// </summary>
+        [Fact]
+        public void GoldItemCultistSacrificeStdTest()
+        {
+            // TODO unit test for the property 'GoldItemCultistSacrificeStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldItemGooseEggAvg'
         /// </summary>
         [Fact]
@@ -180,12 +252,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldItemGooseEggStd'
+        /// </summary>
+        [Fact]
+        public void GoldItemGooseEggStdTest()
+        {
+            // TODO unit test for the property 'GoldItemGooseEggStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldItemTrophyCollectorAvg'
         /// </summary>
         [Fact]
         public void GoldItemTrophyCollectorAvgTest()
         {
             // TODO unit test for the property 'GoldItemTrophyCollectorAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldItemTrophyCollectorStd'
+        /// </summary>
+        [Fact]
+        public void GoldItemTrophyCollectorStdTest()
+        {
+            // TODO unit test for the property 'GoldItemTrophyCollectorStd'
         }
 
         /// <summary>
@@ -207,6 +297,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldLaneCreepOrbsStd'
+        /// </summary>
+        [Fact]
+        public void GoldLaneCreepOrbsStdTest()
+        {
+            // TODO unit test for the property 'GoldLaneCreepOrbsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldLaneCreepStd'
+        /// </summary>
+        [Fact]
+        public void GoldLaneCreepStdTest()
+        {
+            // TODO unit test for the property 'GoldLaneCreepStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldNeutralCreepAvg'
         /// </summary>
         [Fact]
@@ -222,6 +330,24 @@ namespace DeadlockApiClient.Test.Model
         public void GoldNeutralCreepOrbsAvgTest()
         {
             // TODO unit test for the property 'GoldNeutralCreepOrbsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldNeutralCreepOrbsStd'
+        /// </summary>
+        [Fact]
+        public void GoldNeutralCreepOrbsStdTest()
+        {
+            // TODO unit test for the property 'GoldNeutralCreepOrbsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldNeutralCreepStd'
+        /// </summary>
+        [Fact]
+        public void GoldNeutralCreepStdTest()
+        {
+            // TODO unit test for the property 'GoldNeutralCreepStd'
         }
 
         /// <summary>
@@ -243,6 +369,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldPlayerOrbsStd'
+        /// </summary>
+        [Fact]
+        public void GoldPlayerOrbsStdTest()
+        {
+            // TODO unit test for the property 'GoldPlayerOrbsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldPlayerStd'
+        /// </summary>
+        [Fact]
+        public void GoldPlayerStdTest()
+        {
+            // TODO unit test for the property 'GoldPlayerStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldTeamBonusAvg'
         /// </summary>
         [Fact]
@@ -252,12 +396,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GoldTeamBonusStd'
+        /// </summary>
+        [Fact]
+        public void GoldTeamBonusStdTest()
+        {
+            // TODO unit test for the property 'GoldTeamBonusStd'
+        }
+
+        /// <summary>
         /// Test the property 'GoldTreasureAvg'
         /// </summary>
         [Fact]
         public void GoldTreasureAvgTest()
         {
             // TODO unit test for the property 'GoldTreasureAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'GoldTreasureStd'
+        /// </summary>
+        [Fact]
+        public void GoldTreasureStdTest()
+        {
+            // TODO unit test for the property 'GoldTreasureStd'
         }
 
         /// <summary>
@@ -303,6 +465,15 @@ namespace DeadlockApiClient.Test.Model
         public void PermanentBuffsAvgTest()
         {
             // TODO unit test for the property 'PermanentBuffsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'PermanentBuffsStd'
+        /// </summary>
+        [Fact]
+        public void PermanentBuffsStdTest()
+        {
+            // TODO unit test for the property 'PermanentBuffsStd'
         }
     }
 }

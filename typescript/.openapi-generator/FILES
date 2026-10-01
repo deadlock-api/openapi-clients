@@ -189,6 +189,8 @@ docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
+docs/MapEntities.md
+docs/MapEntity.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -440,6 +442,8 @@ models/loot-entry.ts
 models/loot-table.ts
 models/map-data.ts
 models/map-district.ts
+models/map-entities.ts
+models/map-entity.ts
 models/map-images.ts
 models/match-player.ts
 models/match-salts-response.ts

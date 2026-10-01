@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.map_entities import MapEntities
 from deadlock_api_client.models.map_images import MapImages
 from deadlock_api_client.models.neutral_camp import NeutralCamp
 from deadlock_api_client.models.objective_position import ObjectivePosition
@@ -32,12 +33,13 @@ class MapData(BaseModel):
     """
     The `/v1/assets/map` response.
     """ # noqa: E501
+    entities: Optional[MapEntities] = Field(default=None, description="Interactable map entities; only for builds whose assets were built with the map entity extraction.")
     images: MapImages
     neutral_camps: Optional[List[NeutralCamp]] = Field(default=None, description="Neutral camps (build 6711+).")
     objective_positions: Dict[str, ObjectivePosition]
     radius: Annotated[int, Field(strict=True, ge=0)]
     zipline_paths: List[ZiplanePath]
-    __properties: ClassVar[List[str]] = ["images", "neutral_camps", "objective_positions", "radius", "zipline_paths"]
+    __properties: ClassVar[List[str]] = ["entities", "images", "neutral_camps", "objective_positions", "radius", "zipline_paths"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -78,6 +80,9 @@ class MapData(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of entities
+        if self.entities:
+            _dict['entities'] = self.entities.to_dict()
         # override the default output from pydantic by calling `to_dict()` of images
         if self.images:
             _dict['images'] = self.images.to_dict()
@@ -99,6 +104,11 @@ class MapData(BaseModel):
             for _item_zipline_paths in self.zipline_paths:
                 _items.append(_item_zipline_paths.to_dict() if _item_zipline_paths is not None else None)
             _dict['zipline_paths'] = _items
+        # set to None if entities (nullable) is None
+        # and model_fields_set contains the field
+        if self.entities is None and "entities" in self.model_fields_set:
+            _dict['entities'] = None
+
         # set to None if neutral_camps (nullable) is None
         # and model_fields_set contains the field
         if self.neutral_camps is None and "neutral_camps" in self.model_fields_set:
@@ -116,6 +126,7 @@ class MapData(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "entities": MapEntities.from_dict(obj["entities"]) if obj.get("entities") is not None else None,
             "images": MapImages.from_dict(obj["images"]) if obj.get("images") is not None else None,
             "neutral_camps": [NeutralCamp.from_dict(_item) for _item in obj["neutral_camps"]] if obj.get("neutral_camps") is not None else None,
             "objective_positions": dict(

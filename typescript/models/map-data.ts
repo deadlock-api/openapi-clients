@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { MapEntities } from './map-entities.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { MapImages } from './map-images.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -30,6 +33,10 @@ import type { ZiplanePath } from './ziplane-path.js';
  * The `/v1/assets/map` response.
  */
 export interface MapData {
+    /**
+     * Interactable map entities; only for builds whose assets were built with the map entity extraction.
+     */
+    'entities'?: MapEntities | null;
     'images': MapImages;
     /**
      * Neutral camps (build 6711+).

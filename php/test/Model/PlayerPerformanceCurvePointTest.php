@@ -134,9 +134,27 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_ability_assassinate_std"
+     */
+    public function testPropertyGoldAbilityAssassinateStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_assists_avg"
      */
     public function testPropertyGoldAssistsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_assists_std"
+     */
+    public function testPropertyGoldAssistsStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -161,9 +179,36 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_boss_orb_std"
+     */
+    public function testPropertyGoldBossOrbStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_boss_std"
+     */
+    public function testPropertyGoldBossStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_breakable_avg"
      */
     public function testPropertyGoldBreakableAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_breakable_std"
+     */
+    public function testPropertyGoldBreakableStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -179,9 +224,27 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_death_loss_std"
+     */
+    public function testPropertyGoldDeathLossStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_denied_avg"
      */
     public function testPropertyGoldDeniedAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_denied_std"
+     */
+    public function testPropertyGoldDeniedStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -197,6 +260,15 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_item_cultist_sacrifice_std"
+     */
+    public function testPropertyGoldItemCultistSacrificeStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_item_goose_egg_avg"
      */
     public function testPropertyGoldItemGooseEggAvg()
@@ -206,9 +278,27 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_item_goose_egg_std"
+     */
+    public function testPropertyGoldItemGooseEggStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_item_trophy_collector_avg"
      */
     public function testPropertyGoldItemTrophyCollectorAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_item_trophy_collector_std"
+     */
+    public function testPropertyGoldItemTrophyCollectorStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -233,6 +323,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_lane_creep_orbs_std"
+     */
+    public function testPropertyGoldLaneCreepOrbsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_lane_creep_std"
+     */
+    public function testPropertyGoldLaneCreepStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_neutral_creep_avg"
      */
     public function testPropertyGoldNeutralCreepAvg()
@@ -245,6 +353,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "gold_neutral_creep_orbs_avg"
      */
     public function testPropertyGoldNeutralCreepOrbsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_neutral_creep_orbs_std"
+     */
+    public function testPropertyGoldNeutralCreepOrbsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_neutral_creep_std"
+     */
+    public function testPropertyGoldNeutralCreepStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -269,6 +395,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_player_orbs_std"
+     */
+    public function testPropertyGoldPlayerOrbsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_player_std"
+     */
+    public function testPropertyGoldPlayerStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_team_bonus_avg"
      */
     public function testPropertyGoldTeamBonusAvg()
@@ -278,9 +422,27 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "gold_team_bonus_std"
+     */
+    public function testPropertyGoldTeamBonusStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_treasure_avg"
      */
     public function testPropertyGoldTreasureAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gold_treasure_std"
+     */
+    public function testPropertyGoldTreasureStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -326,6 +488,15 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "permanent_buffs_avg"
      */
     public function testPropertyPermanentBuffsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "permanent_buffs_std"
+     */
+    public function testPropertyPermanentBuffsStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

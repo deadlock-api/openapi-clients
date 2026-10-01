@@ -6,6 +6,7 @@ The `/v1/assets/map` response.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**entities** | [**MapEntities**](MapEntities.md) | Interactable map entities; only for builds whose assets were built with the map entity extraction. | [optional] 
 **images** | [**MapImages**](MapImages.md) |  | 
 **neutral_camps** | [**List[NeutralCamp]**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 **objective_positions** | [**Dict[str, ObjectivePosition]**](ObjectivePosition.md) |  | 

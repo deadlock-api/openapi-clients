@@ -353,6 +353,8 @@ Class | Method | HTTP request | Description
 - [MMRHistory](docs/Model/MMRHistory.md)
 - [MapData](docs/Model/MapData.md)
 - [MapDistrict](docs/Model/MapDistrict.md)
+- [MapEntities](docs/Model/MapEntities.md)
+- [MapEntity](docs/Model/MapEntity.md)
 - [MapImages](docs/Model/MapImages.md)
 - [MatchPlayer](docs/Model/MatchPlayer.md)
 - [MatchSaltsResponse](docs/Model/MatchSaltsResponse.md)

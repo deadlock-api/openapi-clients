@@ -188,6 +188,8 @@ docs/MMRHistory.md
 docs/MapAPI.md
 docs/MapData.md
 docs/MapDistrict.md
+docs/MapEntities.md
+docs/MapEntity.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -439,6 +441,8 @@ model_loot_entry.go
 model_loot_table.go
 model_map_data.go
 model_map_district.go
+model_map_entities.go
+model_map_entity.go
 model_map_images.go
 model_match_player.go
 model_match_salts_response.go

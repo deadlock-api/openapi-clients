@@ -9,6 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import type { MapEntities } from './map-entities.js';
 import type { MapImages } from './map-images.js';
 import type { NeutralCamp } from './neutral-camp.js';
 import type { ObjectivePosition } from './objective-position.js';
@@ -17,6 +18,10 @@ import type { ZiplanePath } from './ziplane-path.js';
  * The `/v1/assets/map` response.
  */
 export interface MapData {
+    /**
+     * Interactable map entities; only for builds whose assets were built with the map entity extraction.
+     */
+    'entities'?: MapEntities | null;
     'images': MapImages;
     /**
      * Neutral camps (build 6711+).

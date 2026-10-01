@@ -35,9 +35,17 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_ability_assassinate_avg': number;
     /**
+     * Standard deviation of `gold_ability_assassinate_avg` at this time point
+     */
+    'gold_ability_assassinate_std': number;
+    /**
      * Average souls earned from assists at this time point (part of `gold_player_avg`)
      */
     'gold_assists_avg': number;
+    /**
+     * Standard deviation of `gold_assists_avg` at this time point
+     */
+    'gold_assists_std': number;
     /**
      * Average souls earned from objectives at this time point
      */
@@ -47,29 +55,61 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_boss_orb_avg': number;
     /**
+     * Standard deviation of `gold_boss_orb_avg` at this time point
+     */
+    'gold_boss_orb_std': number;
+    /**
+     * Standard deviation of `gold_boss_avg` at this time point
+     */
+    'gold_boss_std': number;
+    /**
      * Average souls earned from breakables (crates, statues) at this time point
      */
     'gold_breakable_avg': number;
+    /**
+     * Standard deviation of `gold_breakable_avg` at this time point
+     */
+    'gold_breakable_std': number;
     /**
      * Average souls lost on death at this time point
      */
     'gold_death_loss_avg': number;
     /**
+     * Standard deviation of `gold_death_loss_avg` at this time point
+     */
+    'gold_death_loss_std': number;
+    /**
      * Average souls denied to enemies at this time point
      */
     'gold_denied_avg': number;
+    /**
+     * Standard deviation of `gold_denied_avg` at this time point
+     */
+    'gold_denied_std': number;
     /**
      * Average souls earned from the Cultist Sacrifice item at this time point
      */
     'gold_item_cultist_sacrifice_avg': number;
     /**
+     * Standard deviation of `gold_item_cultist_sacrifice_avg` at this time point
+     */
+    'gold_item_cultist_sacrifice_std': number;
+    /**
      * Average souls earned from the Golden Goose Egg item at this time point
      */
     'gold_item_goose_egg_avg': number;
     /**
+     * Standard deviation of `gold_item_goose_egg_avg` at this time point
+     */
+    'gold_item_goose_egg_std': number;
+    /**
      * Average souls earned from the Trophy Collector item at this time point
      */
     'gold_item_trophy_collector_avg': number;
+    /**
+     * Standard deviation of `gold_item_trophy_collector_avg` at this time point
+     */
+    'gold_item_trophy_collector_std': number;
     /**
      * Average souls earned from lane creeps at this time point
      */
@@ -79,6 +119,14 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_lane_creep_orbs_avg': number;
     /**
+     * Standard deviation of `gold_lane_creep_orbs_avg` at this time point
+     */
+    'gold_lane_creep_orbs_std': number;
+    /**
+     * Standard deviation of `gold_lane_creep_avg` at this time point
+     */
+    'gold_lane_creep_std': number;
+    /**
      * Average souls earned from neutral (jungle) creeps at this time point
      */
     'gold_neutral_creep_avg': number;
@@ -86,6 +134,14 @@ export interface PlayerPerformanceCurvePoint {
      * Average souls earned from secured neutral-creep orbs at this time point
      */
     'gold_neutral_creep_orbs_avg': number;
+    /**
+     * Standard deviation of `gold_neutral_creep_orbs_avg` at this time point
+     */
+    'gold_neutral_creep_orbs_std': number;
+    /**
+     * Standard deviation of `gold_neutral_creep_avg` at this time point
+     */
+    'gold_neutral_creep_std': number;
     /**
      * Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
      */
@@ -95,13 +151,29 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_player_orbs_avg': number;
     /**
+     * Standard deviation of `gold_player_orbs_avg` at this time point
+     */
+    'gold_player_orbs_std': number;
+    /**
+     * Standard deviation of `gold_player_avg` at this time point
+     */
+    'gold_player_std': number;
+    /**
      * Average souls earned from the team bonus at this time point
      */
     'gold_team_bonus_avg': number;
     /**
+     * Standard deviation of `gold_team_bonus_avg` at this time point
+     */
+    'gold_team_bonus_std': number;
+    /**
      * Average souls earned from the urn at this time point
      */
     'gold_treasure_avg': number;
+    /**
+     * Standard deviation of `gold_treasure_avg` at this time point
+     */
+    'gold_treasure_std': number;
     /**
      * Average kills at this time point
      */
@@ -122,5 +194,9 @@ export interface PlayerPerformanceCurvePoint {
      * Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
      */
     'permanent_buffs_avg'?: number | null;
+    /**
+     * Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
+     */
+    'permanent_buffs_std'?: number | null;
 }
 //# sourceMappingURL=player-performance-curve-point.d.ts.map

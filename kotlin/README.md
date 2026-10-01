@@ -327,6 +327,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
  - [deadlock_api_client.models.MapData](docs/MapData.md)
  - [deadlock_api_client.models.MapDistrict](docs/MapDistrict.md)
+ - [deadlock_api_client.models.MapEntities](docs/MapEntities.md)
+ - [deadlock_api_client.models.MapEntity](docs/MapEntity.md)
  - [deadlock_api_client.models.MapImages](docs/MapImages.md)
  - [deadlock_api_client.models.MatchPlayer](docs/MatchPlayer.md)
  - [deadlock_api_client.models.MatchSaltsResponse](docs/MatchSaltsResponse.md)

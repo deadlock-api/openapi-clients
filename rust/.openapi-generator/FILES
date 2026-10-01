@@ -152,6 +152,8 @@ docs/LootTablesApi.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
+docs/MapEntities.md
+docs/MapEntity.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -438,6 +440,8 @@ src/models/loot_entry.rs
 src/models/loot_table.rs
 src/models/map_data.rs
 src/models/map_district.rs
+src/models/map_entities.rs
+src/models/map_entity.rs
 src/models/map_images.rs
 src/models/match_player.rs
 src/models/match_salts_response.rs

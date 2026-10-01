@@ -187,6 +187,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
             _jsonOptions.Converters.Add(new MapDataJsonConverter());
             _jsonOptions.Converters.Add(new MapDistrictJsonConverter());
+            _jsonOptions.Converters.Add(new MapEntitiesJsonConverter());
+            _jsonOptions.Converters.Add(new MapEntityJsonConverter());
             _jsonOptions.Converters.Add(new MapImagesJsonConverter());
             _jsonOptions.Converters.Add(new MatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());

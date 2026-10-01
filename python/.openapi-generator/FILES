@@ -172,6 +172,8 @@ deadlock_api_client/models/loot_entry.py
 deadlock_api_client/models/loot_table.py
 deadlock_api_client/models/map_data.py
 deadlock_api_client/models/map_district.py
+deadlock_api_client/models/map_entities.py
+deadlock_api_client/models/map_entity.py
 deadlock_api_client/models/map_images.py
 deadlock_api_client/models/match_player.py
 deadlock_api_client/models/match_salts_response.py
@@ -434,6 +436,8 @@ docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
+docs/MapEntities.md
+docs/MapEntity.md
 docs/MapImages.md
 docs/MatchPlayer.md
 docs/MatchSaltsResponse.md
@@ -709,6 +713,8 @@ test/test_loot_tables_api.py
 test/test_map_api.py
 test/test_map_data.py
 test/test_map_district.py
+test/test_map_entities.py
+test/test_map_entity.py
 test/test_map_images.py
 test/test_match_player.py
 test/test_match_salts_response.py

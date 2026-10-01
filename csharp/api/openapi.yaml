@@ -7163,7 +7163,9 @@ paths:
       description: "Map metadata for a client version: the minimap radius, image-layer\
         \ CDN URLs, the relative positions of every objective/tower marker, the three\
         \ zip-line lane cubic splines and, from build 6711 on, the neutral camps.\
-        \ Defaults to the latest known client version."
+        \ `entities` lists the interactable map entities (crates, golden statues,\
+        \ bounce pads, shops, teleporters, ...) for builds whose assets include the\
+        \ map entity lump extract. Defaults to the latest known client version."
       operationId: get_map
       parameters:
       - description: Client/game version (e.g. `6518`). Defaults to the latest known
@@ -18351,6 +18353,7 @@ components:
     MapData:
       description: The `/v1/assets/map` response.
       example:
+        entities: ""
         images:
           background: background
           frame: frame
@@ -18431,6 +18434,13 @@ components:
           - 2.027123023002322
           - 2.027123023002322
       properties:
+        entities:
+          allOf:
+          - $ref: "#/components/schemas/MapEntities"
+          description: |-
+            Interactable map entities; only for builds whose assets were built with
+            the map entity extraction.
+          nullable: true
         images:
           $ref: "#/components/schemas/MapImages"
         neutral_camps:
@@ -18485,6 +18495,154 @@ components:
       required:
       - district
       - district_name
+    MapEntities:
+      description: "Interactable map entities by category, extracted from the map\
+        \ entity lump."
+      properties:
+        base_sentries:
+          default: []
+          description: Base defense sentries (`npc_base_defense_sentry`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        bells:
+          default: []
+          description: Chinatown bells (`citadel_breakable_bell_chinatown`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        bounce_pads:
+          default: []
+          description: Bounce pads (`trigger_catapult`); `target` is the landing spot.
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        bridge_buffs:
+          default: []
+          description: Bridge buff spawners (`citadel_item_powerup_spawner`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        climb_ropes:
+          default: []
+          description: Climbable ropes (`citadel_trigger_climb_rope`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        cosmic_veils:
+          default: []
+          description: Cosmic veils (`citadel_passthrough_fake_wall`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        crates:
+          default: []
+          description: Breakable wooden crates (`citadel_breakable_prop_wooden_crate`
+            and variants).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        golden_statues:
+          default: []
+          description: "Golden statues (`citadel_breakable_item_container`, `citadel_breakable_lion_statue`)."
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        healing_snacks:
+          default: []
+          description: Healing snack spawners (`citadel_pickup_spawner`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        shops:
+          default: []
+          description: "Item shops (`trigger_item_shop`); `kind` is `base`, `lane`\
+            \ or `secret`."
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        soul_urn_pads:
+          default: []
+          description: Soul urn delivery pads (`citadel_trigger_idol_return`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        soul_urn_spawns:
+          default: []
+          description: Soul urn spawn points (`item_crate_spawn`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        steam_vents:
+          default: []
+          description: |-
+            Steam vents (`citadel_invis_volume`, plus `citadel_obscured_volume` with
+            `kind` `obscured`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        teleporters:
+          default: []
+          description: Teleporters (`citadel_trigger_teleport`); `target` is the exit.
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        tough_crates:
+          default: []
+          description: Breakable tough crates (`citadel_breakable_prop_tough_crate`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+        unstable_rifts:
+          default: []
+          description: Unstable rift spawn points (`info_koth_spawn_location`).
+          items:
+            $ref: "#/components/schemas/MapEntity"
+          type: array
+    MapEntity:
+      description: |-
+        An interactable map entity (crate, bounce pad, shop, ...). Deserialized from
+        `map/entities.json`, which has no minimap position; that is filled in after.
+      properties:
+        kind:
+          description: "Variant within the category, e.g. `wooden_crate` or `secret`\
+            \ (shops)."
+          nullable: true
+          type: string
+        left_relative:
+          description: "Position on the minimap, as fractions of its width/height."
+          format: double
+          type: number
+        position:
+          description: |-
+            World position `[x, y, z]`, same space as the zip-line splines. Brush
+            triggers (ropes, pads, veils, ...) are placed at their entity origin.
+          items:
+            format: double
+            type: number
+          type: array
+          default: null
+        target:
+          description: |-
+            World position `[x, y, z]` the entity sends you to: the teleporter exit
+            or the bounce pad landing spot.
+          items:
+            format: double
+            type: number
+          nullable: true
+          type: array
+          default: null
+        team:
+          description: Owning team (0 or 1); absent for neutral entities.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        top_relative:
+          format: double
+          type: number
+      required:
+      - position
     MapImages:
       description: CDN URLs for the minimap image layers.
       example:
@@ -20173,28 +20331,47 @@ components:
         deaths_std: 5.962133916683182
         game_time: 0
         gold_ability_assassinate_avg: 2.3021358869347655
-        gold_assists_avg: 7.061401241503109
-        gold_boss_avg: 9.301444243932576
-        gold_boss_orb_avg: 3.616076749251911
-        gold_breakable_avg: 2.027123023002322
-        gold_death_loss_avg: 4.145608029883936
-        gold_denied_avg: 7.386281948385884
-        gold_item_cultist_sacrifice_avg: 1.2315135367772556
-        gold_item_goose_egg_avg: 1.0246457001441578
-        gold_item_trophy_collector_avg: 1.4894159098541704
-        gold_lane_creep_avg: 6.84685269835264
-        gold_lane_creep_orbs_avg: 7.457744773683766
-        gold_neutral_creep_avg: 1.1730742509559433
-        gold_neutral_creep_orbs_avg: 4.965218492984954
-        gold_player_avg: 5.025004791520295
-        gold_player_orbs_avg: 9.965781217890562
-        gold_team_bonus_avg: 9.369310271410669
-        gold_treasure_avg: 6.683562403749608
-        kills_avg: 8.762042012749001
-        kills_std: 9.018348186070783
-        net_worth_avg: 6.438423552598547
-        net_worth_std: 3.5571952270680973
-        permanent_buffs_avg: 6.965117697638846
+        gold_ability_assassinate_std: 7.061401241503109
+        gold_assists_avg: 9.301444243932576
+        gold_assists_std: 3.616076749251911
+        gold_boss_avg: 2.027123023002322
+        gold_boss_orb_avg: 4.145608029883936
+        gold_boss_orb_std: 7.386281948385884
+        gold_boss_std: 1.2315135367772556
+        gold_breakable_avg: 1.0246457001441578
+        gold_breakable_std: 1.4894159098541704
+        gold_death_loss_avg: 6.84685269835264
+        gold_death_loss_std: 7.457744773683766
+        gold_denied_avg: 1.1730742509559433
+        gold_denied_std: 4.965218492984954
+        gold_item_cultist_sacrifice_avg: 5.025004791520295
+        gold_item_cultist_sacrifice_std: 9.965781217890562
+        gold_item_goose_egg_avg: 9.369310271410669
+        gold_item_goose_egg_std: 6.683562403749608
+        gold_item_trophy_collector_avg: 8.762042012749001
+        gold_item_trophy_collector_std: 9.018348186070783
+        gold_lane_creep_avg: 6.438423552598547
+        gold_lane_creep_orbs_avg: 3.5571952270680973
+        gold_lane_creep_orbs_std: 6.965117697638846
+        gold_lane_creep_std: 1.284659006116532
+        gold_neutral_creep_avg: 2.8841621266687802
+        gold_neutral_creep_orbs_avg: 6.778324963048013
+        gold_neutral_creep_orbs_std: 6.878052220127876
+        gold_neutral_creep_std: 5.944895607614016
+        gold_player_avg: 6.704019297950036
+        gold_player_orbs_avg: 3.353193347011243
+        gold_player_orbs_std: 3.0937452626664474
+        gold_player_std: 7.143538047012306
+        gold_team_bonus_avg: 0.8851374739011653
+        gold_team_bonus_std: 7.058770351582356
+        gold_treasure_avg: 6.519180951018382
+        gold_treasure_std: 0.10263654006109402
+        kills_avg: 4.652396432933246
+        kills_std: 8.969578798196912
+        net_worth_avg: 7.740351818741173
+        net_worth_std: 3.0205796992916243
+        permanent_buffs_avg: 3.0576100241049344
+        permanent_buffs_std: 7.04836565559697
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -20225,9 +20402,18 @@ components:
             point
           format: double
           type: number
+        gold_ability_assassinate_std:
+          description: Standard deviation of `gold_ability_assassinate_avg` at this
+            time point
+          format: double
+          type: number
         gold_assists_avg:
           description: Average souls earned from assists at this time point (part
             of `gold_player_avg`)
+          format: double
+          type: number
+        gold_assists_std:
+          description: Standard deviation of `gold_assists_avg` at this time point
           format: double
           type: number
         gold_boss_avg:
@@ -20239,17 +20425,37 @@ components:
             point
           format: double
           type: number
+        gold_boss_orb_std:
+          description: Standard deviation of `gold_boss_orb_avg` at this time point
+          format: double
+          type: number
+        gold_boss_std:
+          description: Standard deviation of `gold_boss_avg` at this time point
+          format: double
+          type: number
         gold_breakable_avg:
           description: "Average souls earned from breakables (crates, statues) at\
             \ this time point"
+          format: double
+          type: number
+        gold_breakable_std:
+          description: Standard deviation of `gold_breakable_avg` at this time point
           format: double
           type: number
         gold_death_loss_avg:
           description: Average souls lost on death at this time point
           format: double
           type: number
+        gold_death_loss_std:
+          description: Standard deviation of `gold_death_loss_avg` at this time point
+          format: double
+          type: number
         gold_denied_avg:
           description: Average souls denied to enemies at this time point
+          format: double
+          type: number
+        gold_denied_std:
+          description: Standard deviation of `gold_denied_avg` at this time point
           format: double
           type: number
         gold_item_cultist_sacrifice_avg:
@@ -20257,13 +20463,28 @@ components:
             time point
           format: double
           type: number
+        gold_item_cultist_sacrifice_std:
+          description: Standard deviation of `gold_item_cultist_sacrifice_avg` at
+            this time point
+          format: double
+          type: number
         gold_item_goose_egg_avg:
           description: Average souls earned from the Golden Goose Egg item at this
             time point
           format: double
           type: number
+        gold_item_goose_egg_std:
+          description: Standard deviation of `gold_item_goose_egg_avg` at this time
+            point
+          format: double
+          type: number
         gold_item_trophy_collector_avg:
           description: Average souls earned from the Trophy Collector item at this
+            time point
+          format: double
+          type: number
+        gold_item_trophy_collector_std:
+          description: Standard deviation of `gold_item_trophy_collector_avg` at this
             time point
           format: double
           type: number
@@ -20276,6 +20497,15 @@ components:
             point
           format: double
           type: number
+        gold_lane_creep_orbs_std:
+          description: Standard deviation of `gold_lane_creep_orbs_avg` at this time
+            point
+          format: double
+          type: number
+        gold_lane_creep_std:
+          description: Standard deviation of `gold_lane_creep_avg` at this time point
+          format: double
+          type: number
         gold_neutral_creep_avg:
           description: Average souls earned from neutral (jungle) creeps at this time
             point
@@ -20284,6 +20514,16 @@ components:
         gold_neutral_creep_orbs_avg:
           description: Average souls earned from secured neutral-creep orbs at this
             time point
+          format: double
+          type: number
+        gold_neutral_creep_orbs_std:
+          description: Standard deviation of `gold_neutral_creep_orbs_avg` at this
+            time point
+          format: double
+          type: number
+        gold_neutral_creep_std:
+          description: Standard deviation of `gold_neutral_creep_avg` at this time
+            point
           format: double
           type: number
         gold_player_avg:
@@ -20297,12 +20537,28 @@ components:
             point
           format: double
           type: number
+        gold_player_orbs_std:
+          description: Standard deviation of `gold_player_orbs_avg` at this time point
+          format: double
+          type: number
+        gold_player_std:
+          description: Standard deviation of `gold_player_avg` at this time point
+          format: double
+          type: number
         gold_team_bonus_avg:
           description: Average souls earned from the team bonus at this time point
           format: double
           type: number
+        gold_team_bonus_std:
+          description: Standard deviation of `gold_team_bonus_avg` at this time point
+          format: double
+          type: number
         gold_treasure_avg:
           description: Average souls earned from the urn at this time point
+          format: double
+          type: number
+        gold_treasure_std:
+          description: Standard deviation of `gold_treasure_avg` at this time point
           format: double
           type: number
         kills_avg:
@@ -20329,6 +20585,13 @@ components:
           format: double
           nullable: true
           type: number
+        permanent_buffs_std:
+          description: |-
+            Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are
+            no players with timed permanent pickups.
+          format: double
+          nullable: true
+          type: number
       required:
       - assists_avg
       - assists_std
@@ -20336,23 +20599,41 @@ components:
       - deaths_std
       - game_time
       - gold_ability_assassinate_avg
+      - gold_ability_assassinate_std
       - gold_assists_avg
+      - gold_assists_std
       - gold_boss_avg
       - gold_boss_orb_avg
+      - gold_boss_orb_std
+      - gold_boss_std
       - gold_breakable_avg
+      - gold_breakable_std
       - gold_death_loss_avg
+      - gold_death_loss_std
       - gold_denied_avg
+      - gold_denied_std
       - gold_item_cultist_sacrifice_avg
+      - gold_item_cultist_sacrifice_std
       - gold_item_goose_egg_avg
+      - gold_item_goose_egg_std
       - gold_item_trophy_collector_avg
+      - gold_item_trophy_collector_std
       - gold_lane_creep_avg
       - gold_lane_creep_orbs_avg
+      - gold_lane_creep_orbs_std
+      - gold_lane_creep_std
       - gold_neutral_creep_avg
       - gold_neutral_creep_orbs_avg
+      - gold_neutral_creep_orbs_std
+      - gold_neutral_creep_std
       - gold_player_avg
       - gold_player_orbs_avg
+      - gold_player_orbs_std
+      - gold_player_std
       - gold_team_bonus_avg
+      - gold_team_bonus_std
       - gold_treasure_avg
+      - gold_treasure_std
       - kills_avg
       - kills_std
       - net_worth_avg

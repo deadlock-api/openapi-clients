@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Entities** | Pointer to [**NullableMapEntities**](MapEntities.md) | Interactable map entities; only for builds whose assets were built with the map entity extraction. | [optional] 
 **Images** | [**MapImages**](MapImages.md) |  | 
 **NeutralCamps** | Pointer to [**[]NeutralCamp**](NeutralCamp.md) | Neutral camps (build 6711+). | [optional] 
 **ObjectivePositions** | [**map[string]ObjectivePosition**](ObjectivePosition.md) |  | 
@@ -29,6 +30,41 @@ NewMapDataWithDefaults instantiates a new MapData object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetEntities
+
+`func (o *MapData) GetEntities() MapEntities`
+
+GetEntities returns the Entities field if non-nil, zero value otherwise.
+
+### GetEntitiesOk
+
+`func (o *MapData) GetEntitiesOk() (*MapEntities, bool)`
+
+GetEntitiesOk returns a tuple with the Entities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEntities
+
+`func (o *MapData) SetEntities(v MapEntities)`
+
+SetEntities sets Entities field to given value.
+
+### HasEntities
+
+`func (o *MapData) HasEntities() bool`
+
+HasEntities returns a boolean if a field has been set.
+
+### SetEntitiesNil
+
+`func (o *MapData) SetEntitiesNil(b bool)`
+
+ SetEntitiesNil sets the value for Entities to be an explicit nil
+
+### UnsetEntities
+`func (o *MapData) UnsetEntities()`
+
+UnsetEntities ensures that no value is present for Entities, not even an explicit nil
 ### GetImages
 
 `func (o *MapData) GetImages() MapImages`
