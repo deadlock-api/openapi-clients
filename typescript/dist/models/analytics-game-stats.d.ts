@@ -29,16 +29,44 @@ export interface AnalyticsGameStats {
      * Average game time (seconds) of a player\'s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
      */
     'avg_first_permanent_buff_time_s'?: number | null;
+    /**
+     * Average souls per player per match from the Assassinate ability
+     */
+    'avg_gold_ability_assassinate': number;
+    /**
+     * Average souls per player per match from assists (part of the hero kill souls)
+     */
+    'avg_gold_assists': number;
     'avg_gold_boss': number;
     'avg_gold_boss_orb': number;
+    /**
+     * Average souls per player per match from breakables (crates, statues)
+     */
+    'avg_gold_breakable': number;
     'avg_gold_death_loss': number;
     'avg_gold_denied': number;
+    /**
+     * Average souls per player per match from the Cultist Sacrifice item
+     */
+    'avg_gold_item_cultist_sacrifice': number;
+    /**
+     * Average souls per player per match from the Golden Goose Egg item
+     */
+    'avg_gold_item_goose_egg': number;
+    /**
+     * Average souls per player per match from the Trophy Collector item
+     */
+    'avg_gold_item_trophy_collector': number;
     'avg_gold_lane_creep': number;
     'avg_gold_lane_creep_orbs': number;
     'avg_gold_neutral_creep': number;
     'avg_gold_neutral_creep_orbs': number;
     'avg_gold_player': number;
     'avg_gold_player_orbs': number;
+    /**
+     * Average souls per player per match from the team bonus
+     */
+    'avg_gold_team_bonus': number;
     'avg_gold_treasure': number;
     'avg_heal_prevented': number;
     'avg_kd_ratio': number;

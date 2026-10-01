@@ -2880,7 +2880,7 @@ pub async fn lane_soul_curve(configuration: &configuration::Configuration, param
     }
 }
 
-///  Retrieves player performance statistics (net worth, kills, deaths, assists) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn player_performance_curve(configuration: &configuration::Configuration, params: PlayerPerformanceCurveParams) -> Result<Vec<models::PlayerPerformanceCurvePoint>, Error<PlayerPerformanceCurveError>> {
 
     let uri_str = format!("{}/v1/analytics/player-performance-curve", configuration.base_path);

@@ -63,6 +63,18 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.gameTime shouldBe ("TODO")
         }
 
+        // to test the property `goldAbilityAssassinateAvg` - Average souls earned from the Assassinate ability at this time point
+        should("test goldAbilityAssassinateAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldAbilityAssassinateAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldAssistsAvg` - Average souls earned from assists at this time point (part of `gold_player_avg`)
+        should("test goldAssistsAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldAssistsAvg shouldBe ("TODO")
+        }
+
         // to test the property `goldBossAvg` - Average souls earned from objectives at this time point
         should("test goldBossAvg") {
             // uncomment below to test the property
@@ -75,6 +87,12 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldBossOrbAvg shouldBe ("TODO")
         }
 
+        // to test the property `goldBreakableAvg` - Average souls earned from breakables (crates, statues) at this time point
+        should("test goldBreakableAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldBreakableAvg shouldBe ("TODO")
+        }
+
         // to test the property `goldDeathLossAvg` - Average souls lost on death at this time point
         should("test goldDeathLossAvg") {
             // uncomment below to test the property
@@ -85,6 +103,24 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test goldDeniedAvg") {
             // uncomment below to test the property
             //modelInstance.goldDeniedAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldItemCultistSacrificeAvg` - Average souls earned from the Cultist Sacrifice item at this time point
+        should("test goldItemCultistSacrificeAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldItemCultistSacrificeAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldItemGooseEggAvg` - Average souls earned from the Golden Goose Egg item at this time point
+        should("test goldItemGooseEggAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldItemGooseEggAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldItemTrophyCollectorAvg` - Average souls earned from the Trophy Collector item at this time point
+        should("test goldItemTrophyCollectorAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldItemTrophyCollectorAvg shouldBe ("TODO")
         }
 
         // to test the property `goldLaneCreepAvg` - Average souls earned from lane creeps at this time point
@@ -111,7 +147,7 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.goldNeutralCreepOrbsAvg shouldBe ("TODO")
         }
 
-        // to test the property `goldPlayerAvg` - Average souls earned from hero kills at this time point
+        // to test the property `goldPlayerAvg` - Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
         should("test goldPlayerAvg") {
             // uncomment below to test the property
             //modelInstance.goldPlayerAvg shouldBe ("TODO")
@@ -121,6 +157,12 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test goldPlayerOrbsAvg") {
             // uncomment below to test the property
             //modelInstance.goldPlayerOrbsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `goldTeamBonusAvg` - Average souls earned from the team bonus at this time point
+        should("test goldTeamBonusAvg") {
+            // uncomment below to test the property
+            //modelInstance.goldTeamBonusAvg shouldBe ("TODO")
         }
 
         // to test the property `goldTreasureAvg` - Average souls earned from the urn at this time point

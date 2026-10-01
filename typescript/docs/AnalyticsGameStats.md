@@ -21,16 +21,23 @@ Name | Type | Description | Notes
 **avg_first_mid_boss_time_s** | **number** |  | [default to undefined]
 **avg_first_objective_destroyed_time_s** | **number** |  | [default to undefined]
 **avg_first_permanent_buff_time_s** | **number** | Average game time (seconds) of a player\&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none. | [optional] [default to undefined]
+**avg_gold_ability_assassinate** | **number** | Average souls per player per match from the Assassinate ability | [default to undefined]
+**avg_gold_assists** | **number** | Average souls per player per match from assists (part of the hero kill souls) | [default to undefined]
 **avg_gold_boss** | **number** |  | [default to undefined]
 **avg_gold_boss_orb** | **number** |  | [default to undefined]
+**avg_gold_breakable** | **number** | Average souls per player per match from breakables (crates, statues) | [default to undefined]
 **avg_gold_death_loss** | **number** |  | [default to undefined]
 **avg_gold_denied** | **number** |  | [default to undefined]
+**avg_gold_item_cultist_sacrifice** | **number** | Average souls per player per match from the Cultist Sacrifice item | [default to undefined]
+**avg_gold_item_goose_egg** | **number** | Average souls per player per match from the Golden Goose Egg item | [default to undefined]
+**avg_gold_item_trophy_collector** | **number** | Average souls per player per match from the Trophy Collector item | [default to undefined]
 **avg_gold_lane_creep** | **number** |  | [default to undefined]
 **avg_gold_lane_creep_orbs** | **number** |  | [default to undefined]
 **avg_gold_neutral_creep** | **number** |  | [default to undefined]
 **avg_gold_neutral_creep_orbs** | **number** |  | [default to undefined]
 **avg_gold_player** | **number** |  | [default to undefined]
 **avg_gold_player_orbs** | **number** |  | [default to undefined]
+**avg_gold_team_bonus** | **number** | Average souls per player per match from the team bonus | [default to undefined]
 **avg_gold_treasure** | **number** |  | [default to undefined]
 **avg_heal_prevented** | **number** |  | [default to undefined]
 **avg_kd_ratio** | **number** |  | [default to undefined]
@@ -78,16 +85,23 @@ const instance: AnalyticsGameStats = {
     avg_first_mid_boss_time_s,
     avg_first_objective_destroyed_time_s,
     avg_first_permanent_buff_time_s,
+    avg_gold_ability_assassinate,
+    avg_gold_assists,
     avg_gold_boss,
     avg_gold_boss_orb,
+    avg_gold_breakable,
     avg_gold_death_loss,
     avg_gold_denied,
+    avg_gold_item_cultist_sacrifice,
+    avg_gold_item_goose_egg,
+    avg_gold_item_trophy_collector,
     avg_gold_lane_creep,
     avg_gold_lane_creep_orbs,
     avg_gold_neutral_creep,
     avg_gold_neutral_creep_orbs,
     avg_gold_player,
     avg_gold_player_orbs,
+    avg_gold_team_bonus,
     avg_gold_treasure,
     avg_heal_prevented,
     avg_kd_ratio,

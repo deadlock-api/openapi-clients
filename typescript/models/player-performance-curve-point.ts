@@ -36,6 +36,14 @@ export interface PlayerPerformanceCurvePoint {
      */
     'game_time': number;
     /**
+     * Average souls earned from the Assassinate ability at this time point
+     */
+    'gold_ability_assassinate_avg': number;
+    /**
+     * Average souls earned from assists at this time point (part of `gold_player_avg`)
+     */
+    'gold_assists_avg': number;
+    /**
      * Average souls earned from objectives at this time point
      */
     'gold_boss_avg': number;
@@ -44,6 +52,10 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_boss_orb_avg': number;
     /**
+     * Average souls earned from breakables (crates, statues) at this time point
+     */
+    'gold_breakable_avg': number;
+    /**
      * Average souls lost on death at this time point
      */
     'gold_death_loss_avg': number;
@@ -51,6 +63,18 @@ export interface PlayerPerformanceCurvePoint {
      * Average souls denied to enemies at this time point
      */
     'gold_denied_avg': number;
+    /**
+     * Average souls earned from the Cultist Sacrifice item at this time point
+     */
+    'gold_item_cultist_sacrifice_avg': number;
+    /**
+     * Average souls earned from the Golden Goose Egg item at this time point
+     */
+    'gold_item_goose_egg_avg': number;
+    /**
+     * Average souls earned from the Trophy Collector item at this time point
+     */
+    'gold_item_trophy_collector_avg': number;
     /**
      * Average souls earned from lane creeps at this time point
      */
@@ -68,13 +92,17 @@ export interface PlayerPerformanceCurvePoint {
      */
     'gold_neutral_creep_orbs_avg': number;
     /**
-     * Average souls earned from hero kills at this time point
+     * Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
      */
     'gold_player_avg': number;
     /**
      * Average souls earned from secured hero-kill orbs at this time point
      */
     'gold_player_orbs_avg': number;
+    /**
+     * Average souls earned from the team bonus at this time point
+     */
+    'gold_team_bonus_avg': number;
     /**
      * Average souls earned from the urn at this time point
      */

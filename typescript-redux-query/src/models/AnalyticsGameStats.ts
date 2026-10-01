@@ -115,6 +115,18 @@ export interface AnalyticsGameStats  {
      */
     avgFirstPermanentBuffTimeS?: number;
     /**
+     * Average souls per player per match from the Assassinate ability
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldAbilityAssassinate: number;
+    /**
+     * Average souls per player per match from assists (part of the hero kill souls)
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldAssists: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsGameStats
@@ -127,6 +139,12 @@ export interface AnalyticsGameStats  {
      */
     avgGoldBossOrb: number;
     /**
+     * Average souls per player per match from breakables (crates, statues)
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldBreakable: number;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsGameStats
@@ -138,6 +156,24 @@ export interface AnalyticsGameStats  {
      * @memberof AnalyticsGameStats
      */
     avgGoldDenied: number;
+    /**
+     * Average souls per player per match from the Cultist Sacrifice item
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldItemCultistSacrifice: number;
+    /**
+     * Average souls per player per match from the Golden Goose Egg item
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldItemGooseEgg: number;
+    /**
+     * Average souls per player per match from the Trophy Collector item
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldItemTrophyCollector: number;
     /**
      * 
      * @type {number}
@@ -174,6 +210,12 @@ export interface AnalyticsGameStats  {
      * @memberof AnalyticsGameStats
      */
     avgGoldPlayerOrbs: number;
+    /**
+     * Average souls per player per match from the team bonus
+     * @type {number}
+     * @memberof AnalyticsGameStats
+     */
+    avgGoldTeamBonus: number;
     /**
      * 
      * @type {number}
@@ -338,16 +380,23 @@ export function AnalyticsGameStatsFromJSON(json: any): AnalyticsGameStats {
         'avgFirstMidBossTimeS': json['avg_first_mid_boss_time_s'],
         'avgFirstObjectiveDestroyedTimeS': json['avg_first_objective_destroyed_time_s'],
         'avgFirstPermanentBuffTimeS': !exists(json, 'avg_first_permanent_buff_time_s') ? undefined : json['avg_first_permanent_buff_time_s'],
+        'avgGoldAbilityAssassinate': json['avg_gold_ability_assassinate'],
+        'avgGoldAssists': json['avg_gold_assists'],
         'avgGoldBoss': json['avg_gold_boss'],
         'avgGoldBossOrb': json['avg_gold_boss_orb'],
+        'avgGoldBreakable': json['avg_gold_breakable'],
         'avgGoldDeathLoss': json['avg_gold_death_loss'],
         'avgGoldDenied': json['avg_gold_denied'],
+        'avgGoldItemCultistSacrifice': json['avg_gold_item_cultist_sacrifice'],
+        'avgGoldItemGooseEgg': json['avg_gold_item_goose_egg'],
+        'avgGoldItemTrophyCollector': json['avg_gold_item_trophy_collector'],
         'avgGoldLaneCreep': json['avg_gold_lane_creep'],
         'avgGoldLaneCreepOrbs': json['avg_gold_lane_creep_orbs'],
         'avgGoldNeutralCreep': json['avg_gold_neutral_creep'],
         'avgGoldNeutralCreepOrbs': json['avg_gold_neutral_creep_orbs'],
         'avgGoldPlayer': json['avg_gold_player'],
         'avgGoldPlayerOrbs': json['avg_gold_player_orbs'],
+        'avgGoldTeamBonus': json['avg_gold_team_bonus'],
         'avgGoldTreasure': json['avg_gold_treasure'],
         'avgHealPrevented': json['avg_heal_prevented'],
         'avgKdRatio': json['avg_kd_ratio'],
@@ -396,16 +445,23 @@ export function AnalyticsGameStatsToJSON(value?: AnalyticsGameStats): any {
         'avg_first_mid_boss_time_s': value.avgFirstMidBossTimeS,
         'avg_first_objective_destroyed_time_s': value.avgFirstObjectiveDestroyedTimeS,
         'avg_first_permanent_buff_time_s': value.avgFirstPermanentBuffTimeS,
+        'avg_gold_ability_assassinate': value.avgGoldAbilityAssassinate,
+        'avg_gold_assists': value.avgGoldAssists,
         'avg_gold_boss': value.avgGoldBoss,
         'avg_gold_boss_orb': value.avgGoldBossOrb,
+        'avg_gold_breakable': value.avgGoldBreakable,
         'avg_gold_death_loss': value.avgGoldDeathLoss,
         'avg_gold_denied': value.avgGoldDenied,
+        'avg_gold_item_cultist_sacrifice': value.avgGoldItemCultistSacrifice,
+        'avg_gold_item_goose_egg': value.avgGoldItemGooseEgg,
+        'avg_gold_item_trophy_collector': value.avgGoldItemTrophyCollector,
         'avg_gold_lane_creep': value.avgGoldLaneCreep,
         'avg_gold_lane_creep_orbs': value.avgGoldLaneCreepOrbs,
         'avg_gold_neutral_creep': value.avgGoldNeutralCreep,
         'avg_gold_neutral_creep_orbs': value.avgGoldNeutralCreepOrbs,
         'avg_gold_player': value.avgGoldPlayer,
         'avg_gold_player_orbs': value.avgGoldPlayerOrbs,
+        'avg_gold_team_bonus': value.avgGoldTeamBonus,
         'avg_gold_treasure': value.avgGoldTreasure,
         'avg_heal_prevented': value.avgHealPrevented,
         'avg_kd_ratio': value.avgKdRatio,

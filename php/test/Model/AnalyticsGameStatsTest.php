@@ -224,6 +224,24 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_ability_assassinate"
+     */
+    public function testPropertyAvgGoldAbilityAssassinate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_assists"
+     */
+    public function testPropertyAvgGoldAssists()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_boss"
      */
     public function testPropertyAvgGoldBoss()
@@ -242,6 +260,15 @@ class AnalyticsGameStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_gold_breakable"
+     */
+    public function testPropertyAvgGoldBreakable()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "avg_gold_death_loss"
      */
     public function testPropertyAvgGoldDeathLoss()
@@ -254,6 +281,33 @@ class AnalyticsGameStatsTest extends TestCase
      * Test attribute "avg_gold_denied"
      */
     public function testPropertyAvgGoldDenied()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_item_cultist_sacrifice"
+     */
+    public function testPropertyAvgGoldItemCultistSacrifice()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_item_goose_egg"
+     */
+    public function testPropertyAvgGoldItemGooseEgg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_item_trophy_collector"
+     */
+    public function testPropertyAvgGoldItemTrophyCollector()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -308,6 +362,15 @@ class AnalyticsGameStatsTest extends TestCase
      * Test attribute "avg_gold_player_orbs"
      */
     public function testPropertyAvgGoldPlayerOrbs()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_gold_team_bonus"
+     */
+    public function testPropertyAvgGoldTeamBonus()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

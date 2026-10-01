@@ -62,16 +62,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'float',
         'deaths_std' => 'float',
         'game_time' => 'int',
+        'gold_ability_assassinate_avg' => 'float',
+        'gold_assists_avg' => 'float',
         'gold_boss_avg' => 'float',
         'gold_boss_orb_avg' => 'float',
+        'gold_breakable_avg' => 'float',
         'gold_death_loss_avg' => 'float',
         'gold_denied_avg' => 'float',
+        'gold_item_cultist_sacrifice_avg' => 'float',
+        'gold_item_goose_egg_avg' => 'float',
+        'gold_item_trophy_collector_avg' => 'float',
         'gold_lane_creep_avg' => 'float',
         'gold_lane_creep_orbs_avg' => 'float',
         'gold_neutral_creep_avg' => 'float',
         'gold_neutral_creep_orbs_avg' => 'float',
         'gold_player_avg' => 'float',
         'gold_player_orbs_avg' => 'float',
+        'gold_team_bonus_avg' => 'float',
         'gold_treasure_avg' => 'float',
         'kills_avg' => 'float',
         'kills_std' => 'float',
@@ -93,16 +100,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'double',
         'deaths_std' => 'double',
         'game_time' => 'int32',
+        'gold_ability_assassinate_avg' => 'double',
+        'gold_assists_avg' => 'double',
         'gold_boss_avg' => 'double',
         'gold_boss_orb_avg' => 'double',
+        'gold_breakable_avg' => 'double',
         'gold_death_loss_avg' => 'double',
         'gold_denied_avg' => 'double',
+        'gold_item_cultist_sacrifice_avg' => 'double',
+        'gold_item_goose_egg_avg' => 'double',
+        'gold_item_trophy_collector_avg' => 'double',
         'gold_lane_creep_avg' => 'double',
         'gold_lane_creep_orbs_avg' => 'double',
         'gold_neutral_creep_avg' => 'double',
         'gold_neutral_creep_orbs_avg' => 'double',
         'gold_player_avg' => 'double',
         'gold_player_orbs_avg' => 'double',
+        'gold_team_bonus_avg' => 'double',
         'gold_treasure_avg' => 'double',
         'kills_avg' => 'double',
         'kills_std' => 'double',
@@ -122,16 +136,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => false,
         'deaths_std' => false,
         'game_time' => false,
+        'gold_ability_assassinate_avg' => false,
+        'gold_assists_avg' => false,
         'gold_boss_avg' => false,
         'gold_boss_orb_avg' => false,
+        'gold_breakable_avg' => false,
         'gold_death_loss_avg' => false,
         'gold_denied_avg' => false,
+        'gold_item_cultist_sacrifice_avg' => false,
+        'gold_item_goose_egg_avg' => false,
+        'gold_item_trophy_collector_avg' => false,
         'gold_lane_creep_avg' => false,
         'gold_lane_creep_orbs_avg' => false,
         'gold_neutral_creep_avg' => false,
         'gold_neutral_creep_orbs_avg' => false,
         'gold_player_avg' => false,
         'gold_player_orbs_avg' => false,
+        'gold_team_bonus_avg' => false,
         'gold_treasure_avg' => false,
         'kills_avg' => false,
         'kills_std' => false,
@@ -231,16 +252,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'deaths_avg',
         'deaths_std' => 'deaths_std',
         'game_time' => 'game_time',
+        'gold_ability_assassinate_avg' => 'gold_ability_assassinate_avg',
+        'gold_assists_avg' => 'gold_assists_avg',
         'gold_boss_avg' => 'gold_boss_avg',
         'gold_boss_orb_avg' => 'gold_boss_orb_avg',
+        'gold_breakable_avg' => 'gold_breakable_avg',
         'gold_death_loss_avg' => 'gold_death_loss_avg',
         'gold_denied_avg' => 'gold_denied_avg',
+        'gold_item_cultist_sacrifice_avg' => 'gold_item_cultist_sacrifice_avg',
+        'gold_item_goose_egg_avg' => 'gold_item_goose_egg_avg',
+        'gold_item_trophy_collector_avg' => 'gold_item_trophy_collector_avg',
         'gold_lane_creep_avg' => 'gold_lane_creep_avg',
         'gold_lane_creep_orbs_avg' => 'gold_lane_creep_orbs_avg',
         'gold_neutral_creep_avg' => 'gold_neutral_creep_avg',
         'gold_neutral_creep_orbs_avg' => 'gold_neutral_creep_orbs_avg',
         'gold_player_avg' => 'gold_player_avg',
         'gold_player_orbs_avg' => 'gold_player_orbs_avg',
+        'gold_team_bonus_avg' => 'gold_team_bonus_avg',
         'gold_treasure_avg' => 'gold_treasure_avg',
         'kills_avg' => 'kills_avg',
         'kills_std' => 'kills_std',
@@ -260,16 +288,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'setDeathsAvg',
         'deaths_std' => 'setDeathsStd',
         'game_time' => 'setGameTime',
+        'gold_ability_assassinate_avg' => 'setGoldAbilityAssassinateAvg',
+        'gold_assists_avg' => 'setGoldAssistsAvg',
         'gold_boss_avg' => 'setGoldBossAvg',
         'gold_boss_orb_avg' => 'setGoldBossOrbAvg',
+        'gold_breakable_avg' => 'setGoldBreakableAvg',
         'gold_death_loss_avg' => 'setGoldDeathLossAvg',
         'gold_denied_avg' => 'setGoldDeniedAvg',
+        'gold_item_cultist_sacrifice_avg' => 'setGoldItemCultistSacrificeAvg',
+        'gold_item_goose_egg_avg' => 'setGoldItemGooseEggAvg',
+        'gold_item_trophy_collector_avg' => 'setGoldItemTrophyCollectorAvg',
         'gold_lane_creep_avg' => 'setGoldLaneCreepAvg',
         'gold_lane_creep_orbs_avg' => 'setGoldLaneCreepOrbsAvg',
         'gold_neutral_creep_avg' => 'setGoldNeutralCreepAvg',
         'gold_neutral_creep_orbs_avg' => 'setGoldNeutralCreepOrbsAvg',
         'gold_player_avg' => 'setGoldPlayerAvg',
         'gold_player_orbs_avg' => 'setGoldPlayerOrbsAvg',
+        'gold_team_bonus_avg' => 'setGoldTeamBonusAvg',
         'gold_treasure_avg' => 'setGoldTreasureAvg',
         'kills_avg' => 'setKillsAvg',
         'kills_std' => 'setKillsStd',
@@ -289,16 +324,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'deaths_avg' => 'getDeathsAvg',
         'deaths_std' => 'getDeathsStd',
         'game_time' => 'getGameTime',
+        'gold_ability_assassinate_avg' => 'getGoldAbilityAssassinateAvg',
+        'gold_assists_avg' => 'getGoldAssistsAvg',
         'gold_boss_avg' => 'getGoldBossAvg',
         'gold_boss_orb_avg' => 'getGoldBossOrbAvg',
+        'gold_breakable_avg' => 'getGoldBreakableAvg',
         'gold_death_loss_avg' => 'getGoldDeathLossAvg',
         'gold_denied_avg' => 'getGoldDeniedAvg',
+        'gold_item_cultist_sacrifice_avg' => 'getGoldItemCultistSacrificeAvg',
+        'gold_item_goose_egg_avg' => 'getGoldItemGooseEggAvg',
+        'gold_item_trophy_collector_avg' => 'getGoldItemTrophyCollectorAvg',
         'gold_lane_creep_avg' => 'getGoldLaneCreepAvg',
         'gold_lane_creep_orbs_avg' => 'getGoldLaneCreepOrbsAvg',
         'gold_neutral_creep_avg' => 'getGoldNeutralCreepAvg',
         'gold_neutral_creep_orbs_avg' => 'getGoldNeutralCreepOrbsAvg',
         'gold_player_avg' => 'getGoldPlayerAvg',
         'gold_player_orbs_avg' => 'getGoldPlayerOrbsAvg',
+        'gold_team_bonus_avg' => 'getGoldTeamBonusAvg',
         'gold_treasure_avg' => 'getGoldTreasureAvg',
         'kills_avg' => 'getKillsAvg',
         'kills_std' => 'getKillsStd',
@@ -369,16 +411,23 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('deaths_avg', $data ?? [], null);
         $this->setIfExists('deaths_std', $data ?? [], null);
         $this->setIfExists('game_time', $data ?? [], null);
+        $this->setIfExists('gold_ability_assassinate_avg', $data ?? [], null);
+        $this->setIfExists('gold_assists_avg', $data ?? [], null);
         $this->setIfExists('gold_boss_avg', $data ?? [], null);
         $this->setIfExists('gold_boss_orb_avg', $data ?? [], null);
+        $this->setIfExists('gold_breakable_avg', $data ?? [], null);
         $this->setIfExists('gold_death_loss_avg', $data ?? [], null);
         $this->setIfExists('gold_denied_avg', $data ?? [], null);
+        $this->setIfExists('gold_item_cultist_sacrifice_avg', $data ?? [], null);
+        $this->setIfExists('gold_item_goose_egg_avg', $data ?? [], null);
+        $this->setIfExists('gold_item_trophy_collector_avg', $data ?? [], null);
         $this->setIfExists('gold_lane_creep_avg', $data ?? [], null);
         $this->setIfExists('gold_lane_creep_orbs_avg', $data ?? [], null);
         $this->setIfExists('gold_neutral_creep_avg', $data ?? [], null);
         $this->setIfExists('gold_neutral_creep_orbs_avg', $data ?? [], null);
         $this->setIfExists('gold_player_avg', $data ?? [], null);
         $this->setIfExists('gold_player_orbs_avg', $data ?? [], null);
+        $this->setIfExists('gold_team_bonus_avg', $data ?? [], null);
         $this->setIfExists('gold_treasure_avg', $data ?? [], null);
         $this->setIfExists('kills_avg', $data ?? [], null);
         $this->setIfExists('kills_std', $data ?? [], null);
@@ -433,17 +482,35 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'game_time', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['gold_ability_assassinate_avg'] === null) {
+            $invalidProperties[] = "'gold_ability_assassinate_avg' can't be null";
+        }
+        if ($this->container['gold_assists_avg'] === null) {
+            $invalidProperties[] = "'gold_assists_avg' can't be null";
+        }
         if ($this->container['gold_boss_avg'] === null) {
             $invalidProperties[] = "'gold_boss_avg' can't be null";
         }
         if ($this->container['gold_boss_orb_avg'] === null) {
             $invalidProperties[] = "'gold_boss_orb_avg' can't be null";
         }
+        if ($this->container['gold_breakable_avg'] === null) {
+            $invalidProperties[] = "'gold_breakable_avg' can't be null";
+        }
         if ($this->container['gold_death_loss_avg'] === null) {
             $invalidProperties[] = "'gold_death_loss_avg' can't be null";
         }
         if ($this->container['gold_denied_avg'] === null) {
             $invalidProperties[] = "'gold_denied_avg' can't be null";
+        }
+        if ($this->container['gold_item_cultist_sacrifice_avg'] === null) {
+            $invalidProperties[] = "'gold_item_cultist_sacrifice_avg' can't be null";
+        }
+        if ($this->container['gold_item_goose_egg_avg'] === null) {
+            $invalidProperties[] = "'gold_item_goose_egg_avg' can't be null";
+        }
+        if ($this->container['gold_item_trophy_collector_avg'] === null) {
+            $invalidProperties[] = "'gold_item_trophy_collector_avg' can't be null";
         }
         if ($this->container['gold_lane_creep_avg'] === null) {
             $invalidProperties[] = "'gold_lane_creep_avg' can't be null";
@@ -462,6 +529,9 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         }
         if ($this->container['gold_player_orbs_avg'] === null) {
             $invalidProperties[] = "'gold_player_orbs_avg' can't be null";
+        }
+        if ($this->container['gold_team_bonus_avg'] === null) {
+            $invalidProperties[] = "'gold_team_bonus_avg' can't be null";
         }
         if ($this->container['gold_treasure_avg'] === null) {
             $invalidProperties[] = "'gold_treasure_avg' can't be null";
@@ -633,6 +703,60 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets gold_ability_assassinate_avg
+     *
+     * @return float
+     */
+    public function getGoldAbilityAssassinateAvg()
+    {
+        return $this->container['gold_ability_assassinate_avg'];
+    }
+
+    /**
+     * Sets gold_ability_assassinate_avg
+     *
+     * @param float $gold_ability_assassinate_avg Average souls earned from the Assassinate ability at this time point
+     *
+     * @return self
+     */
+    public function setGoldAbilityAssassinateAvg($gold_ability_assassinate_avg)
+    {
+        if (is_null($gold_ability_assassinate_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_ability_assassinate_avg cannot be null');
+        }
+        $this->container['gold_ability_assassinate_avg'] = $gold_ability_assassinate_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_assists_avg
+     *
+     * @return float
+     */
+    public function getGoldAssistsAvg()
+    {
+        return $this->container['gold_assists_avg'];
+    }
+
+    /**
+     * Sets gold_assists_avg
+     *
+     * @param float $gold_assists_avg Average souls earned from assists at this time point (part of `gold_player_avg`)
+     *
+     * @return self
+     */
+    public function setGoldAssistsAvg($gold_assists_avg)
+    {
+        if (is_null($gold_assists_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_assists_avg cannot be null');
+        }
+        $this->container['gold_assists_avg'] = $gold_assists_avg;
+
+        return $this;
+    }
+
+    /**
      * Gets gold_boss_avg
      *
      * @return float
@@ -687,6 +811,33 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets gold_breakable_avg
+     *
+     * @return float
+     */
+    public function getGoldBreakableAvg()
+    {
+        return $this->container['gold_breakable_avg'];
+    }
+
+    /**
+     * Sets gold_breakable_avg
+     *
+     * @param float $gold_breakable_avg Average souls earned from breakables (crates, statues) at this time point
+     *
+     * @return self
+     */
+    public function setGoldBreakableAvg($gold_breakable_avg)
+    {
+        if (is_null($gold_breakable_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_breakable_avg cannot be null');
+        }
+        $this->container['gold_breakable_avg'] = $gold_breakable_avg;
+
+        return $this;
+    }
+
+    /**
      * Gets gold_death_loss_avg
      *
      * @return float
@@ -736,6 +887,87 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable gold_denied_avg cannot be null');
         }
         $this->container['gold_denied_avg'] = $gold_denied_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_item_cultist_sacrifice_avg
+     *
+     * @return float
+     */
+    public function getGoldItemCultistSacrificeAvg()
+    {
+        return $this->container['gold_item_cultist_sacrifice_avg'];
+    }
+
+    /**
+     * Sets gold_item_cultist_sacrifice_avg
+     *
+     * @param float $gold_item_cultist_sacrifice_avg Average souls earned from the Cultist Sacrifice item at this time point
+     *
+     * @return self
+     */
+    public function setGoldItemCultistSacrificeAvg($gold_item_cultist_sacrifice_avg)
+    {
+        if (is_null($gold_item_cultist_sacrifice_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_item_cultist_sacrifice_avg cannot be null');
+        }
+        $this->container['gold_item_cultist_sacrifice_avg'] = $gold_item_cultist_sacrifice_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_item_goose_egg_avg
+     *
+     * @return float
+     */
+    public function getGoldItemGooseEggAvg()
+    {
+        return $this->container['gold_item_goose_egg_avg'];
+    }
+
+    /**
+     * Sets gold_item_goose_egg_avg
+     *
+     * @param float $gold_item_goose_egg_avg Average souls earned from the Golden Goose Egg item at this time point
+     *
+     * @return self
+     */
+    public function setGoldItemGooseEggAvg($gold_item_goose_egg_avg)
+    {
+        if (is_null($gold_item_goose_egg_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_item_goose_egg_avg cannot be null');
+        }
+        $this->container['gold_item_goose_egg_avg'] = $gold_item_goose_egg_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_item_trophy_collector_avg
+     *
+     * @return float
+     */
+    public function getGoldItemTrophyCollectorAvg()
+    {
+        return $this->container['gold_item_trophy_collector_avg'];
+    }
+
+    /**
+     * Sets gold_item_trophy_collector_avg
+     *
+     * @param float $gold_item_trophy_collector_avg Average souls earned from the Trophy Collector item at this time point
+     *
+     * @return self
+     */
+    public function setGoldItemTrophyCollectorAvg($gold_item_trophy_collector_avg)
+    {
+        if (is_null($gold_item_trophy_collector_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_item_trophy_collector_avg cannot be null');
+        }
+        $this->container['gold_item_trophy_collector_avg'] = $gold_item_trophy_collector_avg;
 
         return $this;
     }
@@ -861,7 +1093,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets gold_player_avg
      *
-     * @param float $gold_player_avg Average souls earned from hero kills at this time point
+     * @param float $gold_player_avg Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
      *
      * @return self
      */
@@ -898,6 +1130,33 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable gold_player_orbs_avg cannot be null');
         }
         $this->container['gold_player_orbs_avg'] = $gold_player_orbs_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets gold_team_bonus_avg
+     *
+     * @return float
+     */
+    public function getGoldTeamBonusAvg()
+    {
+        return $this->container['gold_team_bonus_avg'];
+    }
+
+    /**
+     * Sets gold_team_bonus_avg
+     *
+     * @param float $gold_team_bonus_avg Average souls earned from the team bonus at this time point
+     *
+     * @return self
+     */
+    public function setGoldTeamBonusAvg($gold_team_bonus_avg)
+    {
+        if (is_null($gold_team_bonus_avg)) {
+            throw new \InvalidArgumentException('non-nullable gold_team_bonus_avg cannot be null');
+        }
+        $this->container['gold_team_bonus_avg'] = $gold_team_bonus_avg;
 
         return $this;
     }

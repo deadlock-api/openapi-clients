@@ -189,6 +189,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldAbilityAssassinate'
+        /// </summary>
+        [Fact]
+        public void AvgGoldAbilityAssassinateTest()
+        {
+            // TODO unit test for the property 'AvgGoldAbilityAssassinate'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldAssists'
+        /// </summary>
+        [Fact]
+        public void AvgGoldAssistsTest()
+        {
+            // TODO unit test for the property 'AvgGoldAssists'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldBoss'
         /// </summary>
         [Fact]
@@ -207,6 +225,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgGoldBreakable'
+        /// </summary>
+        [Fact]
+        public void AvgGoldBreakableTest()
+        {
+            // TODO unit test for the property 'AvgGoldBreakable'
+        }
+
+        /// <summary>
         /// Test the property 'AvgGoldDeathLoss'
         /// </summary>
         [Fact]
@@ -222,6 +249,33 @@ namespace DeadlockApiClient.Test.Model
         public void AvgGoldDeniedTest()
         {
             // TODO unit test for the property 'AvgGoldDenied'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldItemCultistSacrifice'
+        /// </summary>
+        [Fact]
+        public void AvgGoldItemCultistSacrificeTest()
+        {
+            // TODO unit test for the property 'AvgGoldItemCultistSacrifice'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldItemGooseEgg'
+        /// </summary>
+        [Fact]
+        public void AvgGoldItemGooseEggTest()
+        {
+            // TODO unit test for the property 'AvgGoldItemGooseEgg'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldItemTrophyCollector'
+        /// </summary>
+        [Fact]
+        public void AvgGoldItemTrophyCollectorTest()
+        {
+            // TODO unit test for the property 'AvgGoldItemTrophyCollector'
         }
 
         /// <summary>
@@ -276,6 +330,15 @@ namespace DeadlockApiClient.Test.Model
         public void AvgGoldPlayerOrbsTest()
         {
             // TODO unit test for the property 'AvgGoldPlayerOrbs'
+        }
+
+        /// <summary>
+        /// Test the property 'AvgGoldTeamBonus'
+        /// </summary>
+        [Fact]
+        public void AvgGoldTeamBonusTest()
+        {
+            // TODO unit test for the property 'AvgGoldTeamBonus'
         }
 
         /// <summary>

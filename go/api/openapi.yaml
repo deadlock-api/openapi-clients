@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -2453,7 +2453,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -2741,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -3106,7 +3106,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -3451,7 +3451,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -3820,7 +3820,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -4129,7 +4129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -4416,7 +4416,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -4652,11 +4652,11 @@ paths:
   /v1/analytics/player-performance-curve:
     get:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
-        \ assists) over time throughout matches.\n\nResults are cached for **1 hour**\
-        \ based on the unique combination of query parameters provided.\n\n### Rate\
-        \ Limits:\n> The rate limits below are **shared across all analytics endpoints**.\n\
-        \n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+        \ assists, souls per source) over time throughout matches.\n\nResults are\
+        \ cached for **1 hour** based on the unique combination of query parameters\
+        \ provided.\n\n### Rate Limits:\n> The rate limits below are **shared across\
+        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
+        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -4708,7 +4708,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -4977,7 +4977,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -5343,7 +5343,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -11053,7 +11053,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -11177,7 +11177,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -11499,7 +11499,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788134400
+          default: 1788220800
           format: int64
           nullable: true
           type: integer
@@ -13435,36 +13435,43 @@ components:
         avg_first_mid_boss_time_s: 1.0246457001441578
         avg_first_objective_destroyed_time_s: 1.4894159098541704
         avg_first_permanent_buff_time_s: 6.84685269835264
-        avg_gold_boss: 7.457744773683766
-        avg_gold_boss_orb: 1.1730742509559433
-        avg_gold_death_loss: 4.965218492984954
-        avg_gold_denied: 5.025004791520295
-        avg_gold_lane_creep: 9.965781217890562
-        avg_gold_lane_creep_orbs: 9.369310271410669
-        avg_gold_neutral_creep: 6.683562403749608
-        avg_gold_neutral_creep_orbs: 8.762042012749001
-        avg_gold_player: 9.018348186070783
-        avg_gold_player_orbs: 6.438423552598547
-        avg_gold_treasure: 3.5571952270680973
-        avg_heal_prevented: 6.965117697638846
-        avg_kd_ratio: 1.284659006116532
-        avg_kills: 2.8841621266687802
-        avg_last_hits: 6.778324963048013
-        avg_max_health: 6.878052220127876
-        avg_net_worth: 5.944895607614016
-        avg_neutral_damage: 6.704019297950036
-        avg_neutral_kills: 3.353193347011243
-        avg_permanent_buffs: 3.0937452626664474
-        avg_permanent_buffs_per_min: 7.143538047012306
-        avg_player_damage: 0.8851374739011653
-        avg_player_damage_taken: 7.058770351582356
-        avg_player_healing: 6.519180951018382
-        avg_possible_creeps: 0.10263654006109402
-        avg_self_healing: 4.652396432933246
-        avg_tech_power: 8.969578798196912
-        avg_weapon_power: 7.740351818741173
+        avg_gold_ability_assassinate: 7.457744773683766
+        avg_gold_assists: 1.1730742509559433
+        avg_gold_boss: 4.965218492984954
+        avg_gold_boss_orb: 5.025004791520295
+        avg_gold_breakable: 9.965781217890562
+        avg_gold_death_loss: 9.369310271410669
+        avg_gold_denied: 6.683562403749608
+        avg_gold_item_cultist_sacrifice: 8.762042012749001
+        avg_gold_item_goose_egg: 9.018348186070783
+        avg_gold_item_trophy_collector: 6.438423552598547
+        avg_gold_lane_creep: 3.5571952270680973
+        avg_gold_lane_creep_orbs: 6.965117697638846
+        avg_gold_neutral_creep: 1.284659006116532
+        avg_gold_neutral_creep_orbs: 2.8841621266687802
+        avg_gold_player: 6.778324963048013
+        avg_gold_player_orbs: 6.878052220127876
+        avg_gold_team_bonus: 5.944895607614016
+        avg_gold_treasure: 6.704019297950036
+        avg_heal_prevented: 3.353193347011243
+        avg_kd_ratio: 3.0937452626664474
+        avg_kills: 7.143538047012306
+        avg_last_hits: 0.8851374739011653
+        avg_max_health: 7.058770351582356
+        avg_net_worth: 6.519180951018382
+        avg_neutral_damage: 0.10263654006109402
+        avg_neutral_kills: 4.652396432933246
+        avg_permanent_buffs: 8.969578798196912
+        avg_permanent_buffs_per_min: 7.740351818741173
+        avg_player_damage: 3.0205796992916243
+        avg_player_damage_taken: 3.0576100241049344
+        avg_player_healing: 7.04836565559697
+        avg_possible_creeps: 5.533258397034986
+        avg_self_healing: 3.2588565619047607
+        avg_tech_power: 4.078845849666752
+        avg_weapon_power: 0.2025324113236393
         bucket: 0
-        mid_boss_kill_rate: 3.0576100241049344
+        mid_boss_kill_rate: 4.258773108174356
         team0_wins: 0
         team1_wins: 0
         total_matches: 0
@@ -13522,16 +13529,45 @@ components:
           format: double
           nullable: true
           type: number
+        avg_gold_ability_assassinate:
+          description: Average souls per player per match from the Assassinate ability
+          format: double
+          type: number
+        avg_gold_assists:
+          description: Average souls per player per match from assists (part of the
+            hero kill souls)
+          format: double
+          type: number
         avg_gold_boss:
           format: double
           type: number
         avg_gold_boss_orb:
           format: double
           type: number
+        avg_gold_breakable:
+          description: "Average souls per player per match from breakables (crates,\
+            \ statues)"
+          format: double
+          type: number
         avg_gold_death_loss:
           format: double
           type: number
         avg_gold_denied:
+          format: double
+          type: number
+        avg_gold_item_cultist_sacrifice:
+          description: Average souls per player per match from the Cultist Sacrifice
+            item
+          format: double
+          type: number
+        avg_gold_item_goose_egg:
+          description: Average souls per player per match from the Golden Goose Egg
+            item
+          format: double
+          type: number
+        avg_gold_item_trophy_collector:
+          description: Average souls per player per match from the Trophy Collector
+            item
           format: double
           type: number
         avg_gold_lane_creep:
@@ -13550,6 +13586,10 @@ components:
           format: double
           type: number
         avg_gold_player_orbs:
+          format: double
+          type: number
+        avg_gold_team_bonus:
+          description: Average souls per player per match from the team bonus
           format: double
           type: number
         avg_gold_treasure:
@@ -13650,16 +13690,23 @@ components:
       - avg_ending_level
       - avg_first_mid_boss_time_s
       - avg_first_objective_destroyed_time_s
+      - avg_gold_ability_assassinate
+      - avg_gold_assists
       - avg_gold_boss
       - avg_gold_boss_orb
+      - avg_gold_breakable
       - avg_gold_death_loss
       - avg_gold_denied
+      - avg_gold_item_cultist_sacrifice
+      - avg_gold_item_goose_egg
+      - avg_gold_item_trophy_collector
       - avg_gold_lane_creep
       - avg_gold_lane_creep_orbs
       - avg_gold_neutral_creep
       - avg_gold_neutral_creep_orbs
       - avg_gold_player
       - avg_gold_player_orbs
+      - avg_gold_team_bonus
       - avg_gold_treasure
       - avg_heal_prevented
       - avg_kd_ratio
@@ -20125,22 +20172,29 @@ components:
         deaths_avg: 1.4658129805029452
         deaths_std: 5.962133916683182
         game_time: 0
-        gold_boss_avg: 2.3021358869347655
-        gold_boss_orb_avg: 7.061401241503109
-        gold_death_loss_avg: 9.301444243932576
-        gold_denied_avg: 3.616076749251911
-        gold_lane_creep_avg: 2.027123023002322
-        gold_lane_creep_orbs_avg: 4.145608029883936
-        gold_neutral_creep_avg: 7.386281948385884
-        gold_neutral_creep_orbs_avg: 1.2315135367772556
-        gold_player_avg: 1.0246457001441578
-        gold_player_orbs_avg: 1.4894159098541704
-        gold_treasure_avg: 6.84685269835264
-        kills_avg: 7.457744773683766
-        kills_std: 1.1730742509559433
-        net_worth_avg: 4.965218492984954
-        net_worth_std: 5.025004791520295
-        permanent_buffs_avg: 9.965781217890562
+        gold_ability_assassinate_avg: 2.3021358869347655
+        gold_assists_avg: 7.061401241503109
+        gold_boss_avg: 9.301444243932576
+        gold_boss_orb_avg: 3.616076749251911
+        gold_breakable_avg: 2.027123023002322
+        gold_death_loss_avg: 4.145608029883936
+        gold_denied_avg: 7.386281948385884
+        gold_item_cultist_sacrifice_avg: 1.2315135367772556
+        gold_item_goose_egg_avg: 1.0246457001441578
+        gold_item_trophy_collector_avg: 1.4894159098541704
+        gold_lane_creep_avg: 6.84685269835264
+        gold_lane_creep_orbs_avg: 7.457744773683766
+        gold_neutral_creep_avg: 1.1730742509559433
+        gold_neutral_creep_orbs_avg: 4.965218492984954
+        gold_player_avg: 5.025004791520295
+        gold_player_orbs_avg: 9.965781217890562
+        gold_team_bonus_avg: 9.369310271410669
+        gold_treasure_avg: 6.683562403749608
+        kills_avg: 8.762042012749001
+        kills_std: 9.018348186070783
+        net_worth_avg: 6.438423552598547
+        net_worth_std: 3.5571952270680973
+        permanent_buffs_avg: 6.965117697638846
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -20166,6 +20220,16 @@ components:
           format: int32
           minimum: 0
           type: integer
+        gold_ability_assassinate_avg:
+          description: Average souls earned from the Assassinate ability at this time
+            point
+          format: double
+          type: number
+        gold_assists_avg:
+          description: Average souls earned from assists at this time point (part
+            of `gold_player_avg`)
+          format: double
+          type: number
         gold_boss_avg:
           description: Average souls earned from objectives at this time point
           format: double
@@ -20175,12 +20239,32 @@ components:
             point
           format: double
           type: number
+        gold_breakable_avg:
+          description: "Average souls earned from breakables (crates, statues) at\
+            \ this time point"
+          format: double
+          type: number
         gold_death_loss_avg:
           description: Average souls lost on death at this time point
           format: double
           type: number
         gold_denied_avg:
           description: Average souls denied to enemies at this time point
+          format: double
+          type: number
+        gold_item_cultist_sacrifice_avg:
+          description: Average souls earned from the Cultist Sacrifice item at this
+            time point
+          format: double
+          type: number
+        gold_item_goose_egg_avg:
+          description: Average souls earned from the Golden Goose Egg item at this
+            time point
+          format: double
+          type: number
+        gold_item_trophy_collector_avg:
+          description: Average souls earned from the Trophy Collector item at this
+            time point
           format: double
           type: number
         gold_lane_creep_avg:
@@ -20203,12 +20287,18 @@ components:
           format: double
           type: number
         gold_player_avg:
-          description: Average souls earned from hero kills at this time point
+          description: |-
+            Average souls earned from hero kills at this time point, including assist souls
+            (see `gold_assists_avg`)
           format: double
           type: number
         gold_player_orbs_avg:
           description: Average souls earned from secured hero-kill orbs at this time
             point
+          format: double
+          type: number
+        gold_team_bonus_avg:
+          description: Average souls earned from the team bonus at this time point
           format: double
           type: number
         gold_treasure_avg:
@@ -20245,16 +20335,23 @@ components:
       - deaths_avg
       - deaths_std
       - game_time
+      - gold_ability_assassinate_avg
+      - gold_assists_avg
       - gold_boss_avg
       - gold_boss_orb_avg
+      - gold_breakable_avg
       - gold_death_loss_avg
       - gold_denied_avg
+      - gold_item_cultist_sacrifice_avg
+      - gold_item_goose_egg_avg
+      - gold_item_trophy_collector_avg
       - gold_lane_creep_avg
       - gold_lane_creep_orbs_avg
       - gold_neutral_creep_avg
       - gold_neutral_creep_orbs_avg
       - gold_player_avg
       - gold_player_orbs_avg
+      - gold_team_bonus_avg
       - gold_treasure_avg
       - kills_avg
       - kills_std

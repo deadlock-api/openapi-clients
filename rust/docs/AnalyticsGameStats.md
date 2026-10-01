@@ -20,16 +20,23 @@ Name | Type | Description | Notes
 **avg_first_mid_boss_time_s** | **f64** |  | 
 **avg_first_objective_destroyed_time_s** | **f64** |  | 
 **avg_first_permanent_buff_time_s** | Option<**f64**> | Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none. | [optional]
+**avg_gold_ability_assassinate** | **f64** | Average souls per player per match from the Assassinate ability | 
+**avg_gold_assists** | **f64** | Average souls per player per match from assists (part of the hero kill souls) | 
 **avg_gold_boss** | **f64** |  | 
 **avg_gold_boss_orb** | **f64** |  | 
+**avg_gold_breakable** | **f64** | Average souls per player per match from breakables (crates, statues) | 
 **avg_gold_death_loss** | **f64** |  | 
 **avg_gold_denied** | **f64** |  | 
+**avg_gold_item_cultist_sacrifice** | **f64** | Average souls per player per match from the Cultist Sacrifice item | 
+**avg_gold_item_goose_egg** | **f64** | Average souls per player per match from the Golden Goose Egg item | 
+**avg_gold_item_trophy_collector** | **f64** | Average souls per player per match from the Trophy Collector item | 
 **avg_gold_lane_creep** | **f64** |  | 
 **avg_gold_lane_creep_orbs** | **f64** |  | 
 **avg_gold_neutral_creep** | **f64** |  | 
 **avg_gold_neutral_creep_orbs** | **f64** |  | 
 **avg_gold_player** | **f64** |  | 
 **avg_gold_player_orbs** | **f64** |  | 
+**avg_gold_team_bonus** | **f64** | Average souls per player per match from the team bonus | 
 **avg_gold_treasure** | **f64** |  | 
 **avg_heal_prevented** | **f64** |  | 
 **avg_kd_ratio** | **f64** |  | 

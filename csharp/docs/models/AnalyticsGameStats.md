@@ -19,16 +19,23 @@ Name | Type | Description | Notes
 **AvgEndingLevel** | **double** |  | 
 **AvgFirstMidBossTimeS** | **double** |  | 
 **AvgFirstObjectiveDestroyedTimeS** | **double** |  | 
+**AvgGoldAbilityAssassinate** | **double** | Average souls per player per match from the Assassinate ability | 
+**AvgGoldAssists** | **double** | Average souls per player per match from assists (part of the hero kill souls) | 
 **AvgGoldBoss** | **double** |  | 
 **AvgGoldBossOrb** | **double** |  | 
+**AvgGoldBreakable** | **double** | Average souls per player per match from breakables (crates, statues) | 
 **AvgGoldDeathLoss** | **double** |  | 
 **AvgGoldDenied** | **double** |  | 
+**AvgGoldItemCultistSacrifice** | **double** | Average souls per player per match from the Cultist Sacrifice item | 
+**AvgGoldItemGooseEgg** | **double** | Average souls per player per match from the Golden Goose Egg item | 
+**AvgGoldItemTrophyCollector** | **double** | Average souls per player per match from the Trophy Collector item | 
 **AvgGoldLaneCreep** | **double** |  | 
 **AvgGoldLaneCreepOrbs** | **double** |  | 
 **AvgGoldNeutralCreep** | **double** |  | 
 **AvgGoldNeutralCreepOrbs** | **double** |  | 
 **AvgGoldPlayer** | **double** |  | 
 **AvgGoldPlayerOrbs** | **double** |  | 
+**AvgGoldTeamBonus** | **double** | Average souls per player per match from the team bonus | 
 **AvgGoldTreasure** | **double** |  | 
 **AvgHealPrevented** | **double** |  | 
 **AvgKdRatio** | **double** |  | 

@@ -49,6 +49,18 @@ export interface PlayerPerformanceCurvePoint  {
      */
     gameTime: number;
     /**
+     * Average souls earned from the Assassinate ability at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldAbilityAssassinateAvg: number;
+    /**
+     * Average souls earned from assists at this time point (part of `gold_player_avg`)
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldAssistsAvg: number;
+    /**
      * Average souls earned from objectives at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -61,6 +73,12 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldBossOrbAvg: number;
     /**
+     * Average souls earned from breakables (crates, statues) at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldBreakableAvg: number;
+    /**
      * Average souls lost on death at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -72,6 +90,24 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     goldDeniedAvg: number;
+    /**
+     * Average souls earned from the Cultist Sacrifice item at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemCultistSacrificeAvg: number;
+    /**
+     * Average souls earned from the Golden Goose Egg item at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemGooseEggAvg: number;
+    /**
+     * Average souls earned from the Trophy Collector item at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldItemTrophyCollectorAvg: number;
     /**
      * Average souls earned from lane creeps at this time point
      * @type {number}
@@ -97,7 +133,7 @@ export interface PlayerPerformanceCurvePoint  {
      */
     goldNeutralCreepOrbsAvg: number;
     /**
-     * Average souls earned from hero kills at this time point
+     * Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
      */
@@ -108,6 +144,12 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     goldPlayerOrbsAvg: number;
+    /**
+     * Average souls earned from the team bonus at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    goldTeamBonusAvg: number;
     /**
      * Average souls earned from the urn at this time point
      * @type {number}
@@ -153,16 +195,23 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'deathsAvg': json['deaths_avg'],
         'deathsStd': json['deaths_std'],
         'gameTime': json['game_time'],
+        'goldAbilityAssassinateAvg': json['gold_ability_assassinate_avg'],
+        'goldAssistsAvg': json['gold_assists_avg'],
         'goldBossAvg': json['gold_boss_avg'],
         'goldBossOrbAvg': json['gold_boss_orb_avg'],
+        'goldBreakableAvg': json['gold_breakable_avg'],
         'goldDeathLossAvg': json['gold_death_loss_avg'],
         'goldDeniedAvg': json['gold_denied_avg'],
+        'goldItemCultistSacrificeAvg': json['gold_item_cultist_sacrifice_avg'],
+        'goldItemGooseEggAvg': json['gold_item_goose_egg_avg'],
+        'goldItemTrophyCollectorAvg': json['gold_item_trophy_collector_avg'],
         'goldLaneCreepAvg': json['gold_lane_creep_avg'],
         'goldLaneCreepOrbsAvg': json['gold_lane_creep_orbs_avg'],
         'goldNeutralCreepAvg': json['gold_neutral_creep_avg'],
         'goldNeutralCreepOrbsAvg': json['gold_neutral_creep_orbs_avg'],
         'goldPlayerAvg': json['gold_player_avg'],
         'goldPlayerOrbsAvg': json['gold_player_orbs_avg'],
+        'goldTeamBonusAvg': json['gold_team_bonus_avg'],
         'goldTreasureAvg': json['gold_treasure_avg'],
         'killsAvg': json['kills_avg'],
         'killsStd': json['kills_std'],
@@ -182,16 +231,23 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'deaths_avg': value.deathsAvg,
         'deaths_std': value.deathsStd,
         'game_time': value.gameTime,
+        'gold_ability_assassinate_avg': value.goldAbilityAssassinateAvg,
+        'gold_assists_avg': value.goldAssistsAvg,
         'gold_boss_avg': value.goldBossAvg,
         'gold_boss_orb_avg': value.goldBossOrbAvg,
+        'gold_breakable_avg': value.goldBreakableAvg,
         'gold_death_loss_avg': value.goldDeathLossAvg,
         'gold_denied_avg': value.goldDeniedAvg,
+        'gold_item_cultist_sacrifice_avg': value.goldItemCultistSacrificeAvg,
+        'gold_item_goose_egg_avg': value.goldItemGooseEggAvg,
+        'gold_item_trophy_collector_avg': value.goldItemTrophyCollectorAvg,
         'gold_lane_creep_avg': value.goldLaneCreepAvg,
         'gold_lane_creep_orbs_avg': value.goldLaneCreepOrbsAvg,
         'gold_neutral_creep_avg': value.goldNeutralCreepAvg,
         'gold_neutral_creep_orbs_avg': value.goldNeutralCreepOrbsAvg,
         'gold_player_avg': value.goldPlayerAvg,
         'gold_player_orbs_avg': value.goldPlayerOrbsAvg,
+        'gold_team_bonus_avg': value.goldTeamBonusAvg,
         'gold_treasure_avg': value.goldTreasureAvg,
         'kills_avg': value.killsAvg,
         'kills_std': value.killsStd,

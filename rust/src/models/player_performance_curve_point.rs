@@ -28,18 +28,36 @@ pub struct PlayerPerformanceCurvePoint {
     /// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
     #[serde(rename = "game_time")]
     pub game_time: u32,
+    /// Average souls earned from the Assassinate ability at this time point
+    #[serde(rename = "gold_ability_assassinate_avg")]
+    pub gold_ability_assassinate_avg: f64,
+    /// Average souls earned from assists at this time point (part of `gold_player_avg`)
+    #[serde(rename = "gold_assists_avg")]
+    pub gold_assists_avg: f64,
     /// Average souls earned from objectives at this time point
     #[serde(rename = "gold_boss_avg")]
     pub gold_boss_avg: f64,
     /// Average souls earned from secured objective orbs at this time point
     #[serde(rename = "gold_boss_orb_avg")]
     pub gold_boss_orb_avg: f64,
+    /// Average souls earned from breakables (crates, statues) at this time point
+    #[serde(rename = "gold_breakable_avg")]
+    pub gold_breakable_avg: f64,
     /// Average souls lost on death at this time point
     #[serde(rename = "gold_death_loss_avg")]
     pub gold_death_loss_avg: f64,
     /// Average souls denied to enemies at this time point
     #[serde(rename = "gold_denied_avg")]
     pub gold_denied_avg: f64,
+    /// Average souls earned from the Cultist Sacrifice item at this time point
+    #[serde(rename = "gold_item_cultist_sacrifice_avg")]
+    pub gold_item_cultist_sacrifice_avg: f64,
+    /// Average souls earned from the Golden Goose Egg item at this time point
+    #[serde(rename = "gold_item_goose_egg_avg")]
+    pub gold_item_goose_egg_avg: f64,
+    /// Average souls earned from the Trophy Collector item at this time point
+    #[serde(rename = "gold_item_trophy_collector_avg")]
+    pub gold_item_trophy_collector_avg: f64,
     /// Average souls earned from lane creeps at this time point
     #[serde(rename = "gold_lane_creep_avg")]
     pub gold_lane_creep_avg: f64,
@@ -52,12 +70,15 @@ pub struct PlayerPerformanceCurvePoint {
     /// Average souls earned from secured neutral-creep orbs at this time point
     #[serde(rename = "gold_neutral_creep_orbs_avg")]
     pub gold_neutral_creep_orbs_avg: f64,
-    /// Average souls earned from hero kills at this time point
+    /// Average souls earned from hero kills at this time point, including assist souls (see `gold_assists_avg`)
     #[serde(rename = "gold_player_avg")]
     pub gold_player_avg: f64,
     /// Average souls earned from secured hero-kill orbs at this time point
     #[serde(rename = "gold_player_orbs_avg")]
     pub gold_player_orbs_avg: f64,
+    /// Average souls earned from the team bonus at this time point
+    #[serde(rename = "gold_team_bonus_avg")]
+    pub gold_team_bonus_avg: f64,
     /// Average souls earned from the urn at this time point
     #[serde(rename = "gold_treasure_avg")]
     pub gold_treasure_avg: f64,
@@ -79,23 +100,30 @@ pub struct PlayerPerformanceCurvePoint {
 }
 
 impl PlayerPerformanceCurvePoint {
-    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, game_time: u32, gold_boss_avg: f64, gold_boss_orb_avg: f64, gold_death_loss_avg: f64, gold_denied_avg: f64, gold_lane_creep_avg: f64, gold_lane_creep_orbs_avg: f64, gold_neutral_creep_avg: f64, gold_neutral_creep_orbs_avg: f64, gold_player_avg: f64, gold_player_orbs_avg: f64, gold_treasure_avg: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64) -> PlayerPerformanceCurvePoint {
+    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, game_time: u32, gold_ability_assassinate_avg: f64, gold_assists_avg: f64, gold_boss_avg: f64, gold_boss_orb_avg: f64, gold_breakable_avg: f64, gold_death_loss_avg: f64, gold_denied_avg: f64, gold_item_cultist_sacrifice_avg: f64, gold_item_goose_egg_avg: f64, gold_item_trophy_collector_avg: f64, gold_lane_creep_avg: f64, gold_lane_creep_orbs_avg: f64, gold_neutral_creep_avg: f64, gold_neutral_creep_orbs_avg: f64, gold_player_avg: f64, gold_player_orbs_avg: f64, gold_team_bonus_avg: f64, gold_treasure_avg: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64) -> PlayerPerformanceCurvePoint {
         PlayerPerformanceCurvePoint {
             assists_avg,
             assists_std,
             deaths_avg,
             deaths_std,
             game_time,
+            gold_ability_assassinate_avg,
+            gold_assists_avg,
             gold_boss_avg,
             gold_boss_orb_avg,
+            gold_breakable_avg,
             gold_death_loss_avg,
             gold_denied_avg,
+            gold_item_cultist_sacrifice_avg,
+            gold_item_goose_egg_avg,
+            gold_item_trophy_collector_avg,
             gold_lane_creep_avg,
             gold_lane_creep_orbs_avg,
             gold_neutral_creep_avg,
             gold_neutral_creep_orbs_avg,
             gold_player_avg,
             gold_player_orbs_avg,
+            gold_team_bonus_avg,
             gold_treasure_avg,
             kills_avg,
             kills_std,

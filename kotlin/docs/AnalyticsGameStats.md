@@ -19,16 +19,23 @@
 | **avgEndingLevel** | **kotlin.Double** |  |  |
 | **avgFirstMidBossTimeS** | **kotlin.Double** |  |  |
 | **avgFirstObjectiveDestroyedTimeS** | **kotlin.Double** |  |  |
+| **avgGoldAbilityAssassinate** | **kotlin.Double** | Average souls per player per match from the Assassinate ability |  |
+| **avgGoldAssists** | **kotlin.Double** | Average souls per player per match from assists (part of the hero kill souls) |  |
 | **avgGoldBoss** | **kotlin.Double** |  |  |
 | **avgGoldBossOrb** | **kotlin.Double** |  |  |
+| **avgGoldBreakable** | **kotlin.Double** | Average souls per player per match from breakables (crates, statues) |  |
 | **avgGoldDeathLoss** | **kotlin.Double** |  |  |
 | **avgGoldDenied** | **kotlin.Double** |  |  |
+| **avgGoldItemCultistSacrifice** | **kotlin.Double** | Average souls per player per match from the Cultist Sacrifice item |  |
+| **avgGoldItemGooseEgg** | **kotlin.Double** | Average souls per player per match from the Golden Goose Egg item |  |
+| **avgGoldItemTrophyCollector** | **kotlin.Double** | Average souls per player per match from the Trophy Collector item |  |
 | **avgGoldLaneCreep** | **kotlin.Double** |  |  |
 | **avgGoldLaneCreepOrbs** | **kotlin.Double** |  |  |
 | **avgGoldNeutralCreep** | **kotlin.Double** |  |  |
 | **avgGoldNeutralCreepOrbs** | **kotlin.Double** |  |  |
 | **avgGoldPlayer** | **kotlin.Double** |  |  |
 | **avgGoldPlayerOrbs** | **kotlin.Double** |  |  |
+| **avgGoldTeamBonus** | **kotlin.Double** | Average souls per player per match from the team bonus |  |
 | **avgGoldTreasure** | **kotlin.Double** |  |  |
 | **avgHealPrevented** | **kotlin.Double** |  |  |
 | **avgKdRatio** | **kotlin.Double** |  |  |

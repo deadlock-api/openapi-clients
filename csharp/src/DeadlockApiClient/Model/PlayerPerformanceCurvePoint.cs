@@ -38,16 +38,23 @@ namespace DeadlockApiClient.Model
         /// <param name="deathsAvg">Average deaths at this time point</param>
         /// <param name="deathsStd">Standard deviation of deaths at this time point</param>
         /// <param name="gameTime">The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds.</param>
+        /// <param name="goldAbilityAssassinateAvg">Average souls earned from the Assassinate ability at this time point</param>
+        /// <param name="goldAssistsAvg">Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;)</param>
         /// <param name="goldBossAvg">Average souls earned from objectives at this time point</param>
         /// <param name="goldBossOrbAvg">Average souls earned from secured objective orbs at this time point</param>
+        /// <param name="goldBreakableAvg">Average souls earned from breakables (crates, statues) at this time point</param>
         /// <param name="goldDeathLossAvg">Average souls lost on death at this time point</param>
         /// <param name="goldDeniedAvg">Average souls denied to enemies at this time point</param>
+        /// <param name="goldItemCultistSacrificeAvg">Average souls earned from the Cultist Sacrifice item at this time point</param>
+        /// <param name="goldItemGooseEggAvg">Average souls earned from the Golden Goose Egg item at this time point</param>
+        /// <param name="goldItemTrophyCollectorAvg">Average souls earned from the Trophy Collector item at this time point</param>
         /// <param name="goldLaneCreepAvg">Average souls earned from lane creeps at this time point</param>
         /// <param name="goldLaneCreepOrbsAvg">Average souls earned from secured lane-creep orbs at this time point</param>
         /// <param name="goldNeutralCreepAvg">Average souls earned from neutral (jungle) creeps at this time point</param>
         /// <param name="goldNeutralCreepOrbsAvg">Average souls earned from secured neutral-creep orbs at this time point</param>
-        /// <param name="goldPlayerAvg">Average souls earned from hero kills at this time point</param>
+        /// <param name="goldPlayerAvg">Average souls earned from hero kills at this time point, including assist souls (see &#x60;gold_assists_avg&#x60;)</param>
         /// <param name="goldPlayerOrbsAvg">Average souls earned from secured hero-kill orbs at this time point</param>
+        /// <param name="goldTeamBonusAvg">Average souls earned from the team bonus at this time point</param>
         /// <param name="goldTreasureAvg">Average souls earned from the urn at this time point</param>
         /// <param name="killsAvg">Average kills at this time point</param>
         /// <param name="killsStd">Standard deviation of kills at this time point</param>
@@ -55,23 +62,30 @@ namespace DeadlockApiClient.Model
         /// <param name="netWorthStd">Standard deviation of net worth at this time point</param>
         /// <param name="permanentBuffsAvg">Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.</param>
         [JsonConstructor]
-        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double deathsAvg, double deathsStd, int gameTime, double goldBossAvg, double goldBossOrbAvg, double goldDeathLossAvg, double goldDeniedAvg, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldTreasureAvg, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, Option<double?> permanentBuffsAvg = default)
+        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double deathsAvg, double deathsStd, int gameTime, double goldAbilityAssassinateAvg, double goldAssistsAvg, double goldBossAvg, double goldBossOrbAvg, double goldBreakableAvg, double goldDeathLossAvg, double goldDeniedAvg, double goldItemCultistSacrificeAvg, double goldItemGooseEggAvg, double goldItemTrophyCollectorAvg, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldTeamBonusAvg, double goldTreasureAvg, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, Option<double?> permanentBuffsAvg = default)
         {
             AssistsAvg = assistsAvg;
             AssistsStd = assistsStd;
             DeathsAvg = deathsAvg;
             DeathsStd = deathsStd;
             GameTime = gameTime;
+            GoldAbilityAssassinateAvg = goldAbilityAssassinateAvg;
+            GoldAssistsAvg = goldAssistsAvg;
             GoldBossAvg = goldBossAvg;
             GoldBossOrbAvg = goldBossOrbAvg;
+            GoldBreakableAvg = goldBreakableAvg;
             GoldDeathLossAvg = goldDeathLossAvg;
             GoldDeniedAvg = goldDeniedAvg;
+            GoldItemCultistSacrificeAvg = goldItemCultistSacrificeAvg;
+            GoldItemGooseEggAvg = goldItemGooseEggAvg;
+            GoldItemTrophyCollectorAvg = goldItemTrophyCollectorAvg;
             GoldLaneCreepAvg = goldLaneCreepAvg;
             GoldLaneCreepOrbsAvg = goldLaneCreepOrbsAvg;
             GoldNeutralCreepAvg = goldNeutralCreepAvg;
             GoldNeutralCreepOrbsAvg = goldNeutralCreepOrbsAvg;
             GoldPlayerAvg = goldPlayerAvg;
             GoldPlayerOrbsAvg = goldPlayerOrbsAvg;
+            GoldTeamBonusAvg = goldTeamBonusAvg;
             GoldTreasureAvg = goldTreasureAvg;
             KillsAvg = killsAvg;
             KillsStd = killsStd;
@@ -119,6 +133,20 @@ namespace DeadlockApiClient.Model
         public int GameTime { get; set; }
 
         /// <summary>
+        /// Average souls earned from the Assassinate ability at this time point
+        /// </summary>
+        /// <value>Average souls earned from the Assassinate ability at this time point</value>
+        [JsonPropertyName("gold_ability_assassinate_avg")]
+        public double GoldAbilityAssassinateAvg { get; set; }
+
+        /// <summary>
+        /// Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;)
+        /// </summary>
+        /// <value>Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;)</value>
+        [JsonPropertyName("gold_assists_avg")]
+        public double GoldAssistsAvg { get; set; }
+
+        /// <summary>
         /// Average souls earned from objectives at this time point
         /// </summary>
         /// <value>Average souls earned from objectives at this time point</value>
@@ -133,6 +161,13 @@ namespace DeadlockApiClient.Model
         public double GoldBossOrbAvg { get; set; }
 
         /// <summary>
+        /// Average souls earned from breakables (crates, statues) at this time point
+        /// </summary>
+        /// <value>Average souls earned from breakables (crates, statues) at this time point</value>
+        [JsonPropertyName("gold_breakable_avg")]
+        public double GoldBreakableAvg { get; set; }
+
+        /// <summary>
         /// Average souls lost on death at this time point
         /// </summary>
         /// <value>Average souls lost on death at this time point</value>
@@ -145,6 +180,27 @@ namespace DeadlockApiClient.Model
         /// <value>Average souls denied to enemies at this time point</value>
         [JsonPropertyName("gold_denied_avg")]
         public double GoldDeniedAvg { get; set; }
+
+        /// <summary>
+        /// Average souls earned from the Cultist Sacrifice item at this time point
+        /// </summary>
+        /// <value>Average souls earned from the Cultist Sacrifice item at this time point</value>
+        [JsonPropertyName("gold_item_cultist_sacrifice_avg")]
+        public double GoldItemCultistSacrificeAvg { get; set; }
+
+        /// <summary>
+        /// Average souls earned from the Golden Goose Egg item at this time point
+        /// </summary>
+        /// <value>Average souls earned from the Golden Goose Egg item at this time point</value>
+        [JsonPropertyName("gold_item_goose_egg_avg")]
+        public double GoldItemGooseEggAvg { get; set; }
+
+        /// <summary>
+        /// Average souls earned from the Trophy Collector item at this time point
+        /// </summary>
+        /// <value>Average souls earned from the Trophy Collector item at this time point</value>
+        [JsonPropertyName("gold_item_trophy_collector_avg")]
+        public double GoldItemTrophyCollectorAvg { get; set; }
 
         /// <summary>
         /// Average souls earned from lane creeps at this time point
@@ -175,9 +231,9 @@ namespace DeadlockApiClient.Model
         public double GoldNeutralCreepOrbsAvg { get; set; }
 
         /// <summary>
-        /// Average souls earned from hero kills at this time point
+        /// Average souls earned from hero kills at this time point, including assist souls (see &#x60;gold_assists_avg&#x60;)
         /// </summary>
-        /// <value>Average souls earned from hero kills at this time point</value>
+        /// <value>Average souls earned from hero kills at this time point, including assist souls (see &#x60;gold_assists_avg&#x60;)</value>
         [JsonPropertyName("gold_player_avg")]
         public double GoldPlayerAvg { get; set; }
 
@@ -187,6 +243,13 @@ namespace DeadlockApiClient.Model
         /// <value>Average souls earned from secured hero-kill orbs at this time point</value>
         [JsonPropertyName("gold_player_orbs_avg")]
         public double GoldPlayerOrbsAvg { get; set; }
+
+        /// <summary>
+        /// Average souls earned from the team bonus at this time point
+        /// </summary>
+        /// <value>Average souls earned from the team bonus at this time point</value>
+        [JsonPropertyName("gold_team_bonus_avg")]
+        public double GoldTeamBonusAvg { get; set; }
 
         /// <summary>
         /// Average souls earned from the urn at this time point
@@ -250,16 +313,23 @@ namespace DeadlockApiClient.Model
             sb.Append("  DeathsAvg: ").Append(DeathsAvg).Append("\n");
             sb.Append("  DeathsStd: ").Append(DeathsStd).Append("\n");
             sb.Append("  GameTime: ").Append(GameTime).Append("\n");
+            sb.Append("  GoldAbilityAssassinateAvg: ").Append(GoldAbilityAssassinateAvg).Append("\n");
+            sb.Append("  GoldAssistsAvg: ").Append(GoldAssistsAvg).Append("\n");
             sb.Append("  GoldBossAvg: ").Append(GoldBossAvg).Append("\n");
             sb.Append("  GoldBossOrbAvg: ").Append(GoldBossOrbAvg).Append("\n");
+            sb.Append("  GoldBreakableAvg: ").Append(GoldBreakableAvg).Append("\n");
             sb.Append("  GoldDeathLossAvg: ").Append(GoldDeathLossAvg).Append("\n");
             sb.Append("  GoldDeniedAvg: ").Append(GoldDeniedAvg).Append("\n");
+            sb.Append("  GoldItemCultistSacrificeAvg: ").Append(GoldItemCultistSacrificeAvg).Append("\n");
+            sb.Append("  GoldItemGooseEggAvg: ").Append(GoldItemGooseEggAvg).Append("\n");
+            sb.Append("  GoldItemTrophyCollectorAvg: ").Append(GoldItemTrophyCollectorAvg).Append("\n");
             sb.Append("  GoldLaneCreepAvg: ").Append(GoldLaneCreepAvg).Append("\n");
             sb.Append("  GoldLaneCreepOrbsAvg: ").Append(GoldLaneCreepOrbsAvg).Append("\n");
             sb.Append("  GoldNeutralCreepAvg: ").Append(GoldNeutralCreepAvg).Append("\n");
             sb.Append("  GoldNeutralCreepOrbsAvg: ").Append(GoldNeutralCreepOrbsAvg).Append("\n");
             sb.Append("  GoldPlayerAvg: ").Append(GoldPlayerAvg).Append("\n");
             sb.Append("  GoldPlayerOrbsAvg: ").Append(GoldPlayerOrbsAvg).Append("\n");
+            sb.Append("  GoldTeamBonusAvg: ").Append(GoldTeamBonusAvg).Append("\n");
             sb.Append("  GoldTreasureAvg: ").Append(GoldTreasureAvg).Append("\n");
             sb.Append("  KillsAvg: ").Append(KillsAvg).Append("\n");
             sb.Append("  KillsStd: ").Append(KillsStd).Append("\n");
@@ -324,16 +394,23 @@ namespace DeadlockApiClient.Model
             Option<double?> deathsAvg = default;
             Option<double?> deathsStd = default;
             Option<int?> gameTime = default;
+            Option<double?> goldAbilityAssassinateAvg = default;
+            Option<double?> goldAssistsAvg = default;
             Option<double?> goldBossAvg = default;
             Option<double?> goldBossOrbAvg = default;
+            Option<double?> goldBreakableAvg = default;
             Option<double?> goldDeathLossAvg = default;
             Option<double?> goldDeniedAvg = default;
+            Option<double?> goldItemCultistSacrificeAvg = default;
+            Option<double?> goldItemGooseEggAvg = default;
+            Option<double?> goldItemTrophyCollectorAvg = default;
             Option<double?> goldLaneCreepAvg = default;
             Option<double?> goldLaneCreepOrbsAvg = default;
             Option<double?> goldNeutralCreepAvg = default;
             Option<double?> goldNeutralCreepOrbsAvg = default;
             Option<double?> goldPlayerAvg = default;
             Option<double?> goldPlayerOrbsAvg = default;
+            Option<double?> goldTeamBonusAvg = default;
             Option<double?> goldTreasureAvg = default;
             Option<double?> killsAvg = default;
             Option<double?> killsStd = default;
@@ -371,17 +448,35 @@ namespace DeadlockApiClient.Model
                         case "game_time":
                             gameTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "gold_ability_assassinate_avg":
+                            goldAbilityAssassinateAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "gold_assists_avg":
+                            goldAssistsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "gold_boss_avg":
                             goldBossAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "gold_boss_orb_avg":
                             goldBossOrbAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "gold_breakable_avg":
+                            goldBreakableAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "gold_death_loss_avg":
                             goldDeathLossAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "gold_denied_avg":
                             goldDeniedAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "gold_item_cultist_sacrifice_avg":
+                            goldItemCultistSacrificeAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "gold_item_goose_egg_avg":
+                            goldItemGooseEggAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "gold_item_trophy_collector_avg":
+                            goldItemTrophyCollectorAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "gold_lane_creep_avg":
                             goldLaneCreepAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -400,6 +495,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "gold_player_orbs_avg":
                             goldPlayerOrbsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "gold_team_bonus_avg":
+                            goldTeamBonusAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "gold_treasure_avg":
                             goldTreasureAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
@@ -440,17 +538,35 @@ namespace DeadlockApiClient.Model
             if (!gameTime.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(gameTime));
 
+            if (!goldAbilityAssassinateAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAbilityAssassinateAvg));
+
+            if (!goldAssistsAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAssistsAvg));
+
             if (!goldBossAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossAvg));
 
             if (!goldBossOrbAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossOrbAvg));
 
+            if (!goldBreakableAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBreakableAvg));
+
             if (!goldDeathLossAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeathLossAvg));
 
             if (!goldDeniedAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeniedAvg));
+
+            if (!goldItemCultistSacrificeAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemCultistSacrificeAvg));
+
+            if (!goldItemGooseEggAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemGooseEggAvg));
+
+            if (!goldItemTrophyCollectorAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemTrophyCollectorAvg));
 
             if (!goldLaneCreepAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldLaneCreepAvg));
@@ -469,6 +585,9 @@ namespace DeadlockApiClient.Model
 
             if (!goldPlayerOrbsAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldPlayerOrbsAvg));
+
+            if (!goldTeamBonusAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTeamBonusAvg));
 
             if (!goldTreasureAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTreasureAvg));
@@ -500,17 +619,35 @@ namespace DeadlockApiClient.Model
             if (gameTime.IsSet && gameTime.Value == null)
                 throw new ArgumentNullException(nameof(gameTime), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
+            if (goldAbilityAssassinateAvg.IsSet && goldAbilityAssassinateAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldAbilityAssassinateAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (goldAssistsAvg.IsSet && goldAssistsAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldAssistsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
             if (goldBossAvg.IsSet && goldBossAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldBossAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (goldBossOrbAvg.IsSet && goldBossOrbAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldBossOrbAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
+            if (goldBreakableAvg.IsSet && goldBreakableAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldBreakableAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
             if (goldDeathLossAvg.IsSet && goldDeathLossAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldDeathLossAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (goldDeniedAvg.IsSet && goldDeniedAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldDeniedAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (goldItemCultistSacrificeAvg.IsSet && goldItemCultistSacrificeAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldItemCultistSacrificeAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (goldItemGooseEggAvg.IsSet && goldItemGooseEggAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldItemGooseEggAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (goldItemTrophyCollectorAvg.IsSet && goldItemTrophyCollectorAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldItemTrophyCollectorAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (goldLaneCreepAvg.IsSet && goldLaneCreepAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldLaneCreepAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
@@ -530,6 +667,9 @@ namespace DeadlockApiClient.Model
             if (goldPlayerOrbsAvg.IsSet && goldPlayerOrbsAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldPlayerOrbsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
+            if (goldTeamBonusAvg.IsSet && goldTeamBonusAvg.Value == null)
+                throw new ArgumentNullException(nameof(goldTeamBonusAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
             if (goldTreasureAvg.IsSet && goldTreasureAvg.Value == null)
                 throw new ArgumentNullException(nameof(goldTreasureAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
@@ -545,7 +685,7 @@ namespace DeadlockApiClient.Model
             if (netWorthStd.IsSet && netWorthStd.Value == null)
                 throw new ArgumentNullException(nameof(netWorthStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
-            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, gameTime.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeniedAvg.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldTreasureAvg.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, permanentBuffsAvg);
+            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, gameTime.Value!.Value!, goldAbilityAssassinateAvg.Value!.Value!, goldAssistsAvg.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldBreakableAvg.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeniedAvg.Value!.Value!, goldItemCultistSacrificeAvg.Value!.Value!, goldItemGooseEggAvg.Value!.Value!, goldItemTrophyCollectorAvg.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldTeamBonusAvg.Value!.Value!, goldTreasureAvg.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, permanentBuffsAvg);
         }
 
         /// <summary>
@@ -582,13 +722,25 @@ namespace DeadlockApiClient.Model
 
             writer.WriteNumber("game_time", playerPerformanceCurvePoint.GameTime);
 
+            writer.WriteNumber("gold_ability_assassinate_avg", playerPerformanceCurvePoint.GoldAbilityAssassinateAvg);
+
+            writer.WriteNumber("gold_assists_avg", playerPerformanceCurvePoint.GoldAssistsAvg);
+
             writer.WriteNumber("gold_boss_avg", playerPerformanceCurvePoint.GoldBossAvg);
 
             writer.WriteNumber("gold_boss_orb_avg", playerPerformanceCurvePoint.GoldBossOrbAvg);
 
+            writer.WriteNumber("gold_breakable_avg", playerPerformanceCurvePoint.GoldBreakableAvg);
+
             writer.WriteNumber("gold_death_loss_avg", playerPerformanceCurvePoint.GoldDeathLossAvg);
 
             writer.WriteNumber("gold_denied_avg", playerPerformanceCurvePoint.GoldDeniedAvg);
+
+            writer.WriteNumber("gold_item_cultist_sacrifice_avg", playerPerformanceCurvePoint.GoldItemCultistSacrificeAvg);
+
+            writer.WriteNumber("gold_item_goose_egg_avg", playerPerformanceCurvePoint.GoldItemGooseEggAvg);
+
+            writer.WriteNumber("gold_item_trophy_collector_avg", playerPerformanceCurvePoint.GoldItemTrophyCollectorAvg);
 
             writer.WriteNumber("gold_lane_creep_avg", playerPerformanceCurvePoint.GoldLaneCreepAvg);
 
@@ -601,6 +753,8 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("gold_player_avg", playerPerformanceCurvePoint.GoldPlayerAvg);
 
             writer.WriteNumber("gold_player_orbs_avg", playerPerformanceCurvePoint.GoldPlayerOrbsAvg);
+
+            writer.WriteNumber("gold_team_bonus_avg", playerPerformanceCurvePoint.GoldTeamBonusAvg);
 
             writer.WriteNumber("gold_treasure_avg", playerPerformanceCurvePoint.GoldTreasureAvg);
 

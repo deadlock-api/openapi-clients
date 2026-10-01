@@ -9,16 +9,23 @@ Name | Type | Description | Notes
 **DeathsAvg** | **float64** | Average deaths at this time point | 
 **DeathsStd** | **float64** | Standard deviation of deaths at this time point | 
 **GameTime** | **int32** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**GoldAbilityAssassinateAvg** | **float64** | Average souls earned from the Assassinate ability at this time point | 
+**GoldAssistsAvg** | **float64** | Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;) | 
 **GoldBossAvg** | **float64** | Average souls earned from objectives at this time point | 
 **GoldBossOrbAvg** | **float64** | Average souls earned from secured objective orbs at this time point | 
+**GoldBreakableAvg** | **float64** | Average souls earned from breakables (crates, statues) at this time point | 
 **GoldDeathLossAvg** | **float64** | Average souls lost on death at this time point | 
 **GoldDeniedAvg** | **float64** | Average souls denied to enemies at this time point | 
+**GoldItemCultistSacrificeAvg** | **float64** | Average souls earned from the Cultist Sacrifice item at this time point | 
+**GoldItemGooseEggAvg** | **float64** | Average souls earned from the Golden Goose Egg item at this time point | 
+**GoldItemTrophyCollectorAvg** | **float64** | Average souls earned from the Trophy Collector item at this time point | 
 **GoldLaneCreepAvg** | **float64** | Average souls earned from lane creeps at this time point | 
 **GoldLaneCreepOrbsAvg** | **float64** | Average souls earned from secured lane-creep orbs at this time point | 
 **GoldNeutralCreepAvg** | **float64** | Average souls earned from neutral (jungle) creeps at this time point | 
 **GoldNeutralCreepOrbsAvg** | **float64** | Average souls earned from secured neutral-creep orbs at this time point | 
-**GoldPlayerAvg** | **float64** | Average souls earned from hero kills at this time point | 
+**GoldPlayerAvg** | **float64** | Average souls earned from hero kills at this time point, including assist souls (see &#x60;gold_assists_avg&#x60;) | 
 **GoldPlayerOrbsAvg** | **float64** | Average souls earned from secured hero-kill orbs at this time point | 
+**GoldTeamBonusAvg** | **float64** | Average souls earned from the team bonus at this time point | 
 **GoldTreasureAvg** | **float64** | Average souls earned from the urn at this time point | 
 **KillsAvg** | **float64** | Average kills at this time point | 
 **KillsStd** | **float64** | Standard deviation of kills at this time point | 
@@ -30,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewPlayerPerformanceCurvePoint
 
-`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, goldBossAvg float64, goldBossOrbAvg float64, goldDeathLossAvg float64, goldDeniedAvg float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldTreasureAvg float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, ) *PlayerPerformanceCurvePoint`
+`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAssistsAvg float64, goldBossAvg float64, goldBossOrbAvg float64, goldBreakableAvg float64, goldDeathLossAvg float64, goldDeniedAvg float64, goldItemCultistSacrificeAvg float64, goldItemGooseEggAvg float64, goldItemTrophyCollectorAvg float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldTeamBonusAvg float64, goldTreasureAvg float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, ) *PlayerPerformanceCurvePoint`
 
 NewPlayerPerformanceCurvePoint instantiates a new PlayerPerformanceCurvePoint object
 This constructor will assign default values to properties that have it defined,
@@ -145,6 +152,46 @@ and a boolean to check if the value has been set.
 SetGameTime sets GameTime field to given value.
 
 
+### GetGoldAbilityAssassinateAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldAbilityAssassinateAvg() float64`
+
+GetGoldAbilityAssassinateAvg returns the GoldAbilityAssassinateAvg field if non-nil, zero value otherwise.
+
+### GetGoldAbilityAssassinateAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldAbilityAssassinateAvgOk() (*float64, bool)`
+
+GetGoldAbilityAssassinateAvgOk returns a tuple with the GoldAbilityAssassinateAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldAbilityAssassinateAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldAbilityAssassinateAvg(v float64)`
+
+SetGoldAbilityAssassinateAvg sets GoldAbilityAssassinateAvg field to given value.
+
+
+### GetGoldAssistsAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldAssistsAvg() float64`
+
+GetGoldAssistsAvg returns the GoldAssistsAvg field if non-nil, zero value otherwise.
+
+### GetGoldAssistsAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldAssistsAvgOk() (*float64, bool)`
+
+GetGoldAssistsAvgOk returns a tuple with the GoldAssistsAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldAssistsAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldAssistsAvg(v float64)`
+
+SetGoldAssistsAvg sets GoldAssistsAvg field to given value.
+
+
 ### GetGoldBossAvg
 
 `func (o *PlayerPerformanceCurvePoint) GetGoldBossAvg() float64`
@@ -185,6 +232,26 @@ and a boolean to check if the value has been set.
 SetGoldBossOrbAvg sets GoldBossOrbAvg field to given value.
 
 
+### GetGoldBreakableAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldBreakableAvg() float64`
+
+GetGoldBreakableAvg returns the GoldBreakableAvg field if non-nil, zero value otherwise.
+
+### GetGoldBreakableAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldBreakableAvgOk() (*float64, bool)`
+
+GetGoldBreakableAvgOk returns a tuple with the GoldBreakableAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldBreakableAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldBreakableAvg(v float64)`
+
+SetGoldBreakableAvg sets GoldBreakableAvg field to given value.
+
+
 ### GetGoldDeathLossAvg
 
 `func (o *PlayerPerformanceCurvePoint) GetGoldDeathLossAvg() float64`
@@ -223,6 +290,66 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetGoldDeniedAvg(v float64)`
 
 SetGoldDeniedAvg sets GoldDeniedAvg field to given value.
+
+
+### GetGoldItemCultistSacrificeAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemCultistSacrificeAvg() float64`
+
+GetGoldItemCultistSacrificeAvg returns the GoldItemCultistSacrificeAvg field if non-nil, zero value otherwise.
+
+### GetGoldItemCultistSacrificeAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemCultistSacrificeAvgOk() (*float64, bool)`
+
+GetGoldItemCultistSacrificeAvgOk returns a tuple with the GoldItemCultistSacrificeAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldItemCultistSacrificeAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldItemCultistSacrificeAvg(v float64)`
+
+SetGoldItemCultistSacrificeAvg sets GoldItemCultistSacrificeAvg field to given value.
+
+
+### GetGoldItemGooseEggAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemGooseEggAvg() float64`
+
+GetGoldItemGooseEggAvg returns the GoldItemGooseEggAvg field if non-nil, zero value otherwise.
+
+### GetGoldItemGooseEggAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemGooseEggAvgOk() (*float64, bool)`
+
+GetGoldItemGooseEggAvgOk returns a tuple with the GoldItemGooseEggAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldItemGooseEggAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldItemGooseEggAvg(v float64)`
+
+SetGoldItemGooseEggAvg sets GoldItemGooseEggAvg field to given value.
+
+
+### GetGoldItemTrophyCollectorAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemTrophyCollectorAvg() float64`
+
+GetGoldItemTrophyCollectorAvg returns the GoldItemTrophyCollectorAvg field if non-nil, zero value otherwise.
+
+### GetGoldItemTrophyCollectorAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldItemTrophyCollectorAvgOk() (*float64, bool)`
+
+GetGoldItemTrophyCollectorAvgOk returns a tuple with the GoldItemTrophyCollectorAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldItemTrophyCollectorAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldItemTrophyCollectorAvg(v float64)`
+
+SetGoldItemTrophyCollectorAvg sets GoldItemTrophyCollectorAvg field to given value.
 
 
 ### GetGoldLaneCreepAvg
@@ -343,6 +470,26 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetGoldPlayerOrbsAvg(v float64)`
 
 SetGoldPlayerOrbsAvg sets GoldPlayerOrbsAvg field to given value.
+
+
+### GetGoldTeamBonusAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldTeamBonusAvg() float64`
+
+GetGoldTeamBonusAvg returns the GoldTeamBonusAvg field if non-nil, zero value otherwise.
+
+### GetGoldTeamBonusAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGoldTeamBonusAvgOk() (*float64, bool)`
+
+GetGoldTeamBonusAvgOk returns a tuple with the GoldTeamBonusAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGoldTeamBonusAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGoldTeamBonusAvg(v float64)`
+
+SetGoldTeamBonusAvg sets GoldTeamBonusAvg field to given value.
 
 
 ### GetGoldTreasureAvg

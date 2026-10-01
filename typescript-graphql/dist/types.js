@@ -1187,6 +1187,27 @@ export default {
             "max_gold_death_loss": [
                 33
             ],
+            "max_gold_assists": [
+                33
+            ],
+            "max_gold_team_bonus": [
+                33
+            ],
+            "max_gold_breakable": [
+                33
+            ],
+            "max_gold_ability_assassinate": [
+                33
+            ],
+            "max_gold_item_trophy_collector": [
+                33
+            ],
+            "max_gold_item_cultist_sacrifice": [
+                33
+            ],
+            "max_gold_item_goose_egg": [
+                33
+            ],
             "max_damage_mitigated": [
                 33
             ],
@@ -1923,6 +1944,162 @@ export default {
             ],
             "custom_user_stats": [
                 38
+            ],
+            "gold_source_players_kills": [
+                33
+            ],
+            "gold_source_players_damage": [
+                33
+            ],
+            "gold_source_players_gold": [
+                33
+            ],
+            "gold_source_players_gold_orbs": [
+                33
+            ],
+            "gold_source_lane_creeps_kills": [
+                33
+            ],
+            "gold_source_lane_creeps_damage": [
+                33
+            ],
+            "gold_source_lane_creeps_gold": [
+                33
+            ],
+            "gold_source_lane_creeps_gold_orbs": [
+                33
+            ],
+            "gold_source_neutrals_kills": [
+                33
+            ],
+            "gold_source_neutrals_damage": [
+                33
+            ],
+            "gold_source_neutrals_gold": [
+                33
+            ],
+            "gold_source_neutrals_gold_orbs": [
+                33
+            ],
+            "gold_source_bosses_kills": [
+                33
+            ],
+            "gold_source_bosses_damage": [
+                33
+            ],
+            "gold_source_bosses_gold": [
+                33
+            ],
+            "gold_source_bosses_gold_orbs": [
+                33
+            ],
+            "gold_source_treasure_kills": [
+                33
+            ],
+            "gold_source_treasure_damage": [
+                33
+            ],
+            "gold_source_treasure_gold": [
+                33
+            ],
+            "gold_source_treasure_gold_orbs": [
+                33
+            ],
+            "gold_source_assists_kills": [
+                33
+            ],
+            "gold_source_assists_damage": [
+                33
+            ],
+            "gold_source_assists_gold": [
+                33
+            ],
+            "gold_source_assists_gold_orbs": [
+                33
+            ],
+            "gold_source_denies_kills": [
+                33
+            ],
+            "gold_source_denies_damage": [
+                33
+            ],
+            "gold_source_denies_gold": [
+                33
+            ],
+            "gold_source_denies_gold_orbs": [
+                33
+            ],
+            "gold_source_team_bonus_kills": [
+                33
+            ],
+            "gold_source_team_bonus_damage": [
+                33
+            ],
+            "gold_source_team_bonus_gold": [
+                33
+            ],
+            "gold_source_team_bonus_gold_orbs": [
+                33
+            ],
+            "gold_source_ability_assassinate_kills": [
+                33
+            ],
+            "gold_source_ability_assassinate_damage": [
+                33
+            ],
+            "gold_source_ability_assassinate_gold": [
+                33
+            ],
+            "gold_source_ability_assassinate_gold_orbs": [
+                33
+            ],
+            "gold_source_item_trophy_collector_kills": [
+                33
+            ],
+            "gold_source_item_trophy_collector_damage": [
+                33
+            ],
+            "gold_source_item_trophy_collector_gold": [
+                33
+            ],
+            "gold_source_item_trophy_collector_gold_orbs": [
+                33
+            ],
+            "gold_source_item_cultist_sacrifice_kills": [
+                33
+            ],
+            "gold_source_item_cultist_sacrifice_damage": [
+                33
+            ],
+            "gold_source_item_cultist_sacrifice_gold": [
+                33
+            ],
+            "gold_source_item_cultist_sacrifice_gold_orbs": [
+                33
+            ],
+            "gold_source_breakable_kills": [
+                33
+            ],
+            "gold_source_breakable_damage": [
+                33
+            ],
+            "gold_source_breakable_gold": [
+                33
+            ],
+            "gold_source_breakable_gold_orbs": [
+                33
+            ],
+            "gold_source_item_goose_egg_kills": [
+                33
+            ],
+            "gold_source_item_goose_egg_damage": [
+                33
+            ],
+            "gold_source_item_goose_egg_gold": [
+                33
+            ],
+            "gold_source_item_goose_egg_gold_orbs": [
+                33
             ],
             "__typename": [
                 63

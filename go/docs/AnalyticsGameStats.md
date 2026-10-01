@@ -20,16 +20,23 @@ Name | Type | Description | Notes
 **AvgFirstMidBossTimeS** | **float64** |  | 
 **AvgFirstObjectiveDestroyedTimeS** | **float64** |  | 
 **AvgFirstPermanentBuffTimeS** | Pointer to **NullableFloat64** | Average game time (seconds) of a player&#39;s first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; &#x60;null&#x60; when the bucket has none. | [optional] 
+**AvgGoldAbilityAssassinate** | **float64** | Average souls per player per match from the Assassinate ability | 
+**AvgGoldAssists** | **float64** | Average souls per player per match from assists (part of the hero kill souls) | 
 **AvgGoldBoss** | **float64** |  | 
 **AvgGoldBossOrb** | **float64** |  | 
+**AvgGoldBreakable** | **float64** | Average souls per player per match from breakables (crates, statues) | 
 **AvgGoldDeathLoss** | **float64** |  | 
 **AvgGoldDenied** | **float64** |  | 
+**AvgGoldItemCultistSacrifice** | **float64** | Average souls per player per match from the Cultist Sacrifice item | 
+**AvgGoldItemGooseEgg** | **float64** | Average souls per player per match from the Golden Goose Egg item | 
+**AvgGoldItemTrophyCollector** | **float64** | Average souls per player per match from the Trophy Collector item | 
 **AvgGoldLaneCreep** | **float64** |  | 
 **AvgGoldLaneCreepOrbs** | **float64** |  | 
 **AvgGoldNeutralCreep** | **float64** |  | 
 **AvgGoldNeutralCreepOrbs** | **float64** |  | 
 **AvgGoldPlayer** | **float64** |  | 
 **AvgGoldPlayerOrbs** | **float64** |  | 
+**AvgGoldTeamBonus** | **float64** | Average souls per player per match from the team bonus | 
 **AvgGoldTreasure** | **float64** |  | 
 **AvgHealPrevented** | **float64** |  | 
 **AvgKdRatio** | **float64** |  | 
@@ -59,7 +66,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsGameStats
 
-`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64, ) *AnalyticsGameStats`
+`func NewAnalyticsGameStats(abandonRate float64, avgAccuracy float64, avgAssists float64, avgBossDamage float64, avgCreepDamage float64, avgCreepKills float64, avgCritRate float64, avgDamageAbsorbed float64, avgDamageMitigated float64, avgDeaths float64, avgDenies float64, avgDurationS float64, avgEndingLevel float64, avgFirstMidBossTimeS float64, avgFirstObjectiveDestroyedTimeS float64, avgGoldAbilityAssassinate float64, avgGoldAssists float64, avgGoldBoss float64, avgGoldBossOrb float64, avgGoldBreakable float64, avgGoldDeathLoss float64, avgGoldDenied float64, avgGoldItemCultistSacrifice float64, avgGoldItemGooseEgg float64, avgGoldItemTrophyCollector float64, avgGoldLaneCreep float64, avgGoldLaneCreepOrbs float64, avgGoldNeutralCreep float64, avgGoldNeutralCreepOrbs float64, avgGoldPlayer float64, avgGoldPlayerOrbs float64, avgGoldTeamBonus float64, avgGoldTreasure float64, avgHealPrevented float64, avgKdRatio float64, avgKills float64, avgLastHits float64, avgMaxHealth float64, avgNetWorth float64, avgNeutralDamage float64, avgNeutralKills float64, avgPermanentBuffs float64, avgPermanentBuffsPerMin float64, avgPlayerDamage float64, avgPlayerDamageTaken float64, avgPlayerHealing float64, avgPossibleCreeps float64, avgSelfHealing float64, avgTechPower float64, avgWeaponPower float64, bucket int32, midBossKillRate float64, team0Wins int64, team1Wins int64, totalMatches int64, totalPlayers int64, ) *AnalyticsGameStats`
 
 NewAnalyticsGameStats instantiates a new AnalyticsGameStats object
 This constructor will assign default values to properties that have it defined,
@@ -409,6 +416,46 @@ HasAvgFirstPermanentBuffTimeS returns a boolean if a field has been set.
 `func (o *AnalyticsGameStats) UnsetAvgFirstPermanentBuffTimeS()`
 
 UnsetAvgFirstPermanentBuffTimeS ensures that no value is present for AvgFirstPermanentBuffTimeS, not even an explicit nil
+### GetAvgGoldAbilityAssassinate
+
+`func (o *AnalyticsGameStats) GetAvgGoldAbilityAssassinate() float64`
+
+GetAvgGoldAbilityAssassinate returns the AvgGoldAbilityAssassinate field if non-nil, zero value otherwise.
+
+### GetAvgGoldAbilityAssassinateOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldAbilityAssassinateOk() (*float64, bool)`
+
+GetAvgGoldAbilityAssassinateOk returns a tuple with the AvgGoldAbilityAssassinate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldAbilityAssassinate
+
+`func (o *AnalyticsGameStats) SetAvgGoldAbilityAssassinate(v float64)`
+
+SetAvgGoldAbilityAssassinate sets AvgGoldAbilityAssassinate field to given value.
+
+
+### GetAvgGoldAssists
+
+`func (o *AnalyticsGameStats) GetAvgGoldAssists() float64`
+
+GetAvgGoldAssists returns the AvgGoldAssists field if non-nil, zero value otherwise.
+
+### GetAvgGoldAssistsOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldAssistsOk() (*float64, bool)`
+
+GetAvgGoldAssistsOk returns a tuple with the AvgGoldAssists field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldAssists
+
+`func (o *AnalyticsGameStats) SetAvgGoldAssists(v float64)`
+
+SetAvgGoldAssists sets AvgGoldAssists field to given value.
+
+
 ### GetAvgGoldBoss
 
 `func (o *AnalyticsGameStats) GetAvgGoldBoss() float64`
@@ -449,6 +496,26 @@ and a boolean to check if the value has been set.
 SetAvgGoldBossOrb sets AvgGoldBossOrb field to given value.
 
 
+### GetAvgGoldBreakable
+
+`func (o *AnalyticsGameStats) GetAvgGoldBreakable() float64`
+
+GetAvgGoldBreakable returns the AvgGoldBreakable field if non-nil, zero value otherwise.
+
+### GetAvgGoldBreakableOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldBreakableOk() (*float64, bool)`
+
+GetAvgGoldBreakableOk returns a tuple with the AvgGoldBreakable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldBreakable
+
+`func (o *AnalyticsGameStats) SetAvgGoldBreakable(v float64)`
+
+SetAvgGoldBreakable sets AvgGoldBreakable field to given value.
+
+
 ### GetAvgGoldDeathLoss
 
 `func (o *AnalyticsGameStats) GetAvgGoldDeathLoss() float64`
@@ -487,6 +554,66 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgGoldDenied(v float64)`
 
 SetAvgGoldDenied sets AvgGoldDenied field to given value.
+
+
+### GetAvgGoldItemCultistSacrifice
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemCultistSacrifice() float64`
+
+GetAvgGoldItemCultistSacrifice returns the AvgGoldItemCultistSacrifice field if non-nil, zero value otherwise.
+
+### GetAvgGoldItemCultistSacrificeOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemCultistSacrificeOk() (*float64, bool)`
+
+GetAvgGoldItemCultistSacrificeOk returns a tuple with the AvgGoldItemCultistSacrifice field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldItemCultistSacrifice
+
+`func (o *AnalyticsGameStats) SetAvgGoldItemCultistSacrifice(v float64)`
+
+SetAvgGoldItemCultistSacrifice sets AvgGoldItemCultistSacrifice field to given value.
+
+
+### GetAvgGoldItemGooseEgg
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemGooseEgg() float64`
+
+GetAvgGoldItemGooseEgg returns the AvgGoldItemGooseEgg field if non-nil, zero value otherwise.
+
+### GetAvgGoldItemGooseEggOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemGooseEggOk() (*float64, bool)`
+
+GetAvgGoldItemGooseEggOk returns a tuple with the AvgGoldItemGooseEgg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldItemGooseEgg
+
+`func (o *AnalyticsGameStats) SetAvgGoldItemGooseEgg(v float64)`
+
+SetAvgGoldItemGooseEgg sets AvgGoldItemGooseEgg field to given value.
+
+
+### GetAvgGoldItemTrophyCollector
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemTrophyCollector() float64`
+
+GetAvgGoldItemTrophyCollector returns the AvgGoldItemTrophyCollector field if non-nil, zero value otherwise.
+
+### GetAvgGoldItemTrophyCollectorOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldItemTrophyCollectorOk() (*float64, bool)`
+
+GetAvgGoldItemTrophyCollectorOk returns a tuple with the AvgGoldItemTrophyCollector field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldItemTrophyCollector
+
+`func (o *AnalyticsGameStats) SetAvgGoldItemTrophyCollector(v float64)`
+
+SetAvgGoldItemTrophyCollector sets AvgGoldItemTrophyCollector field to given value.
 
 
 ### GetAvgGoldLaneCreep
@@ -607,6 +734,26 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsGameStats) SetAvgGoldPlayerOrbs(v float64)`
 
 SetAvgGoldPlayerOrbs sets AvgGoldPlayerOrbs field to given value.
+
+
+### GetAvgGoldTeamBonus
+
+`func (o *AnalyticsGameStats) GetAvgGoldTeamBonus() float64`
+
+GetAvgGoldTeamBonus returns the AvgGoldTeamBonus field if non-nil, zero value otherwise.
+
+### GetAvgGoldTeamBonusOk
+
+`func (o *AnalyticsGameStats) GetAvgGoldTeamBonusOk() (*float64, bool)`
+
+GetAvgGoldTeamBonusOk returns a tuple with the AvgGoldTeamBonus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgGoldTeamBonus
+
+`func (o *AnalyticsGameStats) SetAvgGoldTeamBonus(v float64)`
+
+SetAvgGoldTeamBonus sets AvgGoldTeamBonus field to given value.
 
 
 ### GetAvgGoldTreasure

@@ -44,16 +44,23 @@ class AnalyticsGameStats(BaseModel):
     avg_first_mid_boss_time_s: Union[StrictFloat, StrictInt]
     avg_first_objective_destroyed_time_s: Union[StrictFloat, StrictInt]
     avg_first_permanent_buff_time_s: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.")
+    avg_gold_ability_assassinate: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from the Assassinate ability")
+    avg_gold_assists: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from assists (part of the hero kill souls)")
     avg_gold_boss: Union[StrictFloat, StrictInt]
     avg_gold_boss_orb: Union[StrictFloat, StrictInt]
+    avg_gold_breakable: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from breakables (crates, statues)")
     avg_gold_death_loss: Union[StrictFloat, StrictInt]
     avg_gold_denied: Union[StrictFloat, StrictInt]
+    avg_gold_item_cultist_sacrifice: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from the Cultist Sacrifice item")
+    avg_gold_item_goose_egg: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from the Golden Goose Egg item")
+    avg_gold_item_trophy_collector: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from the Trophy Collector item")
     avg_gold_lane_creep: Union[StrictFloat, StrictInt]
     avg_gold_lane_creep_orbs: Union[StrictFloat, StrictInt]
     avg_gold_neutral_creep: Union[StrictFloat, StrictInt]
     avg_gold_neutral_creep_orbs: Union[StrictFloat, StrictInt]
     avg_gold_player: Union[StrictFloat, StrictInt]
     avg_gold_player_orbs: Union[StrictFloat, StrictInt]
+    avg_gold_team_bonus: Union[StrictFloat, StrictInt] = Field(description="Average souls per player per match from the team bonus")
     avg_gold_treasure: Union[StrictFloat, StrictInt]
     avg_heal_prevented: Union[StrictFloat, StrictInt]
     avg_kd_ratio: Union[StrictFloat, StrictInt]
@@ -78,7 +85,7 @@ class AnalyticsGameStats(BaseModel):
     team1_wins: Annotated[int, Field(strict=True, ge=0)]
     total_matches: Annotated[int, Field(strict=True, ge=0)]
     total_players: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_first_objective_destroyed_time_s", "avg_first_permanent_buff_time_s", "avg_gold_boss", "avg_gold_boss_orb", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_lane_creep", "avg_gold_lane_creep_orbs", "avg_gold_neutral_creep", "avg_gold_neutral_creep_orbs", "avg_gold_player", "avg_gold_player_orbs", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_permanent_buffs", "avg_permanent_buffs_per_min", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches", "total_players"]
+    __properties: ClassVar[List[str]] = ["abandon_rate", "avg_accuracy", "avg_assists", "avg_boss_damage", "avg_creep_damage", "avg_creep_kills", "avg_crit_rate", "avg_damage_absorbed", "avg_damage_mitigated", "avg_deaths", "avg_denies", "avg_duration_s", "avg_ending_level", "avg_first_mid_boss_time_s", "avg_first_objective_destroyed_time_s", "avg_first_permanent_buff_time_s", "avg_gold_ability_assassinate", "avg_gold_assists", "avg_gold_boss", "avg_gold_boss_orb", "avg_gold_breakable", "avg_gold_death_loss", "avg_gold_denied", "avg_gold_item_cultist_sacrifice", "avg_gold_item_goose_egg", "avg_gold_item_trophy_collector", "avg_gold_lane_creep", "avg_gold_lane_creep_orbs", "avg_gold_neutral_creep", "avg_gold_neutral_creep_orbs", "avg_gold_player", "avg_gold_player_orbs", "avg_gold_team_bonus", "avg_gold_treasure", "avg_heal_prevented", "avg_kd_ratio", "avg_kills", "avg_last_hits", "avg_max_health", "avg_net_worth", "avg_neutral_damage", "avg_neutral_kills", "avg_permanent_buffs", "avg_permanent_buffs_per_min", "avg_player_damage", "avg_player_damage_taken", "avg_player_healing", "avg_possible_creeps", "avg_self_healing", "avg_tech_power", "avg_weapon_power", "bucket", "mid_boss_kill_rate", "team0_wins", "team1_wins", "total_matches", "total_players"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -152,16 +159,23 @@ class AnalyticsGameStats(BaseModel):
             "avg_first_mid_boss_time_s": obj.get("avg_first_mid_boss_time_s"),
             "avg_first_objective_destroyed_time_s": obj.get("avg_first_objective_destroyed_time_s"),
             "avg_first_permanent_buff_time_s": obj.get("avg_first_permanent_buff_time_s"),
+            "avg_gold_ability_assassinate": obj.get("avg_gold_ability_assassinate"),
+            "avg_gold_assists": obj.get("avg_gold_assists"),
             "avg_gold_boss": obj.get("avg_gold_boss"),
             "avg_gold_boss_orb": obj.get("avg_gold_boss_orb"),
+            "avg_gold_breakable": obj.get("avg_gold_breakable"),
             "avg_gold_death_loss": obj.get("avg_gold_death_loss"),
             "avg_gold_denied": obj.get("avg_gold_denied"),
+            "avg_gold_item_cultist_sacrifice": obj.get("avg_gold_item_cultist_sacrifice"),
+            "avg_gold_item_goose_egg": obj.get("avg_gold_item_goose_egg"),
+            "avg_gold_item_trophy_collector": obj.get("avg_gold_item_trophy_collector"),
             "avg_gold_lane_creep": obj.get("avg_gold_lane_creep"),
             "avg_gold_lane_creep_orbs": obj.get("avg_gold_lane_creep_orbs"),
             "avg_gold_neutral_creep": obj.get("avg_gold_neutral_creep"),
             "avg_gold_neutral_creep_orbs": obj.get("avg_gold_neutral_creep_orbs"),
             "avg_gold_player": obj.get("avg_gold_player"),
             "avg_gold_player_orbs": obj.get("avg_gold_player_orbs"),
+            "avg_gold_team_bonus": obj.get("avg_gold_team_bonus"),
             "avg_gold_treasure": obj.get("avg_gold_treasure"),
             "avg_heal_prevented": obj.get("avg_heal_prevented"),
             "avg_kd_ratio": obj.get("avg_kd_ratio"),

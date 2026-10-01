@@ -46,16 +46,23 @@ import java.io.Serializable
  * @param avgEndingLevel 
  * @param avgFirstMidBossTimeS 
  * @param avgFirstObjectiveDestroyedTimeS 
+ * @param avgGoldAbilityAssassinate Average souls per player per match from the Assassinate ability
+ * @param avgGoldAssists Average souls per player per match from assists (part of the hero kill souls)
  * @param avgGoldBoss 
  * @param avgGoldBossOrb 
+ * @param avgGoldBreakable Average souls per player per match from breakables (crates, statues)
  * @param avgGoldDeathLoss 
  * @param avgGoldDenied 
+ * @param avgGoldItemCultistSacrifice Average souls per player per match from the Cultist Sacrifice item
+ * @param avgGoldItemGooseEgg Average souls per player per match from the Golden Goose Egg item
+ * @param avgGoldItemTrophyCollector Average souls per player per match from the Trophy Collector item
  * @param avgGoldLaneCreep 
  * @param avgGoldLaneCreepOrbs 
  * @param avgGoldNeutralCreep 
  * @param avgGoldNeutralCreepOrbs 
  * @param avgGoldPlayer 
  * @param avgGoldPlayerOrbs 
+ * @param avgGoldTeamBonus Average souls per player per match from the team bonus
  * @param avgGoldTreasure 
  * @param avgHealPrevented 
  * @param avgKdRatio 
@@ -131,17 +138,41 @@ data class AnalyticsGameStats (
     @Json(name = "avg_first_objective_destroyed_time_s")
     val avgFirstObjectiveDestroyedTimeS: kotlin.Double,
 
+    /* Average souls per player per match from the Assassinate ability */
+    @Json(name = "avg_gold_ability_assassinate")
+    val avgGoldAbilityAssassinate: kotlin.Double,
+
+    /* Average souls per player per match from assists (part of the hero kill souls) */
+    @Json(name = "avg_gold_assists")
+    val avgGoldAssists: kotlin.Double,
+
     @Json(name = "avg_gold_boss")
     val avgGoldBoss: kotlin.Double,
 
     @Json(name = "avg_gold_boss_orb")
     val avgGoldBossOrb: kotlin.Double,
 
+    /* Average souls per player per match from breakables (crates, statues) */
+    @Json(name = "avg_gold_breakable")
+    val avgGoldBreakable: kotlin.Double,
+
     @Json(name = "avg_gold_death_loss")
     val avgGoldDeathLoss: kotlin.Double,
 
     @Json(name = "avg_gold_denied")
     val avgGoldDenied: kotlin.Double,
+
+    /* Average souls per player per match from the Cultist Sacrifice item */
+    @Json(name = "avg_gold_item_cultist_sacrifice")
+    val avgGoldItemCultistSacrifice: kotlin.Double,
+
+    /* Average souls per player per match from the Golden Goose Egg item */
+    @Json(name = "avg_gold_item_goose_egg")
+    val avgGoldItemGooseEgg: kotlin.Double,
+
+    /* Average souls per player per match from the Trophy Collector item */
+    @Json(name = "avg_gold_item_trophy_collector")
+    val avgGoldItemTrophyCollector: kotlin.Double,
 
     @Json(name = "avg_gold_lane_creep")
     val avgGoldLaneCreep: kotlin.Double,
@@ -160,6 +191,10 @@ data class AnalyticsGameStats (
 
     @Json(name = "avg_gold_player_orbs")
     val avgGoldPlayerOrbs: kotlin.Double,
+
+    /* Average souls per player per match from the team bonus */
+    @Json(name = "avg_gold_team_bonus")
+    val avgGoldTeamBonus: kotlin.Double,
 
     @Json(name = "avg_gold_treasure")
     val avgGoldTreasure: kotlin.Double,

@@ -123,6 +123,18 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgFirstObjectiveDestroyedTimeS shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldAbilityAssassinate` - Average souls per player per match from the Assassinate ability
+        should("test avgGoldAbilityAssassinate") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldAbilityAssassinate shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldAssists` - Average souls per player per match from assists (part of the hero kill souls)
+        should("test avgGoldAssists") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldAssists shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldBoss`
         should("test avgGoldBoss") {
             // uncomment below to test the property
@@ -135,6 +147,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
             //modelInstance.avgGoldBossOrb shouldBe ("TODO")
         }
 
+        // to test the property `avgGoldBreakable` - Average souls per player per match from breakables (crates, statues)
+        should("test avgGoldBreakable") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldBreakable shouldBe ("TODO")
+        }
+
         // to test the property `avgGoldDeathLoss`
         should("test avgGoldDeathLoss") {
             // uncomment below to test the property
@@ -145,6 +163,24 @@ class AnalyticsGameStatsTest : ShouldSpec() {
         should("test avgGoldDenied") {
             // uncomment below to test the property
             //modelInstance.avgGoldDenied shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldItemCultistSacrifice` - Average souls per player per match from the Cultist Sacrifice item
+        should("test avgGoldItemCultistSacrifice") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldItemCultistSacrifice shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldItemGooseEgg` - Average souls per player per match from the Golden Goose Egg item
+        should("test avgGoldItemGooseEgg") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldItemGooseEgg shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldItemTrophyCollector` - Average souls per player per match from the Trophy Collector item
+        should("test avgGoldItemTrophyCollector") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldItemTrophyCollector shouldBe ("TODO")
         }
 
         // to test the property `avgGoldLaneCreep`
@@ -181,6 +217,12 @@ class AnalyticsGameStatsTest : ShouldSpec() {
         should("test avgGoldPlayerOrbs") {
             // uncomment below to test the property
             //modelInstance.avgGoldPlayerOrbs shouldBe ("TODO")
+        }
+
+        // to test the property `avgGoldTeamBonus` - Average souls per player per match from the team bonus
+        should("test avgGoldTeamBonus") {
+            // uncomment below to test the property
+            //modelInstance.avgGoldTeamBonus shouldBe ("TODO")
         }
 
         // to test the property `avgGoldTreasure`

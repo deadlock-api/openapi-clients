@@ -662,6 +662,13 @@ type MatchPlayer {
   max_gold_treasure: Int
   max_gold_denied: Int
   max_gold_death_loss: Int
+  max_gold_assists: Int
+  max_gold_team_bonus: Int
+  max_gold_breakable: Int
+  max_gold_ability_assassinate: Int
+  max_gold_item_trophy_collector: Int
+  max_gold_item_cultist_sacrifice: Int
+  max_gold_item_goose_egg: Int
   max_damage_mitigated: Int
   max_absorption_provided: Int
   max_heal_prevented: Int
@@ -1102,6 +1109,58 @@ type Stat {
   ability_kills: Int
   headshot_kills: Int
   custom_user_stats: JsonScalar
+  gold_source_players_kills: Int
+  gold_source_players_damage: Int
+  gold_source_players_gold: Int
+  gold_source_players_gold_orbs: Int
+  gold_source_lane_creeps_kills: Int
+  gold_source_lane_creeps_damage: Int
+  gold_source_lane_creeps_gold: Int
+  gold_source_lane_creeps_gold_orbs: Int
+  gold_source_neutrals_kills: Int
+  gold_source_neutrals_damage: Int
+  gold_source_neutrals_gold: Int
+  gold_source_neutrals_gold_orbs: Int
+  gold_source_bosses_kills: Int
+  gold_source_bosses_damage: Int
+  gold_source_bosses_gold: Int
+  gold_source_bosses_gold_orbs: Int
+  gold_source_treasure_kills: Int
+  gold_source_treasure_damage: Int
+  gold_source_treasure_gold: Int
+  gold_source_treasure_gold_orbs: Int
+  gold_source_assists_kills: Int
+  gold_source_assists_damage: Int
+  gold_source_assists_gold: Int
+  gold_source_assists_gold_orbs: Int
+  gold_source_denies_kills: Int
+  gold_source_denies_damage: Int
+  gold_source_denies_gold: Int
+  gold_source_denies_gold_orbs: Int
+  gold_source_team_bonus_kills: Int
+  gold_source_team_bonus_damage: Int
+  gold_source_team_bonus_gold: Int
+  gold_source_team_bonus_gold_orbs: Int
+  gold_source_ability_assassinate_kills: Int
+  gold_source_ability_assassinate_damage: Int
+  gold_source_ability_assassinate_gold: Int
+  gold_source_ability_assassinate_gold_orbs: Int
+  gold_source_item_trophy_collector_kills: Int
+  gold_source_item_trophy_collector_damage: Int
+  gold_source_item_trophy_collector_gold: Int
+  gold_source_item_trophy_collector_gold_orbs: Int
+  gold_source_item_cultist_sacrifice_kills: Int
+  gold_source_item_cultist_sacrifice_damage: Int
+  gold_source_item_cultist_sacrifice_gold: Int
+  gold_source_item_cultist_sacrifice_gold_orbs: Int
+  gold_source_breakable_kills: Int
+  gold_source_breakable_damage: Int
+  gold_source_breakable_gold: Int
+  gold_source_breakable_gold_orbs: Int
+  gold_source_item_goose_egg_kills: Int
+  gold_source_item_goose_egg_damage: Int
+  gold_source_item_goose_egg_gold: Int
+  gold_source_item_goose_egg_gold_orbs: Int
 }
 
 type StatsDisplay {
