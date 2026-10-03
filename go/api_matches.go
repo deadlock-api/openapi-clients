@@ -558,7 +558,7 @@ When player info is included, each player object contains `hero_build_id` and `p
 | ---- | ----- |
 | IP | 30req/min |
 | Key | 30req/10s |
-| Global | 300req/min |
+| Global | 600req/min |
     
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
