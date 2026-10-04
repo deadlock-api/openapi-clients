@@ -45,6 +45,54 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.assistsStd shouldBe ("TODO")
         }
 
+        // to test the property `bossDamageAvg` - Average damage dealt to objectives at this time point
+        should("test bossDamageAvg") {
+            // uncomment below to test the property
+            //modelInstance.bossDamageAvg shouldBe ("TODO")
+        }
+
+        // to test the property `bossDamageStd` - Standard deviation of `boss_damage_avg` at this time point
+        should("test bossDamageStd") {
+            // uncomment below to test the property
+            //modelInstance.bossDamageStd shouldBe ("TODO")
+        }
+
+        // to test the property `bossKillsAvg` - Average objectives killed (last hits) at this time point
+        should("test bossKillsAvg") {
+            // uncomment below to test the property
+            //modelInstance.bossKillsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `bossKillsStd` - Standard deviation of `boss_kills_avg` at this time point
+        should("test bossKillsStd") {
+            // uncomment below to test the property
+            //modelInstance.bossKillsStd shouldBe ("TODO")
+        }
+
+        // to test the property `creepDamageAvg` - Average damage dealt to lane creeps at this time point
+        should("test creepDamageAvg") {
+            // uncomment below to test the property
+            //modelInstance.creepDamageAvg shouldBe ("TODO")
+        }
+
+        // to test the property `creepDamageStd` - Standard deviation of `creep_damage_avg` at this time point
+        should("test creepDamageStd") {
+            // uncomment below to test the property
+            //modelInstance.creepDamageStd shouldBe ("TODO")
+        }
+
+        // to test the property `creepKillsAvg` - Average lane creeps killed (last hits) at this time point
+        should("test creepKillsAvg") {
+            // uncomment below to test the property
+            //modelInstance.creepKillsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `creepKillsStd` - Standard deviation of `creep_kills_avg` at this time point
+        should("test creepKillsStd") {
+            // uncomment below to test the property
+            //modelInstance.creepKillsStd shouldBe ("TODO")
+        }
+
         // to test the property `deathsAvg` - Average deaths at this time point
         should("test deathsAvg") {
             // uncomment below to test the property
@@ -55,6 +103,18 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test deathsStd") {
             // uncomment below to test the property
             //modelInstance.deathsStd shouldBe ("TODO")
+        }
+
+        // to test the property `deniesAvg` - Average lane creeps denied at this time point
+        should("test deniesAvg") {
+            // uncomment below to test the property
+            //modelInstance.deniesAvg shouldBe ("TODO")
+        }
+
+        // to test the property `deniesStd` - Standard deviation of `denies_avg` at this time point
+        should("test deniesStd") {
+            // uncomment below to test the property
+            //modelInstance.deniesStd shouldBe ("TODO")
         }
 
         // to test the property `gameTime` - The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
@@ -301,6 +361,42 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test netWorthStd") {
             // uncomment below to test the property
             //modelInstance.netWorthStd shouldBe ("TODO")
+        }
+
+        // to test the property `neutralDamageAvg` - Average damage dealt to neutral (jungle) creeps at this time point
+        should("test neutralDamageAvg") {
+            // uncomment below to test the property
+            //modelInstance.neutralDamageAvg shouldBe ("TODO")
+        }
+
+        // to test the property `neutralDamageStd` - Standard deviation of `neutral_damage_avg` at this time point
+        should("test neutralDamageStd") {
+            // uncomment below to test the property
+            //modelInstance.neutralDamageStd shouldBe ("TODO")
+        }
+
+        // to test the property `neutralKillsAvg` - Average neutral (jungle) creeps killed at this time point
+        should("test neutralKillsAvg") {
+            // uncomment below to test the property
+            //modelInstance.neutralKillsAvg shouldBe ("TODO")
+        }
+
+        // to test the property `neutralKillsStd` - Standard deviation of `neutral_kills_avg` at this time point
+        should("test neutralKillsStd") {
+            // uncomment below to test the property
+            //modelInstance.neutralKillsStd shouldBe ("TODO")
+        }
+
+        // to test the property `playerDamageAvg` - Average damage dealt to enemy heroes at this time point
+        should("test playerDamageAvg") {
+            // uncomment below to test the property
+            //modelInstance.playerDamageAvg shouldBe ("TODO")
+        }
+
+        // to test the property `playerDamageStd` - Standard deviation of `player_damage_avg` at this time point
+        should("test playerDamageStd") {
+            // uncomment below to test the property
+            //modelInstance.playerDamageStd shouldBe ("TODO")
         }
 
         // to test the property `permanentBuffsAvg` - Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.

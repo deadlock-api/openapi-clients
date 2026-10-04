@@ -59,8 +59,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPITypes = [
         'assists_avg' => 'float',
         'assists_std' => 'float',
+        'boss_damage_avg' => 'float',
+        'boss_damage_std' => 'float',
+        'boss_kills_avg' => 'float',
+        'boss_kills_std' => 'float',
+        'creep_damage_avg' => 'float',
+        'creep_damage_std' => 'float',
+        'creep_kills_avg' => 'float',
+        'creep_kills_std' => 'float',
         'deaths_avg' => 'float',
         'deaths_std' => 'float',
+        'denies_avg' => 'float',
+        'denies_std' => 'float',
         'game_time' => 'int',
         'gold_ability_assassinate_avg' => 'float',
         'gold_ability_assassinate_std' => 'float',
@@ -102,8 +112,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => 'float',
         'net_worth_avg' => 'float',
         'net_worth_std' => 'float',
+        'neutral_damage_avg' => 'float',
+        'neutral_damage_std' => 'float',
+        'neutral_kills_avg' => 'float',
+        'neutral_kills_std' => 'float',
         'permanent_buffs_avg' => 'float',
-        'permanent_buffs_std' => 'float'
+        'permanent_buffs_std' => 'float',
+        'player_damage_avg' => 'float',
+        'player_damage_std' => 'float'
     ];
 
     /**
@@ -116,8 +132,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static $openAPIFormats = [
         'assists_avg' => 'double',
         'assists_std' => 'double',
+        'boss_damage_avg' => 'double',
+        'boss_damage_std' => 'double',
+        'boss_kills_avg' => 'double',
+        'boss_kills_std' => 'double',
+        'creep_damage_avg' => 'double',
+        'creep_damage_std' => 'double',
+        'creep_kills_avg' => 'double',
+        'creep_kills_std' => 'double',
         'deaths_avg' => 'double',
         'deaths_std' => 'double',
+        'denies_avg' => 'double',
+        'denies_std' => 'double',
         'game_time' => 'int32',
         'gold_ability_assassinate_avg' => 'double',
         'gold_ability_assassinate_std' => 'double',
@@ -159,8 +185,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => 'double',
         'net_worth_avg' => 'double',
         'net_worth_std' => 'double',
+        'neutral_damage_avg' => 'double',
+        'neutral_damage_std' => 'double',
+        'neutral_kills_avg' => 'double',
+        'neutral_kills_std' => 'double',
         'permanent_buffs_avg' => 'double',
-        'permanent_buffs_std' => 'double'
+        'permanent_buffs_std' => 'double',
+        'player_damage_avg' => 'double',
+        'player_damage_std' => 'double'
     ];
 
     /**
@@ -171,8 +203,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static array $openAPINullables = [
         'assists_avg' => false,
         'assists_std' => false,
+        'boss_damage_avg' => false,
+        'boss_damage_std' => false,
+        'boss_kills_avg' => false,
+        'boss_kills_std' => false,
+        'creep_damage_avg' => false,
+        'creep_damage_std' => false,
+        'creep_kills_avg' => false,
+        'creep_kills_std' => false,
         'deaths_avg' => false,
         'deaths_std' => false,
+        'denies_avg' => false,
+        'denies_std' => false,
         'game_time' => false,
         'gold_ability_assassinate_avg' => false,
         'gold_ability_assassinate_std' => false,
@@ -214,8 +256,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => false,
         'net_worth_avg' => false,
         'net_worth_std' => false,
+        'neutral_damage_avg' => false,
+        'neutral_damage_std' => false,
+        'neutral_kills_avg' => false,
+        'neutral_kills_std' => false,
         'permanent_buffs_avg' => true,
-        'permanent_buffs_std' => true
+        'permanent_buffs_std' => true,
+        'player_damage_avg' => false,
+        'player_damage_std' => false
     ];
 
     /**
@@ -306,8 +354,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static $attributeMap = [
         'assists_avg' => 'assists_avg',
         'assists_std' => 'assists_std',
+        'boss_damage_avg' => 'boss_damage_avg',
+        'boss_damage_std' => 'boss_damage_std',
+        'boss_kills_avg' => 'boss_kills_avg',
+        'boss_kills_std' => 'boss_kills_std',
+        'creep_damage_avg' => 'creep_damage_avg',
+        'creep_damage_std' => 'creep_damage_std',
+        'creep_kills_avg' => 'creep_kills_avg',
+        'creep_kills_std' => 'creep_kills_std',
         'deaths_avg' => 'deaths_avg',
         'deaths_std' => 'deaths_std',
+        'denies_avg' => 'denies_avg',
+        'denies_std' => 'denies_std',
         'game_time' => 'game_time',
         'gold_ability_assassinate_avg' => 'gold_ability_assassinate_avg',
         'gold_ability_assassinate_std' => 'gold_ability_assassinate_std',
@@ -349,8 +407,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => 'kills_std',
         'net_worth_avg' => 'net_worth_avg',
         'net_worth_std' => 'net_worth_std',
+        'neutral_damage_avg' => 'neutral_damage_avg',
+        'neutral_damage_std' => 'neutral_damage_std',
+        'neutral_kills_avg' => 'neutral_kills_avg',
+        'neutral_kills_std' => 'neutral_kills_std',
         'permanent_buffs_avg' => 'permanent_buffs_avg',
-        'permanent_buffs_std' => 'permanent_buffs_std'
+        'permanent_buffs_std' => 'permanent_buffs_std',
+        'player_damage_avg' => 'player_damage_avg',
+        'player_damage_std' => 'player_damage_std'
     ];
 
     /**
@@ -361,8 +425,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static $setters = [
         'assists_avg' => 'setAssistsAvg',
         'assists_std' => 'setAssistsStd',
+        'boss_damage_avg' => 'setBossDamageAvg',
+        'boss_damage_std' => 'setBossDamageStd',
+        'boss_kills_avg' => 'setBossKillsAvg',
+        'boss_kills_std' => 'setBossKillsStd',
+        'creep_damage_avg' => 'setCreepDamageAvg',
+        'creep_damage_std' => 'setCreepDamageStd',
+        'creep_kills_avg' => 'setCreepKillsAvg',
+        'creep_kills_std' => 'setCreepKillsStd',
         'deaths_avg' => 'setDeathsAvg',
         'deaths_std' => 'setDeathsStd',
+        'denies_avg' => 'setDeniesAvg',
+        'denies_std' => 'setDeniesStd',
         'game_time' => 'setGameTime',
         'gold_ability_assassinate_avg' => 'setGoldAbilityAssassinateAvg',
         'gold_ability_assassinate_std' => 'setGoldAbilityAssassinateStd',
@@ -404,8 +478,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => 'setKillsStd',
         'net_worth_avg' => 'setNetWorthAvg',
         'net_worth_std' => 'setNetWorthStd',
+        'neutral_damage_avg' => 'setNeutralDamageAvg',
+        'neutral_damage_std' => 'setNeutralDamageStd',
+        'neutral_kills_avg' => 'setNeutralKillsAvg',
+        'neutral_kills_std' => 'setNeutralKillsStd',
         'permanent_buffs_avg' => 'setPermanentBuffsAvg',
-        'permanent_buffs_std' => 'setPermanentBuffsStd'
+        'permanent_buffs_std' => 'setPermanentBuffsStd',
+        'player_damage_avg' => 'setPlayerDamageAvg',
+        'player_damage_std' => 'setPlayerDamageStd'
     ];
 
     /**
@@ -416,8 +496,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     protected static $getters = [
         'assists_avg' => 'getAssistsAvg',
         'assists_std' => 'getAssistsStd',
+        'boss_damage_avg' => 'getBossDamageAvg',
+        'boss_damage_std' => 'getBossDamageStd',
+        'boss_kills_avg' => 'getBossKillsAvg',
+        'boss_kills_std' => 'getBossKillsStd',
+        'creep_damage_avg' => 'getCreepDamageAvg',
+        'creep_damage_std' => 'getCreepDamageStd',
+        'creep_kills_avg' => 'getCreepKillsAvg',
+        'creep_kills_std' => 'getCreepKillsStd',
         'deaths_avg' => 'getDeathsAvg',
         'deaths_std' => 'getDeathsStd',
+        'denies_avg' => 'getDeniesAvg',
+        'denies_std' => 'getDeniesStd',
         'game_time' => 'getGameTime',
         'gold_ability_assassinate_avg' => 'getGoldAbilityAssassinateAvg',
         'gold_ability_assassinate_std' => 'getGoldAbilityAssassinateStd',
@@ -459,8 +549,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'kills_std' => 'getKillsStd',
         'net_worth_avg' => 'getNetWorthAvg',
         'net_worth_std' => 'getNetWorthStd',
+        'neutral_damage_avg' => 'getNeutralDamageAvg',
+        'neutral_damage_std' => 'getNeutralDamageStd',
+        'neutral_kills_avg' => 'getNeutralKillsAvg',
+        'neutral_kills_std' => 'getNeutralKillsStd',
         'permanent_buffs_avg' => 'getPermanentBuffsAvg',
-        'permanent_buffs_std' => 'getPermanentBuffsStd'
+        'permanent_buffs_std' => 'getPermanentBuffsStd',
+        'player_damage_avg' => 'getPlayerDamageAvg',
+        'player_damage_std' => 'getPlayerDamageStd'
     ];
 
     /**
@@ -522,8 +618,18 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     {
         $this->setIfExists('assists_avg', $data ?? [], null);
         $this->setIfExists('assists_std', $data ?? [], null);
+        $this->setIfExists('boss_damage_avg', $data ?? [], null);
+        $this->setIfExists('boss_damage_std', $data ?? [], null);
+        $this->setIfExists('boss_kills_avg', $data ?? [], null);
+        $this->setIfExists('boss_kills_std', $data ?? [], null);
+        $this->setIfExists('creep_damage_avg', $data ?? [], null);
+        $this->setIfExists('creep_damage_std', $data ?? [], null);
+        $this->setIfExists('creep_kills_avg', $data ?? [], null);
+        $this->setIfExists('creep_kills_std', $data ?? [], null);
         $this->setIfExists('deaths_avg', $data ?? [], null);
         $this->setIfExists('deaths_std', $data ?? [], null);
+        $this->setIfExists('denies_avg', $data ?? [], null);
+        $this->setIfExists('denies_std', $data ?? [], null);
         $this->setIfExists('game_time', $data ?? [], null);
         $this->setIfExists('gold_ability_assassinate_avg', $data ?? [], null);
         $this->setIfExists('gold_ability_assassinate_std', $data ?? [], null);
@@ -565,8 +671,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('kills_std', $data ?? [], null);
         $this->setIfExists('net_worth_avg', $data ?? [], null);
         $this->setIfExists('net_worth_std', $data ?? [], null);
+        $this->setIfExists('neutral_damage_avg', $data ?? [], null);
+        $this->setIfExists('neutral_damage_std', $data ?? [], null);
+        $this->setIfExists('neutral_kills_avg', $data ?? [], null);
+        $this->setIfExists('neutral_kills_std', $data ?? [], null);
         $this->setIfExists('permanent_buffs_avg', $data ?? [], null);
         $this->setIfExists('permanent_buffs_std', $data ?? [], null);
+        $this->setIfExists('player_damage_avg', $data ?? [], null);
+        $this->setIfExists('player_damage_std', $data ?? [], null);
     }
 
     /**
@@ -602,11 +714,41 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['assists_std'] === null) {
             $invalidProperties[] = "'assists_std' can't be null";
         }
+        if ($this->container['boss_damage_avg'] === null) {
+            $invalidProperties[] = "'boss_damage_avg' can't be null";
+        }
+        if ($this->container['boss_damage_std'] === null) {
+            $invalidProperties[] = "'boss_damage_std' can't be null";
+        }
+        if ($this->container['boss_kills_avg'] === null) {
+            $invalidProperties[] = "'boss_kills_avg' can't be null";
+        }
+        if ($this->container['boss_kills_std'] === null) {
+            $invalidProperties[] = "'boss_kills_std' can't be null";
+        }
+        if ($this->container['creep_damage_avg'] === null) {
+            $invalidProperties[] = "'creep_damage_avg' can't be null";
+        }
+        if ($this->container['creep_damage_std'] === null) {
+            $invalidProperties[] = "'creep_damage_std' can't be null";
+        }
+        if ($this->container['creep_kills_avg'] === null) {
+            $invalidProperties[] = "'creep_kills_avg' can't be null";
+        }
+        if ($this->container['creep_kills_std'] === null) {
+            $invalidProperties[] = "'creep_kills_std' can't be null";
+        }
         if ($this->container['deaths_avg'] === null) {
             $invalidProperties[] = "'deaths_avg' can't be null";
         }
         if ($this->container['deaths_std'] === null) {
             $invalidProperties[] = "'deaths_std' can't be null";
+        }
+        if ($this->container['denies_avg'] === null) {
+            $invalidProperties[] = "'denies_avg' can't be null";
+        }
+        if ($this->container['denies_std'] === null) {
+            $invalidProperties[] = "'denies_std' can't be null";
         }
         if ($this->container['game_time'] === null) {
             $invalidProperties[] = "'game_time' can't be null";
@@ -735,6 +877,24 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['net_worth_std'] === null) {
             $invalidProperties[] = "'net_worth_std' can't be null";
         }
+        if ($this->container['neutral_damage_avg'] === null) {
+            $invalidProperties[] = "'neutral_damage_avg' can't be null";
+        }
+        if ($this->container['neutral_damage_std'] === null) {
+            $invalidProperties[] = "'neutral_damage_std' can't be null";
+        }
+        if ($this->container['neutral_kills_avg'] === null) {
+            $invalidProperties[] = "'neutral_kills_avg' can't be null";
+        }
+        if ($this->container['neutral_kills_std'] === null) {
+            $invalidProperties[] = "'neutral_kills_std' can't be null";
+        }
+        if ($this->container['player_damage_avg'] === null) {
+            $invalidProperties[] = "'player_damage_avg' can't be null";
+        }
+        if ($this->container['player_damage_std'] === null) {
+            $invalidProperties[] = "'player_damage_std' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -805,6 +965,222 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets boss_damage_avg
+     *
+     * @return float
+     */
+    public function getBossDamageAvg()
+    {
+        return $this->container['boss_damage_avg'];
+    }
+
+    /**
+     * Sets boss_damage_avg
+     *
+     * @param float $boss_damage_avg Average damage dealt to objectives at this time point
+     *
+     * @return self
+     */
+    public function setBossDamageAvg($boss_damage_avg)
+    {
+        if (is_null($boss_damage_avg)) {
+            throw new \InvalidArgumentException('non-nullable boss_damage_avg cannot be null');
+        }
+        $this->container['boss_damage_avg'] = $boss_damage_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets boss_damage_std
+     *
+     * @return float
+     */
+    public function getBossDamageStd()
+    {
+        return $this->container['boss_damage_std'];
+    }
+
+    /**
+     * Sets boss_damage_std
+     *
+     * @param float $boss_damage_std Standard deviation of `boss_damage_avg` at this time point
+     *
+     * @return self
+     */
+    public function setBossDamageStd($boss_damage_std)
+    {
+        if (is_null($boss_damage_std)) {
+            throw new \InvalidArgumentException('non-nullable boss_damage_std cannot be null');
+        }
+        $this->container['boss_damage_std'] = $boss_damage_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets boss_kills_avg
+     *
+     * @return float
+     */
+    public function getBossKillsAvg()
+    {
+        return $this->container['boss_kills_avg'];
+    }
+
+    /**
+     * Sets boss_kills_avg
+     *
+     * @param float $boss_kills_avg Average objectives killed (last hits) at this time point
+     *
+     * @return self
+     */
+    public function setBossKillsAvg($boss_kills_avg)
+    {
+        if (is_null($boss_kills_avg)) {
+            throw new \InvalidArgumentException('non-nullable boss_kills_avg cannot be null');
+        }
+        $this->container['boss_kills_avg'] = $boss_kills_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets boss_kills_std
+     *
+     * @return float
+     */
+    public function getBossKillsStd()
+    {
+        return $this->container['boss_kills_std'];
+    }
+
+    /**
+     * Sets boss_kills_std
+     *
+     * @param float $boss_kills_std Standard deviation of `boss_kills_avg` at this time point
+     *
+     * @return self
+     */
+    public function setBossKillsStd($boss_kills_std)
+    {
+        if (is_null($boss_kills_std)) {
+            throw new \InvalidArgumentException('non-nullable boss_kills_std cannot be null');
+        }
+        $this->container['boss_kills_std'] = $boss_kills_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets creep_damage_avg
+     *
+     * @return float
+     */
+    public function getCreepDamageAvg()
+    {
+        return $this->container['creep_damage_avg'];
+    }
+
+    /**
+     * Sets creep_damage_avg
+     *
+     * @param float $creep_damage_avg Average damage dealt to lane creeps at this time point
+     *
+     * @return self
+     */
+    public function setCreepDamageAvg($creep_damage_avg)
+    {
+        if (is_null($creep_damage_avg)) {
+            throw new \InvalidArgumentException('non-nullable creep_damage_avg cannot be null');
+        }
+        $this->container['creep_damage_avg'] = $creep_damage_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets creep_damage_std
+     *
+     * @return float
+     */
+    public function getCreepDamageStd()
+    {
+        return $this->container['creep_damage_std'];
+    }
+
+    /**
+     * Sets creep_damage_std
+     *
+     * @param float $creep_damage_std Standard deviation of `creep_damage_avg` at this time point
+     *
+     * @return self
+     */
+    public function setCreepDamageStd($creep_damage_std)
+    {
+        if (is_null($creep_damage_std)) {
+            throw new \InvalidArgumentException('non-nullable creep_damage_std cannot be null');
+        }
+        $this->container['creep_damage_std'] = $creep_damage_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets creep_kills_avg
+     *
+     * @return float
+     */
+    public function getCreepKillsAvg()
+    {
+        return $this->container['creep_kills_avg'];
+    }
+
+    /**
+     * Sets creep_kills_avg
+     *
+     * @param float $creep_kills_avg Average lane creeps killed (last hits) at this time point
+     *
+     * @return self
+     */
+    public function setCreepKillsAvg($creep_kills_avg)
+    {
+        if (is_null($creep_kills_avg)) {
+            throw new \InvalidArgumentException('non-nullable creep_kills_avg cannot be null');
+        }
+        $this->container['creep_kills_avg'] = $creep_kills_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets creep_kills_std
+     *
+     * @return float
+     */
+    public function getCreepKillsStd()
+    {
+        return $this->container['creep_kills_std'];
+    }
+
+    /**
+     * Sets creep_kills_std
+     *
+     * @param float $creep_kills_std Standard deviation of `creep_kills_avg` at this time point
+     *
+     * @return self
+     */
+    public function setCreepKillsStd($creep_kills_std)
+    {
+        if (is_null($creep_kills_std)) {
+            throw new \InvalidArgumentException('non-nullable creep_kills_std cannot be null');
+        }
+        $this->container['creep_kills_std'] = $creep_kills_std;
+
+        return $this;
+    }
+
+    /**
      * Gets deaths_avg
      *
      * @return float
@@ -854,6 +1230,60 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable deaths_std cannot be null');
         }
         $this->container['deaths_std'] = $deaths_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets denies_avg
+     *
+     * @return float
+     */
+    public function getDeniesAvg()
+    {
+        return $this->container['denies_avg'];
+    }
+
+    /**
+     * Sets denies_avg
+     *
+     * @param float $denies_avg Average lane creeps denied at this time point
+     *
+     * @return self
+     */
+    public function setDeniesAvg($denies_avg)
+    {
+        if (is_null($denies_avg)) {
+            throw new \InvalidArgumentException('non-nullable denies_avg cannot be null');
+        }
+        $this->container['denies_avg'] = $denies_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets denies_std
+     *
+     * @return float
+     */
+    public function getDeniesStd()
+    {
+        return $this->container['denies_std'];
+    }
+
+    /**
+     * Sets denies_std
+     *
+     * @param float $denies_std Standard deviation of `denies_avg` at this time point
+     *
+     * @return self
+     */
+    public function setDeniesStd($denies_std)
+    {
+        if (is_null($denies_std)) {
+            throw new \InvalidArgumentException('non-nullable denies_std cannot be null');
+        }
+        $this->container['denies_std'] = $denies_std;
 
         return $this;
     }
@@ -1970,6 +2400,114 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets neutral_damage_avg
+     *
+     * @return float
+     */
+    public function getNeutralDamageAvg()
+    {
+        return $this->container['neutral_damage_avg'];
+    }
+
+    /**
+     * Sets neutral_damage_avg
+     *
+     * @param float $neutral_damage_avg Average damage dealt to neutral (jungle) creeps at this time point
+     *
+     * @return self
+     */
+    public function setNeutralDamageAvg($neutral_damage_avg)
+    {
+        if (is_null($neutral_damage_avg)) {
+            throw new \InvalidArgumentException('non-nullable neutral_damage_avg cannot be null');
+        }
+        $this->container['neutral_damage_avg'] = $neutral_damage_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_damage_std
+     *
+     * @return float
+     */
+    public function getNeutralDamageStd()
+    {
+        return $this->container['neutral_damage_std'];
+    }
+
+    /**
+     * Sets neutral_damage_std
+     *
+     * @param float $neutral_damage_std Standard deviation of `neutral_damage_avg` at this time point
+     *
+     * @return self
+     */
+    public function setNeutralDamageStd($neutral_damage_std)
+    {
+        if (is_null($neutral_damage_std)) {
+            throw new \InvalidArgumentException('non-nullable neutral_damage_std cannot be null');
+        }
+        $this->container['neutral_damage_std'] = $neutral_damage_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_kills_avg
+     *
+     * @return float
+     */
+    public function getNeutralKillsAvg()
+    {
+        return $this->container['neutral_kills_avg'];
+    }
+
+    /**
+     * Sets neutral_kills_avg
+     *
+     * @param float $neutral_kills_avg Average neutral (jungle) creeps killed at this time point
+     *
+     * @return self
+     */
+    public function setNeutralKillsAvg($neutral_kills_avg)
+    {
+        if (is_null($neutral_kills_avg)) {
+            throw new \InvalidArgumentException('non-nullable neutral_kills_avg cannot be null');
+        }
+        $this->container['neutral_kills_avg'] = $neutral_kills_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets neutral_kills_std
+     *
+     * @return float
+     */
+    public function getNeutralKillsStd()
+    {
+        return $this->container['neutral_kills_std'];
+    }
+
+    /**
+     * Sets neutral_kills_std
+     *
+     * @param float $neutral_kills_std Standard deviation of `neutral_kills_avg` at this time point
+     *
+     * @return self
+     */
+    public function setNeutralKillsStd($neutral_kills_std)
+    {
+        if (is_null($neutral_kills_std)) {
+            throw new \InvalidArgumentException('non-nullable neutral_kills_std cannot be null');
+        }
+        $this->container['neutral_kills_std'] = $neutral_kills_std;
+
+        return $this;
+    }
+
+    /**
      * Gets permanent_buffs_avg
      *
      * @return float|null
@@ -2033,6 +2571,60 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             }
         }
         $this->container['permanent_buffs_std'] = $permanent_buffs_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_damage_avg
+     *
+     * @return float
+     */
+    public function getPlayerDamageAvg()
+    {
+        return $this->container['player_damage_avg'];
+    }
+
+    /**
+     * Sets player_damage_avg
+     *
+     * @param float $player_damage_avg Average damage dealt to enemy heroes at this time point
+     *
+     * @return self
+     */
+    public function setPlayerDamageAvg($player_damage_avg)
+    {
+        if (is_null($player_damage_avg)) {
+            throw new \InvalidArgumentException('non-nullable player_damage_avg cannot be null');
+        }
+        $this->container['player_damage_avg'] = $player_damage_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_damage_std
+     *
+     * @return float
+     */
+    public function getPlayerDamageStd()
+    {
+        return $this->container['player_damage_std'];
+    }
+
+    /**
+     * Sets player_damage_std
+     *
+     * @param float $player_damage_std Standard deviation of `player_damage_avg` at this time point
+     *
+     * @return self
+     */
+    public function setPlayerDamageStd($player_damage_std)
+    {
+        if (is_null($player_damage_std)) {
+            throw new \InvalidArgumentException('non-nullable player_damage_std cannot be null');
+        }
+        $this->container['player_damage_std'] = $player_damage_std;
 
         return $this;
     }

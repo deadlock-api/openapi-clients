@@ -19,6 +19,38 @@ export interface PlayerPerformanceCurvePoint {
      */
     'assists_std': number;
     /**
+     * Average damage dealt to objectives at this time point
+     */
+    'boss_damage_avg': number;
+    /**
+     * Standard deviation of `boss_damage_avg` at this time point
+     */
+    'boss_damage_std': number;
+    /**
+     * Average objectives killed (last hits) at this time point
+     */
+    'boss_kills_avg': number;
+    /**
+     * Standard deviation of `boss_kills_avg` at this time point
+     */
+    'boss_kills_std': number;
+    /**
+     * Average damage dealt to lane creeps at this time point
+     */
+    'creep_damage_avg': number;
+    /**
+     * Standard deviation of `creep_damage_avg` at this time point
+     */
+    'creep_damage_std': number;
+    /**
+     * Average lane creeps killed (last hits) at this time point
+     */
+    'creep_kills_avg': number;
+    /**
+     * Standard deviation of `creep_kills_avg` at this time point
+     */
+    'creep_kills_std': number;
+    /**
      * Average deaths at this time point
      */
     'deaths_avg': number;
@@ -26,6 +58,14 @@ export interface PlayerPerformanceCurvePoint {
      * Standard deviation of deaths at this time point
      */
     'deaths_std': number;
+    /**
+     * Average lane creeps denied at this time point
+     */
+    'denies_avg': number;
+    /**
+     * Standard deviation of `denies_avg` at this time point
+     */
+    'denies_std': number;
     /**
      * The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
      */
@@ -191,6 +231,22 @@ export interface PlayerPerformanceCurvePoint {
      */
     'net_worth_std': number;
     /**
+     * Average damage dealt to neutral (jungle) creeps at this time point
+     */
+    'neutral_damage_avg': number;
+    /**
+     * Standard deviation of `neutral_damage_avg` at this time point
+     */
+    'neutral_damage_std': number;
+    /**
+     * Average neutral (jungle) creeps killed at this time point
+     */
+    'neutral_kills_avg': number;
+    /**
+     * Standard deviation of `neutral_kills_avg` at this time point
+     */
+    'neutral_kills_std': number;
+    /**
      * Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
      */
     'permanent_buffs_avg'?: number | null;
@@ -198,5 +254,13 @@ export interface PlayerPerformanceCurvePoint {
      * Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
      */
     'permanent_buffs_std'?: number | null;
+    /**
+     * Average damage dealt to enemy heroes at this time point
+     */
+    'player_damage_avg': number;
+    /**
+     * Standard deviation of `player_damage_avg` at this time point
+     */
+    'player_damage_std': number;
 }
 //# sourceMappingURL=player-performance-curve-point.d.ts.map

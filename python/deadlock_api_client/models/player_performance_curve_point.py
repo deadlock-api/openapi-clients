@@ -30,8 +30,18 @@ class PlayerPerformanceCurvePoint(BaseModel):
     """ # noqa: E501
     assists_avg: Union[StrictFloat, StrictInt] = Field(description="Average assists at this time point")
     assists_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of assists at this time point")
+    boss_damage_avg: Union[StrictFloat, StrictInt] = Field(description="Average damage dealt to objectives at this time point")
+    boss_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `boss_damage_avg` at this time point")
+    boss_kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average objectives killed (last hits) at this time point")
+    boss_kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `boss_kills_avg` at this time point")
+    creep_damage_avg: Union[StrictFloat, StrictInt] = Field(description="Average damage dealt to lane creeps at this time point")
+    creep_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `creep_damage_avg` at this time point")
+    creep_kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average lane creeps killed (last hits) at this time point")
+    creep_kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `creep_kills_avg` at this time point")
     deaths_avg: Union[StrictFloat, StrictInt] = Field(description="Average deaths at this time point")
     deaths_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of deaths at this time point")
+    denies_avg: Union[StrictFloat, StrictInt] = Field(description="Average lane creeps denied at this time point")
+    denies_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `denies_avg` at this time point")
     game_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
     gold_ability_assassinate_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from the Assassinate ability at this time point")
     gold_ability_assassinate_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `gold_ability_assassinate_avg` at this time point")
@@ -73,9 +83,15 @@ class PlayerPerformanceCurvePoint(BaseModel):
     kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of kills at this time point")
     net_worth_avg: Union[StrictFloat, StrictInt] = Field(description="Average net worth at this time point")
     net_worth_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of net worth at this time point")
+    neutral_damage_avg: Union[StrictFloat, StrictInt] = Field(description="Average damage dealt to neutral (jungle) creeps at this time point")
+    neutral_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `neutral_damage_avg` at this time point")
+    neutral_kills_avg: Union[StrictFloat, StrictInt] = Field(description="Average neutral (jungle) creeps killed at this time point")
+    neutral_kills_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `neutral_kills_avg` at this time point")
     permanent_buffs_avg: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.")
     permanent_buffs_std: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.")
-    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "deaths_avg", "deaths_std", "game_time", "gold_ability_assassinate_avg", "gold_ability_assassinate_std", "gold_assists_avg", "gold_assists_std", "gold_boss_avg", "gold_boss_orb_avg", "gold_boss_orb_std", "gold_boss_std", "gold_breakable_avg", "gold_breakable_std", "gold_death_loss_avg", "gold_death_loss_std", "gold_denied_avg", "gold_denied_std", "gold_item_cultist_sacrifice_avg", "gold_item_cultist_sacrifice_std", "gold_item_goose_egg_avg", "gold_item_goose_egg_std", "gold_item_trophy_collector_avg", "gold_item_trophy_collector_std", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_lane_creep_orbs_std", "gold_lane_creep_std", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_neutral_creep_orbs_std", "gold_neutral_creep_std", "gold_player_avg", "gold_player_orbs_avg", "gold_player_orbs_std", "gold_player_std", "gold_team_bonus_avg", "gold_team_bonus_std", "gold_treasure_avg", "gold_treasure_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "permanent_buffs_avg", "permanent_buffs_std"]
+    player_damage_avg: Union[StrictFloat, StrictInt] = Field(description="Average damage dealt to enemy heroes at this time point")
+    player_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `player_damage_avg` at this time point")
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "boss_damage_avg", "boss_damage_std", "boss_kills_avg", "boss_kills_std", "creep_damage_avg", "creep_damage_std", "creep_kills_avg", "creep_kills_std", "deaths_avg", "deaths_std", "denies_avg", "denies_std", "game_time", "gold_ability_assassinate_avg", "gold_ability_assassinate_std", "gold_assists_avg", "gold_assists_std", "gold_boss_avg", "gold_boss_orb_avg", "gold_boss_orb_std", "gold_boss_std", "gold_breakable_avg", "gold_breakable_std", "gold_death_loss_avg", "gold_death_loss_std", "gold_denied_avg", "gold_denied_std", "gold_item_cultist_sacrifice_avg", "gold_item_cultist_sacrifice_std", "gold_item_goose_egg_avg", "gold_item_goose_egg_std", "gold_item_trophy_collector_avg", "gold_item_trophy_collector_std", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_lane_creep_orbs_std", "gold_lane_creep_std", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_neutral_creep_orbs_std", "gold_neutral_creep_std", "gold_player_avg", "gold_player_orbs_avg", "gold_player_orbs_std", "gold_player_std", "gold_team_bonus_avg", "gold_team_bonus_std", "gold_treasure_avg", "gold_treasure_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "neutral_damage_avg", "neutral_damage_std", "neutral_kills_avg", "neutral_kills_std", "permanent_buffs_avg", "permanent_buffs_std", "player_damage_avg", "player_damage_std"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -140,8 +156,18 @@ class PlayerPerformanceCurvePoint(BaseModel):
         _obj = cls.model_validate({
             "assists_avg": obj.get("assists_avg"),
             "assists_std": obj.get("assists_std"),
+            "boss_damage_avg": obj.get("boss_damage_avg"),
+            "boss_damage_std": obj.get("boss_damage_std"),
+            "boss_kills_avg": obj.get("boss_kills_avg"),
+            "boss_kills_std": obj.get("boss_kills_std"),
+            "creep_damage_avg": obj.get("creep_damage_avg"),
+            "creep_damage_std": obj.get("creep_damage_std"),
+            "creep_kills_avg": obj.get("creep_kills_avg"),
+            "creep_kills_std": obj.get("creep_kills_std"),
             "deaths_avg": obj.get("deaths_avg"),
             "deaths_std": obj.get("deaths_std"),
+            "denies_avg": obj.get("denies_avg"),
+            "denies_std": obj.get("denies_std"),
             "game_time": obj.get("game_time"),
             "gold_ability_assassinate_avg": obj.get("gold_ability_assassinate_avg"),
             "gold_ability_assassinate_std": obj.get("gold_ability_assassinate_std"),
@@ -183,8 +209,14 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "kills_std": obj.get("kills_std"),
             "net_worth_avg": obj.get("net_worth_avg"),
             "net_worth_std": obj.get("net_worth_std"),
+            "neutral_damage_avg": obj.get("neutral_damage_avg"),
+            "neutral_damage_std": obj.get("neutral_damage_std"),
+            "neutral_kills_avg": obj.get("neutral_kills_avg"),
+            "neutral_kills_std": obj.get("neutral_kills_std"),
             "permanent_buffs_avg": obj.get("permanent_buffs_avg"),
-            "permanent_buffs_std": obj.get("permanent_buffs_std")
+            "permanent_buffs_std": obj.get("permanent_buffs_std"),
+            "player_damage_avg": obj.get("player_damage_avg"),
+            "player_damage_std": obj.get("player_damage_std")
         })
         return _obj
 

@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -620,7 +620,7 @@ paths:
         6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average\
         \ times only cover\nthose matches. Temporary power-ups have no timings.\n\n\
         Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>\n\
-        \nResults are cached for **1 hour** based on the unique combination of query\
+        \nResults are cached for **6 hours** based on the unique combination of query\
         \ parameters provided.\n\n### Rate Limits:\n> The rate limits below are **shared\
         \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
         | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -1157,7 +1157,7 @@ paths:
       description: "\nRetrieves ban statistics for each hero based on historical match\
         \ data from demo analysis.\n\nOnly matches with successfully extracted ban\
         \ data are included. Matches where ban extraction failed (empty `banned_hero_ids`)\
-        \ are excluded entirely.\n\nResults are cached for **1 hour** based on the\
+        \ are excluded entirely.\n\nResults are cached for **6 hours** based on the\
         \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
         \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
         \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -1307,7 +1307,7 @@ paths:
         \ match data from demo analysis.\n\nOnly includes builds that exist in the\
         \ hero builds database.\n\nThe `hero_build_id` is the first build the player\
         \ had selected when the game started. It does not reflect any build changes\
-        \ made during the match.\n\nResults are cached for **1 hour** based on the\
+        \ made during the match.\n\nResults are cached for **6 hours** based on the\
         \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
         \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
         \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -1534,7 +1534,7 @@ paths:
   /v1/analytics/hero-comb-stats:
     get:
       description: "\nRetrieves overall statistics for each hero combination.\n\n\
-        Results are cached for **1 hour**. The cache key is determined by the specific\
+        Results are cached for **6 hours**. The cache key is determined by the specific\
         \ combination of filter parameters used in the query. Subsequent requests\
         \ using the exact same filters within this timeframe will receive the cached\
         \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -1831,7 +1831,7 @@ paths:
         \ match data.\n\nThis endpoint analyzes completed matches to calculate how\
         \ often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`)\
         \ and the total number of times they have faced each other under the specified\
-        \ filter conditions.\n\nResults are cached for **1 hour** based on the combination\
+        \ filter conditions.\n\nResults are cached for **6 hours** based on the combination\
         \ of query parameters provided. Subsequent identical requests within this\
         \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
         \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -2412,7 +2412,7 @@ paths:
         \ data.\n\nThis endpoint analyzes completed matches to calculate how often\
         \ a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together\
         \ on the same team*, and the total number of times they have played together\
-        \ under the specified filter conditions.\n\nResults are cached for **1 hour**\
+        \ under the specified filter conditions.\n\nResults are cached for **6 hours**\
         \ based on the combination of query parameters provided. Subsequent identical\
         \ requests within this timeframe will receive the cached response.\n\n###\
         \ Rate Limits:\n> The rate limits below are **shared across all analytics\
@@ -2453,7 +2453,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -2664,7 +2664,7 @@ paths:
         \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is.\n\
         \nCorrupted items (build 6712+, same item id as the normal item) are not counted\
         \ as purchases; the\nnormal item they replaced still is.\n\nResults are cached\
-        \ for **1 hour** based on the unique combination of query parameters provided.\n\
+        \ for **6 hours** based on the unique combination of query parameters provided.\n\
         \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
         \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
         | Key | 400req/min |\n| Global | 2000req/min |\n    "
@@ -2741,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -2992,7 +2992,7 @@ paths:
   /v1/analytics/item-permutation-stats:
     get:
       description: "\nRetrieves item permutation statistics based on historical match\
-        \ data.\n\nResults are cached for **1 hour** based on the unique combination\
+        \ data.\n\nResults are cached for **6 hours** based on the unique combination\
         \ of query parameters provided. Subsequent identical requests within this\
         \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
         \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
@@ -3106,7 +3106,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -3451,7 +3451,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -3820,7 +3820,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -4088,7 +4088,7 @@ paths:
         \ dimensions come back as `0` / an empty array.\n\nPass `hero_ids` and `enemy_hero_ids`\
         \ to scope the response to the duos you care about. Without them the full\
         \ duo-versus-duo matrix is computed, which is a considerably more expensive\
-        \ query.\n\nResults are cached for **1 hour**. The cache key is determined\
+        \ query.\n\nResults are cached for **6 hours**. The cache key is determined\
         \ by the specific combination of filter parameters used in the query. Subsequent\
         \ requests using the exact same filters within this timeframe will receive\
         \ the cached response.\n\n### Rate Limits:\n> The rate limits below are **shared\
@@ -4129,7 +4129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -4375,7 +4375,7 @@ paths:
         \ merges the lanes. Folded dimensions come back as `0` / an empty array.\n\
         \nPass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you\
         \ care about. Without them the full duo-versus-duo matrix is computed, which\
-        \ is a considerably more expensive query.\n\nResults are cached for **1 hour**\
+        \ is a considerably more expensive query.\n\nResults are cached for **6 hours**\
         \ based on the combination of query parameters provided. Subsequent identical\
         \ requests within this timeframe will receive the cached response.\n\n###\
         \ Rate Limits:\n> The rate limits below are **shared across all analytics\
@@ -4416,7 +4416,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -4652,11 +4652,12 @@ paths:
   /v1/analytics/player-performance-curve:
     get:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
-        \ assists, souls per source) over time throughout matches.\n\nResults are\
-        \ cached for **1 hour** based on the unique combination of query parameters\
-        \ provided.\n\n### Rate Limits:\n> The rate limits below are **shared across\
-        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+        \ assists, souls per source, damage and kills per target) over time throughout\
+        \ matches.\n\nResults are cached for **12 hours** based on the unique combination\
+        \ of query parameters provided.\n\n### Rate Limits:\n> The rate limits below\
+        \ are **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ----\
+        \ | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
+        \ |\n    "
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -4708,7 +4709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -4925,7 +4926,7 @@ paths:
   /v1/analytics/player-stats/metrics:
     get:
       description: "\nReturns comprehensive statistical analysis of player performance.\n\
-        \nResults are cached for **1 hour** based on the unique combination of query\
+        \nResults are cached for **6 hours** based on the unique combination of query\
         \ parameters provided. Subsequent identical requests within this timeframe\
         \ will receive the cached response.\n\n> Note: Quantiles are calculated using\
         \ the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm,\
@@ -4977,7 +4978,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -5343,7 +5344,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -11055,7 +11056,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -11179,7 +11180,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -11501,7 +11502,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788307200
+          default: 1788480000
           format: int64
           nullable: true
           type: integer
@@ -20327,51 +20328,67 @@ components:
       example:
         assists_avg: 0.8008281904610115
         assists_std: 6.027456183070403
-        deaths_avg: 1.4658129805029452
-        deaths_std: 5.962133916683182
+        boss_damage_avg: 1.4658129805029452
+        boss_damage_std: 5.962133916683182
+        boss_kills_avg: 5.637376656633329
+        boss_kills_std: 2.3021358869347655
+        creep_damage_avg: 7.061401241503109
+        creep_damage_std: 9.301444243932576
+        creep_kills_avg: 3.616076749251911
+        creep_kills_std: 2.027123023002322
+        deaths_avg: 4.145608029883936
+        deaths_std: 7.386281948385884
+        denies_avg: 1.2315135367772556
+        denies_std: 1.0246457001441578
         game_time: 0
-        gold_ability_assassinate_avg: 2.3021358869347655
-        gold_ability_assassinate_std: 7.061401241503109
-        gold_assists_avg: 9.301444243932576
-        gold_assists_std: 3.616076749251911
-        gold_boss_avg: 2.027123023002322
-        gold_boss_orb_avg: 4.145608029883936
-        gold_boss_orb_std: 7.386281948385884
-        gold_boss_std: 1.2315135367772556
-        gold_breakable_avg: 1.0246457001441578
-        gold_breakable_std: 1.4894159098541704
-        gold_death_loss_avg: 6.84685269835264
-        gold_death_loss_std: 7.457744773683766
-        gold_denied_avg: 1.1730742509559433
-        gold_denied_std: 4.965218492984954
-        gold_item_cultist_sacrifice_avg: 5.025004791520295
-        gold_item_cultist_sacrifice_std: 9.965781217890562
-        gold_item_goose_egg_avg: 9.369310271410669
-        gold_item_goose_egg_std: 6.683562403749608
-        gold_item_trophy_collector_avg: 8.762042012749001
-        gold_item_trophy_collector_std: 9.018348186070783
-        gold_lane_creep_avg: 6.438423552598547
-        gold_lane_creep_orbs_avg: 3.5571952270680973
-        gold_lane_creep_orbs_std: 6.965117697638846
-        gold_lane_creep_std: 1.284659006116532
-        gold_neutral_creep_avg: 2.8841621266687802
-        gold_neutral_creep_orbs_avg: 6.778324963048013
-        gold_neutral_creep_orbs_std: 6.878052220127876
-        gold_neutral_creep_std: 5.944895607614016
-        gold_player_avg: 6.704019297950036
-        gold_player_orbs_avg: 3.353193347011243
-        gold_player_orbs_std: 3.0937452626664474
-        gold_player_std: 7.143538047012306
-        gold_team_bonus_avg: 0.8851374739011653
-        gold_team_bonus_std: 7.058770351582356
-        gold_treasure_avg: 6.519180951018382
-        gold_treasure_std: 0.10263654006109402
-        kills_avg: 4.652396432933246
-        kills_std: 8.969578798196912
-        net_worth_avg: 7.740351818741173
-        net_worth_std: 3.0205796992916243
-        permanent_buffs_avg: 3.0576100241049344
-        permanent_buffs_std: 7.04836565559697
+        gold_ability_assassinate_avg: 6.84685269835264
+        gold_ability_assassinate_std: 7.457744773683766
+        gold_assists_avg: 1.1730742509559433
+        gold_assists_std: 4.965218492984954
+        gold_boss_avg: 5.025004791520295
+        gold_boss_orb_avg: 9.965781217890562
+        gold_boss_orb_std: 9.369310271410669
+        gold_boss_std: 6.683562403749608
+        gold_breakable_avg: 8.762042012749001
+        gold_breakable_std: 9.018348186070783
+        gold_death_loss_avg: 6.438423552598547
+        gold_death_loss_std: 3.5571952270680973
+        gold_denied_avg: 6.965117697638846
+        gold_denied_std: 1.284659006116532
+        gold_item_cultist_sacrifice_avg: 2.8841621266687802
+        gold_item_cultist_sacrifice_std: 6.778324963048013
+        gold_item_goose_egg_avg: 6.878052220127876
+        gold_item_goose_egg_std: 5.944895607614016
+        gold_item_trophy_collector_avg: 6.704019297950036
+        gold_item_trophy_collector_std: 3.353193347011243
+        gold_lane_creep_avg: 3.0937452626664474
+        gold_lane_creep_orbs_avg: 7.143538047012306
+        gold_lane_creep_orbs_std: 0.8851374739011653
+        gold_lane_creep_std: 7.058770351582356
+        gold_neutral_creep_avg: 6.519180951018382
+        gold_neutral_creep_orbs_avg: 0.10263654006109402
+        gold_neutral_creep_orbs_std: 4.652396432933246
+        gold_neutral_creep_std: 8.969578798196912
+        gold_player_avg: 7.740351818741173
+        gold_player_orbs_avg: 3.0205796992916243
+        gold_player_orbs_std: 3.0576100241049344
+        gold_player_std: 7.04836565559697
+        gold_team_bonus_avg: 5.533258397034986
+        gold_team_bonus_std: 3.2588565619047607
+        gold_treasure_avg: 4.078845849666752
+        gold_treasure_std: 0.2025324113236393
+        kills_avg: 6.628464275087742
+        kills_std: 4.258773108174356
+        net_worth_avg: 1.041444916118296
+        net_worth_std: 4.678947989005849
+        neutral_damage_avg: 7.260521264802104
+        neutral_damage_std: 9.132027271330688
+        neutral_kills_avg: 0.8774076871421566
+        neutral_kills_std: 9.702963800023566
+        permanent_buffs_avg: 0.5199002018724985
+        permanent_buffs_std: 7.933506881737151
+        player_damage_avg: 5.507386964179881
+        player_damage_std: 4.86315908102884
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -20381,12 +20398,52 @@ components:
           description: Standard deviation of assists at this time point
           format: double
           type: number
+        boss_damage_avg:
+          description: Average damage dealt to objectives at this time point
+          format: double
+          type: number
+        boss_damage_std:
+          description: Standard deviation of `boss_damage_avg` at this time point
+          format: double
+          type: number
+        boss_kills_avg:
+          description: Average objectives killed (last hits) at this time point
+          format: double
+          type: number
+        boss_kills_std:
+          description: Standard deviation of `boss_kills_avg` at this time point
+          format: double
+          type: number
+        creep_damage_avg:
+          description: Average damage dealt to lane creeps at this time point
+          format: double
+          type: number
+        creep_damage_std:
+          description: Standard deviation of `creep_damage_avg` at this time point
+          format: double
+          type: number
+        creep_kills_avg:
+          description: Average lane creeps killed (last hits) at this time point
+          format: double
+          type: number
+        creep_kills_std:
+          description: Standard deviation of `creep_kills_avg` at this time point
+          format: double
+          type: number
         deaths_avg:
           description: Average deaths at this time point
           format: double
           type: number
         deaths_std:
           description: Standard deviation of deaths at this time point
+          format: double
+          type: number
+        denies_avg:
+          description: Average lane creeps denied at this time point
+          format: double
+          type: number
+        denies_std:
+          description: Standard deviation of `denies_avg` at this time point
           format: double
           type: number
         game_time:
@@ -20577,6 +20634,23 @@ components:
           description: Standard deviation of net worth at this time point
           format: double
           type: number
+        neutral_damage_avg:
+          description: Average damage dealt to neutral (jungle) creeps at this time
+            point
+          format: double
+          type: number
+        neutral_damage_std:
+          description: Standard deviation of `neutral_damage_avg` at this time point
+          format: double
+          type: number
+        neutral_kills_avg:
+          description: Average neutral (jungle) creeps killed at this time point
+          format: double
+          type: number
+        neutral_kills_std:
+          description: Standard deviation of `neutral_kills_avg` at this time point
+          format: double
+          type: number
         permanent_buffs_avg:
           description: |-
             Average permanent buff (power-up) pickups collected up to this time point. Only
@@ -20592,11 +20666,29 @@ components:
           format: double
           nullable: true
           type: number
+        player_damage_avg:
+          description: Average damage dealt to enemy heroes at this time point
+          format: double
+          type: number
+        player_damage_std:
+          description: Standard deviation of `player_damage_avg` at this time point
+          format: double
+          type: number
       required:
       - assists_avg
       - assists_std
+      - boss_damage_avg
+      - boss_damage_std
+      - boss_kills_avg
+      - boss_kills_std
+      - creep_damage_avg
+      - creep_damage_std
+      - creep_kills_avg
+      - creep_kills_std
       - deaths_avg
       - deaths_std
+      - denies_avg
+      - denies_std
       - game_time
       - gold_ability_assassinate_avg
       - gold_ability_assassinate_std
@@ -20638,6 +20730,12 @@ components:
       - kills_std
       - net_worth_avg
       - net_worth_std
+      - neutral_damage_avg
+      - neutral_damage_std
+      - neutral_kills_avg
+      - neutral_kills_std
+      - player_damage_avg
+      - player_damage_std
     Rank:
       example:
         color: color

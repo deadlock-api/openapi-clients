@@ -98,6 +98,78 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "boss_damage_avg"
+     */
+    public function testPropertyBossDamageAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "boss_damage_std"
+     */
+    public function testPropertyBossDamageStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "boss_kills_avg"
+     */
+    public function testPropertyBossKillsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "boss_kills_std"
+     */
+    public function testPropertyBossKillsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "creep_damage_avg"
+     */
+    public function testPropertyCreepDamageAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "creep_damage_std"
+     */
+    public function testPropertyCreepDamageStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "creep_kills_avg"
+     */
+    public function testPropertyCreepKillsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "creep_kills_std"
+     */
+    public function testPropertyCreepKillsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "deaths_avg"
      */
     public function testPropertyDeathsAvg()
@@ -110,6 +182,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "deaths_std"
      */
     public function testPropertyDeathsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "denies_avg"
+     */
+    public function testPropertyDeniesAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "denies_std"
+     */
+    public function testPropertyDeniesStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -485,6 +575,42 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "neutral_damage_avg"
+     */
+    public function testPropertyNeutralDamageAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_damage_std"
+     */
+    public function testPropertyNeutralDamageStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_kills_avg"
+     */
+    public function testPropertyNeutralKillsAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "neutral_kills_std"
+     */
+    public function testPropertyNeutralKillsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "permanent_buffs_avg"
      */
     public function testPropertyPermanentBuffsAvg()
@@ -497,6 +623,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "permanent_buffs_std"
      */
     public function testPropertyPermanentBuffsStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "player_damage_avg"
+     */
+    public function testPropertyPlayerDamageAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "player_damage_std"
+     */
+    public function testPropertyPlayerDamageStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

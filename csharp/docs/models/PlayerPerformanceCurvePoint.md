@@ -6,8 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssistsAvg** | **double** | Average assists at this time point | 
 **AssistsStd** | **double** | Standard deviation of assists at this time point | 
+**BossDamageAvg** | **double** | Average damage dealt to objectives at this time point | 
+**BossDamageStd** | **double** | Standard deviation of &#x60;boss_damage_avg&#x60; at this time point | 
+**BossKillsAvg** | **double** | Average objectives killed (last hits) at this time point | 
+**BossKillsStd** | **double** | Standard deviation of &#x60;boss_kills_avg&#x60; at this time point | 
+**CreepDamageAvg** | **double** | Average damage dealt to lane creeps at this time point | 
+**CreepDamageStd** | **double** | Standard deviation of &#x60;creep_damage_avg&#x60; at this time point | 
+**CreepKillsAvg** | **double** | Average lane creeps killed (last hits) at this time point | 
+**CreepKillsStd** | **double** | Standard deviation of &#x60;creep_kills_avg&#x60; at this time point | 
 **DeathsAvg** | **double** | Average deaths at this time point | 
 **DeathsStd** | **double** | Standard deviation of deaths at this time point | 
+**DeniesAvg** | **double** | Average lane creeps denied at this time point | 
+**DeniesStd** | **double** | Standard deviation of &#x60;denies_avg&#x60; at this time point | 
 **GameTime** | **int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
 **GoldAbilityAssassinateAvg** | **double** | Average souls earned from the Assassinate ability at this time point | 
 **GoldAbilityAssassinateStd** | **double** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | 
@@ -49,6 +59,12 @@ Name | Type | Description | Notes
 **KillsStd** | **double** | Standard deviation of kills at this time point | 
 **NetWorthAvg** | **double** | Average net worth at this time point | 
 **NetWorthStd** | **double** | Standard deviation of net worth at this time point | 
+**NeutralDamageAvg** | **double** | Average damage dealt to neutral (jungle) creeps at this time point | 
+**NeutralDamageStd** | **double** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point | 
+**NeutralKillsAvg** | **double** | Average neutral (jungle) creeps killed at this time point | 
+**NeutralKillsStd** | **double** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | 
+**PlayerDamageAvg** | **double** | Average damage dealt to enemy heroes at this time point | 
+**PlayerDamageStd** | **double** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
 **PermanentBuffsAvg** | **double** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 **PermanentBuffsStd** | **double** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] 
 

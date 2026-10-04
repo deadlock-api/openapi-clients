@@ -6,8 +6,18 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **assistsAvg** | **kotlin.Double** | Average assists at this time point |  |
 | **assistsStd** | **kotlin.Double** | Standard deviation of assists at this time point |  |
+| **bossDamageAvg** | **kotlin.Double** | Average damage dealt to objectives at this time point |  |
+| **bossDamageStd** | **kotlin.Double** | Standard deviation of &#x60;boss_damage_avg&#x60; at this time point |  |
+| **bossKillsAvg** | **kotlin.Double** | Average objectives killed (last hits) at this time point |  |
+| **bossKillsStd** | **kotlin.Double** | Standard deviation of &#x60;boss_kills_avg&#x60; at this time point |  |
+| **creepDamageAvg** | **kotlin.Double** | Average damage dealt to lane creeps at this time point |  |
+| **creepDamageStd** | **kotlin.Double** | Standard deviation of &#x60;creep_damage_avg&#x60; at this time point |  |
+| **creepKillsAvg** | **kotlin.Double** | Average lane creeps killed (last hits) at this time point |  |
+| **creepKillsStd** | **kotlin.Double** | Standard deviation of &#x60;creep_kills_avg&#x60; at this time point |  |
 | **deathsAvg** | **kotlin.Double** | Average deaths at this time point |  |
 | **deathsStd** | **kotlin.Double** | Standard deviation of deaths at this time point |  |
+| **deniesAvg** | **kotlin.Double** | Average lane creeps denied at this time point |  |
+| **deniesStd** | **kotlin.Double** | Standard deviation of &#x60;denies_avg&#x60; at this time point |  |
 | **gameTime** | **kotlin.Int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. |  |
 | **goldAbilityAssassinateAvg** | **kotlin.Double** | Average souls earned from the Assassinate ability at this time point |  |
 | **goldAbilityAssassinateStd** | **kotlin.Double** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point |  |
@@ -49,6 +59,12 @@
 | **killsStd** | **kotlin.Double** | Standard deviation of kills at this time point |  |
 | **netWorthAvg** | **kotlin.Double** | Average net worth at this time point |  |
 | **netWorthStd** | **kotlin.Double** | Standard deviation of net worth at this time point |  |
+| **neutralDamageAvg** | **kotlin.Double** | Average damage dealt to neutral (jungle) creeps at this time point |  |
+| **neutralDamageStd** | **kotlin.Double** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point |  |
+| **neutralKillsAvg** | **kotlin.Double** | Average neutral (jungle) creeps killed at this time point |  |
+| **neutralKillsStd** | **kotlin.Double** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point |  |
+| **playerDamageAvg** | **kotlin.Double** | Average damage dealt to enemy heroes at this time point |  |
+| **playerDamageStd** | **kotlin.Double** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point |  |
 | **permanentBuffsAvg** | **kotlin.Double** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. |  [optional] |
 | **permanentBuffsStd** | **kotlin.Double** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. |  [optional] |
 

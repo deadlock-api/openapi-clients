@@ -33,8 +33,18 @@ import java.io.Serializable
  *
  * @param assistsAvg Average assists at this time point
  * @param assistsStd Standard deviation of assists at this time point
+ * @param bossDamageAvg Average damage dealt to objectives at this time point
+ * @param bossDamageStd Standard deviation of `boss_damage_avg` at this time point
+ * @param bossKillsAvg Average objectives killed (last hits) at this time point
+ * @param bossKillsStd Standard deviation of `boss_kills_avg` at this time point
+ * @param creepDamageAvg Average damage dealt to lane creeps at this time point
+ * @param creepDamageStd Standard deviation of `creep_damage_avg` at this time point
+ * @param creepKillsAvg Average lane creeps killed (last hits) at this time point
+ * @param creepKillsStd Standard deviation of `creep_kills_avg` at this time point
  * @param deathsAvg Average deaths at this time point
  * @param deathsStd Standard deviation of deaths at this time point
+ * @param deniesAvg Average lane creeps denied at this time point
+ * @param deniesStd Standard deviation of `denies_avg` at this time point
  * @param gameTime The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
  * @param goldAbilityAssassinateAvg Average souls earned from the Assassinate ability at this time point
  * @param goldAbilityAssassinateStd Standard deviation of `gold_ability_assassinate_avg` at this time point
@@ -76,6 +86,12 @@ import java.io.Serializable
  * @param killsStd Standard deviation of kills at this time point
  * @param netWorthAvg Average net worth at this time point
  * @param netWorthStd Standard deviation of net worth at this time point
+ * @param neutralDamageAvg Average damage dealt to neutral (jungle) creeps at this time point
+ * @param neutralDamageStd Standard deviation of `neutral_damage_avg` at this time point
+ * @param neutralKillsAvg Average neutral (jungle) creeps killed at this time point
+ * @param neutralKillsStd Standard deviation of `neutral_kills_avg` at this time point
+ * @param playerDamageAvg Average damage dealt to enemy heroes at this time point
+ * @param playerDamageStd Standard deviation of `player_damage_avg` at this time point
  * @param permanentBuffsAvg Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
  * @param permanentBuffsStd Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
  */
@@ -91,6 +107,38 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "assists_std")
     val assistsStd: kotlin.Double,
 
+    /* Average damage dealt to objectives at this time point */
+    @Json(name = "boss_damage_avg")
+    val bossDamageAvg: kotlin.Double,
+
+    /* Standard deviation of `boss_damage_avg` at this time point */
+    @Json(name = "boss_damage_std")
+    val bossDamageStd: kotlin.Double,
+
+    /* Average objectives killed (last hits) at this time point */
+    @Json(name = "boss_kills_avg")
+    val bossKillsAvg: kotlin.Double,
+
+    /* Standard deviation of `boss_kills_avg` at this time point */
+    @Json(name = "boss_kills_std")
+    val bossKillsStd: kotlin.Double,
+
+    /* Average damage dealt to lane creeps at this time point */
+    @Json(name = "creep_damage_avg")
+    val creepDamageAvg: kotlin.Double,
+
+    /* Standard deviation of `creep_damage_avg` at this time point */
+    @Json(name = "creep_damage_std")
+    val creepDamageStd: kotlin.Double,
+
+    /* Average lane creeps killed (last hits) at this time point */
+    @Json(name = "creep_kills_avg")
+    val creepKillsAvg: kotlin.Double,
+
+    /* Standard deviation of `creep_kills_avg` at this time point */
+    @Json(name = "creep_kills_std")
+    val creepKillsStd: kotlin.Double,
+
     /* Average deaths at this time point */
     @Json(name = "deaths_avg")
     val deathsAvg: kotlin.Double,
@@ -98,6 +146,14 @@ data class PlayerPerformanceCurvePoint (
     /* Standard deviation of deaths at this time point */
     @Json(name = "deaths_std")
     val deathsStd: kotlin.Double,
+
+    /* Average lane creeps denied at this time point */
+    @Json(name = "denies_avg")
+    val deniesAvg: kotlin.Double,
+
+    /* Standard deviation of `denies_avg` at this time point */
+    @Json(name = "denies_std")
+    val deniesStd: kotlin.Double,
 
     /* The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds. */
     @Json(name = "game_time")
@@ -262,6 +318,30 @@ data class PlayerPerformanceCurvePoint (
     /* Standard deviation of net worth at this time point */
     @Json(name = "net_worth_std")
     val netWorthStd: kotlin.Double,
+
+    /* Average damage dealt to neutral (jungle) creeps at this time point */
+    @Json(name = "neutral_damage_avg")
+    val neutralDamageAvg: kotlin.Double,
+
+    /* Standard deviation of `neutral_damage_avg` at this time point */
+    @Json(name = "neutral_damage_std")
+    val neutralDamageStd: kotlin.Double,
+
+    /* Average neutral (jungle) creeps killed at this time point */
+    @Json(name = "neutral_kills_avg")
+    val neutralKillsAvg: kotlin.Double,
+
+    /* Standard deviation of `neutral_kills_avg` at this time point */
+    @Json(name = "neutral_kills_std")
+    val neutralKillsStd: kotlin.Double,
+
+    /* Average damage dealt to enemy heroes at this time point */
+    @Json(name = "player_damage_avg")
+    val playerDamageAvg: kotlin.Double,
+
+    /* Standard deviation of `player_damage_avg` at this time point */
+    @Json(name = "player_damage_std")
+    val playerDamageStd: kotlin.Double,
 
     /* Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none. */
     @Json(name = "permanent_buffs_avg")

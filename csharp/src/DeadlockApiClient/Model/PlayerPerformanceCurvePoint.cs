@@ -35,8 +35,18 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="assistsAvg">Average assists at this time point</param>
         /// <param name="assistsStd">Standard deviation of assists at this time point</param>
+        /// <param name="bossDamageAvg">Average damage dealt to objectives at this time point</param>
+        /// <param name="bossDamageStd">Standard deviation of &#x60;boss_damage_avg&#x60; at this time point</param>
+        /// <param name="bossKillsAvg">Average objectives killed (last hits) at this time point</param>
+        /// <param name="bossKillsStd">Standard deviation of &#x60;boss_kills_avg&#x60; at this time point</param>
+        /// <param name="creepDamageAvg">Average damage dealt to lane creeps at this time point</param>
+        /// <param name="creepDamageStd">Standard deviation of &#x60;creep_damage_avg&#x60; at this time point</param>
+        /// <param name="creepKillsAvg">Average lane creeps killed (last hits) at this time point</param>
+        /// <param name="creepKillsStd">Standard deviation of &#x60;creep_kills_avg&#x60; at this time point</param>
         /// <param name="deathsAvg">Average deaths at this time point</param>
         /// <param name="deathsStd">Standard deviation of deaths at this time point</param>
+        /// <param name="deniesAvg">Average lane creeps denied at this time point</param>
+        /// <param name="deniesStd">Standard deviation of &#x60;denies_avg&#x60; at this time point</param>
         /// <param name="gameTime">The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds.</param>
         /// <param name="goldAbilityAssassinateAvg">Average souls earned from the Assassinate ability at this time point</param>
         /// <param name="goldAbilityAssassinateStd">Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point</param>
@@ -78,15 +88,31 @@ namespace DeadlockApiClient.Model
         /// <param name="killsStd">Standard deviation of kills at this time point</param>
         /// <param name="netWorthAvg">Average net worth at this time point</param>
         /// <param name="netWorthStd">Standard deviation of net worth at this time point</param>
+        /// <param name="neutralDamageAvg">Average damage dealt to neutral (jungle) creeps at this time point</param>
+        /// <param name="neutralDamageStd">Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point</param>
+        /// <param name="neutralKillsAvg">Average neutral (jungle) creeps killed at this time point</param>
+        /// <param name="neutralKillsStd">Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point</param>
+        /// <param name="playerDamageAvg">Average damage dealt to enemy heroes at this time point</param>
+        /// <param name="playerDamageStd">Standard deviation of &#x60;player_damage_avg&#x60; at this time point</param>
         /// <param name="permanentBuffsAvg">Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none.</param>
         /// <param name="permanentBuffsStd">Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups.</param>
         [JsonConstructor]
-        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double deathsAvg, double deathsStd, int gameTime, double goldAbilityAssassinateAvg, double goldAbilityAssassinateStd, double goldAssistsAvg, double goldAssistsStd, double goldBossAvg, double goldBossOrbAvg, double goldBossOrbStd, double goldBossStd, double goldBreakableAvg, double goldBreakableStd, double goldDeathLossAvg, double goldDeathLossStd, double goldDeniedAvg, double goldDeniedStd, double goldItemCultistSacrificeAvg, double goldItemCultistSacrificeStd, double goldItemGooseEggAvg, double goldItemGooseEggStd, double goldItemTrophyCollectorAvg, double goldItemTrophyCollectorStd, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldLaneCreepOrbsStd, double goldLaneCreepStd, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldNeutralCreepOrbsStd, double goldNeutralCreepStd, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldPlayerOrbsStd, double goldPlayerStd, double goldTeamBonusAvg, double goldTeamBonusStd, double goldTreasureAvg, double goldTreasureStd, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, Option<double?> permanentBuffsAvg = default, Option<double?> permanentBuffsStd = default)
+        public PlayerPerformanceCurvePoint(double assistsAvg, double assistsStd, double bossDamageAvg, double bossDamageStd, double bossKillsAvg, double bossKillsStd, double creepDamageAvg, double creepDamageStd, double creepKillsAvg, double creepKillsStd, double deathsAvg, double deathsStd, double deniesAvg, double deniesStd, int gameTime, double goldAbilityAssassinateAvg, double goldAbilityAssassinateStd, double goldAssistsAvg, double goldAssistsStd, double goldBossAvg, double goldBossOrbAvg, double goldBossOrbStd, double goldBossStd, double goldBreakableAvg, double goldBreakableStd, double goldDeathLossAvg, double goldDeathLossStd, double goldDeniedAvg, double goldDeniedStd, double goldItemCultistSacrificeAvg, double goldItemCultistSacrificeStd, double goldItemGooseEggAvg, double goldItemGooseEggStd, double goldItemTrophyCollectorAvg, double goldItemTrophyCollectorStd, double goldLaneCreepAvg, double goldLaneCreepOrbsAvg, double goldLaneCreepOrbsStd, double goldLaneCreepStd, double goldNeutralCreepAvg, double goldNeutralCreepOrbsAvg, double goldNeutralCreepOrbsStd, double goldNeutralCreepStd, double goldPlayerAvg, double goldPlayerOrbsAvg, double goldPlayerOrbsStd, double goldPlayerStd, double goldTeamBonusAvg, double goldTeamBonusStd, double goldTreasureAvg, double goldTreasureStd, double killsAvg, double killsStd, double netWorthAvg, double netWorthStd, double neutralDamageAvg, double neutralDamageStd, double neutralKillsAvg, double neutralKillsStd, double playerDamageAvg, double playerDamageStd, Option<double?> permanentBuffsAvg = default, Option<double?> permanentBuffsStd = default)
         {
             AssistsAvg = assistsAvg;
             AssistsStd = assistsStd;
+            BossDamageAvg = bossDamageAvg;
+            BossDamageStd = bossDamageStd;
+            BossKillsAvg = bossKillsAvg;
+            BossKillsStd = bossKillsStd;
+            CreepDamageAvg = creepDamageAvg;
+            CreepDamageStd = creepDamageStd;
+            CreepKillsAvg = creepKillsAvg;
+            CreepKillsStd = creepKillsStd;
             DeathsAvg = deathsAvg;
             DeathsStd = deathsStd;
+            DeniesAvg = deniesAvg;
+            DeniesStd = deniesStd;
             GameTime = gameTime;
             GoldAbilityAssassinateAvg = goldAbilityAssassinateAvg;
             GoldAbilityAssassinateStd = goldAbilityAssassinateStd;
@@ -128,6 +154,12 @@ namespace DeadlockApiClient.Model
             KillsStd = killsStd;
             NetWorthAvg = netWorthAvg;
             NetWorthStd = netWorthStd;
+            NeutralDamageAvg = neutralDamageAvg;
+            NeutralDamageStd = neutralDamageStd;
+            NeutralKillsAvg = neutralKillsAvg;
+            NeutralKillsStd = neutralKillsStd;
+            PlayerDamageAvg = playerDamageAvg;
+            PlayerDamageStd = playerDamageStd;
             PermanentBuffsAvgOption = permanentBuffsAvg;
             PermanentBuffsStdOption = permanentBuffsStd;
             OnCreated();
@@ -150,6 +182,62 @@ namespace DeadlockApiClient.Model
         public double AssistsStd { get; set; }
 
         /// <summary>
+        /// Average damage dealt to objectives at this time point
+        /// </summary>
+        /// <value>Average damage dealt to objectives at this time point</value>
+        [JsonPropertyName("boss_damage_avg")]
+        public double BossDamageAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;boss_damage_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;boss_damage_avg&#x60; at this time point</value>
+        [JsonPropertyName("boss_damage_std")]
+        public double BossDamageStd { get; set; }
+
+        /// <summary>
+        /// Average objectives killed (last hits) at this time point
+        /// </summary>
+        /// <value>Average objectives killed (last hits) at this time point</value>
+        [JsonPropertyName("boss_kills_avg")]
+        public double BossKillsAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;boss_kills_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;boss_kills_avg&#x60; at this time point</value>
+        [JsonPropertyName("boss_kills_std")]
+        public double BossKillsStd { get; set; }
+
+        /// <summary>
+        /// Average damage dealt to lane creeps at this time point
+        /// </summary>
+        /// <value>Average damage dealt to lane creeps at this time point</value>
+        [JsonPropertyName("creep_damage_avg")]
+        public double CreepDamageAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;creep_damage_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;creep_damage_avg&#x60; at this time point</value>
+        [JsonPropertyName("creep_damage_std")]
+        public double CreepDamageStd { get; set; }
+
+        /// <summary>
+        /// Average lane creeps killed (last hits) at this time point
+        /// </summary>
+        /// <value>Average lane creeps killed (last hits) at this time point</value>
+        [JsonPropertyName("creep_kills_avg")]
+        public double CreepKillsAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;creep_kills_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;creep_kills_avg&#x60; at this time point</value>
+        [JsonPropertyName("creep_kills_std")]
+        public double CreepKillsStd { get; set; }
+
+        /// <summary>
         /// Average deaths at this time point
         /// </summary>
         /// <value>Average deaths at this time point</value>
@@ -162,6 +250,20 @@ namespace DeadlockApiClient.Model
         /// <value>Standard deviation of deaths at this time point</value>
         [JsonPropertyName("deaths_std")]
         public double DeathsStd { get; set; }
+
+        /// <summary>
+        /// Average lane creeps denied at this time point
+        /// </summary>
+        /// <value>Average lane creeps denied at this time point</value>
+        [JsonPropertyName("denies_avg")]
+        public double DeniesAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;denies_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;denies_avg&#x60; at this time point</value>
+        [JsonPropertyName("denies_std")]
+        public double DeniesStd { get; set; }
 
         /// <summary>
         /// The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds.
@@ -451,6 +553,48 @@ namespace DeadlockApiClient.Model
         public double NetWorthStd { get; set; }
 
         /// <summary>
+        /// Average damage dealt to neutral (jungle) creeps at this time point
+        /// </summary>
+        /// <value>Average damage dealt to neutral (jungle) creeps at this time point</value>
+        [JsonPropertyName("neutral_damage_avg")]
+        public double NeutralDamageAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point</value>
+        [JsonPropertyName("neutral_damage_std")]
+        public double NeutralDamageStd { get; set; }
+
+        /// <summary>
+        /// Average neutral (jungle) creeps killed at this time point
+        /// </summary>
+        /// <value>Average neutral (jungle) creeps killed at this time point</value>
+        [JsonPropertyName("neutral_kills_avg")]
+        public double NeutralKillsAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point</value>
+        [JsonPropertyName("neutral_kills_std")]
+        public double NeutralKillsStd { get; set; }
+
+        /// <summary>
+        /// Average damage dealt to enemy heroes at this time point
+        /// </summary>
+        /// <value>Average damage dealt to enemy heroes at this time point</value>
+        [JsonPropertyName("player_damage_avg")]
+        public double PlayerDamageAvg { get; set; }
+
+        /// <summary>
+        /// Standard deviation of &#x60;player_damage_avg&#x60; at this time point
+        /// </summary>
+        /// <value>Standard deviation of &#x60;player_damage_avg&#x60; at this time point</value>
+        [JsonPropertyName("player_damage_std")]
+        public double PlayerDamageStd { get; set; }
+
+        /// <summary>
         /// Used to track the state of PermanentBuffsAvg
         /// </summary>
         [JsonIgnore]
@@ -488,8 +632,18 @@ namespace DeadlockApiClient.Model
             sb.Append("class PlayerPerformanceCurvePoint {\n");
             sb.Append("  AssistsAvg: ").Append(AssistsAvg).Append("\n");
             sb.Append("  AssistsStd: ").Append(AssistsStd).Append("\n");
+            sb.Append("  BossDamageAvg: ").Append(BossDamageAvg).Append("\n");
+            sb.Append("  BossDamageStd: ").Append(BossDamageStd).Append("\n");
+            sb.Append("  BossKillsAvg: ").Append(BossKillsAvg).Append("\n");
+            sb.Append("  BossKillsStd: ").Append(BossKillsStd).Append("\n");
+            sb.Append("  CreepDamageAvg: ").Append(CreepDamageAvg).Append("\n");
+            sb.Append("  CreepDamageStd: ").Append(CreepDamageStd).Append("\n");
+            sb.Append("  CreepKillsAvg: ").Append(CreepKillsAvg).Append("\n");
+            sb.Append("  CreepKillsStd: ").Append(CreepKillsStd).Append("\n");
             sb.Append("  DeathsAvg: ").Append(DeathsAvg).Append("\n");
             sb.Append("  DeathsStd: ").Append(DeathsStd).Append("\n");
+            sb.Append("  DeniesAvg: ").Append(DeniesAvg).Append("\n");
+            sb.Append("  DeniesStd: ").Append(DeniesStd).Append("\n");
             sb.Append("  GameTime: ").Append(GameTime).Append("\n");
             sb.Append("  GoldAbilityAssassinateAvg: ").Append(GoldAbilityAssassinateAvg).Append("\n");
             sb.Append("  GoldAbilityAssassinateStd: ").Append(GoldAbilityAssassinateStd).Append("\n");
@@ -531,6 +685,12 @@ namespace DeadlockApiClient.Model
             sb.Append("  KillsStd: ").Append(KillsStd).Append("\n");
             sb.Append("  NetWorthAvg: ").Append(NetWorthAvg).Append("\n");
             sb.Append("  NetWorthStd: ").Append(NetWorthStd).Append("\n");
+            sb.Append("  NeutralDamageAvg: ").Append(NeutralDamageAvg).Append("\n");
+            sb.Append("  NeutralDamageStd: ").Append(NeutralDamageStd).Append("\n");
+            sb.Append("  NeutralKillsAvg: ").Append(NeutralKillsAvg).Append("\n");
+            sb.Append("  NeutralKillsStd: ").Append(NeutralKillsStd).Append("\n");
+            sb.Append("  PlayerDamageAvg: ").Append(PlayerDamageAvg).Append("\n");
+            sb.Append("  PlayerDamageStd: ").Append(PlayerDamageStd).Append("\n");
             sb.Append("  PermanentBuffsAvg: ").Append(PermanentBuffsAvg).Append("\n");
             sb.Append("  PermanentBuffsStd: ").Append(PermanentBuffsStd).Append("\n");
             sb.Append("}\n");
@@ -588,8 +748,18 @@ namespace DeadlockApiClient.Model
 
             Option<double?> assistsAvg = default;
             Option<double?> assistsStd = default;
+            Option<double?> bossDamageAvg = default;
+            Option<double?> bossDamageStd = default;
+            Option<double?> bossKillsAvg = default;
+            Option<double?> bossKillsStd = default;
+            Option<double?> creepDamageAvg = default;
+            Option<double?> creepDamageStd = default;
+            Option<double?> creepKillsAvg = default;
+            Option<double?> creepKillsStd = default;
             Option<double?> deathsAvg = default;
             Option<double?> deathsStd = default;
+            Option<double?> deniesAvg = default;
+            Option<double?> deniesStd = default;
             Option<int?> gameTime = default;
             Option<double?> goldAbilityAssassinateAvg = default;
             Option<double?> goldAbilityAssassinateStd = default;
@@ -631,6 +801,12 @@ namespace DeadlockApiClient.Model
             Option<double?> killsStd = default;
             Option<double?> netWorthAvg = default;
             Option<double?> netWorthStd = default;
+            Option<double?> neutralDamageAvg = default;
+            Option<double?> neutralDamageStd = default;
+            Option<double?> neutralKillsAvg = default;
+            Option<double?> neutralKillsStd = default;
+            Option<double?> playerDamageAvg = default;
+            Option<double?> playerDamageStd = default;
             Option<double?> permanentBuffsAvg = default;
             Option<double?> permanentBuffsStd = default;
 
@@ -655,11 +831,41 @@ namespace DeadlockApiClient.Model
                         case "assists_std":
                             assistsStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "boss_damage_avg":
+                            bossDamageAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "boss_damage_std":
+                            bossDamageStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "boss_kills_avg":
+                            bossKillsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "boss_kills_std":
+                            bossKillsStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "creep_damage_avg":
+                            creepDamageAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "creep_damage_std":
+                            creepDamageStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "creep_kills_avg":
+                            creepKillsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "creep_kills_std":
+                            creepKillsStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "deaths_avg":
                             deathsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "deaths_std":
                             deathsStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "denies_avg":
+                            deniesAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "denies_std":
+                            deniesStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "game_time":
                             gameTime = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -784,6 +990,24 @@ namespace DeadlockApiClient.Model
                         case "net_worth_std":
                             netWorthStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "neutral_damage_avg":
+                            neutralDamageAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "neutral_damage_std":
+                            neutralDamageStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "neutral_kills_avg":
+                            neutralKillsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "neutral_kills_std":
+                            neutralKillsStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "player_damage_avg":
+                            playerDamageAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "player_damage_std":
+                            playerDamageStd = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
                         case "permanent_buffs_avg":
                             permanentBuffsAvg = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -802,11 +1026,41 @@ namespace DeadlockApiClient.Model
             if (!assistsStd.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(assistsStd));
 
+            if (!bossDamageAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossDamageAvg));
+
+            if (!bossDamageStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossDamageStd));
+
+            if (!bossKillsAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossKillsAvg));
+
+            if (!bossKillsStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossKillsStd));
+
+            if (!creepDamageAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepDamageAvg));
+
+            if (!creepDamageStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepDamageStd));
+
+            if (!creepKillsAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepKillsAvg));
+
+            if (!creepKillsStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepKillsStd));
+
             if (!deathsAvg.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deathsAvg));
 
             if (!deathsStd.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deathsStd));
+
+            if (!deniesAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deniesAvg));
+
+            if (!deniesStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deniesStd));
 
             if (!gameTime.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(gameTime));
@@ -931,17 +1185,65 @@ namespace DeadlockApiClient.Model
             if (!netWorthStd.IsSet)
                 throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(netWorthStd));
 
+            if (!neutralDamageAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralDamageAvg));
+
+            if (!neutralDamageStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralDamageStd));
+
+            if (!neutralKillsAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralKillsAvg));
+
+            if (!neutralKillsStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralKillsStd));
+
+            if (!playerDamageAvg.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerDamageAvg));
+
+            if (!playerDamageStd.IsSet)
+                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerDamageStd));
+
             if (assistsAvg.IsSet && assistsAvg.Value == null)
                 throw new ArgumentNullException(nameof(assistsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (assistsStd.IsSet && assistsStd.Value == null)
                 throw new ArgumentNullException(nameof(assistsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
+            if (bossDamageAvg.IsSet && bossDamageAvg.Value == null)
+                throw new ArgumentNullException(nameof(bossDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (bossDamageStd.IsSet && bossDamageStd.Value == null)
+                throw new ArgumentNullException(nameof(bossDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (bossKillsAvg.IsSet && bossKillsAvg.Value == null)
+                throw new ArgumentNullException(nameof(bossKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (bossKillsStd.IsSet && bossKillsStd.Value == null)
+                throw new ArgumentNullException(nameof(bossKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (creepDamageAvg.IsSet && creepDamageAvg.Value == null)
+                throw new ArgumentNullException(nameof(creepDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (creepDamageStd.IsSet && creepDamageStd.Value == null)
+                throw new ArgumentNullException(nameof(creepDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (creepKillsAvg.IsSet && creepKillsAvg.Value == null)
+                throw new ArgumentNullException(nameof(creepKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (creepKillsStd.IsSet && creepKillsStd.Value == null)
+                throw new ArgumentNullException(nameof(creepKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
             if (deathsAvg.IsSet && deathsAvg.Value == null)
                 throw new ArgumentNullException(nameof(deathsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (deathsStd.IsSet && deathsStd.Value == null)
                 throw new ArgumentNullException(nameof(deathsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (deniesAvg.IsSet && deniesAvg.Value == null)
+                throw new ArgumentNullException(nameof(deniesAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (deniesStd.IsSet && deniesStd.Value == null)
+                throw new ArgumentNullException(nameof(deniesStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
             if (gameTime.IsSet && gameTime.Value == null)
                 throw new ArgumentNullException(nameof(gameTime), "Property is not nullable for class PlayerPerformanceCurvePoint.");
@@ -1066,7 +1368,25 @@ namespace DeadlockApiClient.Model
             if (netWorthStd.IsSet && netWorthStd.Value == null)
                 throw new ArgumentNullException(nameof(netWorthStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
 
-            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, gameTime.Value!.Value!, goldAbilityAssassinateAvg.Value!.Value!, goldAbilityAssassinateStd.Value!.Value!, goldAssistsAvg.Value!.Value!, goldAssistsStd.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldBossOrbStd.Value!.Value!, goldBossStd.Value!.Value!, goldBreakableAvg.Value!.Value!, goldBreakableStd.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeathLossStd.Value!.Value!, goldDeniedAvg.Value!.Value!, goldDeniedStd.Value!.Value!, goldItemCultistSacrificeAvg.Value!.Value!, goldItemCultistSacrificeStd.Value!.Value!, goldItemGooseEggAvg.Value!.Value!, goldItemGooseEggStd.Value!.Value!, goldItemTrophyCollectorAvg.Value!.Value!, goldItemTrophyCollectorStd.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldLaneCreepOrbsStd.Value!.Value!, goldLaneCreepStd.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldNeutralCreepOrbsStd.Value!.Value!, goldNeutralCreepStd.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldPlayerOrbsStd.Value!.Value!, goldPlayerStd.Value!.Value!, goldTeamBonusAvg.Value!.Value!, goldTeamBonusStd.Value!.Value!, goldTreasureAvg.Value!.Value!, goldTreasureStd.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, permanentBuffsAvg, permanentBuffsStd);
+            if (neutralDamageAvg.IsSet && neutralDamageAvg.Value == null)
+                throw new ArgumentNullException(nameof(neutralDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (neutralDamageStd.IsSet && neutralDamageStd.Value == null)
+                throw new ArgumentNullException(nameof(neutralDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (neutralKillsAvg.IsSet && neutralKillsAvg.Value == null)
+                throw new ArgumentNullException(nameof(neutralKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (neutralKillsStd.IsSet && neutralKillsStd.Value == null)
+                throw new ArgumentNullException(nameof(neutralKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (playerDamageAvg.IsSet && playerDamageAvg.Value == null)
+                throw new ArgumentNullException(nameof(playerDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            if (playerDamageStd.IsSet && playerDamageStd.Value == null)
+                throw new ArgumentNullException(nameof(playerDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+
+            return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, bossDamageAvg.Value!.Value!, bossDamageStd.Value!.Value!, bossKillsAvg.Value!.Value!, bossKillsStd.Value!.Value!, creepDamageAvg.Value!.Value!, creepDamageStd.Value!.Value!, creepKillsAvg.Value!.Value!, creepKillsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, deniesAvg.Value!.Value!, deniesStd.Value!.Value!, gameTime.Value!.Value!, goldAbilityAssassinateAvg.Value!.Value!, goldAbilityAssassinateStd.Value!.Value!, goldAssistsAvg.Value!.Value!, goldAssistsStd.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldBossOrbStd.Value!.Value!, goldBossStd.Value!.Value!, goldBreakableAvg.Value!.Value!, goldBreakableStd.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeathLossStd.Value!.Value!, goldDeniedAvg.Value!.Value!, goldDeniedStd.Value!.Value!, goldItemCultistSacrificeAvg.Value!.Value!, goldItemCultistSacrificeStd.Value!.Value!, goldItemGooseEggAvg.Value!.Value!, goldItemGooseEggStd.Value!.Value!, goldItemTrophyCollectorAvg.Value!.Value!, goldItemTrophyCollectorStd.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldLaneCreepOrbsStd.Value!.Value!, goldLaneCreepStd.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldNeutralCreepOrbsStd.Value!.Value!, goldNeutralCreepStd.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldPlayerOrbsStd.Value!.Value!, goldPlayerStd.Value!.Value!, goldTeamBonusAvg.Value!.Value!, goldTeamBonusStd.Value!.Value!, goldTreasureAvg.Value!.Value!, goldTreasureStd.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, neutralDamageAvg.Value!.Value!, neutralDamageStd.Value!.Value!, neutralKillsAvg.Value!.Value!, neutralKillsStd.Value!.Value!, playerDamageAvg.Value!.Value!, playerDamageStd.Value!.Value!, permanentBuffsAvg, permanentBuffsStd);
         }
 
         /// <summary>
@@ -1097,9 +1417,29 @@ namespace DeadlockApiClient.Model
 
             writer.WriteNumber("assists_std", playerPerformanceCurvePoint.AssistsStd);
 
+            writer.WriteNumber("boss_damage_avg", playerPerformanceCurvePoint.BossDamageAvg);
+
+            writer.WriteNumber("boss_damage_std", playerPerformanceCurvePoint.BossDamageStd);
+
+            writer.WriteNumber("boss_kills_avg", playerPerformanceCurvePoint.BossKillsAvg);
+
+            writer.WriteNumber("boss_kills_std", playerPerformanceCurvePoint.BossKillsStd);
+
+            writer.WriteNumber("creep_damage_avg", playerPerformanceCurvePoint.CreepDamageAvg);
+
+            writer.WriteNumber("creep_damage_std", playerPerformanceCurvePoint.CreepDamageStd);
+
+            writer.WriteNumber("creep_kills_avg", playerPerformanceCurvePoint.CreepKillsAvg);
+
+            writer.WriteNumber("creep_kills_std", playerPerformanceCurvePoint.CreepKillsStd);
+
             writer.WriteNumber("deaths_avg", playerPerformanceCurvePoint.DeathsAvg);
 
             writer.WriteNumber("deaths_std", playerPerformanceCurvePoint.DeathsStd);
+
+            writer.WriteNumber("denies_avg", playerPerformanceCurvePoint.DeniesAvg);
+
+            writer.WriteNumber("denies_std", playerPerformanceCurvePoint.DeniesStd);
 
             writer.WriteNumber("game_time", playerPerformanceCurvePoint.GameTime);
 
@@ -1182,6 +1522,18 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("net_worth_avg", playerPerformanceCurvePoint.NetWorthAvg);
 
             writer.WriteNumber("net_worth_std", playerPerformanceCurvePoint.NetWorthStd);
+
+            writer.WriteNumber("neutral_damage_avg", playerPerformanceCurvePoint.NeutralDamageAvg);
+
+            writer.WriteNumber("neutral_damage_std", playerPerformanceCurvePoint.NeutralDamageStd);
+
+            writer.WriteNumber("neutral_kills_avg", playerPerformanceCurvePoint.NeutralKillsAvg);
+
+            writer.WriteNumber("neutral_kills_std", playerPerformanceCurvePoint.NeutralKillsStd);
+
+            writer.WriteNumber("player_damage_avg", playerPerformanceCurvePoint.PlayerDamageAvg);
+
+            writer.WriteNumber("player_damage_std", playerPerformanceCurvePoint.PlayerDamageStd);
 
             if (playerPerformanceCurvePoint.PermanentBuffsAvgOption.IsSet)
                 if (playerPerformanceCurvePoint.PermanentBuffsAvgOption.Value != null)

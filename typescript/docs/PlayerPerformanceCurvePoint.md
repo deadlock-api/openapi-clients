@@ -7,8 +7,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assists_avg** | **number** | Average assists at this time point | [default to undefined]
 **assists_std** | **number** | Standard deviation of assists at this time point | [default to undefined]
+**boss_damage_avg** | **number** | Average damage dealt to objectives at this time point | [default to undefined]
+**boss_damage_std** | **number** | Standard deviation of &#x60;boss_damage_avg&#x60; at this time point | [default to undefined]
+**boss_kills_avg** | **number** | Average objectives killed (last hits) at this time point | [default to undefined]
+**boss_kills_std** | **number** | Standard deviation of &#x60;boss_kills_avg&#x60; at this time point | [default to undefined]
+**creep_damage_avg** | **number** | Average damage dealt to lane creeps at this time point | [default to undefined]
+**creep_damage_std** | **number** | Standard deviation of &#x60;creep_damage_avg&#x60; at this time point | [default to undefined]
+**creep_kills_avg** | **number** | Average lane creeps killed (last hits) at this time point | [default to undefined]
+**creep_kills_std** | **number** | Standard deviation of &#x60;creep_kills_avg&#x60; at this time point | [default to undefined]
 **deaths_avg** | **number** | Average deaths at this time point | [default to undefined]
 **deaths_std** | **number** | Standard deviation of deaths at this time point | [default to undefined]
+**denies_avg** | **number** | Average lane creeps denied at this time point | [default to undefined]
+**denies_std** | **number** | Standard deviation of &#x60;denies_avg&#x60; at this time point | [default to undefined]
 **game_time** | **number** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | [default to undefined]
 **gold_ability_assassinate_avg** | **number** | Average souls earned from the Assassinate ability at this time point | [default to undefined]
 **gold_ability_assassinate_std** | **number** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | [default to undefined]
@@ -50,8 +60,14 @@ Name | Type | Description | Notes
 **kills_std** | **number** | Standard deviation of kills at this time point | [default to undefined]
 **net_worth_avg** | **number** | Average net worth at this time point | [default to undefined]
 **net_worth_std** | **number** | Standard deviation of net worth at this time point | [default to undefined]
+**neutral_damage_avg** | **number** | Average damage dealt to neutral (jungle) creeps at this time point | [default to undefined]
+**neutral_damage_std** | **number** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point | [default to undefined]
+**neutral_kills_avg** | **number** | Average neutral (jungle) creeps killed at this time point | [default to undefined]
+**neutral_kills_std** | **number** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | [default to undefined]
 **permanent_buffs_avg** | **number** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] [default to undefined]
 **permanent_buffs_std** | **number** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] [default to undefined]
+**player_damage_avg** | **number** | Average damage dealt to enemy heroes at this time point | [default to undefined]
+**player_damage_std** | **number** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | [default to undefined]
 
 ## Example
 
@@ -61,8 +77,18 @@ import { PlayerPerformanceCurvePoint } from 'deadlock_api_client';
 const instance: PlayerPerformanceCurvePoint = {
     assists_avg,
     assists_std,
+    boss_damage_avg,
+    boss_damage_std,
+    boss_kills_avg,
+    boss_kills_std,
+    creep_damage_avg,
+    creep_damage_std,
+    creep_kills_avg,
+    creep_kills_std,
     deaths_avg,
     deaths_std,
+    denies_avg,
+    denies_std,
     game_time,
     gold_ability_assassinate_avg,
     gold_ability_assassinate_std,
@@ -104,8 +130,14 @@ const instance: PlayerPerformanceCurvePoint = {
     kills_std,
     net_worth_avg,
     net_worth_std,
+    neutral_damage_avg,
+    neutral_damage_std,
+    neutral_kills_avg,
+    neutral_kills_std,
     permanent_buffs_avg,
     permanent_buffs_std,
+    player_damage_avg,
+    player_damage_std,
 };
 ```
 

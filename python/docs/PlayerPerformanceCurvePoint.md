@@ -7,8 +7,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assists_avg** | **float** | Average assists at this time point | 
 **assists_std** | **float** | Standard deviation of assists at this time point | 
+**boss_damage_avg** | **float** | Average damage dealt to objectives at this time point | 
+**boss_damage_std** | **float** | Standard deviation of &#x60;boss_damage_avg&#x60; at this time point | 
+**boss_kills_avg** | **float** | Average objectives killed (last hits) at this time point | 
+**boss_kills_std** | **float** | Standard deviation of &#x60;boss_kills_avg&#x60; at this time point | 
+**creep_damage_avg** | **float** | Average damage dealt to lane creeps at this time point | 
+**creep_damage_std** | **float** | Standard deviation of &#x60;creep_damage_avg&#x60; at this time point | 
+**creep_kills_avg** | **float** | Average lane creeps killed (last hits) at this time point | 
+**creep_kills_std** | **float** | Standard deviation of &#x60;creep_kills_avg&#x60; at this time point | 
 **deaths_avg** | **float** | Average deaths at this time point | 
 **deaths_std** | **float** | Standard deviation of deaths at this time point | 
+**denies_avg** | **float** | Average lane creeps denied at this time point | 
+**denies_std** | **float** | Standard deviation of &#x60;denies_avg&#x60; at this time point | 
 **game_time** | **int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
 **gold_ability_assassinate_avg** | **float** | Average souls earned from the Assassinate ability at this time point | 
 **gold_ability_assassinate_std** | **float** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | 
@@ -50,8 +60,14 @@ Name | Type | Description | Notes
 **kills_std** | **float** | Standard deviation of kills at this time point | 
 **net_worth_avg** | **float** | Average net worth at this time point | 
 **net_worth_std** | **float** | Standard deviation of net worth at this time point | 
+**neutral_damage_avg** | **float** | Average damage dealt to neutral (jungle) creeps at this time point | 
+**neutral_damage_std** | **float** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point | 
+**neutral_kills_avg** | **float** | Average neutral (jungle) creeps killed at this time point | 
+**neutral_kills_std** | **float** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | 
 **permanent_buffs_avg** | **float** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 **permanent_buffs_std** | **float** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] 
+**player_damage_avg** | **float** | Average damage dealt to enemy heroes at this time point | 
+**player_damage_std** | **float** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
 
 ## Example
 

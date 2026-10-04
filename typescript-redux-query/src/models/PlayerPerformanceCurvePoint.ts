@@ -31,6 +31,54 @@ export interface PlayerPerformanceCurvePoint  {
      */
     assistsStd: number;
     /**
+     * Average damage dealt to objectives at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    bossDamageAvg: number;
+    /**
+     * Standard deviation of `boss_damage_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    bossDamageStd: number;
+    /**
+     * Average objectives killed (last hits) at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    bossKillsAvg: number;
+    /**
+     * Standard deviation of `boss_kills_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    bossKillsStd: number;
+    /**
+     * Average damage dealt to lane creeps at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    creepDamageAvg: number;
+    /**
+     * Standard deviation of `creep_damage_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    creepDamageStd: number;
+    /**
+     * Average lane creeps killed (last hits) at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    creepKillsAvg: number;
+    /**
+     * Standard deviation of `creep_kills_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    creepKillsStd: number;
+    /**
      * Average deaths at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -42,6 +90,18 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     deathsStd: number;
+    /**
+     * Average lane creeps denied at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    deniesAvg: number;
+    /**
+     * Standard deviation of `denies_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    deniesStd: number;
     /**
      * The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
      * @type {number}
@@ -289,6 +349,30 @@ export interface PlayerPerformanceCurvePoint  {
      */
     netWorthStd: number;
     /**
+     * Average damage dealt to neutral (jungle) creeps at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    neutralDamageAvg: number;
+    /**
+     * Standard deviation of `neutral_damage_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    neutralDamageStd: number;
+    /**
+     * Average neutral (jungle) creeps killed at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    neutralKillsAvg: number;
+    /**
+     * Standard deviation of `neutral_kills_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    neutralKillsStd: number;
+    /**
      * Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -300,14 +384,36 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     permanentBuffsStd?: number;
+    /**
+     * Average damage dealt to enemy heroes at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerDamageAvg: number;
+    /**
+     * Standard deviation of `player_damage_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerDamageStd: number;
 }
 
 export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanceCurvePoint {
     return {
         'assistsAvg': json['assists_avg'],
         'assistsStd': json['assists_std'],
+        'bossDamageAvg': json['boss_damage_avg'],
+        'bossDamageStd': json['boss_damage_std'],
+        'bossKillsAvg': json['boss_kills_avg'],
+        'bossKillsStd': json['boss_kills_std'],
+        'creepDamageAvg': json['creep_damage_avg'],
+        'creepDamageStd': json['creep_damage_std'],
+        'creepKillsAvg': json['creep_kills_avg'],
+        'creepKillsStd': json['creep_kills_std'],
         'deathsAvg': json['deaths_avg'],
         'deathsStd': json['deaths_std'],
+        'deniesAvg': json['denies_avg'],
+        'deniesStd': json['denies_std'],
         'gameTime': json['game_time'],
         'goldAbilityAssassinateAvg': json['gold_ability_assassinate_avg'],
         'goldAbilityAssassinateStd': json['gold_ability_assassinate_std'],
@@ -349,8 +455,14 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'killsStd': json['kills_std'],
         'netWorthAvg': json['net_worth_avg'],
         'netWorthStd': json['net_worth_std'],
+        'neutralDamageAvg': json['neutral_damage_avg'],
+        'neutralDamageStd': json['neutral_damage_std'],
+        'neutralKillsAvg': json['neutral_kills_avg'],
+        'neutralKillsStd': json['neutral_kills_std'],
         'permanentBuffsAvg': !exists(json, 'permanent_buffs_avg') ? undefined : json['permanent_buffs_avg'],
         'permanentBuffsStd': !exists(json, 'permanent_buffs_std') ? undefined : json['permanent_buffs_std'],
+        'playerDamageAvg': json['player_damage_avg'],
+        'playerDamageStd': json['player_damage_std'],
     };
 }
 
@@ -361,8 +473,18 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
     return {
         'assists_avg': value.assistsAvg,
         'assists_std': value.assistsStd,
+        'boss_damage_avg': value.bossDamageAvg,
+        'boss_damage_std': value.bossDamageStd,
+        'boss_kills_avg': value.bossKillsAvg,
+        'boss_kills_std': value.bossKillsStd,
+        'creep_damage_avg': value.creepDamageAvg,
+        'creep_damage_std': value.creepDamageStd,
+        'creep_kills_avg': value.creepKillsAvg,
+        'creep_kills_std': value.creepKillsStd,
         'deaths_avg': value.deathsAvg,
         'deaths_std': value.deathsStd,
+        'denies_avg': value.deniesAvg,
+        'denies_std': value.deniesStd,
         'game_time': value.gameTime,
         'gold_ability_assassinate_avg': value.goldAbilityAssassinateAvg,
         'gold_ability_assassinate_std': value.goldAbilityAssassinateStd,
@@ -404,8 +526,14 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'kills_std': value.killsStd,
         'net_worth_avg': value.netWorthAvg,
         'net_worth_std': value.netWorthStd,
+        'neutral_damage_avg': value.neutralDamageAvg,
+        'neutral_damage_std': value.neutralDamageStd,
+        'neutral_kills_avg': value.neutralKillsAvg,
+        'neutral_kills_std': value.neutralKillsStd,
         'permanent_buffs_avg': value.permanentBuffsAvg,
         'permanent_buffs_std': value.permanentBuffsStd,
+        'player_damage_avg': value.playerDamageAvg,
+        'player_damage_std': value.playerDamageStd,
     };
 }
 

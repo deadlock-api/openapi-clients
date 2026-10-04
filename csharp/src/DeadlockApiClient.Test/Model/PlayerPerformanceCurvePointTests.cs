@@ -72,6 +72,78 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'BossDamageAvg'
+        /// </summary>
+        [Fact]
+        public void BossDamageAvgTest()
+        {
+            // TODO unit test for the property 'BossDamageAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'BossDamageStd'
+        /// </summary>
+        [Fact]
+        public void BossDamageStdTest()
+        {
+            // TODO unit test for the property 'BossDamageStd'
+        }
+
+        /// <summary>
+        /// Test the property 'BossKillsAvg'
+        /// </summary>
+        [Fact]
+        public void BossKillsAvgTest()
+        {
+            // TODO unit test for the property 'BossKillsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'BossKillsStd'
+        /// </summary>
+        [Fact]
+        public void BossKillsStdTest()
+        {
+            // TODO unit test for the property 'BossKillsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'CreepDamageAvg'
+        /// </summary>
+        [Fact]
+        public void CreepDamageAvgTest()
+        {
+            // TODO unit test for the property 'CreepDamageAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'CreepDamageStd'
+        /// </summary>
+        [Fact]
+        public void CreepDamageStdTest()
+        {
+            // TODO unit test for the property 'CreepDamageStd'
+        }
+
+        /// <summary>
+        /// Test the property 'CreepKillsAvg'
+        /// </summary>
+        [Fact]
+        public void CreepKillsAvgTest()
+        {
+            // TODO unit test for the property 'CreepKillsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'CreepKillsStd'
+        /// </summary>
+        [Fact]
+        public void CreepKillsStdTest()
+        {
+            // TODO unit test for the property 'CreepKillsStd'
+        }
+
+        /// <summary>
         /// Test the property 'DeathsAvg'
         /// </summary>
         [Fact]
@@ -87,6 +159,24 @@ namespace DeadlockApiClient.Test.Model
         public void DeathsStdTest()
         {
             // TODO unit test for the property 'DeathsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'DeniesAvg'
+        /// </summary>
+        [Fact]
+        public void DeniesAvgTest()
+        {
+            // TODO unit test for the property 'DeniesAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'DeniesStd'
+        /// </summary>
+        [Fact]
+        public void DeniesStdTest()
+        {
+            // TODO unit test for the property 'DeniesStd'
         }
 
         /// <summary>
@@ -456,6 +546,60 @@ namespace DeadlockApiClient.Test.Model
         public void NetWorthStdTest()
         {
             // TODO unit test for the property 'NetWorthStd'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralDamageAvg'
+        /// </summary>
+        [Fact]
+        public void NeutralDamageAvgTest()
+        {
+            // TODO unit test for the property 'NeutralDamageAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralDamageStd'
+        /// </summary>
+        [Fact]
+        public void NeutralDamageStdTest()
+        {
+            // TODO unit test for the property 'NeutralDamageStd'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralKillsAvg'
+        /// </summary>
+        [Fact]
+        public void NeutralKillsAvgTest()
+        {
+            // TODO unit test for the property 'NeutralKillsAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'NeutralKillsStd'
+        /// </summary>
+        [Fact]
+        public void NeutralKillsStdTest()
+        {
+            // TODO unit test for the property 'NeutralKillsStd'
+        }
+
+        /// <summary>
+        /// Test the property 'PlayerDamageAvg'
+        /// </summary>
+        [Fact]
+        public void PlayerDamageAvgTest()
+        {
+            // TODO unit test for the property 'PlayerDamageAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'PlayerDamageStd'
+        /// </summary>
+        [Fact]
+        public void PlayerDamageStdTest()
+        {
+            // TODO unit test for the property 'PlayerDamageStd'
         }
 
         /// <summary>

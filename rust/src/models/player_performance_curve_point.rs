@@ -19,12 +19,42 @@ pub struct PlayerPerformanceCurvePoint {
     /// Standard deviation of assists at this time point
     #[serde(rename = "assists_std")]
     pub assists_std: f64,
+    /// Average damage dealt to objectives at this time point
+    #[serde(rename = "boss_damage_avg")]
+    pub boss_damage_avg: f64,
+    /// Standard deviation of `boss_damage_avg` at this time point
+    #[serde(rename = "boss_damage_std")]
+    pub boss_damage_std: f64,
+    /// Average objectives killed (last hits) at this time point
+    #[serde(rename = "boss_kills_avg")]
+    pub boss_kills_avg: f64,
+    /// Standard deviation of `boss_kills_avg` at this time point
+    #[serde(rename = "boss_kills_std")]
+    pub boss_kills_std: f64,
+    /// Average damage dealt to lane creeps at this time point
+    #[serde(rename = "creep_damage_avg")]
+    pub creep_damage_avg: f64,
+    /// Standard deviation of `creep_damage_avg` at this time point
+    #[serde(rename = "creep_damage_std")]
+    pub creep_damage_std: f64,
+    /// Average lane creeps killed (last hits) at this time point
+    #[serde(rename = "creep_kills_avg")]
+    pub creep_kills_avg: f64,
+    /// Standard deviation of `creep_kills_avg` at this time point
+    #[serde(rename = "creep_kills_std")]
+    pub creep_kills_std: f64,
     /// Average deaths at this time point
     #[serde(rename = "deaths_avg")]
     pub deaths_avg: f64,
     /// Standard deviation of deaths at this time point
     #[serde(rename = "deaths_std")]
     pub deaths_std: f64,
+    /// Average lane creeps denied at this time point
+    #[serde(rename = "denies_avg")]
+    pub denies_avg: f64,
+    /// Standard deviation of `denies_avg` at this time point
+    #[serde(rename = "denies_std")]
+    pub denies_std: f64,
     /// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
     #[serde(rename = "game_time")]
     pub game_time: u32,
@@ -148,21 +178,49 @@ pub struct PlayerPerformanceCurvePoint {
     /// Standard deviation of net worth at this time point
     #[serde(rename = "net_worth_std")]
     pub net_worth_std: f64,
+    /// Average damage dealt to neutral (jungle) creeps at this time point
+    #[serde(rename = "neutral_damage_avg")]
+    pub neutral_damage_avg: f64,
+    /// Standard deviation of `neutral_damage_avg` at this time point
+    #[serde(rename = "neutral_damage_std")]
+    pub neutral_damage_std: f64,
+    /// Average neutral (jungle) creeps killed at this time point
+    #[serde(rename = "neutral_kills_avg")]
+    pub neutral_kills_avg: f64,
+    /// Standard deviation of `neutral_kills_avg` at this time point
+    #[serde(rename = "neutral_kills_std")]
+    pub neutral_kills_std: f64,
     /// Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
     #[serde(rename = "permanent_buffs_avg", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub permanent_buffs_avg: Option<Option<f64>>,
     /// Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
     #[serde(rename = "permanent_buffs_std", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub permanent_buffs_std: Option<Option<f64>>,
+    /// Average damage dealt to enemy heroes at this time point
+    #[serde(rename = "player_damage_avg")]
+    pub player_damage_avg: f64,
+    /// Standard deviation of `player_damage_avg` at this time point
+    #[serde(rename = "player_damage_std")]
+    pub player_damage_std: f64,
 }
 
 impl PlayerPerformanceCurvePoint {
-    pub fn new(assists_avg: f64, assists_std: f64, deaths_avg: f64, deaths_std: f64, game_time: u32, gold_ability_assassinate_avg: f64, gold_ability_assassinate_std: f64, gold_assists_avg: f64, gold_assists_std: f64, gold_boss_avg: f64, gold_boss_orb_avg: f64, gold_boss_orb_std: f64, gold_boss_std: f64, gold_breakable_avg: f64, gold_breakable_std: f64, gold_death_loss_avg: f64, gold_death_loss_std: f64, gold_denied_avg: f64, gold_denied_std: f64, gold_item_cultist_sacrifice_avg: f64, gold_item_cultist_sacrifice_std: f64, gold_item_goose_egg_avg: f64, gold_item_goose_egg_std: f64, gold_item_trophy_collector_avg: f64, gold_item_trophy_collector_std: f64, gold_lane_creep_avg: f64, gold_lane_creep_orbs_avg: f64, gold_lane_creep_orbs_std: f64, gold_lane_creep_std: f64, gold_neutral_creep_avg: f64, gold_neutral_creep_orbs_avg: f64, gold_neutral_creep_orbs_std: f64, gold_neutral_creep_std: f64, gold_player_avg: f64, gold_player_orbs_avg: f64, gold_player_orbs_std: f64, gold_player_std: f64, gold_team_bonus_avg: f64, gold_team_bonus_std: f64, gold_treasure_avg: f64, gold_treasure_std: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64) -> PlayerPerformanceCurvePoint {
+    pub fn new(assists_avg: f64, assists_std: f64, boss_damage_avg: f64, boss_damage_std: f64, boss_kills_avg: f64, boss_kills_std: f64, creep_damage_avg: f64, creep_damage_std: f64, creep_kills_avg: f64, creep_kills_std: f64, deaths_avg: f64, deaths_std: f64, denies_avg: f64, denies_std: f64, game_time: u32, gold_ability_assassinate_avg: f64, gold_ability_assassinate_std: f64, gold_assists_avg: f64, gold_assists_std: f64, gold_boss_avg: f64, gold_boss_orb_avg: f64, gold_boss_orb_std: f64, gold_boss_std: f64, gold_breakable_avg: f64, gold_breakable_std: f64, gold_death_loss_avg: f64, gold_death_loss_std: f64, gold_denied_avg: f64, gold_denied_std: f64, gold_item_cultist_sacrifice_avg: f64, gold_item_cultist_sacrifice_std: f64, gold_item_goose_egg_avg: f64, gold_item_goose_egg_std: f64, gold_item_trophy_collector_avg: f64, gold_item_trophy_collector_std: f64, gold_lane_creep_avg: f64, gold_lane_creep_orbs_avg: f64, gold_lane_creep_orbs_std: f64, gold_lane_creep_std: f64, gold_neutral_creep_avg: f64, gold_neutral_creep_orbs_avg: f64, gold_neutral_creep_orbs_std: f64, gold_neutral_creep_std: f64, gold_player_avg: f64, gold_player_orbs_avg: f64, gold_player_orbs_std: f64, gold_player_std: f64, gold_team_bonus_avg: f64, gold_team_bonus_std: f64, gold_treasure_avg: f64, gold_treasure_std: f64, kills_avg: f64, kills_std: f64, net_worth_avg: f64, net_worth_std: f64, neutral_damage_avg: f64, neutral_damage_std: f64, neutral_kills_avg: f64, neutral_kills_std: f64, player_damage_avg: f64, player_damage_std: f64) -> PlayerPerformanceCurvePoint {
         PlayerPerformanceCurvePoint {
             assists_avg,
             assists_std,
+            boss_damage_avg,
+            boss_damage_std,
+            boss_kills_avg,
+            boss_kills_std,
+            creep_damage_avg,
+            creep_damage_std,
+            creep_kills_avg,
+            creep_kills_std,
             deaths_avg,
             deaths_std,
+            denies_avg,
+            denies_std,
             game_time,
             gold_ability_assassinate_avg,
             gold_ability_assassinate_std,
@@ -204,8 +262,14 @@ impl PlayerPerformanceCurvePoint {
             kills_std,
             net_worth_avg,
             net_worth_std,
+            neutral_damage_avg,
+            neutral_damage_std,
+            neutral_kills_avg,
+            neutral_kills_std,
             permanent_buffs_avg: None,
             permanent_buffs_std: None,
+            player_damage_avg,
+            player_damage_std,
         }
     }
 }

@@ -25,10 +25,30 @@ type PlayerPerformanceCurvePoint struct {
 	AssistsAvg float64 `json:"assists_avg"`
 	// Standard deviation of assists at this time point
 	AssistsStd float64 `json:"assists_std"`
+	// Average damage dealt to objectives at this time point
+	BossDamageAvg float64 `json:"boss_damage_avg"`
+	// Standard deviation of `boss_damage_avg` at this time point
+	BossDamageStd float64 `json:"boss_damage_std"`
+	// Average objectives killed (last hits) at this time point
+	BossKillsAvg float64 `json:"boss_kills_avg"`
+	// Standard deviation of `boss_kills_avg` at this time point
+	BossKillsStd float64 `json:"boss_kills_std"`
+	// Average damage dealt to lane creeps at this time point
+	CreepDamageAvg float64 `json:"creep_damage_avg"`
+	// Standard deviation of `creep_damage_avg` at this time point
+	CreepDamageStd float64 `json:"creep_damage_std"`
+	// Average lane creeps killed (last hits) at this time point
+	CreepKillsAvg float64 `json:"creep_kills_avg"`
+	// Standard deviation of `creep_kills_avg` at this time point
+	CreepKillsStd float64 `json:"creep_kills_std"`
 	// Average deaths at this time point
 	DeathsAvg float64 `json:"deaths_avg"`
 	// Standard deviation of deaths at this time point
 	DeathsStd float64 `json:"deaths_std"`
+	// Average lane creeps denied at this time point
+	DeniesAvg float64 `json:"denies_avg"`
+	// Standard deviation of `denies_avg` at this time point
+	DeniesStd float64 `json:"denies_std"`
 	// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
 	GameTime int32 `json:"game_time"`
 	// Average souls earned from the Assassinate ability at this time point
@@ -111,10 +131,22 @@ type PlayerPerformanceCurvePoint struct {
 	NetWorthAvg float64 `json:"net_worth_avg"`
 	// Standard deviation of net worth at this time point
 	NetWorthStd float64 `json:"net_worth_std"`
+	// Average damage dealt to neutral (jungle) creeps at this time point
+	NeutralDamageAvg float64 `json:"neutral_damage_avg"`
+	// Standard deviation of `neutral_damage_avg` at this time point
+	NeutralDamageStd float64 `json:"neutral_damage_std"`
+	// Average neutral (jungle) creeps killed at this time point
+	NeutralKillsAvg float64 `json:"neutral_kills_avg"`
+	// Standard deviation of `neutral_kills_avg` at this time point
+	NeutralKillsStd float64 `json:"neutral_kills_std"`
 	// Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
 	PermanentBuffsAvg NullableFloat64 `json:"permanent_buffs_avg,omitempty"`
 	// Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
 	PermanentBuffsStd NullableFloat64 `json:"permanent_buffs_std,omitempty"`
+	// Average damage dealt to enemy heroes at this time point
+	PlayerDamageAvg float64 `json:"player_damage_avg"`
+	// Standard deviation of `player_damage_avg` at this time point
+	PlayerDamageStd float64 `json:"player_damage_std"`
 }
 
 type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
@@ -123,12 +155,22 @@ type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deathsAvg float64, deathsStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64) *PlayerPerformanceCurvePoint {
+func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerDamageAvg float64, playerDamageStd float64) *PlayerPerformanceCurvePoint {
 	this := PlayerPerformanceCurvePoint{}
 	this.AssistsAvg = assistsAvg
 	this.AssistsStd = assistsStd
+	this.BossDamageAvg = bossDamageAvg
+	this.BossDamageStd = bossDamageStd
+	this.BossKillsAvg = bossKillsAvg
+	this.BossKillsStd = bossKillsStd
+	this.CreepDamageAvg = creepDamageAvg
+	this.CreepDamageStd = creepDamageStd
+	this.CreepKillsAvg = creepKillsAvg
+	this.CreepKillsStd = creepKillsStd
 	this.DeathsAvg = deathsAvg
 	this.DeathsStd = deathsStd
+	this.DeniesAvg = deniesAvg
+	this.DeniesStd = deniesStd
 	this.GameTime = gameTime
 	this.GoldAbilityAssassinateAvg = goldAbilityAssassinateAvg
 	this.GoldAbilityAssassinateStd = goldAbilityAssassinateStd
@@ -170,6 +212,12 @@ func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, deat
 	this.KillsStd = killsStd
 	this.NetWorthAvg = netWorthAvg
 	this.NetWorthStd = netWorthStd
+	this.NeutralDamageAvg = neutralDamageAvg
+	this.NeutralDamageStd = neutralDamageStd
+	this.NeutralKillsAvg = neutralKillsAvg
+	this.NeutralKillsStd = neutralKillsStd
+	this.PlayerDamageAvg = playerDamageAvg
+	this.PlayerDamageStd = playerDamageStd
 	return &this
 }
 
@@ -229,6 +277,198 @@ func (o *PlayerPerformanceCurvePoint) SetAssistsStd(v float64) {
 	o.AssistsStd = v
 }
 
+// GetBossDamageAvg returns the BossDamageAvg field value
+func (o *PlayerPerformanceCurvePoint) GetBossDamageAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.BossDamageAvg
+}
+
+// GetBossDamageAvgOk returns a tuple with the BossDamageAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetBossDamageAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BossDamageAvg, true
+}
+
+// SetBossDamageAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetBossDamageAvg(v float64) {
+	o.BossDamageAvg = v
+}
+
+// GetBossDamageStd returns the BossDamageStd field value
+func (o *PlayerPerformanceCurvePoint) GetBossDamageStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.BossDamageStd
+}
+
+// GetBossDamageStdOk returns a tuple with the BossDamageStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetBossDamageStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BossDamageStd, true
+}
+
+// SetBossDamageStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetBossDamageStd(v float64) {
+	o.BossDamageStd = v
+}
+
+// GetBossKillsAvg returns the BossKillsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetBossKillsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.BossKillsAvg
+}
+
+// GetBossKillsAvgOk returns a tuple with the BossKillsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetBossKillsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BossKillsAvg, true
+}
+
+// SetBossKillsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetBossKillsAvg(v float64) {
+	o.BossKillsAvg = v
+}
+
+// GetBossKillsStd returns the BossKillsStd field value
+func (o *PlayerPerformanceCurvePoint) GetBossKillsStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.BossKillsStd
+}
+
+// GetBossKillsStdOk returns a tuple with the BossKillsStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetBossKillsStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BossKillsStd, true
+}
+
+// SetBossKillsStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetBossKillsStd(v float64) {
+	o.BossKillsStd = v
+}
+
+// GetCreepDamageAvg returns the CreepDamageAvg field value
+func (o *PlayerPerformanceCurvePoint) GetCreepDamageAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.CreepDamageAvg
+}
+
+// GetCreepDamageAvgOk returns a tuple with the CreepDamageAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetCreepDamageAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreepDamageAvg, true
+}
+
+// SetCreepDamageAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetCreepDamageAvg(v float64) {
+	o.CreepDamageAvg = v
+}
+
+// GetCreepDamageStd returns the CreepDamageStd field value
+func (o *PlayerPerformanceCurvePoint) GetCreepDamageStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.CreepDamageStd
+}
+
+// GetCreepDamageStdOk returns a tuple with the CreepDamageStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetCreepDamageStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreepDamageStd, true
+}
+
+// SetCreepDamageStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetCreepDamageStd(v float64) {
+	o.CreepDamageStd = v
+}
+
+// GetCreepKillsAvg returns the CreepKillsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetCreepKillsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.CreepKillsAvg
+}
+
+// GetCreepKillsAvgOk returns a tuple with the CreepKillsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetCreepKillsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreepKillsAvg, true
+}
+
+// SetCreepKillsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetCreepKillsAvg(v float64) {
+	o.CreepKillsAvg = v
+}
+
+// GetCreepKillsStd returns the CreepKillsStd field value
+func (o *PlayerPerformanceCurvePoint) GetCreepKillsStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.CreepKillsStd
+}
+
+// GetCreepKillsStdOk returns a tuple with the CreepKillsStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetCreepKillsStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CreepKillsStd, true
+}
+
+// SetCreepKillsStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetCreepKillsStd(v float64) {
+	o.CreepKillsStd = v
+}
+
 // GetDeathsAvg returns the DeathsAvg field value
 func (o *PlayerPerformanceCurvePoint) GetDeathsAvg() float64 {
 	if o == nil {
@@ -275,6 +515,54 @@ func (o *PlayerPerformanceCurvePoint) GetDeathsStdOk() (*float64, bool) {
 // SetDeathsStd sets field value
 func (o *PlayerPerformanceCurvePoint) SetDeathsStd(v float64) {
 	o.DeathsStd = v
+}
+
+// GetDeniesAvg returns the DeniesAvg field value
+func (o *PlayerPerformanceCurvePoint) GetDeniesAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.DeniesAvg
+}
+
+// GetDeniesAvgOk returns a tuple with the DeniesAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetDeniesAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DeniesAvg, true
+}
+
+// SetDeniesAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetDeniesAvg(v float64) {
+	o.DeniesAvg = v
+}
+
+// GetDeniesStd returns the DeniesStd field value
+func (o *PlayerPerformanceCurvePoint) GetDeniesStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.DeniesStd
+}
+
+// GetDeniesStdOk returns a tuple with the DeniesStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetDeniesStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.DeniesStd, true
+}
+
+// SetDeniesStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetDeniesStd(v float64) {
+	o.DeniesStd = v
 }
 
 // GetGameTime returns the GameTime field value
@@ -1261,6 +1549,102 @@ func (o *PlayerPerformanceCurvePoint) SetNetWorthStd(v float64) {
 	o.NetWorthStd = v
 }
 
+// GetNeutralDamageAvg returns the NeutralDamageAvg field value
+func (o *PlayerPerformanceCurvePoint) GetNeutralDamageAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.NeutralDamageAvg
+}
+
+// GetNeutralDamageAvgOk returns a tuple with the NeutralDamageAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetNeutralDamageAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NeutralDamageAvg, true
+}
+
+// SetNeutralDamageAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetNeutralDamageAvg(v float64) {
+	o.NeutralDamageAvg = v
+}
+
+// GetNeutralDamageStd returns the NeutralDamageStd field value
+func (o *PlayerPerformanceCurvePoint) GetNeutralDamageStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.NeutralDamageStd
+}
+
+// GetNeutralDamageStdOk returns a tuple with the NeutralDamageStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetNeutralDamageStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NeutralDamageStd, true
+}
+
+// SetNeutralDamageStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetNeutralDamageStd(v float64) {
+	o.NeutralDamageStd = v
+}
+
+// GetNeutralKillsAvg returns the NeutralKillsAvg field value
+func (o *PlayerPerformanceCurvePoint) GetNeutralKillsAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.NeutralKillsAvg
+}
+
+// GetNeutralKillsAvgOk returns a tuple with the NeutralKillsAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetNeutralKillsAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NeutralKillsAvg, true
+}
+
+// SetNeutralKillsAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetNeutralKillsAvg(v float64) {
+	o.NeutralKillsAvg = v
+}
+
+// GetNeutralKillsStd returns the NeutralKillsStd field value
+func (o *PlayerPerformanceCurvePoint) GetNeutralKillsStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.NeutralKillsStd
+}
+
+// GetNeutralKillsStdOk returns a tuple with the NeutralKillsStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetNeutralKillsStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.NeutralKillsStd, true
+}
+
+// SetNeutralKillsStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetNeutralKillsStd(v float64) {
+	o.NeutralKillsStd = v
+}
+
 // GetPermanentBuffsAvg returns the PermanentBuffsAvg field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PlayerPerformanceCurvePoint) GetPermanentBuffsAvg() float64 {
 	if o == nil || IsNil(o.PermanentBuffsAvg.Get()) {
@@ -1345,6 +1729,54 @@ func (o *PlayerPerformanceCurvePoint) UnsetPermanentBuffsStd() {
 	o.PermanentBuffsStd.Unset()
 }
 
+// GetPlayerDamageAvg returns the PlayerDamageAvg field value
+func (o *PlayerPerformanceCurvePoint) GetPlayerDamageAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.PlayerDamageAvg
+}
+
+// GetPlayerDamageAvgOk returns a tuple with the PlayerDamageAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetPlayerDamageAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PlayerDamageAvg, true
+}
+
+// SetPlayerDamageAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetPlayerDamageAvg(v float64) {
+	o.PlayerDamageAvg = v
+}
+
+// GetPlayerDamageStd returns the PlayerDamageStd field value
+func (o *PlayerPerformanceCurvePoint) GetPlayerDamageStd() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.PlayerDamageStd
+}
+
+// GetPlayerDamageStdOk returns a tuple with the PlayerDamageStd field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetPlayerDamageStdOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PlayerDamageStd, true
+}
+
+// SetPlayerDamageStd sets field value
+func (o *PlayerPerformanceCurvePoint) SetPlayerDamageStd(v float64) {
+	o.PlayerDamageStd = v
+}
+
 func (o PlayerPerformanceCurvePoint) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -1357,8 +1789,18 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["assists_avg"] = o.AssistsAvg
 	toSerialize["assists_std"] = o.AssistsStd
+	toSerialize["boss_damage_avg"] = o.BossDamageAvg
+	toSerialize["boss_damage_std"] = o.BossDamageStd
+	toSerialize["boss_kills_avg"] = o.BossKillsAvg
+	toSerialize["boss_kills_std"] = o.BossKillsStd
+	toSerialize["creep_damage_avg"] = o.CreepDamageAvg
+	toSerialize["creep_damage_std"] = o.CreepDamageStd
+	toSerialize["creep_kills_avg"] = o.CreepKillsAvg
+	toSerialize["creep_kills_std"] = o.CreepKillsStd
 	toSerialize["deaths_avg"] = o.DeathsAvg
 	toSerialize["deaths_std"] = o.DeathsStd
+	toSerialize["denies_avg"] = o.DeniesAvg
+	toSerialize["denies_std"] = o.DeniesStd
 	toSerialize["game_time"] = o.GameTime
 	toSerialize["gold_ability_assassinate_avg"] = o.GoldAbilityAssassinateAvg
 	toSerialize["gold_ability_assassinate_std"] = o.GoldAbilityAssassinateStd
@@ -1400,12 +1842,18 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["kills_std"] = o.KillsStd
 	toSerialize["net_worth_avg"] = o.NetWorthAvg
 	toSerialize["net_worth_std"] = o.NetWorthStd
+	toSerialize["neutral_damage_avg"] = o.NeutralDamageAvg
+	toSerialize["neutral_damage_std"] = o.NeutralDamageStd
+	toSerialize["neutral_kills_avg"] = o.NeutralKillsAvg
+	toSerialize["neutral_kills_std"] = o.NeutralKillsStd
 	if o.PermanentBuffsAvg.IsSet() {
 		toSerialize["permanent_buffs_avg"] = o.PermanentBuffsAvg.Get()
 	}
 	if o.PermanentBuffsStd.IsSet() {
 		toSerialize["permanent_buffs_std"] = o.PermanentBuffsStd.Get()
 	}
+	toSerialize["player_damage_avg"] = o.PlayerDamageAvg
+	toSerialize["player_damage_std"] = o.PlayerDamageStd
 	return toSerialize, nil
 }
 
@@ -1416,8 +1864,18 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"assists_avg",
 		"assists_std",
+		"boss_damage_avg",
+		"boss_damage_std",
+		"boss_kills_avg",
+		"boss_kills_std",
+		"creep_damage_avg",
+		"creep_damage_std",
+		"creep_kills_avg",
+		"creep_kills_std",
 		"deaths_avg",
 		"deaths_std",
+		"denies_avg",
+		"denies_std",
 		"game_time",
 		"gold_ability_assassinate_avg",
 		"gold_ability_assassinate_std",
@@ -1459,6 +1917,12 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 		"kills_std",
 		"net_worth_avg",
 		"net_worth_std",
+		"neutral_damage_avg",
+		"neutral_damage_std",
+		"neutral_kills_avg",
+		"neutral_kills_std",
+		"player_damage_avg",
+		"player_damage_std",
 	}
 
 	allProperties := make(map[string]interface{})
