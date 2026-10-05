@@ -118,8 +118,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => 'float',
         'permanent_buffs_avg' => 'float',
         'permanent_buffs_std' => 'float',
+        'player_barriering_avg' => 'float',
+        'player_barriering_std' => 'float',
         'player_damage_avg' => 'float',
-        'player_damage_std' => 'float'
+        'player_damage_std' => 'float',
+        'player_healing_avg' => 'float',
+        'player_healing_std' => 'float',
+        'self_damage_avg' => 'float',
+        'self_damage_std' => 'float'
     ];
 
     /**
@@ -191,8 +197,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => 'double',
         'permanent_buffs_avg' => 'double',
         'permanent_buffs_std' => 'double',
+        'player_barriering_avg' => 'double',
+        'player_barriering_std' => 'double',
         'player_damage_avg' => 'double',
-        'player_damage_std' => 'double'
+        'player_damage_std' => 'double',
+        'player_healing_avg' => 'double',
+        'player_healing_std' => 'double',
+        'self_damage_avg' => 'double',
+        'self_damage_std' => 'double'
     ];
 
     /**
@@ -262,8 +274,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => false,
         'permanent_buffs_avg' => true,
         'permanent_buffs_std' => true,
+        'player_barriering_avg' => false,
+        'player_barriering_std' => false,
         'player_damage_avg' => false,
-        'player_damage_std' => false
+        'player_damage_std' => false,
+        'player_healing_avg' => false,
+        'player_healing_std' => false,
+        'self_damage_avg' => false,
+        'self_damage_std' => false
     ];
 
     /**
@@ -413,8 +431,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => 'neutral_kills_std',
         'permanent_buffs_avg' => 'permanent_buffs_avg',
         'permanent_buffs_std' => 'permanent_buffs_std',
+        'player_barriering_avg' => 'player_barriering_avg',
+        'player_barriering_std' => 'player_barriering_std',
         'player_damage_avg' => 'player_damage_avg',
-        'player_damage_std' => 'player_damage_std'
+        'player_damage_std' => 'player_damage_std',
+        'player_healing_avg' => 'player_healing_avg',
+        'player_healing_std' => 'player_healing_std',
+        'self_damage_avg' => 'self_damage_avg',
+        'self_damage_std' => 'self_damage_std'
     ];
 
     /**
@@ -484,8 +508,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => 'setNeutralKillsStd',
         'permanent_buffs_avg' => 'setPermanentBuffsAvg',
         'permanent_buffs_std' => 'setPermanentBuffsStd',
+        'player_barriering_avg' => 'setPlayerBarrieringAvg',
+        'player_barriering_std' => 'setPlayerBarrieringStd',
         'player_damage_avg' => 'setPlayerDamageAvg',
-        'player_damage_std' => 'setPlayerDamageStd'
+        'player_damage_std' => 'setPlayerDamageStd',
+        'player_healing_avg' => 'setPlayerHealingAvg',
+        'player_healing_std' => 'setPlayerHealingStd',
+        'self_damage_avg' => 'setSelfDamageAvg',
+        'self_damage_std' => 'setSelfDamageStd'
     ];
 
     /**
@@ -555,8 +585,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'neutral_kills_std' => 'getNeutralKillsStd',
         'permanent_buffs_avg' => 'getPermanentBuffsAvg',
         'permanent_buffs_std' => 'getPermanentBuffsStd',
+        'player_barriering_avg' => 'getPlayerBarrieringAvg',
+        'player_barriering_std' => 'getPlayerBarrieringStd',
         'player_damage_avg' => 'getPlayerDamageAvg',
-        'player_damage_std' => 'getPlayerDamageStd'
+        'player_damage_std' => 'getPlayerDamageStd',
+        'player_healing_avg' => 'getPlayerHealingAvg',
+        'player_healing_std' => 'getPlayerHealingStd',
+        'self_damage_avg' => 'getSelfDamageAvg',
+        'self_damage_std' => 'getSelfDamageStd'
     ];
 
     /**
@@ -677,8 +713,14 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('neutral_kills_std', $data ?? [], null);
         $this->setIfExists('permanent_buffs_avg', $data ?? [], null);
         $this->setIfExists('permanent_buffs_std', $data ?? [], null);
+        $this->setIfExists('player_barriering_avg', $data ?? [], null);
+        $this->setIfExists('player_barriering_std', $data ?? [], null);
         $this->setIfExists('player_damage_avg', $data ?? [], null);
         $this->setIfExists('player_damage_std', $data ?? [], null);
+        $this->setIfExists('player_healing_avg', $data ?? [], null);
+        $this->setIfExists('player_healing_std', $data ?? [], null);
+        $this->setIfExists('self_damage_avg', $data ?? [], null);
+        $this->setIfExists('self_damage_std', $data ?? [], null);
     }
 
     /**
@@ -889,11 +931,29 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['neutral_kills_std'] === null) {
             $invalidProperties[] = "'neutral_kills_std' can't be null";
         }
+        if ($this->container['player_barriering_avg'] === null) {
+            $invalidProperties[] = "'player_barriering_avg' can't be null";
+        }
+        if ($this->container['player_barriering_std'] === null) {
+            $invalidProperties[] = "'player_barriering_std' can't be null";
+        }
         if ($this->container['player_damage_avg'] === null) {
             $invalidProperties[] = "'player_damage_avg' can't be null";
         }
         if ($this->container['player_damage_std'] === null) {
             $invalidProperties[] = "'player_damage_std' can't be null";
+        }
+        if ($this->container['player_healing_avg'] === null) {
+            $invalidProperties[] = "'player_healing_avg' can't be null";
+        }
+        if ($this->container['player_healing_std'] === null) {
+            $invalidProperties[] = "'player_healing_std' can't be null";
+        }
+        if ($this->container['self_damage_avg'] === null) {
+            $invalidProperties[] = "'self_damage_avg' can't be null";
+        }
+        if ($this->container['self_damage_std'] === null) {
+            $invalidProperties[] = "'self_damage_std' can't be null";
         }
         return $invalidProperties;
     }
@@ -2576,6 +2636,60 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets player_barriering_avg
+     *
+     * @return float
+     */
+    public function getPlayerBarrieringAvg()
+    {
+        return $this->container['player_barriering_avg'];
+    }
+
+    /**
+     * Sets player_barriering_avg
+     *
+     * @param float $player_barriering_avg Average barrier (shield) provided at this time point
+     *
+     * @return self
+     */
+    public function setPlayerBarrieringAvg($player_barriering_avg)
+    {
+        if (is_null($player_barriering_avg)) {
+            throw new \InvalidArgumentException('non-nullable player_barriering_avg cannot be null');
+        }
+        $this->container['player_barriering_avg'] = $player_barriering_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_barriering_std
+     *
+     * @return float
+     */
+    public function getPlayerBarrieringStd()
+    {
+        return $this->container['player_barriering_std'];
+    }
+
+    /**
+     * Sets player_barriering_std
+     *
+     * @param float $player_barriering_std Standard deviation of `player_barriering_avg` at this time point
+     *
+     * @return self
+     */
+    public function setPlayerBarrieringStd($player_barriering_std)
+    {
+        if (is_null($player_barriering_std)) {
+            throw new \InvalidArgumentException('non-nullable player_barriering_std cannot be null');
+        }
+        $this->container['player_barriering_std'] = $player_barriering_std;
+
+        return $this;
+    }
+
+    /**
      * Gets player_damage_avg
      *
      * @return float
@@ -2625,6 +2739,114 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable player_damage_std cannot be null');
         }
         $this->container['player_damage_std'] = $player_damage_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_healing_avg
+     *
+     * @return float
+     */
+    public function getPlayerHealingAvg()
+    {
+        return $this->container['player_healing_avg'];
+    }
+
+    /**
+     * Sets player_healing_avg
+     *
+     * @param float $player_healing_avg Average healing done at this time point
+     *
+     * @return self
+     */
+    public function setPlayerHealingAvg($player_healing_avg)
+    {
+        if (is_null($player_healing_avg)) {
+            throw new \InvalidArgumentException('non-nullable player_healing_avg cannot be null');
+        }
+        $this->container['player_healing_avg'] = $player_healing_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets player_healing_std
+     *
+     * @return float
+     */
+    public function getPlayerHealingStd()
+    {
+        return $this->container['player_healing_std'];
+    }
+
+    /**
+     * Sets player_healing_std
+     *
+     * @param float $player_healing_std Standard deviation of `player_healing_avg` at this time point
+     *
+     * @return self
+     */
+    public function setPlayerHealingStd($player_healing_std)
+    {
+        if (is_null($player_healing_std)) {
+            throw new \InvalidArgumentException('non-nullable player_healing_std cannot be null');
+        }
+        $this->container['player_healing_std'] = $player_healing_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets self_damage_avg
+     *
+     * @return float
+     */
+    public function getSelfDamageAvg()
+    {
+        return $this->container['self_damage_avg'];
+    }
+
+    /**
+     * Sets self_damage_avg
+     *
+     * @param float $self_damage_avg Average self-inflicted damage at this time point
+     *
+     * @return self
+     */
+    public function setSelfDamageAvg($self_damage_avg)
+    {
+        if (is_null($self_damage_avg)) {
+            throw new \InvalidArgumentException('non-nullable self_damage_avg cannot be null');
+        }
+        $this->container['self_damage_avg'] = $self_damage_avg;
+
+        return $this;
+    }
+
+    /**
+     * Gets self_damage_std
+     *
+     * @return float
+     */
+    public function getSelfDamageStd()
+    {
+        return $this->container['self_damage_std'];
+    }
+
+    /**
+     * Sets self_damage_std
+     *
+     * @param float $self_damage_std Standard deviation of `self_damage_avg` at this time point
+     *
+     * @return self
+     */
+    public function setSelfDamageStd($self_damage_std)
+    {
+        if (is_null($self_damage_std)) {
+            throw new \InvalidArgumentException('non-nullable self_damage_std cannot be null');
+        }
+        $this->container['self_damage_std'] = $self_damage_std;
 
         return $this;
     }

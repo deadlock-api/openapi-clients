@@ -90,8 +90,14 @@ import java.io.Serializable
  * @param neutralDamageStd Standard deviation of `neutral_damage_avg` at this time point
  * @param neutralKillsAvg Average neutral (jungle) creeps killed at this time point
  * @param neutralKillsStd Standard deviation of `neutral_kills_avg` at this time point
+ * @param playerBarrieringAvg Average barrier (shield) provided at this time point
+ * @param playerBarrieringStd Standard deviation of `player_barriering_avg` at this time point
  * @param playerDamageAvg Average damage dealt to enemy heroes at this time point
  * @param playerDamageStd Standard deviation of `player_damage_avg` at this time point
+ * @param playerHealingAvg Average healing done at this time point
+ * @param playerHealingStd Standard deviation of `player_healing_avg` at this time point
+ * @param selfDamageAvg Average self-inflicted damage at this time point
+ * @param selfDamageStd Standard deviation of `self_damage_avg` at this time point
  * @param permanentBuffsAvg Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.
  * @param permanentBuffsStd Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups.
  */
@@ -335,6 +341,14 @@ data class PlayerPerformanceCurvePoint (
     @Json(name = "neutral_kills_std")
     val neutralKillsStd: kotlin.Double,
 
+    /* Average barrier (shield) provided at this time point */
+    @Json(name = "player_barriering_avg")
+    val playerBarrieringAvg: kotlin.Double,
+
+    /* Standard deviation of `player_barriering_avg` at this time point */
+    @Json(name = "player_barriering_std")
+    val playerBarrieringStd: kotlin.Double,
+
     /* Average damage dealt to enemy heroes at this time point */
     @Json(name = "player_damage_avg")
     val playerDamageAvg: kotlin.Double,
@@ -342,6 +356,22 @@ data class PlayerPerformanceCurvePoint (
     /* Standard deviation of `player_damage_avg` at this time point */
     @Json(name = "player_damage_std")
     val playerDamageStd: kotlin.Double,
+
+    /* Average healing done at this time point */
+    @Json(name = "player_healing_avg")
+    val playerHealingAvg: kotlin.Double,
+
+    /* Standard deviation of `player_healing_avg` at this time point */
+    @Json(name = "player_healing_std")
+    val playerHealingStd: kotlin.Double,
+
+    /* Average self-inflicted damage at this time point */
+    @Json(name = "self_damage_avg")
+    val selfDamageAvg: kotlin.Double,
+
+    /* Standard deviation of `self_damage_avg` at this time point */
+    @Json(name = "self_damage_std")
+    val selfDamageStd: kotlin.Double,
 
     /* Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none. */
     @Json(name = "permanent_buffs_avg")

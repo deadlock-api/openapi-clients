@@ -260,6 +260,14 @@ export interface PlayerPerformanceCurvePoint {
      */
     'permanent_buffs_std'?: number | null;
     /**
+     * Average barrier (shield) provided at this time point
+     */
+    'player_barriering_avg': number;
+    /**
+     * Standard deviation of `player_barriering_avg` at this time point
+     */
+    'player_barriering_std': number;
+    /**
      * Average damage dealt to enemy heroes at this time point
      */
     'player_damage_avg': number;
@@ -267,5 +275,21 @@ export interface PlayerPerformanceCurvePoint {
      * Standard deviation of `player_damage_avg` at this time point
      */
     'player_damage_std': number;
+    /**
+     * Average healing done at this time point
+     */
+    'player_healing_avg': number;
+    /**
+     * Standard deviation of `player_healing_avg` at this time point
+     */
+    'player_healing_std': number;
+    /**
+     * Average self-inflicted damage at this time point
+     */
+    'self_damage_avg': number;
+    /**
+     * Standard deviation of `self_damage_avg` at this time point
+     */
+    'self_damage_std': number;
 }
 

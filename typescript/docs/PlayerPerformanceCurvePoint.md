@@ -66,8 +66,14 @@ Name | Type | Description | Notes
 **neutral_kills_std** | **number** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | [default to undefined]
 **permanent_buffs_avg** | **number** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] [default to undefined]
 **permanent_buffs_std** | **number** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] [default to undefined]
+**player_barriering_avg** | **number** | Average barrier (shield) provided at this time point | [default to undefined]
+**player_barriering_std** | **number** | Standard deviation of &#x60;player_barriering_avg&#x60; at this time point | [default to undefined]
 **player_damage_avg** | **number** | Average damage dealt to enemy heroes at this time point | [default to undefined]
 **player_damage_std** | **number** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | [default to undefined]
+**player_healing_avg** | **number** | Average healing done at this time point | [default to undefined]
+**player_healing_std** | **number** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | [default to undefined]
+**self_damage_avg** | **number** | Average self-inflicted damage at this time point | [default to undefined]
+**self_damage_std** | **number** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | [default to undefined]
 
 ## Example
 
@@ -136,8 +142,14 @@ const instance: PlayerPerformanceCurvePoint = {
     neutral_kills_std,
     permanent_buffs_avg,
     permanent_buffs_std,
+    player_barriering_avg,
+    player_barriering_std,
     player_damage_avg,
     player_damage_std,
+    player_healing_avg,
+    player_healing_std,
+    self_damage_avg,
+    self_damage_std,
 };
 ```
 

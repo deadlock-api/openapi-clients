@@ -96,8 +96,14 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 neutral_kills_std = 1.337,
                 permanent_buffs_avg = 1.337,
                 permanent_buffs_std = 1.337,
+                player_barriering_avg = 1.337,
+                player_barriering_std = 1.337,
                 player_damage_avg = 1.337,
-                player_damage_std = 1.337
+                player_damage_std = 1.337,
+                player_healing_avg = 1.337,
+                player_healing_std = 1.337,
+                self_damage_avg = 1.337,
+                self_damage_std = 1.337
             )
         else:
             return PlayerPerformanceCurvePoint(
@@ -160,8 +166,14 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 neutral_damage_std = 1.337,
                 neutral_kills_avg = 1.337,
                 neutral_kills_std = 1.337,
+                player_barriering_avg = 1.337,
+                player_barriering_std = 1.337,
                 player_damage_avg = 1.337,
                 player_damage_std = 1.337,
+                player_healing_avg = 1.337,
+                player_healing_std = 1.337,
+                self_damage_avg = 1.337,
+                self_damage_std = 1.337,
         )
         """
 

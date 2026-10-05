@@ -65,8 +65,14 @@ Name | Type | Description | Notes
 **neutral_kills_std** | **f64** | Standard deviation of `neutral_kills_avg` at this time point | 
 **permanent_buffs_avg** | Option<**f64**> | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none. | [optional]
 **permanent_buffs_std** | Option<**f64**> | Standard deviation of `permanent_buffs_avg` at this time point; `null` when there are no players with timed permanent pickups. | [optional]
+**player_barriering_avg** | **f64** | Average barrier (shield) provided at this time point | 
+**player_barriering_std** | **f64** | Standard deviation of `player_barriering_avg` at this time point | 
 **player_damage_avg** | **f64** | Average damage dealt to enemy heroes at this time point | 
 **player_damage_std** | **f64** | Standard deviation of `player_damage_avg` at this time point | 
+**player_healing_avg** | **f64** | Average healing done at this time point | 
+**player_healing_std** | **f64** | Standard deviation of `player_healing_avg` at this time point | 
+**self_damage_avg** | **f64** | Average self-inflicted damage at this time point | 
+**self_damage_std** | **f64** | Standard deviation of `self_damage_avg` at this time point | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

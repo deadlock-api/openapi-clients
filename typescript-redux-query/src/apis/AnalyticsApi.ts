@@ -3025,7 +3025,7 @@ export function laneSoulCurve<T>(requestParameters: LaneSoulCurveRequest, reques
 }
 
 /**
- *  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Performance Curve
  */
 function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>> = {}): QueryConfig<T> {
@@ -3157,7 +3157,7 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
 }
 
 /**
-*  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Performance Curve
 */
 export function playerPerformanceCurve<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>>): QueryConfig<T> {

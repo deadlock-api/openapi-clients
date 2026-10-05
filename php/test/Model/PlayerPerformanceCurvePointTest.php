@@ -629,6 +629,24 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "player_barriering_avg"
+     */
+    public function testPropertyPlayerBarrieringAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "player_barriering_std"
+     */
+    public function testPropertyPlayerBarrieringStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "player_damage_avg"
      */
     public function testPropertyPlayerDamageAvg()
@@ -641,6 +659,42 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "player_damage_std"
      */
     public function testPropertyPlayerDamageStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "player_healing_avg"
+     */
+    public function testPropertyPlayerHealingAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "player_healing_std"
+     */
+    public function testPropertyPlayerHealingStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "self_damage_avg"
+     */
+    public function testPropertySelfDamageAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "self_damage_std"
+     */
+    public function testPropertySelfDamageStd()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

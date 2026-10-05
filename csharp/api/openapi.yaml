@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -2453,7 +2453,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -2741,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -3106,7 +3106,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -3451,7 +3451,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -3820,7 +3820,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -4129,7 +4129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -4416,7 +4416,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -4652,12 +4652,12 @@ paths:
   /v1/analytics/player-performance-curve:
     get:
       description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
-        \ assists, souls per source, damage and kills per target) over time throughout\
-        \ matches.\n\nResults are cached for **12 hours** based on the unique combination\
-        \ of query parameters provided.\n\n### Rate Limits:\n> The rate limits below\
-        \ are **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
-        \ |\n    "
+        \ assists, souls per source, damage and kills per target, healing, barriers\
+        \ and self damage) over time throughout matches.\n\nResults are cached for\
+        \ **12 hours** based on the unique combination of query parameters provided.\n\
+        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -4709,7 +4709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -4978,7 +4978,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -5344,7 +5344,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -11056,7 +11056,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -11180,7 +11180,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -11502,7 +11502,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788480000
+          default: 1788566400
           format: int64
           nullable: true
           type: integer
@@ -20387,8 +20387,14 @@ components:
         neutral_kills_std: 9.702963800023566
         permanent_buffs_avg: 0.5199002018724985
         permanent_buffs_std: 7.933506881737151
-        player_damage_avg: 5.507386964179881
-        player_damage_std: 4.86315908102884
+        player_barriering_avg: 5.507386964179881
+        player_barriering_std: 4.86315908102884
+        player_damage_avg: 6.073898085781152
+        player_damage_std: 8.251625748923757
+        player_healing_avg: 4.459605034958679
+        player_healing_std: 3.901545264248647
+        self_damage_avg: 0.43431398824148815
+        self_damage_std: 2.9409642974827896
       properties:
         assists_avg:
           description: Average assists at this time point
@@ -20666,12 +20672,37 @@ components:
           format: double
           nullable: true
           type: number
+        player_barriering_avg:
+          description: Average barrier (shield) provided at this time point
+          format: double
+          type: number
+        player_barriering_std:
+          description: Standard deviation of `player_barriering_avg` at this time
+            point
+          format: double
+          type: number
         player_damage_avg:
           description: Average damage dealt to enemy heroes at this time point
           format: double
           type: number
         player_damage_std:
           description: Standard deviation of `player_damage_avg` at this time point
+          format: double
+          type: number
+        player_healing_avg:
+          description: Average healing done at this time point
+          format: double
+          type: number
+        player_healing_std:
+          description: Standard deviation of `player_healing_avg` at this time point
+          format: double
+          type: number
+        self_damage_avg:
+          description: Average self-inflicted damage at this time point
+          format: double
+          type: number
+        self_damage_std:
+          description: Standard deviation of `self_damage_avg` at this time point
           format: double
           type: number
       required:
@@ -20734,8 +20765,14 @@ components:
       - neutral_damage_std
       - neutral_kills_avg
       - neutral_kills_std
+      - player_barriering_avg
+      - player_barriering_std
       - player_damage_avg
       - player_damage_std
+      - player_healing_avg
+      - player_healing_std
+      - self_damage_avg
+      - self_damage_std
     Rank:
       example:
         color: color

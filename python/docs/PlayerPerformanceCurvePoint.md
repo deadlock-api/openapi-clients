@@ -66,8 +66,14 @@ Name | Type | Description | Notes
 **neutral_kills_std** | **float** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | 
 **permanent_buffs_avg** | **float** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 **permanent_buffs_std** | **float** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] 
+**player_barriering_avg** | **float** | Average barrier (shield) provided at this time point | 
+**player_barriering_std** | **float** | Standard deviation of &#x60;player_barriering_avg&#x60; at this time point | 
 **player_damage_avg** | **float** | Average damage dealt to enemy heroes at this time point | 
 **player_damage_std** | **float** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
+**player_healing_avg** | **float** | Average healing done at this time point | 
+**player_healing_std** | **float** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | 
+**self_damage_avg** | **float** | Average self-inflicted damage at this time point | 
+**self_damage_std** | **float** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | 
 
 ## Example
 

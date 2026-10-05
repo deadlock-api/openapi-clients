@@ -65,14 +65,20 @@ Name | Type | Description | Notes
 **NeutralKillsStd** | **float64** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | 
 **PermanentBuffsAvg** | Pointer to **NullableFloat64** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 **PermanentBuffsStd** | Pointer to **NullableFloat64** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] 
+**PlayerBarrieringAvg** | **float64** | Average barrier (shield) provided at this time point | 
+**PlayerBarrieringStd** | **float64** | Standard deviation of &#x60;player_barriering_avg&#x60; at this time point | 
 **PlayerDamageAvg** | **float64** | Average damage dealt to enemy heroes at this time point | 
 **PlayerDamageStd** | **float64** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
+**PlayerHealingAvg** | **float64** | Average healing done at this time point | 
+**PlayerHealingStd** | **float64** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | 
+**SelfDamageAvg** | **float64** | Average self-inflicted damage at this time point | 
+**SelfDamageStd** | **float64** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | 
 
 ## Methods
 
 ### NewPlayerPerformanceCurvePoint
 
-`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerDamageAvg float64, playerDamageStd float64, ) *PlayerPerformanceCurvePoint`
+`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerBarrieringAvg float64, playerBarrieringStd float64, playerDamageAvg float64, playerDamageStd float64, playerHealingAvg float64, playerHealingStd float64, selfDamageAvg float64, selfDamageStd float64, ) *PlayerPerformanceCurvePoint`
 
 NewPlayerPerformanceCurvePoint instantiates a new PlayerPerformanceCurvePoint object
 This constructor will assign default values to properties that have it defined,
@@ -1337,6 +1343,46 @@ HasPermanentBuffsStd returns a boolean if a field has been set.
 `func (o *PlayerPerformanceCurvePoint) UnsetPermanentBuffsStd()`
 
 UnsetPermanentBuffsStd ensures that no value is present for PermanentBuffsStd, not even an explicit nil
+### GetPlayerBarrieringAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerBarrieringAvg() float64`
+
+GetPlayerBarrieringAvg returns the PlayerBarrieringAvg field if non-nil, zero value otherwise.
+
+### GetPlayerBarrieringAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerBarrieringAvgOk() (*float64, bool)`
+
+GetPlayerBarrieringAvgOk returns a tuple with the PlayerBarrieringAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayerBarrieringAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetPlayerBarrieringAvg(v float64)`
+
+SetPlayerBarrieringAvg sets PlayerBarrieringAvg field to given value.
+
+
+### GetPlayerBarrieringStd
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerBarrieringStd() float64`
+
+GetPlayerBarrieringStd returns the PlayerBarrieringStd field if non-nil, zero value otherwise.
+
+### GetPlayerBarrieringStdOk
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerBarrieringStdOk() (*float64, bool)`
+
+GetPlayerBarrieringStdOk returns a tuple with the PlayerBarrieringStd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayerBarrieringStd
+
+`func (o *PlayerPerformanceCurvePoint) SetPlayerBarrieringStd(v float64)`
+
+SetPlayerBarrieringStd sets PlayerBarrieringStd field to given value.
+
+
 ### GetPlayerDamageAvg
 
 `func (o *PlayerPerformanceCurvePoint) GetPlayerDamageAvg() float64`
@@ -1375,6 +1421,86 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetPlayerDamageStd(v float64)`
 
 SetPlayerDamageStd sets PlayerDamageStd field to given value.
+
+
+### GetPlayerHealingAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerHealingAvg() float64`
+
+GetPlayerHealingAvg returns the PlayerHealingAvg field if non-nil, zero value otherwise.
+
+### GetPlayerHealingAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerHealingAvgOk() (*float64, bool)`
+
+GetPlayerHealingAvgOk returns a tuple with the PlayerHealingAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayerHealingAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetPlayerHealingAvg(v float64)`
+
+SetPlayerHealingAvg sets PlayerHealingAvg field to given value.
+
+
+### GetPlayerHealingStd
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerHealingStd() float64`
+
+GetPlayerHealingStd returns the PlayerHealingStd field if non-nil, zero value otherwise.
+
+### GetPlayerHealingStdOk
+
+`func (o *PlayerPerformanceCurvePoint) GetPlayerHealingStdOk() (*float64, bool)`
+
+GetPlayerHealingStdOk returns a tuple with the PlayerHealingStd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPlayerHealingStd
+
+`func (o *PlayerPerformanceCurvePoint) SetPlayerHealingStd(v float64)`
+
+SetPlayerHealingStd sets PlayerHealingStd field to given value.
+
+
+### GetSelfDamageAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetSelfDamageAvg() float64`
+
+GetSelfDamageAvg returns the SelfDamageAvg field if non-nil, zero value otherwise.
+
+### GetSelfDamageAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetSelfDamageAvgOk() (*float64, bool)`
+
+GetSelfDamageAvgOk returns a tuple with the SelfDamageAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelfDamageAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetSelfDamageAvg(v float64)`
+
+SetSelfDamageAvg sets SelfDamageAvg field to given value.
+
+
+### GetSelfDamageStd
+
+`func (o *PlayerPerformanceCurvePoint) GetSelfDamageStd() float64`
+
+GetSelfDamageStd returns the SelfDamageStd field if non-nil, zero value otherwise.
+
+### GetSelfDamageStdOk
+
+`func (o *PlayerPerformanceCurvePoint) GetSelfDamageStdOk() (*float64, bool)`
+
+GetSelfDamageStdOk returns a tuple with the SelfDamageStd field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSelfDamageStd
+
+`func (o *PlayerPerformanceCurvePoint) SetSelfDamageStd(v float64)`
+
+SetSelfDamageStd sets SelfDamageStd field to given value.
 
 
 

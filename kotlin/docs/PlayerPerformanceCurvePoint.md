@@ -63,8 +63,14 @@
 | **neutralDamageStd** | **kotlin.Double** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point |  |
 | **neutralKillsAvg** | **kotlin.Double** | Average neutral (jungle) creeps killed at this time point |  |
 | **neutralKillsStd** | **kotlin.Double** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point |  |
+| **playerBarrieringAvg** | **kotlin.Double** | Average barrier (shield) provided at this time point |  |
+| **playerBarrieringStd** | **kotlin.Double** | Standard deviation of &#x60;player_barriering_avg&#x60; at this time point |  |
 | **playerDamageAvg** | **kotlin.Double** | Average damage dealt to enemy heroes at this time point |  |
 | **playerDamageStd** | **kotlin.Double** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point |  |
+| **playerHealingAvg** | **kotlin.Double** | Average healing done at this time point |  |
+| **playerHealingStd** | **kotlin.Double** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point |  |
+| **selfDamageAvg** | **kotlin.Double** | Average self-inflicted damage at this time point |  |
+| **selfDamageStd** | **kotlin.Double** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point |  |
 | **permanentBuffsAvg** | **kotlin.Double** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. |  [optional] |
 | **permanentBuffsStd** | **kotlin.Double** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. |  [optional] |
 

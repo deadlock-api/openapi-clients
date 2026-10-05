@@ -387,6 +387,18 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
             //modelInstance.neutralKillsStd shouldBe ("TODO")
         }
 
+        // to test the property `playerBarrieringAvg` - Average barrier (shield) provided at this time point
+        should("test playerBarrieringAvg") {
+            // uncomment below to test the property
+            //modelInstance.playerBarrieringAvg shouldBe ("TODO")
+        }
+
+        // to test the property `playerBarrieringStd` - Standard deviation of `player_barriering_avg` at this time point
+        should("test playerBarrieringStd") {
+            // uncomment below to test the property
+            //modelInstance.playerBarrieringStd shouldBe ("TODO")
+        }
+
         // to test the property `playerDamageAvg` - Average damage dealt to enemy heroes at this time point
         should("test playerDamageAvg") {
             // uncomment below to test the property
@@ -397,6 +409,30 @@ class PlayerPerformanceCurvePointTest : ShouldSpec() {
         should("test playerDamageStd") {
             // uncomment below to test the property
             //modelInstance.playerDamageStd shouldBe ("TODO")
+        }
+
+        // to test the property `playerHealingAvg` - Average healing done at this time point
+        should("test playerHealingAvg") {
+            // uncomment below to test the property
+            //modelInstance.playerHealingAvg shouldBe ("TODO")
+        }
+
+        // to test the property `playerHealingStd` - Standard deviation of `player_healing_avg` at this time point
+        should("test playerHealingStd") {
+            // uncomment below to test the property
+            //modelInstance.playerHealingStd shouldBe ("TODO")
+        }
+
+        // to test the property `selfDamageAvg` - Average self-inflicted damage at this time point
+        should("test selfDamageAvg") {
+            // uncomment below to test the property
+            //modelInstance.selfDamageAvg shouldBe ("TODO")
+        }
+
+        // to test the property `selfDamageStd` - Standard deviation of `self_damage_avg` at this time point
+        should("test selfDamageStd") {
+            // uncomment below to test the property
+            //modelInstance.selfDamageStd shouldBe ("TODO")
         }
 
         // to test the property `permanentBuffsAvg` - Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; `null` when there are none.

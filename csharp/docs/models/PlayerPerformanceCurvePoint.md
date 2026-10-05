@@ -63,8 +63,14 @@ Name | Type | Description | Notes
 **NeutralDamageStd** | **double** | Standard deviation of &#x60;neutral_damage_avg&#x60; at this time point | 
 **NeutralKillsAvg** | **double** | Average neutral (jungle) creeps killed at this time point | 
 **NeutralKillsStd** | **double** | Standard deviation of &#x60;neutral_kills_avg&#x60; at this time point | 
+**PlayerBarrieringAvg** | **double** | Average barrier (shield) provided at this time point | 
+**PlayerBarrieringStd** | **double** | Standard deviation of &#x60;player_barriering_avg&#x60; at this time point | 
 **PlayerDamageAvg** | **double** | Average damage dealt to enemy heroes at this time point | 
 **PlayerDamageStd** | **double** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
+**PlayerHealingAvg** | **double** | Average healing done at this time point | 
+**PlayerHealingStd** | **double** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | 
+**SelfDamageAvg** | **double** | Average self-inflicted damage at this time point | 
+**SelfDamageStd** | **double** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | 
 **PermanentBuffsAvg** | **double** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 
 **PermanentBuffsStd** | **double** | Standard deviation of &#x60;permanent_buffs_avg&#x60; at this time point; &#x60;null&#x60; when there are no players with timed permanent pickups. | [optional] 
 

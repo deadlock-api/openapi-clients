@@ -585,6 +585,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PlayerBarrieringAvg'
+        /// </summary>
+        [Fact]
+        public void PlayerBarrieringAvgTest()
+        {
+            // TODO unit test for the property 'PlayerBarrieringAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'PlayerBarrieringStd'
+        /// </summary>
+        [Fact]
+        public void PlayerBarrieringStdTest()
+        {
+            // TODO unit test for the property 'PlayerBarrieringStd'
+        }
+
+        /// <summary>
         /// Test the property 'PlayerDamageAvg'
         /// </summary>
         [Fact]
@@ -600,6 +618,42 @@ namespace DeadlockApiClient.Test.Model
         public void PlayerDamageStdTest()
         {
             // TODO unit test for the property 'PlayerDamageStd'
+        }
+
+        /// <summary>
+        /// Test the property 'PlayerHealingAvg'
+        /// </summary>
+        [Fact]
+        public void PlayerHealingAvgTest()
+        {
+            // TODO unit test for the property 'PlayerHealingAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'PlayerHealingStd'
+        /// </summary>
+        [Fact]
+        public void PlayerHealingStdTest()
+        {
+            // TODO unit test for the property 'PlayerHealingStd'
+        }
+
+        /// <summary>
+        /// Test the property 'SelfDamageAvg'
+        /// </summary>
+        [Fact]
+        public void SelfDamageAvgTest()
+        {
+            // TODO unit test for the property 'SelfDamageAvg'
+        }
+
+        /// <summary>
+        /// Test the property 'SelfDamageStd'
+        /// </summary>
+        [Fact]
+        public void SelfDamageStdTest()
+        {
+            // TODO unit test for the property 'SelfDamageStd'
         }
 
         /// <summary>

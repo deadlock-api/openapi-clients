@@ -385,6 +385,18 @@ export interface PlayerPerformanceCurvePoint  {
      */
     permanentBuffsStd?: number;
     /**
+     * Average barrier (shield) provided at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerBarrieringAvg: number;
+    /**
+     * Standard deviation of `player_barriering_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerBarrieringStd: number;
+    /**
      * Average damage dealt to enemy heroes at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -396,6 +408,30 @@ export interface PlayerPerformanceCurvePoint  {
      * @memberof PlayerPerformanceCurvePoint
      */
     playerDamageStd: number;
+    /**
+     * Average healing done at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerHealingAvg: number;
+    /**
+     * Standard deviation of `player_healing_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    playerHealingStd: number;
+    /**
+     * Average self-inflicted damage at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    selfDamageAvg: number;
+    /**
+     * Standard deviation of `self_damage_avg` at this time point
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    selfDamageStd: number;
 }
 
 export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanceCurvePoint {
@@ -461,8 +497,14 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'neutralKillsStd': json['neutral_kills_std'],
         'permanentBuffsAvg': !exists(json, 'permanent_buffs_avg') ? undefined : json['permanent_buffs_avg'],
         'permanentBuffsStd': !exists(json, 'permanent_buffs_std') ? undefined : json['permanent_buffs_std'],
+        'playerBarrieringAvg': json['player_barriering_avg'],
+        'playerBarrieringStd': json['player_barriering_std'],
         'playerDamageAvg': json['player_damage_avg'],
         'playerDamageStd': json['player_damage_std'],
+        'playerHealingAvg': json['player_healing_avg'],
+        'playerHealingStd': json['player_healing_std'],
+        'selfDamageAvg': json['self_damage_avg'],
+        'selfDamageStd': json['self_damage_std'],
     };
 }
 
@@ -532,8 +574,14 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'neutral_kills_std': value.neutralKillsStd,
         'permanent_buffs_avg': value.permanentBuffsAvg,
         'permanent_buffs_std': value.permanentBuffsStd,
+        'player_barriering_avg': value.playerBarrieringAvg,
+        'player_barriering_std': value.playerBarrieringStd,
         'player_damage_avg': value.playerDamageAvg,
         'player_damage_std': value.playerDamageStd,
+        'player_healing_avg': value.playerHealingAvg,
+        'player_healing_std': value.playerHealingStd,
+        'self_damage_avg': value.selfDamageAvg,
+        'self_damage_std': value.selfDamageStd,
     };
 }
 
