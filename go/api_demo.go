@@ -410,6 +410,9 @@ query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you 
 `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result
 artifact (Parquet or NDJSON).
 
+The query is planned against the demo's schema (see `/demo/schema`) before it is queued, so an
+unknown table or column is rejected right away with a `400`.
+
 Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.
 
 **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points
@@ -419,9 +422,9 @@ hero id or pawn entity index rather than through `m_hPawn`.
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 20req/h |
-| Key | 200req/h |
-| Global | 400req/h |
+| IP | 200req/h |
+| Key | 400req/h |
+| Global | 600req/h |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

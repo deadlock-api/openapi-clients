@@ -115,7 +115,7 @@ namespace DeadlockApiClient.Api
         /// Demo Query
         /// </summary>
         /// <remarks>
-        ///  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+        ///  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  The query is planned against the demo&#39;s schema (see &#x60;/demo/schema&#x60;) before it is queued, so an unknown table or column is rejected right away with a &#x60;400&#x60;.  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 200req/h | | Key | 400req/h | | Global | 600req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="demoQueryRequest"></param>
@@ -127,7 +127,7 @@ namespace DeadlockApiClient.Api
         /// Demo Query
         /// </summary>
         /// <remarks>
-        ///  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+        ///  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  The query is planned against the demo&#39;s schema (see &#x60;/demo/schema&#x60;) before it is queued, so an unknown table or column is rejected right away with a &#x60;400&#x60;.  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 200req/h | | Key | 400req/h | | Global | 600req/h | 
         /// </remarks>
         /// <param name="demoQueryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -271,6 +271,12 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsInternalServerError { get; }
+
+        /// <summary>
+        /// Returns true if the response is 502 BadGateway
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadGateway { get; }
     }
 
     /// <summary>
@@ -1251,7 +1257,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorSubmit(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, DemoQueryRequest demoQueryRequest);
 
         /// <summary>
-        /// Demo Query  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+        /// Demo Query  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  The query is planned against the demo&#39;s schema (see &#x60;/demo/schema&#x60;) before it is queued, so an unknown table or column is rejected right away with a &#x60;400&#x60;.  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 200req/h | | Key | 400req/h | | Global | 600req/h | 
         /// </summary>
         /// <param name="demoQueryRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1269,7 +1275,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Demo Query  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+        /// Demo Query  Submit a SQL query against a match&#39;s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a &#x60;job_id&#x60; you poll via &#x60;/demo/query/{job_id}&#x60;. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  The query is planned against the demo&#39;s schema (see &#x60;/demo/schema&#x60;) before it is queued, so an unknown table or column is rejected right away with a &#x60;400&#x60;.  Identical &#x60;(match_id, query, format)&#x60; submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, &#x60;CCitadelPlayerController.m_hPawn&#x60; points at a &#x60;CCitadelObserverPawn&#x60;, not the hero&#39;s &#x60;CCitadelPlayerPawn&#x60;. Join controllers to hero pawns by hero id or pawn entity index rather than through &#x60;m_hPawn&#x60;.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 200req/h | | Key | 400req/h | | Global | 600req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="demoQueryRequest"></param>
@@ -1518,6 +1524,12 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 502 BadGateway
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadGateway => 502 == (int)StatusCode;
 
             private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
             {

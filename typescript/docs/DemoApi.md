@@ -181,7 +181,7 @@ No authorization required
 # **submit**
 > DemoQueryJobResponse submit(demoQueryRequest)
 
- Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points at a `CCitadelObserverPawn`, not the hero\'s `CCitadelPlayerPawn`. Join controllers to hero pawns by hero id or pawn entity index rather than through `m_hPawn`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/h | | Key | 200req/h | | Global | 400req/h | 
+ Submit a SQL query against a match\'s demo file. The work (download + decompress + parse + query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result artifact (Parquet or NDJSON).  The query is planned against the demo\'s schema (see `/demo/schema`) before it is queued, so an unknown table or column is rejected right away with a `400`.  Identical `(match_id, query, format)` submissions are deduplicated and reuse a cached result.  **Joining controllers and pawns:** while a hero is dead, `CCitadelPlayerController.m_hPawn` points at a `CCitadelObserverPawn`, not the hero\'s `CCitadelPlayerPawn`. Join controllers to hero pawns by hero id or pawn entity index rather than through `m_hPawn`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 200req/h | | Key | 400req/h | | Global | 600req/h | 
 
 ### Example
 
@@ -228,10 +228,11 @@ No authorization required
 |-------------|-------------|------------------|
 |**200** | Job already exists (deduplicated) |  -  |
 |**202** | Job queued |  -  |
-|**400** | Provided parameters are invalid. |  -  |
+|**400** | Provided parameters are invalid, or the query does not plan against the demo\&#39;s schema. |  -  |
 |**404** | No demo / salts available for the match |  -  |
 |**429** | Rate limit exceeded or queue full |  -  |
 |**500** | Failed to queue the job |  -  |
+|**502** | Valve\&#39;s replay server failed to serve the demo |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
