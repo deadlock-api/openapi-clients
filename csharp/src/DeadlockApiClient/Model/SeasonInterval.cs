@@ -193,22 +193,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!endTimestamp.IsSet)
-                throw new ArgumentException("Property is required for class SeasonInterval.", nameof(endTimestamp));
+                throw new JsonException("Property is required for class SeasonInterval: end_timestamp.");
 
             if (!interval.IsSet)
-                throw new ArgumentException("Property is required for class SeasonInterval.", nameof(interval));
+                throw new JsonException("Property is required for class SeasonInterval: interval.");
 
             if (!startTimestamp.IsSet)
-                throw new ArgumentException("Property is required for class SeasonInterval.", nameof(startTimestamp));
+                throw new JsonException("Property is required for class SeasonInterval: start_timestamp.");
 
             if (endTimestamp.IsSet && endTimestamp.Value == null)
-                throw new ArgumentNullException(nameof(endTimestamp), "Property is not nullable for class SeasonInterval.");
+                throw new JsonException("Property is not nullable for class SeasonInterval: end_timestamp.");
 
             if (interval.IsSet && interval.Value == null)
-                throw new ArgumentNullException(nameof(interval), "Property is not nullable for class SeasonInterval.");
+                throw new JsonException("Property is not nullable for class SeasonInterval: interval.");
 
             if (startTimestamp.IsSet && startTimestamp.Value == null)
-                throw new ArgumentNullException(nameof(startTimestamp), "Property is not nullable for class SeasonInterval.");
+                throw new JsonException("Property is not nullable for class SeasonInterval: start_timestamp.");
 
             return new SeasonInterval(endTimestamp.Value!.Value!, interval.Value!.Value!, startTimestamp.Value!.Value!, leaderboardId);
         }
@@ -219,7 +219,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="seasonInterval"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SeasonInterval seasonInterval, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -234,7 +233,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="seasonInterval"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SeasonInterval seasonInterval, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("end_timestamp", seasonInterval.EndTimestamp);

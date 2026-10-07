@@ -146,7 +146,11 @@ class TestHero(unittest.TestCase):
                             winrate_pct = 1.337, )
                         ], 
                     mid_game = [
-                        
+                        deadlock_api_client.models.hero_popular_item.HeroPopularItem(
+                            class_name = '', 
+                            item_id = 0, 
+                            pick_pct = 1.337, 
+                            winrate_pct = 1.337, )
                         ], 
                     timestamp = 56, ),
                 prerelease_only = True,
@@ -177,7 +181,9 @@ class TestHero(unittest.TestCase):
                             ''
                             ], ), 
                     weapon_stats_display = deadlock_api_client.models.shop_weapon_stats_display.ShopWeaponStatsDisplay(
-                        display_stats = , 
+                        display_stats = [
+                            ''
+                            ], 
                         other_display_stats = [
                             ''
                             ], 
@@ -199,28 +205,62 @@ class TestHero(unittest.TestCase):
                         value = 1.337, ), 
                     air_dash_distance_in_meters = null, 
                     air_dash_duration = null, 
-                    base_health_regen = , 
+                    base_health_regen = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     bullet_armor_damage_reduction = null, 
-                    crit_damage_received_scale = , 
-                    crouch_speed = , 
+                    crit_damage_received_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    crouch_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     ground_dash_distance_in_meters = null, 
                     ground_dash_duration = null, 
-                    heavy_melee_damage = , 
-                    light_melee_damage = , 
-                    max_health = , 
-                    max_move_speed = , 
-                    move_acceleration = , 
+                    heavy_melee_damage = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    light_melee_damage = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    max_health = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    max_move_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    move_acceleration = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     ooc_health_regen = null, 
-                    proc_build_up_rate_scale = , 
-                    reload_speed = , 
-                    sprint_speed = , 
-                    stamina = , 
-                    stamina_regen_per_second = , 
+                    proc_build_up_rate_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    reload_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    sprint_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    stamina = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    stamina_regen_per_second = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     tech_armor_damage_reduction = null, 
-                    tech_duration = , 
-                    tech_range = , 
-                    weapon_power = , 
-                    weapon_power_scale = , ),
+                    tech_duration = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    tech_range = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    weapon_power = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    weapon_power_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), ),
                 stats_display = deadlock_api_client.models.stats_display.StatsDisplay(
                     health_header_stats = [
                         ''
@@ -346,7 +386,9 @@ class TestHero(unittest.TestCase):
                             ''
                             ], ), 
                     weapon_stats_display = deadlock_api_client.models.shop_weapon_stats_display.ShopWeaponStatsDisplay(
-                        display_stats = , 
+                        display_stats = [
+                            ''
+                            ], 
                         other_display_stats = [
                             ''
                             ], 
@@ -368,28 +410,62 @@ class TestHero(unittest.TestCase):
                         value = 1.337, ), 
                     air_dash_distance_in_meters = null, 
                     air_dash_duration = null, 
-                    base_health_regen = , 
+                    base_health_regen = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     bullet_armor_damage_reduction = null, 
-                    crit_damage_received_scale = , 
-                    crouch_speed = , 
+                    crit_damage_received_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    crouch_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     ground_dash_distance_in_meters = null, 
                     ground_dash_duration = null, 
-                    heavy_melee_damage = , 
-                    light_melee_damage = , 
-                    max_health = , 
-                    max_move_speed = , 
-                    move_acceleration = , 
+                    heavy_melee_damage = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    light_melee_damage = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    max_health = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    max_move_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    move_acceleration = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     ooc_health_regen = null, 
-                    proc_build_up_rate_scale = , 
-                    reload_speed = , 
-                    sprint_speed = , 
-                    stamina = , 
-                    stamina_regen_per_second = , 
+                    proc_build_up_rate_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    reload_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    sprint_speed = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    stamina = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    stamina_regen_per_second = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
                     tech_armor_damage_reduction = null, 
-                    tech_duration = , 
-                    tech_range = , 
-                    weapon_power = , 
-                    weapon_power_scale = , ),
+                    tech_duration = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    tech_range = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    weapon_power = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), 
+                    weapon_power_scale = deadlock_api_client.models.starting_stat.StartingStat(
+                        display_stat_name = '', 
+                        value = 1.337, ), ),
                 stats_display = deadlock_api_client.models.stats_display.StatsDisplay(
                     health_header_stats = [
                         ''

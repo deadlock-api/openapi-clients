@@ -201,28 +201,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!createdAt.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountListItem.", nameof(createdAt));
+                throw new JsonException("Property is required for class SteamAccountListItem: created_at.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountListItem.", nameof(id));
+                throw new JsonException("Property is required for class SteamAccountListItem: id.");
 
             if (!isInCooldown.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountListItem.", nameof(isInCooldown));
+                throw new JsonException("Property is required for class SteamAccountListItem: is_in_cooldown.");
 
             if (!steamId3.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountListItem.", nameof(steamId3));
+                throw new JsonException("Property is required for class SteamAccountListItem: steam_id3.");
 
             if (createdAt.IsSet && createdAt.Value == null)
-                throw new ArgumentNullException(nameof(createdAt), "Property is not nullable for class SteamAccountListItem.");
+                throw new JsonException("Property is not nullable for class SteamAccountListItem: created_at.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class SteamAccountListItem.");
+                throw new JsonException("Property is not nullable for class SteamAccountListItem: id.");
 
             if (isInCooldown.IsSet && isInCooldown.Value == null)
-                throw new ArgumentNullException(nameof(isInCooldown), "Property is not nullable for class SteamAccountListItem.");
+                throw new JsonException("Property is not nullable for class SteamAccountListItem: is_in_cooldown.");
 
             if (steamId3.IsSet && steamId3.Value == null)
-                throw new ArgumentNullException(nameof(steamId3), "Property is not nullable for class SteamAccountListItem.");
+                throw new JsonException("Property is not nullable for class SteamAccountListItem: steam_id3.");
 
             return new SteamAccountListItem(createdAt.Value!.Value!, id.Value!.Value!, isInCooldown.Value!.Value!, steamId3.Value!.Value!, deletedAt);
         }
@@ -233,7 +233,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamAccountListItem"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamAccountListItem steamAccountListItem, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -248,7 +247,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamAccountListItem"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamAccountListItem steamAccountListItem, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteString("created_at", steamAccountListItem.CreatedAt.ToString(CreatedAtFormat));

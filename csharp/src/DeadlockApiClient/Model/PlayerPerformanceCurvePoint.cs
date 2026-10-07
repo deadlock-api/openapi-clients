@@ -1105,406 +1105,406 @@ namespace DeadlockApiClient.Model
             }
 
             if (!assistsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(assistsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: assists_avg.");
 
             if (!assistsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(assistsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: assists_std.");
 
             if (!bossDamageAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossDamageAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: boss_damage_avg.");
 
             if (!bossDamageStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossDamageStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: boss_damage_std.");
 
             if (!bossKillsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossKillsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: boss_kills_avg.");
 
             if (!bossKillsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(bossKillsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: boss_kills_std.");
 
             if (!creepDamageAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepDamageAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: creep_damage_avg.");
 
             if (!creepDamageStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepDamageStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: creep_damage_std.");
 
             if (!creepKillsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepKillsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: creep_kills_avg.");
 
             if (!creepKillsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(creepKillsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: creep_kills_std.");
 
             if (!deathsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deathsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: deaths_avg.");
 
             if (!deathsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deathsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: deaths_std.");
 
             if (!deniesAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deniesAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: denies_avg.");
 
             if (!deniesStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(deniesStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: denies_std.");
 
             if (!gameTime.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(gameTime));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: game_time.");
 
             if (!goldAbilityAssassinateAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAbilityAssassinateAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_ability_assassinate_avg.");
 
             if (!goldAbilityAssassinateStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAbilityAssassinateStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_ability_assassinate_std.");
 
             if (!goldAssistsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAssistsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_assists_avg.");
 
             if (!goldAssistsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldAssistsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_assists_std.");
 
             if (!goldBossAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_boss_avg.");
 
             if (!goldBossOrbAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossOrbAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_boss_orb_avg.");
 
             if (!goldBossOrbStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossOrbStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_boss_orb_std.");
 
             if (!goldBossStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBossStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_boss_std.");
 
             if (!goldBreakableAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBreakableAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_breakable_avg.");
 
             if (!goldBreakableStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldBreakableStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_breakable_std.");
 
             if (!goldDeathLossAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeathLossAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_death_loss_avg.");
 
             if (!goldDeathLossStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeathLossStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_death_loss_std.");
 
             if (!goldDeniedAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeniedAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_denied_avg.");
 
             if (!goldDeniedStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldDeniedStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_denied_std.");
 
             if (!goldItemCultistSacrificeAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemCultistSacrificeAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_cultist_sacrifice_avg.");
 
             if (!goldItemCultistSacrificeStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemCultistSacrificeStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_cultist_sacrifice_std.");
 
             if (!goldItemGooseEggAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemGooseEggAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_goose_egg_avg.");
 
             if (!goldItemGooseEggStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemGooseEggStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_goose_egg_std.");
 
             if (!goldItemTrophyCollectorAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemTrophyCollectorAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_trophy_collector_avg.");
 
             if (!goldItemTrophyCollectorStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldItemTrophyCollectorStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_item_trophy_collector_std.");
 
             if (!goldLaneCreepAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldLaneCreepAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_lane_creep_avg.");
 
             if (!goldLaneCreepOrbsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldLaneCreepOrbsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_lane_creep_orbs_avg.");
 
             if (!goldLaneCreepOrbsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldLaneCreepOrbsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_lane_creep_orbs_std.");
 
             if (!goldLaneCreepStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldLaneCreepStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_lane_creep_std.");
 
             if (!goldNeutralCreepAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldNeutralCreepAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_neutral_creep_avg.");
 
             if (!goldNeutralCreepOrbsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldNeutralCreepOrbsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_neutral_creep_orbs_avg.");
 
             if (!goldNeutralCreepOrbsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldNeutralCreepOrbsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_neutral_creep_orbs_std.");
 
             if (!goldNeutralCreepStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldNeutralCreepStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_neutral_creep_std.");
 
             if (!goldPlayerAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldPlayerAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_player_avg.");
 
             if (!goldPlayerOrbsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldPlayerOrbsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_player_orbs_avg.");
 
             if (!goldPlayerOrbsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldPlayerOrbsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_player_orbs_std.");
 
             if (!goldPlayerStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldPlayerStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_player_std.");
 
             if (!goldTeamBonusAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTeamBonusAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_team_bonus_avg.");
 
             if (!goldTeamBonusStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTeamBonusStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_team_bonus_std.");
 
             if (!goldTreasureAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTreasureAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_treasure_avg.");
 
             if (!goldTreasureStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(goldTreasureStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: gold_treasure_std.");
 
             if (!killsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(killsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: kills_avg.");
 
             if (!killsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(killsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: kills_std.");
 
             if (!netWorthAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(netWorthAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: net_worth_avg.");
 
             if (!netWorthStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(netWorthStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: net_worth_std.");
 
             if (!neutralDamageAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralDamageAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: neutral_damage_avg.");
 
             if (!neutralDamageStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralDamageStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: neutral_damage_std.");
 
             if (!neutralKillsAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralKillsAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: neutral_kills_avg.");
 
             if (!neutralKillsStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(neutralKillsStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: neutral_kills_std.");
 
             if (!playerBarrieringAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerBarrieringAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_barriering_avg.");
 
             if (!playerBarrieringStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerBarrieringStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_barriering_std.");
 
             if (!playerDamageAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerDamageAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_damage_avg.");
 
             if (!playerDamageStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerDamageStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_damage_std.");
 
             if (!playerHealingAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerHealingAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_healing_avg.");
 
             if (!playerHealingStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(playerHealingStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: player_healing_std.");
 
             if (!selfDamageAvg.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(selfDamageAvg));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: self_damage_avg.");
 
             if (!selfDamageStd.IsSet)
-                throw new ArgumentException("Property is required for class PlayerPerformanceCurvePoint.", nameof(selfDamageStd));
+                throw new JsonException("Property is required for class PlayerPerformanceCurvePoint: self_damage_std.");
 
             if (assistsAvg.IsSet && assistsAvg.Value == null)
-                throw new ArgumentNullException(nameof(assistsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: assists_avg.");
 
             if (assistsStd.IsSet && assistsStd.Value == null)
-                throw new ArgumentNullException(nameof(assistsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: assists_std.");
 
             if (bossDamageAvg.IsSet && bossDamageAvg.Value == null)
-                throw new ArgumentNullException(nameof(bossDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: boss_damage_avg.");
 
             if (bossDamageStd.IsSet && bossDamageStd.Value == null)
-                throw new ArgumentNullException(nameof(bossDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: boss_damage_std.");
 
             if (bossKillsAvg.IsSet && bossKillsAvg.Value == null)
-                throw new ArgumentNullException(nameof(bossKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: boss_kills_avg.");
 
             if (bossKillsStd.IsSet && bossKillsStd.Value == null)
-                throw new ArgumentNullException(nameof(bossKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: boss_kills_std.");
 
             if (creepDamageAvg.IsSet && creepDamageAvg.Value == null)
-                throw new ArgumentNullException(nameof(creepDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: creep_damage_avg.");
 
             if (creepDamageStd.IsSet && creepDamageStd.Value == null)
-                throw new ArgumentNullException(nameof(creepDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: creep_damage_std.");
 
             if (creepKillsAvg.IsSet && creepKillsAvg.Value == null)
-                throw new ArgumentNullException(nameof(creepKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: creep_kills_avg.");
 
             if (creepKillsStd.IsSet && creepKillsStd.Value == null)
-                throw new ArgumentNullException(nameof(creepKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: creep_kills_std.");
 
             if (deathsAvg.IsSet && deathsAvg.Value == null)
-                throw new ArgumentNullException(nameof(deathsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: deaths_avg.");
 
             if (deathsStd.IsSet && deathsStd.Value == null)
-                throw new ArgumentNullException(nameof(deathsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: deaths_std.");
 
             if (deniesAvg.IsSet && deniesAvg.Value == null)
-                throw new ArgumentNullException(nameof(deniesAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: denies_avg.");
 
             if (deniesStd.IsSet && deniesStd.Value == null)
-                throw new ArgumentNullException(nameof(deniesStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: denies_std.");
 
             if (gameTime.IsSet && gameTime.Value == null)
-                throw new ArgumentNullException(nameof(gameTime), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: game_time.");
 
             if (goldAbilityAssassinateAvg.IsSet && goldAbilityAssassinateAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldAbilityAssassinateAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_ability_assassinate_avg.");
 
             if (goldAbilityAssassinateStd.IsSet && goldAbilityAssassinateStd.Value == null)
-                throw new ArgumentNullException(nameof(goldAbilityAssassinateStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_ability_assassinate_std.");
 
             if (goldAssistsAvg.IsSet && goldAssistsAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldAssistsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_assists_avg.");
 
             if (goldAssistsStd.IsSet && goldAssistsStd.Value == null)
-                throw new ArgumentNullException(nameof(goldAssistsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_assists_std.");
 
             if (goldBossAvg.IsSet && goldBossAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldBossAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_boss_avg.");
 
             if (goldBossOrbAvg.IsSet && goldBossOrbAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldBossOrbAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_boss_orb_avg.");
 
             if (goldBossOrbStd.IsSet && goldBossOrbStd.Value == null)
-                throw new ArgumentNullException(nameof(goldBossOrbStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_boss_orb_std.");
 
             if (goldBossStd.IsSet && goldBossStd.Value == null)
-                throw new ArgumentNullException(nameof(goldBossStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_boss_std.");
 
             if (goldBreakableAvg.IsSet && goldBreakableAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldBreakableAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_breakable_avg.");
 
             if (goldBreakableStd.IsSet && goldBreakableStd.Value == null)
-                throw new ArgumentNullException(nameof(goldBreakableStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_breakable_std.");
 
             if (goldDeathLossAvg.IsSet && goldDeathLossAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldDeathLossAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_death_loss_avg.");
 
             if (goldDeathLossStd.IsSet && goldDeathLossStd.Value == null)
-                throw new ArgumentNullException(nameof(goldDeathLossStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_death_loss_std.");
 
             if (goldDeniedAvg.IsSet && goldDeniedAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldDeniedAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_denied_avg.");
 
             if (goldDeniedStd.IsSet && goldDeniedStd.Value == null)
-                throw new ArgumentNullException(nameof(goldDeniedStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_denied_std.");
 
             if (goldItemCultistSacrificeAvg.IsSet && goldItemCultistSacrificeAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldItemCultistSacrificeAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_cultist_sacrifice_avg.");
 
             if (goldItemCultistSacrificeStd.IsSet && goldItemCultistSacrificeStd.Value == null)
-                throw new ArgumentNullException(nameof(goldItemCultistSacrificeStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_cultist_sacrifice_std.");
 
             if (goldItemGooseEggAvg.IsSet && goldItemGooseEggAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldItemGooseEggAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_goose_egg_avg.");
 
             if (goldItemGooseEggStd.IsSet && goldItemGooseEggStd.Value == null)
-                throw new ArgumentNullException(nameof(goldItemGooseEggStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_goose_egg_std.");
 
             if (goldItemTrophyCollectorAvg.IsSet && goldItemTrophyCollectorAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldItemTrophyCollectorAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_trophy_collector_avg.");
 
             if (goldItemTrophyCollectorStd.IsSet && goldItemTrophyCollectorStd.Value == null)
-                throw new ArgumentNullException(nameof(goldItemTrophyCollectorStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_item_trophy_collector_std.");
 
             if (goldLaneCreepAvg.IsSet && goldLaneCreepAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldLaneCreepAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_lane_creep_avg.");
 
             if (goldLaneCreepOrbsAvg.IsSet && goldLaneCreepOrbsAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldLaneCreepOrbsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_lane_creep_orbs_avg.");
 
             if (goldLaneCreepOrbsStd.IsSet && goldLaneCreepOrbsStd.Value == null)
-                throw new ArgumentNullException(nameof(goldLaneCreepOrbsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_lane_creep_orbs_std.");
 
             if (goldLaneCreepStd.IsSet && goldLaneCreepStd.Value == null)
-                throw new ArgumentNullException(nameof(goldLaneCreepStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_lane_creep_std.");
 
             if (goldNeutralCreepAvg.IsSet && goldNeutralCreepAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldNeutralCreepAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_neutral_creep_avg.");
 
             if (goldNeutralCreepOrbsAvg.IsSet && goldNeutralCreepOrbsAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldNeutralCreepOrbsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_neutral_creep_orbs_avg.");
 
             if (goldNeutralCreepOrbsStd.IsSet && goldNeutralCreepOrbsStd.Value == null)
-                throw new ArgumentNullException(nameof(goldNeutralCreepOrbsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_neutral_creep_orbs_std.");
 
             if (goldNeutralCreepStd.IsSet && goldNeutralCreepStd.Value == null)
-                throw new ArgumentNullException(nameof(goldNeutralCreepStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_neutral_creep_std.");
 
             if (goldPlayerAvg.IsSet && goldPlayerAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldPlayerAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_player_avg.");
 
             if (goldPlayerOrbsAvg.IsSet && goldPlayerOrbsAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldPlayerOrbsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_player_orbs_avg.");
 
             if (goldPlayerOrbsStd.IsSet && goldPlayerOrbsStd.Value == null)
-                throw new ArgumentNullException(nameof(goldPlayerOrbsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_player_orbs_std.");
 
             if (goldPlayerStd.IsSet && goldPlayerStd.Value == null)
-                throw new ArgumentNullException(nameof(goldPlayerStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_player_std.");
 
             if (goldTeamBonusAvg.IsSet && goldTeamBonusAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldTeamBonusAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_team_bonus_avg.");
 
             if (goldTeamBonusStd.IsSet && goldTeamBonusStd.Value == null)
-                throw new ArgumentNullException(nameof(goldTeamBonusStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_team_bonus_std.");
 
             if (goldTreasureAvg.IsSet && goldTreasureAvg.Value == null)
-                throw new ArgumentNullException(nameof(goldTreasureAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_treasure_avg.");
 
             if (goldTreasureStd.IsSet && goldTreasureStd.Value == null)
-                throw new ArgumentNullException(nameof(goldTreasureStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: gold_treasure_std.");
 
             if (killsAvg.IsSet && killsAvg.Value == null)
-                throw new ArgumentNullException(nameof(killsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: kills_avg.");
 
             if (killsStd.IsSet && killsStd.Value == null)
-                throw new ArgumentNullException(nameof(killsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: kills_std.");
 
             if (netWorthAvg.IsSet && netWorthAvg.Value == null)
-                throw new ArgumentNullException(nameof(netWorthAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: net_worth_avg.");
 
             if (netWorthStd.IsSet && netWorthStd.Value == null)
-                throw new ArgumentNullException(nameof(netWorthStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: net_worth_std.");
 
             if (neutralDamageAvg.IsSet && neutralDamageAvg.Value == null)
-                throw new ArgumentNullException(nameof(neutralDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: neutral_damage_avg.");
 
             if (neutralDamageStd.IsSet && neutralDamageStd.Value == null)
-                throw new ArgumentNullException(nameof(neutralDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: neutral_damage_std.");
 
             if (neutralKillsAvg.IsSet && neutralKillsAvg.Value == null)
-                throw new ArgumentNullException(nameof(neutralKillsAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: neutral_kills_avg.");
 
             if (neutralKillsStd.IsSet && neutralKillsStd.Value == null)
-                throw new ArgumentNullException(nameof(neutralKillsStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: neutral_kills_std.");
 
             if (playerBarrieringAvg.IsSet && playerBarrieringAvg.Value == null)
-                throw new ArgumentNullException(nameof(playerBarrieringAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_barriering_avg.");
 
             if (playerBarrieringStd.IsSet && playerBarrieringStd.Value == null)
-                throw new ArgumentNullException(nameof(playerBarrieringStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_barriering_std.");
 
             if (playerDamageAvg.IsSet && playerDamageAvg.Value == null)
-                throw new ArgumentNullException(nameof(playerDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_damage_avg.");
 
             if (playerDamageStd.IsSet && playerDamageStd.Value == null)
-                throw new ArgumentNullException(nameof(playerDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_damage_std.");
 
             if (playerHealingAvg.IsSet && playerHealingAvg.Value == null)
-                throw new ArgumentNullException(nameof(playerHealingAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_healing_avg.");
 
             if (playerHealingStd.IsSet && playerHealingStd.Value == null)
-                throw new ArgumentNullException(nameof(playerHealingStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: player_healing_std.");
 
             if (selfDamageAvg.IsSet && selfDamageAvg.Value == null)
-                throw new ArgumentNullException(nameof(selfDamageAvg), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: self_damage_avg.");
 
             if (selfDamageStd.IsSet && selfDamageStd.Value == null)
-                throw new ArgumentNullException(nameof(selfDamageStd), "Property is not nullable for class PlayerPerformanceCurvePoint.");
+                throw new JsonException("Property is not nullable for class PlayerPerformanceCurvePoint: self_damage_std.");
 
             return new PlayerPerformanceCurvePoint(assistsAvg.Value!.Value!, assistsStd.Value!.Value!, bossDamageAvg.Value!.Value!, bossDamageStd.Value!.Value!, bossKillsAvg.Value!.Value!, bossKillsStd.Value!.Value!, creepDamageAvg.Value!.Value!, creepDamageStd.Value!.Value!, creepKillsAvg.Value!.Value!, creepKillsStd.Value!.Value!, deathsAvg.Value!.Value!, deathsStd.Value!.Value!, deniesAvg.Value!.Value!, deniesStd.Value!.Value!, gameTime.Value!.Value!, goldAbilityAssassinateAvg.Value!.Value!, goldAbilityAssassinateStd.Value!.Value!, goldAssistsAvg.Value!.Value!, goldAssistsStd.Value!.Value!, goldBossAvg.Value!.Value!, goldBossOrbAvg.Value!.Value!, goldBossOrbStd.Value!.Value!, goldBossStd.Value!.Value!, goldBreakableAvg.Value!.Value!, goldBreakableStd.Value!.Value!, goldDeathLossAvg.Value!.Value!, goldDeathLossStd.Value!.Value!, goldDeniedAvg.Value!.Value!, goldDeniedStd.Value!.Value!, goldItemCultistSacrificeAvg.Value!.Value!, goldItemCultistSacrificeStd.Value!.Value!, goldItemGooseEggAvg.Value!.Value!, goldItemGooseEggStd.Value!.Value!, goldItemTrophyCollectorAvg.Value!.Value!, goldItemTrophyCollectorStd.Value!.Value!, goldLaneCreepAvg.Value!.Value!, goldLaneCreepOrbsAvg.Value!.Value!, goldLaneCreepOrbsStd.Value!.Value!, goldLaneCreepStd.Value!.Value!, goldNeutralCreepAvg.Value!.Value!, goldNeutralCreepOrbsAvg.Value!.Value!, goldNeutralCreepOrbsStd.Value!.Value!, goldNeutralCreepStd.Value!.Value!, goldPlayerAvg.Value!.Value!, goldPlayerOrbsAvg.Value!.Value!, goldPlayerOrbsStd.Value!.Value!, goldPlayerStd.Value!.Value!, goldTeamBonusAvg.Value!.Value!, goldTeamBonusStd.Value!.Value!, goldTreasureAvg.Value!.Value!, goldTreasureStd.Value!.Value!, killsAvg.Value!.Value!, killsStd.Value!.Value!, netWorthAvg.Value!.Value!, netWorthStd.Value!.Value!, neutralDamageAvg.Value!.Value!, neutralDamageStd.Value!.Value!, neutralKillsAvg.Value!.Value!, neutralKillsStd.Value!.Value!, playerBarrieringAvg.Value!.Value!, playerBarrieringStd.Value!.Value!, playerDamageAvg.Value!.Value!, playerDamageStd.Value!.Value!, playerHealingAvg.Value!.Value!, playerHealingStd.Value!.Value!, selfDamageAvg.Value!.Value!, selfDamageStd.Value!.Value!, permanentBuffsAvg, permanentBuffsStd);
         }
@@ -1515,7 +1515,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerPerformanceCurvePoint"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerPerformanceCurvePoint playerPerformanceCurvePoint, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -1530,7 +1529,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerPerformanceCurvePoint"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerPerformanceCurvePoint playerPerformanceCurvePoint, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("assists_avg", playerPerformanceCurvePoint.AssistsAvg);

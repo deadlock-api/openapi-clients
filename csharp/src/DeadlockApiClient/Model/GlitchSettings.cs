@@ -263,70 +263,70 @@ namespace DeadlockApiClient.Model
             }
 
             if (!breakupStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(breakupStrength));
+                throw new JsonException("Property is required for class GlitchSettings: breakup_strength.");
 
             if (!distortStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(distortStrength));
+                throw new JsonException("Property is required for class GlitchSettings: distort_strength.");
 
             if (!frameRate.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(frameRate));
+                throw new JsonException("Property is required for class GlitchSettings: frame_rate.");
 
             if (!jumpStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(jumpStrength));
+                throw new JsonException("Property is required for class GlitchSettings: jump_strength.");
 
             if (!quantizeScale.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(quantizeScale));
+                throw new JsonException("Property is required for class GlitchSettings: quantize_scale.");
 
             if (!quantizeStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(quantizeStrength));
+                throw new JsonException("Property is required for class GlitchSettings: quantize_strength.");
 
             if (!scanlineStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(scanlineStrength));
+                throw new JsonException("Property is required for class GlitchSettings: scanline_strength.");
 
             if (!speed.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(speed));
+                throw new JsonException("Property is required for class GlitchSettings: speed.");
 
             if (!strength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(strength));
+                throw new JsonException("Property is required for class GlitchSettings: strength.");
 
             if (!uantizeType.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(uantizeType));
+                throw new JsonException("Property is required for class GlitchSettings: uantize_type.");
 
             if (!whiteNoiseStrength.IsSet)
-                throw new ArgumentException("Property is required for class GlitchSettings.", nameof(whiteNoiseStrength));
+                throw new JsonException("Property is required for class GlitchSettings: white_noise_strength.");
 
             if (breakupStrength.IsSet && breakupStrength.Value == null)
-                throw new ArgumentNullException(nameof(breakupStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: breakup_strength.");
 
             if (distortStrength.IsSet && distortStrength.Value == null)
-                throw new ArgumentNullException(nameof(distortStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: distort_strength.");
 
             if (frameRate.IsSet && frameRate.Value == null)
-                throw new ArgumentNullException(nameof(frameRate), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: frame_rate.");
 
             if (jumpStrength.IsSet && jumpStrength.Value == null)
-                throw new ArgumentNullException(nameof(jumpStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: jump_strength.");
 
             if (quantizeScale.IsSet && quantizeScale.Value == null)
-                throw new ArgumentNullException(nameof(quantizeScale), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: quantize_scale.");
 
             if (quantizeStrength.IsSet && quantizeStrength.Value == null)
-                throw new ArgumentNullException(nameof(quantizeStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: quantize_strength.");
 
             if (scanlineStrength.IsSet && scanlineStrength.Value == null)
-                throw new ArgumentNullException(nameof(scanlineStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: scanline_strength.");
 
             if (speed.IsSet && speed.Value == null)
-                throw new ArgumentNullException(nameof(speed), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: speed.");
 
             if (strength.IsSet && strength.Value == null)
-                throw new ArgumentNullException(nameof(strength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: strength.");
 
             if (uantizeType.IsSet && uantizeType.Value == null)
-                throw new ArgumentNullException(nameof(uantizeType), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: uantize_type.");
 
             if (whiteNoiseStrength.IsSet && whiteNoiseStrength.Value == null)
-                throw new ArgumentNullException(nameof(whiteNoiseStrength), "Property is not nullable for class GlitchSettings.");
+                throw new JsonException("Property is not nullable for class GlitchSettings: white_noise_strength.");
 
             return new GlitchSettings(breakupStrength.Value!.Value!, distortStrength.Value!.Value!, frameRate.Value!.Value!, jumpStrength.Value!.Value!, quantizeScale.Value!.Value!, quantizeStrength.Value!.Value!, scanlineStrength.Value!.Value!, speed.Value!.Value!, strength.Value!.Value!, uantizeType.Value!.Value!, whiteNoiseStrength.Value!.Value!);
         }
@@ -337,7 +337,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="glitchSettings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GlitchSettings glitchSettings, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -352,7 +351,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="glitchSettings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GlitchSettings glitchSettings, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("breakup_strength", glitchSettings.BreakupStrength);

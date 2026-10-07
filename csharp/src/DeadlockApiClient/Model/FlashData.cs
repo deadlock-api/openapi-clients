@@ -249,16 +249,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class FlashData.", nameof(color));
+                throw new JsonException("Property is required for class FlashData: color.");
 
             if (!duration.IsSet)
-                throw new ArgumentException("Property is required for class FlashData.", nameof(duration));
+                throw new JsonException("Property is required for class FlashData: duration.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class FlashData.");
+                throw new JsonException("Property is not nullable for class FlashData: color.");
 
             if (duration.IsSet && duration.Value == null)
-                throw new ArgumentNullException(nameof(duration), "Property is not nullable for class FlashData.");
+                throw new JsonException("Property is not nullable for class FlashData: duration.");
 
             return new FlashData(color.Value!, duration.Value!.Value!, brightness, brightnessInLightSensitivityMode, colorGradient, coverage, hardness);
         }
@@ -269,7 +269,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="flashData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, FlashData flashData, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -284,12 +283,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="flashData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, FlashData flashData, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (flashData.Color == null)
-                throw new ArgumentNullException(nameof(flashData.Color), "Property is required for class FlashData.");
-
             writer.WritePropertyName("color");
             JsonSerializer.Serialize(writer, flashData.Color, jsonSerializerOptions);
             writer.WriteNumber("duration", flashData.Duration);

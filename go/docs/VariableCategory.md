@@ -13,6 +13,8 @@
 
 * `LEADERBOARD` (value: `"Leaderboard"`)
 
+* `SEASON` (value: `"Season"`)
+
 * `OVERALL` (value: `"Overall"`)
 
 

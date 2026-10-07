@@ -223,40 +223,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(className));
+                throw new JsonException("Property is required for class Accolade: class_name.");
 
             if (!description.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(description));
+                throw new JsonException("Property is required for class Accolade: description.");
 
             if (!flavorName.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(flavorName));
+                throw new JsonException("Property is required for class Accolade: flavor_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(id));
+                throw new JsonException("Property is required for class Accolade: id.");
 
             if (!thresholdType.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(thresholdType));
+                throw new JsonException("Property is required for class Accolade: threshold_type.");
 
             if (!trackedStatName.IsSet)
-                throw new ArgumentException("Property is required for class Accolade.", nameof(trackedStatName));
+                throw new JsonException("Property is required for class Accolade: tracked_stat_name.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: class_name.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: description.");
 
             if (flavorName.IsSet && flavorName.Value == null)
-                throw new ArgumentNullException(nameof(flavorName), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: flavor_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: id.");
 
             if (thresholdType.IsSet && thresholdType.Value == null)
-                throw new ArgumentNullException(nameof(thresholdType), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: threshold_type.");
 
             if (trackedStatName.IsSet && trackedStatName.Value == null)
-                throw new ArgumentNullException(nameof(trackedStatName), "Property is not nullable for class Accolade.");
+                throw new JsonException("Property is not nullable for class Accolade: tracked_stat_name.");
 
             return new Accolade(className.Value!, description.Value!, flavorName.Value!, id.Value!.Value!, thresholdType.Value!, trackedStatName.Value!, enabledGameModes);
         }
@@ -267,7 +267,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="accolade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Accolade accolade, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -282,24 +281,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="accolade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Accolade accolade, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (accolade.ClassName == null)
-                throw new ArgumentNullException(nameof(accolade.ClassName), "Property is required for class Accolade.");
-
-            if (accolade.Description == null)
-                throw new ArgumentNullException(nameof(accolade.Description), "Property is required for class Accolade.");
-
-            if (accolade.FlavorName == null)
-                throw new ArgumentNullException(nameof(accolade.FlavorName), "Property is required for class Accolade.");
-
-            if (accolade.ThresholdType == null)
-                throw new ArgumentNullException(nameof(accolade.ThresholdType), "Property is required for class Accolade.");
-
-            if (accolade.TrackedStatName == null)
-                throw new ArgumentNullException(nameof(accolade.TrackedStatName), "Property is required for class Accolade.");
-
             writer.WriteString("class_name", accolade.ClassName);
 
             writer.WriteString("description", accolade.Description);

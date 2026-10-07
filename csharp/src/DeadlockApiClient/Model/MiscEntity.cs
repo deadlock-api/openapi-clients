@@ -1313,16 +1313,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class MiscEntity.", nameof(className));
+                throw new JsonException("Property is required for class MiscEntity: class_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class MiscEntity.", nameof(id));
+                throw new JsonException("Property is required for class MiscEntity: id.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class MiscEntity.");
+                throw new JsonException("Property is not nullable for class MiscEntity: class_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class MiscEntity.");
+                throw new JsonException("Property is not nullable for class MiscEntity: id.");
 
             return new MiscEntity(className.Value!, id.Value!.Value!, breakOnDodgeTouch, buffTypeGraphColor, buffTypeLocString, buffTypeName, buffTypeValueUnit, collectionMethod, collisionRadius, color, damagedByAbilities, damagedByBullets, damagedByMelee, damagedBySlide, expirationDuration, goldAmount, goldPerMinuteAmount, health, heavyMeleeHitCount, heavyMeleeOnly, hitsRequired, inShopModifier, initialSpawnDelayInSeconds, initialSpawnDelaySeconds, initialSpawnTime, isMantleable, isPermanentPickup, lifetime, lootListDeckSize, mVecPickupsLv2, mVecPickupsLv3, matchTimeMinsForLevel2Pickups, matchTimeMinsForLevel3Pickups, minimapClass, modifier, name, nameLocString, orbSpawnDelayMax, orbSpawnDelayMin, pickup, pickupChances, pickupRadius, powerupDropChance, primaryDropChance, primaryPickups, regenDuration, regenDurationTroopers, regenMaxHealthPercent, regenTrooperMulti, renderAfterDeath, respawnTime, rollType, showOnMinimap, singlePickupOverride, solidAfterDeath, spawnDelay, spawnInterval, spawnIntervalInSeconds, spawnMusicState);
         }
@@ -1333,7 +1333,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="miscEntity"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MiscEntity miscEntity, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -1348,12 +1347,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="miscEntity"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MiscEntity miscEntity, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (miscEntity.ClassName == null)
-                throw new ArgumentNullException(nameof(miscEntity.ClassName), "Property is required for class MiscEntity.");
-
             writer.WriteString("class_name", miscEntity.ClassName);
 
             writer.WriteNumber("id", miscEntity.Id);

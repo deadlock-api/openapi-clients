@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accounts.IsSet)
-                throw new ArgumentException("Property is required for class ListSteamAccountsResponse.", nameof(accounts));
+                throw new JsonException("Property is required for class ListSteamAccountsResponse: accounts.");
 
             if (!summary.IsSet)
-                throw new ArgumentException("Property is required for class ListSteamAccountsResponse.", nameof(summary));
+                throw new JsonException("Property is required for class ListSteamAccountsResponse: summary.");
 
             if (accounts.IsSet && accounts.Value == null)
-                throw new ArgumentNullException(nameof(accounts), "Property is not nullable for class ListSteamAccountsResponse.");
+                throw new JsonException("Property is not nullable for class ListSteamAccountsResponse: accounts.");
 
             if (summary.IsSet && summary.Value == null)
-                throw new ArgumentNullException(nameof(summary), "Property is not nullable for class ListSteamAccountsResponse.");
+                throw new JsonException("Property is not nullable for class ListSteamAccountsResponse: summary.");
 
             return new ListSteamAccountsResponse(accounts.Value!, summary.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="listSteamAccountsResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ListSteamAccountsResponse listSteamAccountsResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="listSteamAccountsResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ListSteamAccountsResponse listSteamAccountsResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (listSteamAccountsResponse.Accounts == null)
-                throw new ArgumentNullException(nameof(listSteamAccountsResponse.Accounts), "Property is required for class ListSteamAccountsResponse.");
-
-            if (listSteamAccountsResponse.Summary == null)
-                throw new ArgumentNullException(nameof(listSteamAccountsResponse.Summary), "Property is required for class ListSteamAccountsResponse.");
-
             writer.WritePropertyName("accounts");
             JsonSerializer.Serialize(writer, listSteamAccountsResponse.Accounts, jsonSerializerOptions);
             writer.WritePropertyName("summary");

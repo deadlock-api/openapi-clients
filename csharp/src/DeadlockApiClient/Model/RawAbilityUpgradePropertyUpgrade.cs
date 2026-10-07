@@ -227,16 +227,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bonus.IsSet)
-                throw new ArgumentException("Property is required for class RawAbilityUpgradePropertyUpgrade.", nameof(bonus));
+                throw new JsonException("Property is required for class RawAbilityUpgradePropertyUpgrade: bonus.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class RawAbilityUpgradePropertyUpgrade.", nameof(name));
+                throw new JsonException("Property is required for class RawAbilityUpgradePropertyUpgrade: name.");
 
             if (bonus.IsSet && bonus.Value == null)
-                throw new ArgumentNullException(nameof(bonus), "Property is not nullable for class RawAbilityUpgradePropertyUpgrade.");
+                throw new JsonException("Property is not nullable for class RawAbilityUpgradePropertyUpgrade: bonus.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class RawAbilityUpgradePropertyUpgrade.");
+                throw new JsonException("Property is not nullable for class RawAbilityUpgradePropertyUpgrade: name.");
 
             return new RawAbilityUpgradePropertyUpgrade(bonus.Value!, name.Value!, fixedCorruptedBonus, roundCorruptedBonus, scaleStatFilter, upgradeType);
         }
@@ -247,7 +247,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawAbilityUpgradePropertyUpgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RawAbilityUpgradePropertyUpgrade rawAbilityUpgradePropertyUpgrade, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -262,15 +261,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawAbilityUpgradePropertyUpgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RawAbilityUpgradePropertyUpgrade rawAbilityUpgradePropertyUpgrade, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (rawAbilityUpgradePropertyUpgrade.Bonus == null)
-                throw new ArgumentNullException(nameof(rawAbilityUpgradePropertyUpgrade.Bonus), "Property is required for class RawAbilityUpgradePropertyUpgrade.");
-
-            if (rawAbilityUpgradePropertyUpgrade.Name == null)
-                throw new ArgumentNullException(nameof(rawAbilityUpgradePropertyUpgrade.Name), "Property is required for class RawAbilityUpgradePropertyUpgrade.");
-
             writer.WriteString("bonus", rawAbilityUpgradePropertyUpgrade.Bonus);
 
             writer.WriteString("name", rawAbilityUpgradePropertyUpgrade.Name);

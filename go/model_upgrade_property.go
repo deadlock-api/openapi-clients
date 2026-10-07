@@ -19,26 +19,26 @@ var _ MappedNullable = &UpgradeProperty{}
 
 // UpgradeProperty struct for UpgradeProperty
 type UpgradeProperty struct {
-	CanSetTokenOverride *bool `json:"can_set_token_override,omitempty"`
-	Conditional *string `json:"conditional,omitempty"`
-	CssClass *string `json:"css_class,omitempty"`
-	DisableValue *string `json:"disable_value,omitempty"`
-	DisplayUnits *string `json:"display_units,omitempty"`
-	Icon *string `json:"icon,omitempty"`
-	Label *string `json:"label,omitempty"`
-	LocTokenOverride *string `json:"loc_token_override,omitempty"`
-	NegativeAttribute *bool `json:"negative_attribute,omitempty"`
-	Postfix *string `json:"postfix,omitempty"`
-	PostvalueLabel *string `json:"postvalue_label,omitempty"`
-	Prefix *string `json:"prefix,omitempty"`
-	ProvidedPropertyType *string `json:"provided_property_type,omitempty"`
+	CanSetTokenOverride NullableBool `json:"can_set_token_override,omitempty"`
+	Conditional NullableString `json:"conditional,omitempty"`
+	CssClass NullableString `json:"css_class,omitempty"`
+	DisableValue NullableString `json:"disable_value,omitempty"`
+	DisplayUnits NullableString `json:"display_units,omitempty"`
+	Icon NullableString `json:"icon,omitempty"`
+	Label NullableString `json:"label,omitempty"`
+	LocTokenOverride NullableString `json:"loc_token_override,omitempty"`
+	NegativeAttribute NullableBool `json:"negative_attribute,omitempty"`
+	Postfix NullableString `json:"postfix,omitempty"`
+	PostvalueLabel NullableString `json:"postvalue_label,omitempty"`
+	Prefix NullableString `json:"prefix,omitempty"`
+	ProvidedPropertyType NullableString `json:"provided_property_type,omitempty"`
 	// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
 	RequiredUpgradeBits []string `json:"required_upgrade_bits,omitempty"`
-	ScaleFunction *RawItemPropertyScaleFunctionSubclass `json:"scale_function,omitempty"`
-	StreetBrawlValue *string `json:"street_brawl_value,omitempty"`
+	ScaleFunction NullableRawItemPropertyScaleFunctionSubclass `json:"scale_function,omitempty"`
+	StreetBrawlValue NullableString `json:"street_brawl_value,omitempty"`
 	UsageFlags []StatsUsageFlag `json:"usage_flags,omitempty"`
 	// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
-	Value *string `json:"value,omitempty"`
+	Value NullableString `json:"value,omitempty"`
 	TooltipIsElevated NullableBool `json:"tooltip_is_elevated,omitempty"`
 	TooltipIsImportant NullableBool `json:"tooltip_is_important,omitempty"`
 	TooltipSection NullableAbilitySectionType `json:"tooltip_section,omitempty"`
@@ -61,425 +61,555 @@ func NewUpgradePropertyWithDefaults() *UpgradeProperty {
 	return &this
 }
 
-// GetCanSetTokenOverride returns the CanSetTokenOverride field value if set, zero value otherwise.
+// GetCanSetTokenOverride returns the CanSetTokenOverride field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetCanSetTokenOverride() bool {
-	if o == nil || IsNil(o.CanSetTokenOverride) {
+	if o == nil || IsNil(o.CanSetTokenOverride.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.CanSetTokenOverride
+	return *o.CanSetTokenOverride.Get()
 }
 
 // GetCanSetTokenOverrideOk returns a tuple with the CanSetTokenOverride field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetCanSetTokenOverrideOk() (*bool, bool) {
-	if o == nil || IsNil(o.CanSetTokenOverride) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CanSetTokenOverride, true
+	return o.CanSetTokenOverride.Get(), o.CanSetTokenOverride.IsSet()
 }
 
 // HasCanSetTokenOverride returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasCanSetTokenOverride() bool {
-	if o != nil && !IsNil(o.CanSetTokenOverride) {
+	if o != nil && o.CanSetTokenOverride.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCanSetTokenOverride gets a reference to the given bool and assigns it to the CanSetTokenOverride field.
+// SetCanSetTokenOverride gets a reference to the given NullableBool and assigns it to the CanSetTokenOverride field.
 func (o *UpgradeProperty) SetCanSetTokenOverride(v bool) {
-	o.CanSetTokenOverride = &v
+	o.CanSetTokenOverride.Set(&v)
+}
+// SetCanSetTokenOverrideNil sets the value for CanSetTokenOverride to be an explicit nil
+func (o *UpgradeProperty) SetCanSetTokenOverrideNil() {
+	o.CanSetTokenOverride.Set(nil)
 }
 
-// GetConditional returns the Conditional field value if set, zero value otherwise.
+// UnsetCanSetTokenOverride ensures that no value is present for CanSetTokenOverride, not even an explicit nil
+func (o *UpgradeProperty) UnsetCanSetTokenOverride() {
+	o.CanSetTokenOverride.Unset()
+}
+
+// GetConditional returns the Conditional field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetConditional() string {
-	if o == nil || IsNil(o.Conditional) {
+	if o == nil || IsNil(o.Conditional.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Conditional
+	return *o.Conditional.Get()
 }
 
 // GetConditionalOk returns a tuple with the Conditional field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetConditionalOk() (*string, bool) {
-	if o == nil || IsNil(o.Conditional) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Conditional, true
+	return o.Conditional.Get(), o.Conditional.IsSet()
 }
 
 // HasConditional returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasConditional() bool {
-	if o != nil && !IsNil(o.Conditional) {
+	if o != nil && o.Conditional.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetConditional gets a reference to the given string and assigns it to the Conditional field.
+// SetConditional gets a reference to the given NullableString and assigns it to the Conditional field.
 func (o *UpgradeProperty) SetConditional(v string) {
-	o.Conditional = &v
+	o.Conditional.Set(&v)
+}
+// SetConditionalNil sets the value for Conditional to be an explicit nil
+func (o *UpgradeProperty) SetConditionalNil() {
+	o.Conditional.Set(nil)
 }
 
-// GetCssClass returns the CssClass field value if set, zero value otherwise.
+// UnsetConditional ensures that no value is present for Conditional, not even an explicit nil
+func (o *UpgradeProperty) UnsetConditional() {
+	o.Conditional.Unset()
+}
+
+// GetCssClass returns the CssClass field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetCssClass() string {
-	if o == nil || IsNil(o.CssClass) {
+	if o == nil || IsNil(o.CssClass.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.CssClass
+	return *o.CssClass.Get()
 }
 
 // GetCssClassOk returns a tuple with the CssClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetCssClassOk() (*string, bool) {
-	if o == nil || IsNil(o.CssClass) {
+	if o == nil {
 		return nil, false
 	}
-	return o.CssClass, true
+	return o.CssClass.Get(), o.CssClass.IsSet()
 }
 
 // HasCssClass returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasCssClass() bool {
-	if o != nil && !IsNil(o.CssClass) {
+	if o != nil && o.CssClass.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetCssClass gets a reference to the given string and assigns it to the CssClass field.
+// SetCssClass gets a reference to the given NullableString and assigns it to the CssClass field.
 func (o *UpgradeProperty) SetCssClass(v string) {
-	o.CssClass = &v
+	o.CssClass.Set(&v)
+}
+// SetCssClassNil sets the value for CssClass to be an explicit nil
+func (o *UpgradeProperty) SetCssClassNil() {
+	o.CssClass.Set(nil)
 }
 
-// GetDisableValue returns the DisableValue field value if set, zero value otherwise.
+// UnsetCssClass ensures that no value is present for CssClass, not even an explicit nil
+func (o *UpgradeProperty) UnsetCssClass() {
+	o.CssClass.Unset()
+}
+
+// GetDisableValue returns the DisableValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetDisableValue() string {
-	if o == nil || IsNil(o.DisableValue) {
+	if o == nil || IsNil(o.DisableValue.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisableValue
+	return *o.DisableValue.Get()
 }
 
 // GetDisableValueOk returns a tuple with the DisableValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetDisableValueOk() (*string, bool) {
-	if o == nil || IsNil(o.DisableValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisableValue, true
+	return o.DisableValue.Get(), o.DisableValue.IsSet()
 }
 
 // HasDisableValue returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasDisableValue() bool {
-	if o != nil && !IsNil(o.DisableValue) {
+	if o != nil && o.DisableValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisableValue gets a reference to the given string and assigns it to the DisableValue field.
+// SetDisableValue gets a reference to the given NullableString and assigns it to the DisableValue field.
 func (o *UpgradeProperty) SetDisableValue(v string) {
-	o.DisableValue = &v
+	o.DisableValue.Set(&v)
+}
+// SetDisableValueNil sets the value for DisableValue to be an explicit nil
+func (o *UpgradeProperty) SetDisableValueNil() {
+	o.DisableValue.Set(nil)
 }
 
-// GetDisplayUnits returns the DisplayUnits field value if set, zero value otherwise.
+// UnsetDisableValue ensures that no value is present for DisableValue, not even an explicit nil
+func (o *UpgradeProperty) UnsetDisableValue() {
+	o.DisableValue.Unset()
+}
+
+// GetDisplayUnits returns the DisplayUnits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetDisplayUnits() string {
-	if o == nil || IsNil(o.DisplayUnits) {
+	if o == nil || IsNil(o.DisplayUnits.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.DisplayUnits
+	return *o.DisplayUnits.Get()
 }
 
 // GetDisplayUnitsOk returns a tuple with the DisplayUnits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetDisplayUnitsOk() (*string, bool) {
-	if o == nil || IsNil(o.DisplayUnits) {
+	if o == nil {
 		return nil, false
 	}
-	return o.DisplayUnits, true
+	return o.DisplayUnits.Get(), o.DisplayUnits.IsSet()
 }
 
 // HasDisplayUnits returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasDisplayUnits() bool {
-	if o != nil && !IsNil(o.DisplayUnits) {
+	if o != nil && o.DisplayUnits.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetDisplayUnits gets a reference to the given string and assigns it to the DisplayUnits field.
+// SetDisplayUnits gets a reference to the given NullableString and assigns it to the DisplayUnits field.
 func (o *UpgradeProperty) SetDisplayUnits(v string) {
-	o.DisplayUnits = &v
+	o.DisplayUnits.Set(&v)
+}
+// SetDisplayUnitsNil sets the value for DisplayUnits to be an explicit nil
+func (o *UpgradeProperty) SetDisplayUnitsNil() {
+	o.DisplayUnits.Set(nil)
 }
 
-// GetIcon returns the Icon field value if set, zero value otherwise.
+// UnsetDisplayUnits ensures that no value is present for DisplayUnits, not even an explicit nil
+func (o *UpgradeProperty) UnsetDisplayUnits() {
+	o.DisplayUnits.Unset()
+}
+
+// GetIcon returns the Icon field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetIcon() string {
-	if o == nil || IsNil(o.Icon) {
+	if o == nil || IsNil(o.Icon.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Icon
+	return *o.Icon.Get()
 }
 
 // GetIconOk returns a tuple with the Icon field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetIconOk() (*string, bool) {
-	if o == nil || IsNil(o.Icon) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Icon, true
+	return o.Icon.Get(), o.Icon.IsSet()
 }
 
 // HasIcon returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasIcon() bool {
-	if o != nil && !IsNil(o.Icon) {
+	if o != nil && o.Icon.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetIcon gets a reference to the given string and assigns it to the Icon field.
+// SetIcon gets a reference to the given NullableString and assigns it to the Icon field.
 func (o *UpgradeProperty) SetIcon(v string) {
-	o.Icon = &v
+	o.Icon.Set(&v)
+}
+// SetIconNil sets the value for Icon to be an explicit nil
+func (o *UpgradeProperty) SetIconNil() {
+	o.Icon.Set(nil)
 }
 
-// GetLabel returns the Label field value if set, zero value otherwise.
+// UnsetIcon ensures that no value is present for Icon, not even an explicit nil
+func (o *UpgradeProperty) UnsetIcon() {
+	o.Icon.Unset()
+}
+
+// GetLabel returns the Label field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetLabel() string {
-	if o == nil || IsNil(o.Label) {
+	if o == nil || IsNil(o.Label.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Label
+	return *o.Label.Get()
 }
 
 // GetLabelOk returns a tuple with the Label field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetLabelOk() (*string, bool) {
-	if o == nil || IsNil(o.Label) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Label, true
+	return o.Label.Get(), o.Label.IsSet()
 }
 
 // HasLabel returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasLabel() bool {
-	if o != nil && !IsNil(o.Label) {
+	if o != nil && o.Label.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLabel gets a reference to the given string and assigns it to the Label field.
+// SetLabel gets a reference to the given NullableString and assigns it to the Label field.
 func (o *UpgradeProperty) SetLabel(v string) {
-	o.Label = &v
+	o.Label.Set(&v)
+}
+// SetLabelNil sets the value for Label to be an explicit nil
+func (o *UpgradeProperty) SetLabelNil() {
+	o.Label.Set(nil)
 }
 
-// GetLocTokenOverride returns the LocTokenOverride field value if set, zero value otherwise.
+// UnsetLabel ensures that no value is present for Label, not even an explicit nil
+func (o *UpgradeProperty) UnsetLabel() {
+	o.Label.Unset()
+}
+
+// GetLocTokenOverride returns the LocTokenOverride field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetLocTokenOverride() string {
-	if o == nil || IsNil(o.LocTokenOverride) {
+	if o == nil || IsNil(o.LocTokenOverride.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.LocTokenOverride
+	return *o.LocTokenOverride.Get()
 }
 
 // GetLocTokenOverrideOk returns a tuple with the LocTokenOverride field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetLocTokenOverrideOk() (*string, bool) {
-	if o == nil || IsNil(o.LocTokenOverride) {
+	if o == nil {
 		return nil, false
 	}
-	return o.LocTokenOverride, true
+	return o.LocTokenOverride.Get(), o.LocTokenOverride.IsSet()
 }
 
 // HasLocTokenOverride returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasLocTokenOverride() bool {
-	if o != nil && !IsNil(o.LocTokenOverride) {
+	if o != nil && o.LocTokenOverride.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetLocTokenOverride gets a reference to the given string and assigns it to the LocTokenOverride field.
+// SetLocTokenOverride gets a reference to the given NullableString and assigns it to the LocTokenOverride field.
 func (o *UpgradeProperty) SetLocTokenOverride(v string) {
-	o.LocTokenOverride = &v
+	o.LocTokenOverride.Set(&v)
+}
+// SetLocTokenOverrideNil sets the value for LocTokenOverride to be an explicit nil
+func (o *UpgradeProperty) SetLocTokenOverrideNil() {
+	o.LocTokenOverride.Set(nil)
 }
 
-// GetNegativeAttribute returns the NegativeAttribute field value if set, zero value otherwise.
+// UnsetLocTokenOverride ensures that no value is present for LocTokenOverride, not even an explicit nil
+func (o *UpgradeProperty) UnsetLocTokenOverride() {
+	o.LocTokenOverride.Unset()
+}
+
+// GetNegativeAttribute returns the NegativeAttribute field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetNegativeAttribute() bool {
-	if o == nil || IsNil(o.NegativeAttribute) {
+	if o == nil || IsNil(o.NegativeAttribute.Get()) {
 		var ret bool
 		return ret
 	}
-	return *o.NegativeAttribute
+	return *o.NegativeAttribute.Get()
 }
 
 // GetNegativeAttributeOk returns a tuple with the NegativeAttribute field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetNegativeAttributeOk() (*bool, bool) {
-	if o == nil || IsNil(o.NegativeAttribute) {
+	if o == nil {
 		return nil, false
 	}
-	return o.NegativeAttribute, true
+	return o.NegativeAttribute.Get(), o.NegativeAttribute.IsSet()
 }
 
 // HasNegativeAttribute returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasNegativeAttribute() bool {
-	if o != nil && !IsNil(o.NegativeAttribute) {
+	if o != nil && o.NegativeAttribute.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetNegativeAttribute gets a reference to the given bool and assigns it to the NegativeAttribute field.
+// SetNegativeAttribute gets a reference to the given NullableBool and assigns it to the NegativeAttribute field.
 func (o *UpgradeProperty) SetNegativeAttribute(v bool) {
-	o.NegativeAttribute = &v
+	o.NegativeAttribute.Set(&v)
+}
+// SetNegativeAttributeNil sets the value for NegativeAttribute to be an explicit nil
+func (o *UpgradeProperty) SetNegativeAttributeNil() {
+	o.NegativeAttribute.Set(nil)
 }
 
-// GetPostfix returns the Postfix field value if set, zero value otherwise.
+// UnsetNegativeAttribute ensures that no value is present for NegativeAttribute, not even an explicit nil
+func (o *UpgradeProperty) UnsetNegativeAttribute() {
+	o.NegativeAttribute.Unset()
+}
+
+// GetPostfix returns the Postfix field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetPostfix() string {
-	if o == nil || IsNil(o.Postfix) {
+	if o == nil || IsNil(o.Postfix.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Postfix
+	return *o.Postfix.Get()
 }
 
 // GetPostfixOk returns a tuple with the Postfix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetPostfixOk() (*string, bool) {
-	if o == nil || IsNil(o.Postfix) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Postfix, true
+	return o.Postfix.Get(), o.Postfix.IsSet()
 }
 
 // HasPostfix returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasPostfix() bool {
-	if o != nil && !IsNil(o.Postfix) {
+	if o != nil && o.Postfix.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPostfix gets a reference to the given string and assigns it to the Postfix field.
+// SetPostfix gets a reference to the given NullableString and assigns it to the Postfix field.
 func (o *UpgradeProperty) SetPostfix(v string) {
-	o.Postfix = &v
+	o.Postfix.Set(&v)
+}
+// SetPostfixNil sets the value for Postfix to be an explicit nil
+func (o *UpgradeProperty) SetPostfixNil() {
+	o.Postfix.Set(nil)
 }
 
-// GetPostvalueLabel returns the PostvalueLabel field value if set, zero value otherwise.
+// UnsetPostfix ensures that no value is present for Postfix, not even an explicit nil
+func (o *UpgradeProperty) UnsetPostfix() {
+	o.Postfix.Unset()
+}
+
+// GetPostvalueLabel returns the PostvalueLabel field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetPostvalueLabel() string {
-	if o == nil || IsNil(o.PostvalueLabel) {
+	if o == nil || IsNil(o.PostvalueLabel.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.PostvalueLabel
+	return *o.PostvalueLabel.Get()
 }
 
 // GetPostvalueLabelOk returns a tuple with the PostvalueLabel field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetPostvalueLabelOk() (*string, bool) {
-	if o == nil || IsNil(o.PostvalueLabel) {
+	if o == nil {
 		return nil, false
 	}
-	return o.PostvalueLabel, true
+	return o.PostvalueLabel.Get(), o.PostvalueLabel.IsSet()
 }
 
 // HasPostvalueLabel returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasPostvalueLabel() bool {
-	if o != nil && !IsNil(o.PostvalueLabel) {
+	if o != nil && o.PostvalueLabel.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPostvalueLabel gets a reference to the given string and assigns it to the PostvalueLabel field.
+// SetPostvalueLabel gets a reference to the given NullableString and assigns it to the PostvalueLabel field.
 func (o *UpgradeProperty) SetPostvalueLabel(v string) {
-	o.PostvalueLabel = &v
+	o.PostvalueLabel.Set(&v)
+}
+// SetPostvalueLabelNil sets the value for PostvalueLabel to be an explicit nil
+func (o *UpgradeProperty) SetPostvalueLabelNil() {
+	o.PostvalueLabel.Set(nil)
 }
 
-// GetPrefix returns the Prefix field value if set, zero value otherwise.
+// UnsetPostvalueLabel ensures that no value is present for PostvalueLabel, not even an explicit nil
+func (o *UpgradeProperty) UnsetPostvalueLabel() {
+	o.PostvalueLabel.Unset()
+}
+
+// GetPrefix returns the Prefix field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetPrefix() string {
-	if o == nil || IsNil(o.Prefix) {
+	if o == nil || IsNil(o.Prefix.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Prefix
+	return *o.Prefix.Get()
 }
 
 // GetPrefixOk returns a tuple with the Prefix field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetPrefixOk() (*string, bool) {
-	if o == nil || IsNil(o.Prefix) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Prefix, true
+	return o.Prefix.Get(), o.Prefix.IsSet()
 }
 
 // HasPrefix returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasPrefix() bool {
-	if o != nil && !IsNil(o.Prefix) {
+	if o != nil && o.Prefix.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetPrefix gets a reference to the given string and assigns it to the Prefix field.
+// SetPrefix gets a reference to the given NullableString and assigns it to the Prefix field.
 func (o *UpgradeProperty) SetPrefix(v string) {
-	o.Prefix = &v
+	o.Prefix.Set(&v)
+}
+// SetPrefixNil sets the value for Prefix to be an explicit nil
+func (o *UpgradeProperty) SetPrefixNil() {
+	o.Prefix.Set(nil)
 }
 
-// GetProvidedPropertyType returns the ProvidedPropertyType field value if set, zero value otherwise.
+// UnsetPrefix ensures that no value is present for Prefix, not even an explicit nil
+func (o *UpgradeProperty) UnsetPrefix() {
+	o.Prefix.Unset()
+}
+
+// GetProvidedPropertyType returns the ProvidedPropertyType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetProvidedPropertyType() string {
-	if o == nil || IsNil(o.ProvidedPropertyType) {
+	if o == nil || IsNil(o.ProvidedPropertyType.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.ProvidedPropertyType
+	return *o.ProvidedPropertyType.Get()
 }
 
 // GetProvidedPropertyTypeOk returns a tuple with the ProvidedPropertyType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetProvidedPropertyTypeOk() (*string, bool) {
-	if o == nil || IsNil(o.ProvidedPropertyType) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ProvidedPropertyType, true
+	return o.ProvidedPropertyType.Get(), o.ProvidedPropertyType.IsSet()
 }
 
 // HasProvidedPropertyType returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasProvidedPropertyType() bool {
-	if o != nil && !IsNil(o.ProvidedPropertyType) {
+	if o != nil && o.ProvidedPropertyType.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetProvidedPropertyType gets a reference to the given string and assigns it to the ProvidedPropertyType field.
+// SetProvidedPropertyType gets a reference to the given NullableString and assigns it to the ProvidedPropertyType field.
 func (o *UpgradeProperty) SetProvidedPropertyType(v string) {
-	o.ProvidedPropertyType = &v
+	o.ProvidedPropertyType.Set(&v)
+}
+// SetProvidedPropertyTypeNil sets the value for ProvidedPropertyType to be an explicit nil
+func (o *UpgradeProperty) SetProvidedPropertyTypeNil() {
+	o.ProvidedPropertyType.Set(nil)
 }
 
-// GetRequiredUpgradeBits returns the RequiredUpgradeBits field value if set, zero value otherwise.
+// UnsetProvidedPropertyType ensures that no value is present for ProvidedPropertyType, not even an explicit nil
+func (o *UpgradeProperty) UnsetProvidedPropertyType() {
+	o.ProvidedPropertyType.Unset()
+}
+
+// GetRequiredUpgradeBits returns the RequiredUpgradeBits field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetRequiredUpgradeBits() []string {
-	if o == nil || IsNil(o.RequiredUpgradeBits) {
+	if o == nil {
 		var ret []string
 		return ret
 	}
@@ -488,6 +618,7 @@ func (o *UpgradeProperty) GetRequiredUpgradeBits() []string {
 
 // GetRequiredUpgradeBitsOk returns a tuple with the RequiredUpgradeBits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetRequiredUpgradeBitsOk() ([]string, bool) {
 	if o == nil || IsNil(o.RequiredUpgradeBits) {
 		return nil, false
@@ -509,73 +640,93 @@ func (o *UpgradeProperty) SetRequiredUpgradeBits(v []string) {
 	o.RequiredUpgradeBits = v
 }
 
-// GetScaleFunction returns the ScaleFunction field value if set, zero value otherwise.
+// GetScaleFunction returns the ScaleFunction field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetScaleFunction() RawItemPropertyScaleFunctionSubclass {
-	if o == nil || IsNil(o.ScaleFunction) {
+	if o == nil || IsNil(o.ScaleFunction.Get()) {
 		var ret RawItemPropertyScaleFunctionSubclass
 		return ret
 	}
-	return *o.ScaleFunction
+	return *o.ScaleFunction.Get()
 }
 
 // GetScaleFunctionOk returns a tuple with the ScaleFunction field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetScaleFunctionOk() (*RawItemPropertyScaleFunctionSubclass, bool) {
-	if o == nil || IsNil(o.ScaleFunction) {
+	if o == nil {
 		return nil, false
 	}
-	return o.ScaleFunction, true
+	return o.ScaleFunction.Get(), o.ScaleFunction.IsSet()
 }
 
 // HasScaleFunction returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasScaleFunction() bool {
-	if o != nil && !IsNil(o.ScaleFunction) {
+	if o != nil && o.ScaleFunction.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetScaleFunction gets a reference to the given RawItemPropertyScaleFunctionSubclass and assigns it to the ScaleFunction field.
+// SetScaleFunction gets a reference to the given NullableRawItemPropertyScaleFunctionSubclass and assigns it to the ScaleFunction field.
 func (o *UpgradeProperty) SetScaleFunction(v RawItemPropertyScaleFunctionSubclass) {
-	o.ScaleFunction = &v
+	o.ScaleFunction.Set(&v)
+}
+// SetScaleFunctionNil sets the value for ScaleFunction to be an explicit nil
+func (o *UpgradeProperty) SetScaleFunctionNil() {
+	o.ScaleFunction.Set(nil)
 }
 
-// GetStreetBrawlValue returns the StreetBrawlValue field value if set, zero value otherwise.
+// UnsetScaleFunction ensures that no value is present for ScaleFunction, not even an explicit nil
+func (o *UpgradeProperty) UnsetScaleFunction() {
+	o.ScaleFunction.Unset()
+}
+
+// GetStreetBrawlValue returns the StreetBrawlValue field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetStreetBrawlValue() string {
-	if o == nil || IsNil(o.StreetBrawlValue) {
+	if o == nil || IsNil(o.StreetBrawlValue.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.StreetBrawlValue
+	return *o.StreetBrawlValue.Get()
 }
 
 // GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetStreetBrawlValueOk() (*string, bool) {
-	if o == nil || IsNil(o.StreetBrawlValue) {
+	if o == nil {
 		return nil, false
 	}
-	return o.StreetBrawlValue, true
+	return o.StreetBrawlValue.Get(), o.StreetBrawlValue.IsSet()
 }
 
 // HasStreetBrawlValue returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasStreetBrawlValue() bool {
-	if o != nil && !IsNil(o.StreetBrawlValue) {
+	if o != nil && o.StreetBrawlValue.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetStreetBrawlValue gets a reference to the given string and assigns it to the StreetBrawlValue field.
+// SetStreetBrawlValue gets a reference to the given NullableString and assigns it to the StreetBrawlValue field.
 func (o *UpgradeProperty) SetStreetBrawlValue(v string) {
-	o.StreetBrawlValue = &v
+	o.StreetBrawlValue.Set(&v)
+}
+// SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
+func (o *UpgradeProperty) SetStreetBrawlValueNil() {
+	o.StreetBrawlValue.Set(nil)
 }
 
-// GetUsageFlags returns the UsageFlags field value if set, zero value otherwise.
+// UnsetStreetBrawlValue ensures that no value is present for StreetBrawlValue, not even an explicit nil
+func (o *UpgradeProperty) UnsetStreetBrawlValue() {
+	o.StreetBrawlValue.Unset()
+}
+
+// GetUsageFlags returns the UsageFlags field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetUsageFlags() []StatsUsageFlag {
-	if o == nil || IsNil(o.UsageFlags) {
+	if o == nil {
 		var ret []StatsUsageFlag
 		return ret
 	}
@@ -584,6 +735,7 @@ func (o *UpgradeProperty) GetUsageFlags() []StatsUsageFlag {
 
 // GetUsageFlagsOk returns a tuple with the UsageFlags field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetUsageFlagsOk() ([]StatsUsageFlag, bool) {
 	if o == nil || IsNil(o.UsageFlags) {
 		return nil, false
@@ -605,36 +757,46 @@ func (o *UpgradeProperty) SetUsageFlags(v []StatsUsageFlag) {
 	o.UsageFlags = v
 }
 
-// GetValue returns the Value field value if set, zero value otherwise.
+// GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UpgradeProperty) GetValue() string {
-	if o == nil || IsNil(o.Value) {
+	if o == nil || IsNil(o.Value.Get()) {
 		var ret string
 		return ret
 	}
-	return *o.Value
+	return *o.Value.Get()
 }
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *UpgradeProperty) GetValueOk() (*string, bool) {
-	if o == nil || IsNil(o.Value) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Value, true
+	return o.Value.Get(), o.Value.IsSet()
 }
 
 // HasValue returns a boolean if a field has been set.
 func (o *UpgradeProperty) HasValue() bool {
-	if o != nil && !IsNil(o.Value) {
+	if o != nil && o.Value.IsSet() {
 		return true
 	}
 
 	return false
 }
 
-// SetValue gets a reference to the given string and assigns it to the Value field.
+// SetValue gets a reference to the given NullableString and assigns it to the Value field.
 func (o *UpgradeProperty) SetValue(v string) {
-	o.Value = &v
+	o.Value.Set(&v)
+}
+// SetValueNil sets the value for Value to be an explicit nil
+func (o *UpgradeProperty) SetValueNil() {
+	o.Value.Set(nil)
+}
+
+// UnsetValue ensures that no value is present for Value, not even an explicit nil
+func (o *UpgradeProperty) UnsetValue() {
+	o.Value.Unset()
 }
 
 // GetTooltipIsElevated returns the TooltipIsElevated field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -773,59 +935,59 @@ func (o UpgradeProperty) MarshalJSON() ([]byte, error) {
 
 func (o UpgradeProperty) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.CanSetTokenOverride) {
-		toSerialize["can_set_token_override"] = o.CanSetTokenOverride
+	if o.CanSetTokenOverride.IsSet() {
+		toSerialize["can_set_token_override"] = o.CanSetTokenOverride.Get()
 	}
-	if !IsNil(o.Conditional) {
-		toSerialize["conditional"] = o.Conditional
+	if o.Conditional.IsSet() {
+		toSerialize["conditional"] = o.Conditional.Get()
 	}
-	if !IsNil(o.CssClass) {
-		toSerialize["css_class"] = o.CssClass
+	if o.CssClass.IsSet() {
+		toSerialize["css_class"] = o.CssClass.Get()
 	}
-	if !IsNil(o.DisableValue) {
-		toSerialize["disable_value"] = o.DisableValue
+	if o.DisableValue.IsSet() {
+		toSerialize["disable_value"] = o.DisableValue.Get()
 	}
-	if !IsNil(o.DisplayUnits) {
-		toSerialize["display_units"] = o.DisplayUnits
+	if o.DisplayUnits.IsSet() {
+		toSerialize["display_units"] = o.DisplayUnits.Get()
 	}
-	if !IsNil(o.Icon) {
-		toSerialize["icon"] = o.Icon
+	if o.Icon.IsSet() {
+		toSerialize["icon"] = o.Icon.Get()
 	}
-	if !IsNil(o.Label) {
-		toSerialize["label"] = o.Label
+	if o.Label.IsSet() {
+		toSerialize["label"] = o.Label.Get()
 	}
-	if !IsNil(o.LocTokenOverride) {
-		toSerialize["loc_token_override"] = o.LocTokenOverride
+	if o.LocTokenOverride.IsSet() {
+		toSerialize["loc_token_override"] = o.LocTokenOverride.Get()
 	}
-	if !IsNil(o.NegativeAttribute) {
-		toSerialize["negative_attribute"] = o.NegativeAttribute
+	if o.NegativeAttribute.IsSet() {
+		toSerialize["negative_attribute"] = o.NegativeAttribute.Get()
 	}
-	if !IsNil(o.Postfix) {
-		toSerialize["postfix"] = o.Postfix
+	if o.Postfix.IsSet() {
+		toSerialize["postfix"] = o.Postfix.Get()
 	}
-	if !IsNil(o.PostvalueLabel) {
-		toSerialize["postvalue_label"] = o.PostvalueLabel
+	if o.PostvalueLabel.IsSet() {
+		toSerialize["postvalue_label"] = o.PostvalueLabel.Get()
 	}
-	if !IsNil(o.Prefix) {
-		toSerialize["prefix"] = o.Prefix
+	if o.Prefix.IsSet() {
+		toSerialize["prefix"] = o.Prefix.Get()
 	}
-	if !IsNil(o.ProvidedPropertyType) {
-		toSerialize["provided_property_type"] = o.ProvidedPropertyType
+	if o.ProvidedPropertyType.IsSet() {
+		toSerialize["provided_property_type"] = o.ProvidedPropertyType.Get()
 	}
-	if !IsNil(o.RequiredUpgradeBits) {
+	if o.RequiredUpgradeBits != nil {
 		toSerialize["required_upgrade_bits"] = o.RequiredUpgradeBits
 	}
-	if !IsNil(o.ScaleFunction) {
-		toSerialize["scale_function"] = o.ScaleFunction
+	if o.ScaleFunction.IsSet() {
+		toSerialize["scale_function"] = o.ScaleFunction.Get()
 	}
-	if !IsNil(o.StreetBrawlValue) {
-		toSerialize["street_brawl_value"] = o.StreetBrawlValue
+	if o.StreetBrawlValue.IsSet() {
+		toSerialize["street_brawl_value"] = o.StreetBrawlValue.Get()
 	}
-	if !IsNil(o.UsageFlags) {
+	if o.UsageFlags != nil {
 		toSerialize["usage_flags"] = o.UsageFlags
 	}
-	if !IsNil(o.Value) {
-		toSerialize["value"] = o.Value
+	if o.Value.IsSet() {
+		toSerialize["value"] = o.Value.Get()
 	}
 	if o.TooltipIsElevated.IsSet() {
 		toSerialize["tooltip_is_elevated"] = o.TooltipIsElevated.Get()

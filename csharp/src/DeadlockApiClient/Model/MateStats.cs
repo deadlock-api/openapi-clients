@@ -189,28 +189,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class MateStats.", nameof(matches));
+                throw new JsonException("Property is required for class MateStats: matches.");
 
             if (!matchesPlayed.IsSet)
-                throw new ArgumentException("Property is required for class MateStats.", nameof(matchesPlayed));
+                throw new JsonException("Property is required for class MateStats: matches_played.");
 
             if (!mateId.IsSet)
-                throw new ArgumentException("Property is required for class MateStats.", nameof(mateId));
+                throw new JsonException("Property is required for class MateStats: mate_id.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class MateStats.", nameof(wins));
+                throw new JsonException("Property is required for class MateStats: wins.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class MateStats.");
+                throw new JsonException("Property is not nullable for class MateStats: matches.");
 
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class MateStats.");
+                throw new JsonException("Property is not nullable for class MateStats: matches_played.");
 
             if (mateId.IsSet && mateId.Value == null)
-                throw new ArgumentNullException(nameof(mateId), "Property is not nullable for class MateStats.");
+                throw new JsonException("Property is not nullable for class MateStats: mate_id.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class MateStats.");
+                throw new JsonException("Property is not nullable for class MateStats: wins.");
 
             return new MateStats(matches.Value!, matchesPlayed.Value!.Value!, mateId.Value!.Value!, wins.Value!.Value!);
         }
@@ -221,7 +221,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mateStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MateStats mateStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -236,12 +235,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mateStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MateStats mateStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mateStats.Matches == null)
-                throw new ArgumentNullException(nameof(mateStats.Matches), "Property is required for class MateStats.");
-
             writer.WritePropertyName("matches");
             JsonSerializer.Serialize(writer, mateStats.Matches, jsonSerializerOptions);
             writer.WriteNumber("matches_played", mateStats.MatchesPlayed);

@@ -188,22 +188,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!createdAt.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountResponse.", nameof(createdAt));
+                throw new JsonException("Property is required for class SteamAccountResponse: created_at.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountResponse.", nameof(id));
+                throw new JsonException("Property is required for class SteamAccountResponse: id.");
 
             if (!steamId3.IsSet)
-                throw new ArgumentException("Property is required for class SteamAccountResponse.", nameof(steamId3));
+                throw new JsonException("Property is required for class SteamAccountResponse: steam_id3.");
 
             if (createdAt.IsSet && createdAt.Value == null)
-                throw new ArgumentNullException(nameof(createdAt), "Property is not nullable for class SteamAccountResponse.");
+                throw new JsonException("Property is not nullable for class SteamAccountResponse: created_at.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class SteamAccountResponse.");
+                throw new JsonException("Property is not nullable for class SteamAccountResponse: id.");
 
             if (steamId3.IsSet && steamId3.Value == null)
-                throw new ArgumentNullException(nameof(steamId3), "Property is not nullable for class SteamAccountResponse.");
+                throw new JsonException("Property is not nullable for class SteamAccountResponse: steam_id3.");
 
             return new SteamAccountResponse(createdAt.Value!.Value!, id.Value!.Value!, steamId3.Value!.Value!, deletedAt);
         }
@@ -214,7 +214,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamAccountResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamAccountResponse steamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -229,7 +228,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamAccountResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamAccountResponse steamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteString("created_at", steamAccountResponse.CreatedAt.ToString(CreatedAtFormat));

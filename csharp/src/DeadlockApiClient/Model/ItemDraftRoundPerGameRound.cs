@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!chanceEnhanced.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRoundPerGameRound.", nameof(chanceEnhanced));
+                throw new JsonException("Property is required for class ItemDraftRoundPerGameRound: chance_enhanced.");
 
             if (!chanceRare.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRoundPerGameRound.", nameof(chanceRare));
+                throw new JsonException("Property is required for class ItemDraftRoundPerGameRound: chance_rare.");
 
             if (!itemDraftRounds.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRoundPerGameRound.", nameof(itemDraftRounds));
+                throw new JsonException("Property is required for class ItemDraftRoundPerGameRound: item_draft_rounds.");
 
             if (chanceEnhanced.IsSet && chanceEnhanced.Value == null)
-                throw new ArgumentNullException(nameof(chanceEnhanced), "Property is not nullable for class ItemDraftRoundPerGameRound.");
+                throw new JsonException("Property is not nullable for class ItemDraftRoundPerGameRound: chance_enhanced.");
 
             if (chanceRare.IsSet && chanceRare.Value == null)
-                throw new ArgumentNullException(nameof(chanceRare), "Property is not nullable for class ItemDraftRoundPerGameRound.");
+                throw new JsonException("Property is not nullable for class ItemDraftRoundPerGameRound: chance_rare.");
 
             if (itemDraftRounds.IsSet && itemDraftRounds.Value == null)
-                throw new ArgumentNullException(nameof(itemDraftRounds), "Property is not nullable for class ItemDraftRoundPerGameRound.");
+                throw new JsonException("Property is not nullable for class ItemDraftRoundPerGameRound: item_draft_rounds.");
 
             return new ItemDraftRoundPerGameRound(chanceEnhanced.Value!, chanceRare.Value!, itemDraftRounds.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemDraftRoundPerGameRound"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDraftRoundPerGameRound itemDraftRoundPerGameRound, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,18 +198,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemDraftRoundPerGameRound"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDraftRoundPerGameRound itemDraftRoundPerGameRound, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemDraftRoundPerGameRound.ChanceEnhanced == null)
-                throw new ArgumentNullException(nameof(itemDraftRoundPerGameRound.ChanceEnhanced), "Property is required for class ItemDraftRoundPerGameRound.");
-
-            if (itemDraftRoundPerGameRound.ChanceRare == null)
-                throw new ArgumentNullException(nameof(itemDraftRoundPerGameRound.ChanceRare), "Property is required for class ItemDraftRoundPerGameRound.");
-
-            if (itemDraftRoundPerGameRound.ItemDraftRounds == null)
-                throw new ArgumentNullException(nameof(itemDraftRoundPerGameRound.ItemDraftRounds), "Property is required for class ItemDraftRoundPerGameRound.");
-
             writer.WritePropertyName("chance_enhanced");
             JsonSerializer.Serialize(writer, itemDraftRoundPerGameRound.ChanceEnhanced, jsonSerializerOptions);
             writer.WritePropertyName("chance_rare");

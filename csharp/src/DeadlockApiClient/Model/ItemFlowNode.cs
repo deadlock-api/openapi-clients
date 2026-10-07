@@ -320,70 +320,70 @@ namespace DeadlockApiClient.Model
             }
 
             if (!adjustedWinRate.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(adjustedWinRate));
+                throw new JsonException("Property is required for class ItemFlowNode: adjusted_win_rate.");
 
             if (!avgNetWorthAtBuy.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(avgNetWorthAtBuy));
+                throw new JsonException("Property is required for class ItemFlowNode: avg_net_worth_at_buy.");
 
             if (!column.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(column));
+                throw new JsonException("Property is required for class ItemFlowNode: column.");
 
             if (!itemId.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(itemId));
+                throw new JsonException("Property is required for class ItemFlowNode: item_id.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(losses));
+                throw new JsonException("Property is required for class ItemFlowNode: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(matches));
+                throw new JsonException("Property is required for class ItemFlowNode: matches.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(players));
+                throw new JsonException("Property is required for class ItemFlowNode: players.");
 
             if (!totalAssists.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(totalAssists));
+                throw new JsonException("Property is required for class ItemFlowNode: total_assists.");
 
             if (!totalDeaths.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(totalDeaths));
+                throw new JsonException("Property is required for class ItemFlowNode: total_deaths.");
 
             if (!totalKills.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(totalKills));
+                throw new JsonException("Property is required for class ItemFlowNode: total_kills.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowNode.", nameof(wins));
+                throw new JsonException("Property is required for class ItemFlowNode: wins.");
 
             if (adjustedWinRate.IsSet && adjustedWinRate.Value == null)
-                throw new ArgumentNullException(nameof(adjustedWinRate), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: adjusted_win_rate.");
 
             if (avgNetWorthAtBuy.IsSet && avgNetWorthAtBuy.Value == null)
-                throw new ArgumentNullException(nameof(avgNetWorthAtBuy), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: avg_net_worth_at_buy.");
 
             if (column.IsSet && column.Value == null)
-                throw new ArgumentNullException(nameof(column), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: column.");
 
             if (itemId.IsSet && itemId.Value == null)
-                throw new ArgumentNullException(nameof(itemId), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: item_id.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: matches.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: players.");
 
             if (totalAssists.IsSet && totalAssists.Value == null)
-                throw new ArgumentNullException(nameof(totalAssists), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: total_assists.");
 
             if (totalDeaths.IsSet && totalDeaths.Value == null)
-                throw new ArgumentNullException(nameof(totalDeaths), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: total_deaths.");
 
             if (totalKills.IsSet && totalKills.Value == null)
-                throw new ArgumentNullException(nameof(totalKills), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: total_kills.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class ItemFlowNode.");
+                throw new JsonException("Property is not nullable for class ItemFlowNode: wins.");
 
             return new ItemFlowNode(adjustedWinRate.Value!.Value!, avgNetWorthAtBuy.Value!.Value!, column.Value!.Value!, itemId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalDeaths.Value!.Value!, totalKills.Value!.Value!, wins.Value!.Value!);
         }
@@ -394,7 +394,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowNode"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlowNode itemFlowNode, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -409,7 +408,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowNode"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlowNode itemFlowNode, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("adjusted_win_rate", itemFlowNode.AdjustedWinRate);

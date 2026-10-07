@@ -14,6 +14,8 @@
 
     * `Leaderboard` (value: `"Leaderboard"`)
 
+    * `Season` (value: `"Season"`)
+
     * `Overall` (value: `"Overall"`)
 
 

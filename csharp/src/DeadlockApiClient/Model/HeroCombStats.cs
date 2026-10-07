@@ -190,28 +190,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!heroIds.IsSet)
-                throw new ArgumentException("Property is required for class HeroCombStats.", nameof(heroIds));
+                throw new JsonException("Property is required for class HeroCombStats: hero_ids.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class HeroCombStats.", nameof(losses));
+                throw new JsonException("Property is required for class HeroCombStats: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class HeroCombStats.", nameof(matches));
+                throw new JsonException("Property is required for class HeroCombStats: matches.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class HeroCombStats.", nameof(wins));
+                throw new JsonException("Property is required for class HeroCombStats: wins.");
 
             if (heroIds.IsSet && heroIds.Value == null)
-                throw new ArgumentNullException(nameof(heroIds), "Property is not nullable for class HeroCombStats.");
+                throw new JsonException("Property is not nullable for class HeroCombStats: hero_ids.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class HeroCombStats.");
+                throw new JsonException("Property is not nullable for class HeroCombStats: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class HeroCombStats.");
+                throw new JsonException("Property is not nullable for class HeroCombStats: matches.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroCombStats.");
+                throw new JsonException("Property is not nullable for class HeroCombStats: wins.");
 
             return new HeroCombStats(heroIds.Value!, losses.Value!.Value!, matches.Value!.Value!, wins.Value!.Value!);
         }
@@ -222,7 +222,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroCombStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroCombStats heroCombStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -237,12 +236,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroCombStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroCombStats heroCombStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroCombStats.HeroIds == null)
-                throw new ArgumentNullException(nameof(heroCombStats.HeroIds), "Property is required for class HeroCombStats.");
-
             writer.WritePropertyName("hero_ids");
             JsonSerializer.Serialize(writer, heroCombStats.HeroIds, jsonSerializerOptions);
             writer.WriteNumber("losses", heroCombStats.Losses);

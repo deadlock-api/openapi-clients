@@ -630,10 +630,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class ActiveMatch.", nameof(players));
+                throw new JsonException("Property is required for class ActiveMatch: players.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class ActiveMatch.");
+                throw new JsonException("Property is not nullable for class ActiveMatch: players.");
 
             return new ActiveMatch(players.Value!, compatVersion, durationS, gameMode, gameModeParsed, gameModeVersion, lobbyId, matchId, matchMode, matchModeParsed, matchScore, netWorthTeam0, netWorthTeam1, objectivesMaskTeam0, objectivesMaskTeam1, openSpectatorSlots, regionMode, regionModeParsed, spectators, startTime, winningTeam, winningTeamParsed);
         }
@@ -644,7 +644,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="activeMatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ActiveMatch activeMatch, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -659,12 +658,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="activeMatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ActiveMatch activeMatch, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (activeMatch.Players == null)
-                throw new ArgumentNullException(nameof(activeMatch.Players), "Property is required for class ActiveMatch.");
-
             writer.WritePropertyName("players");
             JsonSerializer.Serialize(writer, activeMatch.Players, jsonSerializerOptions);
             if (activeMatch.CompatVersionOption.IsSet)

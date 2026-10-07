@@ -475,55 +475,55 @@ namespace DeadlockApiClient.Model
                             canSetTokenOverride = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "conditional":
-                            conditional = new Option<string?>(utf8JsonReader.GetString()!);
+                            conditional = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "css_class":
-                            cssClass = new Option<string?>(utf8JsonReader.GetString()!);
+                            cssClass = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "disable_value":
-                            disableValue = new Option<string?>(utf8JsonReader.GetString()!);
+                            disableValue = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "display_units":
-                            displayUnits = new Option<string?>(utf8JsonReader.GetString()!);
+                            displayUnits = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "icon":
-                            icon = new Option<string?>(utf8JsonReader.GetString()!);
+                            icon = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "label":
-                            label = new Option<string?>(utf8JsonReader.GetString()!);
+                            label = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "loc_token_override":
-                            locTokenOverride = new Option<string?>(utf8JsonReader.GetString()!);
+                            locTokenOverride = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "negative_attribute":
                             negativeAttribute = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "postfix":
-                            postfix = new Option<string?>(utf8JsonReader.GetString()!);
+                            postfix = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "postvalue_label":
-                            postvalueLabel = new Option<string?>(utf8JsonReader.GetString()!);
+                            postvalueLabel = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "prefix":
-                            prefix = new Option<string?>(utf8JsonReader.GetString()!);
+                            prefix = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "provided_property_type":
-                            providedPropertyType = new Option<string?>(utf8JsonReader.GetString()!);
+                            providedPropertyType = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "required_upgrade_bits":
-                            requiredUpgradeBits = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            requiredUpgradeBits = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "scale_function":
-                            scaleFunction = new Option<RawItemPropertyScaleFunctionSubclass?>(JsonSerializer.Deserialize<RawItemPropertyScaleFunctionSubclass>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            scaleFunction = new Option<RawItemPropertyScaleFunctionSubclass?>(JsonSerializer.Deserialize<RawItemPropertyScaleFunctionSubclass>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "street_brawl_value":
-                            streetBrawlValue = new Option<string?>(utf8JsonReader.GetString()!);
+                            streetBrawlValue = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "usage_flags":
-                            usageFlags = new Option<List<StatsUsageFlag>?>(JsonSerializer.Deserialize<List<StatsUsageFlag>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            usageFlags = new Option<List<StatsUsageFlag>?>(JsonSerializer.Deserialize<List<StatsUsageFlag>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "value":
-                            value = new Option<string?>(utf8JsonReader.GetString()!);
+                            value = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "tooltip_is_elevated":
                             tooltipIsElevated = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -540,60 +540,6 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (canSetTokenOverride.IsSet && canSetTokenOverride.Value == null)
-                throw new ArgumentNullException(nameof(canSetTokenOverride), "Property is not nullable for class UpgradeProperty.");
-
-            if (conditional.IsSet && conditional.Value == null)
-                throw new ArgumentNullException(nameof(conditional), "Property is not nullable for class UpgradeProperty.");
-
-            if (cssClass.IsSet && cssClass.Value == null)
-                throw new ArgumentNullException(nameof(cssClass), "Property is not nullable for class UpgradeProperty.");
-
-            if (disableValue.IsSet && disableValue.Value == null)
-                throw new ArgumentNullException(nameof(disableValue), "Property is not nullable for class UpgradeProperty.");
-
-            if (displayUnits.IsSet && displayUnits.Value == null)
-                throw new ArgumentNullException(nameof(displayUnits), "Property is not nullable for class UpgradeProperty.");
-
-            if (icon.IsSet && icon.Value == null)
-                throw new ArgumentNullException(nameof(icon), "Property is not nullable for class UpgradeProperty.");
-
-            if (label.IsSet && label.Value == null)
-                throw new ArgumentNullException(nameof(label), "Property is not nullable for class UpgradeProperty.");
-
-            if (locTokenOverride.IsSet && locTokenOverride.Value == null)
-                throw new ArgumentNullException(nameof(locTokenOverride), "Property is not nullable for class UpgradeProperty.");
-
-            if (negativeAttribute.IsSet && negativeAttribute.Value == null)
-                throw new ArgumentNullException(nameof(negativeAttribute), "Property is not nullable for class UpgradeProperty.");
-
-            if (postfix.IsSet && postfix.Value == null)
-                throw new ArgumentNullException(nameof(postfix), "Property is not nullable for class UpgradeProperty.");
-
-            if (postvalueLabel.IsSet && postvalueLabel.Value == null)
-                throw new ArgumentNullException(nameof(postvalueLabel), "Property is not nullable for class UpgradeProperty.");
-
-            if (prefix.IsSet && prefix.Value == null)
-                throw new ArgumentNullException(nameof(prefix), "Property is not nullable for class UpgradeProperty.");
-
-            if (providedPropertyType.IsSet && providedPropertyType.Value == null)
-                throw new ArgumentNullException(nameof(providedPropertyType), "Property is not nullable for class UpgradeProperty.");
-
-            if (requiredUpgradeBits.IsSet && requiredUpgradeBits.Value == null)
-                throw new ArgumentNullException(nameof(requiredUpgradeBits), "Property is not nullable for class UpgradeProperty.");
-
-            if (scaleFunction.IsSet && scaleFunction.Value == null)
-                throw new ArgumentNullException(nameof(scaleFunction), "Property is not nullable for class UpgradeProperty.");
-
-            if (streetBrawlValue.IsSet && streetBrawlValue.Value == null)
-                throw new ArgumentNullException(nameof(streetBrawlValue), "Property is not nullable for class UpgradeProperty.");
-
-            if (usageFlags.IsSet && usageFlags.Value == null)
-                throw new ArgumentNullException(nameof(usageFlags), "Property is not nullable for class UpgradeProperty.");
-
-            if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class UpgradeProperty.");
-
             return new UpgradeProperty(canSetTokenOverride, conditional, cssClass, disableValue, displayUnits, icon, label, locTokenOverride, negativeAttribute, postfix, postvalueLabel, prefix, providedPropertyType, requiredUpgradeBits, scaleFunction, streetBrawlValue, usageFlags, value, tooltipIsElevated, tooltipIsImportant, tooltipSection);
         }
 
@@ -603,7 +549,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgradeProperty"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, UpgradeProperty upgradeProperty, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -618,116 +563,121 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgradeProperty"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, UpgradeProperty upgradeProperty, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (upgradeProperty.ConditionalOption.IsSet && upgradeProperty.Conditional == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Conditional), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.CssClassOption.IsSet && upgradeProperty.CssClass == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.CssClass), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.DisableValueOption.IsSet && upgradeProperty.DisableValue == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.DisableValue), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.DisplayUnitsOption.IsSet && upgradeProperty.DisplayUnits == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.DisplayUnits), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.IconOption.IsSet && upgradeProperty.Icon == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Icon), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.LabelOption.IsSet && upgradeProperty.Label == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Label), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.LocTokenOverrideOption.IsSet && upgradeProperty.LocTokenOverride == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.LocTokenOverride), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.PostfixOption.IsSet && upgradeProperty.Postfix == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Postfix), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.PostvalueLabelOption.IsSet && upgradeProperty.PostvalueLabel == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.PostvalueLabel), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.PrefixOption.IsSet && upgradeProperty.Prefix == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Prefix), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.ProvidedPropertyTypeOption.IsSet && upgradeProperty.ProvidedPropertyType == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.ProvidedPropertyType), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.RequiredUpgradeBitsOption.IsSet && upgradeProperty.RequiredUpgradeBits == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.RequiredUpgradeBits), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.ScaleFunctionOption.IsSet && upgradeProperty.ScaleFunction == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.ScaleFunction), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.StreetBrawlValueOption.IsSet && upgradeProperty.StreetBrawlValue == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.StreetBrawlValue), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.UsageFlagsOption.IsSet && upgradeProperty.UsageFlags == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.UsageFlags), "Property is required for class UpgradeProperty.");
-
-            if (upgradeProperty.ValueOption.IsSet && upgradeProperty.Value == null)
-                throw new ArgumentNullException(nameof(upgradeProperty.Value), "Property is required for class UpgradeProperty.");
-
             if (upgradeProperty.CanSetTokenOverrideOption.IsSet)
-                writer.WriteBoolean("can_set_token_override", upgradeProperty.CanSetTokenOverrideOption.Value!.Value);
+                if (upgradeProperty.CanSetTokenOverrideOption.Value != null)
+                    writer.WriteBoolean("can_set_token_override", upgradeProperty.CanSetTokenOverrideOption.Value!.Value);
+                else
+                    writer.WriteNull("can_set_token_override");
 
             if (upgradeProperty.ConditionalOption.IsSet)
-                writer.WriteString("conditional", upgradeProperty.Conditional);
+                if (upgradeProperty.ConditionalOption.Value != null)
+                    writer.WriteString("conditional", upgradeProperty.Conditional);
+                else
+                    writer.WriteNull("conditional");
 
             if (upgradeProperty.CssClassOption.IsSet)
-                writer.WriteString("css_class", upgradeProperty.CssClass);
+                if (upgradeProperty.CssClassOption.Value != null)
+                    writer.WriteString("css_class", upgradeProperty.CssClass);
+                else
+                    writer.WriteNull("css_class");
 
             if (upgradeProperty.DisableValueOption.IsSet)
-                writer.WriteString("disable_value", upgradeProperty.DisableValue);
+                if (upgradeProperty.DisableValueOption.Value != null)
+                    writer.WriteString("disable_value", upgradeProperty.DisableValue);
+                else
+                    writer.WriteNull("disable_value");
 
             if (upgradeProperty.DisplayUnitsOption.IsSet)
-                writer.WriteString("display_units", upgradeProperty.DisplayUnits);
+                if (upgradeProperty.DisplayUnitsOption.Value != null)
+                    writer.WriteString("display_units", upgradeProperty.DisplayUnits);
+                else
+                    writer.WriteNull("display_units");
 
             if (upgradeProperty.IconOption.IsSet)
-                writer.WriteString("icon", upgradeProperty.Icon);
+                if (upgradeProperty.IconOption.Value != null)
+                    writer.WriteString("icon", upgradeProperty.Icon);
+                else
+                    writer.WriteNull("icon");
 
             if (upgradeProperty.LabelOption.IsSet)
-                writer.WriteString("label", upgradeProperty.Label);
+                if (upgradeProperty.LabelOption.Value != null)
+                    writer.WriteString("label", upgradeProperty.Label);
+                else
+                    writer.WriteNull("label");
 
             if (upgradeProperty.LocTokenOverrideOption.IsSet)
-                writer.WriteString("loc_token_override", upgradeProperty.LocTokenOverride);
+                if (upgradeProperty.LocTokenOverrideOption.Value != null)
+                    writer.WriteString("loc_token_override", upgradeProperty.LocTokenOverride);
+                else
+                    writer.WriteNull("loc_token_override");
 
             if (upgradeProperty.NegativeAttributeOption.IsSet)
-                writer.WriteBoolean("negative_attribute", upgradeProperty.NegativeAttributeOption.Value!.Value);
+                if (upgradeProperty.NegativeAttributeOption.Value != null)
+                    writer.WriteBoolean("negative_attribute", upgradeProperty.NegativeAttributeOption.Value!.Value);
+                else
+                    writer.WriteNull("negative_attribute");
 
             if (upgradeProperty.PostfixOption.IsSet)
-                writer.WriteString("postfix", upgradeProperty.Postfix);
+                if (upgradeProperty.PostfixOption.Value != null)
+                    writer.WriteString("postfix", upgradeProperty.Postfix);
+                else
+                    writer.WriteNull("postfix");
 
             if (upgradeProperty.PostvalueLabelOption.IsSet)
-                writer.WriteString("postvalue_label", upgradeProperty.PostvalueLabel);
+                if (upgradeProperty.PostvalueLabelOption.Value != null)
+                    writer.WriteString("postvalue_label", upgradeProperty.PostvalueLabel);
+                else
+                    writer.WriteNull("postvalue_label");
 
             if (upgradeProperty.PrefixOption.IsSet)
-                writer.WriteString("prefix", upgradeProperty.Prefix);
+                if (upgradeProperty.PrefixOption.Value != null)
+                    writer.WriteString("prefix", upgradeProperty.Prefix);
+                else
+                    writer.WriteNull("prefix");
 
             if (upgradeProperty.ProvidedPropertyTypeOption.IsSet)
-                writer.WriteString("provided_property_type", upgradeProperty.ProvidedPropertyType);
+                if (upgradeProperty.ProvidedPropertyTypeOption.Value != null)
+                    writer.WriteString("provided_property_type", upgradeProperty.ProvidedPropertyType);
+                else
+                    writer.WriteNull("provided_property_type");
 
             if (upgradeProperty.RequiredUpgradeBitsOption.IsSet)
-            {
-                writer.WritePropertyName("required_upgrade_bits");
-                JsonSerializer.Serialize(writer, upgradeProperty.RequiredUpgradeBits, jsonSerializerOptions);
-            }
+                if (upgradeProperty.RequiredUpgradeBitsOption.Value != null)
+                {
+                    writer.WritePropertyName("required_upgrade_bits");
+                    JsonSerializer.Serialize(writer, upgradeProperty.RequiredUpgradeBits, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("required_upgrade_bits");
             if (upgradeProperty.ScaleFunctionOption.IsSet)
-            {
-                writer.WritePropertyName("scale_function");
-                JsonSerializer.Serialize(writer, upgradeProperty.ScaleFunction, jsonSerializerOptions);
-            }
+                if (upgradeProperty.ScaleFunctionOption.Value != null)
+                {
+                    writer.WritePropertyName("scale_function");
+                    JsonSerializer.Serialize(writer, upgradeProperty.ScaleFunction, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("scale_function");
             if (upgradeProperty.StreetBrawlValueOption.IsSet)
-                writer.WriteString("street_brawl_value", upgradeProperty.StreetBrawlValue);
+                if (upgradeProperty.StreetBrawlValueOption.Value != null)
+                    writer.WriteString("street_brawl_value", upgradeProperty.StreetBrawlValue);
+                else
+                    writer.WriteNull("street_brawl_value");
 
             if (upgradeProperty.UsageFlagsOption.IsSet)
-            {
-                writer.WritePropertyName("usage_flags");
-                JsonSerializer.Serialize(writer, upgradeProperty.UsageFlags, jsonSerializerOptions);
-            }
+                if (upgradeProperty.UsageFlagsOption.Value != null)
+                {
+                    writer.WritePropertyName("usage_flags");
+                    JsonSerializer.Serialize(writer, upgradeProperty.UsageFlags, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("usage_flags");
             if (upgradeProperty.ValueOption.IsSet)
-                writer.WriteString("value", upgradeProperty.Value);
+                if (upgradeProperty.ValueOption.Value != null)
+                    writer.WriteString("value", upgradeProperty.Value);
+                else
+                    writer.WriteNull("value");
 
             if (upgradeProperty.TooltipIsElevatedOption.IsSet)
                 if (upgradeProperty.TooltipIsElevatedOption.Value != null)

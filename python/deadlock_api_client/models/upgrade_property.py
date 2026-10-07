@@ -95,6 +95,96 @@ class UpgradeProperty(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scale_function
         if self.scale_function:
             _dict['scale_function'] = self.scale_function.to_dict()
+        # set to None if can_set_token_override (nullable) is None
+        # and model_fields_set contains the field
+        if self.can_set_token_override is None and "can_set_token_override" in self.model_fields_set:
+            _dict['can_set_token_override'] = None
+
+        # set to None if conditional (nullable) is None
+        # and model_fields_set contains the field
+        if self.conditional is None and "conditional" in self.model_fields_set:
+            _dict['conditional'] = None
+
+        # set to None if css_class (nullable) is None
+        # and model_fields_set contains the field
+        if self.css_class is None and "css_class" in self.model_fields_set:
+            _dict['css_class'] = None
+
+        # set to None if disable_value (nullable) is None
+        # and model_fields_set contains the field
+        if self.disable_value is None and "disable_value" in self.model_fields_set:
+            _dict['disable_value'] = None
+
+        # set to None if display_units (nullable) is None
+        # and model_fields_set contains the field
+        if self.display_units is None and "display_units" in self.model_fields_set:
+            _dict['display_units'] = None
+
+        # set to None if icon (nullable) is None
+        # and model_fields_set contains the field
+        if self.icon is None and "icon" in self.model_fields_set:
+            _dict['icon'] = None
+
+        # set to None if label (nullable) is None
+        # and model_fields_set contains the field
+        if self.label is None and "label" in self.model_fields_set:
+            _dict['label'] = None
+
+        # set to None if loc_token_override (nullable) is None
+        # and model_fields_set contains the field
+        if self.loc_token_override is None and "loc_token_override" in self.model_fields_set:
+            _dict['loc_token_override'] = None
+
+        # set to None if negative_attribute (nullable) is None
+        # and model_fields_set contains the field
+        if self.negative_attribute is None and "negative_attribute" in self.model_fields_set:
+            _dict['negative_attribute'] = None
+
+        # set to None if postfix (nullable) is None
+        # and model_fields_set contains the field
+        if self.postfix is None and "postfix" in self.model_fields_set:
+            _dict['postfix'] = None
+
+        # set to None if postvalue_label (nullable) is None
+        # and model_fields_set contains the field
+        if self.postvalue_label is None and "postvalue_label" in self.model_fields_set:
+            _dict['postvalue_label'] = None
+
+        # set to None if prefix (nullable) is None
+        # and model_fields_set contains the field
+        if self.prefix is None and "prefix" in self.model_fields_set:
+            _dict['prefix'] = None
+
+        # set to None if provided_property_type (nullable) is None
+        # and model_fields_set contains the field
+        if self.provided_property_type is None and "provided_property_type" in self.model_fields_set:
+            _dict['provided_property_type'] = None
+
+        # set to None if required_upgrade_bits (nullable) is None
+        # and model_fields_set contains the field
+        if self.required_upgrade_bits is None and "required_upgrade_bits" in self.model_fields_set:
+            _dict['required_upgrade_bits'] = None
+
+        # set to None if scale_function (nullable) is None
+        # and model_fields_set contains the field
+        if self.scale_function is None and "scale_function" in self.model_fields_set:
+            _dict['scale_function'] = None
+
+        # set to None if street_brawl_value (nullable) is None
+        # and model_fields_set contains the field
+        if self.street_brawl_value is None and "street_brawl_value" in self.model_fields_set:
+            _dict['street_brawl_value'] = None
+
+        # set to None if usage_flags (nullable) is None
+        # and model_fields_set contains the field
+        if self.usage_flags is None and "usage_flags" in self.model_fields_set:
+            _dict['usage_flags'] = None
+
+        # set to None if value (nullable) is None
+        # and model_fields_set contains the field
+        if self.value is None and "value" in self.model_fields_set:
+            _dict['value'] = None
+
         # set to None if tooltip_is_elevated (nullable) is None
         # and model_fields_set contains the field
         if self.tooltip_is_elevated is None and "tooltip_is_elevated" in self.model_fields_set:

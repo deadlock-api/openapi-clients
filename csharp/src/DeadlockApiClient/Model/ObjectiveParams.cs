@@ -275,76 +275,76 @@ namespace DeadlockApiClient.Model
             }
 
             if (!baseGuardiansGoldKill.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(baseGuardiansGoldKill));
+                throw new JsonException("Property is required for class ObjectiveParams: base_guardians_gold_kill.");
 
             if (!baseGuardiansGoldOrbs.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(baseGuardiansGoldOrbs));
+                throw new JsonException("Property is required for class ObjectiveParams: base_guardians_gold_orbs.");
 
             if (!goldPerOrb.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(goldPerOrb));
+                throw new JsonException("Property is required for class ObjectiveParams: gold_per_orb.");
 
             if (!nearPlayerSplitPct.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(nearPlayerSplitPct));
+                throw new JsonException("Property is required for class ObjectiveParams: near_player_split_pct.");
 
             if (!patronPhase1GoldKill.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(patronPhase1GoldKill));
+                throw new JsonException("Property is required for class ObjectiveParams: patron_phase1_gold_kill.");
 
             if (!patronPhase1GoldOrbs.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(patronPhase1GoldOrbs));
+                throw new JsonException("Property is required for class ObjectiveParams: patron_phase1_gold_orbs.");
 
             if (!shrinesGoldKill.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(shrinesGoldKill));
+                throw new JsonException("Property is required for class ObjectiveParams: shrines_gold_kill.");
 
             if (!shrinesGoldOrbs.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(shrinesGoldOrbs));
+                throw new JsonException("Property is required for class ObjectiveParams: shrines_gold_orbs.");
 
             if (!tier1GoldKill.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(tier1GoldKill));
+                throw new JsonException("Property is required for class ObjectiveParams: tier1_gold_kill.");
 
             if (!tier1GoldOrbs.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(tier1GoldOrbs));
+                throw new JsonException("Property is required for class ObjectiveParams: tier1_gold_orbs.");
 
             if (!tier2GoldKill.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(tier2GoldKill));
+                throw new JsonException("Property is required for class ObjectiveParams: tier2_gold_kill.");
 
             if (!tier2GoldOrbs.IsSet)
-                throw new ArgumentException("Property is required for class ObjectiveParams.", nameof(tier2GoldOrbs));
+                throw new JsonException("Property is required for class ObjectiveParams: tier2_gold_orbs.");
 
             if (baseGuardiansGoldKill.IsSet && baseGuardiansGoldKill.Value == null)
-                throw new ArgumentNullException(nameof(baseGuardiansGoldKill), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: base_guardians_gold_kill.");
 
             if (baseGuardiansGoldOrbs.IsSet && baseGuardiansGoldOrbs.Value == null)
-                throw new ArgumentNullException(nameof(baseGuardiansGoldOrbs), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: base_guardians_gold_orbs.");
 
             if (goldPerOrb.IsSet && goldPerOrb.Value == null)
-                throw new ArgumentNullException(nameof(goldPerOrb), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: gold_per_orb.");
 
             if (nearPlayerSplitPct.IsSet && nearPlayerSplitPct.Value == null)
-                throw new ArgumentNullException(nameof(nearPlayerSplitPct), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: near_player_split_pct.");
 
             if (patronPhase1GoldKill.IsSet && patronPhase1GoldKill.Value == null)
-                throw new ArgumentNullException(nameof(patronPhase1GoldKill), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: patron_phase1_gold_kill.");
 
             if (patronPhase1GoldOrbs.IsSet && patronPhase1GoldOrbs.Value == null)
-                throw new ArgumentNullException(nameof(patronPhase1GoldOrbs), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: patron_phase1_gold_orbs.");
 
             if (shrinesGoldKill.IsSet && shrinesGoldKill.Value == null)
-                throw new ArgumentNullException(nameof(shrinesGoldKill), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: shrines_gold_kill.");
 
             if (shrinesGoldOrbs.IsSet && shrinesGoldOrbs.Value == null)
-                throw new ArgumentNullException(nameof(shrinesGoldOrbs), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: shrines_gold_orbs.");
 
             if (tier1GoldKill.IsSet && tier1GoldKill.Value == null)
-                throw new ArgumentNullException(nameof(tier1GoldKill), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: tier1_gold_kill.");
 
             if (tier1GoldOrbs.IsSet && tier1GoldOrbs.Value == null)
-                throw new ArgumentNullException(nameof(tier1GoldOrbs), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: tier1_gold_orbs.");
 
             if (tier2GoldKill.IsSet && tier2GoldKill.Value == null)
-                throw new ArgumentNullException(nameof(tier2GoldKill), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: tier2_gold_kill.");
 
             if (tier2GoldOrbs.IsSet && tier2GoldOrbs.Value == null)
-                throw new ArgumentNullException(nameof(tier2GoldOrbs), "Property is not nullable for class ObjectiveParams.");
+                throw new JsonException("Property is not nullable for class ObjectiveParams: tier2_gold_orbs.");
 
             return new ObjectiveParams(baseGuardiansGoldKill.Value!.Value!, baseGuardiansGoldOrbs.Value!.Value!, goldPerOrb.Value!.Value!, nearPlayerSplitPct.Value!.Value!, patronPhase1GoldKill.Value!.Value!, patronPhase1GoldOrbs.Value!.Value!, shrinesGoldKill.Value!.Value!, shrinesGoldOrbs.Value!.Value!, tier1GoldKill.Value!.Value!, tier1GoldOrbs.Value!.Value!, tier2GoldKill.Value!.Value!, tier2GoldOrbs.Value!.Value!);
         }
@@ -355,7 +355,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="objectiveParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ObjectiveParams objectiveParams, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -370,7 +369,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="objectiveParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ObjectiveParams objectiveParams, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("base_guardians_gold_kill", objectiveParams.BaseGuardiansGoldKill);

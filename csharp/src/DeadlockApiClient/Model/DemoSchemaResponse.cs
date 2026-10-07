@@ -164,22 +164,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!demoUrl.IsSet)
-                throw new ArgumentException("Property is required for class DemoSchemaResponse.", nameof(demoUrl));
+                throw new JsonException("Property is required for class DemoSchemaResponse: demo_url.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class DemoSchemaResponse.", nameof(matchId));
+                throw new JsonException("Property is required for class DemoSchemaResponse: match_id.");
 
             if (!tables.IsSet)
-                throw new ArgumentException("Property is required for class DemoSchemaResponse.", nameof(tables));
+                throw new JsonException("Property is required for class DemoSchemaResponse: tables.");
 
             if (demoUrl.IsSet && demoUrl.Value == null)
-                throw new ArgumentNullException(nameof(demoUrl), "Property is not nullable for class DemoSchemaResponse.");
+                throw new JsonException("Property is not nullable for class DemoSchemaResponse: demo_url.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class DemoSchemaResponse.");
+                throw new JsonException("Property is not nullable for class DemoSchemaResponse: match_id.");
 
             if (tables.IsSet && tables.Value == null)
-                throw new ArgumentNullException(nameof(tables), "Property is not nullable for class DemoSchemaResponse.");
+                throw new JsonException("Property is not nullable for class DemoSchemaResponse: tables.");
 
             return new DemoSchemaResponse(demoUrl.Value!, matchId.Value!.Value!, tables.Value!);
         }
@@ -190,7 +190,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoSchemaResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DemoSchemaResponse demoSchemaResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -205,15 +204,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoSchemaResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DemoSchemaResponse demoSchemaResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (demoSchemaResponse.DemoUrl == null)
-                throw new ArgumentNullException(nameof(demoSchemaResponse.DemoUrl), "Property is required for class DemoSchemaResponse.");
-
-            if (demoSchemaResponse.Tables == null)
-                throw new ArgumentNullException(nameof(demoSchemaResponse.Tables), "Property is required for class DemoSchemaResponse.");
-
             writer.WriteString("demo_url", demoSchemaResponse.DemoUrl);
 
             writer.WriteNumber("match_id", demoSchemaResponse.MatchId);

@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!scale.IsSet)
-                throw new ArgumentException("Property is required for class HashMapStringScalingStatValue.", nameof(scale));
+                throw new JsonException("Property is required for class HashMapStringScalingStatValue: scale.");
 
             if (!scalingStat.IsSet)
-                throw new ArgumentException("Property is required for class HashMapStringScalingStatValue.", nameof(scalingStat));
+                throw new JsonException("Property is required for class HashMapStringScalingStatValue: scaling_stat.");
 
             if (scale.IsSet && scale.Value == null)
-                throw new ArgumentNullException(nameof(scale), "Property is not nullable for class HashMapStringScalingStatValue.");
+                throw new JsonException("Property is not nullable for class HashMapStringScalingStatValue: scale.");
 
             if (scalingStat.IsSet && scalingStat.Value == null)
-                throw new ArgumentNullException(nameof(scalingStat), "Property is not nullable for class HashMapStringScalingStatValue.");
+                throw new JsonException("Property is not nullable for class HashMapStringScalingStatValue: scaling_stat.");
 
             return new HashMapStringScalingStatValue(scale.Value!.Value!, scalingStat.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapStringScalingStatValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapStringScalingStatValue hashMapStringScalingStatValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,12 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapStringScalingStatValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapStringScalingStatValue hashMapStringScalingStatValue, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (hashMapStringScalingStatValue.ScalingStat == null)
-                throw new ArgumentNullException(nameof(hashMapStringScalingStatValue.ScalingStat), "Property is required for class HashMapStringScalingStatValue.");
-
             writer.WriteNumber("scale", hashMapStringScalingStatValue.Scale);
 
             writer.WriteString("scaling_stat", hashMapStringScalingStatValue.ScalingStat);

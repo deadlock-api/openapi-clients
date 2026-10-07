@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!subclass.IsSet)
-                throw new ArgumentException("Property is required for class SubclassModifierDefinition.", nameof(subclass));
+                throw new JsonException("Property is required for class SubclassModifierDefinition: subclass.");
 
             if (subclass.IsSet && subclass.Value == null)
-                throw new ArgumentNullException(nameof(subclass), "Property is not nullable for class SubclassModifierDefinition.");
+                throw new JsonException("Property is not nullable for class SubclassModifierDefinition: subclass.");
 
             return new SubclassModifierDefinition(subclass.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassModifierDefinition"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SubclassModifierDefinition subclassModifierDefinition, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassModifierDefinition"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubclassModifierDefinition subclassModifierDefinition, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (subclassModifierDefinition.Subclass == null)
-                throw new ArgumentNullException(nameof(subclassModifierDefinition.Subclass), "Property is required for class SubclassModifierDefinition.");
-
             writer.WritePropertyName("subclass");
             JsonSerializer.Serialize(writer, subclassModifierDefinition.Subclass, jsonSerializerOptions);
         }

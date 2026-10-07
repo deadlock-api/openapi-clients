@@ -139,7 +139,7 @@ namespace DeadlockApiClient.Model
             }
 
             if (propertyUpgrades.IsSet && propertyUpgrades.Value == null)
-                throw new ArgumentNullException(nameof(propertyUpgrades), "Property is not nullable for class RawAbilityUpgrade.");
+                throw new JsonException("Property is not nullable for class RawAbilityUpgrade: property_upgrades.");
 
             return new RawAbilityUpgrade(propertyUpgrades);
         }
@@ -150,7 +150,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawAbilityUpgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RawAbilityUpgrade rawAbilityUpgrade, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -165,11 +164,10 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawAbilityUpgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RawAbilityUpgrade rawAbilityUpgrade, JsonSerializerOptions jsonSerializerOptions)
         {
             if (rawAbilityUpgrade.PropertyUpgradesOption.IsSet && rawAbilityUpgrade.PropertyUpgrades == null)
-                throw new ArgumentNullException(nameof(rawAbilityUpgrade.PropertyUpgrades), "Property is required for class RawAbilityUpgrade.");
+                throw new JsonException("Cannot write null property RawAbilityUpgrade.PropertyUpgrades to non-nullable JSON property 'property_upgrades'.");
 
             if (rawAbilityUpgrade.PropertyUpgradesOption.IsSet)
             {

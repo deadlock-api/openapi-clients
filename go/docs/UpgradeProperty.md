@@ -4,24 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CanSetTokenOverride** | Pointer to **bool** |  | [optional] 
-**Conditional** | Pointer to **string** |  | [optional] 
-**CssClass** | Pointer to **string** |  | [optional] 
-**DisableValue** | Pointer to **string** |  | [optional] 
-**DisplayUnits** | Pointer to **string** |  | [optional] 
-**Icon** | Pointer to **string** |  | [optional] 
-**Label** | Pointer to **string** |  | [optional] 
-**LocTokenOverride** | Pointer to **string** |  | [optional] 
-**NegativeAttribute** | Pointer to **bool** |  | [optional] 
-**Postfix** | Pointer to **string** |  | [optional] 
-**PostvalueLabel** | Pointer to **string** |  | [optional] 
-**Prefix** | Pointer to **string** |  | [optional] 
-**ProvidedPropertyType** | Pointer to **string** |  | [optional] 
+**CanSetTokenOverride** | Pointer to **NullableBool** |  | [optional] 
+**Conditional** | Pointer to **NullableString** |  | [optional] 
+**CssClass** | Pointer to **NullableString** |  | [optional] 
+**DisableValue** | Pointer to **NullableString** |  | [optional] 
+**DisplayUnits** | Pointer to **NullableString** |  | [optional] 
+**Icon** | Pointer to **NullableString** |  | [optional] 
+**Label** | Pointer to **NullableString** |  | [optional] 
+**LocTokenOverride** | Pointer to **NullableString** |  | [optional] 
+**NegativeAttribute** | Pointer to **NullableBool** |  | [optional] 
+**Postfix** | Pointer to **NullableString** |  | [optional] 
+**PostvalueLabel** | Pointer to **NullableString** |  | [optional] 
+**Prefix** | Pointer to **NullableString** |  | [optional] 
+**ProvidedPropertyType** | Pointer to **NullableString** |  | [optional] 
 **RequiredUpgradeBits** | Pointer to **[]string** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
-**ScaleFunction** | Pointer to [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
-**StreetBrawlValue** | Pointer to **string** |  | [optional] 
+**ScaleFunction** | Pointer to [**NullableRawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
+**StreetBrawlValue** | Pointer to **NullableString** |  | [optional] 
 **UsageFlags** | Pointer to [**[]StatsUsageFlag**](StatsUsageFlag.md) |  | [optional] 
-**Value** | Pointer to **string** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
+**Value** | Pointer to **NullableString** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
 **TooltipIsElevated** | Pointer to **NullableBool** |  | [optional] 
 **TooltipIsImportant** | Pointer to **NullableBool** |  | [optional] 
 **TooltipSection** | Pointer to [**NullableAbilitySectionType**](AbilitySectionType.md) |  | [optional] 
@@ -70,6 +70,16 @@ SetCanSetTokenOverride sets CanSetTokenOverride field to given value.
 
 HasCanSetTokenOverride returns a boolean if a field has been set.
 
+### SetCanSetTokenOverrideNil
+
+`func (o *UpgradeProperty) SetCanSetTokenOverrideNil(b bool)`
+
+ SetCanSetTokenOverrideNil sets the value for CanSetTokenOverride to be an explicit nil
+
+### UnsetCanSetTokenOverride
+`func (o *UpgradeProperty) UnsetCanSetTokenOverride()`
+
+UnsetCanSetTokenOverride ensures that no value is present for CanSetTokenOverride, not even an explicit nil
 ### GetConditional
 
 `func (o *UpgradeProperty) GetConditional() string`
@@ -95,6 +105,16 @@ SetConditional sets Conditional field to given value.
 
 HasConditional returns a boolean if a field has been set.
 
+### SetConditionalNil
+
+`func (o *UpgradeProperty) SetConditionalNil(b bool)`
+
+ SetConditionalNil sets the value for Conditional to be an explicit nil
+
+### UnsetConditional
+`func (o *UpgradeProperty) UnsetConditional()`
+
+UnsetConditional ensures that no value is present for Conditional, not even an explicit nil
 ### GetCssClass
 
 `func (o *UpgradeProperty) GetCssClass() string`
@@ -120,6 +140,16 @@ SetCssClass sets CssClass field to given value.
 
 HasCssClass returns a boolean if a field has been set.
 
+### SetCssClassNil
+
+`func (o *UpgradeProperty) SetCssClassNil(b bool)`
+
+ SetCssClassNil sets the value for CssClass to be an explicit nil
+
+### UnsetCssClass
+`func (o *UpgradeProperty) UnsetCssClass()`
+
+UnsetCssClass ensures that no value is present for CssClass, not even an explicit nil
 ### GetDisableValue
 
 `func (o *UpgradeProperty) GetDisableValue() string`
@@ -145,6 +175,16 @@ SetDisableValue sets DisableValue field to given value.
 
 HasDisableValue returns a boolean if a field has been set.
 
+### SetDisableValueNil
+
+`func (o *UpgradeProperty) SetDisableValueNil(b bool)`
+
+ SetDisableValueNil sets the value for DisableValue to be an explicit nil
+
+### UnsetDisableValue
+`func (o *UpgradeProperty) UnsetDisableValue()`
+
+UnsetDisableValue ensures that no value is present for DisableValue, not even an explicit nil
 ### GetDisplayUnits
 
 `func (o *UpgradeProperty) GetDisplayUnits() string`
@@ -170,6 +210,16 @@ SetDisplayUnits sets DisplayUnits field to given value.
 
 HasDisplayUnits returns a boolean if a field has been set.
 
+### SetDisplayUnitsNil
+
+`func (o *UpgradeProperty) SetDisplayUnitsNil(b bool)`
+
+ SetDisplayUnitsNil sets the value for DisplayUnits to be an explicit nil
+
+### UnsetDisplayUnits
+`func (o *UpgradeProperty) UnsetDisplayUnits()`
+
+UnsetDisplayUnits ensures that no value is present for DisplayUnits, not even an explicit nil
 ### GetIcon
 
 `func (o *UpgradeProperty) GetIcon() string`
@@ -195,6 +245,16 @@ SetIcon sets Icon field to given value.
 
 HasIcon returns a boolean if a field has been set.
 
+### SetIconNil
+
+`func (o *UpgradeProperty) SetIconNil(b bool)`
+
+ SetIconNil sets the value for Icon to be an explicit nil
+
+### UnsetIcon
+`func (o *UpgradeProperty) UnsetIcon()`
+
+UnsetIcon ensures that no value is present for Icon, not even an explicit nil
 ### GetLabel
 
 `func (o *UpgradeProperty) GetLabel() string`
@@ -220,6 +280,16 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
+### SetLabelNil
+
+`func (o *UpgradeProperty) SetLabelNil(b bool)`
+
+ SetLabelNil sets the value for Label to be an explicit nil
+
+### UnsetLabel
+`func (o *UpgradeProperty) UnsetLabel()`
+
+UnsetLabel ensures that no value is present for Label, not even an explicit nil
 ### GetLocTokenOverride
 
 `func (o *UpgradeProperty) GetLocTokenOverride() string`
@@ -245,6 +315,16 @@ SetLocTokenOverride sets LocTokenOverride field to given value.
 
 HasLocTokenOverride returns a boolean if a field has been set.
 
+### SetLocTokenOverrideNil
+
+`func (o *UpgradeProperty) SetLocTokenOverrideNil(b bool)`
+
+ SetLocTokenOverrideNil sets the value for LocTokenOverride to be an explicit nil
+
+### UnsetLocTokenOverride
+`func (o *UpgradeProperty) UnsetLocTokenOverride()`
+
+UnsetLocTokenOverride ensures that no value is present for LocTokenOverride, not even an explicit nil
 ### GetNegativeAttribute
 
 `func (o *UpgradeProperty) GetNegativeAttribute() bool`
@@ -270,6 +350,16 @@ SetNegativeAttribute sets NegativeAttribute field to given value.
 
 HasNegativeAttribute returns a boolean if a field has been set.
 
+### SetNegativeAttributeNil
+
+`func (o *UpgradeProperty) SetNegativeAttributeNil(b bool)`
+
+ SetNegativeAttributeNil sets the value for NegativeAttribute to be an explicit nil
+
+### UnsetNegativeAttribute
+`func (o *UpgradeProperty) UnsetNegativeAttribute()`
+
+UnsetNegativeAttribute ensures that no value is present for NegativeAttribute, not even an explicit nil
 ### GetPostfix
 
 `func (o *UpgradeProperty) GetPostfix() string`
@@ -295,6 +385,16 @@ SetPostfix sets Postfix field to given value.
 
 HasPostfix returns a boolean if a field has been set.
 
+### SetPostfixNil
+
+`func (o *UpgradeProperty) SetPostfixNil(b bool)`
+
+ SetPostfixNil sets the value for Postfix to be an explicit nil
+
+### UnsetPostfix
+`func (o *UpgradeProperty) UnsetPostfix()`
+
+UnsetPostfix ensures that no value is present for Postfix, not even an explicit nil
 ### GetPostvalueLabel
 
 `func (o *UpgradeProperty) GetPostvalueLabel() string`
@@ -320,6 +420,16 @@ SetPostvalueLabel sets PostvalueLabel field to given value.
 
 HasPostvalueLabel returns a boolean if a field has been set.
 
+### SetPostvalueLabelNil
+
+`func (o *UpgradeProperty) SetPostvalueLabelNil(b bool)`
+
+ SetPostvalueLabelNil sets the value for PostvalueLabel to be an explicit nil
+
+### UnsetPostvalueLabel
+`func (o *UpgradeProperty) UnsetPostvalueLabel()`
+
+UnsetPostvalueLabel ensures that no value is present for PostvalueLabel, not even an explicit nil
 ### GetPrefix
 
 `func (o *UpgradeProperty) GetPrefix() string`
@@ -345,6 +455,16 @@ SetPrefix sets Prefix field to given value.
 
 HasPrefix returns a boolean if a field has been set.
 
+### SetPrefixNil
+
+`func (o *UpgradeProperty) SetPrefixNil(b bool)`
+
+ SetPrefixNil sets the value for Prefix to be an explicit nil
+
+### UnsetPrefix
+`func (o *UpgradeProperty) UnsetPrefix()`
+
+UnsetPrefix ensures that no value is present for Prefix, not even an explicit nil
 ### GetProvidedPropertyType
 
 `func (o *UpgradeProperty) GetProvidedPropertyType() string`
@@ -370,6 +490,16 @@ SetProvidedPropertyType sets ProvidedPropertyType field to given value.
 
 HasProvidedPropertyType returns a boolean if a field has been set.
 
+### SetProvidedPropertyTypeNil
+
+`func (o *UpgradeProperty) SetProvidedPropertyTypeNil(b bool)`
+
+ SetProvidedPropertyTypeNil sets the value for ProvidedPropertyType to be an explicit nil
+
+### UnsetProvidedPropertyType
+`func (o *UpgradeProperty) UnsetProvidedPropertyType()`
+
+UnsetProvidedPropertyType ensures that no value is present for ProvidedPropertyType, not even an explicit nil
 ### GetRequiredUpgradeBits
 
 `func (o *UpgradeProperty) GetRequiredUpgradeBits() []string`
@@ -395,6 +525,16 @@ SetRequiredUpgradeBits sets RequiredUpgradeBits field to given value.
 
 HasRequiredUpgradeBits returns a boolean if a field has been set.
 
+### SetRequiredUpgradeBitsNil
+
+`func (o *UpgradeProperty) SetRequiredUpgradeBitsNil(b bool)`
+
+ SetRequiredUpgradeBitsNil sets the value for RequiredUpgradeBits to be an explicit nil
+
+### UnsetRequiredUpgradeBits
+`func (o *UpgradeProperty) UnsetRequiredUpgradeBits()`
+
+UnsetRequiredUpgradeBits ensures that no value is present for RequiredUpgradeBits, not even an explicit nil
 ### GetScaleFunction
 
 `func (o *UpgradeProperty) GetScaleFunction() RawItemPropertyScaleFunctionSubclass`
@@ -420,6 +560,16 @@ SetScaleFunction sets ScaleFunction field to given value.
 
 HasScaleFunction returns a boolean if a field has been set.
 
+### SetScaleFunctionNil
+
+`func (o *UpgradeProperty) SetScaleFunctionNil(b bool)`
+
+ SetScaleFunctionNil sets the value for ScaleFunction to be an explicit nil
+
+### UnsetScaleFunction
+`func (o *UpgradeProperty) UnsetScaleFunction()`
+
+UnsetScaleFunction ensures that no value is present for ScaleFunction, not even an explicit nil
 ### GetStreetBrawlValue
 
 `func (o *UpgradeProperty) GetStreetBrawlValue() string`
@@ -445,6 +595,16 @@ SetStreetBrawlValue sets StreetBrawlValue field to given value.
 
 HasStreetBrawlValue returns a boolean if a field has been set.
 
+### SetStreetBrawlValueNil
+
+`func (o *UpgradeProperty) SetStreetBrawlValueNil(b bool)`
+
+ SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
+
+### UnsetStreetBrawlValue
+`func (o *UpgradeProperty) UnsetStreetBrawlValue()`
+
+UnsetStreetBrawlValue ensures that no value is present for StreetBrawlValue, not even an explicit nil
 ### GetUsageFlags
 
 `func (o *UpgradeProperty) GetUsageFlags() []StatsUsageFlag`
@@ -470,6 +630,16 @@ SetUsageFlags sets UsageFlags field to given value.
 
 HasUsageFlags returns a boolean if a field has been set.
 
+### SetUsageFlagsNil
+
+`func (o *UpgradeProperty) SetUsageFlagsNil(b bool)`
+
+ SetUsageFlagsNil sets the value for UsageFlags to be an explicit nil
+
+### UnsetUsageFlags
+`func (o *UpgradeProperty) UnsetUsageFlags()`
+
+UnsetUsageFlags ensures that no value is present for UsageFlags, not even an explicit nil
 ### GetValue
 
 `func (o *UpgradeProperty) GetValue() string`
@@ -495,6 +665,16 @@ SetValue sets Value field to given value.
 
 HasValue returns a boolean if a field has been set.
 
+### SetValueNil
+
+`func (o *UpgradeProperty) SetValueNil(b bool)`
+
+ SetValueNil sets the value for Value to be an explicit nil
+
+### UnsetValue
+`func (o *UpgradeProperty) UnsetValue()`
+
+UnsetValue ensures that no value is present for Value, not even an explicit nil
 ### GetTooltipIsElevated
 
 `func (o *UpgradeProperty) GetTooltipIsElevated() bool`

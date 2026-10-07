@@ -658,100 +658,100 @@ namespace DeadlockApiClient.Model
             }
 
             if (!aimSpringStrength.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(aimSpringStrength));
+                throw new JsonException("Property is required for class GenericData: aim_spring_strength.");
 
             if (!armorGroups.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(armorGroups));
+                throw new JsonException("Property is required for class GenericData: armor_groups.");
 
             if (!damageFlash.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(damageFlash));
+                throw new JsonException("Property is required for class GenericData: damage_flash.");
 
             if (!glitchSettings.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(glitchSettings));
+                throw new JsonException("Property is required for class GenericData: glitch_settings.");
 
             if (!heroKillGoldShareFrac.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(heroKillGoldShareFrac));
+                throw new JsonException("Property is required for class GenericData: hero_kill_gold_share_frac.");
 
             if (!itemPricePerTier.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(itemPricePerTier));
+                throw new JsonException("Property is required for class GenericData: item_price_per_tier.");
 
             if (!itemTooltipBackers.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(itemTooltipBackers));
+                throw new JsonException("Property is required for class GenericData: item_tooltip_backers.");
 
             if (!laneInfo.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(laneInfo));
+                throw new JsonException("Property is required for class GenericData: lane_info.");
 
             if (!miniMapOffsets.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(miniMapOffsets));
+                throw new JsonException("Property is required for class GenericData: mini_map_offsets.");
 
             if (!newPlayerMetrics.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(newPlayerMetrics));
+                throw new JsonException("Property is required for class GenericData: new_player_metrics.");
 
             if (!objectiveParams.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(objectiveParams));
+                throw new JsonException("Property is required for class GenericData: objective_params.");
 
             if (!rejuvParams.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(rejuvParams));
+                throw new JsonException("Property is required for class GenericData: rejuv_params.");
 
             if (!spiritGroups.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(spiritGroups));
+                throw new JsonException("Property is required for class GenericData: spirit_groups.");
 
             if (!targetingSpringStrength.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(targetingSpringStrength));
+                throw new JsonException("Property is required for class GenericData: targeting_spring_strength.");
 
             if (!trooperKillGoldShareFrac.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(trooperKillGoldShareFrac));
+                throw new JsonException("Property is required for class GenericData: trooper_kill_gold_share_frac.");
 
             if (!weaponGroups.IsSet)
-                throw new ArgumentException("Property is required for class GenericData.", nameof(weaponGroups));
+                throw new JsonException("Property is required for class GenericData: weapon_groups.");
 
             if (aimSpringStrength.IsSet && aimSpringStrength.Value == null)
-                throw new ArgumentNullException(nameof(aimSpringStrength), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: aim_spring_strength.");
 
             if (armorGroups.IsSet && armorGroups.Value == null)
-                throw new ArgumentNullException(nameof(armorGroups), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: armor_groups.");
 
             if (damageFlash.IsSet && damageFlash.Value == null)
-                throw new ArgumentNullException(nameof(damageFlash), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: damage_flash.");
 
             if (glitchSettings.IsSet && glitchSettings.Value == null)
-                throw new ArgumentNullException(nameof(glitchSettings), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: glitch_settings.");
 
             if (heroKillGoldShareFrac.IsSet && heroKillGoldShareFrac.Value == null)
-                throw new ArgumentNullException(nameof(heroKillGoldShareFrac), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: hero_kill_gold_share_frac.");
 
             if (itemPricePerTier.IsSet && itemPricePerTier.Value == null)
-                throw new ArgumentNullException(nameof(itemPricePerTier), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: item_price_per_tier.");
 
             if (itemTooltipBackers.IsSet && itemTooltipBackers.Value == null)
-                throw new ArgumentNullException(nameof(itemTooltipBackers), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: item_tooltip_backers.");
 
             if (laneInfo.IsSet && laneInfo.Value == null)
-                throw new ArgumentNullException(nameof(laneInfo), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: lane_info.");
 
             if (miniMapOffsets.IsSet && miniMapOffsets.Value == null)
-                throw new ArgumentNullException(nameof(miniMapOffsets), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: mini_map_offsets.");
 
             if (newPlayerMetrics.IsSet && newPlayerMetrics.Value == null)
-                throw new ArgumentNullException(nameof(newPlayerMetrics), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: new_player_metrics.");
 
             if (objectiveParams.IsSet && objectiveParams.Value == null)
-                throw new ArgumentNullException(nameof(objectiveParams), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: objective_params.");
 
             if (rejuvParams.IsSet && rejuvParams.Value == null)
-                throw new ArgumentNullException(nameof(rejuvParams), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: rejuv_params.");
 
             if (spiritGroups.IsSet && spiritGroups.Value == null)
-                throw new ArgumentNullException(nameof(spiritGroups), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: spirit_groups.");
 
             if (targetingSpringStrength.IsSet && targetingSpringStrength.Value == null)
-                throw new ArgumentNullException(nameof(targetingSpringStrength), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: targeting_spring_strength.");
 
             if (trooperKillGoldShareFrac.IsSet && trooperKillGoldShareFrac.Value == null)
-                throw new ArgumentNullException(nameof(trooperKillGoldShareFrac), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: trooper_kill_gold_share_frac.");
 
             if (weaponGroups.IsSet && weaponGroups.Value == null)
-                throw new ArgumentNullException(nameof(weaponGroups), "Property is not nullable for class GenericData.");
+                throw new JsonException("Property is not nullable for class GenericData: weapon_groups.");
 
             return new GenericData(aimSpringStrength.Value!, armorGroups.Value!, damageFlash.Value!, glitchSettings.Value!, heroKillGoldShareFrac.Value!, itemPricePerTier.Value!, itemTooltipBackers.Value!, laneInfo.Value!, miniMapOffsets.Value!, newPlayerMetrics.Value!, objectiveParams.Value!, rejuvParams.Value!, spiritGroups.Value!, targetingSpringStrength.Value!, trooperKillGoldShareFrac.Value!, weaponGroups.Value!, breakablePowerupLootParams, colorEnemy, colorFriend, colorTeam1, colorTeam2, corruptedItemImages, corruptedPenalties, enemyObjectivesAndZiplineColor, enemyObjectivesColor, enemyZiplineColor, itemCorruptionPricePerTier, mapDistricts, minimapTeamCombineColor, minimapTeamRebelsColor, neutralCampRespawnTimerShowDistance, streetBrawl);
         }
@@ -762,7 +762,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="genericData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, GenericData genericData, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -777,57 +776,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="genericData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GenericData genericData, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (genericData.AimSpringStrength == null)
-                throw new ArgumentNullException(nameof(genericData.AimSpringStrength), "Property is required for class GenericData.");
-
-            if (genericData.ArmorGroups == null)
-                throw new ArgumentNullException(nameof(genericData.ArmorGroups), "Property is required for class GenericData.");
-
-            if (genericData.DamageFlash == null)
-                throw new ArgumentNullException(nameof(genericData.DamageFlash), "Property is required for class GenericData.");
-
-            if (genericData.GlitchSettings == null)
-                throw new ArgumentNullException(nameof(genericData.GlitchSettings), "Property is required for class GenericData.");
-
-            if (genericData.HeroKillGoldShareFrac == null)
-                throw new ArgumentNullException(nameof(genericData.HeroKillGoldShareFrac), "Property is required for class GenericData.");
-
-            if (genericData.ItemPricePerTier == null)
-                throw new ArgumentNullException(nameof(genericData.ItemPricePerTier), "Property is required for class GenericData.");
-
-            if (genericData.ItemTooltipBackers == null)
-                throw new ArgumentNullException(nameof(genericData.ItemTooltipBackers), "Property is required for class GenericData.");
-
-            if (genericData.LaneInfo == null)
-                throw new ArgumentNullException(nameof(genericData.LaneInfo), "Property is required for class GenericData.");
-
-            if (genericData.MiniMapOffsets == null)
-                throw new ArgumentNullException(nameof(genericData.MiniMapOffsets), "Property is required for class GenericData.");
-
-            if (genericData.NewPlayerMetrics == null)
-                throw new ArgumentNullException(nameof(genericData.NewPlayerMetrics), "Property is required for class GenericData.");
-
-            if (genericData.ObjectiveParams == null)
-                throw new ArgumentNullException(nameof(genericData.ObjectiveParams), "Property is required for class GenericData.");
-
-            if (genericData.RejuvParams == null)
-                throw new ArgumentNullException(nameof(genericData.RejuvParams), "Property is required for class GenericData.");
-
-            if (genericData.SpiritGroups == null)
-                throw new ArgumentNullException(nameof(genericData.SpiritGroups), "Property is required for class GenericData.");
-
-            if (genericData.TargetingSpringStrength == null)
-                throw new ArgumentNullException(nameof(genericData.TargetingSpringStrength), "Property is required for class GenericData.");
-
-            if (genericData.TrooperKillGoldShareFrac == null)
-                throw new ArgumentNullException(nameof(genericData.TrooperKillGoldShareFrac), "Property is required for class GenericData.");
-
-            if (genericData.WeaponGroups == null)
-                throw new ArgumentNullException(nameof(genericData.WeaponGroups), "Property is required for class GenericData.");
-
             writer.WritePropertyName("aim_spring_strength");
             JsonSerializer.Serialize(writer, genericData.AimSpringStrength, jsonSerializerOptions);
             writer.WritePropertyName("armor_groups");

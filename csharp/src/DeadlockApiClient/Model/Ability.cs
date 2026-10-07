@@ -536,34 +536,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Ability.", nameof(className));
+                throw new JsonException("Property is required for class Ability: class_name.");
 
             if (!description.IsSet)
-                throw new ArgumentException("Property is required for class Ability.", nameof(description));
+                throw new JsonException("Property is required for class Ability: description.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Ability.", nameof(id));
+                throw new JsonException("Property is required for class Ability: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class Ability.", nameof(name));
+                throw new JsonException("Property is required for class Ability: name.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class Ability.", nameof(type));
+                throw new JsonException("Property is required for class Ability: type.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Ability.");
+                throw new JsonException("Property is not nullable for class Ability: class_name.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class Ability.");
+                throw new JsonException("Property is not nullable for class Ability: description.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Ability.");
+                throw new JsonException("Property is not nullable for class Ability: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class Ability.");
+                throw new JsonException("Property is not nullable for class Ability: name.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class Ability.");
+                throw new JsonException("Property is not nullable for class Ability: type.");
 
             return new Ability(className.Value!, description.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, abilityType, behaviours, bossDamageScale, dependantAbilities, dependentAbilities, grantAmmoOnCast, hero, heroes, image, imageWebp, properties, startTrained, tooltipDetails, updateTime, upgrades, videos, weaponInfo);
         }
@@ -574,7 +574,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ability"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Ability ability, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -589,18 +588,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ability"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Ability ability, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (ability.ClassName == null)
-                throw new ArgumentNullException(nameof(ability.ClassName), "Property is required for class Ability.");
-
-            if (ability.Description == null)
-                throw new ArgumentNullException(nameof(ability.Description), "Property is required for class Ability.");
-
-            if (ability.Name == null)
-                throw new ArgumentNullException(nameof(ability.Name), "Property is required for class Ability.");
-
             writer.WriteString("class_name", ability.ClassName);
 
             writer.WritePropertyName("description");

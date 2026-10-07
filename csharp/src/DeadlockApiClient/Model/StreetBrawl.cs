@@ -504,172 +504,172 @@ namespace DeadlockApiClient.Model
             }
 
             if (!apperRound.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(apperRound));
+                throw new JsonException("Property is required for class StreetBrawl: apper_round.");
 
             if (!buyTime.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(buyTime));
+                throw new JsonException("Property is required for class StreetBrawl: buy_time.");
 
             if (!buyTimeGracePeriod.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(buyTimeGracePeriod));
+                throw new JsonException("Property is required for class StreetBrawl: buy_time_grace_period.");
 
             if (!comebackBonusHealth.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(comebackBonusHealth));
+                throw new JsonException("Property is required for class StreetBrawl: comeback_bonus_health.");
 
             if (!comebackBonusHealthCritical.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(comebackBonusHealthCritical));
+                throw new JsonException("Property is required for class StreetBrawl: comeback_bonus_health_critical.");
 
             if (!goldPerRound.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(goldPerRound));
+                throw new JsonException("Property is required for class StreetBrawl: gold_per_round.");
 
             if (!itemDraftRerollsPerRound.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(itemDraftRerollsPerRound));
+                throw new JsonException("Property is required for class StreetBrawl: item_draft_rerolls_per_round.");
 
             if (!itemDraftRoundsPerGameRound.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(itemDraftRoundsPerGameRound));
+                throw new JsonException("Property is required for class StreetBrawl: item_draft_rounds_per_game_round.");
 
             if (!itemDrafts.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(itemDrafts));
+                throw new JsonException("Property is required for class StreetBrawl: item_drafts.");
 
             if (!laneNumber.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(laneNumber));
+                throw new JsonException("Property is required for class StreetBrawl: lane_number.");
 
             if (!objectiveMaxHealth.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(objectiveMaxHealth));
+                throw new JsonException("Property is required for class StreetBrawl: objective_max_health.");
 
             if (!overtimeRespawnTimeIncrease.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(overtimeRespawnTimeIncrease));
+                throw new JsonException("Property is required for class StreetBrawl: overtime_respawn_time_increase.");
 
             if (!overtimeRespawnTimeIncreaseUrgent.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(overtimeRespawnTimeIncreaseUrgent));
+                throw new JsonException("Property is required for class StreetBrawl: overtime_respawn_time_increase_urgent.");
 
             if (!overtimeTrooperDamageScale.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(overtimeTrooperDamageScale));
+                throw new JsonException("Property is required for class StreetBrawl: overtime_trooper_damage_scale.");
 
             if (!overtimeTrooperHealthScale.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(overtimeTrooperHealthScale));
+                throw new JsonException("Property is required for class StreetBrawl: overtime_trooper_health_scale.");
 
             if (!preBuyTime.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(preBuyTime));
+                throw new JsonException("Property is required for class StreetBrawl: pre_buy_time.");
 
             if (!respawnTimes.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(respawnTimes));
+                throw new JsonException("Property is required for class StreetBrawl: respawn_times.");
 
             if (!roundLengthMinutes.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(roundLengthMinutes));
+                throw new JsonException("Property is required for class StreetBrawl: round_length_minutes.");
 
             if (!roundLengthMinutesUrgent.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(roundLengthMinutesUrgent));
+                throw new JsonException("Property is required for class StreetBrawl: round_length_minutes_urgent.");
 
             if (!scoreToWin.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(scoreToWin));
+                throw new JsonException("Property is required for class StreetBrawl: score_to_win.");
 
             if (!scoringTime.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(scoringTime));
+                throw new JsonException("Property is required for class StreetBrawl: scoring_time.");
 
             if (!tier1MaxResistTime.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(tier1MaxResistTime));
+                throw new JsonException("Property is required for class StreetBrawl: tier1_max_resist_time.");
 
             if (!tier2BonusHealth.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(tier2BonusHealth));
+                throw new JsonException("Property is required for class StreetBrawl: tier2_bonus_health.");
 
             if (!tier2MaxResistTime.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(tier2MaxResistTime));
+                throw new JsonException("Property is required for class StreetBrawl: tier2_max_resist_time.");
 
             if (!trooperSpawnBeforeRoundStartTimer.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(trooperSpawnBeforeRoundStartTimer));
+                throw new JsonException("Property is required for class StreetBrawl: trooper_spawn_before_round_start_timer.");
 
             if (!trooperSpawnTimer.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(trooperSpawnTimer));
+                throw new JsonException("Property is required for class StreetBrawl: trooper_spawn_timer.");
 
             if (!ultimateUnlockRound.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(ultimateUnlockRound));
+                throw new JsonException("Property is required for class StreetBrawl: ultimate_unlock_round.");
 
             if (!zipBoostCooldownOnStart.IsSet)
-                throw new ArgumentException("Property is required for class StreetBrawl.", nameof(zipBoostCooldownOnStart));
+                throw new JsonException("Property is required for class StreetBrawl: zip_boost_cooldown_on_start.");
 
             if (apperRound.IsSet && apperRound.Value == null)
-                throw new ArgumentNullException(nameof(apperRound), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: apper_round.");
 
             if (buyTime.IsSet && buyTime.Value == null)
-                throw new ArgumentNullException(nameof(buyTime), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: buy_time.");
 
             if (buyTimeGracePeriod.IsSet && buyTimeGracePeriod.Value == null)
-                throw new ArgumentNullException(nameof(buyTimeGracePeriod), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: buy_time_grace_period.");
 
             if (comebackBonusHealth.IsSet && comebackBonusHealth.Value == null)
-                throw new ArgumentNullException(nameof(comebackBonusHealth), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: comeback_bonus_health.");
 
             if (comebackBonusHealthCritical.IsSet && comebackBonusHealthCritical.Value == null)
-                throw new ArgumentNullException(nameof(comebackBonusHealthCritical), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: comeback_bonus_health_critical.");
 
             if (goldPerRound.IsSet && goldPerRound.Value == null)
-                throw new ArgumentNullException(nameof(goldPerRound), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: gold_per_round.");
 
             if (itemDraftRerollsPerRound.IsSet && itemDraftRerollsPerRound.Value == null)
-                throw new ArgumentNullException(nameof(itemDraftRerollsPerRound), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: item_draft_rerolls_per_round.");
 
             if (itemDraftRoundsPerGameRound.IsSet && itemDraftRoundsPerGameRound.Value == null)
-                throw new ArgumentNullException(nameof(itemDraftRoundsPerGameRound), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: item_draft_rounds_per_game_round.");
 
             if (itemDrafts.IsSet && itemDrafts.Value == null)
-                throw new ArgumentNullException(nameof(itemDrafts), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: item_drafts.");
 
             if (laneNumber.IsSet && laneNumber.Value == null)
-                throw new ArgumentNullException(nameof(laneNumber), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: lane_number.");
 
             if (objectiveMaxHealth.IsSet && objectiveMaxHealth.Value == null)
-                throw new ArgumentNullException(nameof(objectiveMaxHealth), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: objective_max_health.");
 
             if (overtimeRespawnTimeIncrease.IsSet && overtimeRespawnTimeIncrease.Value == null)
-                throw new ArgumentNullException(nameof(overtimeRespawnTimeIncrease), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: overtime_respawn_time_increase.");
 
             if (overtimeRespawnTimeIncreaseUrgent.IsSet && overtimeRespawnTimeIncreaseUrgent.Value == null)
-                throw new ArgumentNullException(nameof(overtimeRespawnTimeIncreaseUrgent), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: overtime_respawn_time_increase_urgent.");
 
             if (overtimeTrooperDamageScale.IsSet && overtimeTrooperDamageScale.Value == null)
-                throw new ArgumentNullException(nameof(overtimeTrooperDamageScale), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: overtime_trooper_damage_scale.");
 
             if (overtimeTrooperHealthScale.IsSet && overtimeTrooperHealthScale.Value == null)
-                throw new ArgumentNullException(nameof(overtimeTrooperHealthScale), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: overtime_trooper_health_scale.");
 
             if (preBuyTime.IsSet && preBuyTime.Value == null)
-                throw new ArgumentNullException(nameof(preBuyTime), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: pre_buy_time.");
 
             if (respawnTimes.IsSet && respawnTimes.Value == null)
-                throw new ArgumentNullException(nameof(respawnTimes), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: respawn_times.");
 
             if (roundLengthMinutes.IsSet && roundLengthMinutes.Value == null)
-                throw new ArgumentNullException(nameof(roundLengthMinutes), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: round_length_minutes.");
 
             if (roundLengthMinutesUrgent.IsSet && roundLengthMinutesUrgent.Value == null)
-                throw new ArgumentNullException(nameof(roundLengthMinutesUrgent), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: round_length_minutes_urgent.");
 
             if (scoreToWin.IsSet && scoreToWin.Value == null)
-                throw new ArgumentNullException(nameof(scoreToWin), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: score_to_win.");
 
             if (scoringTime.IsSet && scoringTime.Value == null)
-                throw new ArgumentNullException(nameof(scoringTime), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: scoring_time.");
 
             if (tier1MaxResistTime.IsSet && tier1MaxResistTime.Value == null)
-                throw new ArgumentNullException(nameof(tier1MaxResistTime), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: tier1_max_resist_time.");
 
             if (tier2BonusHealth.IsSet && tier2BonusHealth.Value == null)
-                throw new ArgumentNullException(nameof(tier2BonusHealth), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: tier2_bonus_health.");
 
             if (tier2MaxResistTime.IsSet && tier2MaxResistTime.Value == null)
-                throw new ArgumentNullException(nameof(tier2MaxResistTime), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: tier2_max_resist_time.");
 
             if (trooperSpawnBeforeRoundStartTimer.IsSet && trooperSpawnBeforeRoundStartTimer.Value == null)
-                throw new ArgumentNullException(nameof(trooperSpawnBeforeRoundStartTimer), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: trooper_spawn_before_round_start_timer.");
 
             if (trooperSpawnTimer.IsSet && trooperSpawnTimer.Value == null)
-                throw new ArgumentNullException(nameof(trooperSpawnTimer), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: trooper_spawn_timer.");
 
             if (ultimateUnlockRound.IsSet && ultimateUnlockRound.Value == null)
-                throw new ArgumentNullException(nameof(ultimateUnlockRound), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: ultimate_unlock_round.");
 
             if (zipBoostCooldownOnStart.IsSet && zipBoostCooldownOnStart.Value == null)
-                throw new ArgumentNullException(nameof(zipBoostCooldownOnStart), "Property is not nullable for class StreetBrawl.");
+                throw new JsonException("Property is not nullable for class StreetBrawl: zip_boost_cooldown_on_start.");
 
             return new StreetBrawl(apperRound.Value!, buyTime.Value!, buyTimeGracePeriod.Value!.Value!, comebackBonusHealth.Value!.Value!, comebackBonusHealthCritical.Value!.Value!, goldPerRound.Value!, itemDraftRerollsPerRound.Value!, itemDraftRoundsPerGameRound.Value!, itemDrafts.Value!, laneNumber.Value!.Value!, objectiveMaxHealth.Value!, overtimeRespawnTimeIncrease.Value!, overtimeRespawnTimeIncreaseUrgent.Value!, overtimeTrooperDamageScale.Value!, overtimeTrooperHealthScale.Value!, preBuyTime.Value!, respawnTimes.Value!, roundLengthMinutes.Value!, roundLengthMinutesUrgent.Value!, scoreToWin.Value!.Value!, scoringTime.Value!.Value!, tier1MaxResistTime.Value!.Value!, tier2BonusHealth.Value!.Value!, tier2MaxResistTime.Value!.Value!, trooperSpawnBeforeRoundStartTimer.Value!.Value!, trooperSpawnTimer.Value!, ultimateUnlockRound.Value!.Value!, zipBoostCooldownOnStart.Value!.Value!, corruptItemRound);
         }
@@ -680,7 +680,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="streetBrawl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StreetBrawl streetBrawl, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -695,57 +694,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="streetBrawl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StreetBrawl streetBrawl, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (streetBrawl.ApperRound == null)
-                throw new ArgumentNullException(nameof(streetBrawl.ApperRound), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.BuyTime == null)
-                throw new ArgumentNullException(nameof(streetBrawl.BuyTime), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.GoldPerRound == null)
-                throw new ArgumentNullException(nameof(streetBrawl.GoldPerRound), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.ItemDraftRerollsPerRound == null)
-                throw new ArgumentNullException(nameof(streetBrawl.ItemDraftRerollsPerRound), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.ItemDraftRoundsPerGameRound == null)
-                throw new ArgumentNullException(nameof(streetBrawl.ItemDraftRoundsPerGameRound), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.ItemDrafts == null)
-                throw new ArgumentNullException(nameof(streetBrawl.ItemDrafts), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.ObjectiveMaxHealth == null)
-                throw new ArgumentNullException(nameof(streetBrawl.ObjectiveMaxHealth), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.OvertimeRespawnTimeIncrease == null)
-                throw new ArgumentNullException(nameof(streetBrawl.OvertimeRespawnTimeIncrease), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.OvertimeRespawnTimeIncreaseUrgent == null)
-                throw new ArgumentNullException(nameof(streetBrawl.OvertimeRespawnTimeIncreaseUrgent), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.OvertimeTrooperDamageScale == null)
-                throw new ArgumentNullException(nameof(streetBrawl.OvertimeTrooperDamageScale), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.OvertimeTrooperHealthScale == null)
-                throw new ArgumentNullException(nameof(streetBrawl.OvertimeTrooperHealthScale), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.PreBuyTime == null)
-                throw new ArgumentNullException(nameof(streetBrawl.PreBuyTime), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.RespawnTimes == null)
-                throw new ArgumentNullException(nameof(streetBrawl.RespawnTimes), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.RoundLengthMinutes == null)
-                throw new ArgumentNullException(nameof(streetBrawl.RoundLengthMinutes), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.RoundLengthMinutesUrgent == null)
-                throw new ArgumentNullException(nameof(streetBrawl.RoundLengthMinutesUrgent), "Property is required for class StreetBrawl.");
-
-            if (streetBrawl.TrooperSpawnTimer == null)
-                throw new ArgumentNullException(nameof(streetBrawl.TrooperSpawnTimer), "Property is required for class StreetBrawl.");
-
             writer.WritePropertyName("apper_round");
             JsonSerializer.Serialize(writer, streetBrawl.ApperRound, jsonSerializerOptions);
             writer.WritePropertyName("buy_time");

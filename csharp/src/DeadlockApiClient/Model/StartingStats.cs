@@ -507,118 +507,118 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abilityResourceMax.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(abilityResourceMax));
+                throw new JsonException("Property is required for class StartingStats: ability_resource_max.");
 
             if (!abilityResourceRegenPerSecond.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(abilityResourceRegenPerSecond));
+                throw new JsonException("Property is required for class StartingStats: ability_resource_regen_per_second.");
 
             if (!baseHealthRegen.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(baseHealthRegen));
+                throw new JsonException("Property is required for class StartingStats: base_health_regen.");
 
             if (!critDamageReceivedScale.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(critDamageReceivedScale));
+                throw new JsonException("Property is required for class StartingStats: crit_damage_received_scale.");
 
             if (!crouchSpeed.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(crouchSpeed));
+                throw new JsonException("Property is required for class StartingStats: crouch_speed.");
 
             if (!heavyMeleeDamage.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(heavyMeleeDamage));
+                throw new JsonException("Property is required for class StartingStats: heavy_melee_damage.");
 
             if (!lightMeleeDamage.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(lightMeleeDamage));
+                throw new JsonException("Property is required for class StartingStats: light_melee_damage.");
 
             if (!maxHealth.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(maxHealth));
+                throw new JsonException("Property is required for class StartingStats: max_health.");
 
             if (!maxMoveSpeed.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(maxMoveSpeed));
+                throw new JsonException("Property is required for class StartingStats: max_move_speed.");
 
             if (!moveAcceleration.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(moveAcceleration));
+                throw new JsonException("Property is required for class StartingStats: move_acceleration.");
 
             if (!procBuildUpRateScale.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(procBuildUpRateScale));
+                throw new JsonException("Property is required for class StartingStats: proc_build_up_rate_scale.");
 
             if (!reloadSpeed.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(reloadSpeed));
+                throw new JsonException("Property is required for class StartingStats: reload_speed.");
 
             if (!sprintSpeed.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(sprintSpeed));
+                throw new JsonException("Property is required for class StartingStats: sprint_speed.");
 
             if (!stamina.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(stamina));
+                throw new JsonException("Property is required for class StartingStats: stamina.");
 
             if (!staminaRegenPerSecond.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(staminaRegenPerSecond));
+                throw new JsonException("Property is required for class StartingStats: stamina_regen_per_second.");
 
             if (!techDuration.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(techDuration));
+                throw new JsonException("Property is required for class StartingStats: tech_duration.");
 
             if (!techRange.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(techRange));
+                throw new JsonException("Property is required for class StartingStats: tech_range.");
 
             if (!weaponPower.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(weaponPower));
+                throw new JsonException("Property is required for class StartingStats: weapon_power.");
 
             if (!weaponPowerScale.IsSet)
-                throw new ArgumentException("Property is required for class StartingStats.", nameof(weaponPowerScale));
+                throw new JsonException("Property is required for class StartingStats: weapon_power_scale.");
 
             if (abilityResourceMax.IsSet && abilityResourceMax.Value == null)
-                throw new ArgumentNullException(nameof(abilityResourceMax), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: ability_resource_max.");
 
             if (abilityResourceRegenPerSecond.IsSet && abilityResourceRegenPerSecond.Value == null)
-                throw new ArgumentNullException(nameof(abilityResourceRegenPerSecond), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: ability_resource_regen_per_second.");
 
             if (baseHealthRegen.IsSet && baseHealthRegen.Value == null)
-                throw new ArgumentNullException(nameof(baseHealthRegen), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: base_health_regen.");
 
             if (critDamageReceivedScale.IsSet && critDamageReceivedScale.Value == null)
-                throw new ArgumentNullException(nameof(critDamageReceivedScale), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: crit_damage_received_scale.");
 
             if (crouchSpeed.IsSet && crouchSpeed.Value == null)
-                throw new ArgumentNullException(nameof(crouchSpeed), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: crouch_speed.");
 
             if (heavyMeleeDamage.IsSet && heavyMeleeDamage.Value == null)
-                throw new ArgumentNullException(nameof(heavyMeleeDamage), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: heavy_melee_damage.");
 
             if (lightMeleeDamage.IsSet && lightMeleeDamage.Value == null)
-                throw new ArgumentNullException(nameof(lightMeleeDamage), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: light_melee_damage.");
 
             if (maxHealth.IsSet && maxHealth.Value == null)
-                throw new ArgumentNullException(nameof(maxHealth), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: max_health.");
 
             if (maxMoveSpeed.IsSet && maxMoveSpeed.Value == null)
-                throw new ArgumentNullException(nameof(maxMoveSpeed), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: max_move_speed.");
 
             if (moveAcceleration.IsSet && moveAcceleration.Value == null)
-                throw new ArgumentNullException(nameof(moveAcceleration), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: move_acceleration.");
 
             if (procBuildUpRateScale.IsSet && procBuildUpRateScale.Value == null)
-                throw new ArgumentNullException(nameof(procBuildUpRateScale), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: proc_build_up_rate_scale.");
 
             if (reloadSpeed.IsSet && reloadSpeed.Value == null)
-                throw new ArgumentNullException(nameof(reloadSpeed), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: reload_speed.");
 
             if (sprintSpeed.IsSet && sprintSpeed.Value == null)
-                throw new ArgumentNullException(nameof(sprintSpeed), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: sprint_speed.");
 
             if (stamina.IsSet && stamina.Value == null)
-                throw new ArgumentNullException(nameof(stamina), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: stamina.");
 
             if (staminaRegenPerSecond.IsSet && staminaRegenPerSecond.Value == null)
-                throw new ArgumentNullException(nameof(staminaRegenPerSecond), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: stamina_regen_per_second.");
 
             if (techDuration.IsSet && techDuration.Value == null)
-                throw new ArgumentNullException(nameof(techDuration), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: tech_duration.");
 
             if (techRange.IsSet && techRange.Value == null)
-                throw new ArgumentNullException(nameof(techRange), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: tech_range.");
 
             if (weaponPower.IsSet && weaponPower.Value == null)
-                throw new ArgumentNullException(nameof(weaponPower), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: weapon_power.");
 
             if (weaponPowerScale.IsSet && weaponPowerScale.Value == null)
-                throw new ArgumentNullException(nameof(weaponPowerScale), "Property is not nullable for class StartingStats.");
+                throw new JsonException("Property is not nullable for class StartingStats: weapon_power_scale.");
 
             return new StartingStats(abilityResourceMax.Value!, abilityResourceRegenPerSecond.Value!, baseHealthRegen.Value!, critDamageReceivedScale.Value!, crouchSpeed.Value!, heavyMeleeDamage.Value!, lightMeleeDamage.Value!, maxHealth.Value!, maxMoveSpeed.Value!, moveAcceleration.Value!, procBuildUpRateScale.Value!, reloadSpeed.Value!, sprintSpeed.Value!, stamina.Value!, staminaRegenPerSecond.Value!, techDuration.Value!, techRange.Value!, weaponPower.Value!, weaponPowerScale.Value!, airDashDistanceInMeters, airDashDuration, bulletArmorDamageReduction, groundDashDistanceInMeters, groundDashDuration, oocHealthRegen, techArmorDamageReduction);
         }
@@ -629,7 +629,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="startingStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StartingStats startingStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -644,66 +643,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="startingStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StartingStats startingStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (startingStats.AbilityResourceMax == null)
-                throw new ArgumentNullException(nameof(startingStats.AbilityResourceMax), "Property is required for class StartingStats.");
-
-            if (startingStats.AbilityResourceRegenPerSecond == null)
-                throw new ArgumentNullException(nameof(startingStats.AbilityResourceRegenPerSecond), "Property is required for class StartingStats.");
-
-            if (startingStats.BaseHealthRegen == null)
-                throw new ArgumentNullException(nameof(startingStats.BaseHealthRegen), "Property is required for class StartingStats.");
-
-            if (startingStats.CritDamageReceivedScale == null)
-                throw new ArgumentNullException(nameof(startingStats.CritDamageReceivedScale), "Property is required for class StartingStats.");
-
-            if (startingStats.CrouchSpeed == null)
-                throw new ArgumentNullException(nameof(startingStats.CrouchSpeed), "Property is required for class StartingStats.");
-
-            if (startingStats.HeavyMeleeDamage == null)
-                throw new ArgumentNullException(nameof(startingStats.HeavyMeleeDamage), "Property is required for class StartingStats.");
-
-            if (startingStats.LightMeleeDamage == null)
-                throw new ArgumentNullException(nameof(startingStats.LightMeleeDamage), "Property is required for class StartingStats.");
-
-            if (startingStats.MaxHealth == null)
-                throw new ArgumentNullException(nameof(startingStats.MaxHealth), "Property is required for class StartingStats.");
-
-            if (startingStats.MaxMoveSpeed == null)
-                throw new ArgumentNullException(nameof(startingStats.MaxMoveSpeed), "Property is required for class StartingStats.");
-
-            if (startingStats.MoveAcceleration == null)
-                throw new ArgumentNullException(nameof(startingStats.MoveAcceleration), "Property is required for class StartingStats.");
-
-            if (startingStats.ProcBuildUpRateScale == null)
-                throw new ArgumentNullException(nameof(startingStats.ProcBuildUpRateScale), "Property is required for class StartingStats.");
-
-            if (startingStats.ReloadSpeed == null)
-                throw new ArgumentNullException(nameof(startingStats.ReloadSpeed), "Property is required for class StartingStats.");
-
-            if (startingStats.SprintSpeed == null)
-                throw new ArgumentNullException(nameof(startingStats.SprintSpeed), "Property is required for class StartingStats.");
-
-            if (startingStats.Stamina == null)
-                throw new ArgumentNullException(nameof(startingStats.Stamina), "Property is required for class StartingStats.");
-
-            if (startingStats.StaminaRegenPerSecond == null)
-                throw new ArgumentNullException(nameof(startingStats.StaminaRegenPerSecond), "Property is required for class StartingStats.");
-
-            if (startingStats.TechDuration == null)
-                throw new ArgumentNullException(nameof(startingStats.TechDuration), "Property is required for class StartingStats.");
-
-            if (startingStats.TechRange == null)
-                throw new ArgumentNullException(nameof(startingStats.TechRange), "Property is required for class StartingStats.");
-
-            if (startingStats.WeaponPower == null)
-                throw new ArgumentNullException(nameof(startingStats.WeaponPower), "Property is required for class StartingStats.");
-
-            if (startingStats.WeaponPowerScale == null)
-                throw new ArgumentNullException(nameof(startingStats.WeaponPowerScale), "Property is required for class StartingStats.");
-
             writer.WritePropertyName("ability_resource_max");
             JsonSerializer.Serialize(writer, startingStats.AbilityResourceMax, jsonSerializerOptions);
             writer.WritePropertyName("ability_resource_regen_per_second");

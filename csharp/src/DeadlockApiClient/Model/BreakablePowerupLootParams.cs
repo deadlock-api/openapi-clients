@@ -153,10 +153,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!pickupsByMatchTimeMins.IsSet)
-                throw new ArgumentException("Property is required for class BreakablePowerupLootParams.", nameof(pickupsByMatchTimeMins));
+                throw new JsonException("Property is required for class BreakablePowerupLootParams: pickups_by_match_time_mins.");
 
             if (pickupsByMatchTimeMins.IsSet && pickupsByMatchTimeMins.Value == null)
-                throw new ArgumentNullException(nameof(pickupsByMatchTimeMins), "Property is not nullable for class BreakablePowerupLootParams.");
+                throw new JsonException("Property is not nullable for class BreakablePowerupLootParams: pickups_by_match_time_mins.");
 
             return new BreakablePowerupLootParams(pickupsByMatchTimeMins.Value!, lootListDeckSize);
         }
@@ -167,7 +167,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="breakablePowerupLootParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BreakablePowerupLootParams breakablePowerupLootParams, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -182,12 +181,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="breakablePowerupLootParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BreakablePowerupLootParams breakablePowerupLootParams, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (breakablePowerupLootParams.PickupsByMatchTimeMins == null)
-                throw new ArgumentNullException(nameof(breakablePowerupLootParams.PickupsByMatchTimeMins), "Property is required for class BreakablePowerupLootParams.");
-
             writer.WritePropertyName("pickups_by_match_time_mins");
             JsonSerializer.Serialize(writer, breakablePowerupLootParams.PickupsByMatchTimeMins, jsonSerializerOptions);
             if (breakablePowerupLootParams.LootListDeckSizeOption.IsSet)

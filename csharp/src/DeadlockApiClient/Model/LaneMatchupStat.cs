@@ -175,28 +175,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!diff.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStat.", nameof(diff));
+                throw new JsonException("Property is required for class LaneMatchupStat: diff.");
 
             if (!diffStd.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStat.", nameof(diffStd));
+                throw new JsonException("Property is required for class LaneMatchupStat: diff_std.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStat.", nameof(value));
+                throw new JsonException("Property is required for class LaneMatchupStat: value.");
 
             if (!valueStd.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStat.", nameof(valueStd));
+                throw new JsonException("Property is required for class LaneMatchupStat: value_std.");
 
             if (diff.IsSet && diff.Value == null)
-                throw new ArgumentNullException(nameof(diff), "Property is not nullable for class LaneMatchupStat.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStat: diff.");
 
             if (diffStd.IsSet && diffStd.Value == null)
-                throw new ArgumentNullException(nameof(diffStd), "Property is not nullable for class LaneMatchupStat.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStat: diff_std.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class LaneMatchupStat.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStat: value.");
 
             if (valueStd.IsSet && valueStd.Value == null)
-                throw new ArgumentNullException(nameof(valueStd), "Property is not nullable for class LaneMatchupStat.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStat: value_std.");
 
             return new LaneMatchupStat(diff.Value!.Value!, diffStd.Value!.Value!, value.Value!.Value!, valueStd.Value!.Value!);
         }
@@ -207,7 +207,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneMatchupStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LaneMatchupStat laneMatchupStat, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -222,7 +221,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneMatchupStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneMatchupStat laneMatchupStat, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("diff", laneMatchupStat.Diff);

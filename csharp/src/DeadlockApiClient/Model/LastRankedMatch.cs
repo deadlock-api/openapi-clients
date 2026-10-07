@@ -355,22 +355,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class LastRankedMatch.", nameof(matchId));
+                throw new JsonException("Property is required for class LastRankedMatch: match_id.");
 
             if (!playerRankInitialDisplayRank.IsSet)
-                throw new ArgumentException("Property is required for class LastRankedMatch.", nameof(playerRankInitialDisplayRank));
+                throw new JsonException("Property is required for class LastRankedMatch: player_rank_initial_display_rank.");
 
             if (!startTime.IsSet)
-                throw new ArgumentException("Property is required for class LastRankedMatch.", nameof(startTime));
+                throw new JsonException("Property is required for class LastRankedMatch: start_time.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class LastRankedMatch.");
+                throw new JsonException("Property is not nullable for class LastRankedMatch: match_id.");
 
             if (playerRankInitialDisplayRank.IsSet && playerRankInitialDisplayRank.Value == null)
-                throw new ArgumentNullException(nameof(playerRankInitialDisplayRank), "Property is not nullable for class LastRankedMatch.");
+                throw new JsonException("Property is not nullable for class LastRankedMatch: player_rank_initial_display_rank.");
 
             if (startTime.IsSet && startTime.Value == null)
-                throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class LastRankedMatch.");
+                throw new JsonException("Property is not nullable for class LastRankedMatch: start_time.");
 
             return new LastRankedMatch(matchId.Value!.Value!, playerRankInitialDisplayRank.Value!.Value!, startTime.Value!.Value!, playerRankConsumedDemotionProtection, playerRankDesiredProgressChange, playerRankFinalFlatProgress, playerRankInitialCalibrationGames, playerRankInitialDemotionProtectionGames, playerRankInitialFlatProgress, playerRankInitialWinStreak);
         }
@@ -381,7 +381,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="lastRankedMatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LastRankedMatch lastRankedMatch, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -396,7 +395,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="lastRankedMatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LastRankedMatch lastRankedMatch, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("match_id", lastRankedMatch.MatchId);

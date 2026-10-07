@@ -234,40 +234,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!fromColumn.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(fromColumn));
+                throw new JsonException("Property is required for class ItemFlowEdge: from_column.");
 
             if (!fromItemId.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(fromItemId));
+                throw new JsonException("Property is required for class ItemFlowEdge: from_item_id.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(losses));
+                throw new JsonException("Property is required for class ItemFlowEdge: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(matches));
+                throw new JsonException("Property is required for class ItemFlowEdge: matches.");
 
             if (!toItemId.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(toItemId));
+                throw new JsonException("Property is required for class ItemFlowEdge: to_item_id.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowEdge.", nameof(wins));
+                throw new JsonException("Property is required for class ItemFlowEdge: wins.");
 
             if (fromColumn.IsSet && fromColumn.Value == null)
-                throw new ArgumentNullException(nameof(fromColumn), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: from_column.");
 
             if (fromItemId.IsSet && fromItemId.Value == null)
-                throw new ArgumentNullException(nameof(fromItemId), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: from_item_id.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: matches.");
 
             if (toItemId.IsSet && toItemId.Value == null)
-                throw new ArgumentNullException(nameof(toItemId), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: to_item_id.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class ItemFlowEdge.");
+                throw new JsonException("Property is not nullable for class ItemFlowEdge: wins.");
 
             return new ItemFlowEdge(fromColumn.Value!.Value!, fromItemId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, toItemId.Value!.Value!, wins.Value!.Value!);
         }
@@ -278,7 +278,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowEdge"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlowEdge itemFlowEdge, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -293,7 +292,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowEdge"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlowEdge itemFlowEdge, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("from_column", itemFlowEdge.FromColumn);

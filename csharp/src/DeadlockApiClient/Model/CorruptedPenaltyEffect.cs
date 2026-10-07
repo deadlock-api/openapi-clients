@@ -263,22 +263,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bonusPerTier.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedPenaltyEffect.", nameof(bonusPerTier));
+                throw new JsonException("Property is required for class CorruptedPenaltyEffect: bonus_per_tier.");
 
             if (!display.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedPenaltyEffect.", nameof(display));
+                throw new JsonException("Property is required for class CorruptedPenaltyEffect: display.");
 
             if (!modifierValue.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedPenaltyEffect.", nameof(modifierValue));
+                throw new JsonException("Property is required for class CorruptedPenaltyEffect: modifier_value.");
 
             if (bonusPerTier.IsSet && bonusPerTier.Value == null)
-                throw new ArgumentNullException(nameof(bonusPerTier), "Property is not nullable for class CorruptedPenaltyEffect.");
+                throw new JsonException("Property is not nullable for class CorruptedPenaltyEffect: bonus_per_tier.");
 
             if (display.IsSet && display.Value == null)
-                throw new ArgumentNullException(nameof(display), "Property is not nullable for class CorruptedPenaltyEffect.");
+                throw new JsonException("Property is not nullable for class CorruptedPenaltyEffect: display.");
 
             if (modifierValue.IsSet && modifierValue.Value == null)
-                throw new ArgumentNullException(nameof(modifierValue), "Property is not nullable for class CorruptedPenaltyEffect.");
+                throw new JsonException("Property is not nullable for class CorruptedPenaltyEffect: modifier_value.");
 
             return new CorruptedPenaltyEffect(bonusPerTier.Value!, display.Value!.Value!, modifierValue.Value!, cssClass, displayType, label, locTokenOverride, postfix);
         }
@@ -289,7 +289,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedPenaltyEffect"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CorruptedPenaltyEffect corruptedPenaltyEffect, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -304,15 +303,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedPenaltyEffect"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CorruptedPenaltyEffect corruptedPenaltyEffect, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (corruptedPenaltyEffect.BonusPerTier == null)
-                throw new ArgumentNullException(nameof(corruptedPenaltyEffect.BonusPerTier), "Property is required for class CorruptedPenaltyEffect.");
-
-            if (corruptedPenaltyEffect.ModifierValue == null)
-                throw new ArgumentNullException(nameof(corruptedPenaltyEffect.ModifierValue), "Property is required for class CorruptedPenaltyEffect.");
-
             writer.WritePropertyName("bonus_per_tier");
             JsonSerializer.Serialize(writer, corruptedPenaltyEffect.BonusPerTier, jsonSerializerOptions);
             writer.WriteBoolean("display", corruptedPenaltyEffect.Display);

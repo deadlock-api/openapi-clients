@@ -467,7 +467,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawCustomCrosshairSettings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RawCustomCrosshairSettings rawCustomCrosshairSettings, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -482,7 +481,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawCustomCrosshairSettings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RawCustomCrosshairSettings rawCustomCrosshairSettings, JsonSerializerOptions jsonSerializerOptions)
         {
             if (rawCustomCrosshairSettings.MDotColorOption.IsSet)

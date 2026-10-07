@@ -249,64 +249,64 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abilitiesUpgraded.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(abilitiesUpgraded));
+                throw new JsonException("Property is required for class NewPlayerMetrics: abilities_upgraded.");
 
             if (!bossDamage.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(bossDamage));
+                throw new JsonException("Property is required for class NewPlayerMetrics: boss_damage.");
 
             if (!damageTaken.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(damageTaken));
+                throw new JsonException("Property is required for class NewPlayerMetrics: damage_taken.");
 
             if (!lastHits.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(lastHits));
+                throw new JsonException("Property is required for class NewPlayerMetrics: last_hits.");
 
             if (!modsPurchased.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(modsPurchased));
+                throw new JsonException("Property is required for class NewPlayerMetrics: mods_purchased.");
 
             if (!netWorth.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(netWorth));
+                throw new JsonException("Property is required for class NewPlayerMetrics: net_worth.");
 
             if (!orbsDenied.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(orbsDenied));
+                throw new JsonException("Property is required for class NewPlayerMetrics: orbs_denied.");
 
             if (!orbsSecured.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(orbsSecured));
+                throw new JsonException("Property is required for class NewPlayerMetrics: orbs_secured.");
 
             if (!playerDamage.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(playerDamage));
+                throw new JsonException("Property is required for class NewPlayerMetrics: player_damage.");
 
             if (!skillTierName.IsSet)
-                throw new ArgumentException("Property is required for class NewPlayerMetrics.", nameof(skillTierName));
+                throw new JsonException("Property is required for class NewPlayerMetrics: skill_tier_name.");
 
             if (abilitiesUpgraded.IsSet && abilitiesUpgraded.Value == null)
-                throw new ArgumentNullException(nameof(abilitiesUpgraded), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: abilities_upgraded.");
 
             if (bossDamage.IsSet && bossDamage.Value == null)
-                throw new ArgumentNullException(nameof(bossDamage), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: boss_damage.");
 
             if (damageTaken.IsSet && damageTaken.Value == null)
-                throw new ArgumentNullException(nameof(damageTaken), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: damage_taken.");
 
             if (lastHits.IsSet && lastHits.Value == null)
-                throw new ArgumentNullException(nameof(lastHits), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: last_hits.");
 
             if (modsPurchased.IsSet && modsPurchased.Value == null)
-                throw new ArgumentNullException(nameof(modsPurchased), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: mods_purchased.");
 
             if (netWorth.IsSet && netWorth.Value == null)
-                throw new ArgumentNullException(nameof(netWorth), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: net_worth.");
 
             if (orbsDenied.IsSet && orbsDenied.Value == null)
-                throw new ArgumentNullException(nameof(orbsDenied), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: orbs_denied.");
 
             if (orbsSecured.IsSet && orbsSecured.Value == null)
-                throw new ArgumentNullException(nameof(orbsSecured), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: orbs_secured.");
 
             if (playerDamage.IsSet && playerDamage.Value == null)
-                throw new ArgumentNullException(nameof(playerDamage), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: player_damage.");
 
             if (skillTierName.IsSet && skillTierName.Value == null)
-                throw new ArgumentNullException(nameof(skillTierName), "Property is not nullable for class NewPlayerMetrics.");
+                throw new JsonException("Property is not nullable for class NewPlayerMetrics: skill_tier_name.");
 
             return new NewPlayerMetrics(abilitiesUpgraded.Value!.Value!, bossDamage.Value!.Value!, damageTaken.Value!.Value!, lastHits.Value!.Value!, modsPurchased.Value!.Value!, netWorth.Value!.Value!, orbsDenied.Value!.Value!, orbsSecured.Value!.Value!, playerDamage.Value!.Value!, skillTierName.Value!);
         }
@@ -317,7 +317,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="newPlayerMetrics"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NewPlayerMetrics newPlayerMetrics, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -332,12 +331,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="newPlayerMetrics"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NewPlayerMetrics newPlayerMetrics, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (newPlayerMetrics.SkillTierName == null)
-                throw new ArgumentNullException(nameof(newPlayerMetrics.SkillTierName), "Property is required for class NewPlayerMetrics.");
-
             writer.WriteNumber("abilities_upgraded", newPlayerMetrics.AbilitiesUpgraded);
 
             writer.WriteNumber("boss_damage", newPlayerMetrics.BossDamage);

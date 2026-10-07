@@ -167,7 +167,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="horizontalRecoil"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HorizontalRecoil horizontalRecoil, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -182,7 +181,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="horizontalRecoil"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HorizontalRecoil horizontalRecoil, JsonSerializerOptions jsonSerializerOptions)
         {
             if (horizontalRecoil.BurstExponentOption.IsSet)

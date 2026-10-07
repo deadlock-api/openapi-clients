@@ -180,28 +180,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItem.", nameof(className));
+                throw new JsonException("Property is required for class HeroPopularItem: class_name.");
 
             if (!itemId.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItem.", nameof(itemId));
+                throw new JsonException("Property is required for class HeroPopularItem: item_id.");
 
             if (!pickPct.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItem.", nameof(pickPct));
+                throw new JsonException("Property is required for class HeroPopularItem: pick_pct.");
 
             if (!winratePct.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItem.", nameof(winratePct));
+                throw new JsonException("Property is required for class HeroPopularItem: winrate_pct.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class HeroPopularItem.");
+                throw new JsonException("Property is not nullable for class HeroPopularItem: class_name.");
 
             if (itemId.IsSet && itemId.Value == null)
-                throw new ArgumentNullException(nameof(itemId), "Property is not nullable for class HeroPopularItem.");
+                throw new JsonException("Property is not nullable for class HeroPopularItem: item_id.");
 
             if (pickPct.IsSet && pickPct.Value == null)
-                throw new ArgumentNullException(nameof(pickPct), "Property is not nullable for class HeroPopularItem.");
+                throw new JsonException("Property is not nullable for class HeroPopularItem: pick_pct.");
 
             if (winratePct.IsSet && winratePct.Value == null)
-                throw new ArgumentNullException(nameof(winratePct), "Property is not nullable for class HeroPopularItem.");
+                throw new JsonException("Property is not nullable for class HeroPopularItem: winrate_pct.");
 
             return new HeroPopularItem(className.Value!, itemId.Value!.Value!, pickPct.Value!.Value!, winratePct.Value!.Value!);
         }
@@ -212,7 +212,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPopularItem"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroPopularItem heroPopularItem, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -227,12 +226,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPopularItem"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroPopularItem heroPopularItem, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroPopularItem.ClassName == null)
-                throw new ArgumentNullException(nameof(heroPopularItem.ClassName), "Property is required for class HeroPopularItem.");
-
             writer.WriteString("class_name", heroPopularItem.ClassName);
 
             writer.WriteNumber("item_id", heroPopularItem.ItemId);

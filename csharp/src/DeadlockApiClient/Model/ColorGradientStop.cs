@@ -146,16 +146,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class ColorGradientStop.", nameof(color));
+                throw new JsonException("Property is required for class ColorGradientStop: color.");
 
             if (!position.IsSet)
-                throw new ArgumentException("Property is required for class ColorGradientStop.", nameof(position));
+                throw new JsonException("Property is required for class ColorGradientStop: position.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class ColorGradientStop.");
+                throw new JsonException("Property is not nullable for class ColorGradientStop: color.");
 
             if (position.IsSet && position.Value == null)
-                throw new ArgumentNullException(nameof(position), "Property is not nullable for class ColorGradientStop.");
+                throw new JsonException("Property is not nullable for class ColorGradientStop: position.");
 
             return new ColorGradientStop(color.Value!, position.Value!.Value!);
         }
@@ -166,7 +166,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="colorGradientStop"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ColorGradientStop colorGradientStop, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="colorGradientStop"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ColorGradientStop colorGradientStop, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (colorGradientStop.Color == null)
-                throw new ArgumentNullException(nameof(colorGradientStop.Color), "Property is required for class ColorGradientStop.");
-
             writer.WritePropertyName("color");
             JsonSerializer.Serialize(writer, colorGradientStop.Color, jsonSerializerOptions);
             writer.WriteNumber("position", colorGradientStop.Position);

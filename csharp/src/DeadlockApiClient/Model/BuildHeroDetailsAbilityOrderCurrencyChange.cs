@@ -184,22 +184,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abilityId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange.", nameof(abilityId));
+                throw new JsonException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange: ability_id.");
 
             if (!currencyType.IsSet)
-                throw new ArgumentException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange.", nameof(currencyType));
+                throw new JsonException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange: currency_type.");
 
             if (!delta.IsSet)
-                throw new ArgumentException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange.", nameof(delta));
+                throw new JsonException("Property is required for class BuildHeroDetailsAbilityOrderCurrencyChange: delta.");
 
             if (abilityId.IsSet && abilityId.Value == null)
-                throw new ArgumentNullException(nameof(abilityId), "Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange.");
+                throw new JsonException("Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange: ability_id.");
 
             if (currencyType.IsSet && currencyType.Value == null)
-                throw new ArgumentNullException(nameof(currencyType), "Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange.");
+                throw new JsonException("Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange: currency_type.");
 
             if (delta.IsSet && delta.Value == null)
-                throw new ArgumentNullException(nameof(delta), "Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange.");
+                throw new JsonException("Property is not nullable for class BuildHeroDetailsAbilityOrderCurrencyChange: delta.");
 
             return new BuildHeroDetailsAbilityOrderCurrencyChange(abilityId.Value!.Value!, currencyType.Value!.Value!, delta.Value!.Value!, annotation);
         }
@@ -210,7 +210,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetailsAbilityOrderCurrencyChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildHeroDetailsAbilityOrderCurrencyChange buildHeroDetailsAbilityOrderCurrencyChange, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -225,7 +224,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetailsAbilityOrderCurrencyChange"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildHeroDetailsAbilityOrderCurrencyChange buildHeroDetailsAbilityOrderCurrencyChange, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("ability_id", buildHeroDetailsAbilityOrderCurrencyChange.AbilityId);

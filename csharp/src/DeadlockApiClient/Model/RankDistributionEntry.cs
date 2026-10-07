@@ -199,28 +199,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!badge.IsSet)
-                throw new ArgumentException("Property is required for class RankDistributionEntry.", nameof(badge));
+                throw new JsonException("Property is required for class RankDistributionEntry: badge.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class RankDistributionEntry.", nameof(players));
+                throw new JsonException("Property is required for class RankDistributionEntry: players.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class RankDistributionEntry.", nameof(rank));
+                throw new JsonException("Property is required for class RankDistributionEntry: rank.");
 
             if (!subrank.IsSet)
-                throw new ArgumentException("Property is required for class RankDistributionEntry.", nameof(subrank));
+                throw new JsonException("Property is required for class RankDistributionEntry: subrank.");
 
             if (badge.IsSet && badge.Value == null)
-                throw new ArgumentNullException(nameof(badge), "Property is not nullable for class RankDistributionEntry.");
+                throw new JsonException("Property is not nullable for class RankDistributionEntry: badge.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class RankDistributionEntry.");
+                throw new JsonException("Property is not nullable for class RankDistributionEntry: players.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class RankDistributionEntry.");
+                throw new JsonException("Property is not nullable for class RankDistributionEntry: rank.");
 
             if (subrank.IsSet && subrank.Value == null)
-                throw new ArgumentNullException(nameof(subrank), "Property is not nullable for class RankDistributionEntry.");
+                throw new JsonException("Property is not nullable for class RankDistributionEntry: subrank.");
 
             return new RankDistributionEntry(badge.Value!.Value!, players.Value!.Value!, rank.Value!.Value!, subrank.Value!.Value!);
         }
@@ -231,7 +231,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankDistributionEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RankDistributionEntry rankDistributionEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -246,7 +245,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankDistributionEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RankDistributionEntry rankDistributionEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("badge", rankDistributionEntry.Badge);

@@ -133,10 +133,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!code.IsSet)
-                throw new ArgumentException("Property is required for class CrosshairCode.", nameof(code));
+                throw new JsonException("Property is required for class CrosshairCode: code.");
 
             if (code.IsSet && code.Value == null)
-                throw new ArgumentNullException(nameof(code), "Property is not nullable for class CrosshairCode.");
+                throw new JsonException("Property is not nullable for class CrosshairCode: code.");
 
             return new CrosshairCode(code.Value!);
         }
@@ -147,7 +147,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="crosshairCode"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CrosshairCode crosshairCode, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="crosshairCode"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CrosshairCode crosshairCode, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (crosshairCode.Code == null)
-                throw new ArgumentNullException(nameof(crosshairCode.Code), "Property is required for class CrosshairCode.");
-
             writer.WriteString("code", crosshairCode.Code);
         }
     }

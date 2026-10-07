@@ -287,58 +287,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!calibrationMatches.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(calibrationMatches));
+                throw new JsonException("Property is required for class RankedSeason: calibration_matches.");
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(className));
+                throw new JsonException("Property is required for class RankedSeason: class_name.");
 
             if (!intervals.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(intervals));
+                throw new JsonException("Property is required for class RankedSeason: intervals.");
 
             if (!minHeroUnlocks.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(minHeroUnlocks));
+                throw new JsonException("Property is required for class RankedSeason: min_hero_unlocks.");
 
             if (!minHeroWins.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(minHeroWins));
+                throw new JsonException("Property is required for class RankedSeason: min_hero_wins.");
 
             if (!minWins.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(minWins));
+                throw new JsonException("Property is required for class RankedSeason: min_wins.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(name));
+                throw new JsonException("Property is required for class RankedSeason: name.");
 
             if (!rankedType.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(rankedType));
+                throw new JsonException("Property is required for class RankedSeason: ranked_type.");
 
             if (!validPartySizes.IsSet)
-                throw new ArgumentException("Property is required for class RankedSeason.", nameof(validPartySizes));
+                throw new JsonException("Property is required for class RankedSeason: valid_party_sizes.");
 
             if (calibrationMatches.IsSet && calibrationMatches.Value == null)
-                throw new ArgumentNullException(nameof(calibrationMatches), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: calibration_matches.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: class_name.");
 
             if (intervals.IsSet && intervals.Value == null)
-                throw new ArgumentNullException(nameof(intervals), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: intervals.");
 
             if (minHeroUnlocks.IsSet && minHeroUnlocks.Value == null)
-                throw new ArgumentNullException(nameof(minHeroUnlocks), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: min_hero_unlocks.");
 
             if (minHeroWins.IsSet && minHeroWins.Value == null)
-                throw new ArgumentNullException(nameof(minHeroWins), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: min_hero_wins.");
 
             if (minWins.IsSet && minWins.Value == null)
-                throw new ArgumentNullException(nameof(minWins), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: min_wins.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: name.");
 
             if (rankedType.IsSet && rankedType.Value == null)
-                throw new ArgumentNullException(nameof(rankedType), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: ranked_type.");
 
             if (validPartySizes.IsSet && validPartySizes.Value == null)
-                throw new ArgumentNullException(nameof(validPartySizes), "Property is not nullable for class RankedSeason.");
+                throw new JsonException("Property is not nullable for class RankedSeason: valid_party_sizes.");
 
             return new RankedSeason(calibrationMatches.Value!.Value!, className.Value!, intervals.Value!, minHeroUnlocks.Value!.Value!, minHeroWins.Value!.Value!, minWins.Value!.Value!, name.Value!, rankedType.Value!, validPartySizes.Value!, baseWinLossPointGrant);
         }
@@ -349,7 +349,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankedSeason"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RankedSeason rankedSeason, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -364,24 +363,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankedSeason"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RankedSeason rankedSeason, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (rankedSeason.ClassName == null)
-                throw new ArgumentNullException(nameof(rankedSeason.ClassName), "Property is required for class RankedSeason.");
-
-            if (rankedSeason.Intervals == null)
-                throw new ArgumentNullException(nameof(rankedSeason.Intervals), "Property is required for class RankedSeason.");
-
-            if (rankedSeason.Name == null)
-                throw new ArgumentNullException(nameof(rankedSeason.Name), "Property is required for class RankedSeason.");
-
-            if (rankedSeason.RankedType == null)
-                throw new ArgumentNullException(nameof(rankedSeason.RankedType), "Property is required for class RankedSeason.");
-
-            if (rankedSeason.ValidPartySizes == null)
-                throw new ArgumentNullException(nameof(rankedSeason.ValidPartySizes), "Property is required for class RankedSeason.");
-
             writer.WriteNumber("calibration_matches", rankedSeason.CalibrationMatches);
 
             writer.WriteString("class_name", rankedSeason.ClassName);

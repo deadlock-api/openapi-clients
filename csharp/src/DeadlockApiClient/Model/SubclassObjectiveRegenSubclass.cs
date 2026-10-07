@@ -167,7 +167,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassObjectiveRegenSubclass"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SubclassObjectiveRegenSubclass subclassObjectiveRegenSubclass, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -182,7 +181,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassObjectiveRegenSubclass"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubclassObjectiveRegenSubclass subclassObjectiveRegenSubclass, JsonSerializerOptions jsonSerializerOptions)
         {
             if (subclassObjectiveRegenSubclass.OutOfCombatHealthRegenOption.IsSet)

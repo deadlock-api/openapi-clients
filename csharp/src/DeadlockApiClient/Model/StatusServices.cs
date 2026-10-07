@@ -161,22 +161,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!clickhouse.IsSet)
-                throw new ArgumentException("Property is required for class StatusServices.", nameof(clickhouse));
+                throw new JsonException("Property is required for class StatusServices: clickhouse.");
 
             if (!postgres.IsSet)
-                throw new ArgumentException("Property is required for class StatusServices.", nameof(postgres));
+                throw new JsonException("Property is required for class StatusServices: postgres.");
 
             if (!redis.IsSet)
-                throw new ArgumentException("Property is required for class StatusServices.", nameof(redis));
+                throw new JsonException("Property is required for class StatusServices: redis.");
 
             if (clickhouse.IsSet && clickhouse.Value == null)
-                throw new ArgumentNullException(nameof(clickhouse), "Property is not nullable for class StatusServices.");
+                throw new JsonException("Property is not nullable for class StatusServices: clickhouse.");
 
             if (postgres.IsSet && postgres.Value == null)
-                throw new ArgumentNullException(nameof(postgres), "Property is not nullable for class StatusServices.");
+                throw new JsonException("Property is not nullable for class StatusServices: postgres.");
 
             if (redis.IsSet && redis.Value == null)
-                throw new ArgumentNullException(nameof(redis), "Property is not nullable for class StatusServices.");
+                throw new JsonException("Property is not nullable for class StatusServices: redis.");
 
             return new StatusServices(clickhouse.Value!.Value!, postgres.Value!.Value!, redis.Value!.Value!);
         }
@@ -187,7 +187,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="statusServices"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatusServices statusServices, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -202,7 +201,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="statusServices"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatusServices statusServices, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteBoolean("clickhouse", statusServices.Clickhouse);

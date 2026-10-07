@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!png.IsSet)
-                throw new ArgumentException("Property is required for class ImagePair.", nameof(png));
+                throw new JsonException("Property is required for class ImagePair: png.");
 
             if (!webp.IsSet)
-                throw new ArgumentException("Property is required for class ImagePair.", nameof(webp));
+                throw new JsonException("Property is required for class ImagePair: webp.");
 
             if (png.IsSet && png.Value == null)
-                throw new ArgumentNullException(nameof(png), "Property is not nullable for class ImagePair.");
+                throw new JsonException("Property is not nullable for class ImagePair: png.");
 
             if (webp.IsSet && webp.Value == null)
-                throw new ArgumentNullException(nameof(webp), "Property is not nullable for class ImagePair.");
+                throw new JsonException("Property is not nullable for class ImagePair: webp.");
 
             return new ImagePair(png.Value!, webp.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="imagePair"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ImagePair imagePair, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="imagePair"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ImagePair imagePair, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (imagePair.Png == null)
-                throw new ArgumentNullException(nameof(imagePair.Png), "Property is required for class ImagePair.");
-
-            if (imagePair.Webp == null)
-                throw new ArgumentNullException(nameof(imagePair.Webp), "Property is required for class ImagePair.");
-
             writer.WriteString("png", imagePair.Png);
 
             writer.WriteString("webp", imagePair.Webp);

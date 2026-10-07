@@ -296,40 +296,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!durationS.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(durationS));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: duration_s.");
 
             if (!gameMode.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(gameMode));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: game_mode.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(matchId));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: match_id.");
 
             if (!matchMode.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(matchMode));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: match_mode.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(players));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: players.");
 
             if (!startTime.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseMatchInfo.", nameof(startTime));
+                throw new JsonException("Property is required for class ClickhouseMatchInfo: start_time.");
 
             if (durationS.IsSet && durationS.Value == null)
-                throw new ArgumentNullException(nameof(durationS), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: duration_s.");
 
             if (gameMode.IsSet && gameMode.Value == null)
-                throw new ArgumentNullException(nameof(gameMode), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: game_mode.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: match_id.");
 
             if (matchMode.IsSet && matchMode.Value == null)
-                throw new ArgumentNullException(nameof(matchMode), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: match_mode.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: players.");
 
             if (startTime.IsSet && startTime.Value == null)
-                throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class ClickhouseMatchInfo.");
+                throw new JsonException("Property is not nullable for class ClickhouseMatchInfo: start_time.");
 
             return new ClickhouseMatchInfo(durationS.Value!.Value!, gameMode.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, players.Value!, startTime.Value!.Value!, averageBadge, averageBadgeTeam0, averageBadgeTeam1);
         }
@@ -340,7 +340,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="clickhouseMatchInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ClickhouseMatchInfo clickhouseMatchInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -355,12 +354,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="clickhouseMatchInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ClickhouseMatchInfo clickhouseMatchInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (clickhouseMatchInfo.Players == null)
-                throw new ArgumentNullException(nameof(clickhouseMatchInfo.Players), "Property is required for class ClickhouseMatchInfo.");
-
             writer.WriteNumber("duration_s", clickhouseMatchInfo.DurationS);
 
             writer.WriteNumber("game_mode", clickhouseMatchInfo.GameMode);

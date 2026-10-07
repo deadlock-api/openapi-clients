@@ -300,25 +300,25 @@ namespace DeadlockApiClient.Model
             }
 
             if (!comment.IsSet)
-                throw new ArgumentException("Property is required for class FeedbackSubmission.", nameof(comment));
+                throw new JsonException("Property is required for class FeedbackSubmission: comment.");
 
             if (!kind.IsSet)
-                throw new ArgumentException("Property is required for class FeedbackSubmission.", nameof(kind));
+                throw new JsonException("Property is required for class FeedbackSubmission: kind.");
 
             if (!pageUrl.IsSet)
-                throw new ArgumentException("Property is required for class FeedbackSubmission.", nameof(pageUrl));
+                throw new JsonException("Property is required for class FeedbackSubmission: page_url.");
 
             if (comment.IsSet && comment.Value == null)
-                throw new ArgumentNullException(nameof(comment), "Property is not nullable for class FeedbackSubmission.");
+                throw new JsonException("Property is not nullable for class FeedbackSubmission: comment.");
 
             if (kind.IsSet && kind.Value == null)
-                throw new ArgumentNullException(nameof(kind), "Property is not nullable for class FeedbackSubmission.");
+                throw new JsonException("Property is not nullable for class FeedbackSubmission: kind.");
 
             if (pageUrl.IsSet && pageUrl.Value == null)
-                throw new ArgumentNullException(nameof(pageUrl), "Property is not nullable for class FeedbackSubmission.");
+                throw new JsonException("Property is not nullable for class FeedbackSubmission: page_url.");
 
             if (targets.IsSet && targets.Value == null)
-                throw new ArgumentNullException(nameof(targets), "Property is not nullable for class FeedbackSubmission.");
+                throw new JsonException("Property is not nullable for class FeedbackSubmission: targets.");
 
             return new FeedbackSubmission(comment.Value!, kind.Value!.Value!, pageUrl.Value!, buildId, elementText, nickname, selector, source, targets, viewport);
         }
@@ -329,7 +329,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedbackSubmission"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, FeedbackSubmission feedbackSubmission, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -344,17 +343,10 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedbackSubmission"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, FeedbackSubmission feedbackSubmission, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (feedbackSubmission.Comment == null)
-                throw new ArgumentNullException(nameof(feedbackSubmission.Comment), "Property is required for class FeedbackSubmission.");
-
-            if (feedbackSubmission.PageUrl == null)
-                throw new ArgumentNullException(nameof(feedbackSubmission.PageUrl), "Property is required for class FeedbackSubmission.");
-
             if (feedbackSubmission.TargetsOption.IsSet && feedbackSubmission.Targets == null)
-                throw new ArgumentNullException(nameof(feedbackSubmission.Targets), "Property is required for class FeedbackSubmission.");
+                throw new JsonException("Cannot write null property FeedbackSubmission.Targets to non-nullable JSON property 'targets'.");
 
             writer.WriteString("comment", feedbackSubmission.Comment);
 

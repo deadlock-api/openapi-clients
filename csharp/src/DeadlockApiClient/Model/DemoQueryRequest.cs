@@ -174,19 +174,19 @@ namespace DeadlockApiClient.Model
             }
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryRequest.", nameof(matchId));
+                throw new JsonException("Property is required for class DemoQueryRequest: match_id.");
 
             if (!query.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryRequest.", nameof(query));
+                throw new JsonException("Property is required for class DemoQueryRequest: query.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class DemoQueryRequest.");
+                throw new JsonException("Property is not nullable for class DemoQueryRequest: match_id.");
 
             if (query.IsSet && query.Value == null)
-                throw new ArgumentNullException(nameof(query), "Property is not nullable for class DemoQueryRequest.");
+                throw new JsonException("Property is not nullable for class DemoQueryRequest: query.");
 
             if (format.IsSet && format.Value == null)
-                throw new ArgumentNullException(nameof(format), "Property is not nullable for class DemoQueryRequest.");
+                throw new JsonException("Property is not nullable for class DemoQueryRequest: format.");
 
             return new DemoQueryRequest(matchId.Value!.Value!, query.Value!, format);
         }
@@ -197,7 +197,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryRequest"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DemoQueryRequest demoQueryRequest, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -212,11 +211,10 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryRequest"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DemoQueryRequest demoQueryRequest, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (demoQueryRequest.Query == null)
-                throw new ArgumentNullException(nameof(demoQueryRequest.Query), "Property is required for class DemoQueryRequest.");
+            if (demoQueryRequest.FormatOption.IsSet && demoQueryRequest.Format == null)
+                throw new JsonException("Cannot write null property DemoQueryRequest.Format to non-nullable JSON property 'format'.");
 
             writer.WriteNumber("match_id", demoQueryRequest.MatchId);
 

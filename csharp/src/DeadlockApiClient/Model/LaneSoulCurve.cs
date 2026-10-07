@@ -257,58 +257,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!assignedLane.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(assignedLane));
+                throw new JsonException("Property is required for class LaneSoulCurve: assigned_lane.");
 
             if (!enemyHeroIds.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(enemyHeroIds));
+                throw new JsonException("Property is required for class LaneSoulCurve: enemy_hero_ids.");
 
             if (!heroIds.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(heroIds));
+                throw new JsonException("Property is required for class LaneSoulCurve: hero_ids.");
 
             if (!matchesPlayed.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(matchesPlayed));
+                throw new JsonException("Property is required for class LaneSoulCurve: matches_played.");
 
             if (!netWorthDiff.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(netWorthDiff));
+                throw new JsonException("Property is required for class LaneSoulCurve: net_worth_diff.");
 
             if (!netWorthDiffStd.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(netWorthDiffStd));
+                throw new JsonException("Property is required for class LaneSoulCurve: net_worth_diff_std.");
 
             if (!sampleMatches.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(sampleMatches));
+                throw new JsonException("Property is required for class LaneSoulCurve: sample_matches.");
 
             if (!sampleTimesS.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(sampleTimesS));
+                throw new JsonException("Property is required for class LaneSoulCurve: sample_times_s.");
 
             if (!stats.IsSet)
-                throw new ArgumentException("Property is required for class LaneSoulCurve.", nameof(stats));
+                throw new JsonException("Property is required for class LaneSoulCurve: stats.");
 
             if (assignedLane.IsSet && assignedLane.Value == null)
-                throw new ArgumentNullException(nameof(assignedLane), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: assigned_lane.");
 
             if (enemyHeroIds.IsSet && enemyHeroIds.Value == null)
-                throw new ArgumentNullException(nameof(enemyHeroIds), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: enemy_hero_ids.");
 
             if (heroIds.IsSet && heroIds.Value == null)
-                throw new ArgumentNullException(nameof(heroIds), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: hero_ids.");
 
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: matches_played.");
 
             if (netWorthDiff.IsSet && netWorthDiff.Value == null)
-                throw new ArgumentNullException(nameof(netWorthDiff), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: net_worth_diff.");
 
             if (netWorthDiffStd.IsSet && netWorthDiffStd.Value == null)
-                throw new ArgumentNullException(nameof(netWorthDiffStd), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: net_worth_diff_std.");
 
             if (sampleMatches.IsSet && sampleMatches.Value == null)
-                throw new ArgumentNullException(nameof(sampleMatches), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: sample_matches.");
 
             if (sampleTimesS.IsSet && sampleTimesS.Value == null)
-                throw new ArgumentNullException(nameof(sampleTimesS), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: sample_times_s.");
 
             if (stats.IsSet && stats.Value == null)
-                throw new ArgumentNullException(nameof(stats), "Property is not nullable for class LaneSoulCurve.");
+                throw new JsonException("Property is not nullable for class LaneSoulCurve: stats.");
 
             return new LaneSoulCurve(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff.Value!, netWorthDiffStd.Value!, sampleMatches.Value!, sampleTimesS.Value!, stats.Value!);
         }
@@ -319,7 +319,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneSoulCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LaneSoulCurve laneSoulCurve, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -334,30 +333,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneSoulCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneSoulCurve laneSoulCurve, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (laneSoulCurve.EnemyHeroIds == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.EnemyHeroIds), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.HeroIds == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.HeroIds), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.NetWorthDiff == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.NetWorthDiff), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.NetWorthDiffStd == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.NetWorthDiffStd), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.SampleMatches == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.SampleMatches), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.SampleTimesS == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.SampleTimesS), "Property is required for class LaneSoulCurve.");
-
-            if (laneSoulCurve.Stats == null)
-                throw new ArgumentNullException(nameof(laneSoulCurve.Stats), "Property is required for class LaneSoulCurve.");
-
             writer.WriteNumber("assigned_lane", laneSoulCurve.AssignedLane);
 
             writer.WritePropertyName("enemy_hero_ids");

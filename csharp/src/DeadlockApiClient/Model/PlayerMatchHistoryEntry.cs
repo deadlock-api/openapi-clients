@@ -678,118 +678,118 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(accountId));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: account_id.");
 
             if (!denies.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(denies));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: denies.");
 
             if (!gameMode.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(gameMode));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: game_mode.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(heroId));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: hero_id.");
 
             if (!heroLevel.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(heroLevel));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: hero_level.");
 
             if (!lastHits.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(lastHits));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: last_hits.");
 
             if (!matchDurationS.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(matchDurationS));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: match_duration_s.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(matchId));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: match_id.");
 
             if (!matchMode.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(matchMode));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: match_mode.");
 
             if (!matchResult.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(matchResult));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: match_result.");
 
             if (!netWorth.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(netWorth));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: net_worth.");
 
             if (!objectivesMaskTeam0.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(objectivesMaskTeam0));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: objectives_mask_team0.");
 
             if (!objectivesMaskTeam1.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(objectivesMaskTeam1));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: objectives_mask_team1.");
 
             if (!playerAssists.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerAssists));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: player_assists.");
 
             if (!playerDeaths.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerDeaths));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: player_deaths.");
 
             if (!playerKills.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerKills));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: player_kills.");
 
             if (!playerMatchOutcome.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerMatchOutcome));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: player_match_outcome.");
 
             if (!playerTeam.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(playerTeam));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: player_team.");
 
             if (!startTime.IsSet)
-                throw new ArgumentException("Property is required for class PlayerMatchHistoryEntry.", nameof(startTime));
+                throw new JsonException("Property is required for class PlayerMatchHistoryEntry: start_time.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: account_id.");
 
             if (denies.IsSet && denies.Value == null)
-                throw new ArgumentNullException(nameof(denies), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: denies.");
 
             if (gameMode.IsSet && gameMode.Value == null)
-                throw new ArgumentNullException(nameof(gameMode), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: game_mode.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: hero_id.");
 
             if (heroLevel.IsSet && heroLevel.Value == null)
-                throw new ArgumentNullException(nameof(heroLevel), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: hero_level.");
 
             if (lastHits.IsSet && lastHits.Value == null)
-                throw new ArgumentNullException(nameof(lastHits), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: last_hits.");
 
             if (matchDurationS.IsSet && matchDurationS.Value == null)
-                throw new ArgumentNullException(nameof(matchDurationS), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: match_duration_s.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: match_id.");
 
             if (matchMode.IsSet && matchMode.Value == null)
-                throw new ArgumentNullException(nameof(matchMode), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: match_mode.");
 
             if (matchResult.IsSet && matchResult.Value == null)
-                throw new ArgumentNullException(nameof(matchResult), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: match_result.");
 
             if (netWorth.IsSet && netWorth.Value == null)
-                throw new ArgumentNullException(nameof(netWorth), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: net_worth.");
 
             if (objectivesMaskTeam0.IsSet && objectivesMaskTeam0.Value == null)
-                throw new ArgumentNullException(nameof(objectivesMaskTeam0), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: objectives_mask_team0.");
 
             if (objectivesMaskTeam1.IsSet && objectivesMaskTeam1.Value == null)
-                throw new ArgumentNullException(nameof(objectivesMaskTeam1), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: objectives_mask_team1.");
 
             if (playerAssists.IsSet && playerAssists.Value == null)
-                throw new ArgumentNullException(nameof(playerAssists), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: player_assists.");
 
             if (playerDeaths.IsSet && playerDeaths.Value == null)
-                throw new ArgumentNullException(nameof(playerDeaths), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: player_deaths.");
 
             if (playerKills.IsSet && playerKills.Value == null)
-                throw new ArgumentNullException(nameof(playerKills), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: player_kills.");
 
             if (playerMatchOutcome.IsSet && playerMatchOutcome.Value == null)
-                throw new ArgumentNullException(nameof(playerMatchOutcome), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: player_match_outcome.");
 
             if (playerTeam.IsSet && playerTeam.Value == null)
-                throw new ArgumentNullException(nameof(playerTeam), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: player_team.");
 
             if (startTime.IsSet && startTime.Value == null)
-                throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class PlayerMatchHistoryEntry.");
+                throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: start_time.");
 
             return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection, teamAbandoned);
         }
@@ -800,7 +800,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerMatchHistoryEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerMatchHistoryEntry playerMatchHistoryEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -815,7 +814,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerMatchHistoryEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerMatchHistoryEntry playerMatchHistoryEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("account_id", playerMatchHistoryEntry.AccountId);

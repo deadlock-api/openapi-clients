@@ -48,7 +48,9 @@ class TestCorruptedItemImages(unittest.TestCase):
                     vitality = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    weapon = , )
+                    weapon = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), )
             )
         else:
             return CorruptedItemImages(
@@ -65,7 +67,9 @@ class TestCorruptedItemImages(unittest.TestCase):
                     vitality = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    weapon = , ),
+                    weapon = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
         )
         """
 

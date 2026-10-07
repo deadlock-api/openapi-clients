@@ -206,7 +206,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerCardSlotHero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerCardSlotHero playerCardSlotHero, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -221,7 +220,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerCardSlotHero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerCardSlotHero playerCardSlotHero, JsonSerializerOptions jsonSerializerOptions)
         {
             if (playerCardSlotHero.IdOption.IsSet)

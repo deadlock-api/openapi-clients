@@ -157,16 +157,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!normalModTier.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(normalModTier));
+                throw new JsonException("Property is required for class ItemDraftRound: normal_mod_tier.");
 
             if (!rareModTier.IsSet)
-                throw new ArgumentException("Property is required for class ItemDraftRound.", nameof(rareModTier));
+                throw new JsonException("Property is required for class ItemDraftRound: rare_mod_tier.");
 
             if (normalModTier.IsSet && normalModTier.Value == null)
-                throw new ArgumentNullException(nameof(normalModTier), "Property is not nullable for class ItemDraftRound.");
+                throw new JsonException("Property is not nullable for class ItemDraftRound: normal_mod_tier.");
 
             if (rareModTier.IsSet && rareModTier.Value == null)
-                throw new ArgumentNullException(nameof(rareModTier), "Property is not nullable for class ItemDraftRound.");
+                throw new JsonException("Property is not nullable for class ItemDraftRound: rare_mod_tier.");
 
             return new ItemDraftRound(normalModTier.Value!.Value!, rareModTier.Value!.Value!);
         }
@@ -177,7 +177,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemDraftRound"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemDraftRound itemDraftRound, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -192,7 +191,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemDraftRound"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemDraftRound itemDraftRound, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("normal_mod_tier", itemDraftRound.NormalModTier);

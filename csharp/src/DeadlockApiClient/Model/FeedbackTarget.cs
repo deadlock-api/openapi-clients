@@ -187,7 +187,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedbackTarget"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, FeedbackTarget feedbackTarget, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -202,7 +201,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedbackTarget"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, FeedbackTarget feedbackTarget, JsonSerializerOptions jsonSerializerOptions)
         {
             if (feedbackTarget.ElementTextOption.IsSet)

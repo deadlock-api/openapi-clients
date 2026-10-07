@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!shopGroup.IsSet)
-                throw new ArgumentException("Property is required for class ItemGroup.", nameof(shopGroup));
+                throw new JsonException("Property is required for class ItemGroup: shop_group.");
 
             if (!upgrades.IsSet)
-                throw new ArgumentException("Property is required for class ItemGroup.", nameof(upgrades));
+                throw new JsonException("Property is required for class ItemGroup: upgrades.");
 
             if (shopGroup.IsSet && shopGroup.Value == null)
-                throw new ArgumentNullException(nameof(shopGroup), "Property is not nullable for class ItemGroup.");
+                throw new JsonException("Property is not nullable for class ItemGroup: shop_group.");
 
             if (upgrades.IsSet && upgrades.Value == null)
-                throw new ArgumentNullException(nameof(upgrades), "Property is not nullable for class ItemGroup.");
+                throw new JsonException("Property is not nullable for class ItemGroup: upgrades.");
 
             return new ItemGroup(shopGroup.Value!, upgrades.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemGroup"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemGroup itemGroup, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemGroup"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemGroup itemGroup, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemGroup.ShopGroup == null)
-                throw new ArgumentNullException(nameof(itemGroup.ShopGroup), "Property is required for class ItemGroup.");
-
-            if (itemGroup.Upgrades == null)
-                throw new ArgumentNullException(nameof(itemGroup.Upgrades), "Property is required for class ItemGroup.");
-
             writer.WriteString("shop_group", itemGroup.ShopGroup);
 
             writer.WritePropertyName("upgrades");

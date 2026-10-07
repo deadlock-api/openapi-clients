@@ -151,16 +151,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountStats.", nameof(accountId));
+                throw new JsonException("Property is required for class PlayerAccountStats: account_id.");
 
             if (!stats.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountStats.", nameof(stats));
+                throw new JsonException("Property is required for class PlayerAccountStats: stats.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class PlayerAccountStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountStats: account_id.");
 
             if (stats.IsSet && stats.Value == null)
-                throw new ArgumentNullException(nameof(stats), "Property is not nullable for class PlayerAccountStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountStats: stats.");
 
             return new PlayerAccountStats(accountId.Value!.Value!, stats.Value!);
         }
@@ -171,7 +171,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerAccountStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerAccountStats playerAccountStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -186,12 +185,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerAccountStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerAccountStats playerAccountStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (playerAccountStats.Stats == null)
-                throw new ArgumentNullException(nameof(playerAccountStats.Stats), "Property is required for class PlayerAccountStats.");
-
             writer.WriteNumber("account_id", playerAccountStats.AccountId);
 
             writer.WritePropertyName("stats");

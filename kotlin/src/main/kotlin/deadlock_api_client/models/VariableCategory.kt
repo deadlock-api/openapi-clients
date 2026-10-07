@@ -30,7 +30,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: General,Daily,Hero,Item,Leaderboard,Overall
+ * Values: General,Daily,Hero,Item,Leaderboard,Season,Overall
  */
 
 @JsonClass(generateAdapter = false)
@@ -50,6 +50,9 @@ enum class VariableCategory(val value: kotlin.String) {
 
     @Json(name = "Leaderboard")
     Leaderboard("Leaderboard"),
+
+    @Json(name = "Season")
+    Season("Season"),
 
     @Json(name = "Overall")
     Overall("Overall");

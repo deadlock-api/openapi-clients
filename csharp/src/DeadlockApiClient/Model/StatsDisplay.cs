@@ -197,40 +197,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!healthHeaderStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(healthHeaderStats));
+                throw new JsonException("Property is required for class StatsDisplay: health_header_stats.");
 
             if (!healthStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(healthStats));
+                throw new JsonException("Property is required for class StatsDisplay: health_stats.");
 
             if (!magicHeaderStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(magicHeaderStats));
+                throw new JsonException("Property is required for class StatsDisplay: magic_header_stats.");
 
             if (!magicStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(magicStats));
+                throw new JsonException("Property is required for class StatsDisplay: magic_stats.");
 
             if (!weaponHeaderStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(weaponHeaderStats));
+                throw new JsonException("Property is required for class StatsDisplay: weapon_header_stats.");
 
             if (!weaponStats.IsSet)
-                throw new ArgumentException("Property is required for class StatsDisplay.", nameof(weaponStats));
+                throw new JsonException("Property is required for class StatsDisplay: weapon_stats.");
 
             if (healthHeaderStats.IsSet && healthHeaderStats.Value == null)
-                throw new ArgumentNullException(nameof(healthHeaderStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: health_header_stats.");
 
             if (healthStats.IsSet && healthStats.Value == null)
-                throw new ArgumentNullException(nameof(healthStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: health_stats.");
 
             if (magicHeaderStats.IsSet && magicHeaderStats.Value == null)
-                throw new ArgumentNullException(nameof(magicHeaderStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: magic_header_stats.");
 
             if (magicStats.IsSet && magicStats.Value == null)
-                throw new ArgumentNullException(nameof(magicStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: magic_stats.");
 
             if (weaponHeaderStats.IsSet && weaponHeaderStats.Value == null)
-                throw new ArgumentNullException(nameof(weaponHeaderStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: weapon_header_stats.");
 
             if (weaponStats.IsSet && weaponStats.Value == null)
-                throw new ArgumentNullException(nameof(weaponStats), "Property is not nullable for class StatsDisplay.");
+                throw new JsonException("Property is not nullable for class StatsDisplay: weapon_stats.");
 
             return new StatsDisplay(healthHeaderStats.Value!, healthStats.Value!, magicHeaderStats.Value!, magicStats.Value!, weaponHeaderStats.Value!, weaponStats.Value!);
         }
@@ -241,7 +241,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="statsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StatsDisplay statsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -256,27 +255,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="statsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StatsDisplay statsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (statsDisplay.HealthHeaderStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.HealthHeaderStats), "Property is required for class StatsDisplay.");
-
-            if (statsDisplay.HealthStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.HealthStats), "Property is required for class StatsDisplay.");
-
-            if (statsDisplay.MagicHeaderStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.MagicHeaderStats), "Property is required for class StatsDisplay.");
-
-            if (statsDisplay.MagicStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.MagicStats), "Property is required for class StatsDisplay.");
-
-            if (statsDisplay.WeaponHeaderStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.WeaponHeaderStats), "Property is required for class StatsDisplay.");
-
-            if (statsDisplay.WeaponStats == null)
-                throw new ArgumentNullException(nameof(statsDisplay.WeaponStats), "Property is required for class StatsDisplay.");
-
             writer.WritePropertyName("health_header_stats");
             JsonSerializer.Serialize(writer, statsDisplay.HealthHeaderStats, jsonSerializerOptions);
             writer.WritePropertyName("health_stats");

@@ -171,28 +171,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!slopeIncoming.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline.", nameof(slopeIncoming));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline: slope_incoming.");
 
             if (!slopeOutgoing.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline.", nameof(slopeOutgoing));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline: slope_outgoing.");
 
             if (!x.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline.", nameof(x));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline: x.");
 
             if (!y.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline.", nameof(y));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurveSpline: y.");
 
             if (slopeIncoming.IsSet && slopeIncoming.Value == null)
-                throw new ArgumentNullException(nameof(slopeIncoming), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline: slope_incoming.");
 
             if (slopeOutgoing.IsSet && slopeOutgoing.Value == null)
-                throw new ArgumentNullException(nameof(slopeOutgoing), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline: slope_outgoing.");
 
             if (x.IsSet && x.Value == null)
-                throw new ArgumentNullException(nameof(x), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline: x.");
 
             if (y.IsSet && y.Value == null)
-                throw new ArgumentNullException(nameof(y), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurveSpline: y.");
 
             return new RawItemWeaponInfoBulletSpeedCurveSpline(slopeIncoming.Value!.Value!, slopeOutgoing.Value!.Value!, x.Value!.Value!, y.Value!.Value!);
         }
@@ -203,7 +203,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawItemWeaponInfoBulletSpeedCurveSpline"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RawItemWeaponInfoBulletSpeedCurveSpline rawItemWeaponInfoBulletSpeedCurveSpline, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -218,7 +217,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawItemWeaponInfoBulletSpeedCurveSpline"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RawItemWeaponInfoBulletSpeedCurveSpline rawItemWeaponInfoBulletSpeedCurveSpline, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("slope_incoming", rawItemWeaponInfoBulletSpeedCurveSpline.SlopeIncoming);

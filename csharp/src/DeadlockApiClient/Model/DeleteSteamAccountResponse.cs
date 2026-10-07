@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!message.IsSet)
-                throw new ArgumentException("Property is required for class DeleteSteamAccountResponse.", nameof(message));
+                throw new JsonException("Property is required for class DeleteSteamAccountResponse: message.");
 
             if (message.IsSet && message.Value == null)
-                throw new ArgumentNullException(nameof(message), "Property is not nullable for class DeleteSteamAccountResponse.");
+                throw new JsonException("Property is not nullable for class DeleteSteamAccountResponse: message.");
 
             return new DeleteSteamAccountResponse(message.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="deleteSteamAccountResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DeleteSteamAccountResponse deleteSteamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="deleteSteamAccountResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DeleteSteamAccountResponse deleteSteamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (deleteSteamAccountResponse.Message == null)
-                throw new ArgumentNullException(nameof(deleteSteamAccountResponse.Message), "Property is required for class DeleteSteamAccountResponse.");
-
             writer.WriteString("message", deleteSteamAccountResponse.Message);
         }
     }

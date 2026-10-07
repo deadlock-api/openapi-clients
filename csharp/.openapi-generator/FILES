@@ -608,6 +608,7 @@ src/DeadlockApiClient/Client/TokenBase.cs
 src/DeadlockApiClient/Client/TokenContainer`1.cs
 src/DeadlockApiClient/Client/TokenProvider`1.cs
 src/DeadlockApiClient/DeadlockApiClient.csproj
+src/DeadlockApiClient/Extensions/IHostApplicationBuilderExtensions.cs
 src/DeadlockApiClient/Extensions/IHostBuilderExtensions.cs
 src/DeadlockApiClient/Extensions/IHttpClientBuilderExtensions.cs
 src/DeadlockApiClient/Extensions/IServiceCollectionExtensions.cs

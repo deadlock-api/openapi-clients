@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!tier.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner.", nameof(tier));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner: tier.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner.", nameof(value));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner: value.");
 
             if (!valueType.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner.", nameof(valueType));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner: value_type.");
 
             if (tier.IsSet && tier.Value == null)
-                throw new ArgumentNullException(nameof(tier), "Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner: tier.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner: value.");
 
             if (valueType.IsSet && valueType.Value == null)
-                throw new ArgumentNullException(nameof(valueType), "Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecPurchaseBonusValueInner: value_type.");
 
             return new HashMapItemSlotTypeVecPurchaseBonusValueInner(tier.Value!.Value!, value.Value!, valueType.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeVecPurchaseBonusValueInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapItemSlotTypeVecPurchaseBonusValueInner hashMapItemSlotTypeVecPurchaseBonusValueInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,15 +198,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeVecPurchaseBonusValueInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapItemSlotTypeVecPurchaseBonusValueInner hashMapItemSlotTypeVecPurchaseBonusValueInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (hashMapItemSlotTypeVecPurchaseBonusValueInner.Value == null)
-                throw new ArgumentNullException(nameof(hashMapItemSlotTypeVecPurchaseBonusValueInner.Value), "Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner.");
-
-            if (hashMapItemSlotTypeVecPurchaseBonusValueInner.ValueType == null)
-                throw new ArgumentNullException(nameof(hashMapItemSlotTypeVecPurchaseBonusValueInner.ValueType), "Property is required for class HashMapItemSlotTypeVecPurchaseBonusValueInner.");
-
             writer.WriteNumber("tier", hashMapItemSlotTypeVecPurchaseBonusValueInner.Tier);
 
             writer.WriteString("value", hashMapItemSlotTypeVecPurchaseBonusValueInner.Value);

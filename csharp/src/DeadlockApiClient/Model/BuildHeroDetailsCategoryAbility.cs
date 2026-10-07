@@ -236,10 +236,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abilityId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHeroDetailsCategoryAbility.", nameof(abilityId));
+                throw new JsonException("Property is required for class BuildHeroDetailsCategoryAbility: ability_id.");
 
             if (abilityId.IsSet && abilityId.Value == null)
-                throw new ArgumentNullException(nameof(abilityId), "Property is not nullable for class BuildHeroDetailsCategoryAbility.");
+                throw new JsonException("Property is not nullable for class BuildHeroDetailsCategoryAbility: ability_id.");
 
             return new BuildHeroDetailsCategoryAbility(abilityId.Value!.Value!, annotation, imbueTargetAbilityId, requiredFlexSlots, sellPriority);
         }
@@ -250,7 +250,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetailsCategoryAbility"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildHeroDetailsCategoryAbility buildHeroDetailsCategoryAbility, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -265,7 +264,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetailsCategoryAbility"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildHeroDetailsCategoryAbility buildHeroDetailsCategoryAbility, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("ability_id", buildHeroDetailsCategoryAbility.AbilityId);

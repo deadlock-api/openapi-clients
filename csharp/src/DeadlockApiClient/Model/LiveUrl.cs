@@ -217,16 +217,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!broadcastUrl.IsSet)
-                throw new ArgumentException("Property is required for class LiveUrl.", nameof(broadcastUrl));
+                throw new JsonException("Property is required for class LiveUrl: broadcast_url.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class LiveUrl.", nameof(matchId));
+                throw new JsonException("Property is required for class LiveUrl: match_id.");
 
             if (broadcastUrl.IsSet && broadcastUrl.Value == null)
-                throw new ArgumentNullException(nameof(broadcastUrl), "Property is not nullable for class LiveUrl.");
+                throw new JsonException("Property is not nullable for class LiveUrl: broadcast_url.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class LiveUrl.");
+                throw new JsonException("Property is not nullable for class LiveUrl: match_id.");
 
             return new LiveUrl(broadcastUrl.Value!, matchId.Value!.Value!, lobbyId, startedAt, updatedAt);
         }
@@ -237,7 +237,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="liveUrl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LiveUrl liveUrl, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -252,12 +251,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="liveUrl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LiveUrl liveUrl, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (liveUrl.BroadcastUrl == null)
-                throw new ArgumentNullException(nameof(liveUrl.BroadcastUrl), "Property is required for class LiveUrl.");
-
             writer.WriteString("broadcast_url", liveUrl.BroadcastUrl);
 
             writer.WriteNumber("match_id", liveUrl.MatchId);

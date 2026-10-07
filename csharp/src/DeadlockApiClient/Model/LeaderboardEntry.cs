@@ -209,10 +209,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (possibleAccountIds.IsSet && possibleAccountIds.Value == null)
-                throw new ArgumentNullException(nameof(possibleAccountIds), "Property is not nullable for class LeaderboardEntry.");
+                throw new JsonException("Property is not nullable for class LeaderboardEntry: possible_account_ids.");
 
             if (topHeroIds.IsSet && topHeroIds.Value == null)
-                throw new ArgumentNullException(nameof(topHeroIds), "Property is not nullable for class LeaderboardEntry.");
+                throw new JsonException("Property is not nullable for class LeaderboardEntry: top_hero_ids.");
 
             return new LeaderboardEntry(accountName, possibleAccountIds, rank, topHeroIds);
         }
@@ -223,7 +223,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="leaderboardEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LeaderboardEntry leaderboardEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -238,14 +237,13 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="leaderboardEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LeaderboardEntry leaderboardEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             if (leaderboardEntry.PossibleAccountIdsOption.IsSet && leaderboardEntry.PossibleAccountIds == null)
-                throw new ArgumentNullException(nameof(leaderboardEntry.PossibleAccountIds), "Property is required for class LeaderboardEntry.");
+                throw new JsonException("Cannot write null property LeaderboardEntry.PossibleAccountIds to non-nullable JSON property 'possible_account_ids'.");
 
             if (leaderboardEntry.TopHeroIdsOption.IsSet && leaderboardEntry.TopHeroIds == null)
-                throw new ArgumentNullException(nameof(leaderboardEntry.TopHeroIds), "Property is required for class LeaderboardEntry.");
+                throw new JsonException("Cannot write null property LeaderboardEntry.TopHeroIds to non-nullable JSON property 'top_hero_ids'.");
 
             if (leaderboardEntry.AccountNameOption.IsSet)
                 if (leaderboardEntry.AccountNameOption.Value != null)

@@ -205,34 +205,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bulletDamage.IsSet)
-                throw new ArgumentException("Property is required for class DamageFlash.", nameof(bulletDamage));
+                throw new JsonException("Property is required for class DamageFlash: bullet_damage.");
 
             if (!critDamage.IsSet)
-                throw new ArgumentException("Property is required for class DamageFlash.", nameof(critDamage));
+                throw new JsonException("Property is required for class DamageFlash: crit_damage.");
 
             if (!healingDamage.IsSet)
-                throw new ArgumentException("Property is required for class DamageFlash.", nameof(healingDamage));
+                throw new JsonException("Property is required for class DamageFlash: healing_damage.");
 
             if (!meleeDamage.IsSet)
-                throw new ArgumentException("Property is required for class DamageFlash.", nameof(meleeDamage));
+                throw new JsonException("Property is required for class DamageFlash: melee_damage.");
 
             if (!techDamage.IsSet)
-                throw new ArgumentException("Property is required for class DamageFlash.", nameof(techDamage));
+                throw new JsonException("Property is required for class DamageFlash: tech_damage.");
 
             if (bulletDamage.IsSet && bulletDamage.Value == null)
-                throw new ArgumentNullException(nameof(bulletDamage), "Property is not nullable for class DamageFlash.");
+                throw new JsonException("Property is not nullable for class DamageFlash: bullet_damage.");
 
             if (critDamage.IsSet && critDamage.Value == null)
-                throw new ArgumentNullException(nameof(critDamage), "Property is not nullable for class DamageFlash.");
+                throw new JsonException("Property is not nullable for class DamageFlash: crit_damage.");
 
             if (healingDamage.IsSet && healingDamage.Value == null)
-                throw new ArgumentNullException(nameof(healingDamage), "Property is not nullable for class DamageFlash.");
+                throw new JsonException("Property is not nullable for class DamageFlash: healing_damage.");
 
             if (meleeDamage.IsSet && meleeDamage.Value == null)
-                throw new ArgumentNullException(nameof(meleeDamage), "Property is not nullable for class DamageFlash.");
+                throw new JsonException("Property is not nullable for class DamageFlash: melee_damage.");
 
             if (techDamage.IsSet && techDamage.Value == null)
-                throw new ArgumentNullException(nameof(techDamage), "Property is not nullable for class DamageFlash.");
+                throw new JsonException("Property is not nullable for class DamageFlash: tech_damage.");
 
             return new DamageFlash(bulletDamage.Value!, critDamage.Value!, healingDamage.Value!, meleeDamage.Value!, techDamage.Value!, genericDamage);
         }
@@ -243,7 +243,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="damageFlash"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DamageFlash damageFlash, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -258,24 +257,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="damageFlash"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DamageFlash damageFlash, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (damageFlash.BulletDamage == null)
-                throw new ArgumentNullException(nameof(damageFlash.BulletDamage), "Property is required for class DamageFlash.");
-
-            if (damageFlash.CritDamage == null)
-                throw new ArgumentNullException(nameof(damageFlash.CritDamage), "Property is required for class DamageFlash.");
-
-            if (damageFlash.HealingDamage == null)
-                throw new ArgumentNullException(nameof(damageFlash.HealingDamage), "Property is required for class DamageFlash.");
-
-            if (damageFlash.MeleeDamage == null)
-                throw new ArgumentNullException(nameof(damageFlash.MeleeDamage), "Property is required for class DamageFlash.");
-
-            if (damageFlash.TechDamage == null)
-                throw new ArgumentNullException(nameof(damageFlash.TechDamage), "Property is required for class DamageFlash.");
-
             writer.WritePropertyName("bullet_damage");
             JsonSerializer.Serialize(writer, damageFlash.BulletDamage, jsonSerializerOptions);
             writer.WritePropertyName("crit_damage");

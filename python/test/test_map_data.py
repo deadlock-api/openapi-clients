@@ -56,50 +56,193 @@ class TestMapData(unittest.TestCase):
                             position = [
                                 1.337
                                 ], 
+                            target = [
+                                1.337
+                                ], 
                             team = 0, 
                             top_relative = 1.337, )
                         ], 
                     bounce_pads = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     bridge_buffs = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     climb_ropes = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     cosmic_veils = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     crates = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     golden_statues = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     healing_snacks = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     shops = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     soul_urn_pads = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     soul_urn_spawns = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     steam_vents = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     teleporters = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     tough_crates = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], 
                     unstable_rifts = [
-                        
+                        deadlock_api_client.models.map_entity.MapEntity(
+                            kind = '', 
+                            left_relative = 1.337, 
+                            position = [
+                                1.337
+                                ], 
+                            target = [
+                                1.337
+                                ], 
+                            team = 0, 
+                            top_relative = 1.337, )
                         ], ),
                 images = deadlock_api_client.models.map_images.MapImages(
                     background = '', 

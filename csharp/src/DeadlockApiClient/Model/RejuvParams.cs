@@ -210,46 +210,46 @@ namespace DeadlockApiClient.Model
             }
 
             if (!playerRespawnMult.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(playerRespawnMult));
+                throw new JsonException("Property is required for class RejuvParams: player_respawn_mult.");
 
             if (!rejuvinatorBuffDuration.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(rejuvinatorBuffDuration));
+                throw new JsonException("Property is required for class RejuvParams: rejuvinator_buff_duration.");
 
             if (!rejuvinatorDropDuration.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(rejuvinatorDropDuration));
+                throw new JsonException("Property is required for class RejuvParams: rejuvinator_drop_duration.");
 
             if (!rejuvinatorDropHeight.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(rejuvinatorDropHeight));
+                throw new JsonException("Property is required for class RejuvParams: rejuvinator_drop_height.");
 
             if (!rejuvinatorExpirationWarningTiming.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(rejuvinatorExpirationWarningTiming));
+                throw new JsonException("Property is required for class RejuvParams: rejuvinator_expiration_warning_timing.");
 
             if (!rejuvinatorRebirthDuration.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(rejuvinatorRebirthDuration));
+                throw new JsonException("Property is required for class RejuvParams: rejuvinator_rebirth_duration.");
 
             if (!trooperHealthMult.IsSet)
-                throw new ArgumentException("Property is required for class RejuvParams.", nameof(trooperHealthMult));
+                throw new JsonException("Property is required for class RejuvParams: trooper_health_mult.");
 
             if (playerRespawnMult.IsSet && playerRespawnMult.Value == null)
-                throw new ArgumentNullException(nameof(playerRespawnMult), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: player_respawn_mult.");
 
             if (rejuvinatorBuffDuration.IsSet && rejuvinatorBuffDuration.Value == null)
-                throw new ArgumentNullException(nameof(rejuvinatorBuffDuration), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: rejuvinator_buff_duration.");
 
             if (rejuvinatorDropDuration.IsSet && rejuvinatorDropDuration.Value == null)
-                throw new ArgumentNullException(nameof(rejuvinatorDropDuration), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: rejuvinator_drop_duration.");
 
             if (rejuvinatorDropHeight.IsSet && rejuvinatorDropHeight.Value == null)
-                throw new ArgumentNullException(nameof(rejuvinatorDropHeight), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: rejuvinator_drop_height.");
 
             if (rejuvinatorExpirationWarningTiming.IsSet && rejuvinatorExpirationWarningTiming.Value == null)
-                throw new ArgumentNullException(nameof(rejuvinatorExpirationWarningTiming), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: rejuvinator_expiration_warning_timing.");
 
             if (rejuvinatorRebirthDuration.IsSet && rejuvinatorRebirthDuration.Value == null)
-                throw new ArgumentNullException(nameof(rejuvinatorRebirthDuration), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: rejuvinator_rebirth_duration.");
 
             if (trooperHealthMult.IsSet && trooperHealthMult.Value == null)
-                throw new ArgumentNullException(nameof(trooperHealthMult), "Property is not nullable for class RejuvParams.");
+                throw new JsonException("Property is not nullable for class RejuvParams: trooper_health_mult.");
 
             return new RejuvParams(playerRespawnMult.Value!, rejuvinatorBuffDuration.Value!.Value!, rejuvinatorDropDuration.Value!.Value!, rejuvinatorDropHeight.Value!.Value!, rejuvinatorExpirationWarningTiming.Value!.Value!, rejuvinatorRebirthDuration.Value!, trooperHealthMult.Value!);
         }
@@ -260,7 +260,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rejuvParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RejuvParams rejuvParams, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -275,18 +274,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rejuvParams"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RejuvParams rejuvParams, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (rejuvParams.PlayerRespawnMult == null)
-                throw new ArgumentNullException(nameof(rejuvParams.PlayerRespawnMult), "Property is required for class RejuvParams.");
-
-            if (rejuvParams.RejuvinatorRebirthDuration == null)
-                throw new ArgumentNullException(nameof(rejuvParams.RejuvinatorRebirthDuration), "Property is required for class RejuvParams.");
-
-            if (rejuvParams.TrooperHealthMult == null)
-                throw new ArgumentNullException(nameof(rejuvParams.TrooperHealthMult), "Property is required for class RejuvParams.");
-
             writer.WritePropertyName("player_respawn_mult");
             JsonSerializer.Serialize(writer, rejuvParams.PlayerRespawnMult, jsonSerializerOptions);
             writer.WriteNumber("rejuvinator_buff_duration", rejuvParams.RejuvinatorBuffDuration);

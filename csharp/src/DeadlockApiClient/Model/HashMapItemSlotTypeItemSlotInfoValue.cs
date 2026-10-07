@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!maxPurchasesForTier.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeItemSlotInfoValue.", nameof(maxPurchasesForTier));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeItemSlotInfoValue: max_purchases_for_tier.");
 
             if (maxPurchasesForTier.IsSet && maxPurchasesForTier.Value == null)
-                throw new ArgumentNullException(nameof(maxPurchasesForTier), "Property is not nullable for class HashMapItemSlotTypeItemSlotInfoValue.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeItemSlotInfoValue: max_purchases_for_tier.");
 
             return new HashMapItemSlotTypeItemSlotInfoValue(maxPurchasesForTier.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeItemSlotInfoValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapItemSlotTypeItemSlotInfoValue hashMapItemSlotTypeItemSlotInfoValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeItemSlotInfoValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapItemSlotTypeItemSlotInfoValue hashMapItemSlotTypeItemSlotInfoValue, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (hashMapItemSlotTypeItemSlotInfoValue.MaxPurchasesForTier == null)
-                throw new ArgumentNullException(nameof(hashMapItemSlotTypeItemSlotInfoValue.MaxPurchasesForTier), "Property is required for class HashMapItemSlotTypeItemSlotInfoValue.");
-
             writer.WritePropertyName("max_purchases_for_tier");
             JsonSerializer.Serialize(writer, hashMapItemSlotTypeItemSlotInfoValue.MaxPurchasesForTier, jsonSerializerOptions);
         }

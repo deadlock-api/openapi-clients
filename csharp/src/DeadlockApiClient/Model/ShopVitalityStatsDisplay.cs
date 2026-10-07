@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!displayStats.IsSet)
-                throw new ArgumentException("Property is required for class ShopVitalityStatsDisplay.", nameof(displayStats));
+                throw new JsonException("Property is required for class ShopVitalityStatsDisplay: display_stats.");
 
             if (!otherDisplayStats.IsSet)
-                throw new ArgumentException("Property is required for class ShopVitalityStatsDisplay.", nameof(otherDisplayStats));
+                throw new JsonException("Property is required for class ShopVitalityStatsDisplay: other_display_stats.");
 
             if (displayStats.IsSet && displayStats.Value == null)
-                throw new ArgumentNullException(nameof(displayStats), "Property is not nullable for class ShopVitalityStatsDisplay.");
+                throw new JsonException("Property is not nullable for class ShopVitalityStatsDisplay: display_stats.");
 
             if (otherDisplayStats.IsSet && otherDisplayStats.Value == null)
-                throw new ArgumentNullException(nameof(otherDisplayStats), "Property is not nullable for class ShopVitalityStatsDisplay.");
+                throw new JsonException("Property is not nullable for class ShopVitalityStatsDisplay: other_display_stats.");
 
             return new ShopVitalityStatsDisplay(displayStats.Value!, otherDisplayStats.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopVitalityStatsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ShopVitalityStatsDisplay shopVitalityStatsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopVitalityStatsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ShopVitalityStatsDisplay shopVitalityStatsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (shopVitalityStatsDisplay.DisplayStats == null)
-                throw new ArgumentNullException(nameof(shopVitalityStatsDisplay.DisplayStats), "Property is required for class ShopVitalityStatsDisplay.");
-
-            if (shopVitalityStatsDisplay.OtherDisplayStats == null)
-                throw new ArgumentNullException(nameof(shopVitalityStatsDisplay.OtherDisplayStats), "Property is required for class ShopVitalityStatsDisplay.");
-
             writer.WritePropertyName("display_stats");
             JsonSerializer.Serialize(writer, shopVitalityStatsDisplay.DisplayStats, jsonSerializerOptions);
             writer.WritePropertyName("other_display_stats");

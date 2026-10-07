@@ -303,52 +303,52 @@ namespace DeadlockApiClient.Model
             }
 
             if (!buffType.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(buffType));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: buff_type.");
 
             if (!isPermanent.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(isPermanent));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: is_permanent.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(matches));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: matches.");
 
             if (!matchesWithPickup.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(matchesWithPickup));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: matches_with_pickup.");
 
             if (!pickups.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(pickups));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: pickups.");
 
             if (!timedMatches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(timedMatches));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: timed_matches.");
 
             if (!timedPickups.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(timedPickups));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: timed_pickups.");
 
             if (!totalStatValue.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsBuffStats.", nameof(totalStatValue));
+                throw new JsonException("Property is required for class AnalyticsBuffStats: total_stat_value.");
 
             if (buffType.IsSet && buffType.Value == null)
-                throw new ArgumentNullException(nameof(buffType), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: buff_type.");
 
             if (isPermanent.IsSet && isPermanent.Value == null)
-                throw new ArgumentNullException(nameof(isPermanent), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: is_permanent.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: matches.");
 
             if (matchesWithPickup.IsSet && matchesWithPickup.Value == null)
-                throw new ArgumentNullException(nameof(matchesWithPickup), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: matches_with_pickup.");
 
             if (pickups.IsSet && pickups.Value == null)
-                throw new ArgumentNullException(nameof(pickups), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: pickups.");
 
             if (timedMatches.IsSet && timedMatches.Value == null)
-                throw new ArgumentNullException(nameof(timedMatches), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: timed_matches.");
 
             if (timedPickups.IsSet && timedPickups.Value == null)
-                throw new ArgumentNullException(nameof(timedPickups), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: timed_pickups.");
 
             if (totalStatValue.IsSet && totalStatValue.Value == null)
-                throw new ArgumentNullException(nameof(totalStatValue), "Property is not nullable for class AnalyticsBuffStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsBuffStats: total_stat_value.");
 
             return new AnalyticsBuffStats(buffType.Value!, isPermanent.Value!.Value!, matches.Value!.Value!, matchesWithPickup.Value!.Value!, pickups.Value!.Value!, timedMatches.Value!.Value!, timedPickups.Value!.Value!, totalStatValue.Value!.Value!, avgFirstPickupTimeS, avgPickupTimeS);
         }
@@ -359,7 +359,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsBuffStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AnalyticsBuffStats analyticsBuffStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -374,12 +373,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsBuffStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AnalyticsBuffStats analyticsBuffStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (analyticsBuffStats.BuffType == null)
-                throw new ArgumentNullException(nameof(analyticsBuffStats.BuffType), "Property is required for class AnalyticsBuffStats.");
-
             writer.WriteString("buff_type", analyticsBuffStats.BuffType);
 
             writer.WriteBoolean("is_permanent", analyticsBuffStats.IsPermanent);

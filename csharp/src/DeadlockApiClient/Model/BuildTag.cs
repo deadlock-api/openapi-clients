@@ -177,28 +177,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class BuildTag.", nameof(className));
+                throw new JsonException("Property is required for class BuildTag: class_name.");
 
             if (!icon.IsSet)
-                throw new ArgumentException("Property is required for class BuildTag.", nameof(icon));
+                throw new JsonException("Property is required for class BuildTag: icon.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class BuildTag.", nameof(id));
+                throw new JsonException("Property is required for class BuildTag: id.");
 
             if (!label.IsSet)
-                throw new ArgumentException("Property is required for class BuildTag.", nameof(label));
+                throw new JsonException("Property is required for class BuildTag: label.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class BuildTag.");
+                throw new JsonException("Property is not nullable for class BuildTag: class_name.");
 
             if (icon.IsSet && icon.Value == null)
-                throw new ArgumentNullException(nameof(icon), "Property is not nullable for class BuildTag.");
+                throw new JsonException("Property is not nullable for class BuildTag: icon.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class BuildTag.");
+                throw new JsonException("Property is not nullable for class BuildTag: id.");
 
             if (label.IsSet && label.Value == null)
-                throw new ArgumentNullException(nameof(label), "Property is not nullable for class BuildTag.");
+                throw new JsonException("Property is not nullable for class BuildTag: label.");
 
             return new BuildTag(className.Value!, icon.Value!, id.Value!.Value!, label.Value!);
         }
@@ -209,7 +209,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildTag"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildTag buildTag, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -224,18 +223,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildTag"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildTag buildTag, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (buildTag.ClassName == null)
-                throw new ArgumentNullException(nameof(buildTag.ClassName), "Property is required for class BuildTag.");
-
-            if (buildTag.Icon == null)
-                throw new ArgumentNullException(nameof(buildTag.Icon), "Property is required for class BuildTag.");
-
-            if (buildTag.Label == null)
-                throw new ArgumentNullException(nameof(buildTag.Label), "Property is required for class BuildTag.");
-
             writer.WriteString("class_name", buildTag.ClassName);
 
             writer.WriteString("icon", buildTag.Icon);

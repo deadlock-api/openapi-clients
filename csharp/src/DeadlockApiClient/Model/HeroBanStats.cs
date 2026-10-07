@@ -179,22 +179,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bans.IsSet)
-                throw new ArgumentException("Property is required for class HeroBanStats.", nameof(bans));
+                throw new JsonException("Property is required for class HeroBanStats: bans.");
 
             if (!bucket.IsSet)
-                throw new ArgumentException("Property is required for class HeroBanStats.", nameof(bucket));
+                throw new JsonException("Property is required for class HeroBanStats: bucket.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class HeroBanStats.", nameof(heroId));
+                throw new JsonException("Property is required for class HeroBanStats: hero_id.");
 
             if (bans.IsSet && bans.Value == null)
-                throw new ArgumentNullException(nameof(bans), "Property is not nullable for class HeroBanStats.");
+                throw new JsonException("Property is not nullable for class HeroBanStats: bans.");
 
             if (bucket.IsSet && bucket.Value == null)
-                throw new ArgumentNullException(nameof(bucket), "Property is not nullable for class HeroBanStats.");
+                throw new JsonException("Property is not nullable for class HeroBanStats: bucket.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class HeroBanStats.");
+                throw new JsonException("Property is not nullable for class HeroBanStats: hero_id.");
 
             return new HeroBanStats(bans.Value!.Value!, bucket.Value!.Value!, heroId.Value!.Value!);
         }
@@ -205,7 +205,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroBanStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroBanStats heroBanStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -220,7 +219,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroBanStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroBanStats heroBanStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("bans", heroBanStats.Bans);

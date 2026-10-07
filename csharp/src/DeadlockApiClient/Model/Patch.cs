@@ -241,58 +241,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!author.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(author));
+                throw new JsonException("Property is required for class Patch: author.");
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(category));
+                throw new JsonException("Property is required for class Patch: category.");
 
             if (!contentEncoded.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(contentEncoded));
+                throw new JsonException("Property is required for class Patch: content_encoded.");
 
             if (!dcCreator.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(dcCreator));
+                throw new JsonException("Property is required for class Patch: dc_creator.");
 
             if (!guid.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(guid));
+                throw new JsonException("Property is required for class Patch: guid.");
 
             if (!link.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(link));
+                throw new JsonException("Property is required for class Patch: link.");
 
             if (!pubDate.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(pubDate));
+                throw new JsonException("Property is required for class Patch: pub_date.");
 
             if (!slashComments.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(slashComments));
+                throw new JsonException("Property is required for class Patch: slash_comments.");
 
             if (!title.IsSet)
-                throw new ArgumentException("Property is required for class Patch.", nameof(title));
+                throw new JsonException("Property is required for class Patch: title.");
 
             if (author.IsSet && author.Value == null)
-                throw new ArgumentNullException(nameof(author), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: author.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: category.");
 
             if (contentEncoded.IsSet && contentEncoded.Value == null)
-                throw new ArgumentNullException(nameof(contentEncoded), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: content_encoded.");
 
             if (dcCreator.IsSet && dcCreator.Value == null)
-                throw new ArgumentNullException(nameof(dcCreator), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: dc_creator.");
 
             if (guid.IsSet && guid.Value == null)
-                throw new ArgumentNullException(nameof(guid), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: guid.");
 
             if (link.IsSet && link.Value == null)
-                throw new ArgumentNullException(nameof(link), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: link.");
 
             if (pubDate.IsSet && pubDate.Value == null)
-                throw new ArgumentNullException(nameof(pubDate), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: pub_date.");
 
             if (slashComments.IsSet && slashComments.Value == null)
-                throw new ArgumentNullException(nameof(slashComments), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: slash_comments.");
 
             if (title.IsSet && title.Value == null)
-                throw new ArgumentNullException(nameof(title), "Property is not nullable for class Patch.");
+                throw new JsonException("Property is not nullable for class Patch: title.");
 
             return new Patch(author.Value!, category.Value!, contentEncoded.Value!, dcCreator.Value!, guid.Value!, link.Value!, pubDate.Value!.Value!, slashComments.Value!, title.Value!);
         }
@@ -303,7 +303,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Patch patch, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -318,33 +317,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Patch patch, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (patch.Author == null)
-                throw new ArgumentNullException(nameof(patch.Author), "Property is required for class Patch.");
-
-            if (patch.Category == null)
-                throw new ArgumentNullException(nameof(patch.Category), "Property is required for class Patch.");
-
-            if (patch.ContentEncoded == null)
-                throw new ArgumentNullException(nameof(patch.ContentEncoded), "Property is required for class Patch.");
-
-            if (patch.DcCreator == null)
-                throw new ArgumentNullException(nameof(patch.DcCreator), "Property is required for class Patch.");
-
-            if (patch.Guid == null)
-                throw new ArgumentNullException(nameof(patch.Guid), "Property is required for class Patch.");
-
-            if (patch.Link == null)
-                throw new ArgumentNullException(nameof(patch.Link), "Property is required for class Patch.");
-
-            if (patch.SlashComments == null)
-                throw new ArgumentNullException(nameof(patch.SlashComments), "Property is required for class Patch.");
-
-            if (patch.Title == null)
-                throw new ArgumentNullException(nameof(patch.Title), "Property is required for class Patch.");
-
             writer.WriteString("author", patch.Author);
 
             writer.WritePropertyName("category");

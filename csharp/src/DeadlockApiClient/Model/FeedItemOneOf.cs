@@ -274,46 +274,46 @@ namespace DeadlockApiClient.Model
             }
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(category));
+                throw new JsonException("Property is required for class FeedItemOneOf: category.");
 
             if (!content.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(content));
+                throw new JsonException("Property is required for class FeedItemOneOf: content.");
 
             if (!guid.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(guid));
+                throw new JsonException("Property is required for class FeedItemOneOf: guid.");
 
             if (!link.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(link));
+                throw new JsonException("Property is required for class FeedItemOneOf: link.");
 
             if (!pubDate.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(pubDate));
+                throw new JsonException("Property is required for class FeedItemOneOf: pub_date.");
 
             if (!title.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(title));
+                throw new JsonException("Property is required for class FeedItemOneOf: title.");
 
             if (!source.IsSet)
-                throw new ArgumentException("Property is required for class FeedItemOneOf.", nameof(source));
+                throw new JsonException("Property is required for class FeedItemOneOf: source.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: category.");
 
             if (content.IsSet && content.Value == null)
-                throw new ArgumentNullException(nameof(content), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: content.");
 
             if (guid.IsSet && guid.Value == null)
-                throw new ArgumentNullException(nameof(guid), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: guid.");
 
             if (link.IsSet && link.Value == null)
-                throw new ArgumentNullException(nameof(link), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: link.");
 
             if (pubDate.IsSet && pubDate.Value == null)
-                throw new ArgumentNullException(nameof(pubDate), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: pub_date.");
 
             if (title.IsSet && title.Value == null)
-                throw new ArgumentNullException(nameof(title), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: title.");
 
             if (source.IsSet && source.Value == null)
-                throw new ArgumentNullException(nameof(source), "Property is not nullable for class FeedItemOneOf.");
+                throw new JsonException("Property is not nullable for class FeedItemOneOf: source.");
 
             return new FeedItemOneOf(category.Value!, content.Value!, guid.Value!, link.Value!, pubDate.Value!.Value!, title.Value!, source.Value!.Value!);
         }
@@ -324,7 +324,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedItemOneOf"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, FeedItemOneOf feedItemOneOf, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -339,24 +338,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="feedItemOneOf"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, FeedItemOneOf feedItemOneOf, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (feedItemOneOf.Category == null)
-                throw new ArgumentNullException(nameof(feedItemOneOf.Category), "Property is required for class FeedItemOneOf.");
-
-            if (feedItemOneOf.Content == null)
-                throw new ArgumentNullException(nameof(feedItemOneOf.Content), "Property is required for class FeedItemOneOf.");
-
-            if (feedItemOneOf.Guid == null)
-                throw new ArgumentNullException(nameof(feedItemOneOf.Guid), "Property is required for class FeedItemOneOf.");
-
-            if (feedItemOneOf.Link == null)
-                throw new ArgumentNullException(nameof(feedItemOneOf.Link), "Property is required for class FeedItemOneOf.");
-
-            if (feedItemOneOf.Title == null)
-                throw new ArgumentNullException(nameof(feedItemOneOf.Title), "Property is required for class FeedItemOneOf.");
-
             writer.WritePropertyName("category");
             JsonSerializer.Serialize(writer, feedItemOneOf.Category, jsonSerializerOptions);
             writer.WriteString("content", feedItemOneOf.Content);

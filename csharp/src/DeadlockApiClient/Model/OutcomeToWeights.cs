@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!outcomesToWeights.IsSet)
-                throw new ArgumentException("Property is required for class OutcomeToWeights.", nameof(outcomesToWeights));
+                throw new JsonException("Property is required for class OutcomeToWeights: outcomes_to_weights.");
 
             if (outcomesToWeights.IsSet && outcomesToWeights.Value == null)
-                throw new ArgumentNullException(nameof(outcomesToWeights), "Property is not nullable for class OutcomeToWeights.");
+                throw new JsonException("Property is not nullable for class OutcomeToWeights: outcomes_to_weights.");
 
             return new OutcomeToWeights(outcomesToWeights.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="outcomeToWeights"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, OutcomeToWeights outcomeToWeights, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="outcomeToWeights"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, OutcomeToWeights outcomeToWeights, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (outcomeToWeights.OutcomesToWeights == null)
-                throw new ArgumentNullException(nameof(outcomeToWeights.OutcomesToWeights), "Property is required for class OutcomeToWeights.");
-
             writer.WritePropertyName("outcomes_to_weights");
             JsonSerializer.Serialize(writer, outcomeToWeights.OutcomesToWeights, jsonSerializerOptions);
         }

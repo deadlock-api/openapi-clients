@@ -455,52 +455,52 @@ namespace DeadlockApiClient.Model
             }
 
             if (baseSentries.IsSet && baseSentries.Value == null)
-                throw new ArgumentNullException(nameof(baseSentries), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: base_sentries.");
 
             if (bells.IsSet && bells.Value == null)
-                throw new ArgumentNullException(nameof(bells), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: bells.");
 
             if (bouncePads.IsSet && bouncePads.Value == null)
-                throw new ArgumentNullException(nameof(bouncePads), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: bounce_pads.");
 
             if (bridgeBuffs.IsSet && bridgeBuffs.Value == null)
-                throw new ArgumentNullException(nameof(bridgeBuffs), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: bridge_buffs.");
 
             if (climbRopes.IsSet && climbRopes.Value == null)
-                throw new ArgumentNullException(nameof(climbRopes), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: climb_ropes.");
 
             if (cosmicVeils.IsSet && cosmicVeils.Value == null)
-                throw new ArgumentNullException(nameof(cosmicVeils), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: cosmic_veils.");
 
             if (crates.IsSet && crates.Value == null)
-                throw new ArgumentNullException(nameof(crates), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: crates.");
 
             if (goldenStatues.IsSet && goldenStatues.Value == null)
-                throw new ArgumentNullException(nameof(goldenStatues), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: golden_statues.");
 
             if (healingSnacks.IsSet && healingSnacks.Value == null)
-                throw new ArgumentNullException(nameof(healingSnacks), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: healing_snacks.");
 
             if (shops.IsSet && shops.Value == null)
-                throw new ArgumentNullException(nameof(shops), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: shops.");
 
             if (soulUrnPads.IsSet && soulUrnPads.Value == null)
-                throw new ArgumentNullException(nameof(soulUrnPads), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: soul_urn_pads.");
 
             if (soulUrnSpawns.IsSet && soulUrnSpawns.Value == null)
-                throw new ArgumentNullException(nameof(soulUrnSpawns), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: soul_urn_spawns.");
 
             if (steamVents.IsSet && steamVents.Value == null)
-                throw new ArgumentNullException(nameof(steamVents), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: steam_vents.");
 
             if (teleporters.IsSet && teleporters.Value == null)
-                throw new ArgumentNullException(nameof(teleporters), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: teleporters.");
 
             if (toughCrates.IsSet && toughCrates.Value == null)
-                throw new ArgumentNullException(nameof(toughCrates), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: tough_crates.");
 
             if (unstableRifts.IsSet && unstableRifts.Value == null)
-                throw new ArgumentNullException(nameof(unstableRifts), "Property is not nullable for class MapEntities.");
+                throw new JsonException("Property is not nullable for class MapEntities: unstable_rifts.");
 
             return new MapEntities(baseSentries, bells, bouncePads, bridgeBuffs, climbRopes, cosmicVeils, crates, goldenStatues, healingSnacks, shops, soulUrnPads, soulUrnSpawns, steamVents, teleporters, toughCrates, unstableRifts);
         }
@@ -511,7 +511,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapEntities"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MapEntities mapEntities, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -526,56 +525,55 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapEntities"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapEntities mapEntities, JsonSerializerOptions jsonSerializerOptions)
         {
             if (mapEntities.BaseSentriesOption.IsSet && mapEntities.BaseSentries == null)
-                throw new ArgumentNullException(nameof(mapEntities.BaseSentries), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.BaseSentries to non-nullable JSON property 'base_sentries'.");
 
             if (mapEntities.BellsOption.IsSet && mapEntities.Bells == null)
-                throw new ArgumentNullException(nameof(mapEntities.Bells), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.Bells to non-nullable JSON property 'bells'.");
 
             if (mapEntities.BouncePadsOption.IsSet && mapEntities.BouncePads == null)
-                throw new ArgumentNullException(nameof(mapEntities.BouncePads), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.BouncePads to non-nullable JSON property 'bounce_pads'.");
 
             if (mapEntities.BridgeBuffsOption.IsSet && mapEntities.BridgeBuffs == null)
-                throw new ArgumentNullException(nameof(mapEntities.BridgeBuffs), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.BridgeBuffs to non-nullable JSON property 'bridge_buffs'.");
 
             if (mapEntities.ClimbRopesOption.IsSet && mapEntities.ClimbRopes == null)
-                throw new ArgumentNullException(nameof(mapEntities.ClimbRopes), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.ClimbRopes to non-nullable JSON property 'climb_ropes'.");
 
             if (mapEntities.CosmicVeilsOption.IsSet && mapEntities.CosmicVeils == null)
-                throw new ArgumentNullException(nameof(mapEntities.CosmicVeils), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.CosmicVeils to non-nullable JSON property 'cosmic_veils'.");
 
             if (mapEntities.CratesOption.IsSet && mapEntities.Crates == null)
-                throw new ArgumentNullException(nameof(mapEntities.Crates), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.Crates to non-nullable JSON property 'crates'.");
 
             if (mapEntities.GoldenStatuesOption.IsSet && mapEntities.GoldenStatues == null)
-                throw new ArgumentNullException(nameof(mapEntities.GoldenStatues), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.GoldenStatues to non-nullable JSON property 'golden_statues'.");
 
             if (mapEntities.HealingSnacksOption.IsSet && mapEntities.HealingSnacks == null)
-                throw new ArgumentNullException(nameof(mapEntities.HealingSnacks), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.HealingSnacks to non-nullable JSON property 'healing_snacks'.");
 
             if (mapEntities.ShopsOption.IsSet && mapEntities.Shops == null)
-                throw new ArgumentNullException(nameof(mapEntities.Shops), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.Shops to non-nullable JSON property 'shops'.");
 
             if (mapEntities.SoulUrnPadsOption.IsSet && mapEntities.SoulUrnPads == null)
-                throw new ArgumentNullException(nameof(mapEntities.SoulUrnPads), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.SoulUrnPads to non-nullable JSON property 'soul_urn_pads'.");
 
             if (mapEntities.SoulUrnSpawnsOption.IsSet && mapEntities.SoulUrnSpawns == null)
-                throw new ArgumentNullException(nameof(mapEntities.SoulUrnSpawns), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.SoulUrnSpawns to non-nullable JSON property 'soul_urn_spawns'.");
 
             if (mapEntities.SteamVentsOption.IsSet && mapEntities.SteamVents == null)
-                throw new ArgumentNullException(nameof(mapEntities.SteamVents), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.SteamVents to non-nullable JSON property 'steam_vents'.");
 
             if (mapEntities.TeleportersOption.IsSet && mapEntities.Teleporters == null)
-                throw new ArgumentNullException(nameof(mapEntities.Teleporters), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.Teleporters to non-nullable JSON property 'teleporters'.");
 
             if (mapEntities.ToughCratesOption.IsSet && mapEntities.ToughCrates == null)
-                throw new ArgumentNullException(nameof(mapEntities.ToughCrates), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.ToughCrates to non-nullable JSON property 'tough_crates'.");
 
             if (mapEntities.UnstableRiftsOption.IsSet && mapEntities.UnstableRifts == null)
-                throw new ArgumentNullException(nameof(mapEntities.UnstableRifts), "Property is required for class MapEntities.");
+                throw new JsonException("Cannot write null property MapEntities.UnstableRifts to non-nullable JSON property 'unstable_rifts'.");
 
             if (mapEntities.BaseSentriesOption.IsSet)
             {

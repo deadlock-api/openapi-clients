@@ -152,10 +152,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!modCategories.IsSet)
-                throw new ArgumentException("Property is required for class BuildHeroDetails.", nameof(modCategories));
+                throw new JsonException("Property is required for class BuildHeroDetails: mod_categories.");
 
             if (modCategories.IsSet && modCategories.Value == null)
-                throw new ArgumentNullException(nameof(modCategories), "Property is not nullable for class BuildHeroDetails.");
+                throw new JsonException("Property is not nullable for class BuildHeroDetails: mod_categories.");
 
             return new BuildHeroDetails(modCategories.Value!, abilityOrder);
         }
@@ -166,7 +166,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetails"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildHeroDetails buildHeroDetails, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHeroDetails"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildHeroDetails buildHeroDetails, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (buildHeroDetails.ModCategories == null)
-                throw new ArgumentNullException(nameof(buildHeroDetails.ModCategories), "Property is required for class BuildHeroDetails.");
-
             writer.WritePropertyName("mod_categories");
             JsonSerializer.Serialize(writer, buildHeroDetails.ModCategories, jsonSerializerOptions);
             if (buildHeroDetails.AbilityOrderOption.IsSet)

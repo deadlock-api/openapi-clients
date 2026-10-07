@@ -166,16 +166,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!partyCode.IsSet)
-                throw new ArgumentException("Property is required for class CreateCustomResponse.", nameof(partyCode));
+                throw new JsonException("Property is required for class CreateCustomResponse: party_code.");
 
             if (!partyId.IsSet)
-                throw new ArgumentException("Property is required for class CreateCustomResponse.", nameof(partyId));
+                throw new JsonException("Property is required for class CreateCustomResponse: party_id.");
 
             if (partyCode.IsSet && partyCode.Value == null)
-                throw new ArgumentNullException(nameof(partyCode), "Property is not nullable for class CreateCustomResponse.");
+                throw new JsonException("Property is not nullable for class CreateCustomResponse: party_code.");
 
             if (partyId.IsSet && partyId.Value == null)
-                throw new ArgumentNullException(nameof(partyId), "Property is not nullable for class CreateCustomResponse.");
+                throw new JsonException("Property is not nullable for class CreateCustomResponse: party_id.");
 
             return new CreateCustomResponse(partyCode.Value!, partyId.Value!, callbackSecret);
         }
@@ -186,7 +186,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="createCustomResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CreateCustomResponse createCustomResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -201,15 +200,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="createCustomResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CreateCustomResponse createCustomResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (createCustomResponse.PartyCode == null)
-                throw new ArgumentNullException(nameof(createCustomResponse.PartyCode), "Property is required for class CreateCustomResponse.");
-
-            if (createCustomResponse.PartyId == null)
-                throw new ArgumentNullException(nameof(createCustomResponse.PartyId), "Property is required for class CreateCustomResponse.");
-
             writer.WriteString("party_code", createCustomResponse.PartyCode);
 
             writer.WriteString("party_id", createCustomResponse.PartyId);

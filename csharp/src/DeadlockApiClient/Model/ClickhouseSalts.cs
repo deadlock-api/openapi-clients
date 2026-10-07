@@ -236,10 +236,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class ClickhouseSalts.", nameof(matchId));
+                throw new JsonException("Property is required for class ClickhouseSalts: match_id.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class ClickhouseSalts.");
+                throw new JsonException("Property is not nullable for class ClickhouseSalts: match_id.");
 
             return new ClickhouseSalts(matchId.Value!.Value!, clusterId, metadataSalt, replaySalt, username);
         }
@@ -250,7 +250,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="clickhouseSalts"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ClickhouseSalts clickhouseSalts, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -265,7 +264,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="clickhouseSalts"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ClickhouseSalts clickhouseSalts, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("match_id", clickhouseSalts.MatchId);

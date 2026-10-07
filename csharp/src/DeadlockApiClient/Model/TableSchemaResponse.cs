@@ -159,22 +159,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!columns.IsSet)
-                throw new ArgumentException("Property is required for class TableSchemaResponse.", nameof(columns));
+                throw new JsonException("Property is required for class TableSchemaResponse: columns.");
 
             if (!kind.IsSet)
-                throw new ArgumentException("Property is required for class TableSchemaResponse.", nameof(kind));
+                throw new JsonException("Property is required for class TableSchemaResponse: kind.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class TableSchemaResponse.", nameof(name));
+                throw new JsonException("Property is required for class TableSchemaResponse: name.");
 
             if (columns.IsSet && columns.Value == null)
-                throw new ArgumentNullException(nameof(columns), "Property is not nullable for class TableSchemaResponse.");
+                throw new JsonException("Property is not nullable for class TableSchemaResponse: columns.");
 
             if (kind.IsSet && kind.Value == null)
-                throw new ArgumentNullException(nameof(kind), "Property is not nullable for class TableSchemaResponse.");
+                throw new JsonException("Property is not nullable for class TableSchemaResponse: kind.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class TableSchemaResponse.");
+                throw new JsonException("Property is not nullable for class TableSchemaResponse: name.");
 
             return new TableSchemaResponse(columns.Value!, kind.Value!, name.Value!);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="tableSchemaResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TableSchemaResponse tableSchemaResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,18 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="tableSchemaResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TableSchemaResponse tableSchemaResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (tableSchemaResponse.Columns == null)
-                throw new ArgumentNullException(nameof(tableSchemaResponse.Columns), "Property is required for class TableSchemaResponse.");
-
-            if (tableSchemaResponse.Kind == null)
-                throw new ArgumentNullException(nameof(tableSchemaResponse.Kind), "Property is required for class TableSchemaResponse.");
-
-            if (tableSchemaResponse.Name == null)
-                throw new ArgumentNullException(nameof(tableSchemaResponse.Name), "Property is required for class TableSchemaResponse.");
-
             writer.WritePropertyName("columns");
             JsonSerializer.Serialize(writer, tableSchemaResponse.Columns, jsonSerializerOptions);
             writer.WriteString("kind", tableSchemaResponse.Kind);

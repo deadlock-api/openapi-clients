@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!displayStats.IsSet)
-                throw new ArgumentException("Property is required for class HeroStatsUI.", nameof(displayStats));
+                throw new JsonException("Property is required for class HeroStatsUI: display_stats.");
 
             if (!weaponStatDisplay.IsSet)
-                throw new ArgumentException("Property is required for class HeroStatsUI.", nameof(weaponStatDisplay));
+                throw new JsonException("Property is required for class HeroStatsUI: weapon_stat_display.");
 
             if (displayStats.IsSet && displayStats.Value == null)
-                throw new ArgumentNullException(nameof(displayStats), "Property is not nullable for class HeroStatsUI.");
+                throw new JsonException("Property is not nullable for class HeroStatsUI: display_stats.");
 
             if (weaponStatDisplay.IsSet && weaponStatDisplay.Value == null)
-                throw new ArgumentNullException(nameof(weaponStatDisplay), "Property is not nullable for class HeroStatsUI.");
+                throw new JsonException("Property is not nullable for class HeroStatsUI: weapon_stat_display.");
 
             return new HeroStatsUI(displayStats.Value!, weaponStatDisplay.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroStatsUI"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroStatsUI heroStatsUI, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroStatsUI"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroStatsUI heroStatsUI, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroStatsUI.DisplayStats == null)
-                throw new ArgumentNullException(nameof(heroStatsUI.DisplayStats), "Property is required for class HeroStatsUI.");
-
-            if (heroStatsUI.WeaponStatDisplay == null)
-                throw new ArgumentNullException(nameof(heroStatsUI.WeaponStatDisplay), "Property is required for class HeroStatsUI.");
-
             writer.WritePropertyName("display_stats");
             JsonSerializer.Serialize(writer, heroStatsUI.DisplayStats, jsonSerializerOptions);
             writer.WriteString("weapon_stat_display", heroStatsUI.WeaponStatDisplay);

@@ -189,16 +189,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!district.IsSet)
-                throw new ArgumentException("Property is required for class MapDistrict.", nameof(district));
+                throw new JsonException("Property is required for class MapDistrict: district.");
 
             if (!districtName.IsSet)
-                throw new ArgumentException("Property is required for class MapDistrict.", nameof(districtName));
+                throw new JsonException("Property is required for class MapDistrict: district_name.");
 
             if (district.IsSet && district.Value == null)
-                throw new ArgumentNullException(nameof(district), "Property is not nullable for class MapDistrict.");
+                throw new JsonException("Property is not nullable for class MapDistrict: district.");
 
             if (districtName.IsSet && districtName.Value == null)
-                throw new ArgumentNullException(nameof(districtName), "Property is not nullable for class MapDistrict.");
+                throw new JsonException("Property is not nullable for class MapDistrict: district_name.");
 
             return new MapDistrict(district.Value!, districtName.Value!, building, buildingName);
         }
@@ -209,7 +209,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapDistrict"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MapDistrict mapDistrict, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -224,15 +223,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapDistrict"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapDistrict mapDistrict, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mapDistrict.District == null)
-                throw new ArgumentNullException(nameof(mapDistrict.District), "Property is required for class MapDistrict.");
-
-            if (mapDistrict.DistrictName == null)
-                throw new ArgumentNullException(nameof(mapDistrict.DistrictName), "Property is required for class MapDistrict.");
-
             writer.WriteString("district", mapDistrict.District);
 
             writer.WriteString("district_name", mapDistrict.DistrictName);

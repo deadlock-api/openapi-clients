@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class HeroStatsUIDisplay.", nameof(category));
+                throw new JsonException("Property is required for class HeroStatsUIDisplay: category.");
 
             if (!statType.IsSet)
-                throw new ArgumentException("Property is required for class HeroStatsUIDisplay.", nameof(statType));
+                throw new JsonException("Property is required for class HeroStatsUIDisplay: stat_type.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class HeroStatsUIDisplay.");
+                throw new JsonException("Property is not nullable for class HeroStatsUIDisplay: category.");
 
             if (statType.IsSet && statType.Value == null)
-                throw new ArgumentNullException(nameof(statType), "Property is not nullable for class HeroStatsUIDisplay.");
+                throw new JsonException("Property is not nullable for class HeroStatsUIDisplay: stat_type.");
 
             return new HeroStatsUIDisplay(category.Value!, statType.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroStatsUIDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroStatsUIDisplay heroStatsUIDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroStatsUIDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroStatsUIDisplay heroStatsUIDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroStatsUIDisplay.Category == null)
-                throw new ArgumentNullException(nameof(heroStatsUIDisplay.Category), "Property is required for class HeroStatsUIDisplay.");
-
-            if (heroStatsUIDisplay.StatType == null)
-                throw new ArgumentNullException(nameof(heroStatsUIDisplay.StatType), "Property is required for class HeroStatsUIDisplay.");
-
             writer.WriteString("category", heroStatsUIDisplay.Category);
 
             writer.WriteString("stat_type", heroStatsUIDisplay.StatType);

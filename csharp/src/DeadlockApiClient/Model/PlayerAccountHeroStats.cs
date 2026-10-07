@@ -210,34 +210,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!medalsBronze.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountHeroStats.", nameof(medalsBronze));
+                throw new JsonException("Property is required for class PlayerAccountHeroStats: medals_bronze.");
 
             if (!medalsGold.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountHeroStats.", nameof(medalsGold));
+                throw new JsonException("Property is required for class PlayerAccountHeroStats: medals_gold.");
 
             if (!medalsSilver.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountHeroStats.", nameof(medalsSilver));
+                throw new JsonException("Property is required for class PlayerAccountHeroStats: medals_silver.");
 
             if (!statId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountHeroStats.", nameof(statId));
+                throw new JsonException("Property is required for class PlayerAccountHeroStats: stat_id.");
 
             if (!totalValue.IsSet)
-                throw new ArgumentException("Property is required for class PlayerAccountHeroStats.", nameof(totalValue));
+                throw new JsonException("Property is required for class PlayerAccountHeroStats: total_value.");
 
             if (medalsBronze.IsSet && medalsBronze.Value == null)
-                throw new ArgumentNullException(nameof(medalsBronze), "Property is not nullable for class PlayerAccountHeroStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountHeroStats: medals_bronze.");
 
             if (medalsGold.IsSet && medalsGold.Value == null)
-                throw new ArgumentNullException(nameof(medalsGold), "Property is not nullable for class PlayerAccountHeroStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountHeroStats: medals_gold.");
 
             if (medalsSilver.IsSet && medalsSilver.Value == null)
-                throw new ArgumentNullException(nameof(medalsSilver), "Property is not nullable for class PlayerAccountHeroStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountHeroStats: medals_silver.");
 
             if (statId.IsSet && statId.Value == null)
-                throw new ArgumentNullException(nameof(statId), "Property is not nullable for class PlayerAccountHeroStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountHeroStats: stat_id.");
 
             if (totalValue.IsSet && totalValue.Value == null)
-                throw new ArgumentNullException(nameof(totalValue), "Property is not nullable for class PlayerAccountHeroStats.");
+                throw new JsonException("Property is not nullable for class PlayerAccountHeroStats: total_value.");
 
             return new PlayerAccountHeroStats(medalsBronze.Value!, medalsGold.Value!, medalsSilver.Value!, statId.Value!, totalValue.Value!, heroId);
         }
@@ -248,7 +248,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerAccountHeroStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerAccountHeroStats playerAccountHeroStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -263,24 +262,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerAccountHeroStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerAccountHeroStats playerAccountHeroStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (playerAccountHeroStats.MedalsBronze == null)
-                throw new ArgumentNullException(nameof(playerAccountHeroStats.MedalsBronze), "Property is required for class PlayerAccountHeroStats.");
-
-            if (playerAccountHeroStats.MedalsGold == null)
-                throw new ArgumentNullException(nameof(playerAccountHeroStats.MedalsGold), "Property is required for class PlayerAccountHeroStats.");
-
-            if (playerAccountHeroStats.MedalsSilver == null)
-                throw new ArgumentNullException(nameof(playerAccountHeroStats.MedalsSilver), "Property is required for class PlayerAccountHeroStats.");
-
-            if (playerAccountHeroStats.StatId == null)
-                throw new ArgumentNullException(nameof(playerAccountHeroStats.StatId), "Property is required for class PlayerAccountHeroStats.");
-
-            if (playerAccountHeroStats.TotalValue == null)
-                throw new ArgumentNullException(nameof(playerAccountHeroStats.TotalValue), "Property is required for class PlayerAccountHeroStats.");
-
             writer.WritePropertyName("medals_bronze");
             JsonSerializer.Serialize(writer, playerAccountHeroStats.MedalsBronze, jsonSerializerOptions);
             writer.WritePropertyName("medals_gold");

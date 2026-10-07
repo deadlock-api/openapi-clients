@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!spiritStatsDisplay.IsSet)
-                throw new ArgumentException("Property is required for class ShopStatDisplay.", nameof(spiritStatsDisplay));
+                throw new JsonException("Property is required for class ShopStatDisplay: spirit_stats_display.");
 
             if (!vitalityStatsDisplay.IsSet)
-                throw new ArgumentException("Property is required for class ShopStatDisplay.", nameof(vitalityStatsDisplay));
+                throw new JsonException("Property is required for class ShopStatDisplay: vitality_stats_display.");
 
             if (!weaponStatsDisplay.IsSet)
-                throw new ArgumentException("Property is required for class ShopStatDisplay.", nameof(weaponStatsDisplay));
+                throw new JsonException("Property is required for class ShopStatDisplay: weapon_stats_display.");
 
             if (spiritStatsDisplay.IsSet && spiritStatsDisplay.Value == null)
-                throw new ArgumentNullException(nameof(spiritStatsDisplay), "Property is not nullable for class ShopStatDisplay.");
+                throw new JsonException("Property is not nullable for class ShopStatDisplay: spirit_stats_display.");
 
             if (vitalityStatsDisplay.IsSet && vitalityStatsDisplay.Value == null)
-                throw new ArgumentNullException(nameof(vitalityStatsDisplay), "Property is not nullable for class ShopStatDisplay.");
+                throw new JsonException("Property is not nullable for class ShopStatDisplay: vitality_stats_display.");
 
             if (weaponStatsDisplay.IsSet && weaponStatsDisplay.Value == null)
-                throw new ArgumentNullException(nameof(weaponStatsDisplay), "Property is not nullable for class ShopStatDisplay.");
+                throw new JsonException("Property is not nullable for class ShopStatDisplay: weapon_stats_display.");
 
             return new ShopStatDisplay(spiritStatsDisplay.Value!, vitalityStatsDisplay.Value!, weaponStatsDisplay.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopStatDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ShopStatDisplay shopStatDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,18 +198,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopStatDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ShopStatDisplay shopStatDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (shopStatDisplay.SpiritStatsDisplay == null)
-                throw new ArgumentNullException(nameof(shopStatDisplay.SpiritStatsDisplay), "Property is required for class ShopStatDisplay.");
-
-            if (shopStatDisplay.VitalityStatsDisplay == null)
-                throw new ArgumentNullException(nameof(shopStatDisplay.VitalityStatsDisplay), "Property is required for class ShopStatDisplay.");
-
-            if (shopStatDisplay.WeaponStatsDisplay == null)
-                throw new ArgumentNullException(nameof(shopStatDisplay.WeaponStatsDisplay), "Property is required for class ShopStatDisplay.");
-
             writer.WritePropertyName("spirit_stats_display");
             JsonSerializer.Serialize(writer, shopStatDisplay.SpiritStatsDisplay, jsonSerializerOptions);
             writer.WritePropertyName("vitality_stats_display");

@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!displayStats.IsSet)
-                throw new ArgumentException("Property is required for class ShopSpiritStatsDisplay.", nameof(displayStats));
+                throw new JsonException("Property is required for class ShopSpiritStatsDisplay: display_stats.");
 
             if (displayStats.IsSet && displayStats.Value == null)
-                throw new ArgumentNullException(nameof(displayStats), "Property is not nullable for class ShopSpiritStatsDisplay.");
+                throw new JsonException("Property is not nullable for class ShopSpiritStatsDisplay: display_stats.");
 
             return new ShopSpiritStatsDisplay(displayStats.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopSpiritStatsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ShopSpiritStatsDisplay shopSpiritStatsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="shopSpiritStatsDisplay"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ShopSpiritStatsDisplay shopSpiritStatsDisplay, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (shopSpiritStatsDisplay.DisplayStats == null)
-                throw new ArgumentNullException(nameof(shopSpiritStatsDisplay.DisplayStats), "Property is required for class ShopSpiritStatsDisplay.");
-
             writer.WritePropertyName("display_stats");
             JsonSerializer.Serialize(writer, shopSpiritStatsDisplay.DisplayStats, jsonSerializerOptions);
         }

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Base** | Pointer to **float64** |  | [optional] 
-**PerMinuteAfterStart** | Pointer to **float64** |  | [optional] 
+**Base** | Pointer to **NullableFloat64** |  | [optional] 
+**PerMinuteAfterStart** | Pointer to **NullableFloat64** |  | [optional] 
 
 ## Methods
 
@@ -51,6 +51,16 @@ SetBase sets Base field to given value.
 
 HasBase returns a boolean if a field has been set.
 
+### SetBaseNil
+
+`func (o *CurveOrFloat) SetBaseNil(b bool)`
+
+ SetBaseNil sets the value for Base to be an explicit nil
+
+### UnsetBase
+`func (o *CurveOrFloat) UnsetBase()`
+
+UnsetBase ensures that no value is present for Base, not even an explicit nil
 ### GetPerMinuteAfterStart
 
 `func (o *CurveOrFloat) GetPerMinuteAfterStart() float64`
@@ -76,6 +86,16 @@ SetPerMinuteAfterStart sets PerMinuteAfterStart field to given value.
 
 HasPerMinuteAfterStart returns a boolean if a field has been set.
 
+### SetPerMinuteAfterStartNil
+
+`func (o *CurveOrFloat) SetPerMinuteAfterStartNil(b bool)`
+
+ SetPerMinuteAfterStartNil sets the value for PerMinuteAfterStart to be an explicit nil
+
+### UnsetPerMinuteAfterStart
+`func (o *CurveOrFloat) UnsetPerMinuteAfterStart()`
+
+UnsetPerMinuteAfterStart ensures that no value is present for PerMinuteAfterStart, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

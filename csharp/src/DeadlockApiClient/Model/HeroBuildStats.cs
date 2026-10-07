@@ -239,40 +239,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!heroBuildId.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(heroBuildId));
+                throw new JsonException("Property is required for class HeroBuildStats: hero_build_id.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(heroId));
+                throw new JsonException("Property is required for class HeroBuildStats: hero_id.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(losses));
+                throw new JsonException("Property is required for class HeroBuildStats: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(matches));
+                throw new JsonException("Property is required for class HeroBuildStats: matches.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(players));
+                throw new JsonException("Property is required for class HeroBuildStats: players.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class HeroBuildStats.", nameof(wins));
+                throw new JsonException("Property is required for class HeroBuildStats: wins.");
 
             if (heroBuildId.IsSet && heroBuildId.Value == null)
-                throw new ArgumentNullException(nameof(heroBuildId), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: hero_build_id.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: hero_id.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: matches.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: players.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroBuildStats.");
+                throw new JsonException("Property is not nullable for class HeroBuildStats: wins.");
 
             return new HeroBuildStats(heroBuildId.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!);
         }
@@ -283,7 +283,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroBuildStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroBuildStats heroBuildStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -298,7 +297,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroBuildStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroBuildStats heroBuildStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("hero_build_id", heroBuildStats.HeroBuildId);

@@ -42,7 +42,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , ),
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
                 vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
                     backer = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
@@ -50,7 +52,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , ),
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
                 weapon = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
                     backer = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
@@ -58,7 +62,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , )
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), )
             )
         else:
             return ItemTooltipBackers(
@@ -69,7 +75,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , ),
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
                 vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
                     backer = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
@@ -77,7 +85,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , ),
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
                 weapon = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
                     backer = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
@@ -85,7 +95,9 @@ class TestItemTooltipBackers(unittest.TestCase):
                     color = deadlock_api_client.models.image_pair.ImagePair(
                         png = '', 
                         webp = '', ), 
-                    mask = , ),
+                    mask = deadlock_api_client.models.image_pair.ImagePair(
+                        png = '', 
+                        webp = '', ), ),
         )
         """
 

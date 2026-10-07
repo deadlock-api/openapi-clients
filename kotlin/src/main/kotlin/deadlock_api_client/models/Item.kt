@@ -102,7 +102,7 @@ data class Item (
     val className: kotlin.String,
 
     @Json(name = "description")
-    val description: UpgradeDescription,
+    val description: UpgradeDescription?,
 
     @Json(name = "id")
     val id: kotlin.Int,

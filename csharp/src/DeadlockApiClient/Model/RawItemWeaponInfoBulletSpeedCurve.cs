@@ -165,16 +165,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!domainMaxs.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurve.", nameof(domainMaxs));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurve: domain_maxs.");
 
             if (!domainMins.IsSet)
-                throw new ArgumentException("Property is required for class RawItemWeaponInfoBulletSpeedCurve.", nameof(domainMins));
+                throw new JsonException("Property is required for class RawItemWeaponInfoBulletSpeedCurve: domain_mins.");
 
             if (domainMaxs.IsSet && domainMaxs.Value == null)
-                throw new ArgumentNullException(nameof(domainMaxs), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurve.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurve: domain_maxs.");
 
             if (domainMins.IsSet && domainMins.Value == null)
-                throw new ArgumentNullException(nameof(domainMins), "Property is not nullable for class RawItemWeaponInfoBulletSpeedCurve.");
+                throw new JsonException("Property is not nullable for class RawItemWeaponInfoBulletSpeedCurve: domain_mins.");
 
             return new RawItemWeaponInfoBulletSpeedCurve(domainMaxs.Value!, domainMins.Value!, spline);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawItemWeaponInfoBulletSpeedCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RawItemWeaponInfoBulletSpeedCurve rawItemWeaponInfoBulletSpeedCurve, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rawItemWeaponInfoBulletSpeedCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RawItemWeaponInfoBulletSpeedCurve rawItemWeaponInfoBulletSpeedCurve, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (rawItemWeaponInfoBulletSpeedCurve.DomainMaxs == null)
-                throw new ArgumentNullException(nameof(rawItemWeaponInfoBulletSpeedCurve.DomainMaxs), "Property is required for class RawItemWeaponInfoBulletSpeedCurve.");
-
-            if (rawItemWeaponInfoBulletSpeedCurve.DomainMins == null)
-                throw new ArgumentNullException(nameof(rawItemWeaponInfoBulletSpeedCurve.DomainMins), "Property is required for class RawItemWeaponInfoBulletSpeedCurve.");
-
             writer.WritePropertyName("domain_maxs");
             JsonSerializer.Serialize(writer, rawItemWeaponInfoBulletSpeedCurve.DomainMaxs, jsonSerializerOptions);
             writer.WritePropertyName("domain_mins");

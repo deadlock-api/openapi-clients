@@ -157,16 +157,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class DistributionEntry.", nameof(players));
+                throw new JsonException("Property is required for class DistributionEntry: players.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class DistributionEntry.", nameof(rank));
+                throw new JsonException("Property is required for class DistributionEntry: rank.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class DistributionEntry.");
+                throw new JsonException("Property is not nullable for class DistributionEntry: players.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class DistributionEntry.");
+                throw new JsonException("Property is not nullable for class DistributionEntry: rank.");
 
             return new DistributionEntry(players.Value!.Value!, rank.Value!.Value!);
         }
@@ -177,7 +177,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="distributionEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DistributionEntry distributionEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -192,7 +191,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="distributionEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DistributionEntry distributionEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("players", distributionEntry.Players);

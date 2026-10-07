@@ -159,22 +159,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!dataType.IsSet)
-                throw new ArgumentException("Property is required for class ColumnSchema.", nameof(dataType));
+                throw new JsonException("Property is required for class ColumnSchema: data_type.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class ColumnSchema.", nameof(name));
+                throw new JsonException("Property is required for class ColumnSchema: name.");
 
             if (!nullable.IsSet)
-                throw new ArgumentException("Property is required for class ColumnSchema.", nameof(nullable));
+                throw new JsonException("Property is required for class ColumnSchema: nullable.");
 
             if (dataType.IsSet && dataType.Value == null)
-                throw new ArgumentNullException(nameof(dataType), "Property is not nullable for class ColumnSchema.");
+                throw new JsonException("Property is not nullable for class ColumnSchema: data_type.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class ColumnSchema.");
+                throw new JsonException("Property is not nullable for class ColumnSchema: name.");
 
             if (nullable.IsSet && nullable.Value == null)
-                throw new ArgumentNullException(nameof(nullable), "Property is not nullable for class ColumnSchema.");
+                throw new JsonException("Property is not nullable for class ColumnSchema: nullable.");
 
             return new ColumnSchema(dataType.Value!, name.Value!, nullable.Value!.Value!);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="columnSchema"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ColumnSchema columnSchema, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="columnSchema"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ColumnSchema columnSchema, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (columnSchema.DataType == null)
-                throw new ArgumentNullException(nameof(columnSchema.DataType), "Property is required for class ColumnSchema.");
-
-            if (columnSchema.Name == null)
-                throw new ArgumentNullException(nameof(columnSchema.Name), "Property is required for class ColumnSchema.");
-
             writer.WriteString("data_type", columnSchema.DataType);
 
             writer.WriteString("name", columnSchema.Name);

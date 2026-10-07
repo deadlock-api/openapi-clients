@@ -177,28 +177,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class Rank.", nameof(color));
+                throw new JsonException("Property is required for class Rank: color.");
 
             if (!images.IsSet)
-                throw new ArgumentException("Property is required for class Rank.", nameof(images));
+                throw new JsonException("Property is required for class Rank: images.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class Rank.", nameof(name));
+                throw new JsonException("Property is required for class Rank: name.");
 
             if (!tier.IsSet)
-                throw new ArgumentException("Property is required for class Rank.", nameof(tier));
+                throw new JsonException("Property is required for class Rank: tier.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class Rank.");
+                throw new JsonException("Property is not nullable for class Rank: color.");
 
             if (images.IsSet && images.Value == null)
-                throw new ArgumentNullException(nameof(images), "Property is not nullable for class Rank.");
+                throw new JsonException("Property is not nullable for class Rank: images.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class Rank.");
+                throw new JsonException("Property is not nullable for class Rank: name.");
 
             if (tier.IsSet && tier.Value == null)
-                throw new ArgumentNullException(nameof(tier), "Property is not nullable for class Rank.");
+                throw new JsonException("Property is not nullable for class Rank: tier.");
 
             return new Rank(color.Value!, images.Value!, name.Value!, tier.Value!.Value!);
         }
@@ -209,7 +209,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rank"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Rank rank, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -224,18 +223,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rank"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Rank rank, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (rank.Color == null)
-                throw new ArgumentNullException(nameof(rank.Color), "Property is required for class Rank.");
-
-            if (rank.Images == null)
-                throw new ArgumentNullException(nameof(rank.Images), "Property is required for class Rank.");
-
-            if (rank.Name == null)
-                throw new ArgumentNullException(nameof(rank.Name), "Property is required for class Rank.");
-
             writer.WriteString("color", rank.Color);
 
             writer.WritePropertyName("images");

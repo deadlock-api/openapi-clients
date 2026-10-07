@@ -56,9 +56,14 @@ namespace DeadlockApiClient.Model
         Leaderboard = 5,
 
         /// <summary>
+        /// Enum Season for value: Season
+        /// </summary>
+        Season = 6,
+
+        /// <summary>
         /// Enum Overall for value: Overall
         /// </summary>
-        Overall = 6
+        Overall = 7
     }
 
     /// <summary>
@@ -88,6 +93,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("Leaderboard"))
                 return VariableCategory.Leaderboard;
 
+            if (value.Equals("Season"))
+                return VariableCategory.Season;
+
             if (value.Equals("Overall"))
                 return VariableCategory.Overall;
 
@@ -115,6 +123,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("Leaderboard"))
                 return VariableCategory.Leaderboard;
+
+            if (value.Equals("Season"))
+                return VariableCategory.Season;
 
             if (value.Equals("Overall"))
                 return VariableCategory.Overall;
@@ -144,6 +155,9 @@ namespace DeadlockApiClient.Model
 
             if (value == VariableCategory.Leaderboard)
                 return "Leaderboard";
+
+            if (value == VariableCategory.Season)
+                return "Season";
 
             if (value == VariableCategory.Overall)
                 return "Overall";

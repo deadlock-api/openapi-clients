@@ -190,28 +190,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!enemyId.IsSet)
-                throw new ArgumentException("Property is required for class EnemyStats.", nameof(enemyId));
+                throw new JsonException("Property is required for class EnemyStats: enemy_id.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class EnemyStats.", nameof(matches));
+                throw new JsonException("Property is required for class EnemyStats: matches.");
 
             if (!matchesPlayed.IsSet)
-                throw new ArgumentException("Property is required for class EnemyStats.", nameof(matchesPlayed));
+                throw new JsonException("Property is required for class EnemyStats: matches_played.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class EnemyStats.", nameof(wins));
+                throw new JsonException("Property is required for class EnemyStats: wins.");
 
             if (enemyId.IsSet && enemyId.Value == null)
-                throw new ArgumentNullException(nameof(enemyId), "Property is not nullable for class EnemyStats.");
+                throw new JsonException("Property is not nullable for class EnemyStats: enemy_id.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class EnemyStats.");
+                throw new JsonException("Property is not nullable for class EnemyStats: matches.");
 
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class EnemyStats.");
+                throw new JsonException("Property is not nullable for class EnemyStats: matches_played.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class EnemyStats.");
+                throw new JsonException("Property is not nullable for class EnemyStats: wins.");
 
             return new EnemyStats(enemyId.Value!.Value!, matches.Value!, matchesPlayed.Value!.Value!, wins.Value!.Value!);
         }
@@ -222,7 +222,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="enemyStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, EnemyStats enemyStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -237,12 +236,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="enemyStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, EnemyStats enemyStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (enemyStats.Matches == null)
-                throw new ArgumentNullException(nameof(enemyStats.Matches), "Property is required for class EnemyStats.");
-
             writer.WriteNumber("enemy_id", enemyStats.EnemyId);
 
             writer.WritePropertyName("matches");

@@ -202,40 +202,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(category));
+                throw new JsonException("Property is required for class ForumPatch: category.");
 
             if (!content.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(content));
+                throw new JsonException("Property is required for class ForumPatch: content.");
 
             if (!guid.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(guid));
+                throw new JsonException("Property is required for class ForumPatch: guid.");
 
             if (!link.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(link));
+                throw new JsonException("Property is required for class ForumPatch: link.");
 
             if (!pubDate.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(pubDate));
+                throw new JsonException("Property is required for class ForumPatch: pub_date.");
 
             if (!title.IsSet)
-                throw new ArgumentException("Property is required for class ForumPatch.", nameof(title));
+                throw new JsonException("Property is required for class ForumPatch: title.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: category.");
 
             if (content.IsSet && content.Value == null)
-                throw new ArgumentNullException(nameof(content), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: content.");
 
             if (guid.IsSet && guid.Value == null)
-                throw new ArgumentNullException(nameof(guid), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: guid.");
 
             if (link.IsSet && link.Value == null)
-                throw new ArgumentNullException(nameof(link), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: link.");
 
             if (pubDate.IsSet && pubDate.Value == null)
-                throw new ArgumentNullException(nameof(pubDate), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: pub_date.");
 
             if (title.IsSet && title.Value == null)
-                throw new ArgumentNullException(nameof(title), "Property is not nullable for class ForumPatch.");
+                throw new JsonException("Property is not nullable for class ForumPatch: title.");
 
             return new ForumPatch(category.Value!, content.Value!, guid.Value!, link.Value!, pubDate.Value!.Value!, title.Value!);
         }
@@ -246,7 +246,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="forumPatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ForumPatch forumPatch, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -261,24 +260,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="forumPatch"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ForumPatch forumPatch, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (forumPatch.Category == null)
-                throw new ArgumentNullException(nameof(forumPatch.Category), "Property is required for class ForumPatch.");
-
-            if (forumPatch.Content == null)
-                throw new ArgumentNullException(nameof(forumPatch.Content), "Property is required for class ForumPatch.");
-
-            if (forumPatch.Guid == null)
-                throw new ArgumentNullException(nameof(forumPatch.Guid), "Property is required for class ForumPatch.");
-
-            if (forumPatch.Link == null)
-                throw new ArgumentNullException(nameof(forumPatch.Link), "Property is required for class ForumPatch.");
-
-            if (forumPatch.Title == null)
-                throw new ArgumentNullException(nameof(forumPatch.Title), "Property is required for class ForumPatch.");
-
             writer.WritePropertyName("category");
             JsonSerializer.Serialize(writer, forumPatch.Category, jsonSerializerOptions);
             writer.WriteString("content", forumPatch.Content);

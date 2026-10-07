@@ -17,6 +17,7 @@ export const VariableCategory = {
     Hero: 'Hero',
     Item: 'Item',
     Leaderboard: 'Leaderboard',
+    Season: 'Season',
     Overall: 'Overall',
 };
 //# sourceMappingURL=variable-category.js.map

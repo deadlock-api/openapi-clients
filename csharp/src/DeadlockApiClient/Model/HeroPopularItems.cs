@@ -179,22 +179,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!earlyGame.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItems.", nameof(earlyGame));
+                throw new JsonException("Property is required for class HeroPopularItems: early_game.");
 
             if (!lateGame.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItems.", nameof(lateGame));
+                throw new JsonException("Property is required for class HeroPopularItems: late_game.");
 
             if (!midGame.IsSet)
-                throw new ArgumentException("Property is required for class HeroPopularItems.", nameof(midGame));
+                throw new JsonException("Property is required for class HeroPopularItems: mid_game.");
 
             if (earlyGame.IsSet && earlyGame.Value == null)
-                throw new ArgumentNullException(nameof(earlyGame), "Property is not nullable for class HeroPopularItems.");
+                throw new JsonException("Property is not nullable for class HeroPopularItems: early_game.");
 
             if (lateGame.IsSet && lateGame.Value == null)
-                throw new ArgumentNullException(nameof(lateGame), "Property is not nullable for class HeroPopularItems.");
+                throw new JsonException("Property is not nullable for class HeroPopularItems: late_game.");
 
             if (midGame.IsSet && midGame.Value == null)
-                throw new ArgumentNullException(nameof(midGame), "Property is not nullable for class HeroPopularItems.");
+                throw new JsonException("Property is not nullable for class HeroPopularItems: mid_game.");
 
             return new HeroPopularItems(earlyGame.Value!, lateGame.Value!, midGame.Value!, timestamp);
         }
@@ -205,7 +205,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPopularItems"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroPopularItems heroPopularItems, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -220,18 +219,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPopularItems"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroPopularItems heroPopularItems, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroPopularItems.EarlyGame == null)
-                throw new ArgumentNullException(nameof(heroPopularItems.EarlyGame), "Property is required for class HeroPopularItems.");
-
-            if (heroPopularItems.LateGame == null)
-                throw new ArgumentNullException(nameof(heroPopularItems.LateGame), "Property is required for class HeroPopularItems.");
-
-            if (heroPopularItems.MidGame == null)
-                throw new ArgumentNullException(nameof(heroPopularItems.MidGame), "Property is required for class HeroPopularItems.");
-
             writer.WritePropertyName("early_game");
             JsonSerializer.Serialize(writer, heroPopularItems.EarlyGame, jsonSerializerOptions);
             writer.WritePropertyName("late_game");

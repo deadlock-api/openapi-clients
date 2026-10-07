@@ -232,16 +232,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerCard.", nameof(accountId));
+                throw new JsonException("Property is required for class PlayerCard: account_id.");
 
             if (!slots.IsSet)
-                throw new ArgumentException("Property is required for class PlayerCard.", nameof(slots));
+                throw new JsonException("Property is required for class PlayerCard: slots.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class PlayerCard.");
+                throw new JsonException("Property is not nullable for class PlayerCard: account_id.");
 
             if (slots.IsSet && slots.Value == null)
-                throw new ArgumentNullException(nameof(slots), "Property is not nullable for class PlayerCard.");
+                throw new JsonException("Property is not nullable for class PlayerCard: slots.");
 
             return new PlayerCard(accountId.Value!.Value!, slots.Value!, rankedBadgeLevel, rankedRank, rankedSubrank);
         }
@@ -252,7 +252,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerCard"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerCard playerCard, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -267,12 +266,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerCard"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerCard playerCard, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (playerCard.Slots == null)
-                throw new ArgumentNullException(nameof(playerCard.Slots), "Property is required for class PlayerCard.");
-
             writer.WriteNumber("account_id", playerCard.AccountId);
 
             writer.WritePropertyName("slots");

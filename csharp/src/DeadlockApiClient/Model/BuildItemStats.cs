@@ -146,16 +146,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!builds.IsSet)
-                throw new ArgumentException("Property is required for class BuildItemStats.", nameof(builds));
+                throw new JsonException("Property is required for class BuildItemStats: builds.");
 
             if (!itemId.IsSet)
-                throw new ArgumentException("Property is required for class BuildItemStats.", nameof(itemId));
+                throw new JsonException("Property is required for class BuildItemStats: item_id.");
 
             if (builds.IsSet && builds.Value == null)
-                throw new ArgumentNullException(nameof(builds), "Property is not nullable for class BuildItemStats.");
+                throw new JsonException("Property is not nullable for class BuildItemStats: builds.");
 
             if (itemId.IsSet && itemId.Value == null)
-                throw new ArgumentNullException(nameof(itemId), "Property is not nullable for class BuildItemStats.");
+                throw new JsonException("Property is not nullable for class BuildItemStats: item_id.");
 
             return new BuildItemStats(builds.Value!.Value!, itemId.Value!.Value!);
         }
@@ -166,7 +166,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildItemStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildItemStats buildItemStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,7 +180,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildItemStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildItemStats buildItemStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("builds", buildItemStats.Builds);

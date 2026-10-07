@@ -190,28 +190,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!itemIds.IsSet)
-                throw new ArgumentException("Property is required for class ItemPermutationStats.", nameof(itemIds));
+                throw new JsonException("Property is required for class ItemPermutationStats: item_ids.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class ItemPermutationStats.", nameof(losses));
+                throw new JsonException("Property is required for class ItemPermutationStats: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class ItemPermutationStats.", nameof(matches));
+                throw new JsonException("Property is required for class ItemPermutationStats: matches.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class ItemPermutationStats.", nameof(wins));
+                throw new JsonException("Property is required for class ItemPermutationStats: wins.");
 
             if (itemIds.IsSet && itemIds.Value == null)
-                throw new ArgumentNullException(nameof(itemIds), "Property is not nullable for class ItemPermutationStats.");
+                throw new JsonException("Property is not nullable for class ItemPermutationStats: item_ids.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class ItemPermutationStats.");
+                throw new JsonException("Property is not nullable for class ItemPermutationStats: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class ItemPermutationStats.");
+                throw new JsonException("Property is not nullable for class ItemPermutationStats: matches.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class ItemPermutationStats.");
+                throw new JsonException("Property is not nullable for class ItemPermutationStats: wins.");
 
             return new ItemPermutationStats(itemIds.Value!, losses.Value!.Value!, matches.Value!.Value!, wins.Value!.Value!);
         }
@@ -222,7 +222,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemPermutationStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemPermutationStats itemPermutationStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -237,12 +236,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemPermutationStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemPermutationStats itemPermutationStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemPermutationStats.ItemIds == null)
-                throw new ArgumentNullException(nameof(itemPermutationStats.ItemIds), "Property is required for class ItemPermutationStats.");
-
             writer.WritePropertyName("item_ids");
             JsonSerializer.Serialize(writer, itemPermutationStats.ItemIds, jsonSerializerOptions);
             writer.WriteNumber("losses", itemPermutationStats.Losses);

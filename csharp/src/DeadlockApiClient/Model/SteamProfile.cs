@@ -319,58 +319,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(accountId));
+                throw new JsonException("Property is required for class SteamProfile: account_id.");
 
             if (!avatar.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(avatar));
+                throw new JsonException("Property is required for class SteamProfile: avatar.");
 
             if (!avatarfull.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(avatarfull));
+                throw new JsonException("Property is required for class SteamProfile: avatarfull.");
 
             if (!avatarmedium.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(avatarmedium));
+                throw new JsonException("Property is required for class SteamProfile: avatarmedium.");
 
             if (!friends.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(friends));
+                throw new JsonException("Property is required for class SteamProfile: friends.");
 
             if (!lastUpdated.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(lastUpdated));
+                throw new JsonException("Property is required for class SteamProfile: last_updated.");
 
             if (!matchesPlayedLast30d.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(matchesPlayedLast30d));
+                throw new JsonException("Property is required for class SteamProfile: matches_played_last_30d.");
 
             if (!personaname.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(personaname));
+                throw new JsonException("Property is required for class SteamProfile: personaname.");
 
             if (!profileurl.IsSet)
-                throw new ArgumentException("Property is required for class SteamProfile.", nameof(profileurl));
+                throw new JsonException("Property is required for class SteamProfile: profileurl.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: account_id.");
 
             if (avatar.IsSet && avatar.Value == null)
-                throw new ArgumentNullException(nameof(avatar), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: avatar.");
 
             if (avatarfull.IsSet && avatarfull.Value == null)
-                throw new ArgumentNullException(nameof(avatarfull), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: avatarfull.");
 
             if (avatarmedium.IsSet && avatarmedium.Value == null)
-                throw new ArgumentNullException(nameof(avatarmedium), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: avatarmedium.");
 
             if (friends.IsSet && friends.Value == null)
-                throw new ArgumentNullException(nameof(friends), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: friends.");
 
             if (lastUpdated.IsSet && lastUpdated.Value == null)
-                throw new ArgumentNullException(nameof(lastUpdated), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: last_updated.");
 
             if (matchesPlayedLast30d.IsSet && matchesPlayedLast30d.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayedLast30d), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: matches_played_last_30d.");
 
             if (personaname.IsSet && personaname.Value == null)
-                throw new ArgumentNullException(nameof(personaname), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: personaname.");
 
             if (profileurl.IsSet && profileurl.Value == null)
-                throw new ArgumentNullException(nameof(profileurl), "Property is not nullable for class SteamProfile.");
+                throw new JsonException("Property is not nullable for class SteamProfile: profileurl.");
 
             return new SteamProfile(accountId.Value!.Value!, avatar.Value!, avatarfull.Value!, avatarmedium.Value!, friends.Value!, lastUpdated.Value!.Value!, matchesPlayedLast30d.Value!.Value!, personaname.Value!, profileurl.Value!, countrycode, lastTeamAvgBadge, realname);
         }
@@ -381,7 +381,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamProfile"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamProfile steamProfile, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -396,27 +395,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamProfile"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamProfile steamProfile, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (steamProfile.Avatar == null)
-                throw new ArgumentNullException(nameof(steamProfile.Avatar), "Property is required for class SteamProfile.");
-
-            if (steamProfile.Avatarfull == null)
-                throw new ArgumentNullException(nameof(steamProfile.Avatarfull), "Property is required for class SteamProfile.");
-
-            if (steamProfile.Avatarmedium == null)
-                throw new ArgumentNullException(nameof(steamProfile.Avatarmedium), "Property is required for class SteamProfile.");
-
-            if (steamProfile.Friends == null)
-                throw new ArgumentNullException(nameof(steamProfile.Friends), "Property is required for class SteamProfile.");
-
-            if (steamProfile.Personaname == null)
-                throw new ArgumentNullException(nameof(steamProfile.Personaname), "Property is required for class SteamProfile.");
-
-            if (steamProfile.Profileurl == null)
-                throw new ArgumentNullException(nameof(steamProfile.Profileurl), "Property is required for class SteamProfile.");
-
             writer.WriteNumber("account_id", steamProfile.AccountId);
 
             writer.WriteString("avatar", steamProfile.Avatar);

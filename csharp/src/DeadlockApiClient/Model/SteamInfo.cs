@@ -286,64 +286,64 @@ namespace DeadlockApiClient.Model
             }
 
             if (!appId.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(appId));
+                throw new JsonException("Property is required for class SteamInfo: app_id.");
 
             if (!clientVersion.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(clientVersion));
+                throw new JsonException("Property is required for class SteamInfo: client_version.");
 
             if (!productName.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(productName));
+                throw new JsonException("Property is required for class SteamInfo: product_name.");
 
             if (!serverAppId.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(serverAppId));
+                throw new JsonException("Property is required for class SteamInfo: server_app_id.");
 
             if (!serverVersion.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(serverVersion));
+                throw new JsonException("Property is required for class SteamInfo: server_version.");
 
             if (!sourceRevision.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(sourceRevision));
+                throw new JsonException("Property is required for class SteamInfo: source_revision.");
 
             if (!toolsAppId.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(toolsAppId));
+                throw new JsonException("Property is required for class SteamInfo: tools_app_id.");
 
             if (!versionDate.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(versionDate));
+                throw new JsonException("Property is required for class SteamInfo: version_date.");
 
             if (!versionDatetime.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(versionDatetime));
+                throw new JsonException("Property is required for class SteamInfo: version_datetime.");
 
             if (!versionTime.IsSet)
-                throw new ArgumentException("Property is required for class SteamInfo.", nameof(versionTime));
+                throw new JsonException("Property is required for class SteamInfo: version_time.");
 
             if (appId.IsSet && appId.Value == null)
-                throw new ArgumentNullException(nameof(appId), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: app_id.");
 
             if (clientVersion.IsSet && clientVersion.Value == null)
-                throw new ArgumentNullException(nameof(clientVersion), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: client_version.");
 
             if (productName.IsSet && productName.Value == null)
-                throw new ArgumentNullException(nameof(productName), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: product_name.");
 
             if (serverAppId.IsSet && serverAppId.Value == null)
-                throw new ArgumentNullException(nameof(serverAppId), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: server_app_id.");
 
             if (serverVersion.IsSet && serverVersion.Value == null)
-                throw new ArgumentNullException(nameof(serverVersion), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: server_version.");
 
             if (sourceRevision.IsSet && sourceRevision.Value == null)
-                throw new ArgumentNullException(nameof(sourceRevision), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: source_revision.");
 
             if (toolsAppId.IsSet && toolsAppId.Value == null)
-                throw new ArgumentNullException(nameof(toolsAppId), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: tools_app_id.");
 
             if (versionDate.IsSet && versionDate.Value == null)
-                throw new ArgumentNullException(nameof(versionDate), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: version_date.");
 
             if (versionDatetime.IsSet && versionDatetime.Value == null)
-                throw new ArgumentNullException(nameof(versionDatetime), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: version_datetime.");
 
             if (versionTime.IsSet && versionTime.Value == null)
-                throw new ArgumentNullException(nameof(versionTime), "Property is not nullable for class SteamInfo.");
+                throw new JsonException("Property is not nullable for class SteamInfo: version_time.");
 
             return new SteamInfo(appId.Value!.Value!, clientVersion.Value!.Value!, productName.Value!, serverAppId.Value!.Value!, serverVersion.Value!.Value!, sourceRevision.Value!.Value!, toolsAppId.Value!.Value!, versionDate.Value!, versionDatetime.Value!, versionTime.Value!);
         }
@@ -354,7 +354,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamInfo steamInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -369,21 +368,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamInfo steamInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (steamInfo.ProductName == null)
-                throw new ArgumentNullException(nameof(steamInfo.ProductName), "Property is required for class SteamInfo.");
-
-            if (steamInfo.VersionDate == null)
-                throw new ArgumentNullException(nameof(steamInfo.VersionDate), "Property is required for class SteamInfo.");
-
-            if (steamInfo.VersionDatetime == null)
-                throw new ArgumentNullException(nameof(steamInfo.VersionDatetime), "Property is required for class SteamInfo.");
-
-            if (steamInfo.VersionTime == null)
-                throw new ArgumentNullException(nameof(steamInfo.VersionTime), "Property is required for class SteamInfo.");
-
             writer.WriteNumber("app_id", steamInfo.AppId);
 
             writer.WriteNumber("client_version", steamInfo.ClientVersion);

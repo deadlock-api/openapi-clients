@@ -172,10 +172,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!ui.IsSet)
-                throw new ArgumentException("Property is required for class HeroColors.", nameof(ui));
+                throw new JsonException("Property is required for class HeroColors: ui.");
 
             if (ui.IsSet && ui.Value == null)
-                throw new ArgumentNullException(nameof(ui), "Property is not nullable for class HeroColors.");
+                throw new JsonException("Property is not nullable for class HeroColors: ui.");
 
             return new HeroColors(ui.Value!, style, styleHex);
         }
@@ -186,7 +186,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroColors"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroColors heroColors, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -201,12 +200,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroColors"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroColors heroColors, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (heroColors.Ui == null)
-                throw new ArgumentNullException(nameof(heroColors.Ui), "Property is required for class HeroColors.");
-
             writer.WritePropertyName("ui");
             JsonSerializer.Serialize(writer, heroColors.Ui, jsonSerializerOptions);
             if (heroColors.StyleOption.IsSet)

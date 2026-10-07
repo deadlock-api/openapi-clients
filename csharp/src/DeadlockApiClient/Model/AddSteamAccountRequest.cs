@@ -133,10 +133,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!steamId3.IsSet)
-                throw new ArgumentException("Property is required for class AddSteamAccountRequest.", nameof(steamId3));
+                throw new JsonException("Property is required for class AddSteamAccountRequest: steam_id3.");
 
             if (steamId3.IsSet && steamId3.Value == null)
-                throw new ArgumentNullException(nameof(steamId3), "Property is not nullable for class AddSteamAccountRequest.");
+                throw new JsonException("Property is not nullable for class AddSteamAccountRequest: steam_id3.");
 
             return new AddSteamAccountRequest(steamId3.Value!.Value!);
         }
@@ -147,7 +147,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="addSteamAccountRequest"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AddSteamAccountRequest addSteamAccountRequest, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,7 +161,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="addSteamAccountRequest"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AddSteamAccountRequest addSteamAccountRequest, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("steam_id3", addSteamAccountRequest.SteamId3);

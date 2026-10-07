@@ -280,58 +280,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!avgDurationS.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(avgDurationS));
+                throw new JsonException("Property is required for class ItemFlowSummary: avg_duration_s.");
 
             if (!avgNetWorth.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(avgNetWorth));
+                throw new JsonException("Property is required for class ItemFlowSummary: avg_net_worth.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(losses));
+                throw new JsonException("Property is required for class ItemFlowSummary: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(matches));
+                throw new JsonException("Property is required for class ItemFlowSummary: matches.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(players));
+                throw new JsonException("Property is required for class ItemFlowSummary: players.");
 
             if (!totalAssists.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(totalAssists));
+                throw new JsonException("Property is required for class ItemFlowSummary: total_assists.");
 
             if (!totalDeaths.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(totalDeaths));
+                throw new JsonException("Property is required for class ItemFlowSummary: total_deaths.");
 
             if (!totalKills.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(totalKills));
+                throw new JsonException("Property is required for class ItemFlowSummary: total_kills.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowSummary.", nameof(wins));
+                throw new JsonException("Property is required for class ItemFlowSummary: wins.");
 
             if (avgDurationS.IsSet && avgDurationS.Value == null)
-                throw new ArgumentNullException(nameof(avgDurationS), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: avg_duration_s.");
 
             if (avgNetWorth.IsSet && avgNetWorth.Value == null)
-                throw new ArgumentNullException(nameof(avgNetWorth), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: avg_net_worth.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: matches.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: players.");
 
             if (totalAssists.IsSet && totalAssists.Value == null)
-                throw new ArgumentNullException(nameof(totalAssists), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: total_assists.");
 
             if (totalDeaths.IsSet && totalDeaths.Value == null)
-                throw new ArgumentNullException(nameof(totalDeaths), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: total_deaths.");
 
             if (totalKills.IsSet && totalKills.Value == null)
-                throw new ArgumentNullException(nameof(totalKills), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: total_kills.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class ItemFlowSummary.");
+                throw new JsonException("Property is not nullable for class ItemFlowSummary: wins.");
 
             return new ItemFlowSummary(avgDurationS.Value!.Value!, avgNetWorth.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalDeaths.Value!.Value!, totalKills.Value!.Value!, wins.Value!.Value!);
         }
@@ -342,7 +342,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlowSummary itemFlowSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -357,7 +356,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlowSummary itemFlowSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("avg_duration_s", itemFlowSummary.AvgDurationS);

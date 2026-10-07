@@ -262,70 +262,70 @@ namespace DeadlockApiClient.Model
             }
 
             if (!avg.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(avg));
+                throw new JsonException("Property is required for class HashMapValue: avg.");
 
             if (!percentile1.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile1));
+                throw new JsonException("Property is required for class HashMapValue: percentile1.");
 
             if (!percentile10.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile10));
+                throw new JsonException("Property is required for class HashMapValue: percentile10.");
 
             if (!percentile25.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile25));
+                throw new JsonException("Property is required for class HashMapValue: percentile25.");
 
             if (!percentile5.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile5));
+                throw new JsonException("Property is required for class HashMapValue: percentile5.");
 
             if (!percentile50.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile50));
+                throw new JsonException("Property is required for class HashMapValue: percentile50.");
 
             if (!percentile75.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile75));
+                throw new JsonException("Property is required for class HashMapValue: percentile75.");
 
             if (!percentile90.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile90));
+                throw new JsonException("Property is required for class HashMapValue: percentile90.");
 
             if (!percentile95.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile95));
+                throw new JsonException("Property is required for class HashMapValue: percentile95.");
 
             if (!percentile99.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(percentile99));
+                throw new JsonException("Property is required for class HashMapValue: percentile99.");
 
             if (!std.IsSet)
-                throw new ArgumentException("Property is required for class HashMapValue.", nameof(std));
+                throw new JsonException("Property is required for class HashMapValue: std.");
 
             if (avg.IsSet && avg.Value == null)
-                throw new ArgumentNullException(nameof(avg), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: avg.");
 
             if (percentile1.IsSet && percentile1.Value == null)
-                throw new ArgumentNullException(nameof(percentile1), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile1.");
 
             if (percentile10.IsSet && percentile10.Value == null)
-                throw new ArgumentNullException(nameof(percentile10), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile10.");
 
             if (percentile25.IsSet && percentile25.Value == null)
-                throw new ArgumentNullException(nameof(percentile25), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile25.");
 
             if (percentile5.IsSet && percentile5.Value == null)
-                throw new ArgumentNullException(nameof(percentile5), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile5.");
 
             if (percentile50.IsSet && percentile50.Value == null)
-                throw new ArgumentNullException(nameof(percentile50), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile50.");
 
             if (percentile75.IsSet && percentile75.Value == null)
-                throw new ArgumentNullException(nameof(percentile75), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile75.");
 
             if (percentile90.IsSet && percentile90.Value == null)
-                throw new ArgumentNullException(nameof(percentile90), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile90.");
 
             if (percentile95.IsSet && percentile95.Value == null)
-                throw new ArgumentNullException(nameof(percentile95), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile95.");
 
             if (percentile99.IsSet && percentile99.Value == null)
-                throw new ArgumentNullException(nameof(percentile99), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: percentile99.");
 
             if (std.IsSet && std.Value == null)
-                throw new ArgumentNullException(nameof(std), "Property is not nullable for class HashMapValue.");
+                throw new JsonException("Property is not nullable for class HashMapValue: std.");
 
             return new HashMapValue(avg.Value!.Value!, percentile1.Value!.Value!, percentile10.Value!.Value!, percentile25.Value!.Value!, percentile5.Value!.Value!, percentile50.Value!.Value!, percentile75.Value!.Value!, percentile90.Value!.Value!, percentile95.Value!.Value!, percentile99.Value!.Value!, std.Value!.Value!);
         }
@@ -336,7 +336,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapValue hashMapValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -351,7 +350,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapValue hashMapValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("avg", hashMapValue.Avg);

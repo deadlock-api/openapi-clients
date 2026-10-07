@@ -195,28 +195,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!alpha.IsSet)
-                throw new ArgumentException("Property is required for class Color.", nameof(alpha));
+                throw new JsonException("Property is required for class Color: alpha.");
 
             if (!blue.IsSet)
-                throw new ArgumentException("Property is required for class Color.", nameof(blue));
+                throw new JsonException("Property is required for class Color: blue.");
 
             if (!green.IsSet)
-                throw new ArgumentException("Property is required for class Color.", nameof(green));
+                throw new JsonException("Property is required for class Color: green.");
 
             if (!red.IsSet)
-                throw new ArgumentException("Property is required for class Color.", nameof(red));
+                throw new JsonException("Property is required for class Color: red.");
 
             if (alpha.IsSet && alpha.Value == null)
-                throw new ArgumentNullException(nameof(alpha), "Property is not nullable for class Color.");
+                throw new JsonException("Property is not nullable for class Color: alpha.");
 
             if (blue.IsSet && blue.Value == null)
-                throw new ArgumentNullException(nameof(blue), "Property is not nullable for class Color.");
+                throw new JsonException("Property is not nullable for class Color: blue.");
 
             if (green.IsSet && green.Value == null)
-                throw new ArgumentNullException(nameof(green), "Property is not nullable for class Color.");
+                throw new JsonException("Property is not nullable for class Color: green.");
 
             if (red.IsSet && red.Value == null)
-                throw new ArgumentNullException(nameof(red), "Property is not nullable for class Color.");
+                throw new JsonException("Property is not nullable for class Color: red.");
 
             return new Color(alpha.Value!.Value!, blue.Value!.Value!, green.Value!.Value!, red.Value!.Value!);
         }
@@ -227,7 +227,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="color"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Color color, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -242,7 +241,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="color"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Color color, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("alpha", color.Alpha);

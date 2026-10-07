@@ -165,16 +165,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!effects.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedPenalty.", nameof(effects));
+                throw new JsonException("Property is required for class CorruptedPenalty: effects.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedPenalty.", nameof(name));
+                throw new JsonException("Property is required for class CorruptedPenalty: name.");
 
             if (effects.IsSet && effects.Value == null)
-                throw new ArgumentNullException(nameof(effects), "Property is not nullable for class CorruptedPenalty.");
+                throw new JsonException("Property is not nullable for class CorruptedPenalty: effects.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class CorruptedPenalty.");
+                throw new JsonException("Property is not nullable for class CorruptedPenalty: name.");
 
             return new CorruptedPenalty(effects.Value!, name.Value!, rollWeight);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedPenalty"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CorruptedPenalty corruptedPenalty, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedPenalty"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CorruptedPenalty corruptedPenalty, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (corruptedPenalty.Effects == null)
-                throw new ArgumentNullException(nameof(corruptedPenalty.Effects), "Property is required for class CorruptedPenalty.");
-
-            if (corruptedPenalty.Name == null)
-                throw new ArgumentNullException(nameof(corruptedPenalty.Name), "Property is required for class CorruptedPenalty.");
-
             writer.WritePropertyName("effects");
             JsonSerializer.Serialize(writer, corruptedPenalty.Effects, jsonSerializerOptions);
             writer.WriteString("name", corruptedPenalty.Name);

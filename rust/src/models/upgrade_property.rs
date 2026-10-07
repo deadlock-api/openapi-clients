@@ -13,44 +13,44 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UpgradeProperty {
-    #[serde(rename = "can_set_token_override", skip_serializing_if = "Option::is_none")]
-    pub can_set_token_override: Option<bool>,
-    #[serde(rename = "conditional", skip_serializing_if = "Option::is_none")]
-    pub conditional: Option<String>,
-    #[serde(rename = "css_class", skip_serializing_if = "Option::is_none")]
-    pub css_class: Option<String>,
-    #[serde(rename = "disable_value", skip_serializing_if = "Option::is_none")]
-    pub disable_value: Option<String>,
-    #[serde(rename = "display_units", skip_serializing_if = "Option::is_none")]
-    pub display_units: Option<String>,
-    #[serde(rename = "icon", skip_serializing_if = "Option::is_none")]
-    pub icon: Option<String>,
-    #[serde(rename = "label", skip_serializing_if = "Option::is_none")]
-    pub label: Option<String>,
-    #[serde(rename = "loc_token_override", skip_serializing_if = "Option::is_none")]
-    pub loc_token_override: Option<String>,
-    #[serde(rename = "negative_attribute", skip_serializing_if = "Option::is_none")]
-    pub negative_attribute: Option<bool>,
-    #[serde(rename = "postfix", skip_serializing_if = "Option::is_none")]
-    pub postfix: Option<String>,
-    #[serde(rename = "postvalue_label", skip_serializing_if = "Option::is_none")]
-    pub postvalue_label: Option<String>,
-    #[serde(rename = "prefix", skip_serializing_if = "Option::is_none")]
-    pub prefix: Option<String>,
-    #[serde(rename = "provided_property_type", skip_serializing_if = "Option::is_none")]
-    pub provided_property_type: Option<String>,
+    #[serde(rename = "can_set_token_override", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub can_set_token_override: Option<Option<bool>>,
+    #[serde(rename = "conditional", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub conditional: Option<Option<String>>,
+    #[serde(rename = "css_class", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub css_class: Option<Option<String>>,
+    #[serde(rename = "disable_value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub disable_value: Option<Option<String>>,
+    #[serde(rename = "display_units", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub display_units: Option<Option<String>>,
+    #[serde(rename = "icon", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub icon: Option<Option<String>>,
+    #[serde(rename = "label", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub label: Option<Option<String>>,
+    #[serde(rename = "loc_token_override", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub loc_token_override: Option<Option<String>>,
+    #[serde(rename = "negative_attribute", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub negative_attribute: Option<Option<bool>>,
+    #[serde(rename = "postfix", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub postfix: Option<Option<String>>,
+    #[serde(rename = "postvalue_label", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub postvalue_label: Option<Option<String>>,
+    #[serde(rename = "prefix", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub prefix: Option<Option<String>>,
+    #[serde(rename = "provided_property_type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub provided_property_type: Option<Option<String>>,
     /// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
-    #[serde(rename = "required_upgrade_bits", skip_serializing_if = "Option::is_none")]
-    pub required_upgrade_bits: Option<Vec<String>>,
-    #[serde(rename = "scale_function", skip_serializing_if = "Option::is_none")]
-    pub scale_function: Option<Box<models::RawItemPropertyScaleFunctionSubclass>>,
-    #[serde(rename = "street_brawl_value", skip_serializing_if = "Option::is_none")]
-    pub street_brawl_value: Option<String>,
-    #[serde(rename = "usage_flags", skip_serializing_if = "Option::is_none")]
-    pub usage_flags: Option<Vec<models::StatsUsageFlag>>,
+    #[serde(rename = "required_upgrade_bits", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub required_upgrade_bits: Option<Option<Vec<String>>>,
+    #[serde(rename = "scale_function", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub scale_function: Option<Option<Box<models::RawItemPropertyScaleFunctionSubclass>>>,
+    #[serde(rename = "street_brawl_value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub street_brawl_value: Option<Option<String>>,
+    #[serde(rename = "usage_flags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub usage_flags: Option<Option<Vec<models::StatsUsageFlag>>>,
     /// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
+    #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub value: Option<Option<String>>,
     #[serde(rename = "tooltip_is_elevated", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_is_elevated: Option<Option<bool>>,
     #[serde(rename = "tooltip_is_important", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!domain.IsSet)
-                throw new ArgumentException("Property is required for class PatchCategory.", nameof(domain));
+                throw new JsonException("Property is required for class PatchCategory: domain.");
 
             if (!text.IsSet)
-                throw new ArgumentException("Property is required for class PatchCategory.", nameof(text));
+                throw new JsonException("Property is required for class PatchCategory: text.");
 
             if (domain.IsSet && domain.Value == null)
-                throw new ArgumentNullException(nameof(domain), "Property is not nullable for class PatchCategory.");
+                throw new JsonException("Property is not nullable for class PatchCategory: domain.");
 
             if (text.IsSet && text.Value == null)
-                throw new ArgumentNullException(nameof(text), "Property is not nullable for class PatchCategory.");
+                throw new JsonException("Property is not nullable for class PatchCategory: text.");
 
             return new PatchCategory(domain.Value!, text.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patchCategory"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PatchCategory patchCategory, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,15 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patchCategory"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PatchCategory patchCategory, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (patchCategory.Domain == null)
-                throw new ArgumentNullException(nameof(patchCategory.Domain), "Property is required for class PatchCategory.");
-
-            if (patchCategory.Text == null)
-                throw new ArgumentNullException(nameof(patchCategory.Text), "Property is required for class PatchCategory.");
-
             writer.WriteString("domain", patchCategory.Domain);
 
             writer.WriteString("text", patchCategory.Text);

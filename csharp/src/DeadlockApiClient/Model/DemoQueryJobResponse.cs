@@ -146,16 +146,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!jobId.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryJobResponse.", nameof(jobId));
+                throw new JsonException("Property is required for class DemoQueryJobResponse: job_id.");
 
             if (!status.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryJobResponse.", nameof(status));
+                throw new JsonException("Property is required for class DemoQueryJobResponse: status.");
 
             if (jobId.IsSet && jobId.Value == null)
-                throw new ArgumentNullException(nameof(jobId), "Property is not nullable for class DemoQueryJobResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryJobResponse: job_id.");
 
             if (status.IsSet && status.Value == null)
-                throw new ArgumentNullException(nameof(status), "Property is not nullable for class DemoQueryJobResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryJobResponse: status.");
 
             return new DemoQueryJobResponse(jobId.Value!, status.Value!.Value!);
         }
@@ -166,7 +166,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryJobResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DemoQueryJobResponse demoQueryJobResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -181,12 +180,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryJobResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DemoQueryJobResponse demoQueryJobResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (demoQueryJobResponse.JobId == null)
-                throw new ArgumentNullException(nameof(demoQueryJobResponse.JobId), "Property is required for class DemoQueryJobResponse.");
-
             writer.WriteString("job_id", demoQueryJobResponse.JobId);
 
             var statusRawValue = JobStatusValueConverter.ToJsonValue(demoQueryJobResponse.Status);

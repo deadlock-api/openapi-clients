@@ -227,7 +227,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgradeTooltipSectionAttribute"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, UpgradeTooltipSectionAttribute upgradeTooltipSectionAttribute, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -242,7 +241,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgradeTooltipSectionAttribute"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, UpgradeTooltipSectionAttribute upgradeTooltipSectionAttribute, JsonSerializerOptions jsonSerializerOptions)
         {
             if (upgradeTooltipSectionAttribute.ElevatedPropertiesOption.IsSet)

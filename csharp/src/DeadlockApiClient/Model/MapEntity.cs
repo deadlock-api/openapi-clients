@@ -243,16 +243,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!position.IsSet)
-                throw new ArgumentException("Property is required for class MapEntity.", nameof(position));
+                throw new JsonException("Property is required for class MapEntity: position.");
 
             if (position.IsSet && position.Value == null)
-                throw new ArgumentNullException(nameof(position), "Property is not nullable for class MapEntity.");
+                throw new JsonException("Property is not nullable for class MapEntity: position.");
 
             if (leftRelative.IsSet && leftRelative.Value == null)
-                throw new ArgumentNullException(nameof(leftRelative), "Property is not nullable for class MapEntity.");
+                throw new JsonException("Property is not nullable for class MapEntity: left_relative.");
 
             if (topRelative.IsSet && topRelative.Value == null)
-                throw new ArgumentNullException(nameof(topRelative), "Property is not nullable for class MapEntity.");
+                throw new JsonException("Property is not nullable for class MapEntity: top_relative.");
 
             return new MapEntity(position.Value!, kind, leftRelative, target, team, topRelative);
         }
@@ -263,7 +263,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapEntity"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MapEntity mapEntity, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -278,11 +277,13 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapEntity"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapEntity mapEntity, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mapEntity.Position == null)
-                throw new ArgumentNullException(nameof(mapEntity.Position), "Property is required for class MapEntity.");
+            if (mapEntity.LeftRelativeOption.IsSet && mapEntity.LeftRelative == null)
+                throw new JsonException("Cannot write null property MapEntity.LeftRelative to non-nullable JSON property 'left_relative'.");
+
+            if (mapEntity.TopRelativeOption.IsSet && mapEntity.TopRelative == null)
+                throw new JsonException("Cannot write null property MapEntity.TopRelative to non-nullable JSON property 'top_relative'.");
 
             writer.WritePropertyName("position");
             JsonSerializer.Serialize(writer, mapEntity.Position, jsonSerializerOptions);

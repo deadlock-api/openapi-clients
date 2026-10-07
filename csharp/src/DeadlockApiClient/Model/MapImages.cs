@@ -237,28 +237,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!frame.IsSet)
-                throw new ArgumentException("Property is required for class MapImages.", nameof(frame));
+                throw new JsonException("Property is required for class MapImages: frame.");
 
             if (!mid.IsSet)
-                throw new ArgumentException("Property is required for class MapImages.", nameof(mid));
+                throw new JsonException("Property is required for class MapImages: mid.");
 
             if (!minimap.IsSet)
-                throw new ArgumentException("Property is required for class MapImages.", nameof(minimap));
+                throw new JsonException("Property is required for class MapImages: minimap.");
 
             if (!plain.IsSet)
-                throw new ArgumentException("Property is required for class MapImages.", nameof(plain));
+                throw new JsonException("Property is required for class MapImages: plain.");
 
             if (frame.IsSet && frame.Value == null)
-                throw new ArgumentNullException(nameof(frame), "Property is not nullable for class MapImages.");
+                throw new JsonException("Property is not nullable for class MapImages: frame.");
 
             if (mid.IsSet && mid.Value == null)
-                throw new ArgumentNullException(nameof(mid), "Property is not nullable for class MapImages.");
+                throw new JsonException("Property is not nullable for class MapImages: mid.");
 
             if (minimap.IsSet && minimap.Value == null)
-                throw new ArgumentNullException(nameof(minimap), "Property is not nullable for class MapImages.");
+                throw new JsonException("Property is not nullable for class MapImages: minimap.");
 
             if (plain.IsSet && plain.Value == null)
-                throw new ArgumentNullException(nameof(plain), "Property is not nullable for class MapImages.");
+                throw new JsonException("Property is not nullable for class MapImages: plain.");
 
             return new MapImages(frame.Value!, mid.Value!, minimap.Value!, plain.Value!, background, midTunnels, ratTunnels);
         }
@@ -269,7 +269,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapImages"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MapImages mapImages, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -284,21 +283,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapImages"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapImages mapImages, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mapImages.Frame == null)
-                throw new ArgumentNullException(nameof(mapImages.Frame), "Property is required for class MapImages.");
-
-            if (mapImages.Mid == null)
-                throw new ArgumentNullException(nameof(mapImages.Mid), "Property is required for class MapImages.");
-
-            if (mapImages.Minimap == null)
-                throw new ArgumentNullException(nameof(mapImages.Minimap), "Property is required for class MapImages.");
-
-            if (mapImages.Plain == null)
-                throw new ArgumentNullException(nameof(mapImages.Plain), "Property is required for class MapImages.");
-
             writer.WriteString("frame", mapImages.Frame);
 
             writer.WriteString("mid", mapImages.Mid);

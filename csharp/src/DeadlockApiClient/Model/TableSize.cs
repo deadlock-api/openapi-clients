@@ -214,10 +214,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!isView.IsSet)
-                throw new ArgumentException("Property is required for class TableSize.", nameof(isView));
+                throw new JsonException("Property is required for class TableSize: is_view.");
 
             if (isView.IsSet && isView.Value == null)
-                throw new ArgumentNullException(nameof(isView), "Property is not nullable for class TableSize.");
+                throw new JsonException("Property is not nullable for class TableSize: is_view.");
 
             return new TableSize(isView.Value!.Value!, dataCompressedBytes, dataUncompressedBytes, rows);
         }
@@ -228,7 +228,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="tableSize"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, TableSize tableSize, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -243,7 +242,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="tableSize"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, TableSize tableSize, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteBoolean("is_view", tableSize.IsView);

@@ -197,40 +197,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!p0Points.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(p0Points));
+                throw new JsonException("Property is required for class ZiplanePath: P0_points.");
 
             if (!p1Points.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(p1Points));
+                throw new JsonException("Property is required for class ZiplanePath: P1_points.");
 
             if (!p2Points.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(p2Points));
+                throw new JsonException("Property is required for class ZiplanePath: P2_points.");
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(color));
+                throw new JsonException("Property is required for class ZiplanePath: color.");
 
             if (!colorParsed.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(colorParsed));
+                throw new JsonException("Property is required for class ZiplanePath: color_parsed.");
 
             if (!origin.IsSet)
-                throw new ArgumentException("Property is required for class ZiplanePath.", nameof(origin));
+                throw new JsonException("Property is required for class ZiplanePath: origin.");
 
             if (p0Points.IsSet && p0Points.Value == null)
-                throw new ArgumentNullException(nameof(p0Points), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: P0_points.");
 
             if (p1Points.IsSet && p1Points.Value == null)
-                throw new ArgumentNullException(nameof(p1Points), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: P1_points.");
 
             if (p2Points.IsSet && p2Points.Value == null)
-                throw new ArgumentNullException(nameof(p2Points), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: P2_points.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: color.");
 
             if (colorParsed.IsSet && colorParsed.Value == null)
-                throw new ArgumentNullException(nameof(colorParsed), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: color_parsed.");
 
             if (origin.IsSet && origin.Value == null)
-                throw new ArgumentNullException(nameof(origin), "Property is not nullable for class ZiplanePath.");
+                throw new JsonException("Property is not nullable for class ZiplanePath: origin.");
 
             return new ZiplanePath(p0Points.Value!, p1Points.Value!, p2Points.Value!, color.Value!, colorParsed.Value!, origin.Value!);
         }
@@ -241,7 +241,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ziplanePath"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ZiplanePath ziplanePath, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -256,27 +255,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ziplanePath"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ZiplanePath ziplanePath, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (ziplanePath.P0Points == null)
-                throw new ArgumentNullException(nameof(ziplanePath.P0Points), "Property is required for class ZiplanePath.");
-
-            if (ziplanePath.P1Points == null)
-                throw new ArgumentNullException(nameof(ziplanePath.P1Points), "Property is required for class ZiplanePath.");
-
-            if (ziplanePath.P2Points == null)
-                throw new ArgumentNullException(nameof(ziplanePath.P2Points), "Property is required for class ZiplanePath.");
-
-            if (ziplanePath.Color == null)
-                throw new ArgumentNullException(nameof(ziplanePath.Color), "Property is required for class ZiplanePath.");
-
-            if (ziplanePath.ColorParsed == null)
-                throw new ArgumentNullException(nameof(ziplanePath.ColorParsed), "Property is required for class ZiplanePath.");
-
-            if (ziplanePath.Origin == null)
-                throw new ArgumentNullException(nameof(ziplanePath.Origin), "Property is required for class ZiplanePath.");
-
             writer.WritePropertyName("P0_points");
             JsonSerializer.Serialize(writer, ziplanePath.P0Points, jsonSerializerOptions);
             writer.WritePropertyName("P1_points");

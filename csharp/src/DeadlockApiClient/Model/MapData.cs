@@ -219,28 +219,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!images.IsSet)
-                throw new ArgumentException("Property is required for class MapData.", nameof(images));
+                throw new JsonException("Property is required for class MapData: images.");
 
             if (!objectivePositions.IsSet)
-                throw new ArgumentException("Property is required for class MapData.", nameof(objectivePositions));
+                throw new JsonException("Property is required for class MapData: objective_positions.");
 
             if (!radius.IsSet)
-                throw new ArgumentException("Property is required for class MapData.", nameof(radius));
+                throw new JsonException("Property is required for class MapData: radius.");
 
             if (!ziplinePaths.IsSet)
-                throw new ArgumentException("Property is required for class MapData.", nameof(ziplinePaths));
+                throw new JsonException("Property is required for class MapData: zipline_paths.");
 
             if (images.IsSet && images.Value == null)
-                throw new ArgumentNullException(nameof(images), "Property is not nullable for class MapData.");
+                throw new JsonException("Property is not nullable for class MapData: images.");
 
             if (objectivePositions.IsSet && objectivePositions.Value == null)
-                throw new ArgumentNullException(nameof(objectivePositions), "Property is not nullable for class MapData.");
+                throw new JsonException("Property is not nullable for class MapData: objective_positions.");
 
             if (radius.IsSet && radius.Value == null)
-                throw new ArgumentNullException(nameof(radius), "Property is not nullable for class MapData.");
+                throw new JsonException("Property is not nullable for class MapData: radius.");
 
             if (ziplinePaths.IsSet && ziplinePaths.Value == null)
-                throw new ArgumentNullException(nameof(ziplinePaths), "Property is not nullable for class MapData.");
+                throw new JsonException("Property is not nullable for class MapData: zipline_paths.");
 
             return new MapData(images.Value!, objectivePositions.Value!, radius.Value!.Value!, ziplinePaths.Value!, entities, neutralCamps);
         }
@@ -251,7 +251,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MapData mapData, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -266,18 +265,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mapData"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MapData mapData, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (mapData.Images == null)
-                throw new ArgumentNullException(nameof(mapData.Images), "Property is required for class MapData.");
-
-            if (mapData.ObjectivePositions == null)
-                throw new ArgumentNullException(nameof(mapData.ObjectivePositions), "Property is required for class MapData.");
-
-            if (mapData.ZiplinePaths == null)
-                throw new ArgumentNullException(nameof(mapData.ZiplinePaths), "Property is required for class MapData.");
-
             writer.WritePropertyName("images");
             JsonSerializer.Serialize(writer, mapData.Images, jsonSerializerOptions);
             writer.WritePropertyName("objective_positions");

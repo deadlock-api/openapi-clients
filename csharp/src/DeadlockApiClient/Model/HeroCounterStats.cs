@@ -519,124 +519,124 @@ namespace DeadlockApiClient.Model
             }
 
             if (!assists.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(assists));
+                throw new JsonException("Property is required for class HeroCounterStats: assists.");
 
             if (!creeps.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(creeps));
+                throw new JsonException("Property is required for class HeroCounterStats: creeps.");
 
             if (!deaths.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(deaths));
+                throw new JsonException("Property is required for class HeroCounterStats: deaths.");
 
             if (!denies.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(denies));
+                throw new JsonException("Property is required for class HeroCounterStats: denies.");
 
             if (!enemyAssists.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyAssists));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_assists.");
 
             if (!enemyCreeps.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyCreeps));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_creeps.");
 
             if (!enemyDeaths.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyDeaths));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_deaths.");
 
             if (!enemyDenies.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyDenies));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_denies.");
 
             if (!enemyHeroId.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyHeroId));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_hero_id.");
 
             if (!enemyKills.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyKills));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_kills.");
 
             if (!enemyLastHits.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyLastHits));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_last_hits.");
 
             if (!enemyNetworth.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyNetworth));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_networth.");
 
             if (!enemyObjDamage.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(enemyObjDamage));
+                throw new JsonException("Property is required for class HeroCounterStats: enemy_obj_damage.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(heroId));
+                throw new JsonException("Property is required for class HeroCounterStats: hero_id.");
 
             if (!kills.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(kills));
+                throw new JsonException("Property is required for class HeroCounterStats: kills.");
 
             if (!lastHits.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(lastHits));
+                throw new JsonException("Property is required for class HeroCounterStats: last_hits.");
 
             if (!matchesPlayed.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(matchesPlayed));
+                throw new JsonException("Property is required for class HeroCounterStats: matches_played.");
 
             if (!networth.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(networth));
+                throw new JsonException("Property is required for class HeroCounterStats: networth.");
 
             if (!objDamage.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(objDamage));
+                throw new JsonException("Property is required for class HeroCounterStats: obj_damage.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class HeroCounterStats.", nameof(wins));
+                throw new JsonException("Property is required for class HeroCounterStats: wins.");
 
             if (assists.IsSet && assists.Value == null)
-                throw new ArgumentNullException(nameof(assists), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: assists.");
 
             if (creeps.IsSet && creeps.Value == null)
-                throw new ArgumentNullException(nameof(creeps), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: creeps.");
 
             if (deaths.IsSet && deaths.Value == null)
-                throw new ArgumentNullException(nameof(deaths), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: deaths.");
 
             if (denies.IsSet && denies.Value == null)
-                throw new ArgumentNullException(nameof(denies), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: denies.");
 
             if (enemyAssists.IsSet && enemyAssists.Value == null)
-                throw new ArgumentNullException(nameof(enemyAssists), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_assists.");
 
             if (enemyCreeps.IsSet && enemyCreeps.Value == null)
-                throw new ArgumentNullException(nameof(enemyCreeps), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_creeps.");
 
             if (enemyDeaths.IsSet && enemyDeaths.Value == null)
-                throw new ArgumentNullException(nameof(enemyDeaths), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_deaths.");
 
             if (enemyDenies.IsSet && enemyDenies.Value == null)
-                throw new ArgumentNullException(nameof(enemyDenies), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_denies.");
 
             if (enemyHeroId.IsSet && enemyHeroId.Value == null)
-                throw new ArgumentNullException(nameof(enemyHeroId), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_hero_id.");
 
             if (enemyKills.IsSet && enemyKills.Value == null)
-                throw new ArgumentNullException(nameof(enemyKills), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_kills.");
 
             if (enemyLastHits.IsSet && enemyLastHits.Value == null)
-                throw new ArgumentNullException(nameof(enemyLastHits), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_last_hits.");
 
             if (enemyNetworth.IsSet && enemyNetworth.Value == null)
-                throw new ArgumentNullException(nameof(enemyNetworth), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_networth.");
 
             if (enemyObjDamage.IsSet && enemyObjDamage.Value == null)
-                throw new ArgumentNullException(nameof(enemyObjDamage), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: enemy_obj_damage.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: hero_id.");
 
             if (kills.IsSet && kills.Value == null)
-                throw new ArgumentNullException(nameof(kills), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: kills.");
 
             if (lastHits.IsSet && lastHits.Value == null)
-                throw new ArgumentNullException(nameof(lastHits), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: last_hits.");
 
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: matches_played.");
 
             if (networth.IsSet && networth.Value == null)
-                throw new ArgumentNullException(nameof(networth), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: networth.");
 
             if (objDamage.IsSet && objDamage.Value == null)
-                throw new ArgumentNullException(nameof(objDamage), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: obj_damage.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class HeroCounterStats.");
+                throw new JsonException("Property is not nullable for class HeroCounterStats: wins.");
 
             return new HeroCounterStats(assists.Value!.Value!, creeps.Value!.Value!, deaths.Value!.Value!, denies.Value!.Value!, enemyAssists.Value!.Value!, enemyCreeps.Value!.Value!, enemyDeaths.Value!.Value!, enemyDenies.Value!.Value!, enemyHeroId.Value!.Value!, enemyKills.Value!.Value!, enemyLastHits.Value!.Value!, enemyNetworth.Value!.Value!, enemyObjDamage.Value!.Value!, heroId.Value!.Value!, kills.Value!.Value!, lastHits.Value!.Value!, matchesPlayed.Value!.Value!, networth.Value!.Value!, objDamage.Value!.Value!, wins.Value!.Value!);
         }
@@ -647,7 +647,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroCounterStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroCounterStats heroCounterStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -662,7 +661,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroCounterStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroCounterStats heroCounterStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("assists", heroCounterStats.Assists);

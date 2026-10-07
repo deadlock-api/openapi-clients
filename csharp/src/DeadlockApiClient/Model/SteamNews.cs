@@ -189,34 +189,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!content.IsSet)
-                throw new ArgumentException("Property is required for class SteamNews.", nameof(content));
+                throw new JsonException("Property is required for class SteamNews: content.");
 
             if (!guid.IsSet)
-                throw new ArgumentException("Property is required for class SteamNews.", nameof(guid));
+                throw new JsonException("Property is required for class SteamNews: guid.");
 
             if (!link.IsSet)
-                throw new ArgumentException("Property is required for class SteamNews.", nameof(link));
+                throw new JsonException("Property is required for class SteamNews: link.");
 
             if (!pubDate.IsSet)
-                throw new ArgumentException("Property is required for class SteamNews.", nameof(pubDate));
+                throw new JsonException("Property is required for class SteamNews: pub_date.");
 
             if (!title.IsSet)
-                throw new ArgumentException("Property is required for class SteamNews.", nameof(title));
+                throw new JsonException("Property is required for class SteamNews: title.");
 
             if (content.IsSet && content.Value == null)
-                throw new ArgumentNullException(nameof(content), "Property is not nullable for class SteamNews.");
+                throw new JsonException("Property is not nullable for class SteamNews: content.");
 
             if (guid.IsSet && guid.Value == null)
-                throw new ArgumentNullException(nameof(guid), "Property is not nullable for class SteamNews.");
+                throw new JsonException("Property is not nullable for class SteamNews: guid.");
 
             if (link.IsSet && link.Value == null)
-                throw new ArgumentNullException(nameof(link), "Property is not nullable for class SteamNews.");
+                throw new JsonException("Property is not nullable for class SteamNews: link.");
 
             if (pubDate.IsSet && pubDate.Value == null)
-                throw new ArgumentNullException(nameof(pubDate), "Property is not nullable for class SteamNews.");
+                throw new JsonException("Property is not nullable for class SteamNews: pub_date.");
 
             if (title.IsSet && title.Value == null)
-                throw new ArgumentNullException(nameof(title), "Property is not nullable for class SteamNews.");
+                throw new JsonException("Property is not nullable for class SteamNews: title.");
 
             return new SteamNews(content.Value!, guid.Value!, link.Value!, pubDate.Value!.Value!, title.Value!);
         }
@@ -227,7 +227,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamNews"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamNews steamNews, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -242,21 +241,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamNews"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamNews steamNews, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (steamNews.Content == null)
-                throw new ArgumentNullException(nameof(steamNews.Content), "Property is required for class SteamNews.");
-
-            if (steamNews.Guid == null)
-                throw new ArgumentNullException(nameof(steamNews.Guid), "Property is required for class SteamNews.");
-
-            if (steamNews.Link == null)
-                throw new ArgumentNullException(nameof(steamNews.Link), "Property is required for class SteamNews.");
-
-            if (steamNews.Title == null)
-                throw new ArgumentNullException(nameof(steamNews.Title), "Property is required for class SteamNews.");
-
             writer.WriteString("content", steamNews.Content);
 
             writer.WritePropertyName("guid");

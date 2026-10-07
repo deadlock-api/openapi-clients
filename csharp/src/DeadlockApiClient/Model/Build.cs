@@ -262,10 +262,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!heroBuild.IsSet)
-                throw new ArgumentException("Property is required for class Build.", nameof(heroBuild));
+                throw new JsonException("Property is required for class Build: hero_build.");
 
             if (heroBuild.IsSet && heroBuild.Value == null)
-                throw new ArgumentNullException(nameof(heroBuild), "Property is not nullable for class Build.");
+                throw new JsonException("Property is not nullable for class Build: hero_build.");
 
             return new Build(heroBuild.Value!, numFavorites, numIgnores, numReports, numWeeklyFavorites, rollupCategory);
         }
@@ -276,7 +276,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="build"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Build build, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -291,12 +290,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="build"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Build build, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (build.HeroBuild == null)
-                throw new ArgumentNullException(nameof(build.HeroBuild), "Property is required for class Build.");
-
             writer.WritePropertyName("hero_build");
             JsonSerializer.Serialize(writer, build.HeroBuild, jsonSerializerOptions);
             if (build.NumFavoritesOption.IsSet)

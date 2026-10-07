@@ -190,28 +190,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class HeroEntry.", nameof(heroId));
+                throw new JsonException("Property is required for class HeroEntry: hero_id.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class HeroEntry.", nameof(matches));
+                throw new JsonException("Property is required for class HeroEntry: matches.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class HeroEntry.", nameof(rank));
+                throw new JsonException("Property is required for class HeroEntry: rank.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class HeroEntry.", nameof(value));
+                throw new JsonException("Property is required for class HeroEntry: value.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class HeroEntry.");
+                throw new JsonException("Property is not nullable for class HeroEntry: hero_id.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class HeroEntry.");
+                throw new JsonException("Property is not nullable for class HeroEntry: matches.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class HeroEntry.");
+                throw new JsonException("Property is not nullable for class HeroEntry: rank.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class HeroEntry.");
+                throw new JsonException("Property is not nullable for class HeroEntry: value.");
 
             return new HeroEntry(heroId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!);
         }
@@ -222,7 +222,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroEntry heroEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -237,7 +236,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroEntry heroEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("hero_id", heroEntry.HeroId);

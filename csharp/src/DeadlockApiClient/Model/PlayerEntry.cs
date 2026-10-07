@@ -243,28 +243,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class PlayerEntry.", nameof(accountId));
+                throw new JsonException("Property is required for class PlayerEntry: account_id.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class PlayerEntry.", nameof(matches));
+                throw new JsonException("Property is required for class PlayerEntry: matches.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class PlayerEntry.", nameof(rank));
+                throw new JsonException("Property is required for class PlayerEntry: rank.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class PlayerEntry.", nameof(value));
+                throw new JsonException("Property is required for class PlayerEntry: value.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class PlayerEntry.");
+                throw new JsonException("Property is not nullable for class PlayerEntry: account_id.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class PlayerEntry.");
+                throw new JsonException("Property is not nullable for class PlayerEntry: matches.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class PlayerEntry.");
+                throw new JsonException("Property is not nullable for class PlayerEntry: rank.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class PlayerEntry.");
+                throw new JsonException("Property is not nullable for class PlayerEntry: value.");
 
             return new PlayerEntry(accountId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!, badge, badgeProgress);
         }
@@ -275,7 +275,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PlayerEntry playerEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -290,7 +289,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="playerEntry"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PlayerEntry playerEntry, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("account_id", playerEntry.AccountId);

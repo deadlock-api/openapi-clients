@@ -907,340 +907,340 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abandonRate.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(abandonRate));
+                throw new JsonException("Property is required for class AnalyticsGameStats: abandon_rate.");
 
             if (!avgAccuracy.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgAccuracy));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_accuracy.");
 
             if (!avgAssists.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgAssists));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_assists.");
 
             if (!avgBossDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgBossDamage));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_boss_damage.");
 
             if (!avgCreepDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgCreepDamage));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_creep_damage.");
 
             if (!avgCreepKills.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgCreepKills));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_creep_kills.");
 
             if (!avgCritRate.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgCritRate));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_crit_rate.");
 
             if (!avgDamageAbsorbed.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgDamageAbsorbed));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_damage_absorbed.");
 
             if (!avgDamageMitigated.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgDamageMitigated));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_damage_mitigated.");
 
             if (!avgDeaths.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgDeaths));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_deaths.");
 
             if (!avgDenies.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgDenies));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_denies.");
 
             if (!avgDurationS.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgDurationS));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_duration_s.");
 
             if (!avgEndingLevel.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgEndingLevel));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_ending_level.");
 
             if (!avgFirstMidBossTimeS.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgFirstMidBossTimeS));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_first_mid_boss_time_s.");
 
             if (!avgFirstObjectiveDestroyedTimeS.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgFirstObjectiveDestroyedTimeS));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_first_objective_destroyed_time_s.");
 
             if (!avgGoldAbilityAssassinate.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldAbilityAssassinate));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_ability_assassinate.");
 
             if (!avgGoldAssists.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldAssists));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_assists.");
 
             if (!avgGoldBoss.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldBoss));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_boss.");
 
             if (!avgGoldBossOrb.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldBossOrb));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_boss_orb.");
 
             if (!avgGoldBreakable.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldBreakable));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_breakable.");
 
             if (!avgGoldDeathLoss.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldDeathLoss));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_death_loss.");
 
             if (!avgGoldDenied.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldDenied));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_denied.");
 
             if (!avgGoldItemCultistSacrifice.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldItemCultistSacrifice));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_item_cultist_sacrifice.");
 
             if (!avgGoldItemGooseEgg.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldItemGooseEgg));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_item_goose_egg.");
 
             if (!avgGoldItemTrophyCollector.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldItemTrophyCollector));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_item_trophy_collector.");
 
             if (!avgGoldLaneCreep.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldLaneCreep));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_lane_creep.");
 
             if (!avgGoldLaneCreepOrbs.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldLaneCreepOrbs));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_lane_creep_orbs.");
 
             if (!avgGoldNeutralCreep.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldNeutralCreep));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_neutral_creep.");
 
             if (!avgGoldNeutralCreepOrbs.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldNeutralCreepOrbs));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_neutral_creep_orbs.");
 
             if (!avgGoldPlayer.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldPlayer));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_player.");
 
             if (!avgGoldPlayerOrbs.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldPlayerOrbs));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_player_orbs.");
 
             if (!avgGoldTeamBonus.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldTeamBonus));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_team_bonus.");
 
             if (!avgGoldTreasure.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgGoldTreasure));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_gold_treasure.");
 
             if (!avgHealPrevented.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgHealPrevented));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_heal_prevented.");
 
             if (!avgKdRatio.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgKdRatio));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_kd_ratio.");
 
             if (!avgKills.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgKills));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_kills.");
 
             if (!avgLastHits.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgLastHits));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_last_hits.");
 
             if (!avgMaxHealth.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgMaxHealth));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_max_health.");
 
             if (!avgNetWorth.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgNetWorth));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_net_worth.");
 
             if (!avgNeutralDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgNeutralDamage));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_neutral_damage.");
 
             if (!avgNeutralKills.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgNeutralKills));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_neutral_kills.");
 
             if (!avgPermanentBuffs.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPermanentBuffs));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_permanent_buffs.");
 
             if (!avgPermanentBuffsPerMin.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPermanentBuffsPerMin));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_permanent_buffs_per_min.");
 
             if (!avgPlayerDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPlayerDamage));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_player_damage.");
 
             if (!avgPlayerDamageTaken.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPlayerDamageTaken));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_player_damage_taken.");
 
             if (!avgPlayerHealing.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPlayerHealing));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_player_healing.");
 
             if (!avgPossibleCreeps.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgPossibleCreeps));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_possible_creeps.");
 
             if (!avgSelfHealing.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgSelfHealing));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_self_healing.");
 
             if (!avgTechPower.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgTechPower));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_tech_power.");
 
             if (!avgWeaponPower.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(avgWeaponPower));
+                throw new JsonException("Property is required for class AnalyticsGameStats: avg_weapon_power.");
 
             if (!bucket.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(bucket));
+                throw new JsonException("Property is required for class AnalyticsGameStats: bucket.");
 
             if (!midBossKillRate.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(midBossKillRate));
+                throw new JsonException("Property is required for class AnalyticsGameStats: mid_boss_kill_rate.");
 
             if (!team0Wins.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(team0Wins));
+                throw new JsonException("Property is required for class AnalyticsGameStats: team0_wins.");
 
             if (!team1Wins.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(team1Wins));
+                throw new JsonException("Property is required for class AnalyticsGameStats: team1_wins.");
 
             if (!totalMatches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(totalMatches));
+                throw new JsonException("Property is required for class AnalyticsGameStats: total_matches.");
 
             if (!totalPlayers.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsGameStats.", nameof(totalPlayers));
+                throw new JsonException("Property is required for class AnalyticsGameStats: total_players.");
 
             if (abandonRate.IsSet && abandonRate.Value == null)
-                throw new ArgumentNullException(nameof(abandonRate), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: abandon_rate.");
 
             if (avgAccuracy.IsSet && avgAccuracy.Value == null)
-                throw new ArgumentNullException(nameof(avgAccuracy), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_accuracy.");
 
             if (avgAssists.IsSet && avgAssists.Value == null)
-                throw new ArgumentNullException(nameof(avgAssists), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_assists.");
 
             if (avgBossDamage.IsSet && avgBossDamage.Value == null)
-                throw new ArgumentNullException(nameof(avgBossDamage), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_boss_damage.");
 
             if (avgCreepDamage.IsSet && avgCreepDamage.Value == null)
-                throw new ArgumentNullException(nameof(avgCreepDamage), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_creep_damage.");
 
             if (avgCreepKills.IsSet && avgCreepKills.Value == null)
-                throw new ArgumentNullException(nameof(avgCreepKills), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_creep_kills.");
 
             if (avgCritRate.IsSet && avgCritRate.Value == null)
-                throw new ArgumentNullException(nameof(avgCritRate), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_crit_rate.");
 
             if (avgDamageAbsorbed.IsSet && avgDamageAbsorbed.Value == null)
-                throw new ArgumentNullException(nameof(avgDamageAbsorbed), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_damage_absorbed.");
 
             if (avgDamageMitigated.IsSet && avgDamageMitigated.Value == null)
-                throw new ArgumentNullException(nameof(avgDamageMitigated), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_damage_mitigated.");
 
             if (avgDeaths.IsSet && avgDeaths.Value == null)
-                throw new ArgumentNullException(nameof(avgDeaths), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_deaths.");
 
             if (avgDenies.IsSet && avgDenies.Value == null)
-                throw new ArgumentNullException(nameof(avgDenies), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_denies.");
 
             if (avgDurationS.IsSet && avgDurationS.Value == null)
-                throw new ArgumentNullException(nameof(avgDurationS), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_duration_s.");
 
             if (avgEndingLevel.IsSet && avgEndingLevel.Value == null)
-                throw new ArgumentNullException(nameof(avgEndingLevel), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_ending_level.");
 
             if (avgFirstMidBossTimeS.IsSet && avgFirstMidBossTimeS.Value == null)
-                throw new ArgumentNullException(nameof(avgFirstMidBossTimeS), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_first_mid_boss_time_s.");
 
             if (avgFirstObjectiveDestroyedTimeS.IsSet && avgFirstObjectiveDestroyedTimeS.Value == null)
-                throw new ArgumentNullException(nameof(avgFirstObjectiveDestroyedTimeS), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_first_objective_destroyed_time_s.");
 
             if (avgGoldAbilityAssassinate.IsSet && avgGoldAbilityAssassinate.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldAbilityAssassinate), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_ability_assassinate.");
 
             if (avgGoldAssists.IsSet && avgGoldAssists.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldAssists), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_assists.");
 
             if (avgGoldBoss.IsSet && avgGoldBoss.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldBoss), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_boss.");
 
             if (avgGoldBossOrb.IsSet && avgGoldBossOrb.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldBossOrb), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_boss_orb.");
 
             if (avgGoldBreakable.IsSet && avgGoldBreakable.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldBreakable), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_breakable.");
 
             if (avgGoldDeathLoss.IsSet && avgGoldDeathLoss.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldDeathLoss), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_death_loss.");
 
             if (avgGoldDenied.IsSet && avgGoldDenied.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldDenied), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_denied.");
 
             if (avgGoldItemCultistSacrifice.IsSet && avgGoldItemCultistSacrifice.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldItemCultistSacrifice), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_item_cultist_sacrifice.");
 
             if (avgGoldItemGooseEgg.IsSet && avgGoldItemGooseEgg.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldItemGooseEgg), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_item_goose_egg.");
 
             if (avgGoldItemTrophyCollector.IsSet && avgGoldItemTrophyCollector.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldItemTrophyCollector), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_item_trophy_collector.");
 
             if (avgGoldLaneCreep.IsSet && avgGoldLaneCreep.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldLaneCreep), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_lane_creep.");
 
             if (avgGoldLaneCreepOrbs.IsSet && avgGoldLaneCreepOrbs.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldLaneCreepOrbs), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_lane_creep_orbs.");
 
             if (avgGoldNeutralCreep.IsSet && avgGoldNeutralCreep.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldNeutralCreep), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_neutral_creep.");
 
             if (avgGoldNeutralCreepOrbs.IsSet && avgGoldNeutralCreepOrbs.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldNeutralCreepOrbs), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_neutral_creep_orbs.");
 
             if (avgGoldPlayer.IsSet && avgGoldPlayer.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldPlayer), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_player.");
 
             if (avgGoldPlayerOrbs.IsSet && avgGoldPlayerOrbs.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldPlayerOrbs), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_player_orbs.");
 
             if (avgGoldTeamBonus.IsSet && avgGoldTeamBonus.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldTeamBonus), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_team_bonus.");
 
             if (avgGoldTreasure.IsSet && avgGoldTreasure.Value == null)
-                throw new ArgumentNullException(nameof(avgGoldTreasure), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_gold_treasure.");
 
             if (avgHealPrevented.IsSet && avgHealPrevented.Value == null)
-                throw new ArgumentNullException(nameof(avgHealPrevented), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_heal_prevented.");
 
             if (avgKdRatio.IsSet && avgKdRatio.Value == null)
-                throw new ArgumentNullException(nameof(avgKdRatio), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_kd_ratio.");
 
             if (avgKills.IsSet && avgKills.Value == null)
-                throw new ArgumentNullException(nameof(avgKills), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_kills.");
 
             if (avgLastHits.IsSet && avgLastHits.Value == null)
-                throw new ArgumentNullException(nameof(avgLastHits), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_last_hits.");
 
             if (avgMaxHealth.IsSet && avgMaxHealth.Value == null)
-                throw new ArgumentNullException(nameof(avgMaxHealth), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_max_health.");
 
             if (avgNetWorth.IsSet && avgNetWorth.Value == null)
-                throw new ArgumentNullException(nameof(avgNetWorth), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_net_worth.");
 
             if (avgNeutralDamage.IsSet && avgNeutralDamage.Value == null)
-                throw new ArgumentNullException(nameof(avgNeutralDamage), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_neutral_damage.");
 
             if (avgNeutralKills.IsSet && avgNeutralKills.Value == null)
-                throw new ArgumentNullException(nameof(avgNeutralKills), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_neutral_kills.");
 
             if (avgPermanentBuffs.IsSet && avgPermanentBuffs.Value == null)
-                throw new ArgumentNullException(nameof(avgPermanentBuffs), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_permanent_buffs.");
 
             if (avgPermanentBuffsPerMin.IsSet && avgPermanentBuffsPerMin.Value == null)
-                throw new ArgumentNullException(nameof(avgPermanentBuffsPerMin), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_permanent_buffs_per_min.");
 
             if (avgPlayerDamage.IsSet && avgPlayerDamage.Value == null)
-                throw new ArgumentNullException(nameof(avgPlayerDamage), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_player_damage.");
 
             if (avgPlayerDamageTaken.IsSet && avgPlayerDamageTaken.Value == null)
-                throw new ArgumentNullException(nameof(avgPlayerDamageTaken), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_player_damage_taken.");
 
             if (avgPlayerHealing.IsSet && avgPlayerHealing.Value == null)
-                throw new ArgumentNullException(nameof(avgPlayerHealing), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_player_healing.");
 
             if (avgPossibleCreeps.IsSet && avgPossibleCreeps.Value == null)
-                throw new ArgumentNullException(nameof(avgPossibleCreeps), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_possible_creeps.");
 
             if (avgSelfHealing.IsSet && avgSelfHealing.Value == null)
-                throw new ArgumentNullException(nameof(avgSelfHealing), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_self_healing.");
 
             if (avgTechPower.IsSet && avgTechPower.Value == null)
-                throw new ArgumentNullException(nameof(avgTechPower), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_tech_power.");
 
             if (avgWeaponPower.IsSet && avgWeaponPower.Value == null)
-                throw new ArgumentNullException(nameof(avgWeaponPower), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: avg_weapon_power.");
 
             if (bucket.IsSet && bucket.Value == null)
-                throw new ArgumentNullException(nameof(bucket), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: bucket.");
 
             if (midBossKillRate.IsSet && midBossKillRate.Value == null)
-                throw new ArgumentNullException(nameof(midBossKillRate), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: mid_boss_kill_rate.");
 
             if (team0Wins.IsSet && team0Wins.Value == null)
-                throw new ArgumentNullException(nameof(team0Wins), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: team0_wins.");
 
             if (team1Wins.IsSet && team1Wins.Value == null)
-                throw new ArgumentNullException(nameof(team1Wins), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: team1_wins.");
 
             if (totalMatches.IsSet && totalMatches.Value == null)
-                throw new ArgumentNullException(nameof(totalMatches), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: total_matches.");
 
             if (totalPlayers.IsSet && totalPlayers.Value == null)
-                throw new ArgumentNullException(nameof(totalPlayers), "Property is not nullable for class AnalyticsGameStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsGameStats: total_players.");
 
             return new AnalyticsGameStats(abandonRate.Value!.Value!, avgAccuracy.Value!.Value!, avgAssists.Value!.Value!, avgBossDamage.Value!.Value!, avgCreepDamage.Value!.Value!, avgCreepKills.Value!.Value!, avgCritRate.Value!.Value!, avgDamageAbsorbed.Value!.Value!, avgDamageMitigated.Value!.Value!, avgDeaths.Value!.Value!, avgDenies.Value!.Value!, avgDurationS.Value!.Value!, avgEndingLevel.Value!.Value!, avgFirstMidBossTimeS.Value!.Value!, avgFirstObjectiveDestroyedTimeS.Value!.Value!, avgGoldAbilityAssassinate.Value!.Value!, avgGoldAssists.Value!.Value!, avgGoldBoss.Value!.Value!, avgGoldBossOrb.Value!.Value!, avgGoldBreakable.Value!.Value!, avgGoldDeathLoss.Value!.Value!, avgGoldDenied.Value!.Value!, avgGoldItemCultistSacrifice.Value!.Value!, avgGoldItemGooseEgg.Value!.Value!, avgGoldItemTrophyCollector.Value!.Value!, avgGoldLaneCreep.Value!.Value!, avgGoldLaneCreepOrbs.Value!.Value!, avgGoldNeutralCreep.Value!.Value!, avgGoldNeutralCreepOrbs.Value!.Value!, avgGoldPlayer.Value!.Value!, avgGoldPlayerOrbs.Value!.Value!, avgGoldTeamBonus.Value!.Value!, avgGoldTreasure.Value!.Value!, avgHealPrevented.Value!.Value!, avgKdRatio.Value!.Value!, avgKills.Value!.Value!, avgLastHits.Value!.Value!, avgMaxHealth.Value!.Value!, avgNetWorth.Value!.Value!, avgNeutralDamage.Value!.Value!, avgNeutralKills.Value!.Value!, avgPermanentBuffs.Value!.Value!, avgPermanentBuffsPerMin.Value!.Value!, avgPlayerDamage.Value!.Value!, avgPlayerDamageTaken.Value!.Value!, avgPlayerHealing.Value!.Value!, avgPossibleCreeps.Value!.Value!, avgSelfHealing.Value!.Value!, avgTechPower.Value!.Value!, avgWeaponPower.Value!.Value!, bucket.Value!.Value!, midBossKillRate.Value!.Value!, team0Wins.Value!.Value!, team1Wins.Value!.Value!, totalMatches.Value!.Value!, totalPlayers.Value!.Value!, avgFirstPermanentBuffTimeS);
         }
@@ -1251,7 +1251,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsGameStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AnalyticsGameStats analyticsGameStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -1266,7 +1265,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsGameStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AnalyticsGameStats analyticsGameStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("abandon_rate", analyticsGameStats.AbandonRate);

@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bonus.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner.", nameof(bonus));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner: bonus.");
 
             if (!goldThreshold.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner.", nameof(goldThreshold));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner: gold_threshold.");
 
             if (!percentOnGraph.IsSet)
-                throw new ArgumentException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner.", nameof(percentOnGraph));
+                throw new JsonException("Property is required for class HashMapItemSlotTypeVecMapModCostBonusValueInner: percent_on_graph.");
 
             if (bonus.IsSet && bonus.Value == null)
-                throw new ArgumentNullException(nameof(bonus), "Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner: bonus.");
 
             if (goldThreshold.IsSet && goldThreshold.Value == null)
-                throw new ArgumentNullException(nameof(goldThreshold), "Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner: gold_threshold.");
 
             if (percentOnGraph.IsSet && percentOnGraph.Value == null)
-                throw new ArgumentNullException(nameof(percentOnGraph), "Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner.");
+                throw new JsonException("Property is not nullable for class HashMapItemSlotTypeVecMapModCostBonusValueInner: percent_on_graph.");
 
             return new HashMapItemSlotTypeVecMapModCostBonusValueInner(bonus.Value!.Value!, goldThreshold.Value!.Value!, percentOnGraph.Value!.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeVecMapModCostBonusValueInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapItemSlotTypeVecMapModCostBonusValueInner hashMapItemSlotTypeVecMapModCostBonusValueInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,7 +198,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapItemSlotTypeVecMapModCostBonusValueInner"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapItemSlotTypeVecMapModCostBonusValueInner hashMapItemSlotTypeVecMapModCostBonusValueInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("bonus", hashMapItemSlotTypeVecMapModCostBonusValueInner.Bonus);

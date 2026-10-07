@@ -165,16 +165,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!entityClass.IsSet)
-                throw new ArgumentException("Property is required for class MiniMapOffsets.", nameof(entityClass));
+                throw new JsonException("Property is required for class MiniMapOffsets: entity_class.");
 
             if (!offset2d.IsSet)
-                throw new ArgumentException("Property is required for class MiniMapOffsets.", nameof(offset2d));
+                throw new JsonException("Property is required for class MiniMapOffsets: offset_2d.");
 
             if (entityClass.IsSet && entityClass.Value == null)
-                throw new ArgumentNullException(nameof(entityClass), "Property is not nullable for class MiniMapOffsets.");
+                throw new JsonException("Property is not nullable for class MiniMapOffsets: entity_class.");
 
             if (offset2d.IsSet && offset2d.Value == null)
-                throw new ArgumentNullException(nameof(offset2d), "Property is not nullable for class MiniMapOffsets.");
+                throw new JsonException("Property is not nullable for class MiniMapOffsets: offset_2d.");
 
             return new MiniMapOffsets(entityClass.Value!, offset2d.Value!, laneIndex);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="miniMapOffsets"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MiniMapOffsets miniMapOffsets, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,15 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="miniMapOffsets"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MiniMapOffsets miniMapOffsets, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (miniMapOffsets.EntityClass == null)
-                throw new ArgumentNullException(nameof(miniMapOffsets.EntityClass), "Property is required for class MiniMapOffsets.");
-
-            if (miniMapOffsets.Offset2d == null)
-                throw new ArgumentNullException(nameof(miniMapOffsets.Offset2d), "Property is required for class MiniMapOffsets.");
-
             writer.WriteString("entity_class", miniMapOffsets.EntityClass);
 
             writer.WritePropertyName("offset_2d");

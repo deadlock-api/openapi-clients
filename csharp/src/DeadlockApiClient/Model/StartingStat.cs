@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!displayStatName.IsSet)
-                throw new ArgumentException("Property is required for class StartingStat.", nameof(displayStatName));
+                throw new JsonException("Property is required for class StartingStat: display_stat_name.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class StartingStat.", nameof(value));
+                throw new JsonException("Property is required for class StartingStat: value.");
 
             if (displayStatName.IsSet && displayStatName.Value == null)
-                throw new ArgumentNullException(nameof(displayStatName), "Property is not nullable for class StartingStat.");
+                throw new JsonException("Property is not nullable for class StartingStat: display_stat_name.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class StartingStat.");
+                throw new JsonException("Property is not nullable for class StartingStat: value.");
 
             return new StartingStat(displayStatName.Value!, value.Value!.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="startingStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, StartingStat startingStat, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,12 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="startingStat"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StartingStat startingStat, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (startingStat.DisplayStatName == null)
-                throw new ArgumentNullException(nameof(startingStat.DisplayStatName), "Property is required for class StartingStat.");
-
             writer.WriteString("display_stat_name", startingStat.DisplayStatName);
 
             writer.WriteNumber("value", startingStat.Value);

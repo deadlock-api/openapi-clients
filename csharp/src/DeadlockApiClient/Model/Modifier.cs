@@ -228,22 +228,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Modifier.", nameof(className));
+                throw new JsonException("Property is required for class Modifier: class_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Modifier.", nameof(id));
+                throw new JsonException("Property is required for class Modifier: id.");
 
             if (!properties.IsSet)
-                throw new ArgumentException("Property is required for class Modifier.", nameof(properties));
+                throw new JsonException("Property is required for class Modifier: properties.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Modifier.");
+                throw new JsonException("Property is not nullable for class Modifier: class_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Modifier.");
+                throw new JsonException("Property is not nullable for class Modifier: id.");
 
             if (properties.IsSet && properties.Value == null)
-                throw new ArgumentNullException(nameof(properties), "Property is not nullable for class Modifier.");
+                throw new JsonException("Property is not nullable for class Modifier: properties.");
 
             return new Modifier(className.Value!, id.Value!.Value!, properties.Value!, varBase, varClass, folder);
         }
@@ -254,7 +254,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="modifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Modifier modifier, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -269,15 +268,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="modifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Modifier modifier, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (modifier.ClassName == null)
-                throw new ArgumentNullException(nameof(modifier.ClassName), "Property is required for class Modifier.");
-
-            if (modifier.Properties == null)
-                throw new ArgumentNullException(nameof(modifier.Properties), "Property is required for class Modifier.");
-
             writer.WriteString("class_name", modifier.ClassName);
 
             writer.WriteNumber("id", modifier.Id);

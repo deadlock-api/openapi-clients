@@ -138,10 +138,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class MatchPlayer.", nameof(accountId));
+                throw new JsonException("Property is required for class MatchPlayer: account_id.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class MatchPlayer.");
+                throw new JsonException("Property is not nullable for class MatchPlayer: account_id.");
 
             return new MatchPlayer(accountId.Value!.Value!);
         }
@@ -152,7 +152,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchPlayer"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MatchPlayer matchPlayer, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -167,7 +166,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchPlayer"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MatchPlayer matchPlayer, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("account_id", matchPlayer.AccountId);

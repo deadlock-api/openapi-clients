@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!entries.IsSet)
-                throw new ArgumentException("Property is required for class LootTable.", nameof(entries));
+                throw new JsonException("Property is required for class LootTable: entries.");
 
             if (entries.IsSet && entries.Value == null)
-                throw new ArgumentNullException(nameof(entries), "Property is not nullable for class LootTable.");
+                throw new JsonException("Property is not nullable for class LootTable: entries.");
 
             return new LootTable(entries.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="lootTable"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LootTable lootTable, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="lootTable"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LootTable lootTable, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (lootTable.Entries == null)
-                throw new ArgumentNullException(nameof(lootTable.Entries), "Property is required for class LootTable.");
-
             writer.WritePropertyName("entries");
             JsonSerializer.Serialize(writer, lootTable.Entries, jsonSerializerOptions);
         }

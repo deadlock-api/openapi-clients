@@ -202,34 +202,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!deaths.IsSet)
-                throw new ArgumentException("Property is required for class KillDeathStats.", nameof(deaths));
+                throw new JsonException("Property is required for class KillDeathStats: deaths.");
 
             if (!killerTeam.IsSet)
-                throw new ArgumentException("Property is required for class KillDeathStats.", nameof(killerTeam));
+                throw new JsonException("Property is required for class KillDeathStats: killer_team.");
 
             if (!kills.IsSet)
-                throw new ArgumentException("Property is required for class KillDeathStats.", nameof(kills));
+                throw new JsonException("Property is required for class KillDeathStats: kills.");
 
             if (!positionX.IsSet)
-                throw new ArgumentException("Property is required for class KillDeathStats.", nameof(positionX));
+                throw new JsonException("Property is required for class KillDeathStats: position_x.");
 
             if (!positionY.IsSet)
-                throw new ArgumentException("Property is required for class KillDeathStats.", nameof(positionY));
+                throw new JsonException("Property is required for class KillDeathStats: position_y.");
 
             if (deaths.IsSet && deaths.Value == null)
-                throw new ArgumentNullException(nameof(deaths), "Property is not nullable for class KillDeathStats.");
+                throw new JsonException("Property is not nullable for class KillDeathStats: deaths.");
 
             if (killerTeam.IsSet && killerTeam.Value == null)
-                throw new ArgumentNullException(nameof(killerTeam), "Property is not nullable for class KillDeathStats.");
+                throw new JsonException("Property is not nullable for class KillDeathStats: killer_team.");
 
             if (kills.IsSet && kills.Value == null)
-                throw new ArgumentNullException(nameof(kills), "Property is not nullable for class KillDeathStats.");
+                throw new JsonException("Property is not nullable for class KillDeathStats: kills.");
 
             if (positionX.IsSet && positionX.Value == null)
-                throw new ArgumentNullException(nameof(positionX), "Property is not nullable for class KillDeathStats.");
+                throw new JsonException("Property is not nullable for class KillDeathStats: position_x.");
 
             if (positionY.IsSet && positionY.Value == null)
-                throw new ArgumentNullException(nameof(positionY), "Property is not nullable for class KillDeathStats.");
+                throw new JsonException("Property is not nullable for class KillDeathStats: position_y.");
 
             return new KillDeathStats(deaths.Value!.Value!, killerTeam.Value!.Value!, kills.Value!.Value!, positionX.Value!.Value!, positionY.Value!.Value!);
         }
@@ -240,7 +240,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="killDeathStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, KillDeathStats killDeathStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -255,7 +254,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="killDeathStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, KillDeathStats killDeathStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("deaths", killDeathStats.Deaths);

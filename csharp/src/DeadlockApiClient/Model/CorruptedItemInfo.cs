@@ -147,16 +147,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!excludedPenalties.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedItemInfo.", nameof(excludedPenalties));
+                throw new JsonException("Property is required for class CorruptedItemInfo: excluded_penalties.");
 
             if (!propertyUpgrades.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedItemInfo.", nameof(propertyUpgrades));
+                throw new JsonException("Property is required for class CorruptedItemInfo: property_upgrades.");
 
             if (excludedPenalties.IsSet && excludedPenalties.Value == null)
-                throw new ArgumentNullException(nameof(excludedPenalties), "Property is not nullable for class CorruptedItemInfo.");
+                throw new JsonException("Property is not nullable for class CorruptedItemInfo: excluded_penalties.");
 
             if (propertyUpgrades.IsSet && propertyUpgrades.Value == null)
-                throw new ArgumentNullException(nameof(propertyUpgrades), "Property is not nullable for class CorruptedItemInfo.");
+                throw new JsonException("Property is not nullable for class CorruptedItemInfo: property_upgrades.");
 
             return new CorruptedItemInfo(excludedPenalties.Value!, propertyUpgrades.Value!);
         }
@@ -167,7 +167,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedItemInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CorruptedItemInfo corruptedItemInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -182,15 +181,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedItemInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CorruptedItemInfo corruptedItemInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (corruptedItemInfo.ExcludedPenalties == null)
-                throw new ArgumentNullException(nameof(corruptedItemInfo.ExcludedPenalties), "Property is required for class CorruptedItemInfo.");
-
-            if (corruptedItemInfo.PropertyUpgrades == null)
-                throw new ArgumentNullException(nameof(corruptedItemInfo.PropertyUpgrades), "Property is required for class CorruptedItemInfo.");
-
             writer.WritePropertyName("excluded_penalties");
             JsonSerializer.Serialize(writer, corruptedItemInfo.ExcludedPenalties, jsonSerializerOptions);
             writer.WritePropertyName("property_upgrades");

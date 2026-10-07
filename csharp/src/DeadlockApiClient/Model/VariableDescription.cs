@@ -196,28 +196,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!category.IsSet)
-                throw new ArgumentException("Property is required for class VariableDescription.", nameof(category));
+                throw new JsonException("Property is required for class VariableDescription: category.");
 
             if (!description.IsSet)
-                throw new ArgumentException("Property is required for class VariableDescription.", nameof(description));
+                throw new JsonException("Property is required for class VariableDescription: description.");
 
             if (!extraArgs.IsSet)
-                throw new ArgumentException("Property is required for class VariableDescription.", nameof(extraArgs));
+                throw new JsonException("Property is required for class VariableDescription: extra_args.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class VariableDescription.", nameof(name));
+                throw new JsonException("Property is required for class VariableDescription: name.");
 
             if (category.IsSet && category.Value == null)
-                throw new ArgumentNullException(nameof(category), "Property is not nullable for class VariableDescription.");
+                throw new JsonException("Property is not nullable for class VariableDescription: category.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class VariableDescription.");
+                throw new JsonException("Property is not nullable for class VariableDescription: description.");
 
             if (extraArgs.IsSet && extraArgs.Value == null)
-                throw new ArgumentNullException(nameof(extraArgs), "Property is not nullable for class VariableDescription.");
+                throw new JsonException("Property is not nullable for class VariableDescription: extra_args.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class VariableDescription.");
+                throw new JsonException("Property is not nullable for class VariableDescription: name.");
 
             return new VariableDescription(category.Value!.Value!, description.Value!, extraArgs.Value!, name.Value!, defaultLabel);
         }
@@ -228,7 +228,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="variableDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, VariableDescription variableDescription, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -243,18 +242,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="variableDescription"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, VariableDescription variableDescription, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (variableDescription.Description == null)
-                throw new ArgumentNullException(nameof(variableDescription.Description), "Property is required for class VariableDescription.");
-
-            if (variableDescription.ExtraArgs == null)
-                throw new ArgumentNullException(nameof(variableDescription.ExtraArgs), "Property is required for class VariableDescription.");
-
-            if (variableDescription.Name == null)
-                throw new ArgumentNullException(nameof(variableDescription.Name), "Property is required for class VariableDescription.");
-
             var categoryRawValue = VariableCategoryValueConverter.ToJsonValue(variableDescription.Category);
             writer.WriteString("category", categoryRawValue);
 

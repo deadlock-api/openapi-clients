@@ -187,34 +187,34 @@ namespace DeadlockApiClient.Model
             }
 
             if (!baseline.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowStats.", nameof(baseline));
+                throw new JsonException("Property is required for class ItemFlowStats: baseline.");
 
             if (!edges.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowStats.", nameof(edges));
+                throw new JsonException("Property is required for class ItemFlowStats: edges.");
 
             if (!nodes.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowStats.", nameof(nodes));
+                throw new JsonException("Property is required for class ItemFlowStats: nodes.");
 
             if (!reachedPerColumn.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowStats.", nameof(reachedPerColumn));
+                throw new JsonException("Property is required for class ItemFlowStats: reached_per_column.");
 
             if (!summary.IsSet)
-                throw new ArgumentException("Property is required for class ItemFlowStats.", nameof(summary));
+                throw new JsonException("Property is required for class ItemFlowStats: summary.");
 
             if (baseline.IsSet && baseline.Value == null)
-                throw new ArgumentNullException(nameof(baseline), "Property is not nullable for class ItemFlowStats.");
+                throw new JsonException("Property is not nullable for class ItemFlowStats: baseline.");
 
             if (edges.IsSet && edges.Value == null)
-                throw new ArgumentNullException(nameof(edges), "Property is not nullable for class ItemFlowStats.");
+                throw new JsonException("Property is not nullable for class ItemFlowStats: edges.");
 
             if (nodes.IsSet && nodes.Value == null)
-                throw new ArgumentNullException(nameof(nodes), "Property is not nullable for class ItemFlowStats.");
+                throw new JsonException("Property is not nullable for class ItemFlowStats: nodes.");
 
             if (reachedPerColumn.IsSet && reachedPerColumn.Value == null)
-                throw new ArgumentNullException(nameof(reachedPerColumn), "Property is not nullable for class ItemFlowStats.");
+                throw new JsonException("Property is not nullable for class ItemFlowStats: reached_per_column.");
 
             if (summary.IsSet && summary.Value == null)
-                throw new ArgumentNullException(nameof(summary), "Property is not nullable for class ItemFlowStats.");
+                throw new JsonException("Property is not nullable for class ItemFlowStats: summary.");
 
             return new ItemFlowStats(baseline.Value!, edges.Value!, nodes.Value!, reachedPerColumn.Value!, summary.Value!);
         }
@@ -225,7 +225,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemFlowStats itemFlowStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -240,24 +239,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemFlowStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemFlowStats itemFlowStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemFlowStats.Baseline == null)
-                throw new ArgumentNullException(nameof(itemFlowStats.Baseline), "Property is required for class ItemFlowStats.");
-
-            if (itemFlowStats.Edges == null)
-                throw new ArgumentNullException(nameof(itemFlowStats.Edges), "Property is required for class ItemFlowStats.");
-
-            if (itemFlowStats.Nodes == null)
-                throw new ArgumentNullException(nameof(itemFlowStats.Nodes), "Property is required for class ItemFlowStats.");
-
-            if (itemFlowStats.ReachedPerColumn == null)
-                throw new ArgumentNullException(nameof(itemFlowStats.ReachedPerColumn), "Property is required for class ItemFlowStats.");
-
-            if (itemFlowStats.Summary == null)
-                throw new ArgumentNullException(nameof(itemFlowStats.Summary), "Property is required for class ItemFlowStats.");
-
             writer.WritePropertyName("baseline");
             JsonSerializer.Serialize(writer, itemFlowStats.Baseline, jsonSerializerOptions);
             writer.WritePropertyName("edges");

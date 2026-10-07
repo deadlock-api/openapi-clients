@@ -203,7 +203,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="aPIInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, APIInfo aPIInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -218,7 +217,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="aPIInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, APIInfo aPIInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             if (aPIInfo.FetchedMatchesPerDayOption.IsSet)

@@ -197,16 +197,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!broadcastUrl.IsSet)
-                throw new ArgumentException("Property is required for class IngestLiveUrl.", nameof(broadcastUrl));
+                throw new JsonException("Property is required for class IngestLiveUrl: broadcast_url.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class IngestLiveUrl.", nameof(matchId));
+                throw new JsonException("Property is required for class IngestLiveUrl: match_id.");
 
             if (broadcastUrl.IsSet && broadcastUrl.Value == null)
-                throw new ArgumentNullException(nameof(broadcastUrl), "Property is not nullable for class IngestLiveUrl.");
+                throw new JsonException("Property is not nullable for class IngestLiveUrl: broadcast_url.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class IngestLiveUrl.");
+                throw new JsonException("Property is not nullable for class IngestLiveUrl: match_id.");
 
             return new IngestLiveUrl(broadcastUrl.Value!, matchId.Value!.Value!, lobbyId, startedAt);
         }
@@ -217,7 +217,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ingestLiveUrl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, IngestLiveUrl ingestLiveUrl, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -232,12 +231,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="ingestLiveUrl"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, IngestLiveUrl ingestLiveUrl, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (ingestLiveUrl.BroadcastUrl == null)
-                throw new ArgumentNullException(nameof(ingestLiveUrl.BroadcastUrl), "Property is required for class IngestLiveUrl.");
-
             writer.WriteString("broadcast_url", ingestLiveUrl.BroadcastUrl);
 
             writer.WriteNumber("match_id", ingestLiveUrl.MatchId);

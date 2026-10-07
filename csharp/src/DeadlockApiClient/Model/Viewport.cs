@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!devicePixelRatio.IsSet)
-                throw new ArgumentException("Property is required for class Viewport.", nameof(devicePixelRatio));
+                throw new JsonException("Property is required for class Viewport: device_pixel_ratio.");
 
             if (!height.IsSet)
-                throw new ArgumentException("Property is required for class Viewport.", nameof(height));
+                throw new JsonException("Property is required for class Viewport: height.");
 
             if (!width.IsSet)
-                throw new ArgumentException("Property is required for class Viewport.", nameof(width));
+                throw new JsonException("Property is required for class Viewport: width.");
 
             if (devicePixelRatio.IsSet && devicePixelRatio.Value == null)
-                throw new ArgumentNullException(nameof(devicePixelRatio), "Property is not nullable for class Viewport.");
+                throw new JsonException("Property is not nullable for class Viewport: device_pixel_ratio.");
 
             if (height.IsSet && height.Value == null)
-                throw new ArgumentNullException(nameof(height), "Property is not nullable for class Viewport.");
+                throw new JsonException("Property is not nullable for class Viewport: height.");
 
             if (width.IsSet && width.Value == null)
-                throw new ArgumentNullException(nameof(width), "Property is not nullable for class Viewport.");
+                throw new JsonException("Property is not nullable for class Viewport: width.");
 
             return new Viewport(devicePixelRatio.Value!.Value!, height.Value!.Value!, width.Value!.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="viewport"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Viewport viewport, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,7 +198,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="viewport"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Viewport viewport, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("device_pixel_ratio", viewport.DevicePixelRatio);

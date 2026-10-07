@@ -561,64 +561,64 @@ namespace DeadlockApiClient.Model
             }
 
             if (colorB.IsSet && colorB.Value == null)
-                throw new ArgumentNullException(nameof(colorB), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: color_b.");
 
             if (colorG.IsSet && colorG.Value == null)
-                throw new ArgumentNullException(nameof(colorG), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: color_g.");
 
             if (colorR.IsSet && colorR.Value == null)
-                throw new ArgumentNullException(nameof(colorR), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: color_r.");
 
             if (dotOpacity.IsSet && dotOpacity.Value == null)
-                throw new ArgumentNullException(nameof(dotOpacity), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: dot_opacity.");
 
             if (dotOutlineBorder.IsSet && dotOutlineBorder.Value == null)
-                throw new ArgumentNullException(nameof(dotOutlineBorder), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: dot_outline_border.");
 
             if (dotOutlineGap.IsSet && dotOutlineGap.Value == null)
-                throw new ArgumentNullException(nameof(dotOutlineGap), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: dot_outline_gap.");
 
             if (dotOutlineOpacity.IsSet && dotOutlineOpacity.Value == null)
-                throw new ArgumentNullException(nameof(dotOutlineOpacity), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: dot_outline_opacity.");
 
             if (dotSize.IsSet && dotSize.Value == null)
-                throw new ArgumentNullException(nameof(dotSize), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: dot_size.");
 
             if (outlineColorB.IsSet && outlineColorB.Value == null)
-                throw new ArgumentNullException(nameof(outlineColorB), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: outline_color_b.");
 
             if (outlineColorG.IsSet && outlineColorG.Value == null)
-                throw new ArgumentNullException(nameof(outlineColorG), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: outline_color_g.");
 
             if (outlineColorR.IsSet && outlineColorR.Value == null)
-                throw new ArgumentNullException(nameof(outlineColorR), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: outline_color_r.");
 
             if (pipGap.IsSet && pipGap.Value == null)
-                throw new ArgumentNullException(nameof(pipGap), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_gap.");
 
             if (pipGapStatic.IsSet && pipGapStatic.Value == null)
-                throw new ArgumentNullException(nameof(pipGapStatic), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_gap_static.");
 
             if (pipHeight.IsSet && pipHeight.Value == null)
-                throw new ArgumentNullException(nameof(pipHeight), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_height.");
 
             if (pipOpacity.IsSet && pipOpacity.Value == null)
-                throw new ArgumentNullException(nameof(pipOpacity), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_opacity.");
 
             if (pipOutlineBorder.IsSet && pipOutlineBorder.Value == null)
-                throw new ArgumentNullException(nameof(pipOutlineBorder), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_outline_border.");
 
             if (pipOutlineGap.IsSet && pipOutlineGap.Value == null)
-                throw new ArgumentNullException(nameof(pipOutlineGap), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_outline_gap.");
 
             if (pipOutlineOpacity.IsSet && pipOutlineOpacity.Value == null)
-                throw new ArgumentNullException(nameof(pipOutlineOpacity), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_outline_opacity.");
 
             if (pipWidth.IsSet && pipWidth.Value == null)
-                throw new ArgumentNullException(nameof(pipWidth), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: pip_width.");
 
             if (themed.IsSet && themed.Value == null)
-                throw new ArgumentNullException(nameof(themed), "Property is not nullable for class Settings.");
+                throw new JsonException("Property is not nullable for class Settings: themed.");
 
             return new Settings(colorB, colorG, colorR, dotOpacity, dotOutlineBorder, dotOutlineGap, dotOutlineOpacity, dotSize, outlineColorB, outlineColorG, outlineColorR, pipGap, pipGapStatic, pipHeight, pipOpacity, pipOutlineBorder, pipOutlineGap, pipOutlineOpacity, pipWidth, themed);
         }
@@ -629,7 +629,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="settings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Settings settings, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -644,9 +643,68 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="settings"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Settings settings, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (settings.ColorBOption.IsSet && settings.ColorB == null)
+                throw new JsonException("Cannot write null property Settings.ColorB to non-nullable JSON property 'color_b'.");
+
+            if (settings.ColorGOption.IsSet && settings.ColorG == null)
+                throw new JsonException("Cannot write null property Settings.ColorG to non-nullable JSON property 'color_g'.");
+
+            if (settings.ColorROption.IsSet && settings.ColorR == null)
+                throw new JsonException("Cannot write null property Settings.ColorR to non-nullable JSON property 'color_r'.");
+
+            if (settings.DotOpacityOption.IsSet && settings.DotOpacity == null)
+                throw new JsonException("Cannot write null property Settings.DotOpacity to non-nullable JSON property 'dot_opacity'.");
+
+            if (settings.DotOutlineBorderOption.IsSet && settings.DotOutlineBorder == null)
+                throw new JsonException("Cannot write null property Settings.DotOutlineBorder to non-nullable JSON property 'dot_outline_border'.");
+
+            if (settings.DotOutlineGapOption.IsSet && settings.DotOutlineGap == null)
+                throw new JsonException("Cannot write null property Settings.DotOutlineGap to non-nullable JSON property 'dot_outline_gap'.");
+
+            if (settings.DotOutlineOpacityOption.IsSet && settings.DotOutlineOpacity == null)
+                throw new JsonException("Cannot write null property Settings.DotOutlineOpacity to non-nullable JSON property 'dot_outline_opacity'.");
+
+            if (settings.DotSizeOption.IsSet && settings.DotSize == null)
+                throw new JsonException("Cannot write null property Settings.DotSize to non-nullable JSON property 'dot_size'.");
+
+            if (settings.OutlineColorBOption.IsSet && settings.OutlineColorB == null)
+                throw new JsonException("Cannot write null property Settings.OutlineColorB to non-nullable JSON property 'outline_color_b'.");
+
+            if (settings.OutlineColorGOption.IsSet && settings.OutlineColorG == null)
+                throw new JsonException("Cannot write null property Settings.OutlineColorG to non-nullable JSON property 'outline_color_g'.");
+
+            if (settings.OutlineColorROption.IsSet && settings.OutlineColorR == null)
+                throw new JsonException("Cannot write null property Settings.OutlineColorR to non-nullable JSON property 'outline_color_r'.");
+
+            if (settings.PipGapOption.IsSet && settings.PipGap == null)
+                throw new JsonException("Cannot write null property Settings.PipGap to non-nullable JSON property 'pip_gap'.");
+
+            if (settings.PipGapStaticOption.IsSet && settings.PipGapStatic == null)
+                throw new JsonException("Cannot write null property Settings.PipGapStatic to non-nullable JSON property 'pip_gap_static'.");
+
+            if (settings.PipHeightOption.IsSet && settings.PipHeight == null)
+                throw new JsonException("Cannot write null property Settings.PipHeight to non-nullable JSON property 'pip_height'.");
+
+            if (settings.PipOpacityOption.IsSet && settings.PipOpacity == null)
+                throw new JsonException("Cannot write null property Settings.PipOpacity to non-nullable JSON property 'pip_opacity'.");
+
+            if (settings.PipOutlineBorderOption.IsSet && settings.PipOutlineBorder == null)
+                throw new JsonException("Cannot write null property Settings.PipOutlineBorder to non-nullable JSON property 'pip_outline_border'.");
+
+            if (settings.PipOutlineGapOption.IsSet && settings.PipOutlineGap == null)
+                throw new JsonException("Cannot write null property Settings.PipOutlineGap to non-nullable JSON property 'pip_outline_gap'.");
+
+            if (settings.PipOutlineOpacityOption.IsSet && settings.PipOutlineOpacity == null)
+                throw new JsonException("Cannot write null property Settings.PipOutlineOpacity to non-nullable JSON property 'pip_outline_opacity'.");
+
+            if (settings.PipWidthOption.IsSet && settings.PipWidth == null)
+                throw new JsonException("Cannot write null property Settings.PipWidth to non-nullable JSON property 'pip_width'.");
+
+            if (settings.ThemedOption.IsSet && settings.Themed == null)
+                throw new JsonException("Cannot write null property Settings.Themed to non-nullable JSON property 'themed'.");
+
             if (settings.ColorBOption.IsSet)
                 writer.WriteNumber("color_b", settings.ColorBOption.Value!.Value);
 

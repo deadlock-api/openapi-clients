@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!backer.IsSet)
-                throw new ArgumentException("Property is required for class ItemTooltipBacker.", nameof(backer));
+                throw new JsonException("Property is required for class ItemTooltipBacker: backer.");
 
             if (!color.IsSet)
-                throw new ArgumentException("Property is required for class ItemTooltipBacker.", nameof(color));
+                throw new JsonException("Property is required for class ItemTooltipBacker: color.");
 
             if (!mask.IsSet)
-                throw new ArgumentException("Property is required for class ItemTooltipBacker.", nameof(mask));
+                throw new JsonException("Property is required for class ItemTooltipBacker: mask.");
 
             if (backer.IsSet && backer.Value == null)
-                throw new ArgumentNullException(nameof(backer), "Property is not nullable for class ItemTooltipBacker.");
+                throw new JsonException("Property is not nullable for class ItemTooltipBacker: backer.");
 
             if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class ItemTooltipBacker.");
+                throw new JsonException("Property is not nullable for class ItemTooltipBacker: color.");
 
             if (mask.IsSet && mask.Value == null)
-                throw new ArgumentNullException(nameof(mask), "Property is not nullable for class ItemTooltipBacker.");
+                throw new JsonException("Property is not nullable for class ItemTooltipBacker: mask.");
 
             return new ItemTooltipBacker(backer.Value!, color.Value!, mask.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemTooltipBacker"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ItemTooltipBacker itemTooltipBacker, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,18 +198,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="itemTooltipBacker"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ItemTooltipBacker itemTooltipBacker, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (itemTooltipBacker.Backer == null)
-                throw new ArgumentNullException(nameof(itemTooltipBacker.Backer), "Property is required for class ItemTooltipBacker.");
-
-            if (itemTooltipBacker.Color == null)
-                throw new ArgumentNullException(nameof(itemTooltipBacker.Color), "Property is required for class ItemTooltipBacker.");
-
-            if (itemTooltipBacker.Mask == null)
-                throw new ArgumentNullException(nameof(itemTooltipBacker.Mask), "Property is required for class ItemTooltipBacker.");
-
             writer.WritePropertyName("backer");
             JsonSerializer.Serialize(writer, itemTooltipBacker.Backer, jsonSerializerOptions);
             writer.WritePropertyName("color");

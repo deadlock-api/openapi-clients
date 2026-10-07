@@ -251,46 +251,46 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(accountId));
+                throw new JsonException("Property is required for class MMRHistory: account_id.");
 
             if (!division.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(division));
+                throw new JsonException("Property is required for class MMRHistory: division.");
 
             if (!divisionTier.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(divisionTier));
+                throw new JsonException("Property is required for class MMRHistory: division_tier.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(matchId));
+                throw new JsonException("Property is required for class MMRHistory: match_id.");
 
             if (!playerScore.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(playerScore));
+                throw new JsonException("Property is required for class MMRHistory: player_score.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(rank));
+                throw new JsonException("Property is required for class MMRHistory: rank.");
 
             if (!startTime.IsSet)
-                throw new ArgumentException("Property is required for class MMRHistory.", nameof(startTime));
+                throw new JsonException("Property is required for class MMRHistory: start_time.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: account_id.");
 
             if (division.IsSet && division.Value == null)
-                throw new ArgumentNullException(nameof(division), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: division.");
 
             if (divisionTier.IsSet && divisionTier.Value == null)
-                throw new ArgumentNullException(nameof(divisionTier), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: division_tier.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: match_id.");
 
             if (playerScore.IsSet && playerScore.Value == null)
-                throw new ArgumentNullException(nameof(playerScore), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: player_score.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: rank.");
 
             if (startTime.IsSet && startTime.Value == null)
-                throw new ArgumentNullException(nameof(startTime), "Property is not nullable for class MMRHistory.");
+                throw new JsonException("Property is not nullable for class MMRHistory: start_time.");
 
             return new MMRHistory(accountId.Value!.Value!, division.Value!.Value!, divisionTier.Value!.Value!, matchId.Value!.Value!, playerScore.Value!.Value!, rank.Value!.Value!, startTime.Value!.Value!);
         }
@@ -301,7 +301,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mMRHistory"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MMRHistory mMRHistory, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -316,7 +315,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="mMRHistory"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MMRHistory mMRHistory, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("account_id", mMRHistory.AccountId);

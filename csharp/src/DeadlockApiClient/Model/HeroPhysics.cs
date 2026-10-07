@@ -252,10 +252,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!stealthSpeedMetersPerSecond.IsSet)
-                throw new ArgumentException("Property is required for class HeroPhysics.", nameof(stealthSpeedMetersPerSecond));
+                throw new JsonException("Property is required for class HeroPhysics: stealth_speed_meters_per_second.");
 
             if (stealthSpeedMetersPerSecond.IsSet && stealthSpeedMetersPerSecond.Value == null)
-                throw new ArgumentNullException(nameof(stealthSpeedMetersPerSecond), "Property is not nullable for class HeroPhysics.");
+                throw new JsonException("Property is not nullable for class HeroPhysics: stealth_speed_meters_per_second.");
 
             return new HeroPhysics(stealthSpeedMetersPerSecond.Value!.Value!, collisionHeight, collisionRadius, footstepSoundTravelDistanceMeters, stepHeight, stepSoundTime, stepSoundTimeSprinting);
         }
@@ -266,7 +266,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPhysics"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HeroPhysics heroPhysics, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -281,7 +280,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="heroPhysics"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HeroPhysics heroPhysics, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("stealth_speed_meters_per_second", heroPhysics.StealthSpeedMetersPerSecond);

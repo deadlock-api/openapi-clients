@@ -360,55 +360,55 @@ namespace DeadlockApiClient.Model
             }
 
             if (!authorAccountId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(authorAccountId));
+                throw new JsonException("Property is required for class BuildHero: author_account_id.");
 
             if (!details.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(details));
+                throw new JsonException("Property is required for class BuildHero: details.");
 
             if (!heroBuildId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(heroBuildId));
+                throw new JsonException("Property is required for class BuildHero: hero_build_id.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(heroId));
+                throw new JsonException("Property is required for class BuildHero: hero_id.");
 
             if (!language.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(language));
+                throw new JsonException("Property is required for class BuildHero: language.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(name));
+                throw new JsonException("Property is required for class BuildHero: name.");
 
             if (!originBuildId.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(originBuildId));
+                throw new JsonException("Property is required for class BuildHero: origin_build_id.");
 
             if (!varVersion.IsSet)
-                throw new ArgumentException("Property is required for class BuildHero.", nameof(varVersion));
+                throw new JsonException("Property is required for class BuildHero: version.");
 
             if (authorAccountId.IsSet && authorAccountId.Value == null)
-                throw new ArgumentNullException(nameof(authorAccountId), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: author_account_id.");
 
             if (details.IsSet && details.Value == null)
-                throw new ArgumentNullException(nameof(details), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: details.");
 
             if (heroBuildId.IsSet && heroBuildId.Value == null)
-                throw new ArgumentNullException(nameof(heroBuildId), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: hero_build_id.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: hero_id.");
 
             if (language.IsSet && language.Value == null)
-                throw new ArgumentNullException(nameof(language), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: language.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: name.");
 
             if (originBuildId.IsSet && originBuildId.Value == null)
-                throw new ArgumentNullException(nameof(originBuildId), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: origin_build_id.");
 
             if (varVersion.IsSet && varVersion.Value == null)
-                throw new ArgumentNullException(nameof(varVersion), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: version.");
 
             if (tags.IsSet && tags.Value == null)
-                throw new ArgumentNullException(nameof(tags), "Property is not nullable for class BuildHero.");
+                throw new JsonException("Property is not nullable for class BuildHero: tags.");
 
             return new BuildHero(authorAccountId.Value!.Value!, details.Value!, heroBuildId.Value!.Value!, heroId.Value!.Value!, language.Value!.Value!, name.Value!, originBuildId.Value!.Value!, varVersion.Value!.Value!, description, developmentBuild, lastUpdatedTimestamp, publishTimestamp, tags);
         }
@@ -419,7 +419,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BuildHero buildHero, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -434,17 +433,10 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="buildHero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BuildHero buildHero, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (buildHero.Details == null)
-                throw new ArgumentNullException(nameof(buildHero.Details), "Property is required for class BuildHero.");
-
-            if (buildHero.Name == null)
-                throw new ArgumentNullException(nameof(buildHero.Name), "Property is required for class BuildHero.");
-
             if (buildHero.TagsOption.IsSet && buildHero.Tags == null)
-                throw new ArgumentNullException(nameof(buildHero.Tags), "Property is required for class BuildHero.");
+                throw new JsonException("Cannot write null property BuildHero.Tags to non-nullable JSON property 'tags'.");
 
             writer.WriteNumber("author_account_id", buildHero.AuthorAccountId);
 

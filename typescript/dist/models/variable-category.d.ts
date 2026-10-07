@@ -15,6 +15,7 @@ export declare const VariableCategory: {
     readonly Hero: "Hero";
     readonly Item: "Item";
     readonly Leaderboard: "Leaderboard";
+    readonly Season: "Season";
     readonly Overall: "Overall";
 };
 export type VariableCategory = typeof VariableCategory[keyof typeof VariableCategory];

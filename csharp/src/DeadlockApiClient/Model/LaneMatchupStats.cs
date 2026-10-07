@@ -275,58 +275,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!assignedLane.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(assignedLane));
+                throw new JsonException("Property is required for class LaneMatchupStats: assigned_lane.");
 
             if (!enemyHeroIds.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(enemyHeroIds));
+                throw new JsonException("Property is required for class LaneMatchupStats: enemy_hero_ids.");
 
             if (!heroIds.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(heroIds));
+                throw new JsonException("Property is required for class LaneMatchupStats: hero_ids.");
 
             if (!matchesPlayed.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(matchesPlayed));
+                throw new JsonException("Property is required for class LaneMatchupStats: matches_played.");
 
             if (!netWorthDiff.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(netWorthDiff));
+                throw new JsonException("Property is required for class LaneMatchupStats: net_worth_diff.");
 
             if (!sampleMatches.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(sampleMatches));
+                throw new JsonException("Property is required for class LaneMatchupStats: sample_matches.");
 
             if (!sampleTimeS.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(sampleTimeS));
+                throw new JsonException("Property is required for class LaneMatchupStats: sample_time_s.");
 
             if (!stats.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(stats));
+                throw new JsonException("Property is required for class LaneMatchupStats: stats.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class LaneMatchupStats.", nameof(wins));
+                throw new JsonException("Property is required for class LaneMatchupStats: wins.");
 
             if (assignedLane.IsSet && assignedLane.Value == null)
-                throw new ArgumentNullException(nameof(assignedLane), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: assigned_lane.");
 
             if (enemyHeroIds.IsSet && enemyHeroIds.Value == null)
-                throw new ArgumentNullException(nameof(enemyHeroIds), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: enemy_hero_ids.");
 
             if (heroIds.IsSet && heroIds.Value == null)
-                throw new ArgumentNullException(nameof(heroIds), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: hero_ids.");
 
             if (matchesPlayed.IsSet && matchesPlayed.Value == null)
-                throw new ArgumentNullException(nameof(matchesPlayed), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: matches_played.");
 
             if (netWorthDiff.IsSet && netWorthDiff.Value == null)
-                throw new ArgumentNullException(nameof(netWorthDiff), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: net_worth_diff.");
 
             if (sampleMatches.IsSet && sampleMatches.Value == null)
-                throw new ArgumentNullException(nameof(sampleMatches), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: sample_matches.");
 
             if (sampleTimeS.IsSet && sampleTimeS.Value == null)
-                throw new ArgumentNullException(nameof(sampleTimeS), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: sample_time_s.");
 
             if (stats.IsSet && stats.Value == null)
-                throw new ArgumentNullException(nameof(stats), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: stats.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class LaneMatchupStats.");
+                throw new JsonException("Property is not nullable for class LaneMatchupStats: wins.");
 
             return new LaneMatchupStats(assignedLane.Value!.Value!, enemyHeroIds.Value!, heroIds.Value!, matchesPlayed.Value!.Value!, netWorthDiff.Value!.Value!, sampleMatches.Value!.Value!, sampleTimeS.Value!.Value!, stats.Value!, wins.Value!.Value!);
         }
@@ -337,7 +337,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneMatchupStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LaneMatchupStats laneMatchupStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -352,18 +351,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneMatchupStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneMatchupStats laneMatchupStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (laneMatchupStats.EnemyHeroIds == null)
-                throw new ArgumentNullException(nameof(laneMatchupStats.EnemyHeroIds), "Property is required for class LaneMatchupStats.");
-
-            if (laneMatchupStats.HeroIds == null)
-                throw new ArgumentNullException(nameof(laneMatchupStats.HeroIds), "Property is required for class LaneMatchupStats.");
-
-            if (laneMatchupStats.Stats == null)
-                throw new ArgumentNullException(nameof(laneMatchupStats.Stats), "Property is required for class LaneMatchupStats.");
-
             writer.WriteNumber("assigned_lane", laneMatchupStats.AssignedLane);
 
             writer.WritePropertyName("enemy_hero_ids");

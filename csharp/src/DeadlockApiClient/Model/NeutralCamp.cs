@@ -201,40 +201,40 @@ namespace DeadlockApiClient.Model
             }
 
             if (!icon.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(icon));
+                throw new JsonException("Property is required for class NeutralCamp: icon.");
 
             if (!kind.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(kind));
+                throw new JsonException("Property is required for class NeutralCamp: kind.");
 
             if (!leftRelative.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(leftRelative));
+                throw new JsonException("Property is required for class NeutralCamp: left_relative.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(name));
+                throw new JsonException("Property is required for class NeutralCamp: name.");
 
             if (!position.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(position));
+                throw new JsonException("Property is required for class NeutralCamp: position.");
 
             if (!topRelative.IsSet)
-                throw new ArgumentException("Property is required for class NeutralCamp.", nameof(topRelative));
+                throw new JsonException("Property is required for class NeutralCamp: top_relative.");
 
             if (icon.IsSet && icon.Value == null)
-                throw new ArgumentNullException(nameof(icon), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: icon.");
 
             if (kind.IsSet && kind.Value == null)
-                throw new ArgumentNullException(nameof(kind), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: kind.");
 
             if (leftRelative.IsSet && leftRelative.Value == null)
-                throw new ArgumentNullException(nameof(leftRelative), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: left_relative.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: name.");
 
             if (position.IsSet && position.Value == null)
-                throw new ArgumentNullException(nameof(position), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: position.");
 
             if (topRelative.IsSet && topRelative.Value == null)
-                throw new ArgumentNullException(nameof(topRelative), "Property is not nullable for class NeutralCamp.");
+                throw new JsonException("Property is not nullable for class NeutralCamp: top_relative.");
 
             return new NeutralCamp(icon.Value!, kind.Value!.Value!, leftRelative.Value!.Value!, name.Value!, position.Value!, topRelative.Value!.Value!);
         }
@@ -245,7 +245,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="neutralCamp"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NeutralCamp neutralCamp, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -260,18 +259,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="neutralCamp"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NeutralCamp neutralCamp, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (neutralCamp.Icon == null)
-                throw new ArgumentNullException(nameof(neutralCamp.Icon), "Property is required for class NeutralCamp.");
-
-            if (neutralCamp.Name == null)
-                throw new ArgumentNullException(nameof(neutralCamp.Name), "Property is required for class NeutralCamp.");
-
-            if (neutralCamp.Position == null)
-                throw new ArgumentNullException(nameof(neutralCamp.Position), "Property is required for class NeutralCamp.");
-
             writer.WriteString("icon", neutralCamp.Icon);
 
             var kindRawValue = NeutralCampKindValueConverter.ToJsonValue(neutralCamp.Kind);

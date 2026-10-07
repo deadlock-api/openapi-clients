@@ -266,52 +266,52 @@ namespace DeadlockApiClient.Model
             }
 
             if (!abilities.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(abilities));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: abilities.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(losses));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(matches));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: matches.");
 
             if (!players.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(players));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: players.");
 
             if (!totalAssists.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(totalAssists));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: total_assists.");
 
             if (!totalDeaths.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(totalDeaths));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: total_deaths.");
 
             if (!totalKills.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(totalKills));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: total_kills.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsAbilityOrderStats.", nameof(wins));
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: wins.");
 
             if (abilities.IsSet && abilities.Value == null)
-                throw new ArgumentNullException(nameof(abilities), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: abilities.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: matches.");
 
             if (players.IsSet && players.Value == null)
-                throw new ArgumentNullException(nameof(players), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: players.");
 
             if (totalAssists.IsSet && totalAssists.Value == null)
-                throw new ArgumentNullException(nameof(totalAssists), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: total_assists.");
 
             if (totalDeaths.IsSet && totalDeaths.Value == null)
-                throw new ArgumentNullException(nameof(totalDeaths), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: total_deaths.");
 
             if (totalKills.IsSet && totalKills.Value == null)
-                throw new ArgumentNullException(nameof(totalKills), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: total_kills.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class AnalyticsAbilityOrderStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: wins.");
 
             return new AnalyticsAbilityOrderStats(abilities.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalDeaths.Value!.Value!, totalKills.Value!.Value!, wins.Value!.Value!);
         }
@@ -322,7 +322,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsAbilityOrderStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AnalyticsAbilityOrderStats analyticsAbilityOrderStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -337,12 +336,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsAbilityOrderStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AnalyticsAbilityOrderStats analyticsAbilityOrderStats, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (analyticsAbilityOrderStats.Abilities == null)
-                throw new ArgumentNullException(nameof(analyticsAbilityOrderStats.Abilities), "Property is required for class AnalyticsAbilityOrderStats.");
-
             writer.WritePropertyName("abilities");
             JsonSerializer.Serialize(writer, analyticsAbilityOrderStats.Abilities, jsonSerializerOptions);
             writer.WriteNumber("losses", analyticsAbilityOrderStats.Losses);

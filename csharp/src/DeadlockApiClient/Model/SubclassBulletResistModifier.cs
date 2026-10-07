@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!subclass.IsSet)
-                throw new ArgumentException("Property is required for class SubclassBulletResistModifier.", nameof(subclass));
+                throw new JsonException("Property is required for class SubclassBulletResistModifier: subclass.");
 
             if (subclass.IsSet && subclass.Value == null)
-                throw new ArgumentNullException(nameof(subclass), "Property is not nullable for class SubclassBulletResistModifier.");
+                throw new JsonException("Property is not nullable for class SubclassBulletResistModifier: subclass.");
 
             return new SubclassBulletResistModifier(subclass.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassBulletResistModifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SubclassBulletResistModifier subclassBulletResistModifier, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassBulletResistModifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubclassBulletResistModifier subclassBulletResistModifier, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (subclassBulletResistModifier.Subclass == null)
-                throw new ArgumentNullException(nameof(subclassBulletResistModifier.Subclass), "Property is required for class SubclassBulletResistModifier.");
-
             writer.WritePropertyName("subclass");
             JsonSerializer.Serialize(writer, subclassBulletResistModifier.Subclass, jsonSerializerOptions);
         }

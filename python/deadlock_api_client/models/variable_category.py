@@ -31,6 +31,7 @@ class VariableCategory(str, Enum):
     HERO = 'Hero'
     ITEM = 'Item'
     LEADERBOARD = 'Leaderboard'
+    SEASON = 'Season'
     OVERALL = 'Overall'
 
     @classmethod

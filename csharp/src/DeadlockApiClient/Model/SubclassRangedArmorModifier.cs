@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!subclass.IsSet)
-                throw new ArgumentException("Property is required for class SubclassRangedArmorModifier.", nameof(subclass));
+                throw new JsonException("Property is required for class SubclassRangedArmorModifier: subclass.");
 
             if (subclass.IsSet && subclass.Value == null)
-                throw new ArgumentNullException(nameof(subclass), "Property is not nullable for class SubclassRangedArmorModifier.");
+                throw new JsonException("Property is not nullable for class SubclassRangedArmorModifier: subclass.");
 
             return new SubclassRangedArmorModifier(subclass.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassRangedArmorModifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SubclassRangedArmorModifier subclassRangedArmorModifier, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassRangedArmorModifier"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubclassRangedArmorModifier subclassRangedArmorModifier, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (subclassRangedArmorModifier.Subclass == null)
-                throw new ArgumentNullException(nameof(subclassRangedArmorModifier.Subclass), "Property is required for class SubclassRangedArmorModifier.");
-
             writer.WritePropertyName("subclass");
             JsonSerializer.Serialize(writer, subclassRangedArmorModifier.Subclass, jsonSerializerOptions);
         }

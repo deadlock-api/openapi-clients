@@ -743,58 +743,58 @@ namespace DeadlockApiClient.Model
             }
 
             if (!activation.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(activation));
+                throw new JsonException("Property is required for class Upgrade: activation.");
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(className));
+                throw new JsonException("Property is required for class Upgrade: class_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(id));
+                throw new JsonException("Property is required for class Upgrade: id.");
 
             if (!isActiveItem.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(isActiveItem));
+                throw new JsonException("Property is required for class Upgrade: is_active_item.");
 
             if (!itemSlotType.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(itemSlotType));
+                throw new JsonException("Property is required for class Upgrade: item_slot_type.");
 
             if (!itemTier.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(itemTier));
+                throw new JsonException("Property is required for class Upgrade: item_tier.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(name));
+                throw new JsonException("Property is required for class Upgrade: name.");
 
             if (!shopable.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(shopable));
+                throw new JsonException("Property is required for class Upgrade: shopable.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class Upgrade.", nameof(type));
+                throw new JsonException("Property is required for class Upgrade: type.");
 
             if (activation.IsSet && activation.Value == null)
-                throw new ArgumentNullException(nameof(activation), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: activation.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: class_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: id.");
 
             if (isActiveItem.IsSet && isActiveItem.Value == null)
-                throw new ArgumentNullException(nameof(isActiveItem), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: is_active_item.");
 
             if (itemSlotType.IsSet && itemSlotType.Value == null)
-                throw new ArgumentNullException(nameof(itemSlotType), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: item_slot_type.");
 
             if (itemTier.IsSet && itemTier.Value == null)
-                throw new ArgumentNullException(nameof(itemTier), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: item_tier.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: name.");
 
             if (shopable.IsSet && shopable.Value == null)
-                throw new ArgumentNullException(nameof(shopable), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: shopable.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class Upgrade.");
+                throw new JsonException("Property is not nullable for class Upgrade: type.");
 
             return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, type.Value!.Value!, componentItems, corruptedInfo, cost, description, disableItemTarget, disabled, disabledShopFilters, hero, heroes, image, imageWebp, imbue, properties, shopFilters, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, shopVersion, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
         }
@@ -805,7 +805,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Upgrade upgrade, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -820,15 +819,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="upgrade"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Upgrade upgrade, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (upgrade.ClassName == null)
-                throw new ArgumentNullException(nameof(upgrade.ClassName), "Property is required for class Upgrade.");
-
-            if (upgrade.Name == null)
-                throw new ArgumentNullException(nameof(upgrade.Name), "Property is required for class Upgrade.");
-
             var activationRawValue = AbilityActivationValueConverter.ToJsonValue(upgrade.Activation);
             writer.WriteString("activation", activationRawValue);
 

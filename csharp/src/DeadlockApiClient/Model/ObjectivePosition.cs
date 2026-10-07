@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!leftRelative.IsSet)
-                throw new ArgumentException("Property is required for class ObjectivePosition.", nameof(leftRelative));
+                throw new JsonException("Property is required for class ObjectivePosition: left_relative.");
 
             if (!topRelative.IsSet)
-                throw new ArgumentException("Property is required for class ObjectivePosition.", nameof(topRelative));
+                throw new JsonException("Property is required for class ObjectivePosition: top_relative.");
 
             if (leftRelative.IsSet && leftRelative.Value == null)
-                throw new ArgumentNullException(nameof(leftRelative), "Property is not nullable for class ObjectivePosition.");
+                throw new JsonException("Property is not nullable for class ObjectivePosition: left_relative.");
 
             if (topRelative.IsSet && topRelative.Value == null)
-                throw new ArgumentNullException(nameof(topRelative), "Property is not nullable for class ObjectivePosition.");
+                throw new JsonException("Property is not nullable for class ObjectivePosition: top_relative.");
 
             return new ObjectivePosition(leftRelative.Value!.Value!, topRelative.Value!.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="objectivePosition"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, ObjectivePosition objectivePosition, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,7 +179,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="objectivePosition"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, ObjectivePosition objectivePosition, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("left_relative", objectivePosition.LeftRelative);

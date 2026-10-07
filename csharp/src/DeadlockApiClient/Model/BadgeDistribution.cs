@@ -179,22 +179,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!badgeLevel.IsSet)
-                throw new ArgumentException("Property is required for class BadgeDistribution.", nameof(badgeLevel));
+                throw new JsonException("Property is required for class BadgeDistribution: badge_level.");
 
             if (!totalMatches.IsSet)
-                throw new ArgumentException("Property is required for class BadgeDistribution.", nameof(totalMatches));
+                throw new JsonException("Property is required for class BadgeDistribution: total_matches.");
 
             if (!uniquePlayers.IsSet)
-                throw new ArgumentException("Property is required for class BadgeDistribution.", nameof(uniquePlayers));
+                throw new JsonException("Property is required for class BadgeDistribution: unique_players.");
 
             if (badgeLevel.IsSet && badgeLevel.Value == null)
-                throw new ArgumentNullException(nameof(badgeLevel), "Property is not nullable for class BadgeDistribution.");
+                throw new JsonException("Property is not nullable for class BadgeDistribution: badge_level.");
 
             if (totalMatches.IsSet && totalMatches.Value == null)
-                throw new ArgumentNullException(nameof(totalMatches), "Property is not nullable for class BadgeDistribution.");
+                throw new JsonException("Property is not nullable for class BadgeDistribution: total_matches.");
 
             if (uniquePlayers.IsSet && uniquePlayers.Value == null)
-                throw new ArgumentNullException(nameof(uniquePlayers), "Property is not nullable for class BadgeDistribution.");
+                throw new JsonException("Property is not nullable for class BadgeDistribution: unique_players.");
 
             return new BadgeDistribution(badgeLevel.Value!.Value!, totalMatches.Value!.Value!, uniquePlayers.Value!.Value!);
         }
@@ -205,7 +205,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="badgeDistribution"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, BadgeDistribution badgeDistribution, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -220,7 +219,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="badgeDistribution"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, BadgeDistribution badgeDistribution, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("badge_level", badgeDistribution.BadgeLevel);

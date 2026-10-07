@@ -256,10 +256,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class MatchSaltsResponse.", nameof(matchId));
+                throw new JsonException("Property is required for class MatchSaltsResponse: match_id.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class MatchSaltsResponse.");
+                throw new JsonException("Property is not nullable for class MatchSaltsResponse: match_id.");
 
             return new MatchSaltsResponse(matchId.Value!.Value!, clusterId, demoUrl, metadataSalt, metadataUrl, replaySalt);
         }
@@ -270,7 +270,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchSaltsResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MatchSaltsResponse matchSaltsResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -285,7 +284,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchSaltsResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MatchSaltsResponse matchSaltsResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("match_id", matchSaltsResponse.MatchId);

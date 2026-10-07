@@ -1605,7 +1605,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="weaponInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, WeaponInfo weaponInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -1620,7 +1619,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="weaponInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, WeaponInfo weaponInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             if (weaponInfo.AimingShotSpreadPenaltyOption.IsSet)

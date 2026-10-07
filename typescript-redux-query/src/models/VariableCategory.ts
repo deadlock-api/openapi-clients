@@ -22,6 +22,7 @@ export enum VariableCategory {
     Hero = 'Hero',
     Item = 'Item',
     Leaderboard = 'Leaderboard',
+    Season = 'Season',
     Overall = 'Overall'
 }
 

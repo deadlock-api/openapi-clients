@@ -171,28 +171,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!availableSlots.IsSet)
-                throw new ArgumentException("Property is required for class SlotsSummary.", nameof(availableSlots));
+                throw new JsonException("Property is required for class SlotsSummary: available_slots.");
 
             if (!slotsInCooldown.IsSet)
-                throw new ArgumentException("Property is required for class SlotsSummary.", nameof(slotsInCooldown));
+                throw new JsonException("Property is required for class SlotsSummary: slots_in_cooldown.");
 
             if (!totalSlots.IsSet)
-                throw new ArgumentException("Property is required for class SlotsSummary.", nameof(totalSlots));
+                throw new JsonException("Property is required for class SlotsSummary: total_slots.");
 
             if (!usedSlots.IsSet)
-                throw new ArgumentException("Property is required for class SlotsSummary.", nameof(usedSlots));
+                throw new JsonException("Property is required for class SlotsSummary: used_slots.");
 
             if (availableSlots.IsSet && availableSlots.Value == null)
-                throw new ArgumentNullException(nameof(availableSlots), "Property is not nullable for class SlotsSummary.");
+                throw new JsonException("Property is not nullable for class SlotsSummary: available_slots.");
 
             if (slotsInCooldown.IsSet && slotsInCooldown.Value == null)
-                throw new ArgumentNullException(nameof(slotsInCooldown), "Property is not nullable for class SlotsSummary.");
+                throw new JsonException("Property is not nullable for class SlotsSummary: slots_in_cooldown.");
 
             if (totalSlots.IsSet && totalSlots.Value == null)
-                throw new ArgumentNullException(nameof(totalSlots), "Property is not nullable for class SlotsSummary.");
+                throw new JsonException("Property is not nullable for class SlotsSummary: total_slots.");
 
             if (usedSlots.IsSet && usedSlots.Value == null)
-                throw new ArgumentNullException(nameof(usedSlots), "Property is not nullable for class SlotsSummary.");
+                throw new JsonException("Property is not nullable for class SlotsSummary: used_slots.");
 
             return new SlotsSummary(availableSlots.Value!.Value!, slotsInCooldown.Value!.Value!, totalSlots.Value!.Value!, usedSlots.Value!.Value!);
         }
@@ -203,7 +203,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="slotsSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SlotsSummary slotsSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -218,7 +217,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="slotsSummary"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SlotsSummary slotsSummary, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("available_slots", slotsSummary.AvailableSlots);

@@ -81,8 +81,12 @@ class TestGenericData(unittest.TestCase):
                         spirit = deadlock_api_client.models.image_pair.ImagePair(
                             png = '', 
                             webp = '', ), 
-                        vitality = , 
-                        weapon = , ), ),
+                        vitality = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        weapon = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), ),
                 corrupted_penalties = [
                     deadlock_api_client.models.corrupted_penalty.CorruptedPenalty(
                         effects = [
@@ -122,13 +126,67 @@ class TestGenericData(unittest.TestCase):
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
                         color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
                     generic_damage = null, 
-                    healing_damage = , 
-                    melee_damage = , 
-                    tech_damage = , ),
+                    healing_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), 
+                    melee_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), 
+                    tech_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), ),
                 enemy_objectives_and_zipline_color = deadlock_api_client.models.color.Color(
                     alpha = 0, 
                     blue = 0, 
@@ -173,12 +231,29 @@ class TestGenericData(unittest.TestCase):
                         color = deadlock_api_client.models.image_pair.ImagePair(
                             png = '', 
                             webp = '', ), 
-                        mask = , ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), 
                     vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
-                        backer = , 
-                        color = , 
-                        mask = , ), 
-                    weapon = , ),
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), 
+                    weapon = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), ),
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
                         color = null, 
@@ -386,13 +461,67 @@ class TestGenericData(unittest.TestCase):
                         brightness = 1.337, 
                         brightness_in_light_sensitivity_mode = 1.337, 
                         color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
                         coverage = 1.337, 
                         duration = 1.337, 
                         hardness = 1.337, ), 
                     generic_damage = null, 
-                    healing_damage = , 
-                    melee_damage = , 
-                    tech_damage = , ),
+                    healing_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), 
+                    melee_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), 
+                    tech_damage = deadlock_api_client.models.flash_data.FlashData(
+                        brightness = 1.337, 
+                        brightness_in_light_sensitivity_mode = 1.337, 
+                        color = null, 
+                        color_gradient = [
+                            deadlock_api_client.models.color_gradient_stop.ColorGradientStop(
+                                color = deadlock_api_client.models.color.Color(
+                                    alpha = 0, 
+                                    blue = 0, 
+                                    green = 0, 
+                                    red = 0, ), 
+                                position = 1.337, )
+                            ], 
+                        coverage = 1.337, 
+                        duration = 1.337, 
+                        hardness = 1.337, ), ),
                 glitch_settings = deadlock_api_client.models.glitch_settings.GlitchSettings(
                     breakup_strength = 1.337, 
                     distort_strength = 1.337, 
@@ -419,12 +548,29 @@ class TestGenericData(unittest.TestCase):
                         color = deadlock_api_client.models.image_pair.ImagePair(
                             png = '', 
                             webp = '', ), 
-                        mask = , ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), 
                     vitality = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
-                        backer = , 
-                        color = , 
-                        mask = , ), 
-                    weapon = , ),
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), 
+                    weapon = deadlock_api_client.models.item_tooltip_backer.ItemTooltipBacker(
+                        backer = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        color = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), 
+                        mask = deadlock_api_client.models.image_pair.ImagePair(
+                            png = '', 
+                            webp = '', ), ), ),
                 lane_info = [
                     deadlock_api_client.models.lane_info.LaneInfo(
                         color = null, 

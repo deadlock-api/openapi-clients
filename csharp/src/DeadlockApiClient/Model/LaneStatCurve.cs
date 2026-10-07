@@ -175,28 +175,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!diff.IsSet)
-                throw new ArgumentException("Property is required for class LaneStatCurve.", nameof(diff));
+                throw new JsonException("Property is required for class LaneStatCurve: diff.");
 
             if (!diffStd.IsSet)
-                throw new ArgumentException("Property is required for class LaneStatCurve.", nameof(diffStd));
+                throw new JsonException("Property is required for class LaneStatCurve: diff_std.");
 
             if (!value.IsSet)
-                throw new ArgumentException("Property is required for class LaneStatCurve.", nameof(value));
+                throw new JsonException("Property is required for class LaneStatCurve: value.");
 
             if (!valueStd.IsSet)
-                throw new ArgumentException("Property is required for class LaneStatCurve.", nameof(valueStd));
+                throw new JsonException("Property is required for class LaneStatCurve: value_std.");
 
             if (diff.IsSet && diff.Value == null)
-                throw new ArgumentNullException(nameof(diff), "Property is not nullable for class LaneStatCurve.");
+                throw new JsonException("Property is not nullable for class LaneStatCurve: diff.");
 
             if (diffStd.IsSet && diffStd.Value == null)
-                throw new ArgumentNullException(nameof(diffStd), "Property is not nullable for class LaneStatCurve.");
+                throw new JsonException("Property is not nullable for class LaneStatCurve: diff_std.");
 
             if (value.IsSet && value.Value == null)
-                throw new ArgumentNullException(nameof(value), "Property is not nullable for class LaneStatCurve.");
+                throw new JsonException("Property is not nullable for class LaneStatCurve: value.");
 
             if (valueStd.IsSet && valueStd.Value == null)
-                throw new ArgumentNullException(nameof(valueStd), "Property is not nullable for class LaneStatCurve.");
+                throw new JsonException("Property is not nullable for class LaneStatCurve: value_std.");
 
             return new LaneStatCurve(diff.Value!, diffStd.Value!, value.Value!, valueStd.Value!);
         }
@@ -207,7 +207,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneStatCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LaneStatCurve laneStatCurve, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -222,21 +221,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneStatCurve"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneStatCurve laneStatCurve, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (laneStatCurve.Diff == null)
-                throw new ArgumentNullException(nameof(laneStatCurve.Diff), "Property is required for class LaneStatCurve.");
-
-            if (laneStatCurve.DiffStd == null)
-                throw new ArgumentNullException(nameof(laneStatCurve.DiffStd), "Property is required for class LaneStatCurve.");
-
-            if (laneStatCurve.Value == null)
-                throw new ArgumentNullException(nameof(laneStatCurve.Value), "Property is required for class LaneStatCurve.");
-
-            if (laneStatCurve.ValueStd == null)
-                throw new ArgumentNullException(nameof(laneStatCurve.ValueStd), "Property is required for class LaneStatCurve.");
-
             writer.WritePropertyName("diff");
             JsonSerializer.Serialize(writer, laneStatCurve.Diff, jsonSerializerOptions);
             writer.WritePropertyName("diff_std");

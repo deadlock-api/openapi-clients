@@ -1619,16 +1619,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class NpcUnit.", nameof(className));
+                throw new JsonException("Property is required for class NpcUnit: class_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class NpcUnit.", nameof(id));
+                throw new JsonException("Property is required for class NpcUnit: id.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class NpcUnit.");
+                throw new JsonException("Property is not nullable for class NpcUnit: class_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class NpcUnit.");
+                throw new JsonException("Property is not nullable for class NpcUnit: id.");
 
             return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, bossWeaponInfo, boundAbilities, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, image, imageWebp, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, name, nearDeathDuration, neutralAbilities, neutralDamageGrowth, neutralMelee, neutralType, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, trooperDamageResistPct, trooperDps, viewerSoulsClass, walkSpeed, weaponInfo);
         }
@@ -1639,7 +1639,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="npcUnit"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, NpcUnit npcUnit, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -1654,12 +1653,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="npcUnit"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, NpcUnit npcUnit, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (npcUnit.ClassName == null)
-                throw new ArgumentNullException(nameof(npcUnit.ClassName), "Property is required for class NpcUnit.");
-
             writer.WriteString("class_name", npcUnit.ClassName);
 
             writer.WriteNumber("id", npcUnit.Id);

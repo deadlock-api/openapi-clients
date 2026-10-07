@@ -692,160 +692,160 @@ namespace DeadlockApiClient.Model
             }
 
             if (!assignedPlayersOnly.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(assignedPlayersOnly));
+                throw new JsonException("Property is required for class Hero: assigned_players_only.");
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(className));
+                throw new JsonException("Property is required for class Hero: class_name.");
 
             if (!colors.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(colors));
+                throw new JsonException("Property is required for class Hero: colors.");
 
             if (!complexity.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(complexity));
+                throw new JsonException("Property is required for class Hero: complexity.");
 
             if (!description.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(description));
+                throw new JsonException("Property is required for class Hero: description.");
 
             if (!disabled.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(disabled));
+                throw new JsonException("Property is required for class Hero: disabled.");
 
             if (!heroStatsUi.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(heroStatsUi));
+                throw new JsonException("Property is required for class Hero: hero_stats_ui.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(id));
+                throw new JsonException("Property is required for class Hero: id.");
 
             if (!images.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(images));
+                throw new JsonException("Property is required for class Hero: images.");
 
             if (!inDevelopment.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(inDevelopment));
+                throw new JsonException("Property is required for class Hero: in_development.");
 
             if (!itemSlotInfo.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(itemSlotInfo));
+                throw new JsonException("Property is required for class Hero: item_slot_info.");
 
             if (!items.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(items));
+                throw new JsonException("Property is required for class Hero: items.");
 
             if (!levelInfo.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(levelInfo));
+                throw new JsonException("Property is required for class Hero: level_info.");
 
             if (!limitedTesting.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(limitedTesting));
+                throw new JsonException("Property is required for class Hero: limited_testing.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(name));
+                throw new JsonException("Property is required for class Hero: name.");
 
             if (!needsTesting.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(needsTesting));
+                throw new JsonException("Property is required for class Hero: needs_testing.");
 
             if (!physics.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(physics));
+                throw new JsonException("Property is required for class Hero: physics.");
 
             if (!playerSelectable.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(playerSelectable));
+                throw new JsonException("Property is required for class Hero: player_selectable.");
 
             if (!purchaseBonuses.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(purchaseBonuses));
+                throw new JsonException("Property is required for class Hero: purchase_bonuses.");
 
             if (!scalingStats.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(scalingStats));
+                throw new JsonException("Property is required for class Hero: scaling_stats.");
 
             if (!shopStatDisplay.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(shopStatDisplay));
+                throw new JsonException("Property is required for class Hero: shop_stat_display.");
 
             if (!skin.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(skin));
+                throw new JsonException("Property is required for class Hero: skin.");
 
             if (!standardLevelUpUpgrades.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(standardLevelUpUpgrades));
+                throw new JsonException("Property is required for class Hero: standard_level_up_upgrades.");
 
             if (!startingStats.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(startingStats));
+                throw new JsonException("Property is required for class Hero: starting_stats.");
 
             if (!statsDisplay.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(statsDisplay));
+                throw new JsonException("Property is required for class Hero: stats_display.");
 
             if (!tags.IsSet)
-                throw new ArgumentException("Property is required for class Hero.", nameof(tags));
+                throw new JsonException("Property is required for class Hero: tags.");
 
             if (assignedPlayersOnly.IsSet && assignedPlayersOnly.Value == null)
-                throw new ArgumentNullException(nameof(assignedPlayersOnly), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: assigned_players_only.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: class_name.");
 
             if (colors.IsSet && colors.Value == null)
-                throw new ArgumentNullException(nameof(colors), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: colors.");
 
             if (complexity.IsSet && complexity.Value == null)
-                throw new ArgumentNullException(nameof(complexity), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: complexity.");
 
             if (description.IsSet && description.Value == null)
-                throw new ArgumentNullException(nameof(description), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: description.");
 
             if (disabled.IsSet && disabled.Value == null)
-                throw new ArgumentNullException(nameof(disabled), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: disabled.");
 
             if (heroStatsUi.IsSet && heroStatsUi.Value == null)
-                throw new ArgumentNullException(nameof(heroStatsUi), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: hero_stats_ui.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: id.");
 
             if (images.IsSet && images.Value == null)
-                throw new ArgumentNullException(nameof(images), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: images.");
 
             if (inDevelopment.IsSet && inDevelopment.Value == null)
-                throw new ArgumentNullException(nameof(inDevelopment), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: in_development.");
 
             if (itemSlotInfo.IsSet && itemSlotInfo.Value == null)
-                throw new ArgumentNullException(nameof(itemSlotInfo), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: item_slot_info.");
 
             if (items.IsSet && items.Value == null)
-                throw new ArgumentNullException(nameof(items), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: items.");
 
             if (levelInfo.IsSet && levelInfo.Value == null)
-                throw new ArgumentNullException(nameof(levelInfo), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: level_info.");
 
             if (limitedTesting.IsSet && limitedTesting.Value == null)
-                throw new ArgumentNullException(nameof(limitedTesting), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: limited_testing.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: name.");
 
             if (needsTesting.IsSet && needsTesting.Value == null)
-                throw new ArgumentNullException(nameof(needsTesting), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: needs_testing.");
 
             if (physics.IsSet && physics.Value == null)
-                throw new ArgumentNullException(nameof(physics), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: physics.");
 
             if (playerSelectable.IsSet && playerSelectable.Value == null)
-                throw new ArgumentNullException(nameof(playerSelectable), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: player_selectable.");
 
             if (purchaseBonuses.IsSet && purchaseBonuses.Value == null)
-                throw new ArgumentNullException(nameof(purchaseBonuses), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: purchase_bonuses.");
 
             if (scalingStats.IsSet && scalingStats.Value == null)
-                throw new ArgumentNullException(nameof(scalingStats), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: scaling_stats.");
 
             if (shopStatDisplay.IsSet && shopStatDisplay.Value == null)
-                throw new ArgumentNullException(nameof(shopStatDisplay), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: shop_stat_display.");
 
             if (skin.IsSet && skin.Value == null)
-                throw new ArgumentNullException(nameof(skin), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: skin.");
 
             if (standardLevelUpUpgrades.IsSet && standardLevelUpUpgrades.Value == null)
-                throw new ArgumentNullException(nameof(standardLevelUpUpgrades), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: standard_level_up_upgrades.");
 
             if (startingStats.IsSet && startingStats.Value == null)
-                throw new ArgumentNullException(nameof(startingStats), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: starting_stats.");
 
             if (statsDisplay.IsSet && statsDisplay.Value == null)
-                throw new ArgumentNullException(nameof(statsDisplay), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: stats_display.");
 
             if (tags.IsSet && tags.Value == null)
-                throw new ArgumentNullException(nameof(tags), "Property is not nullable for class Hero.");
+                throw new JsonException("Property is not nullable for class Hero: tags.");
 
             return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gender, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, popularItems, prereleaseOnly, searchName);
         }
@@ -856,7 +856,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Hero hero, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -871,60 +870,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hero"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Hero hero, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (hero.ClassName == null)
-                throw new ArgumentNullException(nameof(hero.ClassName), "Property is required for class Hero.");
-
-            if (hero.Colors == null)
-                throw new ArgumentNullException(nameof(hero.Colors), "Property is required for class Hero.");
-
-            if (hero.Description == null)
-                throw new ArgumentNullException(nameof(hero.Description), "Property is required for class Hero.");
-
-            if (hero.HeroStatsUi == null)
-                throw new ArgumentNullException(nameof(hero.HeroStatsUi), "Property is required for class Hero.");
-
-            if (hero.Images == null)
-                throw new ArgumentNullException(nameof(hero.Images), "Property is required for class Hero.");
-
-            if (hero.ItemSlotInfo == null)
-                throw new ArgumentNullException(nameof(hero.ItemSlotInfo), "Property is required for class Hero.");
-
-            if (hero.Items == null)
-                throw new ArgumentNullException(nameof(hero.Items), "Property is required for class Hero.");
-
-            if (hero.LevelInfo == null)
-                throw new ArgumentNullException(nameof(hero.LevelInfo), "Property is required for class Hero.");
-
-            if (hero.Name == null)
-                throw new ArgumentNullException(nameof(hero.Name), "Property is required for class Hero.");
-
-            if (hero.Physics == null)
-                throw new ArgumentNullException(nameof(hero.Physics), "Property is required for class Hero.");
-
-            if (hero.PurchaseBonuses == null)
-                throw new ArgumentNullException(nameof(hero.PurchaseBonuses), "Property is required for class Hero.");
-
-            if (hero.ScalingStats == null)
-                throw new ArgumentNullException(nameof(hero.ScalingStats), "Property is required for class Hero.");
-
-            if (hero.ShopStatDisplay == null)
-                throw new ArgumentNullException(nameof(hero.ShopStatDisplay), "Property is required for class Hero.");
-
-            if (hero.StandardLevelUpUpgrades == null)
-                throw new ArgumentNullException(nameof(hero.StandardLevelUpUpgrades), "Property is required for class Hero.");
-
-            if (hero.StartingStats == null)
-                throw new ArgumentNullException(nameof(hero.StartingStats), "Property is required for class Hero.");
-
-            if (hero.StatsDisplay == null)
-                throw new ArgumentNullException(nameof(hero.StatsDisplay), "Property is required for class Hero.");
-
-            if (hero.Tags == null)
-                throw new ArgumentNullException(nameof(hero.Tags), "Property is required for class Hero.");
-
             writer.WriteBoolean("assigned_players_only", hero.AssignedPlayersOnly);
 
             writer.WriteString("class_name", hero.ClassName);

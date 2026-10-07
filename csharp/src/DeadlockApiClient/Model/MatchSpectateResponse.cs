@@ -158,10 +158,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!broadcastUrl.IsSet)
-                throw new ArgumentException("Property is required for class MatchSpectateResponse.", nameof(broadcastUrl));
+                throw new JsonException("Property is required for class MatchSpectateResponse: broadcast_url.");
 
             if (broadcastUrl.IsSet && broadcastUrl.Value == null)
-                throw new ArgumentNullException(nameof(broadcastUrl), "Property is not nullable for class MatchSpectateResponse.");
+                throw new JsonException("Property is not nullable for class MatchSpectateResponse: broadcast_url.");
 
             return new MatchSpectateResponse(broadcastUrl.Value!, lobbyId);
         }
@@ -172,7 +172,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchSpectateResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, MatchSpectateResponse matchSpectateResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -187,12 +186,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="matchSpectateResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MatchSpectateResponse matchSpectateResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (matchSpectateResponse.BroadcastUrl == null)
-                throw new ArgumentNullException(nameof(matchSpectateResponse.BroadcastUrl), "Property is required for class MatchSpectateResponse.");
-
             writer.WriteString("broadcast_url", matchSpectateResponse.BroadcastUrl);
 
             if (matchSpectateResponse.LobbyIdOption.IsSet)

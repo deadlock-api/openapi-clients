@@ -246,28 +246,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!format.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryStatusResponse.", nameof(format));
+                throw new JsonException("Property is required for class DemoQueryStatusResponse: format.");
 
             if (!jobId.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryStatusResponse.", nameof(jobId));
+                throw new JsonException("Property is required for class DemoQueryStatusResponse: job_id.");
 
             if (!matchId.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryStatusResponse.", nameof(matchId));
+                throw new JsonException("Property is required for class DemoQueryStatusResponse: match_id.");
 
             if (!status.IsSet)
-                throw new ArgumentException("Property is required for class DemoQueryStatusResponse.", nameof(status));
+                throw new JsonException("Property is required for class DemoQueryStatusResponse: status.");
 
             if (format.IsSet && format.Value == null)
-                throw new ArgumentNullException(nameof(format), "Property is not nullable for class DemoQueryStatusResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryStatusResponse: format.");
 
             if (jobId.IsSet && jobId.Value == null)
-                throw new ArgumentNullException(nameof(jobId), "Property is not nullable for class DemoQueryStatusResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryStatusResponse: job_id.");
 
             if (matchId.IsSet && matchId.Value == null)
-                throw new ArgumentNullException(nameof(matchId), "Property is not nullable for class DemoQueryStatusResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryStatusResponse: match_id.");
 
             if (status.IsSet && status.Value == null)
-                throw new ArgumentNullException(nameof(status), "Property is not nullable for class DemoQueryStatusResponse.");
+                throw new JsonException("Property is not nullable for class DemoQueryStatusResponse: status.");
 
             return new DemoQueryStatusResponse(format.Value!.Value!, jobId.Value!, matchId.Value!.Value!, status.Value!.Value!, error, estimatedWaitSeconds, resultUrl);
         }
@@ -278,7 +278,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryStatusResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, DemoQueryStatusResponse demoQueryStatusResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -293,12 +292,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="demoQueryStatusResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, DemoQueryStatusResponse demoQueryStatusResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (demoQueryStatusResponse.JobId == null)
-                throw new ArgumentNullException(nameof(demoQueryStatusResponse.JobId), "Property is required for class DemoQueryStatusResponse.");
-
             var formatRawValue = OutputFormatValueConverter.ToJsonValue(demoQueryStatusResponse.Format);
             writer.WriteString("format", formatRawValue);
 

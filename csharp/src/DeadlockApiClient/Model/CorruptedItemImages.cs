@@ -159,22 +159,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!frame.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedItemImages.", nameof(frame));
+                throw new JsonException("Property is required for class CorruptedItemImages: frame.");
 
             if (!frameActive.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedItemImages.", nameof(frameActive));
+                throw new JsonException("Property is required for class CorruptedItemImages: frame_active.");
 
             if (!tooltipBackers.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedItemImages.", nameof(tooltipBackers));
+                throw new JsonException("Property is required for class CorruptedItemImages: tooltip_backers.");
 
             if (frame.IsSet && frame.Value == null)
-                throw new ArgumentNullException(nameof(frame), "Property is not nullable for class CorruptedItemImages.");
+                throw new JsonException("Property is not nullable for class CorruptedItemImages: frame.");
 
             if (frameActive.IsSet && frameActive.Value == null)
-                throw new ArgumentNullException(nameof(frameActive), "Property is not nullable for class CorruptedItemImages.");
+                throw new JsonException("Property is not nullable for class CorruptedItemImages: frame_active.");
 
             if (tooltipBackers.IsSet && tooltipBackers.Value == null)
-                throw new ArgumentNullException(nameof(tooltipBackers), "Property is not nullable for class CorruptedItemImages.");
+                throw new JsonException("Property is not nullable for class CorruptedItemImages: tooltip_backers.");
 
             return new CorruptedItemImages(frame.Value!, frameActive.Value!, tooltipBackers.Value!);
         }
@@ -185,7 +185,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedItemImages"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CorruptedItemImages corruptedItemImages, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -200,18 +199,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedItemImages"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CorruptedItemImages corruptedItemImages, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (corruptedItemImages.Frame == null)
-                throw new ArgumentNullException(nameof(corruptedItemImages.Frame), "Property is required for class CorruptedItemImages.");
-
-            if (corruptedItemImages.FrameActive == null)
-                throw new ArgumentNullException(nameof(corruptedItemImages.FrameActive), "Property is required for class CorruptedItemImages.");
-
-            if (corruptedItemImages.TooltipBackers == null)
-                throw new ArgumentNullException(nameof(corruptedItemImages.TooltipBackers), "Property is required for class CorruptedItemImages.");
-
             writer.WritePropertyName("frame");
             JsonSerializer.Serialize(writer, corruptedItemImages.Frame, jsonSerializerOptions);
             writer.WritePropertyName("frame_active");

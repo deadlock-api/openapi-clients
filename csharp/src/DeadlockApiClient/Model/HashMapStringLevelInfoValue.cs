@@ -172,10 +172,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!requiredGold.IsSet)
-                throw new ArgumentException("Property is required for class HashMapStringLevelInfoValue.", nameof(requiredGold));
+                throw new JsonException("Property is required for class HashMapStringLevelInfoValue: required_gold.");
 
             if (requiredGold.IsSet && requiredGold.Value == null)
-                throw new ArgumentNullException(nameof(requiredGold), "Property is not nullable for class HashMapStringLevelInfoValue.");
+                throw new JsonException("Property is not nullable for class HashMapStringLevelInfoValue: required_gold.");
 
             return new HashMapStringLevelInfoValue(requiredGold.Value!.Value!, bonusCurrencies, useStandardUpgrade);
         }
@@ -186,7 +186,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapStringLevelInfoValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, HashMapStringLevelInfoValue hashMapStringLevelInfoValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -201,7 +200,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="hashMapStringLevelInfoValue"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, HashMapStringLevelInfoValue hashMapStringLevelInfoValue, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("required_gold", hashMapStringLevelInfoValue.RequiredGold);

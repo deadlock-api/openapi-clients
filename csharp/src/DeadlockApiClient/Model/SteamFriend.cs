@@ -156,16 +156,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!accountId.IsSet)
-                throw new ArgumentException("Property is required for class SteamFriend.", nameof(accountId));
+                throw new JsonException("Property is required for class SteamFriend: account_id.");
 
             if (!friendSince.IsSet)
-                throw new ArgumentException("Property is required for class SteamFriend.", nameof(friendSince));
+                throw new JsonException("Property is required for class SteamFriend: friend_since.");
 
             if (accountId.IsSet && accountId.Value == null)
-                throw new ArgumentNullException(nameof(accountId), "Property is not nullable for class SteamFriend.");
+                throw new JsonException("Property is not nullable for class SteamFriend: account_id.");
 
             if (friendSince.IsSet && friendSince.Value == null)
-                throw new ArgumentNullException(nameof(friendSince), "Property is not nullable for class SteamFriend.");
+                throw new JsonException("Property is not nullable for class SteamFriend: friend_since.");
 
             return new SteamFriend(accountId.Value!.Value!, friendSince.Value!.Value!);
         }
@@ -176,7 +176,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamFriend"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SteamFriend steamFriend, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -191,7 +190,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="steamFriend"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SteamFriend steamFriend, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("account_id", steamFriend.AccountId);

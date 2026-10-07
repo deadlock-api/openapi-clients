@@ -133,10 +133,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!services.IsSet)
-                throw new ArgumentException("Property is required for class Status.", nameof(services));
+                throw new JsonException("Property is required for class Status: services.");
 
             if (services.IsSet && services.Value == null)
-                throw new ArgumentNullException(nameof(services), "Property is not nullable for class Status.");
+                throw new JsonException("Property is not nullable for class Status: services.");
 
             return new Status(services.Value!);
         }
@@ -147,7 +147,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="status"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Status status, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -162,12 +161,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="status"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Status status, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (status.Services == null)
-                throw new ArgumentNullException(nameof(status.Services), "Property is required for class Status.");
-
             writer.WritePropertyName("services");
             JsonSerializer.Serialize(writer, status.Services, jsonSerializerOptions);
         }

@@ -580,148 +580,148 @@ namespace DeadlockApiClient.Model
             }
 
             if (!bucket.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(bucket));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: bucket.");
 
             if (!heroId.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(heroId));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: hero_id.");
 
             if (!losses.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(losses));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: losses.");
 
             if (!matches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(matches));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: matches.");
 
             if (!matchesPerBucket.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(matchesPerBucket));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: matches_per_bucket.");
 
             if (!permanentBuffMatches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(permanentBuffMatches));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: permanent_buff_matches.");
 
             if (!permanentBuffTimingMatches.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(permanentBuffTimingMatches));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: permanent_buff_timing_matches.");
 
             if (!totalAssists.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalAssists));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_assists.");
 
             if (!totalBossDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalBossDamage));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_boss_damage.");
 
             if (!totalCreepDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalCreepDamage));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_creep_damage.");
 
             if (!totalDeaths.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalDeaths));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_deaths.");
 
             if (!totalDenies.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalDenies));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_denies.");
 
             if (!totalFirstPermanentBuffTimeS.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalFirstPermanentBuffTimeS));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_first_permanent_buff_time_s.");
 
             if (!totalKills.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalKills));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_kills.");
 
             if (!totalLastHits.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalLastHits));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_last_hits.");
 
             if (!totalMaxHealth.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalMaxHealth));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_max_health.");
 
             if (!totalNetWorth.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalNetWorth));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_net_worth.");
 
             if (!totalNeutralDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalNeutralDamage));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_neutral_damage.");
 
             if (!totalPermanentBuffs.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalPermanentBuffs));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_permanent_buffs.");
 
             if (!totalPlayerDamage.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalPlayerDamage));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_player_damage.");
 
             if (!totalPlayerDamageTaken.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalPlayerDamageTaken));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_player_damage_taken.");
 
             if (!totalShotsHit.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalShotsHit));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_shots_hit.");
 
             if (!totalShotsMissed.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(totalShotsMissed));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: total_shots_missed.");
 
             if (!wins.IsSet)
-                throw new ArgumentException("Property is required for class AnalyticsHeroStats.", nameof(wins));
+                throw new JsonException("Property is required for class AnalyticsHeroStats: wins.");
 
             if (bucket.IsSet && bucket.Value == null)
-                throw new ArgumentNullException(nameof(bucket), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: bucket.");
 
             if (heroId.IsSet && heroId.Value == null)
-                throw new ArgumentNullException(nameof(heroId), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: hero_id.");
 
             if (losses.IsSet && losses.Value == null)
-                throw new ArgumentNullException(nameof(losses), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: losses.");
 
             if (matches.IsSet && matches.Value == null)
-                throw new ArgumentNullException(nameof(matches), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: matches.");
 
             if (matchesPerBucket.IsSet && matchesPerBucket.Value == null)
-                throw new ArgumentNullException(nameof(matchesPerBucket), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: matches_per_bucket.");
 
             if (permanentBuffMatches.IsSet && permanentBuffMatches.Value == null)
-                throw new ArgumentNullException(nameof(permanentBuffMatches), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: permanent_buff_matches.");
 
             if (permanentBuffTimingMatches.IsSet && permanentBuffTimingMatches.Value == null)
-                throw new ArgumentNullException(nameof(permanentBuffTimingMatches), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: permanent_buff_timing_matches.");
 
             if (totalAssists.IsSet && totalAssists.Value == null)
-                throw new ArgumentNullException(nameof(totalAssists), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_assists.");
 
             if (totalBossDamage.IsSet && totalBossDamage.Value == null)
-                throw new ArgumentNullException(nameof(totalBossDamage), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_boss_damage.");
 
             if (totalCreepDamage.IsSet && totalCreepDamage.Value == null)
-                throw new ArgumentNullException(nameof(totalCreepDamage), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_creep_damage.");
 
             if (totalDeaths.IsSet && totalDeaths.Value == null)
-                throw new ArgumentNullException(nameof(totalDeaths), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_deaths.");
 
             if (totalDenies.IsSet && totalDenies.Value == null)
-                throw new ArgumentNullException(nameof(totalDenies), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_denies.");
 
             if (totalFirstPermanentBuffTimeS.IsSet && totalFirstPermanentBuffTimeS.Value == null)
-                throw new ArgumentNullException(nameof(totalFirstPermanentBuffTimeS), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_first_permanent_buff_time_s.");
 
             if (totalKills.IsSet && totalKills.Value == null)
-                throw new ArgumentNullException(nameof(totalKills), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_kills.");
 
             if (totalLastHits.IsSet && totalLastHits.Value == null)
-                throw new ArgumentNullException(nameof(totalLastHits), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_last_hits.");
 
             if (totalMaxHealth.IsSet && totalMaxHealth.Value == null)
-                throw new ArgumentNullException(nameof(totalMaxHealth), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_max_health.");
 
             if (totalNetWorth.IsSet && totalNetWorth.Value == null)
-                throw new ArgumentNullException(nameof(totalNetWorth), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_net_worth.");
 
             if (totalNeutralDamage.IsSet && totalNeutralDamage.Value == null)
-                throw new ArgumentNullException(nameof(totalNeutralDamage), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_neutral_damage.");
 
             if (totalPermanentBuffs.IsSet && totalPermanentBuffs.Value == null)
-                throw new ArgumentNullException(nameof(totalPermanentBuffs), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_permanent_buffs.");
 
             if (totalPlayerDamage.IsSet && totalPlayerDamage.Value == null)
-                throw new ArgumentNullException(nameof(totalPlayerDamage), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_player_damage.");
 
             if (totalPlayerDamageTaken.IsSet && totalPlayerDamageTaken.Value == null)
-                throw new ArgumentNullException(nameof(totalPlayerDamageTaken), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_player_damage_taken.");
 
             if (totalShotsHit.IsSet && totalShotsHit.Value == null)
-                throw new ArgumentNullException(nameof(totalShotsHit), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_shots_hit.");
 
             if (totalShotsMissed.IsSet && totalShotsMissed.Value == null)
-                throw new ArgumentNullException(nameof(totalShotsMissed), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: total_shots_missed.");
 
             if (wins.IsSet && wins.Value == null)
-                throw new ArgumentNullException(nameof(wins), "Property is not nullable for class AnalyticsHeroStats.");
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: wins.");
 
             return new AnalyticsHeroStats(bucket.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, matchesPerBucket.Value!.Value!, permanentBuffMatches.Value!.Value!, permanentBuffTimingMatches.Value!.Value!, totalAssists.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalDeaths.Value!.Value!, totalDenies.Value!.Value!, totalFirstPermanentBuffTimeS.Value!.Value!, totalKills.Value!.Value!, totalLastHits.Value!.Value!, totalMaxHealth.Value!.Value!, totalNetWorth.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPermanentBuffs.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, totalShotsHit.Value!.Value!, totalShotsMissed.Value!.Value!, wins.Value!.Value!);
         }
@@ -732,7 +732,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsHeroStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, AnalyticsHeroStats analyticsHeroStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -747,7 +746,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="analyticsHeroStats"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, AnalyticsHeroStats analyticsHeroStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("bucket", analyticsHeroStats.Bucket);

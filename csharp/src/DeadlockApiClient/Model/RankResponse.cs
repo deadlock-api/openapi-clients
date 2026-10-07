@@ -200,22 +200,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!badge.IsSet)
-                throw new ArgumentException("Property is required for class RankResponse.", nameof(badge));
+                throw new JsonException("Property is required for class RankResponse: badge.");
 
             if (!rank.IsSet)
-                throw new ArgumentException("Property is required for class RankResponse.", nameof(rank));
+                throw new JsonException("Property is required for class RankResponse: rank.");
 
             if (!subrank.IsSet)
-                throw new ArgumentException("Property is required for class RankResponse.", nameof(subrank));
+                throw new JsonException("Property is required for class RankResponse: subrank.");
 
             if (badge.IsSet && badge.Value == null)
-                throw new ArgumentNullException(nameof(badge), "Property is not nullable for class RankResponse.");
+                throw new JsonException("Property is not nullable for class RankResponse: badge.");
 
             if (rank.IsSet && rank.Value == null)
-                throw new ArgumentNullException(nameof(rank), "Property is not nullable for class RankResponse.");
+                throw new JsonException("Property is not nullable for class RankResponse: rank.");
 
             if (subrank.IsSet && subrank.Value == null)
-                throw new ArgumentNullException(nameof(subrank), "Property is not nullable for class RankResponse.");
+                throw new JsonException("Property is not nullable for class RankResponse: subrank.");
 
             return new RankResponse(badge.Value!.Value!, rank.Value!.Value!, subrank.Value!.Value!, lastMatch);
         }
@@ -226,7 +226,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, RankResponse rankResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -241,7 +240,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="rankResponse"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RankResponse rankResponse, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("badge", rankResponse.Badge);

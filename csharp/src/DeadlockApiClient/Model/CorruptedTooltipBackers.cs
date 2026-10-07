@@ -158,22 +158,22 @@ namespace DeadlockApiClient.Model
             }
 
             if (!spirit.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedTooltipBackers.", nameof(spirit));
+                throw new JsonException("Property is required for class CorruptedTooltipBackers: spirit.");
 
             if (!vitality.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedTooltipBackers.", nameof(vitality));
+                throw new JsonException("Property is required for class CorruptedTooltipBackers: vitality.");
 
             if (!weapon.IsSet)
-                throw new ArgumentException("Property is required for class CorruptedTooltipBackers.", nameof(weapon));
+                throw new JsonException("Property is required for class CorruptedTooltipBackers: weapon.");
 
             if (spirit.IsSet && spirit.Value == null)
-                throw new ArgumentNullException(nameof(spirit), "Property is not nullable for class CorruptedTooltipBackers.");
+                throw new JsonException("Property is not nullable for class CorruptedTooltipBackers: spirit.");
 
             if (vitality.IsSet && vitality.Value == null)
-                throw new ArgumentNullException(nameof(vitality), "Property is not nullable for class CorruptedTooltipBackers.");
+                throw new JsonException("Property is not nullable for class CorruptedTooltipBackers: vitality.");
 
             if (weapon.IsSet && weapon.Value == null)
-                throw new ArgumentNullException(nameof(weapon), "Property is not nullable for class CorruptedTooltipBackers.");
+                throw new JsonException("Property is not nullable for class CorruptedTooltipBackers: weapon.");
 
             return new CorruptedTooltipBackers(spirit.Value!, vitality.Value!, weapon.Value!);
         }
@@ -184,7 +184,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedTooltipBackers"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, CorruptedTooltipBackers corruptedTooltipBackers, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -199,18 +198,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="corruptedTooltipBackers"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, CorruptedTooltipBackers corruptedTooltipBackers, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (corruptedTooltipBackers.Spirit == null)
-                throw new ArgumentNullException(nameof(corruptedTooltipBackers.Spirit), "Property is required for class CorruptedTooltipBackers.");
-
-            if (corruptedTooltipBackers.Vitality == null)
-                throw new ArgumentNullException(nameof(corruptedTooltipBackers.Vitality), "Property is required for class CorruptedTooltipBackers.");
-
-            if (corruptedTooltipBackers.Weapon == null)
-                throw new ArgumentNullException(nameof(corruptedTooltipBackers.Weapon), "Property is required for class CorruptedTooltipBackers.");
-
             writer.WritePropertyName("spirit");
             JsonSerializer.Serialize(writer, corruptedTooltipBackers.Spirit, jsonSerializerOptions);
             writer.WritePropertyName("vitality");

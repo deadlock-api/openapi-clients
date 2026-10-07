@@ -25,6 +25,7 @@ const (
 	VARIABLECATEGORY_HERO VariableCategory = "Hero"
 	VARIABLECATEGORY_ITEM VariableCategory = "Item"
 	VARIABLECATEGORY_LEADERBOARD VariableCategory = "Leaderboard"
+	VARIABLECATEGORY_SEASON VariableCategory = "Season"
 	VARIABLECATEGORY_OVERALL VariableCategory = "Overall"
 )
 
@@ -35,6 +36,7 @@ var AllowedVariableCategoryEnumValues = []VariableCategory{
 	"Hero",
 	"Item",
 	"Leaderboard",
+	"Season",
 	"Overall",
 }
 

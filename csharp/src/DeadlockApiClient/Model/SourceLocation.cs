@@ -198,25 +198,25 @@ namespace DeadlockApiClient.Model
             }
 
             if (!column.IsSet)
-                throw new ArgumentException("Property is required for class SourceLocation.", nameof(column));
+                throw new JsonException("Property is required for class SourceLocation: column.");
 
             if (!file.IsSet)
-                throw new ArgumentException("Property is required for class SourceLocation.", nameof(file));
+                throw new JsonException("Property is required for class SourceLocation: file.");
 
             if (!line.IsSet)
-                throw new ArgumentException("Property is required for class SourceLocation.", nameof(line));
+                throw new JsonException("Property is required for class SourceLocation: line.");
 
             if (column.IsSet && column.Value == null)
-                throw new ArgumentNullException(nameof(column), "Property is not nullable for class SourceLocation.");
+                throw new JsonException("Property is not nullable for class SourceLocation: column.");
 
             if (file.IsSet && file.Value == null)
-                throw new ArgumentNullException(nameof(file), "Property is not nullable for class SourceLocation.");
+                throw new JsonException("Property is not nullable for class SourceLocation: file.");
 
             if (line.IsSet && line.Value == null)
-                throw new ArgumentNullException(nameof(line), "Property is not nullable for class SourceLocation.");
+                throw new JsonException("Property is not nullable for class SourceLocation: line.");
 
             if (chain.IsSet && chain.Value == null)
-                throw new ArgumentNullException(nameof(chain), "Property is not nullable for class SourceLocation.");
+                throw new JsonException("Property is not nullable for class SourceLocation: chain.");
 
             return new SourceLocation(column.Value!.Value!, file.Value!, line.Value!.Value!, chain, component);
         }
@@ -227,7 +227,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="sourceLocation"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SourceLocation sourceLocation, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -242,14 +241,10 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="sourceLocation"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SourceLocation sourceLocation, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (sourceLocation.File == null)
-                throw new ArgumentNullException(nameof(sourceLocation.File), "Property is required for class SourceLocation.");
-
             if (sourceLocation.ChainOption.IsSet && sourceLocation.Chain == null)
-                throw new ArgumentNullException(nameof(sourceLocation.Chain), "Property is required for class SourceLocation.");
+                throw new JsonException("Cannot write null property SourceLocation.Chain to non-nullable JSON property 'chain'.");
 
             writer.WriteNumber("column", sourceLocation.Column);
 

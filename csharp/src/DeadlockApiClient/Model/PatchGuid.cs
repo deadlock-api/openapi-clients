@@ -145,16 +145,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!isPermaLink.IsSet)
-                throw new ArgumentException("Property is required for class PatchGuid.", nameof(isPermaLink));
+                throw new JsonException("Property is required for class PatchGuid: is_perma_link.");
 
             if (!text.IsSet)
-                throw new ArgumentException("Property is required for class PatchGuid.", nameof(text));
+                throw new JsonException("Property is required for class PatchGuid: text.");
 
             if (isPermaLink.IsSet && isPermaLink.Value == null)
-                throw new ArgumentNullException(nameof(isPermaLink), "Property is not nullable for class PatchGuid.");
+                throw new JsonException("Property is not nullable for class PatchGuid: is_perma_link.");
 
             if (text.IsSet && text.Value == null)
-                throw new ArgumentNullException(nameof(text), "Property is not nullable for class PatchGuid.");
+                throw new JsonException("Property is not nullable for class PatchGuid: text.");
 
             return new PatchGuid(isPermaLink.Value!.Value!, text.Value!);
         }
@@ -165,7 +165,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patchGuid"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, PatchGuid patchGuid, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -180,12 +179,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="patchGuid"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, PatchGuid patchGuid, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (patchGuid.Text == null)
-                throw new ArgumentNullException(nameof(patchGuid.Text), "Property is required for class PatchGuid.");
-
             writer.WriteBoolean("is_perma_link", patchGuid.IsPermaLink);
 
             writer.WriteString("text", patchGuid.Text);

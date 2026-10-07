@@ -250,16 +250,16 @@ namespace DeadlockApiClient.Model
             }
 
             if (!isEnemyLane.IsSet)
-                throw new ArgumentException("Property is required for class LaneInfo.", nameof(isEnemyLane));
+                throw new JsonException("Property is required for class LaneInfo: is_enemy_lane.");
 
             if (!laneName.IsSet)
-                throw new ArgumentException("Property is required for class LaneInfo.", nameof(laneName));
+                throw new JsonException("Property is required for class LaneInfo: lane_name.");
 
             if (isEnemyLane.IsSet && isEnemyLane.Value == null)
-                throw new ArgumentNullException(nameof(isEnemyLane), "Property is not nullable for class LaneInfo.");
+                throw new JsonException("Property is not nullable for class LaneInfo: is_enemy_lane.");
 
             if (laneName.IsSet && laneName.Value == null)
-                throw new ArgumentNullException(nameof(laneName), "Property is not nullable for class LaneInfo.");
+                throw new JsonException("Property is not nullable for class LaneInfo: lane_name.");
 
             return new LaneInfo(isEnemyLane.Value!.Value!, laneName.Value!, color, cssClass, minimapColor, minimapZiplineColorOverride, objectiveColor);
         }
@@ -270,7 +270,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, LaneInfo laneInfo, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -285,12 +284,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="laneInfo"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, LaneInfo laneInfo, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (laneInfo.LaneName == null)
-                throw new ArgumentNullException(nameof(laneInfo.LaneName), "Property is required for class LaneInfo.");
-
             writer.WriteBoolean("is_enemy_lane", laneInfo.IsEnemyLane);
 
             writer.WriteString("lane_name", laneInfo.LaneName);

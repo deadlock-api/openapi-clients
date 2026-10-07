@@ -132,10 +132,10 @@ namespace DeadlockApiClient.Model
             }
 
             if (!subclass.IsSet)
-                throw new ArgumentException("Property is required for class SubclassTrooperDamageReduction.", nameof(subclass));
+                throw new JsonException("Property is required for class SubclassTrooperDamageReduction: subclass.");
 
             if (subclass.IsSet && subclass.Value == null)
-                throw new ArgumentNullException(nameof(subclass), "Property is not nullable for class SubclassTrooperDamageReduction.");
+                throw new JsonException("Property is not nullable for class SubclassTrooperDamageReduction: subclass.");
 
             return new SubclassTrooperDamageReduction(subclass.Value!);
         }
@@ -146,7 +146,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassTrooperDamageReduction"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, SubclassTrooperDamageReduction subclassTrooperDamageReduction, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -161,12 +160,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="subclassTrooperDamageReduction"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubclassTrooperDamageReduction subclassTrooperDamageReduction, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (subclassTrooperDamageReduction.Subclass == null)
-                throw new ArgumentNullException(nameof(subclassTrooperDamageReduction.Subclass), "Property is required for class SubclassTrooperDamageReduction.");
-
             writer.WritePropertyName("subclass");
             JsonSerializer.Serialize(writer, subclassTrooperDamageReduction.Subclass, jsonSerializerOptions);
         }

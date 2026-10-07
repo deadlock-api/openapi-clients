@@ -403,28 +403,28 @@ namespace DeadlockApiClient.Model
             }
 
             if (!className.IsSet)
-                throw new ArgumentException("Property is required for class Weapon.", nameof(className));
+                throw new JsonException("Property is required for class Weapon: class_name.");
 
             if (!id.IsSet)
-                throw new ArgumentException("Property is required for class Weapon.", nameof(id));
+                throw new JsonException("Property is required for class Weapon: id.");
 
             if (!name.IsSet)
-                throw new ArgumentException("Property is required for class Weapon.", nameof(name));
+                throw new JsonException("Property is required for class Weapon: name.");
 
             if (!type.IsSet)
-                throw new ArgumentException("Property is required for class Weapon.", nameof(type));
+                throw new JsonException("Property is required for class Weapon: type.");
 
             if (className.IsSet && className.Value == null)
-                throw new ArgumentNullException(nameof(className), "Property is not nullable for class Weapon.");
+                throw new JsonException("Property is not nullable for class Weapon: class_name.");
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class Weapon.");
+                throw new JsonException("Property is not nullable for class Weapon: id.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class Weapon.");
+                throw new JsonException("Property is not nullable for class Weapon: name.");
 
             if (type.IsSet && type.Value == null)
-                throw new ArgumentNullException(nameof(type), "Property is not nullable for class Weapon.");
+                throw new JsonException("Property is not nullable for class Weapon: type.");
 
             return new Weapon(className.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, crosshairCssClass, customCrosshairSettings, hero, heroes, image, imageWebp, properties, startTrained, updateTime, useCustomCrosshairSettings, weaponInfo);
         }
@@ -435,7 +435,6 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="weapon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public override void Write(Utf8JsonWriter writer, Weapon weapon, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
@@ -450,15 +449,8 @@ namespace DeadlockApiClient.Model
         /// <param name="writer"></param>
         /// <param name="weapon"></param>
         /// <param name="jsonSerializerOptions"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, Weapon weapon, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (weapon.ClassName == null)
-                throw new ArgumentNullException(nameof(weapon.ClassName), "Property is required for class Weapon.");
-
-            if (weapon.Name == null)
-                throw new ArgumentNullException(nameof(weapon.Name), "Property is required for class Weapon.");
-
             writer.WriteString("class_name", weapon.ClassName);
 
             writer.WriteNumber("id", weapon.Id);
