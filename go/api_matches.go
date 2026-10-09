@@ -803,7 +803,7 @@ IngestUrls Ingest Live Broadcast URLs
 
 Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.
 
-Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed
+Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed
 while it is still live. Existing entries for the same `match_id` are overwritten.
 
 These URLs can be used in any demofile broadcast parser:

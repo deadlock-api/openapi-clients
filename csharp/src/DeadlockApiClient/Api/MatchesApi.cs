@@ -181,7 +181,7 @@ namespace DeadlockApiClient.Api
         /// Ingest Live Broadcast URLs
         /// </summary>
         /// <remarks>
-        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ingestLiveUrl"></param>
@@ -193,7 +193,7 @@ namespace DeadlockApiClient.Api
         /// Ingest Live Broadcast URLs
         /// </summary>
         /// <remarks>
-        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </remarks>
         /// <param name="ingestLiveUrl"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2012,7 +2012,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorIngestUrls(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<IngestLiveUrl> ingestLiveUrl);
 
         /// <summary>
-        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <param name="ingestLiveUrl"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2030,7 +2030,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 15 minutes; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Ingest Live Broadcast URLs  Submit one or more live broadcast URLs so they show up in the &#x60;GET /live/urls&#x60; listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same &#x60;match_id&#x60; are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="ingestLiveUrl"></param>
