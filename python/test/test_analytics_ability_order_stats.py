@@ -38,6 +38,9 @@ class TestAnalyticsAbilityOrderStats(unittest.TestCase):
                 abilities = [
                     0
                     ],
+                avg_upgrade_times_s = [
+                    1.337
+                    ],
                 losses = 0,
                 matches = 0,
                 players = 0,
@@ -50,6 +53,9 @@ class TestAnalyticsAbilityOrderStats(unittest.TestCase):
             return AnalyticsAbilityOrderStats(
                 abilities = [
                     0
+                    ],
+                avg_upgrade_times_s = [
+                    1.337
                     ],
                 losses = 0,
                 matches = 0,

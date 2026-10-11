@@ -25,6 +25,12 @@ export interface AnalyticsAbilityOrderStats  {
      */
     abilities: Array<number>;
     /**
+     * Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+     * @type {Array<number>}
+     * @memberof AnalyticsAbilityOrderStats
+     */
+    avgUpgradeTimesS: Array<number>;
+    /**
      * 
      * @type {number}
      * @memberof AnalyticsAbilityOrderStats
@@ -71,6 +77,7 @@ export interface AnalyticsAbilityOrderStats  {
 export function AnalyticsAbilityOrderStatsFromJSON(json: any): AnalyticsAbilityOrderStats {
     return {
         'abilities': json['abilities'],
+        'avgUpgradeTimesS': json['avg_upgrade_times_s'],
         'losses': json['losses'],
         'matches': json['matches'],
         'players': json['players'],
@@ -87,6 +94,7 @@ export function AnalyticsAbilityOrderStatsToJSON(value?: AnalyticsAbilityOrderSt
     }
     return {
         'abilities': value.abilities,
+        'avg_upgrade_times_s': value.avgUpgradeTimesS,
         'losses': value.losses,
         'matches': value.matches,
         'players': value.players,

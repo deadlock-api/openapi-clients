@@ -34,6 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="AnalyticsAbilityOrderStats" /> class.
         /// </summary>
         /// <param name="abilities">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="avgUpgradeTimesS">Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;.</param>
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
         /// <param name="players">players</param>
@@ -42,9 +43,10 @@ namespace DeadlockApiClient.Model
         /// <param name="totalKills">totalKills</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public AnalyticsAbilityOrderStats(List<int> abilities, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
+        public AnalyticsAbilityOrderStats(List<int> abilities, List<double> avgUpgradeTimesS, long losses, long matches, long players, long totalAssists, long totalDeaths, long totalKills, long wins)
         {
             Abilities = abilities;
+            AvgUpgradeTimesS = avgUpgradeTimesS;
             Losses = losses;
             Matches = matches;
             Players = players;
@@ -63,6 +65,13 @@ namespace DeadlockApiClient.Model
         /// <value>See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("abilities")]
         public List<int> Abilities { get; set; }
+
+        /// <summary>
+        /// Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;.
+        /// </summary>
+        /// <value>Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;.</value>
+        [JsonPropertyName("avg_upgrade_times_s")]
+        public List<double> AvgUpgradeTimesS { get; set; }
 
         /// <summary>
         /// Gets or Sets Losses
@@ -115,6 +124,7 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnalyticsAbilityOrderStats {\n");
             sb.Append("  Abilities: ").Append(Abilities).Append("\n");
+            sb.Append("  AvgUpgradeTimesS: ").Append(AvgUpgradeTimesS).Append("\n");
             sb.Append("  Losses: ").Append(Losses).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  Players: ").Append(Players).Append("\n");
@@ -212,6 +222,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<List<int>?> abilities = default;
+            Option<List<double>?> avgUpgradeTimesS = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
             Option<long?> players = default;
@@ -237,6 +248,9 @@ namespace DeadlockApiClient.Model
                     {
                         case "abilities":
                             abilities = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "avg_upgrade_times_s":
+                            avgUpgradeTimesS = new Option<List<double>?>(JsonSerializer.Deserialize<List<double>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "losses":
                             losses = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -268,6 +282,9 @@ namespace DeadlockApiClient.Model
             if (!abilities.IsSet)
                 throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: abilities.");
 
+            if (!avgUpgradeTimesS.IsSet)
+                throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: avg_upgrade_times_s.");
+
             if (!losses.IsSet)
                 throw new JsonException("Property is required for class AnalyticsAbilityOrderStats: losses.");
 
@@ -292,6 +309,9 @@ namespace DeadlockApiClient.Model
             if (abilities.IsSet && abilities.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: abilities.");
 
+            if (avgUpgradeTimesS.IsSet && avgUpgradeTimesS.Value == null)
+                throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: avg_upgrade_times_s.");
+
             if (losses.IsSet && losses.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: losses.");
 
@@ -313,7 +333,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsAbilityOrderStats: wins.");
 
-            return new AnalyticsAbilityOrderStats(abilities.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalDeaths.Value!.Value!, totalKills.Value!.Value!, wins.Value!.Value!);
+            return new AnalyticsAbilityOrderStats(abilities.Value!, avgUpgradeTimesS.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, totalAssists.Value!.Value!, totalDeaths.Value!.Value!, totalKills.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -340,6 +360,8 @@ namespace DeadlockApiClient.Model
         {
             writer.WritePropertyName("abilities");
             JsonSerializer.Serialize(writer, analyticsAbilityOrderStats.Abilities, jsonSerializerOptions);
+            writer.WritePropertyName("avg_upgrade_times_s");
+            JsonSerializer.Serialize(writer, analyticsAbilityOrderStats.AvgUpgradeTimesS, jsonSerializerOptions);
             writer.WriteNumber("losses", analyticsAbilityOrderStats.Losses);
 
             writer.WriteNumber("matches", analyticsAbilityOrderStats.Matches);

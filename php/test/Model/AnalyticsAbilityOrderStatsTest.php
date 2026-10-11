@@ -89,6 +89,15 @@ class AnalyticsAbilityOrderStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_upgrade_times_s"
+     */
+    public function testPropertyAvgUpgradeTimesS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "losses"
      */
     public function testPropertyLosses()

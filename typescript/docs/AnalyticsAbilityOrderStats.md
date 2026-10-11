@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abilities** | **Array&lt;number&gt;** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
+**avg_upgrade_times_s** | **Array&lt;number&gt;** | Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;. | [default to undefined]
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]
 **players** | **number** |  | [default to undefined]
@@ -21,6 +22,7 @@ import { AnalyticsAbilityOrderStats } from 'deadlock_api_client';
 
 const instance: AnalyticsAbilityOrderStats = {
     abilities,
+    avg_upgrade_times_s,
     losses,
     matches,
     players,

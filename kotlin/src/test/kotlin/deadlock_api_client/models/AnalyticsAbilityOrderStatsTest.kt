@@ -39,6 +39,12 @@ class AnalyticsAbilityOrderStatsTest : ShouldSpec() {
             //modelInstance.abilities shouldBe ("TODO")
         }
 
+        // to test the property `avgUpgradeTimesS` - Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+        should("test avgUpgradeTimesS") {
+            // uncomment below to test the property
+            //modelInstance.avgUpgradeTimesS shouldBe ("TODO")
+        }
+
         // to test the property `losses`
         should("test losses") {
             // uncomment below to test the property

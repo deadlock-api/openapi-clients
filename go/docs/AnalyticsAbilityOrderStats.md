@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Abilities** | **[]int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**AvgUpgradeTimesS** | **[]float64** | Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;. | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** |  | 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsAbilityOrderStats
 
-`func NewAnalyticsAbilityOrderStats(abilities []int32, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderStats`
+`func NewAnalyticsAbilityOrderStats(abilities []int32, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64, ) *AnalyticsAbilityOrderStats`
 
 NewAnalyticsAbilityOrderStats instantiates a new AnalyticsAbilityOrderStats object
 This constructor will assign default values to properties that have it defined,
@@ -50,6 +51,26 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int32)`
 
 SetAbilities sets Abilities field to given value.
+
+
+### GetAvgUpgradeTimesS
+
+`func (o *AnalyticsAbilityOrderStats) GetAvgUpgradeTimesS() []float64`
+
+GetAvgUpgradeTimesS returns the AvgUpgradeTimesS field if non-nil, zero value otherwise.
+
+### GetAvgUpgradeTimesSOk
+
+`func (o *AnalyticsAbilityOrderStats) GetAvgUpgradeTimesSOk() (*[]float64, bool)`
+
+GetAvgUpgradeTimesSOk returns a tuple with the AvgUpgradeTimesS field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAvgUpgradeTimesS
+
+`func (o *AnalyticsAbilityOrderStats) SetAvgUpgradeTimesS(v []float64)`
+
+SetAvgUpgradeTimesS sets AvgUpgradeTimesS field to given value.
 
 
 ### GetLosses

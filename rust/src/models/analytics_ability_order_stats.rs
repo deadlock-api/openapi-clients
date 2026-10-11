@@ -16,6 +16,9 @@ pub struct AnalyticsAbilityOrderStats {
     /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "abilities")]
     pub abilities: Vec<u32>,
+    /// Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+    #[serde(rename = "avg_upgrade_times_s")]
+    pub avg_upgrade_times_s: Vec<f64>,
     #[serde(rename = "losses")]
     pub losses: u64,
     #[serde(rename = "matches")]
@@ -33,9 +36,10 @@ pub struct AnalyticsAbilityOrderStats {
 }
 
 impl AnalyticsAbilityOrderStats {
-    pub fn new(abilities: Vec<u32>, losses: u64, matches: u64, players: u64, total_assists: u64, total_deaths: u64, total_kills: u64, wins: u64) -> AnalyticsAbilityOrderStats {
+    pub fn new(abilities: Vec<u32>, avg_upgrade_times_s: Vec<f64>, losses: u64, matches: u64, players: u64, total_assists: u64, total_deaths: u64, total_kills: u64, wins: u64) -> AnalyticsAbilityOrderStats {
         AnalyticsAbilityOrderStats {
             abilities,
+            avg_upgrade_times_s,
             losses,
             matches,
             players,

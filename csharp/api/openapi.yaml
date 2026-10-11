@@ -13345,6 +13345,9 @@ components:
         abilities:
         - 0
         - 0
+        avg_upgrade_times_s:
+        - 6.027456183070403
+        - 6.027456183070403
         losses: 0
         matches: 0
         players: 0
@@ -13359,6 +13362,14 @@ components:
             format: int32
             minimum: 0
             type: integer
+          type: array
+          default: null
+        avg_upgrade_times_s:
+          description: "Average game time (in seconds) at which each upgrade in `abilities`\
+            \ was bought, index-aligned with `abilities`."
+          items:
+            format: double
+            type: number
           type: array
           default: null
         losses:
@@ -13391,6 +13402,7 @@ components:
           type: integer
       required:
       - abilities
+      - avg_upgrade_times_s
       - losses
       - matches
       - players

@@ -23,6 +23,8 @@ var _ MappedNullable = &AnalyticsAbilityOrderStats{}
 type AnalyticsAbilityOrderStats struct {
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	Abilities []int32 `json:"abilities"`
+	// Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+	AvgUpgradeTimesS []float64 `json:"avg_upgrade_times_s"`
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Players int64 `json:"players"`
@@ -38,9 +40,10 @@ type _AnalyticsAbilityOrderStats AnalyticsAbilityOrderStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsAbilityOrderStats(abilities []int32, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderStats {
+func NewAnalyticsAbilityOrderStats(abilities []int32, avgUpgradeTimesS []float64, losses int64, matches int64, players int64, totalAssists int64, totalDeaths int64, totalKills int64, wins int64) *AnalyticsAbilityOrderStats {
 	this := AnalyticsAbilityOrderStats{}
 	this.Abilities = abilities
+	this.AvgUpgradeTimesS = avgUpgradeTimesS
 	this.Losses = losses
 	this.Matches = matches
 	this.Players = players
@@ -81,6 +84,30 @@ func (o *AnalyticsAbilityOrderStats) GetAbilitiesOk() ([]int32, bool) {
 // SetAbilities sets field value
 func (o *AnalyticsAbilityOrderStats) SetAbilities(v []int32) {
 	o.Abilities = v
+}
+
+// GetAvgUpgradeTimesS returns the AvgUpgradeTimesS field value
+func (o *AnalyticsAbilityOrderStats) GetAvgUpgradeTimesS() []float64 {
+	if o == nil {
+		var ret []float64
+		return ret
+	}
+
+	return o.AvgUpgradeTimesS
+}
+
+// GetAvgUpgradeTimesSOk returns a tuple with the AvgUpgradeTimesS field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsAbilityOrderStats) GetAvgUpgradeTimesSOk() ([]float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AvgUpgradeTimesS, true
+}
+
+// SetAvgUpgradeTimesS sets field value
+func (o *AnalyticsAbilityOrderStats) SetAvgUpgradeTimesS(v []float64) {
+	o.AvgUpgradeTimesS = v
 }
 
 // GetLosses returns the Losses field value
@@ -262,6 +289,7 @@ func (o AnalyticsAbilityOrderStats) MarshalJSON() ([]byte, error) {
 func (o AnalyticsAbilityOrderStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["abilities"] = o.Abilities
+	toSerialize["avg_upgrade_times_s"] = o.AvgUpgradeTimesS
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
 	toSerialize["players"] = o.Players
@@ -278,6 +306,7 @@ func (o *AnalyticsAbilityOrderStats) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"abilities",
+		"avg_upgrade_times_s",
 		"losses",
 		"matches",
 		"players",

@@ -19,6 +19,10 @@ export interface AnalyticsAbilityOrderStats {
      * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'abilities': Array<number>;
+    /**
+     * Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+     */
+    'avg_upgrade_times_s': Array<number>;
     'losses': number;
     'matches': number;
     'players': number;

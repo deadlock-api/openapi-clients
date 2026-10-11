@@ -58,6 +58,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $openAPITypes = [
         'abilities' => 'int[]',
+        'avg_upgrade_times_s' => 'float[]',
         'losses' => 'int',
         'matches' => 'int',
         'players' => 'int',
@@ -76,6 +77,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $openAPIFormats = [
         'abilities' => 'int32',
+        'avg_upgrade_times_s' => 'double',
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
@@ -92,6 +94,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static array $openAPINullables = [
         'abilities' => false,
+        'avg_upgrade_times_s' => false,
         'losses' => false,
         'matches' => false,
         'players' => false,
@@ -188,6 +191,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $attributeMap = [
         'abilities' => 'abilities',
+        'avg_upgrade_times_s' => 'avg_upgrade_times_s',
         'losses' => 'losses',
         'matches' => 'matches',
         'players' => 'players',
@@ -204,6 +208,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $setters = [
         'abilities' => 'setAbilities',
+        'avg_upgrade_times_s' => 'setAvgUpgradeTimesS',
         'losses' => 'setLosses',
         'matches' => 'setMatches',
         'players' => 'setPlayers',
@@ -220,6 +225,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
      */
     protected static $getters = [
         'abilities' => 'getAbilities',
+        'avg_upgrade_times_s' => 'getAvgUpgradeTimesS',
         'losses' => 'getLosses',
         'matches' => 'getMatches',
         'players' => 'getPlayers',
@@ -287,6 +293,7 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
     public function __construct(?array $data = null)
     {
         $this->setIfExists('abilities', $data ?? [], null);
+        $this->setIfExists('avg_upgrade_times_s', $data ?? [], null);
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('players', $data ?? [], null);
@@ -325,6 +332,9 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
 
         if ($this->container['abilities'] === null) {
             $invalidProperties[] = "'abilities' can't be null";
+        }
+        if ($this->container['avg_upgrade_times_s'] === null) {
+            $invalidProperties[] = "'avg_upgrade_times_s' can't be null";
         }
         if ($this->container['losses'] === null) {
             $invalidProperties[] = "'losses' can't be null";
@@ -413,6 +423,33 @@ class AnalyticsAbilityOrderStats implements ModelInterface, ArrayAccess, \JsonSe
             throw new \InvalidArgumentException('non-nullable abilities cannot be null');
         }
         $this->container['abilities'] = $abilities;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_upgrade_times_s
+     *
+     * @return float[]
+     */
+    public function getAvgUpgradeTimesS()
+    {
+        return $this->container['avg_upgrade_times_s'];
+    }
+
+    /**
+     * Sets avg_upgrade_times_s
+     *
+     * @param float[] $avg_upgrade_times_s Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
+     *
+     * @return self
+     */
+    public function setAvgUpgradeTimesS($avg_upgrade_times_s)
+    {
+        if (is_null($avg_upgrade_times_s)) {
+            throw new \InvalidArgumentException('non-nullable avg_upgrade_times_s cannot be null');
+        }
+        $this->container['avg_upgrade_times_s'] = $avg_upgrade_times_s;
 
         return $this;
     }

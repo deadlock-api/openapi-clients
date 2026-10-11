@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,6 +29,7 @@ class AnalyticsAbilityOrderStats(BaseModel):
     AnalyticsAbilityOrderStats
     """ # noqa: E501
     abilities: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    avg_upgrade_times_s: List[Union[StrictFloat, StrictInt]] = Field(description="Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     players: Annotated[int, Field(strict=True, ge=0)]
@@ -36,7 +37,7 @@ class AnalyticsAbilityOrderStats(BaseModel):
     total_deaths: Annotated[int, Field(strict=True, ge=0)]
     total_kills: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abilities", "losses", "matches", "players", "total_assists", "total_deaths", "total_kills", "wins"]
+    __properties: ClassVar[List[str]] = ["abilities", "avg_upgrade_times_s", "losses", "matches", "players", "total_assists", "total_deaths", "total_kills", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -90,6 +91,7 @@ class AnalyticsAbilityOrderStats(BaseModel):
 
         _obj = cls.model_validate({
             "abilities": obj.get("abilities"),
+            "avg_upgrade_times_s": obj.get("avg_upgrade_times_s"),
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),
             "players": obj.get("players"),

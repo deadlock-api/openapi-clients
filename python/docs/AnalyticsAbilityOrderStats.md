@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **abilities** | **List[int]** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+**avg_upgrade_times_s** | **List[float]** | Average game time (in seconds) at which each upgrade in &#x60;abilities&#x60; was bought, index-aligned with &#x60;abilities&#x60;. | 
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **players** | **int** |  | 

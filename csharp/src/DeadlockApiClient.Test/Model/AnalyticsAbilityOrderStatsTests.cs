@@ -63,6 +63,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'AvgUpgradeTimesS'
+        /// </summary>
+        [Fact]
+        public void AvgUpgradeTimesSTest()
+        {
+            // TODO unit test for the property 'AvgUpgradeTimesS'
+        }
+
+        /// <summary>
         /// Test the property 'Losses'
         /// </summary>
         [Fact]

@@ -32,6 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param abilities See more: <https://api.deadlock-api.com/v1/assets/heroes>
+ * @param avgUpgradeTimesS Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
  * @param losses 
  * @param matches 
  * @param players 
@@ -47,6 +48,10 @@ data class AnalyticsAbilityOrderStats (
     /* See more: <https://api.deadlock-api.com/v1/assets/heroes> */
     @Json(name = "abilities")
     val abilities: kotlin.collections.List<kotlin.Int>,
+
+    /* Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`. */
+    @Json(name = "avg_upgrade_times_s")
+    val avgUpgradeTimesS: kotlin.collections.List<kotlin.Double>,
 
     @Json(name = "losses")
     val losses: kotlin.Long,
