@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { ItemFlowEdge } from './item-flow-edge.js';
+import type { ItemFlowLeaveOneOut } from './item-flow-leave-one-out.js';
 import type { ItemFlowNode } from './item-flow-node.js';
 import type { ItemFlowSummary } from './item-flow-summary.js';
 export interface ItemFlowStats {
@@ -18,11 +19,19 @@ export interface ItemFlowStats {
      */
     'baseline': ItemFlowSummary;
     'edges': Array<ItemFlowEdge>;
+    /**
+     * One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+     */
+    'leave_one_out': Array<ItemFlowLeaveOneOut>;
     'nodes': Array<ItemFlowNode>;
     /**
      * Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
      */
     'reached_per_column': Array<number>;
+    /**
+     * Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+     */
+    'reached_wins_per_column'?: Array<number>;
     /**
      * Totals for the locked build-path population (all filters applied). Denominator for pick rate.
      */

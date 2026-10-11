@@ -282,6 +282,7 @@ Class | Method | HTTP request | Description
  - [ItemDraftRound](docs/ItemDraftRound.md)
  - [ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
  - [ItemFlowEdge](docs/ItemFlowEdge.md)
+ - [ItemFlowLeaveOneOut](docs/ItemFlowLeaveOneOut.md)
  - [ItemFlowNode](docs/ItemFlowNode.md)
  - [ItemFlowStats](docs/ItemFlowStats.md)
  - [ItemFlowSummary](docs/ItemFlowSummary.md)

@@ -98,6 +98,15 @@ class ItemFlowStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "leave_one_out"
+     */
+    public function testPropertyLeaveOneOut()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "nodes"
      */
     public function testPropertyNodes()
@@ -110,6 +119,15 @@ class ItemFlowStatsTest extends TestCase
      * Test attribute "reached_per_column"
      */
     public function testPropertyReachedPerColumn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "reached_wins_per_column"
+     */
+    public function testPropertyReachedWinsPerColumn()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

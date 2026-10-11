@@ -156,6 +156,7 @@ docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
 docs/ItemFlowEdge.md
+docs/ItemFlowLeaveOneOut.md
 docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
@@ -417,6 +418,7 @@ model_item.go
 model_item_draft_round.go
 model_item_draft_round_per_game_round.go
 model_item_flow_edge.go
+model_item_flow_leave_one_out.go
 model_item_flow_node.go
 model_item_flow_stats.go
 model_item_flow_summary.go

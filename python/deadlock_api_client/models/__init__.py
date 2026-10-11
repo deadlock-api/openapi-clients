@@ -116,6 +116,7 @@ from deadlock_api_client.models.item import Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound
 from deadlock_api_client.models.item_flow_edge import ItemFlowEdge
+from deadlock_api_client.models.item_flow_leave_one_out import ItemFlowLeaveOneOut
 from deadlock_api_client.models.item_flow_node import ItemFlowNode
 from deadlock_api_client.models.item_flow_stats import ItemFlowStats
 from deadlock_api_client.models.item_flow_summary import ItemFlowSummary

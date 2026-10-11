@@ -24,9 +24,13 @@ type ItemFlowStats struct {
 	// Totals ignoring the locked build path (item filters only). Denominator for chained pick rate.
 	Baseline ItemFlowSummary `json:"baseline"`
 	Edges []ItemFlowEdge `json:"edges"`
+	// One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+	LeaveOneOut []ItemFlowLeaveOneOut `json:"leave_one_out"`
 	Nodes []ItemFlowNode `json:"nodes"`
 	// Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
 	ReachedPerColumn []int64 `json:"reached_per_column"`
+	// Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+	ReachedWinsPerColumn []int64 `json:"reached_wins_per_column,omitempty"`
 	// Totals for the locked build-path population (all filters applied). Denominator for pick rate.
 	Summary ItemFlowSummary `json:"summary"`
 }
@@ -37,10 +41,11 @@ type _ItemFlowStats ItemFlowStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewItemFlowStats(baseline ItemFlowSummary, edges []ItemFlowEdge, nodes []ItemFlowNode, reachedPerColumn []int64, summary ItemFlowSummary) *ItemFlowStats {
+func NewItemFlowStats(baseline ItemFlowSummary, edges []ItemFlowEdge, leaveOneOut []ItemFlowLeaveOneOut, nodes []ItemFlowNode, reachedPerColumn []int64, summary ItemFlowSummary) *ItemFlowStats {
 	this := ItemFlowStats{}
 	this.Baseline = baseline
 	this.Edges = edges
+	this.LeaveOneOut = leaveOneOut
 	this.Nodes = nodes
 	this.ReachedPerColumn = reachedPerColumn
 	this.Summary = summary
@@ -103,6 +108,30 @@ func (o *ItemFlowStats) SetEdges(v []ItemFlowEdge) {
 	o.Edges = v
 }
 
+// GetLeaveOneOut returns the LeaveOneOut field value
+func (o *ItemFlowStats) GetLeaveOneOut() []ItemFlowLeaveOneOut {
+	if o == nil {
+		var ret []ItemFlowLeaveOneOut
+		return ret
+	}
+
+	return o.LeaveOneOut
+}
+
+// GetLeaveOneOutOk returns a tuple with the LeaveOneOut field value
+// and a boolean to check if the value has been set.
+func (o *ItemFlowStats) GetLeaveOneOutOk() ([]ItemFlowLeaveOneOut, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LeaveOneOut, true
+}
+
+// SetLeaveOneOut sets field value
+func (o *ItemFlowStats) SetLeaveOneOut(v []ItemFlowLeaveOneOut) {
+	o.LeaveOneOut = v
+}
+
 // GetNodes returns the Nodes field value
 func (o *ItemFlowStats) GetNodes() []ItemFlowNode {
 	if o == nil {
@@ -151,6 +180,38 @@ func (o *ItemFlowStats) SetReachedPerColumn(v []int64) {
 	o.ReachedPerColumn = v
 }
 
+// GetReachedWinsPerColumn returns the ReachedWinsPerColumn field value if set, zero value otherwise.
+func (o *ItemFlowStats) GetReachedWinsPerColumn() []int64 {
+	if o == nil || IsNil(o.ReachedWinsPerColumn) {
+		var ret []int64
+		return ret
+	}
+	return o.ReachedWinsPerColumn
+}
+
+// GetReachedWinsPerColumnOk returns a tuple with the ReachedWinsPerColumn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemFlowStats) GetReachedWinsPerColumnOk() ([]int64, bool) {
+	if o == nil || IsNil(o.ReachedWinsPerColumn) {
+		return nil, false
+	}
+	return o.ReachedWinsPerColumn, true
+}
+
+// HasReachedWinsPerColumn returns a boolean if a field has been set.
+func (o *ItemFlowStats) HasReachedWinsPerColumn() bool {
+	if o != nil && !IsNil(o.ReachedWinsPerColumn) {
+		return true
+	}
+
+	return false
+}
+
+// SetReachedWinsPerColumn gets a reference to the given []int64 and assigns it to the ReachedWinsPerColumn field.
+func (o *ItemFlowStats) SetReachedWinsPerColumn(v []int64) {
+	o.ReachedWinsPerColumn = v
+}
+
 // GetSummary returns the Summary field value
 func (o *ItemFlowStats) GetSummary() ItemFlowSummary {
 	if o == nil {
@@ -187,8 +248,12 @@ func (o ItemFlowStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["baseline"] = o.Baseline
 	toSerialize["edges"] = o.Edges
+	toSerialize["leave_one_out"] = o.LeaveOneOut
 	toSerialize["nodes"] = o.Nodes
 	toSerialize["reached_per_column"] = o.ReachedPerColumn
+	if !IsNil(o.ReachedWinsPerColumn) {
+		toSerialize["reached_wins_per_column"] = o.ReachedWinsPerColumn
+	}
 	toSerialize["summary"] = o.Summary
 	return toSerialize, nil
 }
@@ -200,6 +265,7 @@ func (o *ItemFlowStats) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"baseline",
 		"edges",
+		"leave_one_out",
 		"nodes",
 		"reached_per_column",
 		"summary",

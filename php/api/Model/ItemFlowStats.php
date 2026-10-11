@@ -59,8 +59,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'baseline' => '\OpenAPI\Client\Model\ItemFlowSummary',
         'edges' => '\OpenAPI\Client\Model\ItemFlowEdge[]',
+        'leave_one_out' => '\OpenAPI\Client\Model\ItemFlowLeaveOneOut[]',
         'nodes' => '\OpenAPI\Client\Model\ItemFlowNode[]',
         'reached_per_column' => 'int[]',
+        'reached_wins_per_column' => 'int[]',
         'summary' => '\OpenAPI\Client\Model\ItemFlowSummary'
     ];
 
@@ -74,8 +76,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'baseline' => null,
         'edges' => null,
+        'leave_one_out' => null,
         'nodes' => null,
         'reached_per_column' => 'int64',
+        'reached_wins_per_column' => 'int64',
         'summary' => null
     ];
 
@@ -87,8 +91,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'baseline' => false,
         'edges' => false,
+        'leave_one_out' => false,
         'nodes' => false,
         'reached_per_column' => false,
+        'reached_wins_per_column' => false,
         'summary' => false
     ];
 
@@ -180,8 +186,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'baseline' => 'baseline',
         'edges' => 'edges',
+        'leave_one_out' => 'leave_one_out',
         'nodes' => 'nodes',
         'reached_per_column' => 'reached_per_column',
+        'reached_wins_per_column' => 'reached_wins_per_column',
         'summary' => 'summary'
     ];
 
@@ -193,8 +201,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'baseline' => 'setBaseline',
         'edges' => 'setEdges',
+        'leave_one_out' => 'setLeaveOneOut',
         'nodes' => 'setNodes',
         'reached_per_column' => 'setReachedPerColumn',
+        'reached_wins_per_column' => 'setReachedWinsPerColumn',
         'summary' => 'setSummary'
     ];
 
@@ -206,8 +216,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'baseline' => 'getBaseline',
         'edges' => 'getEdges',
+        'leave_one_out' => 'getLeaveOneOut',
         'nodes' => 'getNodes',
         'reached_per_column' => 'getReachedPerColumn',
+        'reached_wins_per_column' => 'getReachedWinsPerColumn',
         'summary' => 'getSummary'
     ];
 
@@ -270,8 +282,10 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('baseline', $data ?? [], null);
         $this->setIfExists('edges', $data ?? [], null);
+        $this->setIfExists('leave_one_out', $data ?? [], null);
         $this->setIfExists('nodes', $data ?? [], null);
         $this->setIfExists('reached_per_column', $data ?? [], null);
+        $this->setIfExists('reached_wins_per_column', $data ?? [], null);
         $this->setIfExists('summary', $data ?? [], null);
     }
 
@@ -307,6 +321,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['edges'] === null) {
             $invalidProperties[] = "'edges' can't be null";
+        }
+        if ($this->container['leave_one_out'] === null) {
+            $invalidProperties[] = "'leave_one_out' can't be null";
         }
         if ($this->container['nodes'] === null) {
             $invalidProperties[] = "'nodes' can't be null";
@@ -387,6 +404,33 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets leave_one_out
+     *
+     * @return \OpenAPI\Client\Model\ItemFlowLeaveOneOut[]
+     */
+    public function getLeaveOneOut()
+    {
+        return $this->container['leave_one_out'];
+    }
+
+    /**
+     * Sets leave_one_out
+     *
+     * @param \OpenAPI\Client\Model\ItemFlowLeaveOneOut[] $leave_one_out One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+     *
+     * @return self
+     */
+    public function setLeaveOneOut($leave_one_out)
+    {
+        if (is_null($leave_one_out)) {
+            throw new \InvalidArgumentException('non-nullable leave_one_out cannot be null');
+        }
+        $this->container['leave_one_out'] = $leave_one_out;
+
+        return $this;
+    }
+
+    /**
      * Gets nodes
      *
      * @return \OpenAPI\Client\Model\ItemFlowNode[]
@@ -436,6 +480,33 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable reached_per_column cannot be null');
         }
         $this->container['reached_per_column'] = $reached_per_column;
+
+        return $this;
+    }
+
+    /**
+     * Gets reached_wins_per_column
+     *
+     * @return int[]|null
+     */
+    public function getReachedWinsPerColumn()
+    {
+        return $this->container['reached_wins_per_column'];
+    }
+
+    /**
+     * Sets reached_wins_per_column
+     *
+     * @param int[]|null $reached_wins_per_column Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+     *
+     * @return self
+     */
+    public function setReachedWinsPerColumn($reached_wins_per_column)
+    {
+        if (is_null($reached_wins_per_column)) {
+            throw new \InvalidArgumentException('non-nullable reached_wins_per_column cannot be null');
+        }
+        $this->container['reached_wins_per_column'] = $reached_wins_per_column;
 
         return $this;
     }

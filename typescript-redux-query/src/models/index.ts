@@ -101,6 +101,7 @@ export * from './Item';
 export * from './ItemDraftRound';
 export * from './ItemDraftRoundPerGameRound';
 export * from './ItemFlowEdge';
+export * from './ItemFlowLeaveOneOut';
 export * from './ItemFlowNode';
 export * from './ItemFlowStats';
 export * from './ItemFlowSummary';

@@ -204,6 +204,8 @@ pub mod item_draft_round_per_game_round;
 pub use self::item_draft_round_per_game_round::ItemDraftRoundPerGameRound;
 pub mod item_flow_edge;
 pub use self::item_flow_edge::ItemFlowEdge;
+pub mod item_flow_leave_one_out;
+pub use self::item_flow_leave_one_out::ItemFlowLeaveOneOut;
 pub mod item_flow_node;
 pub use self::item_flow_node::ItemFlowNode;
 pub mod item_flow_stats;

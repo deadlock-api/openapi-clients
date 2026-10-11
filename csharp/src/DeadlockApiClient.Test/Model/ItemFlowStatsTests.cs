@@ -72,6 +72,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'LeaveOneOut'
+        /// </summary>
+        [Fact]
+        public void LeaveOneOutTest()
+        {
+            // TODO unit test for the property 'LeaveOneOut'
+        }
+
+        /// <summary>
         /// Test the property 'Nodes'
         /// </summary>
         [Fact]
@@ -96,6 +105,15 @@ namespace DeadlockApiClient.Test.Model
         public void SummaryTest()
         {
             // TODO unit test for the property 'Summary'
+        }
+
+        /// <summary>
+        /// Test the property 'ReachedWinsPerColumn'
+        /// </summary>
+        [Fact]
+        public void ReachedWinsPerColumnTest()
+        {
+            // TODO unit test for the property 'ReachedWinsPerColumn'
         }
     }
 }

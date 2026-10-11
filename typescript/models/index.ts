@@ -101,6 +101,7 @@ export * from './item.js';
 export * from './item-draft-round.js';
 export * from './item-draft-round-per-game-round.js';
 export * from './item-flow-edge.js';
+export * from './item-flow-leave-one-out.js';
 export * from './item-flow-node.js';
 export * from './item-flow-stats.js';
 export * from './item-flow-summary.js';

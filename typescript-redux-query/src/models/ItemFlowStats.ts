@@ -16,6 +16,9 @@ import {
     ItemFlowEdge,
     ItemFlowEdgeFromJSON,
     ItemFlowEdgeToJSON,
+    ItemFlowLeaveOneOut,
+    ItemFlowLeaveOneOutFromJSON,
+    ItemFlowLeaveOneOutToJSON,
     ItemFlowNode,
     ItemFlowNodeFromJSON,
     ItemFlowNodeToJSON,
@@ -43,6 +46,12 @@ export interface ItemFlowStats  {
      */
     edges: Array<ItemFlowEdge>;
     /**
+     * One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+     * @type {Array<ItemFlowLeaveOneOut>}
+     * @memberof ItemFlowStats
+     */
+    leaveOneOut: Array<ItemFlowLeaveOneOut>;
+    /**
      * 
      * @type {Array<ItemFlowNode>}
      * @memberof ItemFlowStats
@@ -55,6 +64,12 @@ export interface ItemFlowStats  {
      */
     reachedPerColumn: Array<number>;
     /**
+     * Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+     * @type {Array<number>}
+     * @memberof ItemFlowStats
+     */
+    reachedWinsPerColumn?: Array<number>;
+    /**
      * Totals for the locked build-path population (all filters applied). Denominator for pick rate.
      * @type {ItemFlowSummary}
      * @memberof ItemFlowStats
@@ -66,8 +81,10 @@ export function ItemFlowStatsFromJSON(json: any): ItemFlowStats {
     return {
         'baseline': ItemFlowSummaryFromJSON(json['baseline']),
         'edges': (json['edges'] as Array<any>).map(ItemFlowEdgeFromJSON),
+        'leaveOneOut': (json['leave_one_out'] as Array<any>).map(ItemFlowLeaveOneOutFromJSON),
         'nodes': (json['nodes'] as Array<any>).map(ItemFlowNodeFromJSON),
         'reachedPerColumn': json['reached_per_column'],
+        'reachedWinsPerColumn': !exists(json, 'reached_wins_per_column') ? undefined : json['reached_wins_per_column'],
         'summary': ItemFlowSummaryFromJSON(json['summary']),
     };
 }
@@ -79,8 +96,10 @@ export function ItemFlowStatsToJSON(value?: ItemFlowStats): any {
     return {
         'baseline': ItemFlowSummaryToJSON(value.baseline),
         'edges': (value.edges as Array<any>).map(ItemFlowEdgeToJSON),
+        'leave_one_out': (value.leaveOneOut as Array<any>).map(ItemFlowLeaveOneOutToJSON),
         'nodes': (value.nodes as Array<any>).map(ItemFlowNodeToJSON),
         'reached_per_column': value.reachedPerColumn,
+        'reached_wins_per_column': value.reachedWinsPerColumn,
         'summary': ItemFlowSummaryToJSON(value.summary),
     };
 }

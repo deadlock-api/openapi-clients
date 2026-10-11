@@ -157,6 +157,7 @@ docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
 docs/ItemFlowEdge.md
+docs/ItemFlowLeaveOneOut.md
 docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
@@ -417,6 +418,7 @@ models/ingest-status-response.ts
 models/item-draft-round-per-game-round.ts
 models/item-draft-round.ts
 models/item-flow-edge.ts
+models/item-flow-leave-one-out.ts
 models/item-flow-node.ts
 models/item-flow-stats.ts
 models/item-flow-summary.ts

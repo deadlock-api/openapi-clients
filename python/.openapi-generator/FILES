@@ -146,6 +146,7 @@ deadlock_api_client/models/item.py
 deadlock_api_client/models/item_draft_round.py
 deadlock_api_client/models/item_draft_round_per_game_round.py
 deadlock_api_client/models/item_flow_edge.py
+deadlock_api_client/models/item_flow_leave_one_out.py
 deadlock_api_client/models/item_flow_node.py
 deadlock_api_client/models/item_flow_stats.py
 deadlock_api_client/models/item_flow_summary.py
@@ -406,6 +407,7 @@ docs/Item.md
 docs/ItemDraftRound.md
 docs/ItemDraftRoundPerGameRound.md
 docs/ItemFlowEdge.md
+docs/ItemFlowLeaveOneOut.md
 docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
@@ -687,6 +689,7 @@ test/test_item.py
 test/test_item_draft_round.py
 test/test_item_draft_round_per_game_round.py
 test/test_item_flow_edge.py
+test/test_item_flow_leave_one_out.py
 test/test_item_flow_node.py
 test/test_item_flow_stats.py
 test/test_item_flow_summary.py

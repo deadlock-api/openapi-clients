@@ -302,6 +302,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)
  - [deadlock_api_client.models.ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)
  - [deadlock_api_client.models.ItemFlowEdge](docs/ItemFlowEdge.md)
+ - [deadlock_api_client.models.ItemFlowLeaveOneOut](docs/ItemFlowLeaveOneOut.md)
  - [deadlock_api_client.models.ItemFlowNode](docs/ItemFlowNode.md)
  - [deadlock_api_client.models.ItemFlowStats](docs/ItemFlowStats.md)
  - [deadlock_api_client.models.ItemFlowSummary](docs/ItemFlowSummary.md)

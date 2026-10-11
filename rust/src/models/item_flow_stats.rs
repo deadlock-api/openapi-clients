@@ -18,23 +18,31 @@ pub struct ItemFlowStats {
     pub baseline: Box<models::ItemFlowSummary>,
     #[serde(rename = "edges")]
     pub edges: Vec<models::ItemFlowEdge>,
+    /// One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+    #[serde(rename = "leave_one_out")]
+    pub leave_one_out: Vec<models::ItemFlowLeaveOneOut>,
     #[serde(rename = "nodes")]
     pub nodes: Vec<models::ItemFlowNode>,
     /// Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
     #[serde(rename = "reached_per_column")]
     pub reached_per_column: Vec<u64>,
+    /// Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+    #[serde(rename = "reached_wins_per_column", skip_serializing_if = "Option::is_none")]
+    pub reached_wins_per_column: Option<Vec<u64>>,
     /// Totals for the locked build-path population (all filters applied). Denominator for pick rate.
     #[serde(rename = "summary")]
     pub summary: Box<models::ItemFlowSummary>,
 }
 
 impl ItemFlowStats {
-    pub fn new(baseline: models::ItemFlowSummary, edges: Vec<models::ItemFlowEdge>, nodes: Vec<models::ItemFlowNode>, reached_per_column: Vec<u64>, summary: models::ItemFlowSummary) -> ItemFlowStats {
+    pub fn new(baseline: models::ItemFlowSummary, edges: Vec<models::ItemFlowEdge>, leave_one_out: Vec<models::ItemFlowLeaveOneOut>, nodes: Vec<models::ItemFlowNode>, reached_per_column: Vec<u64>, summary: models::ItemFlowSummary) -> ItemFlowStats {
         ItemFlowStats {
             baseline: Box::new(baseline),
             edges,
+            leave_one_out,
             nodes,
             reached_per_column,
+            reached_wins_per_column: None,
             summary: Box::new(summary),
         }
     }

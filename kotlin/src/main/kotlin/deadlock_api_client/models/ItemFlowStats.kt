@@ -24,6 +24,7 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.ItemFlowEdge
+import deadlock_api_client.models.ItemFlowLeaveOneOut
 import deadlock_api_client.models.ItemFlowNode
 import deadlock_api_client.models.ItemFlowSummary
 
@@ -36,9 +37,11 @@ import java.io.Serializable
  *
  * @param baseline Totals ignoring the locked build path (item filters only). Denominator for chained pick rate.
  * @param edges 
+ * @param leaveOneOut One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
  * @param nodes 
  * @param reachedPerColumn Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
  * @param summary Totals for the locked build-path population (all filters applied). Denominator for pick rate.
+ * @param reachedWinsPerColumn Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
  */
 
 
@@ -51,6 +54,10 @@ data class ItemFlowStats (
     @Json(name = "edges")
     val edges: kotlin.collections.List<ItemFlowEdge>,
 
+    /* One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks. */
+    @Json(name = "leave_one_out")
+    val leaveOneOut: kotlin.collections.List<ItemFlowLeaveOneOut>,
+
     @Json(name = "nodes")
     val nodes: kotlin.collections.List<ItemFlowNode>,
 
@@ -60,7 +67,11 @@ data class ItemFlowStats (
 
     /* Totals for the locked build-path population (all filters applied). Denominator for pick rate. */
     @Json(name = "summary")
-    val summary: ItemFlowSummary
+    val summary: ItemFlowSummary,
+
+    /* Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there. */
+    @Json(name = "reached_wins_per_column")
+    val reachedWinsPerColumn: kotlin.collections.List<kotlin.Long>? = null
 
 ) : Serializable {
     companion object {

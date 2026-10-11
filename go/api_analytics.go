@@ -3812,7 +3812,8 @@ sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-wei
 rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from
 the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column`
 gives the distinct baseline games that bought any upgrade in each column, so consumers can show how
-survivorship-selected (e.g. long-game-only) a late stage is.
+survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won
+ones among them, the win rate a build ending in that stage should be compared with.
 
 Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the
 normal item they replaced still is.

@@ -2661,13 +2661,15 @@ paths:
         \ isolating the item's contribution from\nthe buyer's lead. It is still observational,\
         \ not a controlled/causal estimate. `reached_per_column`\ngives the distinct\
         \ baseline games that bought any upgrade in each column, so consumers can\
-        \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is.\n\
-        \nCorrupted items (build 6712+, same item id as the normal item) are not counted\
-        \ as purchases; the\nnormal item they replaced still is.\n\nResults are cached\
-        \ for **6 hours** based on the unique combination of query parameters provided.\n\
-        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+        \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column`\
+        \ counts the won\nones among them, the win rate a build ending in that stage\
+        \ should be compared with.\n\nCorrupted items (build 6712+, same item id as\
+        \ the normal item) are not counted as purchases; the\nnormal item they replaced\
+        \ still is.\n\nResults are cached for **6 hours** based on the unique combination\
+        \ of query parameters provided.\n\n### Rate Limits:\n> The rate limits below\
+        \ are **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ----\
+        \ | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
+        \ |\n    "
       operationId: item_flow_stats
       parameters:
       - description: |-
@@ -17372,11 +17374,44 @@ components:
       - matches
       - to_item_id
       - wins
+    ItemFlowLeaveOneOut:
+      description: |-
+        The locked build path without one of its locked items: how the population changes when that
+        item's constraint is dropped and every other one kept.
+      example:
+        column: 0
+        item_id: 0
+        matches: 0
+        wins: 0
+      properties:
+        column:
+          description: Its locked stage column.
+          format: int32
+          minimum: 0
+          type: integer
+        item_id:
+          description: "The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>"
+          format: int32
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - column
+      - item_id
+      - matches
+      - wins
     ItemFlowNode:
       description: "A single item, aggregated within one column of the flow graph."
       example:
-        adjusted_win_rate: 7.061401241503109
-        avg_net_worth_at_buy: 9.301444243932576
+        adjusted_win_rate: 4.145608029883936
+        avg_net_worth_at_buy: 7.386281948385884
         column: 0
         item_id: 0
         losses: 0
@@ -17464,9 +17499,18 @@ components:
           matches: 0
           to_item_id: 0
           wins: 0
+        leave_one_out:
+        - column: 0
+          item_id: 0
+          matches: 0
+          wins: 0
+        - column: 0
+          item_id: 0
+          matches: 0
+          wins: 0
         nodes:
-        - adjusted_win_rate: 7.061401241503109
-          avg_net_worth_at_buy: 9.301444243932576
+        - adjusted_win_rate: 4.145608029883936
+          avg_net_worth_at_buy: 7.386281948385884
           column: 0
           item_id: 0
           losses: 0
@@ -17476,8 +17520,8 @@ components:
           total_deaths: 0
           total_kills: 0
           wins: 0
-        - adjusted_win_rate: 7.061401241503109
-          avg_net_worth_at_buy: 9.301444243932576
+        - adjusted_win_rate: 4.145608029883936
+          avg_net_worth_at_buy: 7.386281948385884
           column: 0
           item_id: 0
           losses: 0
@@ -17490,6 +17534,9 @@ components:
         reached_per_column:
         - 0
         - 0
+        reached_wins_per_column:
+        - 0
+        - 0
         summary: ""
       properties:
         baseline:
@@ -17500,6 +17547,14 @@ components:
         edges:
           items:
             $ref: "#/components/schemas/ItemFlowEdge"
+          type: array
+          default: null
+        leave_one_out:
+          description: |-
+            One entry per locked item, in request order: the totals of the locked build path without that
+            item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+          items:
+            $ref: "#/components/schemas/ItemFlowLeaveOneOut"
           type: array
           default: null
         nodes:
@@ -17517,6 +17572,16 @@ components:
             type: integer
           type: array
           default: null
+        reached_wins_per_column:
+          description: |-
+            Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached`
+            is the win rate of games that got that far, the fair baseline for a build ending there.
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
         summary:
           allOf:
           - $ref: "#/components/schemas/ItemFlowSummary"
@@ -17525,6 +17590,7 @@ components:
       required:
       - baseline
       - edges
+      - leave_one_out
       - nodes
       - reached_per_column
       - summary

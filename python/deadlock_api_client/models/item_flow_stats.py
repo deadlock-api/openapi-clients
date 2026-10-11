@@ -18,9 +18,10 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.item_flow_edge import ItemFlowEdge
+from deadlock_api_client.models.item_flow_leave_one_out import ItemFlowLeaveOneOut
 from deadlock_api_client.models.item_flow_node import ItemFlowNode
 from deadlock_api_client.models.item_flow_summary import ItemFlowSummary
 from typing import Optional, Set
@@ -33,10 +34,12 @@ class ItemFlowStats(BaseModel):
     """ # noqa: E501
     baseline: ItemFlowSummary = Field(description="Totals ignoring the locked build path (item filters only). Denominator for chained pick rate.")
     edges: List[ItemFlowEdge]
+    leave_one_out: List[ItemFlowLeaveOneOut] = Field(description="One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.")
     nodes: List[ItemFlowNode]
     reached_per_column: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.")
+    reached_wins_per_column: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.")
     summary: ItemFlowSummary = Field(description="Totals for the locked build-path population (all filters applied). Denominator for pick rate.")
-    __properties: ClassVar[List[str]] = ["baseline", "edges", "nodes", "reached_per_column", "summary"]
+    __properties: ClassVar[List[str]] = ["baseline", "edges", "leave_one_out", "nodes", "reached_per_column", "reached_wins_per_column", "summary"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,6 +89,12 @@ class ItemFlowStats(BaseModel):
             for _item_edges in self.edges:
                 _items.append(_item_edges.to_dict() if _item_edges is not None else None)
             _dict['edges'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in leave_one_out (list)
+        _items = []
+        if self.leave_one_out:
+            for _item_leave_one_out in self.leave_one_out:
+                _items.append(_item_leave_one_out.to_dict() if _item_leave_one_out is not None else None)
+            _dict['leave_one_out'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in nodes (list)
         _items = []
         if self.nodes:
@@ -109,8 +118,10 @@ class ItemFlowStats(BaseModel):
         _obj = cls.model_validate({
             "baseline": ItemFlowSummary.from_dict(obj["baseline"]) if obj.get("baseline") is not None else None,
             "edges": [ItemFlowEdge.from_dict(_item) for _item in obj["edges"]] if obj.get("edges") is not None else None,
+            "leave_one_out": [ItemFlowLeaveOneOut.from_dict(_item) for _item in obj["leave_one_out"]] if obj.get("leave_one_out") is not None else None,
             "nodes": [ItemFlowNode.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,
             "reached_per_column": obj.get("reached_per_column"),
+            "reached_wins_per_column": obj.get("reached_wins_per_column"),
             "summary": ItemFlowSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None
         })
         return _obj

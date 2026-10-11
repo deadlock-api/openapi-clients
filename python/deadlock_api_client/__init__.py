@@ -162,6 +162,7 @@ __all__ = [
     "ItemDraftRound",
     "ItemDraftRoundPerGameRound",
     "ItemFlowEdge",
+    "ItemFlowLeaveOneOut",
     "ItemFlowNode",
     "ItemFlowStats",
     "ItemFlowSummary",
@@ -452,6 +453,7 @@ from deadlock_api_client.models.item import Item as Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound
 from deadlock_api_client.models.item_flow_edge import ItemFlowEdge as ItemFlowEdge
+from deadlock_api_client.models.item_flow_leave_one_out import ItemFlowLeaveOneOut as ItemFlowLeaveOneOut
 from deadlock_api_client.models.item_flow_node import ItemFlowNode as ItemFlowNode
 from deadlock_api_client.models.item_flow_stats import ItemFlowStats as ItemFlowStats
 from deadlock_api_client.models.item_flow_summary import ItemFlowSummary as ItemFlowSummary

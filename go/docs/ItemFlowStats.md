@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Baseline** | [**ItemFlowSummary**](ItemFlowSummary.md) | Totals ignoring the locked build path (item filters only). Denominator for chained pick rate. | 
 **Edges** | [**[]ItemFlowEdge**](ItemFlowEdge.md) |  | 
+**LeaveOneOut** | [**[]ItemFlowLeaveOneOut**](ItemFlowLeaveOneOut.md) | One entry per locked item, in request order: the totals of the locked build path without that item. &#x60;summary&#x60; against an entry is what that one item adds to the build. Empty without locks. | 
 **Nodes** | [**[]ItemFlowNode**](ItemFlowNode.md) |  | 
 **ReachedPerColumn** | **[]int64** | Distinct baseline games that bought any upgrade in each stage column (index &#x3D; column). &#x60;reached / baseline.matches&#x60; shows how survivorship-selected a (late) stage is. | 
+**ReachedWinsPerColumn** | Pointer to **[]int64** | Of &#x60;reached_per_column&#x60;, the games that were won (index &#x3D; column). &#x60;reached_wins / reached&#x60; is the win rate of games that got that far, the fair baseline for a build ending there. | [optional] 
 **Summary** | [**ItemFlowSummary**](ItemFlowSummary.md) | Totals for the locked build-path population (all filters applied). Denominator for pick rate. | 
 
 ## Methods
 
 ### NewItemFlowStats
 
-`func NewItemFlowStats(baseline ItemFlowSummary, edges []ItemFlowEdge, nodes []ItemFlowNode, reachedPerColumn []int64, summary ItemFlowSummary, ) *ItemFlowStats`
+`func NewItemFlowStats(baseline ItemFlowSummary, edges []ItemFlowEdge, leaveOneOut []ItemFlowLeaveOneOut, nodes []ItemFlowNode, reachedPerColumn []int64, summary ItemFlowSummary, ) *ItemFlowStats`
 
 NewItemFlowStats instantiates a new ItemFlowStats object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +71,26 @@ and a boolean to check if the value has been set.
 SetEdges sets Edges field to given value.
 
 
+### GetLeaveOneOut
+
+`func (o *ItemFlowStats) GetLeaveOneOut() []ItemFlowLeaveOneOut`
+
+GetLeaveOneOut returns the LeaveOneOut field if non-nil, zero value otherwise.
+
+### GetLeaveOneOutOk
+
+`func (o *ItemFlowStats) GetLeaveOneOutOk() (*[]ItemFlowLeaveOneOut, bool)`
+
+GetLeaveOneOutOk returns a tuple with the LeaveOneOut field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLeaveOneOut
+
+`func (o *ItemFlowStats) SetLeaveOneOut(v []ItemFlowLeaveOneOut)`
+
+SetLeaveOneOut sets LeaveOneOut field to given value.
+
+
 ### GetNodes
 
 `func (o *ItemFlowStats) GetNodes() []ItemFlowNode`
@@ -108,6 +130,31 @@ and a boolean to check if the value has been set.
 
 SetReachedPerColumn sets ReachedPerColumn field to given value.
 
+
+### GetReachedWinsPerColumn
+
+`func (o *ItemFlowStats) GetReachedWinsPerColumn() []int64`
+
+GetReachedWinsPerColumn returns the ReachedWinsPerColumn field if non-nil, zero value otherwise.
+
+### GetReachedWinsPerColumnOk
+
+`func (o *ItemFlowStats) GetReachedWinsPerColumnOk() (*[]int64, bool)`
+
+GetReachedWinsPerColumnOk returns a tuple with the ReachedWinsPerColumn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReachedWinsPerColumn
+
+`func (o *ItemFlowStats) SetReachedWinsPerColumn(v []int64)`
+
+SetReachedWinsPerColumn sets ReachedWinsPerColumn field to given value.
+
+### HasReachedWinsPerColumn
+
+`func (o *ItemFlowStats) HasReachedWinsPerColumn() bool`
+
+HasReachedWinsPerColumn returns a boolean if a field has been set.
 
 ### GetSummary
 

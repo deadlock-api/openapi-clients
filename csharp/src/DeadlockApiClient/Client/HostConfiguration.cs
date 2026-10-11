@@ -157,6 +157,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ItemDraftRoundJsonConverter());
             _jsonOptions.Converters.Add(new ItemDraftRoundPerGameRoundJsonConverter());
             _jsonOptions.Converters.Add(new ItemFlowEdgeJsonConverter());
+            _jsonOptions.Converters.Add(new ItemFlowLeaveOneOutJsonConverter());
             _jsonOptions.Converters.Add(new ItemFlowNodeJsonConverter());
             _jsonOptions.Converters.Add(new ItemFlowStatsJsonConverter());
             _jsonOptions.Converters.Add(new ItemFlowSummaryJsonConverter());

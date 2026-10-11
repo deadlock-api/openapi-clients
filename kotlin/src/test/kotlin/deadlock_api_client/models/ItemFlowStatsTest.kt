@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.ItemFlowStats
 import deadlock_api_client.models.ItemFlowEdge
+import deadlock_api_client.models.ItemFlowLeaveOneOut
 import deadlock_api_client.models.ItemFlowNode
 import deadlock_api_client.models.ItemFlowSummary
 
@@ -48,6 +49,12 @@ class ItemFlowStatsTest : ShouldSpec() {
             //modelInstance.edges shouldBe ("TODO")
         }
 
+        // to test the property `leaveOneOut` - One entry per locked item, in request order: the totals of the locked build path without that item. `summary` against an entry is what that one item adds to the build. Empty without locks.
+        should("test leaveOneOut") {
+            // uncomment below to test the property
+            //modelInstance.leaveOneOut shouldBe ("TODO")
+        }
+
         // to test the property `nodes`
         should("test nodes") {
             // uncomment below to test the property
@@ -64,6 +71,12 @@ class ItemFlowStatsTest : ShouldSpec() {
         should("test summary") {
             // uncomment below to test the property
             //modelInstance.summary shouldBe ("TODO")
+        }
+
+        // to test the property `reachedWinsPerColumn` - Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+        should("test reachedWinsPerColumn") {
+            // uncomment below to test the property
+            //modelInstance.reachedWinsPerColumn shouldBe ("TODO")
         }
 
     }

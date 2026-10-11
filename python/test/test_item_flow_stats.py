@@ -54,6 +54,13 @@ class TestItemFlowStats(unittest.TestCase):
                         to_item_id = 0, 
                         wins = 0, )
                     ],
+                leave_one_out = [
+                    deadlock_api_client.models.item_flow_leave_one_out.ItemFlowLeaveOneOut(
+                        column = 0, 
+                        item_id = 0, 
+                        matches = 0, 
+                        wins = 0, )
+                    ],
                 nodes = [
                     deadlock_api_client.models.item_flow_node.ItemFlowNode(
                         adjusted_win_rate = 1.337, 
@@ -69,6 +76,9 @@ class TestItemFlowStats(unittest.TestCase):
                         wins = 0, )
                     ],
                 reached_per_column = [
+                    0
+                    ],
+                reached_wins_per_column = [
                     0
                     ],
                 summary = deadlock_api_client.models.item_flow_summary.ItemFlowSummary(
@@ -101,6 +111,13 @@ class TestItemFlowStats(unittest.TestCase):
                         losses = 0, 
                         matches = 0, 
                         to_item_id = 0, 
+                        wins = 0, )
+                    ],
+                leave_one_out = [
+                    deadlock_api_client.models.item_flow_leave_one_out.ItemFlowLeaveOneOut(
+                        column = 0, 
+                        item_id = 0, 
+                        matches = 0, 
                         wins = 0, )
                     ],
                 nodes = [
