@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**fonts**](AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index |
 | [**icons**](AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index |
 | [**images**](AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index |
+| [**models**](AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index |
 | [**sounds**](AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index |
 
 
@@ -119,6 +120,49 @@ try {
     e.printStackTrace()
 } catch (e: ServerException) {
     println("5xx response calling AssetsBucketApi#images")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**kotlin.Any**](kotlin.Any.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="models"></a>
+# **models**
+> kotlin.Any models()
+
+Models Index
+
+Nested file-tree of all hosted 3D models (glTF binary, one &#x60;&lt;pose&gt;.glb&#x60; per pose below each game model path), mapping each name to its public CDN URL.
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = AssetsBucketApi()
+try {
+    val result : kotlin.Any = apiInstance.models()
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling AssetsBucketApi#models")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling AssetsBucketApi#models")
     e.printStackTrace()
 }
 ```

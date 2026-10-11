@@ -18,6 +18,7 @@
 | **items** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  |
 | **levelInfo** | [**kotlin.collections.Map&lt;kotlin.String, HashMapStringLevelInfoValue&gt;**](HashMapStringLevelInfoValue.md) |  |  |
 | **limitedTesting** | **kotlin.Boolean** |  |  |
+| **models** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** | 3D model of the hero as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose (e.g. &#x60;hero_select&#x60;, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose&#39;s animation clip; weapons and props only sit in the hero&#39;s hands once the clip is applied. Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Empty when the game files don&#39;t ship the hero&#39;s model. |  |
 | **name** | **kotlin.String** |  |  |
 | **needsTesting** | **kotlin.Boolean** |  |  |
 | **physics** | [**HeroPhysics**](HeroPhysics.md) |  |  |

@@ -134,6 +134,12 @@ class HeroTest : ShouldSpec() {
             //modelInstance.limitedTesting shouldBe ("TODO")
         }
 
+        // to test the property `models` - 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
+        should("test models") {
+            // uncomment below to test the property
+            //modelInstance.models shouldBe ("TODO")
+        }
+
         // to test the property `name`
         should("test name") {
             // uncomment below to test the property

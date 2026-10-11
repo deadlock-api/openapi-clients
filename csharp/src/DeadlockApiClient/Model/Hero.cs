@@ -47,6 +47,7 @@ namespace DeadlockApiClient.Model
         /// <param name="items">items</param>
         /// <param name="levelInfo">levelInfo</param>
         /// <param name="limitedTesting">limitedTesting</param>
+        /// <param name="models">3D model of the hero as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose (e.g. &#x60;hero_select&#x60;, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose&#39;s animation clip; weapons and props only sit in the hero&#39;s hands once the clip is applied. Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Empty when the game files don&#39;t ship the hero&#39;s model.</param>
         /// <param name="name">name</param>
         /// <param name="needsTesting">needsTesting</param>
         /// <param name="physics">physics</param>
@@ -71,7 +72,7 @@ namespace DeadlockApiClient.Model
         /// <param name="prereleaseOnly">Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;.</param>
         /// <param name="searchName">Localized search name (&#x60;m_strHeroSearchName&#x60;, build 6711+).</param>
         [JsonConstructor]
-        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gender = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<HeroPopularItems?> popularItems = default, Option<bool?> prereleaseOnly = default, Option<string?> searchName = default)
+        public Hero(bool assignedPlayersOnly, string className, HeroColors colors, long complexity, HeroDescription description, bool disabled, HeroStatsUI heroStatsUi, int id, HeroImages images, bool inDevelopment, Dictionary<string, HashMapItemSlotTypeItemSlotInfoValue> itemSlotInfo, Dictionary<string, string> items, Dictionary<string, HashMapStringLevelInfoValue> levelInfo, bool limitedTesting, Dictionary<string, string> models, string name, bool needsTesting, HeroPhysics physics, bool playerSelectable, Dictionary<string, List<HashMapItemSlotTypeVecPurchaseBonusValueInner>> purchaseBonuses, Dictionary<string, HashMapStringScalingStatValue> scalingStats, ShopStatDisplay shopStatDisplay, long skin, Dictionary<string, double> standardLevelUpUpgrades, StartingStats startingStats, StatsDisplay statsDisplay, List<string> tags, Option<Dictionary<string, List<HashMapItemSlotTypeVecMapModCostBonusValueInner>>?> costBonuses = default, Option<HeroDevelopmentState?> developmentState = default, Option<string?> gender = default, Option<string?> gunTag = default, Option<HeroType?> heroType = default, Option<string?> hideoutRichPresence = default, Option<Dictionary<string, HashMapStringOptionDraftBucketingValue>?> itemDraftBucketing = default, Option<Dictionary<string, double>?> itemDraftWeights = default, Option<HeroPopularItems?> popularItems = default, Option<bool?> prereleaseOnly = default, Option<string?> searchName = default)
         {
             AssignedPlayersOnly = assignedPlayersOnly;
             ClassName = className;
@@ -87,6 +88,7 @@ namespace DeadlockApiClient.Model
             Items = items;
             LevelInfo = levelInfo;
             LimitedTesting = limitedTesting;
+            Models = models;
             Name = name;
             NeedsTesting = needsTesting;
             Physics = physics;
@@ -226,6 +228,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("limited_testing")]
         public bool LimitedTesting { get; set; }
+
+        /// <summary>
+        /// 3D model of the hero as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose (e.g. &#x60;hero_select&#x60;, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose&#39;s animation clip; weapons and props only sit in the hero&#39;s hands once the clip is applied. Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Empty when the game files don&#39;t ship the hero&#39;s model.
+        /// </summary>
+        /// <value>3D model of the hero as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose (e.g. &#x60;hero_select&#x60;, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose&#39;s animation clip; weapons and props only sit in the hero&#39;s hands once the clip is applied. Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Empty when the game files don&#39;t ship the hero&#39;s model.</value>
+        [JsonPropertyName("models")]
+        public Dictionary<string, string> Models { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -445,6 +454,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Items: ").Append(Items).Append("\n");
             sb.Append("  LevelInfo: ").Append(LevelInfo).Append("\n");
             sb.Append("  LimitedTesting: ").Append(LimitedTesting).Append("\n");
+            sb.Append("  Models: ").Append(Models).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NeedsTesting: ").Append(NeedsTesting).Append("\n");
             sb.Append("  Physics: ").Append(Physics).Append("\n");
@@ -535,6 +545,7 @@ namespace DeadlockApiClient.Model
             Option<Dictionary<string, string>?> items = default;
             Option<Dictionary<string, HashMapStringLevelInfoValue>?> levelInfo = default;
             Option<bool?> limitedTesting = default;
+            Option<Dictionary<string, string>?> models = default;
             Option<string?> name = default;
             Option<bool?> needsTesting = default;
             Option<HeroPhysics?> physics = default;
@@ -615,6 +626,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "limited_testing":
                             limitedTesting = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            break;
+                        case "models":
+                            models = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -733,6 +747,9 @@ namespace DeadlockApiClient.Model
             if (!limitedTesting.IsSet)
                 throw new JsonException("Property is required for class Hero: limited_testing.");
 
+            if (!models.IsSet)
+                throw new JsonException("Property is required for class Hero: models.");
+
             if (!name.IsSet)
                 throw new JsonException("Property is required for class Hero: name.");
 
@@ -811,6 +828,9 @@ namespace DeadlockApiClient.Model
             if (limitedTesting.IsSet && limitedTesting.Value == null)
                 throw new JsonException("Property is not nullable for class Hero: limited_testing.");
 
+            if (models.IsSet && models.Value == null)
+                throw new JsonException("Property is not nullable for class Hero: models.");
+
             if (name.IsSet && name.Value == null)
                 throw new JsonException("Property is not nullable for class Hero: name.");
 
@@ -847,7 +867,7 @@ namespace DeadlockApiClient.Model
             if (tags.IsSet && tags.Value == null)
                 throw new JsonException("Property is not nullable for class Hero: tags.");
 
-            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gender, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, popularItems, prereleaseOnly, searchName);
+            return new Hero(assignedPlayersOnly.Value!.Value!, className.Value!, colors.Value!, complexity.Value!.Value!, description.Value!, disabled.Value!.Value!, heroStatsUi.Value!, id.Value!.Value!, images.Value!, inDevelopment.Value!.Value!, itemSlotInfo.Value!, items.Value!, levelInfo.Value!, limitedTesting.Value!.Value!, models.Value!, name.Value!, needsTesting.Value!.Value!, physics.Value!, playerSelectable.Value!.Value!, purchaseBonuses.Value!, scalingStats.Value!, shopStatDisplay.Value!, skin.Value!.Value!, standardLevelUpUpgrades.Value!, startingStats.Value!, statsDisplay.Value!, tags.Value!, costBonuses, developmentState, gender, gunTag, heroType, hideoutRichPresence, itemDraftBucketing, itemDraftWeights, popularItems, prereleaseOnly, searchName);
         }
 
         /// <summary>
@@ -900,6 +920,8 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, hero.LevelInfo, jsonSerializerOptions);
             writer.WriteBoolean("limited_testing", hero.LimitedTesting);
 
+            writer.WritePropertyName("models");
+            JsonSerializer.Serialize(writer, hero.Models, jsonSerializerOptions);
             writer.WriteString("name", hero.Name);
 
             writer.WriteBoolean("needs_testing", hero.NeedsTesting);

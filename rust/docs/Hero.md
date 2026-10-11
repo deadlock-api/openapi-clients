@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **items** | **std::collections::HashMap<String, String>** |  | 
 **level_info** | [**std::collections::HashMap<String, models::HashMapStringLevelInfoValue>**](HashMapStringLevelInfoValue.md) |  | 
 **limited_testing** | **bool** |  | 
+**models** | **std::collections::HashMap<String, String>** | 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model. | 
 **name** | **String** |  | 
 **needs_testing** | **bool** |  | 
 **physics** | [**models::HeroPhysics**](HeroPhysics.md) |  | 

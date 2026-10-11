@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**fonts**](#fonts) | **GET** /v1/assets/fonts | Fonts Index|
 |[**icons**](#icons) | **GET** /v1/assets/icons | Icons Index|
 |[**images**](#images) | **GET** /v1/assets/images | Images Index|
+|[**models**](#models) | **GET** /v1/assets/models | Models Index|
 |[**sounds**](#sounds) | **GET** /v1/assets/sounds | Sounds Index|
 
 # **fonts**
@@ -116,6 +117,51 @@ const configuration = new Configuration();
 const apiInstance = new AssetsBucketApi(configuration);
 
 const { status, data } = await apiInstance.images();
+```
+
+### Parameters
+This endpoint does not have any parameters.
+
+
+### Return type
+
+**any**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**500** | Failed to load source assets |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **models**
+> any models()
+
+Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+
+### Example
+
+```typescript
+import {
+    AssetsBucketApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new AssetsBucketApi(configuration);
+
+const { status, data } = await apiInstance.models();
 ```
 
 ### Parameters

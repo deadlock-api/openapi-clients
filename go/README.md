@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *AssetsBucketAPI* | [**Fonts**](docs/AssetsBucketAPI.md#fonts) | **Get** /v1/assets/fonts | Fonts Index
 *AssetsBucketAPI* | [**Icons**](docs/AssetsBucketAPI.md#icons) | **Get** /v1/assets/icons | Icons Index
 *AssetsBucketAPI* | [**Images**](docs/AssetsBucketAPI.md#images) | **Get** /v1/assets/images | Images Index
+*AssetsBucketAPI* | [**Models**](docs/AssetsBucketAPI.md#models) | **Get** /v1/assets/models | Models Index
 *AssetsBucketAPI* | [**Sounds**](docs/AssetsBucketAPI.md#sounds) | **Get** /v1/assets/sounds | Sounds Index
 *BuildTagsAPI* | [**GetBuildTag**](docs/BuildTagsAPI.md#getbuildtag) | **Get** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
 *BuildTagsAPI* | [**GetBuildTagByName**](docs/BuildTagsAPI.md#getbuildtagbyname) | **Get** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name

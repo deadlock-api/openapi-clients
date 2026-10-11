@@ -60,6 +60,9 @@ pub struct Hero {
     pub level_info: std::collections::HashMap<String, models::HashMapStringLevelInfoValue>,
     #[serde(rename = "limited_testing")]
     pub limited_testing: bool,
+    /// 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
+    #[serde(rename = "models")]
+    pub models: std::collections::HashMap<String, String>,
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "needs_testing")]
@@ -99,7 +102,7 @@ pub struct Hero {
 }
 
 impl Hero {
-    pub fn new(assigned_players_only: bool, class_name: String, colors: models::HeroColors, complexity: i64, description: models::HeroDescription, disabled: bool, hero_stats_ui: models::HeroStatsUi, id: u32, images: models::HeroImages, in_development: bool, item_slot_info: std::collections::HashMap<String, models::HashMapItemSlotTypeItemSlotInfoValue>, items: std::collections::HashMap<String, String>, level_info: std::collections::HashMap<String, models::HashMapStringLevelInfoValue>, limited_testing: bool, name: String, needs_testing: bool, physics: models::HeroPhysics, player_selectable: bool, purchase_bonuses: std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>, scaling_stats: std::collections::HashMap<String, models::HashMapStringScalingStatValue>, shop_stat_display: models::ShopStatDisplay, skin: i64, standard_level_up_upgrades: std::collections::HashMap<String, f64>, starting_stats: models::StartingStats, stats_display: models::StatsDisplay, tags: Vec<String>) -> Hero {
+    pub fn new(assigned_players_only: bool, class_name: String, colors: models::HeroColors, complexity: i64, description: models::HeroDescription, disabled: bool, hero_stats_ui: models::HeroStatsUi, id: u32, images: models::HeroImages, in_development: bool, item_slot_info: std::collections::HashMap<String, models::HashMapItemSlotTypeItemSlotInfoValue>, items: std::collections::HashMap<String, String>, level_info: std::collections::HashMap<String, models::HashMapStringLevelInfoValue>, limited_testing: bool, models: std::collections::HashMap<String, String>, name: String, needs_testing: bool, physics: models::HeroPhysics, player_selectable: bool, purchase_bonuses: std::collections::HashMap<String, Vec<models::HashMapItemSlotTypeVecPurchaseBonusValueInner>>, scaling_stats: std::collections::HashMap<String, models::HashMapStringScalingStatValue>, shop_stat_display: models::ShopStatDisplay, skin: i64, standard_level_up_upgrades: std::collections::HashMap<String, f64>, starting_stats: models::StartingStats, stats_display: models::StatsDisplay, tags: Vec<String>) -> Hero {
         Hero {
             assigned_players_only,
             class_name,
@@ -123,6 +126,7 @@ impl Hero {
             items,
             level_info,
             limited_testing,
+            models,
             name,
             needs_testing,
             physics: Box::new(physics),

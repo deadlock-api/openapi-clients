@@ -205,6 +205,12 @@ export interface Hero  {
      */
     limitedTesting: boolean;
     /**
+     * 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose\'s animation clip; weapons and props only sit in the hero\'s hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don\'t ship the hero\'s model.
+     * @type {{ [key: string]: string; }}
+     * @memberof Hero
+     */
+    models: { [key: string]: string; };
+    /**
      * 
      * @type {string}
      * @memberof Hero
@@ -320,6 +326,7 @@ export function HeroFromJSON(json: any): Hero {
         'items': json['items'],
         'levelInfo': mapValues(json['level_info'], HashMapStringLevelInfoValueFromJSON),
         'limitedTesting': json['limited_testing'],
+        'models': json['models'],
         'name': json['name'],
         'needsTesting': json['needs_testing'],
         'physics': HeroPhysicsFromJSON(json['physics']),
@@ -365,6 +372,7 @@ export function HeroToJSON(value?: Hero): any {
         'items': value.items,
         'level_info': mapValues(value.levelInfo, HashMapStringLevelInfoValueToJSON),
         'limited_testing': value.limitedTesting,
+        'models': value.models,
         'name': value.name,
         'needs_testing': value.needsTesting,
         'physics': HeroPhysicsToJSON(value.physics),

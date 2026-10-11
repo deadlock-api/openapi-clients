@@ -278,6 +278,15 @@ class HeroTest extends TestCase
     }
 
     /**
+     * Test attribute "models"
+     */
+    public function testPropertyModels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()

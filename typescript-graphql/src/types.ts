@@ -404,6 +404,9 @@ export default {
             "item_draft_weights": [
                 37
             ],
+            "models": [
+                37
+            ],
             "items": [
                 37
             ],

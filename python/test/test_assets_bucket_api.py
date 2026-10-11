@@ -47,6 +47,13 @@ class TestAssetsBucketApi(unittest.TestCase):
         """
         pass
 
+    def test_models(self) -> None:
+        """Test case for models
+
+        Models Index
+        """
+        pass
+
     def test_sounds(self) -> None:
         """Test case for sounds
 

@@ -117,6 +117,36 @@ export const AssetsBucketApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+         * @summary Models Index
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        models: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/assets/models`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
          * @summary Sounds Index
          * @param {*} [options] Override http request option.
@@ -192,6 +222,18 @@ export const AssetsBucketApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+         * @summary Models Index
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async models(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.models(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AssetsBucketApi.models']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
          * @summary Sounds Index
          * @param {*} [options] Override http request option.
@@ -240,6 +282,15 @@ export const AssetsBucketApiFactory = function (configuration?: Configuration, b
             return localVarFp.images(options).then((request) => request(axios, basePath));
         },
         /**
+         * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+         * @summary Models Index
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        models(options?: RawAxiosRequestConfig): AxiosPromise<any> {
+            return localVarFp.models(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
          * @summary Sounds Index
          * @param {*} [options] Override http request option.
@@ -283,6 +334,16 @@ export class AssetsBucketApi extends BaseAPI {
      */
     public images(options?: RawAxiosRequestConfig) {
         return AssetsBucketApiFp(this.configuration).images(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+     * @summary Models Index
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public models(options?: RawAxiosRequestConfig) {
+        return AssetsBucketApiFp(this.configuration).models(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

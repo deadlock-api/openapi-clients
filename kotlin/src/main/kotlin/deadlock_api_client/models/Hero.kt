@@ -62,6 +62,7 @@ import java.io.Serializable
  * @param items 
  * @param levelInfo 
  * @param limitedTesting 
+ * @param models 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
  * @param name 
  * @param needsTesting 
  * @param physics 
@@ -132,6 +133,10 @@ data class Hero (
 
     @Json(name = "limited_testing")
     val limitedTesting: kotlin.Boolean,
+
+    /* 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model. */
+    @Json(name = "models")
+    val models: kotlin.collections.Map<kotlin.String, kotlin.String>,
 
     @Json(name = "name")
     val name: kotlin.String,

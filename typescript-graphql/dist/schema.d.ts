@@ -173,6 +173,7 @@ export interface Hero {
     stats_display: StatsDisplay;
     hero_stats_ui: HeroStatsUI;
     item_draft_weights: Scalars['JSON'];
+    models: Scalars['JSON'];
     items: Scalars['JSON'];
     starting_stats: Scalars['JSON'];
     item_slot_info: Scalars['JSON'];
@@ -1085,6 +1086,7 @@ export interface HeroGenqlSelection {
     stats_display?: StatsDisplayGenqlSelection;
     hero_stats_ui?: HeroStatsUIGenqlSelection;
     item_draft_weights?: boolean | number;
+    models?: boolean | number;
     items?: boolean | number;
     starting_stats?: boolean | number;
     item_slot_info?: boolean | number;

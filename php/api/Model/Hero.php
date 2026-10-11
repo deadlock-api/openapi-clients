@@ -79,6 +79,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'array<string,string>',
         'level_info' => 'array<string,\OpenAPI\Client\Model\HashMapStringLevelInfoValue>',
         'limited_testing' => 'bool',
+        'models' => 'array<string,string>',
         'name' => 'string',
         'needs_testing' => 'bool',
         'physics' => '\OpenAPI\Client\Model\HeroPhysics',
@@ -126,6 +127,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => null,
         'level_info' => null,
         'limited_testing' => null,
+        'models' => null,
         'name' => null,
         'needs_testing' => null,
         'physics' => null,
@@ -171,6 +173,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => false,
         'level_info' => false,
         'limited_testing' => false,
+        'models' => false,
         'name' => false,
         'needs_testing' => false,
         'physics' => false,
@@ -296,6 +299,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'items',
         'level_info' => 'level_info',
         'limited_testing' => 'limited_testing',
+        'models' => 'models',
         'name' => 'name',
         'needs_testing' => 'needs_testing',
         'physics' => 'physics',
@@ -341,6 +345,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'setItems',
         'level_info' => 'setLevelInfo',
         'limited_testing' => 'setLimitedTesting',
+        'models' => 'setModels',
         'name' => 'setName',
         'needs_testing' => 'setNeedsTesting',
         'physics' => 'setPhysics',
@@ -386,6 +391,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         'items' => 'getItems',
         'level_info' => 'getLevelInfo',
         'limited_testing' => 'getLimitedTesting',
+        'models' => 'getModels',
         'name' => 'getName',
         'needs_testing' => 'getNeedsTesting',
         'physics' => 'getPhysics',
@@ -482,6 +488,7 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('items', $data ?? [], null);
         $this->setIfExists('level_info', $data ?? [], null);
         $this->setIfExists('limited_testing', $data ?? [], null);
+        $this->setIfExists('models', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('needs_testing', $data ?? [], null);
         $this->setIfExists('physics', $data ?? [], null);
@@ -571,6 +578,9 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['limited_testing'] === null) {
             $invalidProperties[] = "'limited_testing' can't be null";
+        }
+        if ($this->container['models'] === null) {
+            $invalidProperties[] = "'models' can't be null";
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
@@ -1273,6 +1283,33 @@ class Hero implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable limited_testing cannot be null');
         }
         $this->container['limited_testing'] = $limited_testing;
+
+        return $this;
+    }
+
+    /**
+     * Gets models
+     *
+     * @return array<string,string>
+     */
+    public function getModels()
+    {
+        return $this->container['models'];
+    }
+
+    /**
+     * Sets models
+     *
+     * @param array<string,string> $models 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
+     *
+     * @return self
+     */
+    public function setModels($models)
+    {
+        if (is_null($models)) {
+            throw new \InvalidArgumentException('non-nullable models cannot be null');
+        }
+        $this->container['models'] = $models;
 
         return $this;
     }

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**fonts**](AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index
 [**icons**](AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index
 [**images**](AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index
+[**models**](AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index
 [**sounds**](AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index
 
 
@@ -172,6 +173,70 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
         pprint(api_response)
     except Exception as e:
         print("Exception when calling AssetsBucketApi->images: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**500** | Failed to load source assets |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **models**
+> object models()
+
+Models Index
+
+Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.AssetsBucketApi(api_client)
+
+    try:
+        # Models Index
+        api_response = api_instance.models()
+        print("The response of AssetsBucketApi->models:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AssetsBucketApi->models: %s\n" % e)
 ```
 
 

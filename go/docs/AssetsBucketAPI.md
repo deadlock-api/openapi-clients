@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**Fonts**](AssetsBucketAPI.md#Fonts) | **Get** /v1/assets/fonts | Fonts Index
 [**Icons**](AssetsBucketAPI.md#Icons) | **Get** /v1/assets/icons | Icons Index
 [**Images**](AssetsBucketAPI.md#Images) | **Get** /v1/assets/images | Images Index
+[**Models**](AssetsBucketAPI.md#Models) | **Get** /v1/assets/models | Models Index
 [**Sounds**](AssetsBucketAPI.md#Sounds) | **Get** /v1/assets/sounds | Sounds Index
 
 
@@ -174,6 +175,67 @@ This endpoint does not need any parameter.
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiImagesRequest struct via the builder pattern
+
+
+### Return type
+
+**interface{}**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Models
+
+> interface{} Models(ctx).Execute()
+
+Models Index
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.AssetsBucketAPI.Models(context.Background()).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AssetsBucketAPI.Models``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Models`: interface{}
+	fmt.Fprintf(os.Stdout, "Response from `AssetsBucketAPI.Models`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiModelsRequest struct via the builder pattern
 
 
 ### Return type

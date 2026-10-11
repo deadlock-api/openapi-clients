@@ -78,6 +78,7 @@ Class | Method | HTTP request | Description
 *AssetsBucketApi* | [**fonts**](docs/AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index
 *AssetsBucketApi* | [**icons**](docs/AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index
 *AssetsBucketApi* | [**images**](docs/AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index
+*AssetsBucketApi* | [**models**](docs/AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index
 *AssetsBucketApi* | [**sounds**](docs/AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index
 *BuildTagsApi* | [**getBuildTag**](docs/BuildTagsApi.md#getbuildtag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
 *BuildTagsApi* | [**getBuildTagByName**](docs/BuildTagsApi.md#getbuildtagbyname) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name

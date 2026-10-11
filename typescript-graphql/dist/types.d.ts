@@ -149,6 +149,7 @@ declare const _default: {
             stats_display: number[];
             hero_stats_ui: number[];
             item_draft_weights: number[];
+            models: number[];
             items: number[];
             starting_stats: number[];
             item_slot_info: number[];

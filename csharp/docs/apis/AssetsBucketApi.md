@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**Fonts**](AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index |
 | [**Icons**](AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index |
 | [**Images**](AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index |
+| [**Models**](AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index |
 | [**Sounds**](AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index |
 
 <a id="fonts"></a>
@@ -82,6 +83,39 @@ No authorization required
 Images Index
 
 Nested file-tree of all hosted images, mapping each name to its public CDN URL.
+
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Failed to load source assets |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="models"></a>
+# **Models**
+> Object Models ()
+
+Models Index
+
+Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
 
 
 ### Parameters

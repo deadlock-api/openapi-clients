@@ -46,6 +46,8 @@ type Hero struct {
 	Items map[string]string `json:"items"`
 	LevelInfo map[string]HashMapStringLevelInfoValue `json:"level_info"`
 	LimitedTesting bool `json:"limited_testing"`
+	// 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
+	Models map[string]string `json:"models"`
 	Name string `json:"name"`
 	NeedsTesting bool `json:"needs_testing"`
 	Physics HeroPhysics `json:"physics"`
@@ -75,7 +77,7 @@ type _Hero Hero
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string) *Hero {
+func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string) *Hero {
 	this := Hero{}
 	this.AssignedPlayersOnly = assignedPlayersOnly
 	this.ClassName = className
@@ -91,6 +93,7 @@ func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, comp
 	this.Items = items
 	this.LevelInfo = levelInfo
 	this.LimitedTesting = limitedTesting
+	this.Models = models
 	this.Name = name
 	this.NeedsTesting = needsTesting
 	this.Physics = physics
@@ -759,6 +762,30 @@ func (o *Hero) SetLimitedTesting(v bool) {
 	o.LimitedTesting = v
 }
 
+// GetModels returns the Models field value
+func (o *Hero) GetModels() map[string]string {
+	if o == nil {
+		var ret map[string]string
+		return ret
+	}
+
+	return o.Models
+}
+
+// GetModelsOk returns a tuple with the Models field value
+// and a boolean to check if the value has been set.
+func (o *Hero) GetModelsOk() (map[string]string, bool) {
+	if o == nil {
+		return map[string]string{}, false
+	}
+	return o.Models, true
+}
+
+// SetModels sets field value
+func (o *Hero) SetModels(v map[string]string) {
+	o.Models = v
+}
+
 // GetName returns the Name field value
 func (o *Hero) GetName() string {
 	if o == nil {
@@ -1221,6 +1248,7 @@ func (o Hero) ToMap() (map[string]interface{}, error) {
 	toSerialize["items"] = o.Items
 	toSerialize["level_info"] = o.LevelInfo
 	toSerialize["limited_testing"] = o.LimitedTesting
+	toSerialize["models"] = o.Models
 	toSerialize["name"] = o.Name
 	toSerialize["needs_testing"] = o.NeedsTesting
 	toSerialize["physics"] = o.Physics
@@ -1264,6 +1292,7 @@ func (o *Hero) UnmarshalJSON(data []byte) (err error) {
 		"items",
 		"level_info",
 		"limited_testing",
+		"models",
 		"name",
 		"needs_testing",
 		"physics",

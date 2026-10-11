@@ -132,8 +132,8 @@ tags:
   name: Modifiers
 - description: NPC unit definitions derived from per-version game data files.
   name: NPC Units
-- description: "File-tree indexes of static assets (images, icons, sounds, fonts)\
-    \ hosted on the CDN, mapping each asset's name to its public URL."
+- description: "File-tree indexes of static assets (images, icons, sounds, fonts,\
+    \ models) hosted on the CDN, mapping each asset's name to its public URL."
   name: Assets
 - description: Ranked season definitions derived from per-version game data files.
   name: Ranked Seasons
@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -2453,7 +2453,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -2741,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -3106,7 +3106,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -3451,7 +3451,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -3820,7 +3820,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -4129,7 +4129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -4416,7 +4416,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -4709,7 +4709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -4978,7 +4978,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -5344,7 +5344,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -7353,6 +7353,23 @@ paths:
       summary: Get Misc Entity
       tags:
       - Misc Entities
+  /v1/assets/models:
+    get:
+      description: "Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb`\
+        \ per pose below each game model path), mapping each name to its public CDN\
+        \ URL."
+      operationId: models
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: OK
+        "500":
+          description: Failed to load source assets
+      summary: Models Index
+      tags:
+      - Assets Bucket
   /v1/assets/modifiers:
     get:
       description: "Returns modifier definitions parsed from the patch's `modifiers.vdata`\
@@ -11062,7 +11079,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -11186,7 +11203,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -11508,7 +11525,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788912000
+          default: 1788998400
           format: int64
           nullable: true
           type: integer
@@ -15834,6 +15851,10 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/HashMap_String_ScalingStat_value"
       type: object
+    HashMap_String_String:
+      additionalProperties:
+        type: string
+      type: object
     HashMap_String_f64:
       additionalProperties:
         format: double
@@ -15909,6 +15930,7 @@ components:
             required_gold: 2
             use_standard_upgrade: true
         limited_testing: true
+        models: ""
         name: name
         needs_testing: true
         physics:
@@ -16116,6 +16138,16 @@ components:
           type: object
         limited_testing:
           type: boolean
+        models:
+          allOf:
+          - $ref: "#/components/schemas/HashMap_String_String"
+          description: |-
+            3D model of the hero as a self-contained glTF binary (`.glb`), keyed by
+            pose (e.g. `hero_select`, the hero select screen pose). Each file holds
+            the skinned mesh, its skeleton and that pose's animation clip; weapons
+            and props only sit in the hero's hands once the clip is applied. Uses
+            `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game
+            files don't ship the hero's model.
         name:
           type: string
         needs_testing:
@@ -16189,6 +16221,7 @@ components:
       - items
       - level_info
       - limited_testing
+      - models
       - name
       - needs_testing
       - physics

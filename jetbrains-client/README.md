@@ -41,6 +41,7 @@ Class | Method | HTTP request | Description
 *AssetsBucketApi* | [**fonts**](Apis/AssetsBucketApi.http#fonts) | **GET** /v1/assets/fonts | Fonts Index
 *AssetsBucketApi* | [**icons**](Apis/AssetsBucketApi.http#icons) | **GET** /v1/assets/icons | Icons Index
 *AssetsBucketApi* | [**images**](Apis/AssetsBucketApi.http#images) | **GET** /v1/assets/images | Images Index
+*AssetsBucketApi* | [**models**](Apis/AssetsBucketApi.http#models) | **GET** /v1/assets/models | Models Index
 *AssetsBucketApi* | [**sounds**](Apis/AssetsBucketApi.http#sounds) | **GET** /v1/assets/sounds | Sounds Index
 *BuildTagsApi* | [**getBuildTag**](Apis/BuildTagsApi.http#getbuildtag) | **GET** /v1/assets/build-tags/{build_tag_id} | Get Build Tag
 *BuildTagsApi* | [**getBuildTagByName**](Apis/BuildTagsApi.http#getbuildtagbyname) | **GET** /v1/assets/build-tags/by-name/{name} | Get Build Tag By Name

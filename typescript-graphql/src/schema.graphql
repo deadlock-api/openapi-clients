@@ -238,6 +238,7 @@ type Hero {
   stats_display: StatsDisplay!
   hero_stats_ui: HeroStatsUI!
   item_draft_weights: JSON!
+  models: JSON!
   items: JSON!
   starting_stats: JSON!
   item_slot_info: JSON!

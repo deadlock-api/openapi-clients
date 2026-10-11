@@ -119,6 +119,9 @@ class TestHero(unittest.TestCase):
                         use_standard_upgrade = True, )
                     },
                 limited_testing = True,
+                models = {
+                    'key' : ''
+                    },
                 name = '',
                 needs_testing = True,
                 physics = deadlock_api_client.models.hero_physics.HeroPhysics(
@@ -349,6 +352,9 @@ class TestHero(unittest.TestCase):
                         use_standard_upgrade = True, )
                     },
                 limited_testing = True,
+                models = {
+                    'key' : ''
+                    },
                 name = '',
                 needs_testing = True,
                 physics = deadlock_api_client.models.hero_physics.HeroPhysics(

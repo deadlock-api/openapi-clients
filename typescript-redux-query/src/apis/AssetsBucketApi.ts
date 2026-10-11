@@ -149,6 +149,50 @@ export function images<T>( requestConfig?: runtime.TypedQueryConfig<T, any>): Qu
 }
 
 /**
+ * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+ * Models Index
+ */
+function modelsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, any> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/assets/models`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        throw "OH NO";
+    }
+
+    return config;
+}
+
+/**
+* Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+* Models Index
+*/
+export function models<T>( requestConfig?: runtime.TypedQueryConfig<T, any>): QueryConfig<T> {
+    return modelsRaw( requestConfig);
+}
+
+/**
  * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
  * Sounds Index
  */

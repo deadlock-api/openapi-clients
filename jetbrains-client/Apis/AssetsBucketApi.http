@@ -15,6 +15,11 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/assets/images
 Accept: application/json
 
+### Models Index
+## Models Index
+GET https://api.deadlock-api.com/v1/assets/models
+Accept: application/json
+
 ### Sounds Index
 ## Sounds Index
 GET https://api.deadlock-api.com/v1/assets/sounds

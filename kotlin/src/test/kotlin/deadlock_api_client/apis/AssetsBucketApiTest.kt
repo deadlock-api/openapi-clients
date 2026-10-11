@@ -54,6 +54,13 @@ class AssetsBucketApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
+        // to test models
+        should("test models") {
+            // uncomment below to test models
+            //val result : kotlin.Any = apiInstance.models()
+            //result shouldBe ("TODO")
+        }
+
         // to test sounds
         should("test sounds") {
             // uncomment below to test sounds

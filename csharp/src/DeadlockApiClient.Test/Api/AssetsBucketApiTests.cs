@@ -83,6 +83,17 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test Models
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task ModelsAsyncTest()
+        {
+            var response = await _instance.ModelsAsync();
+            var model = response.Ok();
+            Assert.IsType<Object>(model);
+        }
+
+        /// <summary>
         /// Test Sounds
         /// </summary>
         [Fact (Skip = "not implemented")]

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**fonts**](AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index
 [**icons**](AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index
 [**images**](AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index
+[**models**](AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index
 [**sounds**](AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index
 
 
@@ -71,6 +72,33 @@ No authorization required
 Images Index
 
 Nested file-tree of all hosted images, mapping each name to its public CDN URL.
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**serde_json::Value**](serde_json::Value.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## models
+
+> serde_json::Value models()
+Models Index
+
+Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
 
 ### Parameters
 

@@ -9,6 +9,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**fonts()**](AssetsBucketApi.md#fonts) | **GET** /v1/assets/fonts | Fonts Index |
 | [**icons()**](AssetsBucketApi.md#icons) | **GET** /v1/assets/icons | Icons Index |
 | [**images()**](AssetsBucketApi.md#images) | **GET** /v1/assets/images | Images Index |
+| [**models()**](AssetsBucketApi.md#models) | **GET** /v1/assets/models | Models Index |
 | [**sounds()**](AssetsBucketApi.md#sounds) | **GET** /v1/assets/sounds | Sounds Index |
 
 
@@ -147,6 +148,59 @@ try {
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AssetsBucketApi->images: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**mixed**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `models()`
+
+```php
+models(): mixed
+```
+
+Models Index
+
+Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\AssetsBucketApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->models();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AssetsBucketApi->models: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -67,6 +67,7 @@ class Hero(BaseModel):
     items: Dict[str, StrictStr]
     level_info: Dict[str, HashMapStringLevelInfoValue]
     limited_testing: StrictBool
+    models: Dict[str, StrictStr] = Field(description="3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.")
     name: StrictStr
     needs_testing: StrictBool
     physics: HeroPhysics
@@ -82,7 +83,7 @@ class Hero(BaseModel):
     starting_stats: StartingStats
     stats_display: StatsDisplay
     tags: List[StrictStr] = Field(description="Always emitted (empty if the hero declares no `m_vecHeroTags`).")
-    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "development_state", "disabled", "gender", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "name", "needs_testing", "physics", "player_selectable", "popular_items", "prerelease_only", "purchase_bonuses", "scaling_stats", "search_name", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
+    __properties: ClassVar[List[str]] = ["assigned_players_only", "class_name", "colors", "complexity", "cost_bonuses", "description", "development_state", "disabled", "gender", "gun_tag", "hero_stats_ui", "hero_type", "hideout_rich_presence", "id", "images", "in_development", "item_draft_bucketing", "item_draft_weights", "item_slot_info", "items", "level_info", "limited_testing", "models", "name", "needs_testing", "physics", "player_selectable", "popular_items", "prerelease_only", "purchase_bonuses", "scaling_stats", "search_name", "shop_stat_display", "skin", "standard_level_up_upgrades", "starting_stats", "stats_display", "tags"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -299,6 +300,7 @@ class Hero(BaseModel):
             if obj.get("level_info") is not None
             else None,
             "limited_testing": obj.get("limited_testing"),
+            "models": obj.get("models"),
             "name": obj.get("name"),
             "needs_testing": obj.get("needs_testing"),
             "physics": HeroPhysics.from_dict(obj["physics"]) if obj.get("physics") is not None else None,

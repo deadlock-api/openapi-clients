@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **Items** | **map[string]string** |  | 
 **LevelInfo** | [**map[string]HashMapStringLevelInfoValue**](HashMapStringLevelInfoValue.md) |  | 
 **LimitedTesting** | **bool** |  | 
+**Models** | **map[string]string** | 3D model of the hero as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose (e.g. &#x60;hero_select&#x60;, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose&#39;s animation clip; weapons and props only sit in the hero&#39;s hands once the clip is applied. Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Empty when the game files don&#39;t ship the hero&#39;s model. | 
 **Name** | **string** |  | 
 **NeedsTesting** | **bool** |  | 
 **Physics** | [**HeroPhysics**](HeroPhysics.md) |  | 
@@ -46,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewHero
 
-`func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string, ) *Hero`
+`func NewHero(assignedPlayersOnly bool, className string, colors HeroColors, complexity int64, description HeroDescription, disabled bool, heroStatsUi HeroStatsUI, id int32, images HeroImages, inDevelopment bool, itemSlotInfo map[string]HashMapItemSlotTypeItemSlotInfoValue, items map[string]string, levelInfo map[string]HashMapStringLevelInfoValue, limitedTesting bool, models map[string]string, name string, needsTesting bool, physics HeroPhysics, playerSelectable bool, purchaseBonuses map[string][]HashMapItemSlotTypeVecPurchaseBonusValueInner, scalingStats map[string]HashMapStringScalingStatValue, shopStatDisplay ShopStatDisplay, skin int64, standardLevelUpUpgrades map[string]float64, startingStats StartingStats, statsDisplay StatsDisplay, tags []string, ) *Hero`
 
 NewHero instantiates a new Hero object
 This constructor will assign default values to properties that have it defined,
@@ -619,6 +620,26 @@ and a boolean to check if the value has been set.
 `func (o *Hero) SetLimitedTesting(v bool)`
 
 SetLimitedTesting sets LimitedTesting field to given value.
+
+
+### GetModels
+
+`func (o *Hero) GetModels() map[string]string`
+
+GetModels returns the Models field if non-nil, zero value otherwise.
+
+### GetModelsOk
+
+`func (o *Hero) GetModelsOk() (*map[string]string, bool)`
+
+GetModelsOk returns a tuple with the Models field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModels
+
+`func (o *Hero) SetModels(v map[string]string)`
+
+SetModels sets Models field to given value.
 
 
 ### GetName

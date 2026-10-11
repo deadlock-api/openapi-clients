@@ -180,6 +180,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Models'
+        /// </summary>
+        [Fact]
+        public void ModelsTest()
+        {
+            // TODO unit test for the property 'Models'
+        }
+
+        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Fact]

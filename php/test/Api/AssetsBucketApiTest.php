@@ -108,6 +108,18 @@ class AssetsBucketApiTest extends TestCase
     }
 
     /**
+     * Test case for models
+     *
+     * Models Index.
+     *
+     */
+    public function testModels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for sounds
      *
      * Sounds Index.

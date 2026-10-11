@@ -38,6 +38,13 @@ export declare const AssetsBucketApiAxiosParamCreator: (configuration?: Configur
      */
     images: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+     * @summary Models Index
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    models: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
      * @summary Sounds Index
      * @param {*} [options] Override http request option.
@@ -70,6 +77,13 @@ export declare const AssetsBucketApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     images(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+     * @summary Models Index
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    models(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
      * @summary Sounds Index
@@ -104,6 +118,13 @@ export declare const AssetsBucketApiFactory: (configuration?: Configuration, bas
      */
     images(options?: RawAxiosRequestConfig): AxiosPromise<any>;
     /**
+     * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+     * @summary Models Index
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    models(options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    /**
      * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
      * @summary Sounds Index
      * @param {*} [options] Override http request option.
@@ -136,6 +157,13 @@ export declare class AssetsBucketApi extends BaseAPI {
      * @throws {RequiredError}
      */
     images(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
+    /**
+     * Nested file-tree of all hosted 3D models (glTF binary, one `<pose>.glb` per pose below each game model path), mapping each name to its public CDN URL.
+     * @summary Models Index
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    models(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any, {}, any>>;
     /**
      * Nested file-tree of all hosted sounds, mapping each name to its public CDN URL.
      * @summary Sounds Index
