@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **losses** | **u64** |  | 
 **matches** | **u64** |  | 
 **players** | **u64** |  | 
+**sold** | Option<**u64**> | How many of the `matches` purchases were sold again. `sold / matches` is the sell rate. | [optional]
 **wins** | **u64** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

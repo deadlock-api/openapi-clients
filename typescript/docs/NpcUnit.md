@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **boss_weapon_info** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] [default to undefined]
 **bound_abilities** | **{ [key: string]: string; }** |  | [optional] [default to undefined]
 **class_name** | **string** |  | [default to undefined]
+**core_models** | [**TeamModels**](TeamModels.md) | The Patron\&#39;s core models, per team. | [optional] [default to undefined]
+**effigy_models** | [**TeamModels**](TeamModels.md) | The Patron\&#39;s effigy models, per team. | [optional] [default to undefined]
 **empowered_modifier_level1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] [default to undefined]
 **empowered_modifier_level2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] [default to undefined]
 **enemy_trooper_damage_reduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] [default to undefined]
@@ -41,6 +43,7 @@ Name | Type | Description | Notes
 **melee_damage** | **number** |  | [optional] [default to undefined]
 **melee_duration** | **number** |  | [optional] [default to undefined]
 **melee_hit_range** | **number** |  | [optional] [default to undefined]
+**models** | **{ [key: string]: string; }** | 3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model\&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model. | [optional] [default to undefined]
 **name** | **string** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. | [optional] [default to undefined]
 **near_death_duration** | **number** |  | [optional] [default to undefined]
 **neutral_abilities** | **Array&lt;string&gt;** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] [default to undefined]
@@ -75,6 +78,7 @@ Name | Type | Description | Notes
 **t2_boss_dpsmax_resist_time_in_seconds** | **number** |  | [optional] [default to undefined]
 **t3_boss_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **t3_boss_dps** | **number** |  | [optional] [default to undefined]
+**team_models** | [**TeamModels**](TeamModels.md) | Per-team variants of the unit\&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers). | [optional] [default to undefined]
 **trooper_damage_resist_pct** | **number** |  | [optional] [default to undefined]
 **trooper_dps** | **number** |  | [optional] [default to undefined]
 **viewer_souls_class** | **{ [key: string]: string; }** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] [default to undefined]
@@ -98,6 +102,8 @@ const instance: NpcUnit = {
     boss_weapon_info,
     bound_abilities,
     class_name,
+    core_models,
+    effigy_models,
     empowered_modifier_level1,
     empowered_modifier_level2,
     enemy_trooper_damage_reduction,
@@ -123,6 +129,7 @@ const instance: NpcUnit = {
     melee_damage,
     melee_duration,
     melee_hit_range,
+    models,
     name,
     near_death_duration,
     neutral_abilities,
@@ -157,6 +164,7 @@ const instance: NpcUnit = {
     t2_boss_dpsmax_resist_time_in_seconds,
     t3_boss_damage_resist_pct,
     t3_boss_dps,
+    team_models,
     trooper_damage_resist_pct,
     trooper_dps,
     viewer_souls_class,

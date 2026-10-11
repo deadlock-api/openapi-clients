@@ -41,6 +41,7 @@ import java.io.Serializable
  * @param matches 
  * @param players 
  * @param wins 
+ * @param sold How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
  */
 
 
@@ -79,7 +80,11 @@ data class ItemStats (
     val players: kotlin.Long,
 
     @Json(name = "wins")
-    val wins: kotlin.Long
+    val wins: kotlin.Long,
+
+    /* How many of the `matches` purchases were sold again. `sold / matches` is the sell rate. */
+    @Json(name = "sold")
+    val sold: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

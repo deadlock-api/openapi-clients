@@ -17725,6 +17725,7 @@ components:
         losses: 0
         matches: 0
         players: 0
+        sold: 0
         wins: 0
       properties:
         avg_buy_time_relative:
@@ -17763,6 +17764,12 @@ components:
           minimum: 0
           type: integer
         players:
+          format: int64
+          minimum: 0
+          type: integer
+        sold:
+          description: How many of the `matches` purchases were sold again. `sold
+            / matches` is the sell rate.
           format: int64
           minimum: 0
           type: integer
@@ -19426,6 +19433,8 @@ components:
         bound_abilities:
           key: bound_abilities
         class_name: class_name
+        core_models: ""
+        effigy_models: ""
         empowered_modifier_level1: ""
         empowered_modifier_level2: ""
         enemy_trooper_damage_reduction: ""
@@ -19463,6 +19472,8 @@ components:
         melee_damage: 5.025004791520295
         melee_duration: 9.965781217890562
         melee_hit_range: 9.369310271410669
+        models:
+          key: models
         name: name
         near_death_duration: 6.683562403749608
         neutral_abilities:
@@ -19499,6 +19510,7 @@ components:
         t2_boss_dpsmax_resist_time_in_seconds: 7.740351818741173
         t3_boss_damage_resist_pct: 3.0205796992916243
         t3_boss_dps: 3.0576100241049344
+        team_models: ""
         trooper_damage_resist_pct: 7.04836565559697
         trooper_dps: 5.533258397034986
         viewer_souls_class:
@@ -19550,6 +19562,16 @@ components:
           type: object
         class_name:
           type: string
+        core_models:
+          allOf:
+          - $ref: "#/components/schemas/TeamModels"
+          description: "The Patron's core models, per team."
+          nullable: true
+        effigy_models:
+          allOf:
+          - $ref: "#/components/schemas/TeamModels"
+          description: "The Patron's effigy models, per team."
+          nullable: true
         empowered_modifier_level1:
           allOf:
           - $ref: "#/components/schemas/Subclass_EmpoweredModifierLevel"
@@ -19652,6 +19674,16 @@ components:
           format: double
           nullable: true
           type: number
+        models:
+          additionalProperties:
+            type: string
+          description: |-
+            3D model of the unit as a self-contained glTF binary (`.glb`), keyed by
+            pose: `idle` (the model's idle clip baked in) or `default` (no
+            animation, for models without an idle clip). Uses
+            `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit
+            has no published model.
+          type: object
         name:
           description: "Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul\
             \ I`."
@@ -19793,6 +19825,13 @@ components:
           format: double
           nullable: true
           type: number
+        team_models:
+          allOf:
+          - $ref: "#/components/schemas/TeamModels"
+          description: |-
+            Per-team variants of the unit's model, same shape as `models`
+            (troopers, shrines, zipline containers).
+          nullable: true
         trooper_damage_resist_pct:
           format: double
           nullable: true
@@ -22743,6 +22782,18 @@ components:
           type: integer
       required:
       - is_view
+    TeamModels:
+      description: Published pose GLBs (see `NpcUnit::models`) of a per-team model
+        pair.
+      properties:
+        amber:
+          additionalProperties:
+            type: string
+          type: object
+        sapphire:
+          additionalProperties:
+            type: string
+          type: object
     TooltipDetailsBlock:
       properties:
         loc_string:

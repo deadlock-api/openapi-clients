@@ -287,6 +287,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new SubclassTrooperDamageReductionSubclassJsonConverter());
             _jsonOptions.Converters.Add(new TableSchemaResponseJsonConverter());
             _jsonOptions.Converters.Add(new TableSizeJsonConverter());
+            _jsonOptions.Converters.Add(new TeamModelsJsonConverter());
             _jsonOptions.Converters.Add(new TooltipDetailsBlockJsonConverter());
             _jsonOptions.Converters.Add(new TooltipDetailsBlockPropertyJsonConverter());
             _jsonOptions.Converters.Add(new TooltipDetailsInfoSectionJsonConverter());

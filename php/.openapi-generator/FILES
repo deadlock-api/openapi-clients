@@ -265,6 +265,7 @@ api/Model/SubclassTrooperDamageReduction.php
 api/Model/SubclassTrooperDamageReductionSubclass.php
 api/Model/TableSchemaResponse.php
 api/Model/TableSize.php
+api/Model/TeamModels.php
 api/Model/TooltipDetailsBlock.php
 api/Model/TooltipDetailsBlockProperty.php
 api/Model/TooltipDetailsInfoSection.php
@@ -540,6 +541,7 @@ docs/Model/SubclassTrooperDamageReduction.md
 docs/Model/SubclassTrooperDamageReductionSubclass.md
 docs/Model/TableSchemaResponse.md
 docs/Model/TableSize.md
+docs/Model/TeamModels.md
 docs/Model/TooltipDetailsBlock.md
 docs/Model/TooltipDetailsBlockProperty.md
 docs/Model/TooltipDetailsInfoSection.md
@@ -815,6 +817,7 @@ test/Model/SubclassTrooperDamageReductionSubclassTest.php
 test/Model/SubclassTrooperDamageReductionTest.php
 test/Model/TableSchemaResponseTest.php
 test/Model/TableSizeTest.php
+test/Model/TeamModelsTest.php
 test/Model/TooltipDetailsBlockPropertyTest.php
 test/Model/TooltipDetailsBlockTest.php
 test/Model/TooltipDetailsInfoSectionTest.php

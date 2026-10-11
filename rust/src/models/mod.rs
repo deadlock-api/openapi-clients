@@ -448,6 +448,8 @@ pub mod table_schema_response;
 pub use self::table_schema_response::TableSchemaResponse;
 pub mod table_size;
 pub use self::table_size::TableSize;
+pub mod team_models;
+pub use self::team_models::TeamModels;
 pub mod tooltip_details_block;
 pub use self::tooltip_details_block::TooltipDetailsBlock;
 pub mod tooltip_details_block_property;

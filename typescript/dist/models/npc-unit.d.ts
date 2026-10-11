@@ -18,6 +18,7 @@ import type { SubclassObjectiveHealthGrowthPhase } from './subclass-objective-he
 import type { SubclassObjectiveRegen } from './subclass-objective-regen.js';
 import type { SubclassRangedArmorModifier } from './subclass-ranged-armor-modifier.js';
 import type { SubclassTrooperDamageReduction } from './subclass-trooper-damage-reduction.js';
+import type { TeamModels } from './team-models.js';
 import type { WeaponInfo } from './weapon-info.js';
 export interface NpcUnit {
     'acceleration'?: number | null;
@@ -36,6 +37,14 @@ export interface NpcUnit {
         [key: string]: string;
     } | null;
     'class_name': string;
+    /**
+     * The Patron\'s core models, per team.
+     */
+    'core_models'?: TeamModels | null;
+    /**
+     * The Patron\'s effigy models, per team.
+     */
+    'effigy_models'?: TeamModels | null;
     'empowered_modifier_level1'?: SubclassEmpoweredModifierLevel | null;
     'empowered_modifier_level2'?: SubclassEmpoweredModifierLevel | null;
     'enemy_trooper_damage_reduction'?: SubclassTrooperDamageReduction | null;
@@ -67,6 +76,12 @@ export interface NpcUnit {
     'melee_damage'?: number | null;
     'melee_duration'?: number | null;
     'melee_hit_range'?: number | null;
+    /**
+     * 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model\'s idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+     */
+    'models'?: {
+        [key: string]: string;
+    };
     /**
      * Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
      */
@@ -113,6 +128,10 @@ export interface NpcUnit {
     't2_boss_dpsmax_resist_time_in_seconds'?: number | null;
     't3_boss_damage_resist_pct'?: number | null;
     't3_boss_dps'?: number | null;
+    /**
+     * Per-team variants of the unit\'s model, same shape as `models` (troopers, shrines, zipline containers).
+     */
+    'team_models'?: TeamModels | null;
     'trooper_damage_resist_pct'?: number | null;
     'trooper_dps'?: number | null;
     /**

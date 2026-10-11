@@ -162,6 +162,24 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'CoreModels'
+        /// </summary>
+        [Fact]
+        public void CoreModelsTest()
+        {
+            // TODO unit test for the property 'CoreModels'
+        }
+
+        /// <summary>
+        /// Test the property 'EffigyModels'
+        /// </summary>
+        [Fact]
+        public void EffigyModelsTest()
+        {
+            // TODO unit test for the property 'EffigyModels'
+        }
+
+        /// <summary>
         /// Test the property 'EmpoweredModifierLevel1'
         /// </summary>
         [Fact]
@@ -375,6 +393,15 @@ namespace DeadlockApiClient.Test.Model
         public void MeleeHitRangeTest()
         {
             // TODO unit test for the property 'MeleeHitRange'
+        }
+
+        /// <summary>
+        /// Test the property 'Models'
+        /// </summary>
+        [Fact]
+        public void ModelsTest()
+        {
+            // TODO unit test for the property 'Models'
         }
 
         /// <summary>
@@ -681,6 +708,15 @@ namespace DeadlockApiClient.Test.Model
         public void T3BossDpsTest()
         {
             // TODO unit test for the property 'T3BossDps'
+        }
+
+        /// <summary>
+        /// Test the property 'TeamModels'
+        /// </summary>
+        [Fact]
+        public void TeamModelsTest()
+        {
+            // TODO unit test for the property 'TeamModels'
         }
 
         /// <summary>

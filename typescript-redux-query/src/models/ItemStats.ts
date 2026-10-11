@@ -73,6 +73,12 @@ export interface ItemStats  {
      */
     players: number;
     /**
+     * How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+     * @type {number}
+     * @memberof ItemStats
+     */
+    sold?: number;
+    /**
      * 
      * @type {number}
      * @memberof ItemStats
@@ -91,6 +97,7 @@ export function ItemStatsFromJSON(json: any): ItemStats {
         'losses': json['losses'],
         'matches': json['matches'],
         'players': json['players'],
+        'sold': !exists(json, 'sold') ? undefined : json['sold'],
         'wins': json['wins'],
     };
 }
@@ -109,6 +116,7 @@ export function ItemStatsToJSON(value?: ItemStats): any {
         'losses': value.losses,
         'matches': value.matches,
         'players': value.players,
+        'sold': value.sold,
         'wins': value.wins,
     };
 }

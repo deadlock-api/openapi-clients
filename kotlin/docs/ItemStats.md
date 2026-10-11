@@ -14,6 +14,7 @@
 | **matches** | **kotlin.Long** |  |  |
 | **players** | **kotlin.Long** |  |  |
 | **wins** | **kotlin.Long** |  |  |
+| **sold** | **kotlin.Long** | How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate. |  [optional] |
 
 
 

@@ -223,6 +223,7 @@ export * from './SubclassTrooperDamageReduction';
 export * from './SubclassTrooperDamageReductionSubclass';
 export * from './TableSchemaResponse';
 export * from './TableSize';
+export * from './TeamModels';
 export * from './TooltipDetailsBlock';
 export * from './TooltipDetailsBlockProperty';
 export * from './TooltipDetailsInfoSection';

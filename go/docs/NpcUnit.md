@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **BossWeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **BoundAbilities** | Pointer to **map[string]string** |  | [optional] 
 **ClassName** | **string** |  | 
+**CoreModels** | Pointer to [**NullableTeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. | [optional] 
+**EffigyModels** | Pointer to [**NullableTeamModels**](TeamModels.md) | The Patron&#39;s effigy models, per team. | [optional] 
 **EmpoweredModifierLevel1** | Pointer to [**NullableSubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
 **EmpoweredModifierLevel2** | Pointer to [**NullableSubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  | [optional] 
 **EnemyTrooperDamageReduction** | Pointer to [**NullableSubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  | [optional] 
@@ -40,6 +42,7 @@ Name | Type | Description | Notes
 **MeleeDamage** | Pointer to **NullableFloat64** |  | [optional] 
 **MeleeDuration** | Pointer to **NullableFloat64** |  | [optional] 
 **MeleeHitRange** | Pointer to **NullableFloat64** |  | [optional] 
+**Models** | Pointer to **map[string]string** | 3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model. | [optional] 
 **Name** | Pointer to **NullableString** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. | [optional] 
 **NearDeathDuration** | Pointer to **NullableFloat64** |  | [optional] 
 **NeutralAbilities** | Pointer to **[]string** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). | [optional] 
@@ -74,6 +77,7 @@ Name | Type | Description | Notes
 **T2BossDpsmaxResistTimeInSeconds** | Pointer to **NullableFloat64** |  | [optional] 
 **T3BossDamageResistPct** | Pointer to **NullableFloat64** |  | [optional] 
 **T3BossDps** | Pointer to **NullableFloat64** |  | [optional] 
+**TeamModels** | Pointer to [**NullableTeamModels**](TeamModels.md) | Per-team variants of the unit&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers). | [optional] 
 **TrooperDamageResistPct** | Pointer to **NullableFloat64** |  | [optional] 
 **TrooperDps** | Pointer to **NullableFloat64** |  | [optional] 
 **ViewerSoulsClass** | Pointer to **map[string]string** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] 
@@ -469,6 +473,76 @@ and a boolean to check if the value has been set.
 SetClassName sets ClassName field to given value.
 
 
+### GetCoreModels
+
+`func (o *NpcUnit) GetCoreModels() TeamModels`
+
+GetCoreModels returns the CoreModels field if non-nil, zero value otherwise.
+
+### GetCoreModelsOk
+
+`func (o *NpcUnit) GetCoreModelsOk() (*TeamModels, bool)`
+
+GetCoreModelsOk returns a tuple with the CoreModels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoreModels
+
+`func (o *NpcUnit) SetCoreModels(v TeamModels)`
+
+SetCoreModels sets CoreModels field to given value.
+
+### HasCoreModels
+
+`func (o *NpcUnit) HasCoreModels() bool`
+
+HasCoreModels returns a boolean if a field has been set.
+
+### SetCoreModelsNil
+
+`func (o *NpcUnit) SetCoreModelsNil(b bool)`
+
+ SetCoreModelsNil sets the value for CoreModels to be an explicit nil
+
+### UnsetCoreModels
+`func (o *NpcUnit) UnsetCoreModels()`
+
+UnsetCoreModels ensures that no value is present for CoreModels, not even an explicit nil
+### GetEffigyModels
+
+`func (o *NpcUnit) GetEffigyModels() TeamModels`
+
+GetEffigyModels returns the EffigyModels field if non-nil, zero value otherwise.
+
+### GetEffigyModelsOk
+
+`func (o *NpcUnit) GetEffigyModelsOk() (*TeamModels, bool)`
+
+GetEffigyModelsOk returns a tuple with the EffigyModels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEffigyModels
+
+`func (o *NpcUnit) SetEffigyModels(v TeamModels)`
+
+SetEffigyModels sets EffigyModels field to given value.
+
+### HasEffigyModels
+
+`func (o *NpcUnit) HasEffigyModels() bool`
+
+HasEffigyModels returns a boolean if a field has been set.
+
+### SetEffigyModelsNil
+
+`func (o *NpcUnit) SetEffigyModelsNil(b bool)`
+
+ SetEffigyModelsNil sets the value for EffigyModels to be an explicit nil
+
+### UnsetEffigyModels
+`func (o *NpcUnit) UnsetEffigyModels()`
+
+UnsetEffigyModels ensures that no value is present for EffigyModels, not even an explicit nil
 ### GetEmpoweredModifierLevel1
 
 `func (o *NpcUnit) GetEmpoweredModifierLevel1() SubclassEmpoweredModifierLevel`
@@ -1329,6 +1403,31 @@ HasMeleeHitRange returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetMeleeHitRange()`
 
 UnsetMeleeHitRange ensures that no value is present for MeleeHitRange, not even an explicit nil
+### GetModels
+
+`func (o *NpcUnit) GetModels() map[string]string`
+
+GetModels returns the Models field if non-nil, zero value otherwise.
+
+### GetModelsOk
+
+`func (o *NpcUnit) GetModelsOk() (*map[string]string, bool)`
+
+GetModelsOk returns a tuple with the Models field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModels
+
+`func (o *NpcUnit) SetModels(v map[string]string)`
+
+SetModels sets Models field to given value.
+
+### HasModels
+
+`func (o *NpcUnit) HasModels() bool`
+
+HasModels returns a boolean if a field has been set.
+
 ### GetName
 
 `func (o *NpcUnit) GetName() string`
@@ -2519,6 +2618,41 @@ HasT3BossDps returns a boolean if a field has been set.
 `func (o *NpcUnit) UnsetT3BossDps()`
 
 UnsetT3BossDps ensures that no value is present for T3BossDps, not even an explicit nil
+### GetTeamModels
+
+`func (o *NpcUnit) GetTeamModels() TeamModels`
+
+GetTeamModels returns the TeamModels field if non-nil, zero value otherwise.
+
+### GetTeamModelsOk
+
+`func (o *NpcUnit) GetTeamModelsOk() (*TeamModels, bool)`
+
+GetTeamModelsOk returns a tuple with the TeamModels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTeamModels
+
+`func (o *NpcUnit) SetTeamModels(v TeamModels)`
+
+SetTeamModels sets TeamModels field to given value.
+
+### HasTeamModels
+
+`func (o *NpcUnit) HasTeamModels() bool`
+
+HasTeamModels returns a boolean if a field has been set.
+
+### SetTeamModelsNil
+
+`func (o *NpcUnit) SetTeamModelsNil(b bool)`
+
+ SetTeamModelsNil sets the value for TeamModels to be an explicit nil
+
+### UnsetTeamModels
+`func (o *NpcUnit) UnsetTeamModels()`
+
+UnsetTeamModels ensures that no value is present for TeamModels, not even an explicit nil
 ### GetTrooperDamageResistPct
 
 `func (o *NpcUnit) GetTrooperDamageResistPct() float64`

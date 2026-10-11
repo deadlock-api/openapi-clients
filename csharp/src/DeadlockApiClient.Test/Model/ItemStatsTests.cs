@@ -142,5 +142,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Wins'
         }
+
+        /// <summary>
+        /// Test the property 'Sold'
+        /// </summary>
+        [Fact]
+        public void SoldTest()
+        {
+            // TODO unit test for the property 'Sold'
+        }
     }
 }

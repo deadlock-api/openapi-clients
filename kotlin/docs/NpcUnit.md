@@ -16,6 +16,8 @@
 | **barrackGuardianDamageResistPct** | **kotlin.Double** |  |  [optional] |
 | **bossWeaponInfo** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). |  [optional] |
 | **boundAbilities** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  [optional] |
+| **coreModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. |  [optional] |
+| **effigyModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s effigy models, per team. |  [optional] |
 | **empoweredModifierLevel1** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |
 | **empoweredModifierLevel2** | [**SubclassEmpoweredModifierLevel**](SubclassEmpoweredModifierLevel.md) |  |  [optional] |
 | **enemyTrooperDamageReduction** | [**SubclassTrooperDamageReduction**](SubclassTrooperDamageReduction.md) |  |  [optional] |
@@ -40,6 +42,7 @@
 | **meleeDamage** | **kotlin.Double** |  |  [optional] |
 | **meleeDuration** | **kotlin.Double** |  |  [optional] |
 | **meleeHitRange** | **kotlin.Double** |  |  [optional] |
+| **models** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** | 3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model. |  [optional] |
 | **name** | **kotlin.String** | Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;. |  [optional] |
 | **nearDeathDuration** | **kotlin.Double** |  |  [optional] |
 | **neutralAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** | Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+). |  [optional] |
@@ -74,6 +77,7 @@
 | **t2BossDpsmaxResistTimeInSeconds** | **kotlin.Double** |  |  [optional] |
 | **t3BossDamageResistPct** | **kotlin.Double** |  |  [optional] |
 | **t3BossDps** | **kotlin.Double** |  |  [optional] |
+| **teamModels** | [**TeamModels**](TeamModels.md) | Per-team variants of the unit&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers). |  [optional] |
 | **trooperDamageResistPct** | **kotlin.Double** |  |  [optional] |
 | **trooperDps** | **kotlin.Double** |  |  [optional] |
 | **viewerSoulsClass** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** | Distance threshold (as string key) → soul orb class shown to the viewer. |  [optional] |

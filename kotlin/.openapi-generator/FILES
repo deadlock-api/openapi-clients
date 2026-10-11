@@ -258,6 +258,7 @@ docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
 docs/TableSchemaResponse.md
 docs/TableSize.md
+docs/TeamModels.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
 docs/TooltipDetailsInfoSection.md
@@ -549,6 +550,7 @@ src/main/kotlin/deadlock_api_client/models/SubclassTrooperDamageReduction.kt
 src/main/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionSubclass.kt
 src/main/kotlin/deadlock_api_client/models/TableSchemaResponse.kt
 src/main/kotlin/deadlock_api_client/models/TableSize.kt
+src/main/kotlin/deadlock_api_client/models/TeamModels.kt
 src/main/kotlin/deadlock_api_client/models/TooltipDetailsBlock.kt
 src/main/kotlin/deadlock_api_client/models/TooltipDetailsBlockProperty.kt
 src/main/kotlin/deadlock_api_client/models/TooltipDetailsInfoSection.kt
@@ -822,6 +824,7 @@ src/test/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionSubclas
 src/test/kotlin/deadlock_api_client/models/SubclassTrooperDamageReductionTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSchemaResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/TableSizeTest.kt
+src/test/kotlin/deadlock_api_client/models/TeamModelsTest.kt
 src/test/kotlin/deadlock_api_client/models/TooltipDetailsBlockPropertyTest.kt
 src/test/kotlin/deadlock_api_client/models/TooltipDetailsBlockTest.kt
 src/test/kotlin/deadlock_api_client/models/TooltipDetailsInfoSectionTest.kt

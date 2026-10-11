@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **losses** | **int** |  | 
 **matches** | **int** |  | 
 **players** | **int** |  | 
+**sold** | **int** | How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate. | [optional] 
 **wins** | **int** |  | 
 
 ## Example

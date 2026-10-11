@@ -284,6 +284,7 @@ __all__ = [
     "SubclassTrooperDamageReductionSubclass",
     "TableSchemaResponse",
     "TableSize",
+    "TeamModels",
     "TooltipDetailsBlock",
     "TooltipDetailsBlockProperty",
     "TooltipDetailsInfoSection",
@@ -573,6 +574,7 @@ from deadlock_api_client.models.subclass_trooper_damage_reduction import Subclas
 from deadlock_api_client.models.subclass_trooper_damage_reduction_subclass import SubclassTrooperDamageReductionSubclass as SubclassTrooperDamageReductionSubclass
 from deadlock_api_client.models.table_schema_response import TableSchemaResponse as TableSchemaResponse
 from deadlock_api_client.models.table_size import TableSize as TableSize
+from deadlock_api_client.models.team_models import TeamModels as TeamModels
 from deadlock_api_client.models.tooltip_details_block import TooltipDetailsBlock as TooltipDetailsBlock
 from deadlock_api_client.models.tooltip_details_block_property import TooltipDetailsBlockProperty as TooltipDetailsBlockProperty
 from deadlock_api_client.models.tooltip_details_info_section import TooltipDetailsInfoSection as TooltipDetailsInfoSection

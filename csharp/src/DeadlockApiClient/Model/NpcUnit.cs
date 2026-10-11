@@ -45,6 +45,8 @@ namespace DeadlockApiClient.Model
         /// <param name="barrackGuardianDamageResistPct">barrackGuardianDamageResistPct</param>
         /// <param name="bossWeaponInfo">Secondary weapon the unit uses against bosses (builds 6711+).</param>
         /// <param name="boundAbilities">boundAbilities</param>
+        /// <param name="coreModels">The Patron&#39;s core models, per team.</param>
+        /// <param name="effigyModels">The Patron&#39;s effigy models, per team.</param>
         /// <param name="empoweredModifierLevel1">empoweredModifierLevel1</param>
         /// <param name="empoweredModifierLevel2">empoweredModifierLevel2</param>
         /// <param name="enemyTrooperDamageReduction">enemyTrooperDamageReduction</param>
@@ -69,6 +71,7 @@ namespace DeadlockApiClient.Model
         /// <param name="meleeDamage">meleeDamage</param>
         /// <param name="meleeDuration">meleeDuration</param>
         /// <param name="meleeHitRange">meleeHitRange</param>
+        /// <param name="models">3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model.</param>
         /// <param name="name">Localized unit name (&#x60;m_sLocUnitName&#x60;), e.g. &#x60;Gutter Ghoul I&#x60;.</param>
         /// <param name="nearDeathDuration">nearDeathDuration</param>
         /// <param name="neutralAbilities">Neutral ability class names; see &#x60;/v1/assets/modifiers&#x60; (builds 6711+).</param>
@@ -103,13 +106,14 @@ namespace DeadlockApiClient.Model
         /// <param name="t2BossDpsmaxResistTimeInSeconds">t2BossDpsmaxResistTimeInSeconds</param>
         /// <param name="t3BossDamageResistPct">t3BossDamageResistPct</param>
         /// <param name="t3BossDps">t3BossDps</param>
+        /// <param name="teamModels">Per-team variants of the unit&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers).</param>
         /// <param name="trooperDamageResistPct">trooperDamageResistPct</param>
         /// <param name="trooperDps">trooperDps</param>
         /// <param name="viewerSoulsClass">Distance threshold (as string key) → soul orb class shown to the viewer.</param>
         /// <param name="walkSpeed">walkSpeed</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<WeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<WeaponInfo?> weaponInfo = default)
+        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<WeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<TeamModels?> coreModels = default, Option<TeamModels?> effigyModels = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<Dictionary<string, string>?> models = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<TeamModels?> teamModels = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<WeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
@@ -123,6 +127,8 @@ namespace DeadlockApiClient.Model
             BarrackGuardianDamageResistPctOption = barrackGuardianDamageResistPct;
             BossWeaponInfoOption = bossWeaponInfo;
             BoundAbilitiesOption = boundAbilities;
+            CoreModelsOption = coreModels;
+            EffigyModelsOption = effigyModels;
             EmpoweredModifierLevel1Option = empoweredModifierLevel1;
             EmpoweredModifierLevel2Option = empoweredModifierLevel2;
             EnemyTrooperDamageReductionOption = enemyTrooperDamageReduction;
@@ -147,6 +153,7 @@ namespace DeadlockApiClient.Model
             MeleeDamageOption = meleeDamage;
             MeleeDurationOption = meleeDuration;
             MeleeHitRangeOption = meleeHitRange;
+            ModelsOption = models;
             NameOption = name;
             NearDeathDurationOption = nearDeathDuration;
             NeutralAbilitiesOption = neutralAbilities;
@@ -181,6 +188,7 @@ namespace DeadlockApiClient.Model
             T2BossDpsmaxResistTimeInSecondsOption = t2BossDpsmaxResistTimeInSeconds;
             T3BossDamageResistPctOption = t3BossDamageResistPct;
             T3BossDpsOption = t3BossDps;
+            TeamModelsOption = teamModels;
             TrooperDamageResistPctOption = trooperDamageResistPct;
             TrooperDpsOption = trooperDps;
             ViewerSoulsClassOption = viewerSoulsClass;
@@ -333,6 +341,34 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("bound_abilities")]
         public Dictionary<string, string>? BoundAbilities { get { return this.BoundAbilitiesOption.Value; } set { this.BoundAbilitiesOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of CoreModels
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<TeamModels?> CoreModelsOption { get; private set; }
+
+        /// <summary>
+        /// The Patron&#39;s core models, per team.
+        /// </summary>
+        /// <value>The Patron&#39;s core models, per team.</value>
+        [JsonPropertyName("core_models")]
+        public TeamModels? CoreModels { get { return this.CoreModelsOption.Value; } set { this.CoreModelsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of EffigyModels
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<TeamModels?> EffigyModelsOption { get; private set; }
+
+        /// <summary>
+        /// The Patron&#39;s effigy models, per team.
+        /// </summary>
+        /// <value>The Patron&#39;s effigy models, per team.</value>
+        [JsonPropertyName("effigy_models")]
+        public TeamModels? EffigyModels { get { return this.EffigyModelsOption.Value; } set { this.EffigyModelsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of EmpoweredModifierLevel1
@@ -647,6 +683,20 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("melee_hit_range")]
         public double? MeleeHitRange { get { return this.MeleeHitRangeOption.Value; } set { this.MeleeHitRangeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of Models
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<Dictionary<string, string>?> ModelsOption { get; private set; }
+
+        /// <summary>
+        /// 3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model.
+        /// </summary>
+        /// <value>3D model of the unit as a self-contained glTF binary (&#x60;.glb&#x60;), keyed by pose: &#x60;idle&#x60; (the model&#39;s idle clip baked in) or &#x60;default&#x60; (no animation, for models without an idle clip). Uses &#x60;EXT_meshopt_compression&#x60; and &#x60;EXT_texture_webp&#x60;. Omitted when the unit has no published model.</value>
+        [JsonPropertyName("models")]
+        public Dictionary<string, string>? Models { get { return this.ModelsOption.Value; } set { this.ModelsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Name
@@ -1095,6 +1145,20 @@ namespace DeadlockApiClient.Model
         public double? T3BossDps { get { return this.T3BossDpsOption.Value; } set { this.T3BossDpsOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of TeamModels
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<TeamModels?> TeamModelsOption { get; private set; }
+
+        /// <summary>
+        /// Per-team variants of the unit&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers).
+        /// </summary>
+        /// <value>Per-team variants of the unit&#39;s model, same shape as &#x60;models&#x60; (troopers, shrines, zipline containers).</value>
+        [JsonPropertyName("team_models")]
+        public TeamModels? TeamModels { get { return this.TeamModelsOption.Value; } set { this.TeamModelsOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of TrooperDamageResistPct
         /// </summary>
         [JsonIgnore]
@@ -1180,6 +1244,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  BarrackGuardianDamageResistPct: ").Append(BarrackGuardianDamageResistPct).Append("\n");
             sb.Append("  BossWeaponInfo: ").Append(BossWeaponInfo).Append("\n");
             sb.Append("  BoundAbilities: ").Append(BoundAbilities).Append("\n");
+            sb.Append("  CoreModels: ").Append(CoreModels).Append("\n");
+            sb.Append("  EffigyModels: ").Append(EffigyModels).Append("\n");
             sb.Append("  EmpoweredModifierLevel1: ").Append(EmpoweredModifierLevel1).Append("\n");
             sb.Append("  EmpoweredModifierLevel2: ").Append(EmpoweredModifierLevel2).Append("\n");
             sb.Append("  EnemyTrooperDamageReduction: ").Append(EnemyTrooperDamageReduction).Append("\n");
@@ -1204,6 +1270,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  MeleeDamage: ").Append(MeleeDamage).Append("\n");
             sb.Append("  MeleeDuration: ").Append(MeleeDuration).Append("\n");
             sb.Append("  MeleeHitRange: ").Append(MeleeHitRange).Append("\n");
+            sb.Append("  Models: ").Append(Models).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  NearDeathDuration: ").Append(NearDeathDuration).Append("\n");
             sb.Append("  NeutralAbilities: ").Append(NeutralAbilities).Append("\n");
@@ -1238,6 +1305,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  T2BossDpsmaxResistTimeInSeconds: ").Append(T2BossDpsmaxResistTimeInSeconds).Append("\n");
             sb.Append("  T3BossDamageResistPct: ").Append(T3BossDamageResistPct).Append("\n");
             sb.Append("  T3BossDps: ").Append(T3BossDps).Append("\n");
+            sb.Append("  TeamModels: ").Append(TeamModels).Append("\n");
             sb.Append("  TrooperDamageResistPct: ").Append(TrooperDamageResistPct).Append("\n");
             sb.Append("  TrooperDps: ").Append(TrooperDps).Append("\n");
             sb.Append("  ViewerSoulsClass: ").Append(ViewerSoulsClass).Append("\n");
@@ -1308,6 +1376,8 @@ namespace DeadlockApiClient.Model
             Option<double?> barrackGuardianDamageResistPct = default;
             Option<WeaponInfo?> bossWeaponInfo = default;
             Option<Dictionary<string, string>?> boundAbilities = default;
+            Option<TeamModels?> coreModels = default;
+            Option<TeamModels?> effigyModels = default;
             Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default;
             Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default;
             Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default;
@@ -1332,6 +1402,7 @@ namespace DeadlockApiClient.Model
             Option<double?> meleeDamage = default;
             Option<double?> meleeDuration = default;
             Option<double?> meleeHitRange = default;
+            Option<Dictionary<string, string>?> models = default;
             Option<string?> name = default;
             Option<double?> nearDeathDuration = default;
             Option<List<string>?> neutralAbilities = default;
@@ -1366,6 +1437,7 @@ namespace DeadlockApiClient.Model
             Option<double?> t2BossDpsmaxResistTimeInSeconds = default;
             Option<double?> t3BossDamageResistPct = default;
             Option<double?> t3BossDps = default;
+            Option<TeamModels?> teamModels = default;
             Option<double?> trooperDamageResistPct = default;
             Option<double?> trooperDps = default;
             Option<Dictionary<string, string>?> viewerSoulsClass = default;
@@ -1422,6 +1494,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "bound_abilities":
                             boundAbilities = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "core_models":
+                            coreModels = new Option<TeamModels?>(JsonSerializer.Deserialize<TeamModels>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "effigy_models":
+                            effigyModels = new Option<TeamModels?>(JsonSerializer.Deserialize<TeamModels>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "empowered_modifier_level1":
                             empoweredModifierLevel1 = new Option<SubclassEmpoweredModifierLevel?>(JsonSerializer.Deserialize<SubclassEmpoweredModifierLevel>(ref utf8JsonReader, jsonSerializerOptions));
@@ -1494,6 +1572,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "melee_hit_range":
                             meleeHitRange = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "models":
+                            models = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString());
@@ -1597,6 +1678,9 @@ namespace DeadlockApiClient.Model
                         case "t3_boss_dps":
                             t3BossDps = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
+                        case "team_models":
+                            teamModels = new Option<TeamModels?>(JsonSerializer.Deserialize<TeamModels>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
                         case "trooper_damage_resist_pct":
                             trooperDamageResistPct = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
@@ -1630,7 +1714,10 @@ namespace DeadlockApiClient.Model
             if (id.IsSet && id.Value == null)
                 throw new JsonException("Property is not nullable for class NpcUnit: id.");
 
-            return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, bossWeaponInfo, boundAbilities, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, image, imageWebp, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, name, nearDeathDuration, neutralAbilities, neutralDamageGrowth, neutralMelee, neutralType, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, trooperDamageResistPct, trooperDps, viewerSoulsClass, walkSpeed, weaponInfo);
+            if (models.IsSet && models.Value == null)
+                throw new JsonException("Property is not nullable for class NpcUnit: models.");
+
+            return new NpcUnit(className.Value!, id.Value!.Value!, acceleration, attackT1BossMaxRange, attackT3BossMaxRange, attackT3BossPhase2MaxRange, attackTrooperMaxRange, backdoorBulletResistModifier, barrackBossDps, barrackGuardianDamageResistPct, bossWeaponInfo, boundAbilities, coreModels, effigyModels, empoweredModifierLevel1, empoweredModifierLevel2, enemyTrooperDamageReduction, enemyTrooperProtectionRange, generatorBossDps, goldReward, goldRewardBonusPercentPerMinute, healthBarColorEnemy, healthBarColorFriend, healthBarColorTeam1, healthBarColorTeam2, healthBarColorTeamNeutral, image, imageWebp, intrinsicModifiers, laserDpsMaxHealth, laserDpsToPlayers, maxHealth, maxHealthFinal, maxHealthGenerator, meleeAttemptRange, meleeDamage, meleeDuration, meleeHitRange, models, name, nearDeathDuration, neutralAbilities, neutralDamageGrowth, neutralMelee, neutralType, noShieldLaserDpsToPlayers, objectiveHealthGrowthPhase1, objectiveHealthGrowthPhase2, objectiveRegen, phase2Health, playerDamageResistPct, playerDps, rangedArmorModifier, runSpeed, sightRangeNpcs, sightRangePlayers, spawnBreakablesOnDeath, stompDamage, stompDamageMaxHealthPercent, stompImpactRadius, stunDuration, t1BossDamageResistPct, t1BossDps, t1BossDpsbaseResist, t1BossDpsmaxResist, t1BossDpsmaxResistTimeInSeconds, t2BossDamageResistPct, t2BossDps, t2BossDpsbaseResist, t2BossDpsmaxResist, t2BossDpsmaxResistTimeInSeconds, t3BossDamageResistPct, t3BossDps, teamModels, trooperDamageResistPct, trooperDps, viewerSoulsClass, walkSpeed, weaponInfo);
         }
 
         /// <summary>
@@ -1655,6 +1742,9 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, NpcUnit npcUnit, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (npcUnit.ModelsOption.IsSet && npcUnit.Models == null)
+                throw new JsonException("Cannot write null property NpcUnit.Models to non-nullable JSON property 'models'.");
+
             writer.WriteString("class_name", npcUnit.ClassName);
 
             writer.WriteNumber("id", npcUnit.Id);
@@ -1725,6 +1815,22 @@ namespace DeadlockApiClient.Model
                 }
                 else
                     writer.WriteNull("bound_abilities");
+            if (npcUnit.CoreModelsOption.IsSet)
+                if (npcUnit.CoreModelsOption.Value != null)
+                {
+                    writer.WritePropertyName("core_models");
+                    JsonSerializer.Serialize(writer, npcUnit.CoreModels, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("core_models");
+            if (npcUnit.EffigyModelsOption.IsSet)
+                if (npcUnit.EffigyModelsOption.Value != null)
+                {
+                    writer.WritePropertyName("effigy_models");
+                    JsonSerializer.Serialize(writer, npcUnit.EffigyModels, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("effigy_models");
             if (npcUnit.EmpoweredModifierLevel1Option.IsSet)
                 if (npcUnit.EmpoweredModifierLevel1Option.Value != null)
                 {
@@ -1887,6 +1993,11 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("melee_hit_range");
 
+            if (npcUnit.ModelsOption.IsSet)
+            {
+                writer.WritePropertyName("models");
+                JsonSerializer.Serialize(writer, npcUnit.Models, jsonSerializerOptions);
+            }
             if (npcUnit.NameOption.IsSet)
                 if (npcUnit.NameOption.Value != null)
                     writer.WriteString("name", npcUnit.Name);
@@ -2103,6 +2214,14 @@ namespace DeadlockApiClient.Model
                 else
                     writer.WriteNull("t3_boss_dps");
 
+            if (npcUnit.TeamModelsOption.IsSet)
+                if (npcUnit.TeamModelsOption.Value != null)
+                {
+                    writer.WritePropertyName("team_models");
+                    JsonSerializer.Serialize(writer, npcUnit.TeamModels, jsonSerializerOptions);
+                }
+                else
+                    writer.WriteNull("team_models");
             if (npcUnit.TrooperDamageResistPctOption.IsSet)
                 if (npcUnit.TrooperDamageResistPctOption.Value != null)
                     writer.WriteNumber("trooper_damage_resist_pct", npcUnit.TrooperDamageResistPctOption.Value!.Value);

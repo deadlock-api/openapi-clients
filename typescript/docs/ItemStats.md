@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]
 **players** | **number** |  | [default to undefined]
+**sold** | **number** | How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate. | [optional] [default to undefined]
 **wins** | **number** |  | [default to undefined]
 
 ## Example
@@ -31,6 +32,7 @@ const instance: ItemStats = {
     losses,
     matches,
     players,
+    sold,
     wins,
 };
 ```

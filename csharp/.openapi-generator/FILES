@@ -261,6 +261,7 @@ docs/models/SubclassTrooperDamageReduction.md
 docs/models/SubclassTrooperDamageReductionSubclass.md
 docs/models/TableSchemaResponse.md
 docs/models/TableSize.md
+docs/models/TeamModels.md
 docs/models/TooltipDetailsBlock.md
 docs/models/TooltipDetailsBlockProperty.md
 docs/models/TooltipDetailsInfoSection.md
@@ -539,6 +540,7 @@ src/DeadlockApiClient.Test/Model/SubclassTrooperDamageReductionSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassTrooperDamageReductionTests.cs
 src/DeadlockApiClient.Test/Model/TableSchemaResponseTests.cs
 src/DeadlockApiClient.Test/Model/TableSizeTests.cs
+src/DeadlockApiClient.Test/Model/TeamModelsTests.cs
 src/DeadlockApiClient.Test/Model/TooltipDetailsBlockPropertyTests.cs
 src/DeadlockApiClient.Test/Model/TooltipDetailsBlockTests.cs
 src/DeadlockApiClient.Test/Model/TooltipDetailsInfoSectionTests.cs
@@ -840,6 +842,7 @@ src/DeadlockApiClient/Model/SubclassTrooperDamageReduction.cs
 src/DeadlockApiClient/Model/SubclassTrooperDamageReductionSubclass.cs
 src/DeadlockApiClient/Model/TableSchemaResponse.cs
 src/DeadlockApiClient/Model/TableSize.cs
+src/DeadlockApiClient/Model/TeamModels.cs
 src/DeadlockApiClient/Model/TooltipDetailsBlock.cs
 src/DeadlockApiClient/Model/TooltipDetailsBlockProperty.cs
 src/DeadlockApiClient/Model/TooltipDetailsInfoSection.cs

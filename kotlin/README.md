@@ -424,6 +424,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.SubclassTrooperDamageReductionSubclass](docs/SubclassTrooperDamageReductionSubclass.md)
  - [deadlock_api_client.models.TableSchemaResponse](docs/TableSchemaResponse.md)
  - [deadlock_api_client.models.TableSize](docs/TableSize.md)
+ - [deadlock_api_client.models.TeamModels](docs/TeamModels.md)
  - [deadlock_api_client.models.TooltipDetailsBlock](docs/TooltipDetailsBlock.md)
  - [deadlock_api_client.models.TooltipDetailsBlockProperty](docs/TooltipDetailsBlockProperty.md)
  - [deadlock_api_client.models.TooltipDetailsInfoSection](docs/TooltipDetailsInfoSection.md)

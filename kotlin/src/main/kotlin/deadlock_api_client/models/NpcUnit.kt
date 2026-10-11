@@ -32,6 +32,7 @@ import deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
 import deadlock_api_client.models.SubclassTrooperDamageReduction
+import deadlock_api_client.models.TeamModels
 import deadlock_api_client.models.WeaponInfo
 
 import com.squareup.moshi.Json
@@ -53,6 +54,8 @@ import java.io.Serializable
  * @param barrackGuardianDamageResistPct 
  * @param bossWeaponInfo Secondary weapon the unit uses against bosses (builds 6711+).
  * @param boundAbilities 
+ * @param coreModels The Patron's core models, per team.
+ * @param effigyModels The Patron's effigy models, per team.
  * @param empoweredModifierLevel1 
  * @param empoweredModifierLevel2 
  * @param enemyTrooperDamageReduction 
@@ -77,6 +80,7 @@ import java.io.Serializable
  * @param meleeDamage 
  * @param meleeDuration 
  * @param meleeHitRange 
+ * @param models 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
  * @param name Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
  * @param nearDeathDuration 
  * @param neutralAbilities Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
@@ -111,6 +115,7 @@ import java.io.Serializable
  * @param t2BossDpsmaxResistTimeInSeconds 
  * @param t3BossDamageResistPct 
  * @param t3BossDps 
+ * @param teamModels Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
  * @param trooperDamageResistPct 
  * @param trooperDps 
  * @param viewerSoulsClass Distance threshold (as string key) → soul orb class shown to the viewer.
@@ -157,6 +162,14 @@ data class NpcUnit (
 
     @Json(name = "bound_abilities")
     val boundAbilities: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
+
+    /* The Patron's core models, per team. */
+    @Json(name = "core_models")
+    val coreModels: TeamModels? = null,
+
+    /* The Patron's effigy models, per team. */
+    @Json(name = "effigy_models")
+    val effigyModels: TeamModels? = null,
 
     @Json(name = "empowered_modifier_level1")
     val empoweredModifierLevel1: SubclassEmpoweredModifierLevel? = null,
@@ -231,6 +244,10 @@ data class NpcUnit (
 
     @Json(name = "melee_hit_range")
     val meleeHitRange: kotlin.Double? = null,
+
+    /* 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model. */
+    @Json(name = "models")
+    val models: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
 
     /* Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`. */
     @Json(name = "name")
@@ -337,6 +354,10 @@ data class NpcUnit (
 
     @Json(name = "t3_boss_dps")
     val t3BossDps: kotlin.Double? = null,
+
+    /* Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers). */
+    @Json(name = "team_models")
+    val teamModels: TeamModels? = null,
 
     @Json(name = "trooper_damage_resist_pct")
     val trooperDamageResistPct: kotlin.Double? = null,

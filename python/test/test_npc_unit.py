@@ -124,6 +124,20 @@ class TestNpcUnit(unittest.TestCase):
                     'key' : ''
                     },
                 class_name = '',
+                core_models = deadlock_api_client.models.team_models.TeamModels(
+                    amber = {
+                        'key' : ''
+                        }, 
+                    sapphire = {
+                        'key' : ''
+                        }, ),
+                effigy_models = deadlock_api_client.models.team_models.TeamModels(
+                    amber = {
+                        'key' : ''
+                        }, 
+                    sapphire = {
+                        'key' : ''
+                        }, ),
                 empowered_modifier_level1 = deadlock_api_client.models.subclass_empowered_modifier_level.Subclass_EmpoweredModifierLevel(
                     subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.Subclass_EmpoweredModifierLevel_subclass(
                         max_health = 56, 
@@ -187,6 +201,9 @@ class TestNpcUnit(unittest.TestCase):
                 melee_damage = 1.337,
                 melee_duration = 1.337,
                 melee_hit_range = 1.337,
+                models = {
+                    'key' : ''
+                    },
                 name = '',
                 near_death_duration = 1.337,
                 neutral_abilities = [
@@ -240,6 +257,13 @@ class TestNpcUnit(unittest.TestCase):
                 t2_boss_dpsmax_resist_time_in_seconds = 1.337,
                 t3_boss_damage_resist_pct = 1.337,
                 t3_boss_dps = 1.337,
+                team_models = deadlock_api_client.models.team_models.TeamModels(
+                    amber = {
+                        'key' : ''
+                        }, 
+                    sapphire = {
+                        'key' : ''
+                        }, ),
                 trooper_damage_resist_pct = 1.337,
                 trooper_dps = 1.337,
                 viewer_souls_class = {

@@ -35,6 +35,8 @@ type ItemStats struct {
 	Losses int64 `json:"losses"`
 	Matches int64 `json:"matches"`
 	Players int64 `json:"players"`
+	// How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+	Sold *int64 `json:"sold,omitempty"`
 	Wins int64 `json:"wins"`
 }
 
@@ -283,6 +285,38 @@ func (o *ItemStats) SetPlayers(v int64) {
 	o.Players = v
 }
 
+// GetSold returns the Sold field value if set, zero value otherwise.
+func (o *ItemStats) GetSold() int64 {
+	if o == nil || IsNil(o.Sold) {
+		var ret int64
+		return ret
+	}
+	return *o.Sold
+}
+
+// GetSoldOk returns a tuple with the Sold field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemStats) GetSoldOk() (*int64, bool) {
+	if o == nil || IsNil(o.Sold) {
+		return nil, false
+	}
+	return o.Sold, true
+}
+
+// HasSold returns a boolean if a field has been set.
+func (o *ItemStats) HasSold() bool {
+	if o != nil && !IsNil(o.Sold) {
+		return true
+	}
+
+	return false
+}
+
+// SetSold gets a reference to the given int64 and assigns it to the Sold field.
+func (o *ItemStats) SetSold(v int64) {
+	o.Sold = &v
+}
+
 // GetWins returns the Wins field value
 func (o *ItemStats) GetWins() int64 {
 	if o == nil {
@@ -326,6 +360,9 @@ func (o ItemStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
 	toSerialize["players"] = o.Players
+	if !IsNil(o.Sold) {
+		toSerialize["sold"] = o.Sold
+	}
 	toSerialize["wins"] = o.Wins
 	return toSerialize, nil
 }

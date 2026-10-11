@@ -161,6 +161,15 @@ class ItemStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "sold"
+     */
+    public function testPropertySold()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "wins"
      */
     public function testPropertyWins()

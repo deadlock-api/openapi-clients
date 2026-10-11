@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
 **Players** | **int64** |  | 
+**Sold** | Pointer to **int64** | How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate. | [optional] 
 **Wins** | **int64** |  | 
 
 ## Methods
@@ -213,6 +214,31 @@ and a boolean to check if the value has been set.
 
 SetPlayers sets Players field to given value.
 
+
+### GetSold
+
+`func (o *ItemStats) GetSold() int64`
+
+GetSold returns the Sold field if non-nil, zero value otherwise.
+
+### GetSoldOk
+
+`func (o *ItemStats) GetSoldOk() (*int64, bool)`
+
+GetSoldOk returns a tuple with the Sold field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSold
+
+`func (o *ItemStats) SetSold(v int64)`
+
+SetSold sets Sold field to given value.
+
+### HasSold
+
+`func (o *ItemStats) HasSold() bool`
+
+HasSold returns a boolean if a field has been set.
 
 ### GetWins
 

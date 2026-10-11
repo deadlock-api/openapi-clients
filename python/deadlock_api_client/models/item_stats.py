@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -37,8 +37,9 @@ class ItemStats(BaseModel):
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
     players: Annotated[int, Field(strict=True, ge=0)]
+    sold: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.")
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["avg_buy_time_relative", "avg_buy_time_s", "avg_sell_time_relative", "avg_sell_time_s", "bucket", "item_id", "losses", "matches", "players", "wins"]
+    __properties: ClassVar[List[str]] = ["avg_buy_time_relative", "avg_buy_time_s", "avg_sell_time_relative", "avg_sell_time_s", "bucket", "item_id", "losses", "matches", "players", "sold", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -100,6 +101,7 @@ class ItemStats(BaseModel):
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),
             "players": obj.get("players"),
+            "sold": obj.get("sold"),
             "wins": obj.get("wins")
         })
         return _obj

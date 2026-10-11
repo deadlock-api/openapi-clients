@@ -36,6 +36,7 @@ import deadlock_api_client.models.SubclassObjectiveHealthGrowthPhase
 import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
 import deadlock_api_client.models.SubclassTrooperDamageReduction
+import deadlock_api_client.models.TeamModels
 import deadlock_api_client.models.WeaponInfo
 
 class NpcUnitTest : ShouldSpec() {
@@ -113,6 +114,18 @@ class NpcUnitTest : ShouldSpec() {
         should("test boundAbilities") {
             // uncomment below to test the property
             //modelInstance.boundAbilities shouldBe ("TODO")
+        }
+
+        // to test the property `coreModels` - The Patron's core models, per team.
+        should("test coreModels") {
+            // uncomment below to test the property
+            //modelInstance.coreModels shouldBe ("TODO")
+        }
+
+        // to test the property `effigyModels` - The Patron's effigy models, per team.
+        should("test effigyModels") {
+            // uncomment below to test the property
+            //modelInstance.effigyModels shouldBe ("TODO")
         }
 
         // to test the property `empoweredModifierLevel1`
@@ -257,6 +270,12 @@ class NpcUnitTest : ShouldSpec() {
         should("test meleeHitRange") {
             // uncomment below to test the property
             //modelInstance.meleeHitRange shouldBe ("TODO")
+        }
+
+        // to test the property `models` - 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+        should("test models") {
+            // uncomment below to test the property
+            //modelInstance.models shouldBe ("TODO")
         }
 
         // to test the property `name` - Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
@@ -461,6 +480,12 @@ class NpcUnitTest : ShouldSpec() {
         should("test t3BossDps") {
             // uncomment below to test the property
             //modelInstance.t3BossDps shouldBe ("TODO")
+        }
+
+        // to test the property `teamModels` - Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
+        should("test teamModels") {
+            // uncomment below to test the property
+            //modelInstance.teamModels shouldBe ("TODO")
         }
 
         // to test the property `trooperDamageResistPct`

@@ -66,6 +66,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => 'int',
         'matches' => 'int',
         'players' => 'int',
+        'sold' => 'int',
         'wins' => 'int'
     ];
 
@@ -86,6 +87,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
+        'sold' => 'int64',
         'wins' => 'int64'
     ];
 
@@ -104,6 +106,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => false,
         'matches' => false,
         'players' => false,
+        'sold' => false,
         'wins' => false
     ];
 
@@ -202,6 +205,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => 'losses',
         'matches' => 'matches',
         'players' => 'players',
+        'sold' => 'sold',
         'wins' => 'wins'
     ];
 
@@ -220,6 +224,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => 'setLosses',
         'matches' => 'setMatches',
         'players' => 'setPlayers',
+        'sold' => 'setSold',
         'wins' => 'setWins'
     ];
 
@@ -238,6 +243,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'losses' => 'getLosses',
         'matches' => 'getMatches',
         'players' => 'getPlayers',
+        'sold' => 'getSold',
         'wins' => 'getWins'
     ];
 
@@ -307,6 +313,7 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('players', $data ?? [], null);
+        $this->setIfExists('sold', $data ?? [], null);
         $this->setIfExists('wins', $data ?? [], null);
     }
 
@@ -382,6 +389,10 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['players'] < 0)) {
             $invalidProperties[] = "invalid value for 'players', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['sold']) && ($this->container['sold'] < 0)) {
+            $invalidProperties[] = "invalid value for 'sold', must be bigger than or equal to 0.";
         }
 
         if ($this->container['wins'] === null) {
@@ -665,6 +676,37 @@ class ItemStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['players'] = $players;
+
+        return $this;
+    }
+
+    /**
+     * Gets sold
+     *
+     * @return int|null
+     */
+    public function getSold()
+    {
+        return $this->container['sold'];
+    }
+
+    /**
+     * Sets sold
+     *
+     * @param int|null $sold How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+     *
+     * @return self
+     */
+    public function setSold($sold)
+    {
+        if (is_null($sold)) {
+            throw new \InvalidArgumentException('non-nullable sold cannot be null');
+        }
+        if (($sold < 0)) {
+            throw new \InvalidArgumentException('invalid value for $sold when calling ItemStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['sold'] = $sold;
 
         return $this;
     }

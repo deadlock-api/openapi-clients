@@ -179,6 +179,24 @@ class NpcUnitTest extends TestCase
     }
 
     /**
+     * Test attribute "core_models"
+     */
+    public function testPropertyCoreModels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "effigy_models"
+     */
+    public function testPropertyEffigyModels()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "empowered_modifier_level1"
      */
     public function testPropertyEmpoweredModifierLevel1()
@@ -398,6 +416,15 @@ class NpcUnitTest extends TestCase
      * Test attribute "melee_hit_range"
      */
     public function testPropertyMeleeHitRange()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "models"
+     */
+    public function testPropertyModels()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -704,6 +731,15 @@ class NpcUnitTest extends TestCase
      * Test attribute "t3_boss_dps"
      */
     public function testPropertyT3BossDps()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "team_models"
+     */
+    public function testPropertyTeamModels()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

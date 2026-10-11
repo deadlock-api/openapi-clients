@@ -44,6 +44,7 @@ class TestItemStats(unittest.TestCase):
                 losses = 0,
                 matches = 0,
                 players = 0,
+                sold = 0,
                 wins = 0
             )
         else:

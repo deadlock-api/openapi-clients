@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Matches** | **long** |  | 
 **Players** | **long** |  | 
 **Wins** | **long** |  | 
+**Sold** | **long** | How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

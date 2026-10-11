@@ -43,8 +43,9 @@ namespace DeadlockApiClient.Model
         /// <param name="matches">matches</param>
         /// <param name="players">players</param>
         /// <param name="wins">wins</param>
+        /// <param name="sold">How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate.</param>
         [JsonConstructor]
-        public ItemStats(double avgBuyTimeRelative, double avgBuyTimeS, double avgSellTimeRelative, double avgSellTimeS, int bucket, int itemId, long losses, long matches, long players, long wins)
+        public ItemStats(double avgBuyTimeRelative, double avgBuyTimeS, double avgSellTimeRelative, double avgSellTimeS, int bucket, int itemId, long losses, long matches, long players, long wins, Option<long?> sold = default)
         {
             AvgBuyTimeRelative = avgBuyTimeRelative;
             AvgBuyTimeS = avgBuyTimeS;
@@ -56,6 +57,7 @@ namespace DeadlockApiClient.Model
             Matches = matches;
             Players = players;
             Wins = wins;
+            SoldOption = sold;
             OnCreated();
         }
 
@@ -127,6 +129,20 @@ namespace DeadlockApiClient.Model
         public long Wins { get; set; }
 
         /// <summary>
+        /// Used to track the state of Sold
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> SoldOption { get; private set; }
+
+        /// <summary>
+        /// How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate.
+        /// </summary>
+        /// <value>How many of the &#x60;matches&#x60; purchases were sold again. &#x60;sold / matches&#x60; is the sell rate.</value>
+        [JsonPropertyName("sold")]
+        public long? Sold { get { return this.SoldOption.Value; } set { this.SoldOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -144,6 +160,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  Players: ").Append(Players).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
+            sb.Append("  Sold: ").Append(Sold).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -189,6 +206,12 @@ namespace DeadlockApiClient.Model
             if (this.Wins < (long)0)
             {
                 yield return new ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
+            }
+
+            // Sold (long) minimum
+            if (this.SoldOption.IsSet && this.SoldOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for Sold, must be a value greater than or equal to 0.", new [] { "Sold" });
             }
 
             yield break;
@@ -237,6 +260,7 @@ namespace DeadlockApiClient.Model
             Option<long?> matches = default;
             Option<long?> players = default;
             Option<long?> wins = default;
+            Option<long?> sold = default;
 
             while (utf8JsonReader.Read())
             {
@@ -282,6 +306,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "sold":
+                            sold = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;
@@ -349,7 +376,10 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new JsonException("Property is not nullable for class ItemStats: wins.");
 
-            return new ItemStats(avgBuyTimeRelative.Value!.Value!, avgBuyTimeS.Value!.Value!, avgSellTimeRelative.Value!.Value!, avgSellTimeS.Value!.Value!, bucket.Value!.Value!, itemId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!);
+            if (sold.IsSet && sold.Value == null)
+                throw new JsonException("Property is not nullable for class ItemStats: sold.");
+
+            return new ItemStats(avgBuyTimeRelative.Value!.Value!, avgBuyTimeS.Value!.Value!, avgSellTimeRelative.Value!.Value!, avgSellTimeS.Value!.Value!, bucket.Value!.Value!, itemId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!, sold);
         }
 
         /// <summary>
@@ -374,6 +404,9 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, ItemStats itemStats, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (itemStats.SoldOption.IsSet && itemStats.Sold == null)
+                throw new JsonException("Cannot write null property ItemStats.Sold to non-nullable JSON property 'sold'.");
+
             writer.WriteNumber("avg_buy_time_relative", itemStats.AvgBuyTimeRelative);
 
             writer.WriteNumber("avg_buy_time_s", itemStats.AvgBuyTimeS);
@@ -393,6 +426,9 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("players", itemStats.Players);
 
             writer.WriteNumber("wins", itemStats.Wins);
+
+            if (itemStats.SoldOption.IsSet)
+                writer.WriteNumber("sold", itemStats.SoldOption.Value!.Value);
         }
     }
 }

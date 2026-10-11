@@ -39,6 +39,10 @@ export interface ItemStats {
     'losses': number;
     'matches': number;
     'players': number;
+    /**
+     * How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+     */
+    'sold'?: number;
     'wins': number;
 }
 

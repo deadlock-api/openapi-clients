@@ -33,6 +33,10 @@ type NpcUnit struct {
 	BossWeaponInfo NullableWeaponInfo `json:"boss_weapon_info,omitempty"`
 	BoundAbilities map[string]string `json:"bound_abilities,omitempty"`
 	ClassName string `json:"class_name"`
+	// The Patron's core models, per team.
+	CoreModels NullableTeamModels `json:"core_models,omitempty"`
+	// The Patron's effigy models, per team.
+	EffigyModels NullableTeamModels `json:"effigy_models,omitempty"`
 	EmpoweredModifierLevel1 NullableSubclassEmpoweredModifierLevel `json:"empowered_modifier_level1,omitempty"`
 	EmpoweredModifierLevel2 NullableSubclassEmpoweredModifierLevel `json:"empowered_modifier_level2,omitempty"`
 	EnemyTrooperDamageReduction NullableSubclassTrooperDamageReduction `json:"enemy_trooper_damage_reduction,omitempty"`
@@ -60,6 +64,8 @@ type NpcUnit struct {
 	MeleeDamage NullableFloat64 `json:"melee_damage,omitempty"`
 	MeleeDuration NullableFloat64 `json:"melee_duration,omitempty"`
 	MeleeHitRange NullableFloat64 `json:"melee_hit_range,omitempty"`
+	// 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+	Models map[string]string `json:"models,omitempty"`
 	// Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
 	Name NullableString `json:"name,omitempty"`
 	NearDeathDuration NullableFloat64 `json:"near_death_duration,omitempty"`
@@ -98,6 +104,8 @@ type NpcUnit struct {
 	T2BossDpsmaxResistTimeInSeconds NullableFloat64 `json:"t2_boss_dpsmax_resist_time_in_seconds,omitempty"`
 	T3BossDamageResistPct NullableFloat64 `json:"t3_boss_damage_resist_pct,omitempty"`
 	T3BossDps NullableFloat64 `json:"t3_boss_dps,omitempty"`
+	// Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
+	TeamModels NullableTeamModels `json:"team_models,omitempty"`
 	TrooperDamageResistPct NullableFloat64 `json:"trooper_damage_resist_pct,omitempty"`
 	TrooperDps NullableFloat64 `json:"trooper_dps,omitempty"`
 	// Distance threshold (as string key) → soul orb class shown to the viewer.
@@ -560,6 +568,90 @@ func (o *NpcUnit) GetClassNameOk() (*string, bool) {
 // SetClassName sets field value
 func (o *NpcUnit) SetClassName(v string) {
 	o.ClassName = v
+}
+
+// GetCoreModels returns the CoreModels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetCoreModels() TeamModels {
+	if o == nil || IsNil(o.CoreModels.Get()) {
+		var ret TeamModels
+		return ret
+	}
+	return *o.CoreModels.Get()
+}
+
+// GetCoreModelsOk returns a tuple with the CoreModels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetCoreModelsOk() (*TeamModels, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CoreModels.Get(), o.CoreModels.IsSet()
+}
+
+// HasCoreModels returns a boolean if a field has been set.
+func (o *NpcUnit) HasCoreModels() bool {
+	if o != nil && o.CoreModels.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCoreModels gets a reference to the given NullableTeamModels and assigns it to the CoreModels field.
+func (o *NpcUnit) SetCoreModels(v TeamModels) {
+	o.CoreModels.Set(&v)
+}
+// SetCoreModelsNil sets the value for CoreModels to be an explicit nil
+func (o *NpcUnit) SetCoreModelsNil() {
+	o.CoreModels.Set(nil)
+}
+
+// UnsetCoreModels ensures that no value is present for CoreModels, not even an explicit nil
+func (o *NpcUnit) UnsetCoreModels() {
+	o.CoreModels.Unset()
+}
+
+// GetEffigyModels returns the EffigyModels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetEffigyModels() TeamModels {
+	if o == nil || IsNil(o.EffigyModels.Get()) {
+		var ret TeamModels
+		return ret
+	}
+	return *o.EffigyModels.Get()
+}
+
+// GetEffigyModelsOk returns a tuple with the EffigyModels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetEffigyModelsOk() (*TeamModels, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.EffigyModels.Get(), o.EffigyModels.IsSet()
+}
+
+// HasEffigyModels returns a boolean if a field has been set.
+func (o *NpcUnit) HasEffigyModels() bool {
+	if o != nil && o.EffigyModels.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetEffigyModels gets a reference to the given NullableTeamModels and assigns it to the EffigyModels field.
+func (o *NpcUnit) SetEffigyModels(v TeamModels) {
+	o.EffigyModels.Set(&v)
+}
+// SetEffigyModelsNil sets the value for EffigyModels to be an explicit nil
+func (o *NpcUnit) SetEffigyModelsNil() {
+	o.EffigyModels.Set(nil)
+}
+
+// UnsetEffigyModels ensures that no value is present for EffigyModels, not even an explicit nil
+func (o *NpcUnit) UnsetEffigyModels() {
+	o.EffigyModels.Unset()
 }
 
 // GetEmpoweredModifierLevel1 returns the EmpoweredModifierLevel1 field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1583,6 +1675,38 @@ func (o *NpcUnit) SetMeleeHitRangeNil() {
 // UnsetMeleeHitRange ensures that no value is present for MeleeHitRange, not even an explicit nil
 func (o *NpcUnit) UnsetMeleeHitRange() {
 	o.MeleeHitRange.Unset()
+}
+
+// GetModels returns the Models field value if set, zero value otherwise.
+func (o *NpcUnit) GetModels() map[string]string {
+	if o == nil || IsNil(o.Models) {
+		var ret map[string]string
+		return ret
+	}
+	return o.Models
+}
+
+// GetModelsOk returns a tuple with the Models field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NpcUnit) GetModelsOk() (map[string]string, bool) {
+	if o == nil || IsNil(o.Models) {
+		return map[string]string{}, false
+	}
+	return o.Models, true
+}
+
+// HasModels returns a boolean if a field has been set.
+func (o *NpcUnit) HasModels() bool {
+	if o != nil && !IsNil(o.Models) {
+		return true
+	}
+
+	return false
+}
+
+// SetModels gets a reference to the given map[string]string and assigns it to the Models field.
+func (o *NpcUnit) SetModels(v map[string]string) {
+	o.Models = v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -3004,6 +3128,48 @@ func (o *NpcUnit) UnsetT3BossDps() {
 	o.T3BossDps.Unset()
 }
 
+// GetTeamModels returns the TeamModels field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *NpcUnit) GetTeamModels() TeamModels {
+	if o == nil || IsNil(o.TeamModels.Get()) {
+		var ret TeamModels
+		return ret
+	}
+	return *o.TeamModels.Get()
+}
+
+// GetTeamModelsOk returns a tuple with the TeamModels field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *NpcUnit) GetTeamModelsOk() (*TeamModels, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TeamModels.Get(), o.TeamModels.IsSet()
+}
+
+// HasTeamModels returns a boolean if a field has been set.
+func (o *NpcUnit) HasTeamModels() bool {
+	if o != nil && o.TeamModels.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTeamModels gets a reference to the given NullableTeamModels and assigns it to the TeamModels field.
+func (o *NpcUnit) SetTeamModels(v TeamModels) {
+	o.TeamModels.Set(&v)
+}
+// SetTeamModelsNil sets the value for TeamModels to be an explicit nil
+func (o *NpcUnit) SetTeamModelsNil() {
+	o.TeamModels.Set(nil)
+}
+
+// UnsetTeamModels ensures that no value is present for TeamModels, not even an explicit nil
+func (o *NpcUnit) UnsetTeamModels() {
+	o.TeamModels.Unset()
+}
+
 // GetTrooperDamageResistPct returns the TrooperDamageResistPct field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NpcUnit) GetTrooperDamageResistPct() float64 {
 	if o == nil || IsNil(o.TrooperDamageResistPct.Get()) {
@@ -3246,6 +3412,12 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 		toSerialize["bound_abilities"] = o.BoundAbilities
 	}
 	toSerialize["class_name"] = o.ClassName
+	if o.CoreModels.IsSet() {
+		toSerialize["core_models"] = o.CoreModels.Get()
+	}
+	if o.EffigyModels.IsSet() {
+		toSerialize["effigy_models"] = o.EffigyModels.Get()
+	}
 	if o.EmpoweredModifierLevel1.IsSet() {
 		toSerialize["empowered_modifier_level1"] = o.EmpoweredModifierLevel1.Get()
 	}
@@ -3318,6 +3490,9 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	}
 	if o.MeleeHitRange.IsSet() {
 		toSerialize["melee_hit_range"] = o.MeleeHitRange.Get()
+	}
+	if !IsNil(o.Models) {
+		toSerialize["models"] = o.Models
 	}
 	if o.Name.IsSet() {
 		toSerialize["name"] = o.Name.Get()
@@ -3420,6 +3595,9 @@ func (o NpcUnit) ToMap() (map[string]interface{}, error) {
 	}
 	if o.T3BossDps.IsSet() {
 		toSerialize["t3_boss_dps"] = o.T3BossDps.Get()
+	}
+	if o.TeamModels.IsSet() {
+		toSerialize["team_models"] = o.TeamModels.Get()
 	}
 	if o.TrooperDamageResistPct.IsSet() {
 		toSerialize["trooper_damage_resist_pct"] = o.TrooperDamageResistPct.Get()

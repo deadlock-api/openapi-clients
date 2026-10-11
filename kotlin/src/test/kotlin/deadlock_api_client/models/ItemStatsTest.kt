@@ -93,5 +93,11 @@ class ItemStatsTest : ShouldSpec() {
             //modelInstance.wins shouldBe ("TODO")
         }
 
+        // to test the property `sold` - How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+        should("test sold") {
+            // uncomment below to test the property
+            //modelInstance.sold shouldBe ("TODO")
+        }
+
     }
 }

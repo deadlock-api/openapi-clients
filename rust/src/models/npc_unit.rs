@@ -36,6 +36,12 @@ pub struct NpcUnit {
     pub bound_abilities: Option<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "class_name")]
     pub class_name: String,
+    /// The Patron's core models, per team.
+    #[serde(rename = "core_models", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub core_models: Option<Option<Box<models::TeamModels>>>,
+    /// The Patron's effigy models, per team.
+    #[serde(rename = "effigy_models", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub effigy_models: Option<Option<Box<models::TeamModels>>>,
     #[serde(rename = "empowered_modifier_level1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub empowered_modifier_level1: Option<Option<Box<models::SubclassEmpoweredModifierLevel>>>,
     #[serde(rename = "empowered_modifier_level2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -88,6 +94,9 @@ pub struct NpcUnit {
     pub melee_duration: Option<Option<f64>>,
     #[serde(rename = "melee_hit_range", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub melee_hit_range: Option<Option<f64>>,
+    /// 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+    #[serde(rename = "models", skip_serializing_if = "Option::is_none")]
+    pub models: Option<std::collections::HashMap<String, String>>,
     /// Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
     #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub name: Option<Option<String>>,
@@ -160,6 +169,9 @@ pub struct NpcUnit {
     pub t3_boss_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "t3_boss_dps", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub t3_boss_dps: Option<Option<f64>>,
+    /// Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
+    #[serde(rename = "team_models", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub team_models: Option<Option<Box<models::TeamModels>>>,
     #[serde(rename = "trooper_damage_resist_pct", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub trooper_damage_resist_pct: Option<Option<f64>>,
     #[serde(rename = "trooper_dps", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -187,6 +199,8 @@ impl NpcUnit {
             boss_weapon_info: None,
             bound_abilities: None,
             class_name,
+            core_models: None,
+            effigy_models: None,
             empowered_modifier_level1: None,
             empowered_modifier_level2: None,
             enemy_trooper_damage_reduction: None,
@@ -212,6 +226,7 @@ impl NpcUnit {
             melee_damage: None,
             melee_duration: None,
             melee_hit_range: None,
+            models: None,
             name: None,
             near_death_duration: None,
             neutral_abilities: None,
@@ -246,6 +261,7 @@ impl NpcUnit {
             t2_boss_dpsmax_resist_time_in_seconds: None,
             t3_boss_damage_resist_pct: None,
             t3_boss_dps: None,
+            team_models: None,
             trooper_damage_resist_pct: None,
             trooper_dps: None,
             viewer_souls_class: None,

@@ -36,6 +36,9 @@ pub struct ItemStats {
     pub matches: u64,
     #[serde(rename = "players")]
     pub players: u64,
+    /// How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
+    #[serde(rename = "sold", skip_serializing_if = "Option::is_none")]
+    pub sold: Option<u64>,
     #[serde(rename = "wins")]
     pub wins: u64,
 }
@@ -52,6 +55,7 @@ impl ItemStats {
             losses,
             matches,
             players,
+            sold: None,
             wins,
         }
     }

@@ -295,6 +295,7 @@ docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
 docs/TableSchemaResponse.md
 docs/TableSize.md
+docs/TeamModels.md
 docs/TooltipDetailsBlock.md
 docs/TooltipDetailsBlockProperty.md
 docs/TooltipDetailsInfoSection.md
@@ -539,6 +540,7 @@ models/subclass-trooper-damage-reduction-subclass.ts
 models/subclass-trooper-damage-reduction.ts
 models/table-schema-response.ts
 models/table-size.ts
+models/team-models.ts
 models/tooltip-details-block-property.ts
 models/tooltip-details-block.ts
 models/tooltip-details-info-section.ts

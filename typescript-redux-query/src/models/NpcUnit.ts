@@ -40,6 +40,9 @@ import {
     SubclassTrooperDamageReduction,
     SubclassTrooperDamageReductionFromJSON,
     SubclassTrooperDamageReductionToJSON,
+    TeamModels,
+    TeamModelsFromJSON,
+    TeamModelsToJSON,
     WeaponInfo,
     WeaponInfoFromJSON,
     WeaponInfoToJSON,
@@ -117,6 +120,18 @@ export interface NpcUnit  {
      * @memberof NpcUnit
      */
     className: string;
+    /**
+     * The Patron\'s core models, per team.
+     * @type {TeamModels}
+     * @memberof NpcUnit
+     */
+    coreModels?: TeamModels;
+    /**
+     * The Patron\'s effigy models, per team.
+     * @type {TeamModels}
+     * @memberof NpcUnit
+     */
+    effigyModels?: TeamModels;
     /**
      * 
      * @type {SubclassEmpoweredModifierLevel}
@@ -267,6 +282,12 @@ export interface NpcUnit  {
      * @memberof NpcUnit
      */
     meleeHitRange?: number;
+    /**
+     * 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model\'s idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+     * @type {{ [key: string]: string; }}
+     * @memberof NpcUnit
+     */
+    models?: { [key: string]: string; };
     /**
      * Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
      * @type {string}
@@ -472,6 +493,12 @@ export interface NpcUnit  {
      */
     t3BossDps?: number;
     /**
+     * Per-team variants of the unit\'s model, same shape as `models` (troopers, shrines, zipline containers).
+     * @type {TeamModels}
+     * @memberof NpcUnit
+     */
+    teamModels?: TeamModels;
+    /**
      * 
      * @type {number}
      * @memberof NpcUnit
@@ -516,6 +543,8 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'bossWeaponInfo': !exists(json, 'boss_weapon_info') ? undefined : WeaponInfoFromJSON(json['boss_weapon_info']),
         'boundAbilities': !exists(json, 'bound_abilities') ? undefined : json['bound_abilities'],
         'className': json['class_name'],
+        'coreModels': !exists(json, 'core_models') ? undefined : TeamModelsFromJSON(json['core_models']),
+        'effigyModels': !exists(json, 'effigy_models') ? undefined : TeamModelsFromJSON(json['effigy_models']),
         'empoweredModifierLevel1': !exists(json, 'empowered_modifier_level1') ? undefined : SubclassEmpoweredModifierLevelFromJSON(json['empowered_modifier_level1']),
         'empoweredModifierLevel2': !exists(json, 'empowered_modifier_level2') ? undefined : SubclassEmpoweredModifierLevelFromJSON(json['empowered_modifier_level2']),
         'enemyTrooperDamageReduction': !exists(json, 'enemy_trooper_damage_reduction') ? undefined : SubclassTrooperDamageReductionFromJSON(json['enemy_trooper_damage_reduction']),
@@ -541,6 +570,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'meleeDamage': !exists(json, 'melee_damage') ? undefined : json['melee_damage'],
         'meleeDuration': !exists(json, 'melee_duration') ? undefined : json['melee_duration'],
         'meleeHitRange': !exists(json, 'melee_hit_range') ? undefined : json['melee_hit_range'],
+        'models': !exists(json, 'models') ? undefined : json['models'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'nearDeathDuration': !exists(json, 'near_death_duration') ? undefined : json['near_death_duration'],
         'neutralAbilities': !exists(json, 'neutral_abilities') ? undefined : json['neutral_abilities'],
@@ -575,6 +605,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         't2BossDpsmaxResistTimeInSeconds': !exists(json, 't2_boss_dpsmax_resist_time_in_seconds') ? undefined : json['t2_boss_dpsmax_resist_time_in_seconds'],
         't3BossDamageResistPct': !exists(json, 't3_boss_damage_resist_pct') ? undefined : json['t3_boss_damage_resist_pct'],
         't3BossDps': !exists(json, 't3_boss_dps') ? undefined : json['t3_boss_dps'],
+        'teamModels': !exists(json, 'team_models') ? undefined : TeamModelsFromJSON(json['team_models']),
         'trooperDamageResistPct': !exists(json, 'trooper_damage_resist_pct') ? undefined : json['trooper_damage_resist_pct'],
         'trooperDps': !exists(json, 'trooper_dps') ? undefined : json['trooper_dps'],
         'viewerSoulsClass': !exists(json, 'viewer_souls_class') ? undefined : json['viewer_souls_class'],
@@ -599,6 +630,8 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'boss_weapon_info': WeaponInfoToJSON(value.bossWeaponInfo),
         'bound_abilities': value.boundAbilities,
         'class_name': value.className,
+        'core_models': TeamModelsToJSON(value.coreModels),
+        'effigy_models': TeamModelsToJSON(value.effigyModels),
         'empowered_modifier_level1': SubclassEmpoweredModifierLevelToJSON(value.empoweredModifierLevel1),
         'empowered_modifier_level2': SubclassEmpoweredModifierLevelToJSON(value.empoweredModifierLevel2),
         'enemy_trooper_damage_reduction': SubclassTrooperDamageReductionToJSON(value.enemyTrooperDamageReduction),
@@ -624,6 +657,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'melee_damage': value.meleeDamage,
         'melee_duration': value.meleeDuration,
         'melee_hit_range': value.meleeHitRange,
+        'models': value.models,
         'name': value.name,
         'near_death_duration': value.nearDeathDuration,
         'neutral_abilities': value.neutralAbilities,
@@ -658,6 +692,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         't2_boss_dpsmax_resist_time_in_seconds': value.t2BossDpsmaxResistTimeInSeconds,
         't3_boss_damage_resist_pct': value.t3BossDamageResistPct,
         't3_boss_dps': value.t3BossDps,
+        'team_models': TeamModelsToJSON(value.teamModels),
         'trooper_damage_resist_pct': value.trooperDamageResistPct,
         'trooper_dps': value.trooperDps,
         'viewer_souls_class': value.viewerSoulsClass,

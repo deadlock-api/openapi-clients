@@ -68,6 +68,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => '\OpenAPI\Client\Model\WeaponInfo',
         'bound_abilities' => 'array<string,string>',
         'class_name' => 'string',
+        'core_models' => '\OpenAPI\Client\Model\TeamModels',
+        'effigy_models' => '\OpenAPI\Client\Model\TeamModels',
         'empowered_modifier_level1' => '\OpenAPI\Client\Model\SubclassEmpoweredModifierLevel',
         'empowered_modifier_level2' => '\OpenAPI\Client\Model\SubclassEmpoweredModifierLevel',
         'enemy_trooper_damage_reduction' => '\OpenAPI\Client\Model\SubclassTrooperDamageReduction',
@@ -93,6 +95,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'float',
         'melee_duration' => 'float',
         'melee_hit_range' => 'float',
+        'models' => 'array<string,string>',
         'name' => 'string',
         'near_death_duration' => 'float',
         'neutral_abilities' => 'string[]',
@@ -127,6 +130,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => 'float',
         't3_boss_damage_resist_pct' => 'float',
         't3_boss_dps' => 'float',
+        'team_models' => '\OpenAPI\Client\Model\TeamModels',
         'trooper_damage_resist_pct' => 'float',
         'trooper_dps' => 'float',
         'viewer_souls_class' => 'array<string,string>',
@@ -153,6 +157,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => null,
         'bound_abilities' => null,
         'class_name' => null,
+        'core_models' => null,
+        'effigy_models' => null,
         'empowered_modifier_level1' => null,
         'empowered_modifier_level2' => null,
         'enemy_trooper_damage_reduction' => null,
@@ -178,6 +184,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'double',
         'melee_duration' => 'double',
         'melee_hit_range' => 'double',
+        'models' => null,
         'name' => null,
         'near_death_duration' => 'double',
         'neutral_abilities' => null,
@@ -212,6 +219,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => 'double',
         't3_boss_damage_resist_pct' => 'double',
         't3_boss_dps' => 'double',
+        'team_models' => null,
         'trooper_damage_resist_pct' => 'double',
         'trooper_dps' => 'double',
         'viewer_souls_class' => null,
@@ -236,6 +244,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => true,
         'bound_abilities' => true,
         'class_name' => false,
+        'core_models' => true,
+        'effigy_models' => true,
         'empowered_modifier_level1' => true,
         'empowered_modifier_level2' => true,
         'enemy_trooper_damage_reduction' => true,
@@ -261,6 +271,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => true,
         'melee_duration' => true,
         'melee_hit_range' => true,
+        'models' => false,
         'name' => true,
         'near_death_duration' => true,
         'neutral_abilities' => true,
@@ -295,6 +306,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => true,
         't3_boss_damage_resist_pct' => true,
         't3_boss_dps' => true,
+        'team_models' => true,
         'trooper_damage_resist_pct' => true,
         'trooper_dps' => true,
         'viewer_souls_class' => true,
@@ -399,6 +411,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => 'boss_weapon_info',
         'bound_abilities' => 'bound_abilities',
         'class_name' => 'class_name',
+        'core_models' => 'core_models',
+        'effigy_models' => 'effigy_models',
         'empowered_modifier_level1' => 'empowered_modifier_level1',
         'empowered_modifier_level2' => 'empowered_modifier_level2',
         'enemy_trooper_damage_reduction' => 'enemy_trooper_damage_reduction',
@@ -424,6 +438,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'melee_damage',
         'melee_duration' => 'melee_duration',
         'melee_hit_range' => 'melee_hit_range',
+        'models' => 'models',
         'name' => 'name',
         'near_death_duration' => 'near_death_duration',
         'neutral_abilities' => 'neutral_abilities',
@@ -458,6 +473,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => 't2_boss_dpsmax_resist_time_in_seconds',
         't3_boss_damage_resist_pct' => 't3_boss_damage_resist_pct',
         't3_boss_dps' => 't3_boss_dps',
+        'team_models' => 'team_models',
         'trooper_damage_resist_pct' => 'trooper_damage_resist_pct',
         'trooper_dps' => 'trooper_dps',
         'viewer_souls_class' => 'viewer_souls_class',
@@ -482,6 +498,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => 'setBossWeaponInfo',
         'bound_abilities' => 'setBoundAbilities',
         'class_name' => 'setClassName',
+        'core_models' => 'setCoreModels',
+        'effigy_models' => 'setEffigyModels',
         'empowered_modifier_level1' => 'setEmpoweredModifierLevel1',
         'empowered_modifier_level2' => 'setEmpoweredModifierLevel2',
         'enemy_trooper_damage_reduction' => 'setEnemyTrooperDamageReduction',
@@ -507,6 +525,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'setMeleeDamage',
         'melee_duration' => 'setMeleeDuration',
         'melee_hit_range' => 'setMeleeHitRange',
+        'models' => 'setModels',
         'name' => 'setName',
         'near_death_duration' => 'setNearDeathDuration',
         'neutral_abilities' => 'setNeutralAbilities',
@@ -541,6 +560,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => 'setT2BossDpsmaxResistTimeInSeconds',
         't3_boss_damage_resist_pct' => 'setT3BossDamageResistPct',
         't3_boss_dps' => 'setT3BossDps',
+        'team_models' => 'setTeamModels',
         'trooper_damage_resist_pct' => 'setTrooperDamageResistPct',
         'trooper_dps' => 'setTrooperDps',
         'viewer_souls_class' => 'setViewerSoulsClass',
@@ -565,6 +585,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'boss_weapon_info' => 'getBossWeaponInfo',
         'bound_abilities' => 'getBoundAbilities',
         'class_name' => 'getClassName',
+        'core_models' => 'getCoreModels',
+        'effigy_models' => 'getEffigyModels',
         'empowered_modifier_level1' => 'getEmpoweredModifierLevel1',
         'empowered_modifier_level2' => 'getEmpoweredModifierLevel2',
         'enemy_trooper_damage_reduction' => 'getEnemyTrooperDamageReduction',
@@ -590,6 +612,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'melee_damage' => 'getMeleeDamage',
         'melee_duration' => 'getMeleeDuration',
         'melee_hit_range' => 'getMeleeHitRange',
+        'models' => 'getModels',
         'name' => 'getName',
         'near_death_duration' => 'getNearDeathDuration',
         'neutral_abilities' => 'getNeutralAbilities',
@@ -624,6 +647,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         't2_boss_dpsmax_resist_time_in_seconds' => 'getT2BossDpsmaxResistTimeInSeconds',
         't3_boss_damage_resist_pct' => 'getT3BossDamageResistPct',
         't3_boss_dps' => 'getT3BossDps',
+        'team_models' => 'getTeamModels',
         'trooper_damage_resist_pct' => 'getTrooperDamageResistPct',
         'trooper_dps' => 'getTrooperDps',
         'viewer_souls_class' => 'getViewerSoulsClass',
@@ -699,6 +723,8 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('boss_weapon_info', $data ?? [], null);
         $this->setIfExists('bound_abilities', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
+        $this->setIfExists('core_models', $data ?? [], null);
+        $this->setIfExists('effigy_models', $data ?? [], null);
         $this->setIfExists('empowered_modifier_level1', $data ?? [], null);
         $this->setIfExists('empowered_modifier_level2', $data ?? [], null);
         $this->setIfExists('enemy_trooper_damage_reduction', $data ?? [], null);
@@ -724,6 +750,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('melee_damage', $data ?? [], null);
         $this->setIfExists('melee_duration', $data ?? [], null);
         $this->setIfExists('melee_hit_range', $data ?? [], null);
+        $this->setIfExists('models', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('near_death_duration', $data ?? [], null);
         $this->setIfExists('neutral_abilities', $data ?? [], null);
@@ -758,6 +785,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('t2_boss_dpsmax_resist_time_in_seconds', $data ?? [], null);
         $this->setIfExists('t3_boss_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('t3_boss_dps', $data ?? [], null);
+        $this->setIfExists('team_models', $data ?? [], null);
         $this->setIfExists('trooper_damage_resist_pct', $data ?? [], null);
         $this->setIfExists('trooper_dps', $data ?? [], null);
         $this->setIfExists('viewer_souls_class', $data ?? [], null);
@@ -1180,6 +1208,74 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable class_name cannot be null');
         }
         $this->container['class_name'] = $class_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets core_models
+     *
+     * @return \OpenAPI\Client\Model\TeamModels|null
+     */
+    public function getCoreModels()
+    {
+        return $this->container['core_models'];
+    }
+
+    /**
+     * Sets core_models
+     *
+     * @param \OpenAPI\Client\Model\TeamModels|null $core_models The Patron's core models, per team.
+     *
+     * @return self
+     */
+    public function setCoreModels($core_models)
+    {
+        if (is_null($core_models)) {
+            array_push($this->openAPINullablesSetToNull, 'core_models');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('core_models', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['core_models'] = $core_models;
+
+        return $this;
+    }
+
+    /**
+     * Gets effigy_models
+     *
+     * @return \OpenAPI\Client\Model\TeamModels|null
+     */
+    public function getEffigyModels()
+    {
+        return $this->container['effigy_models'];
+    }
+
+    /**
+     * Sets effigy_models
+     *
+     * @param \OpenAPI\Client\Model\TeamModels|null $effigy_models The Patron's effigy models, per team.
+     *
+     * @return self
+     */
+    public function setEffigyModels($effigy_models)
+    {
+        if (is_null($effigy_models)) {
+            array_push($this->openAPINullablesSetToNull, 'effigy_models');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('effigy_models', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['effigy_models'] = $effigy_models;
 
         return $this;
     }
@@ -2027,6 +2123,33 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['melee_hit_range'] = $melee_hit_range;
+
+        return $this;
+    }
+
+    /**
+     * Gets models
+     *
+     * @return array<string,string>|null
+     */
+    public function getModels()
+    {
+        return $this->container['models'];
+    }
+
+    /**
+     * Sets models
+     *
+     * @param array<string,string>|null $models 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
+     *
+     * @return self
+     */
+    public function setModels($models)
+    {
+        if (is_null($models)) {
+            throw new \InvalidArgumentException('non-nullable models cannot be null');
+        }
+        $this->container['models'] = $models;
 
         return $this;
     }
@@ -3183,6 +3306,40 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['t3_boss_dps'] = $t3_boss_dps;
+
+        return $this;
+    }
+
+    /**
+     * Gets team_models
+     *
+     * @return \OpenAPI\Client\Model\TeamModels|null
+     */
+    public function getTeamModels()
+    {
+        return $this->container['team_models'];
+    }
+
+    /**
+     * Sets team_models
+     *
+     * @param \OpenAPI\Client\Model\TeamModels|null $team_models Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
+     *
+     * @return self
+     */
+    public function setTeamModels($team_models)
+    {
+        if (is_null($team_models)) {
+            array_push($this->openAPINullablesSetToNull, 'team_models');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('team_models', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['team_models'] = $team_models;
 
         return $this;
     }
