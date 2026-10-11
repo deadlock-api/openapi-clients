@@ -151,6 +151,7 @@ docs/HorizontalRecoil.md
 docs/ImagePair.md
 docs/InfoApi.md
 docs/IngestLiveUrl.md
+docs/IngestStatusResponse.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -411,6 +412,7 @@ models/horizontal-recoil.ts
 models/image-pair.ts
 models/index.ts
 models/ingest-live-url.ts
+models/ingest-status-response.ts
 models/item-draft-round-per-game-round.ts
 models/item-draft-round.ts
 models/item-flow-edge.ts

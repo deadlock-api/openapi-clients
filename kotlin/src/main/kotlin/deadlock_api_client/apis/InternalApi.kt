@@ -31,6 +31,7 @@ import deadlock_api_client.models.AddSteamAccountRequest
 import deadlock_api_client.models.ClickhouseSalts
 import deadlock_api_client.models.DeleteSteamAccountResponse
 import deadlock_api_client.models.FeedbackSubmission
+import deadlock_api_client.models.IngestStatusResponse
 import deadlock_api_client.models.ListSteamAccountsResponse
 import deadlock_api_client.models.ReplaceSteamAccountRequest
 import deadlock_api_client.models.SteamAccountResponse
@@ -271,6 +272,79 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/matches/salts",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/ingest-status
+     * Ingest Status
+     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return IngestStatusResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun ingestStatus(accountId: kotlin.Int) : IngestStatusResponse {
+        val localVarResponse = ingestStatusWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as IngestStatusResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/ingest-status
+     * Ingest Status
+     *  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<IngestStatusResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun ingestStatusWithHttpInfo(accountId: kotlin.Int) : ApiResponse<IngestStatusResponse?> {
+        val localVariableConfig = ingestStatusRequestConfig(accountId = accountId)
+
+        return request<Unit, IngestStatusResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation ingestStatus
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun ingestStatusRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/ingest-status".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

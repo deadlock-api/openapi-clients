@@ -157,6 +157,7 @@ __all__ = [
     "HorizontalRecoil",
     "ImagePair",
     "IngestLiveUrl",
+    "IngestStatusResponse",
     "Item",
     "ItemDraftRound",
     "ItemDraftRoundPerGameRound",
@@ -445,6 +446,7 @@ from deadlock_api_client.models.hero_type import HeroType as HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil as HorizontalRecoil
 from deadlock_api_client.models.image_pair import ImagePair as ImagePair
 from deadlock_api_client.models.ingest_live_url import IngestLiveUrl as IngestLiveUrl
+from deadlock_api_client.models.ingest_status_response import IngestStatusResponse as IngestStatusResponse
 from deadlock_api_client.models.item import Item as Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound as ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound as ItemDraftRoundPerGameRound

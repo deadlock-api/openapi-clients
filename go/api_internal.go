@@ -424,6 +424,117 @@ func (a *InternalAPIService) IngestSaltsExecute(r ApiIngestSaltsRequest) (*http.
 	return localVarHTTPResponse, nil
 }
 
+type ApiIngestStatusRequest struct {
+	ctx context.Context
+	ApiService *InternalAPIService
+	accountId int32
+}
+
+func (r ApiIngestStatusRequest) Execute() (*IngestStatusResponse, *http.Response, error) {
+	return r.ApiService.IngestStatusExecute(r)
+}
+
+/*
+IngestStatus Ingest Status
+
+
+Internal endpoint used by the website's player tracker gate.
+
+Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for
+this account within the last 14 days. Only uploads whose own salt was verified count.
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiIngestStatusRequest
+*/
+func (a *InternalAPIService) IngestStatus(ctx context.Context, accountId int32) ApiIngestStatusRequest {
+	return ApiIngestStatusRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return IngestStatusResponse
+func (a *InternalAPIService) IngestStatusExecute(r ApiIngestStatusRequest) (*IngestStatusResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *IngestStatusResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalAPIService.IngestStatus")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/{account_id}/ingest-status"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiListSteamAccountsRequest struct {
 	ctx context.Context
 	ApiService *InternalAPIService

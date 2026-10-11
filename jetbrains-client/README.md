@@ -79,6 +79,7 @@ Class | Method | HTTP request | Description
 *InternalApi* | [**addSteamAccount**](Apis/InternalApi.http#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
 *InternalApi* | [**deleteSteamAccount**](Apis/InternalApi.http#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**ingestStatus**](Apis/InternalApi.http#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status
 *InternalApi* | [**listSteamAccounts**](Apis/InternalApi.http#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts
 *InternalApi* | [**reactivateSteamAccount**](Apis/InternalApi.http#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
 *InternalApi* | [**replaceSteamAccount**](Apis/InternalApi.http#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account

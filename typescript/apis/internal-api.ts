@@ -30,6 +30,8 @@ import type { DeleteSteamAccountResponse } from '../models/index.js';
 // @ts-ignore
 import type { FeedbackSubmission } from '../models/index.js';
 // @ts-ignore
+import type { IngestStatusResponse } from '../models/index.js';
+// @ts-ignore
 import type { ListSteamAccountsResponse } from '../models/index.js';
 // @ts-ignore
 import type { ReplaceSteamAccountRequest } from '../models/index.js';
@@ -149,6 +151,40 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(clickhouseSalts, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         * @summary Ingest Status
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestStatus: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('ingestStatus', 'accountId', accountId)
+            const localVarPath = `/v1/players/{account_id}/ingest-status`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Accept'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -359,6 +395,19 @@ export const InternalApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         * @summary Ingest Status
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ingestStatus(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IngestStatusResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ingestStatus(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.ingestStatus']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
          * @summary List Prioritized Steam Accounts
          * @param {*} [options] Override http request option.
@@ -450,6 +499,16 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+         * @summary Ingest Status
+         * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestStatus(requestParameters: InternalApiIngestStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<IngestStatusResponse> {
+            return localVarFp.ingestStatus(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
          * @summary List Prioritized Steam Accounts
          * @param {*} [options] Override http request option.
@@ -516,6 +575,16 @@ export interface InternalApiIngestSaltsRequest {
 }
 
 /**
+ * Request parameters for ingestStatus operation in InternalApi.
+ */
+export interface InternalApiIngestStatusRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number
+}
+
+/**
  * Request parameters for reactivateSteamAccount operation in InternalApi.
  */
 export interface InternalApiReactivateSteamAccountRequest {
@@ -579,6 +648,17 @@ export class InternalApi extends BaseAPI {
      */
     public ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig) {
         return InternalApiFp(this.configuration).ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+     * @summary Ingest Status
+     * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public ingestStatus(requestParameters: InternalApiIngestStatusRequest, options?: RawAxiosRequestConfig) {
+        return InternalApiFp(this.configuration).ingestStatus(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

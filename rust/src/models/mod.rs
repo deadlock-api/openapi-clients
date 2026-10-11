@@ -194,6 +194,8 @@ pub mod image_pair;
 pub use self::image_pair::ImagePair;
 pub mod ingest_live_url;
 pub use self::ingest_live_url::IngestLiveUrl;
+pub mod ingest_status_response;
+pub use self::ingest_status_response::IngestStatusResponse;
 pub mod item;
 pub use self::item::Item;
 pub mod item_draft_round;

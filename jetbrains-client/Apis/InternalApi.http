@@ -28,6 +28,11 @@ Content-Type: application/json
 }
 
 
+### Ingest Status
+## Ingest Status
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/ingest-status
+Accept: application/json
+
 ### List Prioritized Steam Accounts
 ## List Prioritized Steam Accounts
 GET https://api.deadlock-api.com/v1/patron/steam-accounts?api_key={{queryKey}}

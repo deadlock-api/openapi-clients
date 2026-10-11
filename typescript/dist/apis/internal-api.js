@@ -122,6 +122,36 @@ export const InternalApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+         * @summary Ingest Status
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestStatus: async (accountId, options = {}) => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('ingestStatus', 'accountId', accountId);
+            const localVarPath = `/v1/players/{account_id}/ingest-status`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
          * @summary List Prioritized Steam Accounts
          * @param {*} [options] Override http request option.
@@ -302,6 +332,19 @@ export const InternalApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+         * @summary Ingest Status
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async ingestStatus(accountId, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ingestStatus(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['InternalApi.ingestStatus']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
          * @summary List Prioritized Steam Accounts
          * @param {*} [options] Override http request option.
@@ -392,6 +435,16 @@ export const InternalApiFactory = function (configuration, basePath, axios) {
             return localVarFp.ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(axios, basePath));
         },
         /**
+         *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+         * @summary Ingest Status
+         * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        ingestStatus(requestParameters, options) {
+            return localVarFp.ingestStatus(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
          *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
          * @summary List Prioritized Steam Accounts
          * @param {*} [options] Override http request option.
@@ -465,6 +518,16 @@ export class InternalApi extends BaseAPI {
      */
     ingestSalts(requestParameters, options) {
         return InternalApiFp(this.configuration).ingestSalts(requestParameters.clickhouseSalts, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     * @summary Ingest Status
+     * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestStatus(requestParameters, options) {
+        return InternalApiFp(this.configuration).ingestStatus(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.

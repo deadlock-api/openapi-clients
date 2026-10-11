@@ -31,6 +31,7 @@ import deadlock_api_client.models.AddSteamAccountRequest
 import deadlock_api_client.models.ClickhouseSalts
 import deadlock_api_client.models.DeleteSteamAccountResponse
 import deadlock_api_client.models.FeedbackSubmission
+import deadlock_api_client.models.IngestStatusResponse
 import deadlock_api_client.models.ListSteamAccountsResponse
 import deadlock_api_client.models.ReplaceSteamAccountRequest
 import deadlock_api_client.models.SteamAccountResponse
@@ -61,6 +62,14 @@ class InternalApiTest : ShouldSpec() {
             // uncomment below to test ingestSalts
             //val clickhouseSalts : kotlin.collections.List<ClickhouseSalts> =  // kotlin.collections.List<ClickhouseSalts> | 
             //apiInstance.ingestSalts(clickhouseSalts)
+        }
+
+        // to test ingestStatus
+        should("test ingestStatus") {
+            // uncomment below to test ingestStatus
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : IngestStatusResponse = apiInstance.ingestStatus(accountId)
+            //result shouldBe ("TODO")
         }
 
         // to test listSteamAccounts

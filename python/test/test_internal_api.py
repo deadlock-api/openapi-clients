@@ -47,6 +47,13 @@ class TestInternalApi(unittest.TestCase):
         """
         pass
 
+    def test_ingest_status(self) -> None:
+        """Test case for ingest_status
+
+        Ingest Status
+        """
+        pass
+
     def test_list_steam_accounts(self) -> None:
         """Test case for list_steam_accounts
 

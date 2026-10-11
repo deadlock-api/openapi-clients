@@ -85,6 +85,18 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test IngestStatus
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task IngestStatusAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.IngestStatusAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.IngestStatusResponse>(model);
+        }
+
+        /// <summary>
         /// Test ListSteamAccounts
         /// </summary>
         [Fact (Skip = "not implemented")]

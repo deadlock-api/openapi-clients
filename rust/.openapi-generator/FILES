@@ -116,6 +116,7 @@ docs/HorizontalRecoil.md
 docs/ImagePair.md
 docs/InfoApi.md
 docs/IngestLiveUrl.md
+docs/IngestStatusResponse.md
 docs/InternalApi.md
 docs/Item.md
 docs/ItemDraftRound.md
@@ -409,6 +410,7 @@ src/models/hero_type.rs
 src/models/horizontal_recoil.rs
 src/models/image_pair.rs
 src/models/ingest_live_url.rs
+src/models/ingest_status_response.rs
 src/models/item.rs
 src/models/item_draft_round.rs
 src/models/item_draft_round_per_game_round.rs

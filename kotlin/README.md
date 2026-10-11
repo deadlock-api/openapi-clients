@@ -128,6 +128,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *InternalApi* | [**addSteamAccount**](docs/InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
 | *InternalApi* | [**deleteSteamAccount**](docs/InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| *InternalApi* | [**ingestStatus**](docs/InternalApi.md#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
 | *InternalApi* | [**listSteamAccounts**](docs/InternalApi.md#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts |
 | *InternalApi* | [**reactivateSteamAccount**](docs/InternalApi.md#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account |
 | *InternalApi* | [**replaceSteamAccount**](docs/InternalApi.md#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account |
@@ -296,6 +297,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.HorizontalRecoil](docs/HorizontalRecoil.md)
  - [deadlock_api_client.models.ImagePair](docs/ImagePair.md)
  - [deadlock_api_client.models.IngestLiveUrl](docs/IngestLiveUrl.md)
+ - [deadlock_api_client.models.IngestStatusResponse](docs/IngestStatusResponse.md)
  - [deadlock_api_client.models.Item](docs/Item.md)
  - [deadlock_api_client.models.ItemDraftRound](docs/ItemDraftRound.md)
  - [deadlock_api_client.models.ItemDraftRoundPerGameRound](docs/ItemDraftRoundPerGameRound.md)

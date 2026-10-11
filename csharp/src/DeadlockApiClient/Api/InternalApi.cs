@@ -108,6 +108,29 @@ namespace DeadlockApiClient.Api
         Task<IIngestSaltsApiResponse?> IngestSaltsOrDefaultAsync(List<ClickhouseSalts> clickhouseSalts, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
+        /// Ingest Status
+        /// </summary>
+        /// <remarks>
+        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
+        Task<IIngestStatusApiResponse> IngestStatusAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Ingest Status
+        /// </summary>
+        /// <remarks>
+        ///  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// </remarks>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>?&gt;</returns>
+        Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// List Prioritized Steam Accounts
         /// </summary>
         /// <remarks>
@@ -270,6 +293,36 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <returns></returns>
         bool IsTooManyRequests { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
+    }
+
+    /// <summary>
+    /// The <see cref="IIngestStatusApiResponse"/>
+    /// </summary>
+    public interface IIngestStatusApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.IngestStatusResponse?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 403 Forbidden
+        /// </summary>
+        /// <returns></returns>
+        bool IsForbidden { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -449,6 +502,26 @@ namespace DeadlockApiClient.Api
         internal void ExecuteOnErrorIngestSalts(Exception exception)
         {
             OnErrorIngestSalts?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnIngestStatus;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorIngestStatus;
+
+        internal void ExecuteOnIngestStatus(InternalApi.IngestStatusApiResponse apiResponse)
+        {
+            OnIngestStatus?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorIngestStatus(Exception exception)
+        {
+            OnErrorIngestStatus?.Invoke(this, new ExceptionEventArgs(exception));
         }
 
         /// <summary>
@@ -1361,6 +1434,264 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
+        partial void FormatIngestStatus(ref int accountId);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void AfterIngestStatusDefaultImplementation(IIngestStatusApiResponse apiResponseLocalVar, int accountId)
+        {
+            bool suppressDefaultLog = false;
+            AfterIngestStatus(ref suppressDefaultLog, apiResponseLocalVar, accountId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void AfterIngestStatus(ref bool suppressDefaultLog, IIngestStatusApiResponse apiResponseLocalVar, int accountId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        private void OnErrorIngestStatusDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorIngestStatus(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, accountId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="accountId"></param>
+        partial void OnErrorIngestStatus(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
+
+        /// <summary>
+        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// </summary>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
+        public async Task<IIngestStatusApiResponse?> IngestStatusOrDefaultAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await IngestStatusAsync(accountId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Ingest Status  Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IIngestStatusApiResponse"/>&gt;</returns>
+        public async Task<IIngestStatusApiResponse> IngestStatusAsync(int accountId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatIngestStatus(ref accountId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/players/{account_id}/ingest-status"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/players/{account_id}/ingest-status");
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7Baccount_id%7D", Uri.EscapeDataString(accountId.ToString()));
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        IngestStatusApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/players/{account_id}/ingest-status", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterIngestStatusDefaultImplementation(apiResponseLocalVar, accountId);
+
+                        Events.ExecuteOnIngestStatus(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorIngestStatusDefaultImplementation(e, "/v1/players/{account_id}/ingest-status", uriBuilderLocalVar.Path, accountId);
+                Events.ExecuteOnErrorIngestStatus(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="IngestStatusApiResponse"/>
+        /// </summary>
+        public partial class IngestStatusApiResponse : DeadlockApiClient.Client.ApiResponse, IIngestStatusApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<InternalApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="IngestStatusApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestStatusApiResponse(ILogger<InternalApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="IngestStatusApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public IngestStatusApiResponse(ILogger<InternalApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public DeadlockApiClient.Model.IngestStatusResponse? Ok()
+            {
+                bool suppressDefault = false;
+                DeadlockApiClient.Model.IngestStatusResponse? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private DeadlockApiClient.Model.IngestStatusResponse? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.IngestStatusResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.IngestStatusResponse? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.IngestStatusResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 403 Forbidden
+            /// </summary>
+            /// <returns></returns>
+            public bool IsForbidden => 403 == (int)StatusCode;
 
             /// <summary>
             /// Returns true if the response is 500 InternalServerError

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**add_steam_account**](InternalApi.md#add_steam_account) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
 [**delete_steam_account**](InternalApi.md#delete_steam_account) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 [**ingest_salts**](InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
+[**ingest_status**](InternalApi.md#ingest_status) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status
 [**list_steam_accounts**](InternalApi.md#list_steam_accounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts
 [**reactivate_steam_account**](InternalApi.md#reactivate_steam_account) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
 [**replace_steam_account**](InternalApi.md#replace_steam_account) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account
@@ -100,6 +101,36 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## ingest_status
+
+> models::IngestStatusResponse ingest_status(account_id)
+Ingest Status
+
+ Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**account_id** | **u32** | The players `SteamID3` | [required] |
+
+### Return type
+
+[**models::IngestStatusResponse**](IngestStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

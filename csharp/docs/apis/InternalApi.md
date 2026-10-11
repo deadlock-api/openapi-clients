@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**AddSteamAccount**](InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
 | [**DeleteSteamAccount**](InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**IngestSalts**](InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| [**IngestStatus**](InternalApi.md#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
 | [**ListSteamAccounts**](InternalApi.md#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts |
 | [**ReactivateSteamAccount**](InternalApi.md#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account |
 | [**ReplaceSteamAccount**](InternalApi.md#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account |
@@ -124,6 +125,45 @@ No authorization required
 | **400** | Provided parameters are invalid or the salt check failed. |  -  |
 | **429** | Rate limit exceeded |  -  |
 | **500** | Ingest failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="ingeststatus"></a>
+# **IngestStatus**
+> IngestStatusResponse IngestStatus (int accountId)
+
+Ingest Status
+
+ Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+
+### Return type
+
+[**IngestStatusResponse**](IngestStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid account ID |  -  |
+| **403** | User is protected |  -  |
+| **500** | Ingest status lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

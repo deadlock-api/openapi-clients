@@ -1,0 +1,1 @@
+{"version":3,"file":"ingest-status-response.d.ts","sourceRoot":"","sources":["../../models/ingest-status-response.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAIH,MAAM,WAAW,oBAAoB;IACjC,YAAY,EAAE,MAAM,CAAC;IACrB;;OAEG;IACH,QAAQ,EAAE,OAAO,CAAC;IAClB;;OAEG;IACH,gBAAgB,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IACjC;;OAEG;IACH,aAAa,EAAE,MAAM,CAAC;CACzB"}

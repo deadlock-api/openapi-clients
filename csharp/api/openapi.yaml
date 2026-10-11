@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -2453,7 +2453,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -2741,7 +2741,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -3106,7 +3106,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -3451,7 +3451,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -3820,7 +3820,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -4129,7 +4129,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -4416,7 +4416,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -4709,7 +4709,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -4978,7 +4978,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -5344,7 +5344,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -11079,7 +11079,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -11203,7 +11203,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -11525,7 +11525,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1788998400
+          default: 1789084800
           format: int64
           nullable: true
           type: integer
@@ -12072,6 +12072,42 @@ paths:
       summary: Enemy Stats
       tags:
       - Players
+  /v1/players/{account_id}/ingest-status:
+    get:
+      description: |2
+
+        Internal endpoint used by the website's player tracker gate.
+
+        Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for
+        this account within the last 14 days. Only uploads whose own salt was verified count.
+      operationId: ingest_status
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IngestStatusResponse"
+          description: OK
+        "400":
+          description: Invalid account ID
+        "403":
+          description: User is protected
+        "500":
+          description: Ingest status lookup failed
+      summary: Ingest Status
+      tags:
+      - Internal
   /v1/players/{account_id}/match-history:
     get:
       description: "\nThis endpoint returns the player match history for the given\
@@ -17216,6 +17252,37 @@ components:
       required:
       - broadcast_url
       - match_id
+    IngestStatusResponse:
+      example:
+        account_id: 0
+        active: true
+        last_upload_at: 0
+        window_days: 0
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        active:
+          description: Whether the ingest tool uploaded a salt for this account within
+            the window that was then verified.
+          type: boolean
+        last_upload_at:
+          description: Unix timestamp of the most recent verified upload within the
+            window.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        window_days:
+          description: "The window, in days, an upload must fall in to count."
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - account_id
+      - active
+      - window_days
     Item:
       oneOf:
       - $ref: "#/components/schemas/Ability"

@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
 *InternalApi* | [**addSteamAccount**](docs/Api/InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
 *InternalApi* | [**deleteSteamAccount**](docs/Api/InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalApi* | [**ingestSalts**](docs/Api/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
+*InternalApi* | [**ingestStatus**](docs/Api/InternalApi.md#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status
 *InternalApi* | [**listSteamAccounts**](docs/Api/InternalApi.md#liststeamaccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts
 *InternalApi* | [**reactivateSteamAccount**](docs/Api/InternalApi.md#reactivatesteamaccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
 *InternalApi* | [**replaceSteamAccount**](docs/Api/InternalApi.md#replacesteamaccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account
@@ -322,6 +323,7 @@ Class | Method | HTTP request | Description
 - [HorizontalRecoil](docs/Model/HorizontalRecoil.md)
 - [ImagePair](docs/Model/ImagePair.md)
 - [IngestLiveUrl](docs/Model/IngestLiveUrl.md)
+- [IngestStatusResponse](docs/Model/IngestStatusResponse.md)
 - [Item](docs/Model/Item.md)
 - [ItemDraftRound](docs/Model/ItemDraftRound.md)
 - [ItemDraftRoundPerGameRound](docs/Model/ItemDraftRoundPerGameRound.md)

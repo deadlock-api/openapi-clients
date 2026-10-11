@@ -96,6 +96,7 @@ export * from './HeroType';
 export * from './HorizontalRecoil';
 export * from './ImagePair';
 export * from './IngestLiveUrl';
+export * from './IngestStatusResponse';
 export * from './Item';
 export * from './ItemDraftRound';
 export * from './ItemDraftRoundPerGameRound';

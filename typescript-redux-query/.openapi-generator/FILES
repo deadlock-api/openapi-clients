@@ -135,6 +135,7 @@ src/models/HeroType.ts
 src/models/HorizontalRecoil.ts
 src/models/ImagePair.ts
 src/models/IngestLiveUrl.ts
+src/models/IngestStatusResponse.ts
 src/models/Item.ts
 src/models/ItemDraftRound.ts
 src/models/ItemDraftRoundPerGameRound.ts

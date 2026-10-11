@@ -33,6 +33,13 @@ pub struct IngestSaltsParams {
     pub clickhouse_salts: Vec<models::ClickhouseSalts>
 }
 
+/// struct for passing parameters to the method [`ingest_status`]
+#[derive(Clone, Debug)]
+pub struct IngestStatusParams {
+    /// The players `SteamID3`
+    pub account_id: u32
+}
+
 /// struct for passing parameters to the method [`reactivate_steam_account`]
 #[derive(Clone, Debug)]
 pub struct ReactivateSteamAccountParams {
@@ -79,6 +86,16 @@ pub enum DeleteSteamAccountError {
 pub enum IngestSaltsError {
     Status400(),
     Status429(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`ingest_status`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum IngestStatusError {
+    Status400(),
+    Status403(),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -246,6 +263,41 @@ pub async fn ingest_salts(configuration: &configuration::Configuration, params: 
     } else {
         let content = resp.text().await?;
         let entity: Option<IngestSaltsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+pub async fn ingest_status(configuration: &configuration::Configuration, params: IngestStatusParams) -> Result<models::IngestStatusResponse, Error<IngestStatusError>> {
+
+    let uri_str = format!("{}/v1/players/{account_id}/ingest-status", configuration.base_path, account_id=params.account_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::IngestStatusResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::IngestStatusResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<IngestStatusError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

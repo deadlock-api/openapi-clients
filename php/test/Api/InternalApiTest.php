@@ -108,6 +108,18 @@ class InternalApiTest extends TestCase
     }
 
     /**
+     * Test case for ingestStatus
+     *
+     * Ingest Status.
+     *
+     */
+    public function testIngestStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for listSteamAccounts
      *
      * List Prioritized Steam Accounts.

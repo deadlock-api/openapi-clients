@@ -9,6 +9,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**addSteamAccount()**](InternalApi.md#addSteamAccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
 | [**deleteSteamAccount()**](InternalApi.md#deleteSteamAccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**ingestSalts()**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| [**ingestStatus()**](InternalApi.md#ingestStatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
 | [**listSteamAccounts()**](InternalApi.md#listSteamAccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts |
 | [**reactivateSteamAccount()**](InternalApi.md#reactivateSteamAccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account |
 | [**replaceSteamAccount()**](InternalApi.md#replaceSteamAccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account |
@@ -199,6 +200,62 @@ No authorization required
 
 - **Content-Type**: `application/json`
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `ingestStatus()`
+
+```php
+ingestStatus($account_id): \OpenAPI\Client\Model\IngestStatusResponse
+```
+
+Ingest Status
+
+Internal endpoint used by the website's player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\InternalApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->ingestStatus($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InternalApi->ingestStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\IngestStatusResponse**](../Model/IngestStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

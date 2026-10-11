@@ -27,6 +27,9 @@ import {
     FeedbackSubmission,
     FeedbackSubmissionFromJSON,
     FeedbackSubmissionToJSON,
+    IngestStatusResponse,
+    IngestStatusResponseFromJSON,
+    IngestStatusResponseToJSON,
     ListSteamAccountsResponse,
     ListSteamAccountsResponseFromJSON,
     ListSteamAccountsResponseToJSON,
@@ -48,6 +51,10 @@ export interface DeleteSteamAccountRequest {
 
 export interface IngestSaltsRequest {
     clickhouseSalts: Array<ClickhouseSalts>;
+}
+
+export interface IngestStatusRequest {
+    accountId: number;
 }
 
 export interface ReactivateSteamAccountRequest {
@@ -213,6 +220,54 @@ function ingestSaltsRaw<T>(requestParameters: IngestSaltsRequest, requestConfig:
 */
 export function ingestSalts<T>(requestParameters: IngestSaltsRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
     return ingestSaltsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+ * Ingest Status
+ */
+function ingestStatusRaw<T>(requestParameters: IngestStatusRequest, requestConfig: runtime.TypedQueryConfig<T, IngestStatusResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling ingestStatus.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/ingest-status`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(IngestStatusResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+* Ingest Status
+*/
+export function ingestStatus<T>(requestParameters: IngestStatusRequest, requestConfig?: runtime.TypedQueryConfig<T, IngestStatusResponse>): QueryConfig<T> {
+    return ingestStatusRaw(requestParameters, requestConfig);
 }
 
 /**

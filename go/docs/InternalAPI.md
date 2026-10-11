@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**AddSteamAccount**](InternalAPI.md#AddSteamAccount) | **Post** /v1/patron/steam-accounts | Add Prioritized Steam Account
 [**DeleteSteamAccount**](InternalAPI.md#DeleteSteamAccount) | **Delete** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 [**IngestSalts**](InternalAPI.md#IngestSalts) | **Post** /v1/matches/salts | Match Salts Ingest
+[**IngestStatus**](InternalAPI.md#IngestStatus) | **Get** /v1/players/{account_id}/ingest-status | Ingest Status
 [**ListSteamAccounts**](InternalAPI.md#ListSteamAccounts) | **Get** /v1/patron/steam-accounts | List Prioritized Steam Accounts
 [**ReactivateSteamAccount**](InternalAPI.md#ReactivateSteamAccount) | **Post** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account
 [**ReplaceSteamAccount**](InternalAPI.md#ReplaceSteamAccount) | **Put** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account
@@ -208,6 +209,76 @@ No authorization required
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IngestStatus
+
+> IngestStatusResponse IngestStatus(ctx, accountId).Execute()
+
+Ingest Status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InternalAPI.IngestStatus(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.IngestStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IngestStatus`: IngestStatusResponse
+	fmt.Fprintf(os.Stdout, "Response from `InternalAPI.IngestStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIngestStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**IngestStatusResponse**](IngestStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

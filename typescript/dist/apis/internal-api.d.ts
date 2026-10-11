@@ -16,6 +16,7 @@ import type { AddSteamAccountRequest } from '../models/index.js';
 import type { ClickhouseSalts } from '../models/index.js';
 import type { DeleteSteamAccountResponse } from '../models/index.js';
 import type { FeedbackSubmission } from '../models/index.js';
+import type { IngestStatusResponse } from '../models/index.js';
 import type { ListSteamAccountsResponse } from '../models/index.js';
 import type { ReplaceSteamAccountRequest } from '../models/index.js';
 import type { SteamAccountResponse } from '../models/index.js';
@@ -47,6 +48,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     ingestSalts: (clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     * @summary Ingest Status
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestStatus: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary List Prioritized Steam Accounts
@@ -109,6 +118,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     ingestSalts(clickhouseSalts: Array<ClickhouseSalts>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     * @summary Ingest Status
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestStatus(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IngestStatusResponse>>;
+    /**
      *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary List Prioritized Steam Accounts
      * @param {*} [options] Override http request option.
@@ -170,6 +187,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
     /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     * @summary Ingest Status
+     * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestStatus(requestParameters: InternalApiIngestStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<IngestStatusResponse>;
+    /**
      *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary List Prioritized Steam Accounts
      * @param {*} [options] Override http request option.
@@ -221,6 +246,15 @@ export interface InternalApiDeleteSteamAccountRequest {
  */
 export interface InternalApiIngestSaltsRequest {
     readonly clickhouseSalts: Array<ClickhouseSalts>;
+}
+/**
+ * Request parameters for ingestStatus operation in InternalApi.
+ */
+export interface InternalApiIngestStatusRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number;
 }
 /**
  * Request parameters for reactivateSteamAccount operation in InternalApi.
@@ -275,6 +309,14 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      */
     ingestSalts(requestParameters: InternalApiIngestSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
+    /**
+     *  Internal endpoint used by the website\'s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count.
+     * @summary Ingest Status
+     * @param {InternalApiIngestStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    ingestStatus(requestParameters: InternalApiIngestStatusRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<IngestStatusResponse, any, {}, any>>;
     /**
      *  Lists the patron\'s prioritized Steam accounts, including removed ones still in their 24 hour cooldown, and a summary of slot usage.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary List Prioritized Steam Accounts

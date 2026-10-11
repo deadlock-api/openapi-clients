@@ -111,6 +111,7 @@ from deadlock_api_client.models.hero_type import HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil
 from deadlock_api_client.models.image_pair import ImagePair
 from deadlock_api_client.models.ingest_live_url import IngestLiveUrl
+from deadlock_api_client.models.ingest_status_response import IngestStatusResponse
 from deadlock_api_client.models.item import Item
 from deadlock_api_client.models.item_draft_round import ItemDraftRound
 from deadlock_api_client.models.item_draft_round_per_game_round import ItemDraftRoundPerGameRound

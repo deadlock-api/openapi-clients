@@ -7,6 +7,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**addSteamAccount**](InternalApi.md#addSteamAccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
 | [**deleteSteamAccount**](InternalApi.md#deleteSteamAccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**ingestSalts**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest |
+| [**ingestStatus**](InternalApi.md#ingestStatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
 | [**listSteamAccounts**](InternalApi.md#listSteamAccounts) | **GET** /v1/patron/steam-accounts | List Prioritized Steam Accounts |
 | [**reactivateSteamAccount**](InternalApi.md#reactivateSteamAccount) | **POST** /v1/patron/steam-accounts/{account_id}/reactivate | Reactivate Prioritized Steam Account |
 | [**replaceSteamAccount**](InternalApi.md#replaceSteamAccount) | **PUT** /v1/patron/steam-accounts/{account_id} | Replace Prioritized Steam Account |
@@ -161,6 +162,52 @@ No authorization required
 
  - **Content-Type**: application/json
  - **Accept**: Not defined
+
+<a id="ingestStatus"></a>
+# **ingestStatus**
+> IngestStatusResponse ingestStatus(accountId)
+
+Ingest Status
+
+ Internal endpoint used by the website&#39;s player tracker gate.  Returns whether the [ingest tool](https://deadlock-api.com/ingest-cache) uploaded match salts for this account within the last 14 days. Only uploads whose own salt was verified count. 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = InternalApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+try {
+    val result : IngestStatusResponse = apiInstance.ingestStatus(accountId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InternalApi#ingestStatus")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InternalApi#ingestStatus")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**IngestStatusResponse**](IngestStatusResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a id="listSteamAccounts"></a>
 # **listSteamAccounts**
