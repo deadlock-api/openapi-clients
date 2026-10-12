@@ -204,6 +204,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for heroSwapStats
+     *
+     * Hero Swap Stats.
+     *
+     */
+    public function testHeroSwapStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for heroSynergiesStats
      *
      * Hero Synergy Stats.

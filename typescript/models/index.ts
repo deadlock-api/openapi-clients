@@ -91,6 +91,7 @@ export * from './hero-popular-items.js';
 export * from './hero-stats.js';
 export * from './hero-stats-ui.js';
 export * from './hero-stats-uidisplay.js';
+export * from './hero-swap-stats.js';
 export * from './hero-synergy-stats.js';
 export * from './hero-type.js';
 export * from './horizontal-recoil.js';

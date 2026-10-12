@@ -136,6 +136,7 @@ deadlock_api_client/models/hero_popular_items.py
 deadlock_api_client/models/hero_stats.py
 deadlock_api_client/models/hero_stats_ui.py
 deadlock_api_client/models/hero_stats_ui_display.py
+deadlock_api_client/models/hero_swap_stats.py
 deadlock_api_client/models/hero_synergy_stats.py
 deadlock_api_client/models/hero_type.py
 deadlock_api_client/models/horizontal_recoil.py
@@ -394,6 +395,7 @@ docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
+docs/HeroSwapStats.md
 docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesApi.md
@@ -676,6 +678,7 @@ test/test_hero_popular_items.py
 test/test_hero_stats.py
 test/test_hero_stats_ui.py
 test/test_hero_stats_ui_display.py
+test/test_hero_swap_stats.py
 test/test_hero_synergy_stats.py
 test/test_hero_type.py
 test/test_heroes_api.py

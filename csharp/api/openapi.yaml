@@ -201,7 +201,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -505,7 +505,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -659,7 +659,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -843,7 +843,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -931,7 +931,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -1342,7 +1342,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -1575,7 +1575,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -1872,7 +1872,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -2141,7 +2141,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -2406,6 +2406,160 @@ paths:
       summary: Hero Stats
       tags:
       - Analytics
+  /v1/analytics/hero-swap-stats:
+    get:
+      description: "\nRetrieves hero swap statistics for each hero based on historical\
+        \ match data from demo analysis.\n\nA player swapped when the hero they had\
+        \ locked before the pre-game swap window (`pregame_hero_id`) differs from\
+        \ the hero they played. Only players whose pre-game hero was extracted from\
+        \ the demo are counted, so all fields share the same sample:\n\n- **Swap-in\
+        \ rate:** `swapped_in / matches`, the share of this hero's players who swapped\
+        \ to it.\n- **Swap-in win rate:** `swapped_in_wins / swapped_in`.\n- **Swap-away\
+        \ rate:** `swapped_away / pregame_picks`, the share of players who had this\
+        \ hero locked and swapped away from it.\n\nResults are cached for **6 hours**\
+        \ based on the combination of query parameters provided.\n\n### Rate Limits:\n\
+        > The rate limits below are **shared across all analytics endpoints**.\n\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
+      operationId: hero_swap_stats
+      parameters:
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Bucket allows you to group the stats by a specific field.
+        explode: true
+        in: query
+        name: bucket
+        required: false
+        schema:
+          enum:
+          - no_bucket
+          - avg_badge
+          - start_time_hour
+          - start_time_day
+          - start_time_week
+          - start_time_month
+          type: string
+        style: form
+      - description: "Filter matches based on their start time (Unix timestamp). **Default:**\
+          \ 30 days ago. **Minimum:** March 1, 2026."
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1789171200
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/HeroSwapStats"
+                type: array
+                default: null
+          description: Hero Swap Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch hero swap stats
+      summary: Hero Swap Stats
+      tags:
+      - Analytics
   /v1/analytics/hero-synergy-stats:
     get:
       description: "\nRetrieves hero pair synergy statistics based on historical match\
@@ -2453,7 +2607,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -2743,7 +2897,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -3108,7 +3262,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -3453,7 +3607,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -3822,7 +3976,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -4131,7 +4285,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -4418,7 +4572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -4711,7 +4865,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -4980,7 +5134,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -5346,7 +5500,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -11081,7 +11235,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -11205,7 +11359,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -11527,7 +11681,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789084800
+          default: 1789171200
           format: int64
           nullable: true
           type: integer
@@ -17064,6 +17218,63 @@ components:
       required:
       - category
       - stat_type
+    HeroSwapStats:
+      example:
+        bucket: 0
+        hero_id: 0
+        matches: 0
+        pregame_picks: 0
+        swapped_away: 0
+        swapped_in: 0
+        swapped_in_wins: 0
+      properties:
+        bucket:
+          description: The bucket value (depends on the bucket query parameter).
+          format: int32
+          minimum: 0
+          type: integer
+        hero_id:
+          description: "The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+          format: int32
+          minimum: 0
+          type: integer
+        matches:
+          description: "The number of players who played this hero, counting only\
+            \ players whose pre-game hero is known."
+          format: int64
+          minimum: 0
+          type: integer
+        pregame_picks:
+          description: The number of players who had this hero locked before the pre-game
+            swap window.
+          format: int64
+          minimum: 0
+          type: integer
+        swapped_away:
+          description: The number of `pregame_picks` players who swapped away from
+            this hero.
+          format: int64
+          minimum: 0
+          type: integer
+        swapped_in:
+          description: The number of players who played this hero after swapping to
+            it from another pre-game hero.
+          format: int64
+          minimum: 0
+          type: integer
+        swapped_in_wins:
+          description: The number of `swapped_in` players who won the match.
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - bucket
+      - hero_id
+      - matches
+      - pregame_picks
+      - swapped_away
+      - swapped_in
+      - swapped_in_wins
     HeroSynergyStats:
       example:
         assists1: 0

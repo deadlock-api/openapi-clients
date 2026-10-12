@@ -106,6 +106,7 @@ from deadlock_api_client.models.hero_popular_items import HeroPopularItems
 from deadlock_api_client.models.hero_stats import HeroStats
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI
 from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay
+from deadlock_api_client.models.hero_swap_stats import HeroSwapStats
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats
 from deadlock_api_client.models.hero_type import HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil

@@ -51,6 +51,9 @@ import {
     HeroEntry,
     HeroEntryFromJSON,
     HeroEntryToJSON,
+    HeroSwapStats,
+    HeroSwapStatsFromJSON,
+    HeroSwapStatsToJSON,
     HeroSynergyStats,
     HeroSynergyStatsFromJSON,
     HeroSynergyStatsToJSON,
@@ -286,6 +289,19 @@ export interface HeroStatsRequest {
     abilityUnlockOrderPrefix?: Array<number>;
     accountId?: number;
     accountIds?: Array<number>;
+}
+
+export interface HeroSwapStatsRequest {
+    matchMode?: string;
+    bucket?: HeroSwapStatsBucketEnum;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
 }
 
 export interface HeroSynergiesStatsRequest {
@@ -1912,6 +1928,101 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
 */
 export function heroStats<T>(requestParameters: HeroStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsHeroStats>>): QueryConfig<T> {
     return heroStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ * Hero Swap Stats
+ */
+function heroSwapStatsRaw<T>(requestParameters: HeroSwapStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroSwapStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.bucket !== undefined) {
+        queryParameters['bucket'] = requestParameters.bucket;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/hero-swap-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(HeroSwapStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+* Hero Swap Stats
+*/
+export function heroSwapStats<T>(requestParameters: HeroSwapStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroSwapStats>>): QueryConfig<T> {
+    return heroSwapStatsRaw(requestParameters, requestConfig);
 }
 
 /**
@@ -3654,6 +3765,18 @@ export enum HeroStatsGameModeEnum {
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
     Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HeroSwapStatsBucketEnum {
+    NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
+    StartTimeHour = 'start_time_hour',
+    StartTimeDay = 'start_time_day',
+    StartTimeWeek = 'start_time_week',
+    StartTimeMonth = 'start_time_month'
 }
 /**
     * @export

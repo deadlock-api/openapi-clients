@@ -91,6 +91,7 @@ export * from './HeroPopularItems';
 export * from './HeroStats';
 export * from './HeroStatsUI';
 export * from './HeroStatsUIDisplay';
+export * from './HeroSwapStats';
 export * from './HeroSynergyStats';
 export * from './HeroType';
 export * from './HorizontalRecoil';

@@ -28,6 +28,7 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**heroCountersStats**](Apis/AnalyticsApi.http#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**heroScoreboard**](Apis/AnalyticsApi.http#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard
 *AnalyticsApi* | [**heroStats**](Apis/AnalyticsApi.http#herostats) | **GET** /v1/analytics/hero-stats | Hero Stats
+*AnalyticsApi* | [**heroSwapStats**](Apis/AnalyticsApi.http#heroswapstats) | **GET** /v1/analytics/hero-swap-stats | Hero Swap Stats
 *AnalyticsApi* | [**heroSynergiesStats**](Apis/AnalyticsApi.http#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsApi* | [**itemFlowStats**](Apis/AnalyticsApi.http#itemflowstats) | **GET** /v1/analytics/item-flow-stats | Item Flow Stats
 *AnalyticsApi* | [**itemPermutationStats**](Apis/AnalyticsApi.http#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats

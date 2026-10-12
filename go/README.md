@@ -103,6 +103,7 @@ Class | Method | HTTP request | Description
 *AnalyticsAPI* | [**HeroCountersStats**](docs/AnalyticsAPI.md#herocountersstats) | **Get** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsAPI* | [**HeroScoreboard**](docs/AnalyticsAPI.md#heroscoreboard) | **Get** /v1/analytics/scoreboards/heroes | Hero Scoreboard
 *AnalyticsAPI* | [**HeroStats**](docs/AnalyticsAPI.md#herostats) | **Get** /v1/analytics/hero-stats | Hero Stats
+*AnalyticsAPI* | [**HeroSwapStats**](docs/AnalyticsAPI.md#heroswapstats) | **Get** /v1/analytics/hero-swap-stats | Hero Swap Stats
 *AnalyticsAPI* | [**HeroSynergiesStats**](docs/AnalyticsAPI.md#herosynergiesstats) | **Get** /v1/analytics/hero-synergy-stats | Hero Synergy Stats
 *AnalyticsAPI* | [**ItemFlowStats**](docs/AnalyticsAPI.md#itemflowstats) | **Get** /v1/analytics/item-flow-stats | Item Flow Stats
 *AnalyticsAPI* | [**ItemPermutationStats**](docs/AnalyticsAPI.md#itempermutationstats) | **Get** /v1/analytics/item-permutation-stats | Item Permutation Stats
@@ -317,6 +318,7 @@ Class | Method | HTTP request | Description
  - [HeroStats](docs/HeroStats.md)
  - [HeroStatsUI](docs/HeroStatsUI.md)
  - [HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
+ - [HeroSwapStats](docs/HeroSwapStats.md)
  - [HeroSynergyStats](docs/HeroSynergyStats.md)
  - [HeroType](docs/HeroType.md)
  - [HorizontalRecoil](docs/HorizontalRecoil.md)

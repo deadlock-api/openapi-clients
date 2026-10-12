@@ -129,6 +129,7 @@ docs/models/HeroPopularItems.md
 docs/models/HeroStats.md
 docs/models/HeroStatsUI.md
 docs/models/HeroStatsUIDisplay.md
+docs/models/HeroSwapStats.md
 docs/models/HeroSynergyStats.md
 docs/models/HeroType.md
 docs/models/HorizontalRecoil.md
@@ -408,6 +409,7 @@ src/DeadlockApiClient.Test/Model/HeroPopularItemsTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsUIDisplayTests.cs
 src/DeadlockApiClient.Test/Model/HeroStatsUITests.cs
+src/DeadlockApiClient.Test/Model/HeroSwapStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroSynergyStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroTests.cs
 src/DeadlockApiClient.Test/Model/HeroTypeTests.cs
@@ -712,6 +714,7 @@ src/DeadlockApiClient/Model/HeroPopularItems.cs
 src/DeadlockApiClient/Model/HeroStats.cs
 src/DeadlockApiClient/Model/HeroStatsUI.cs
 src/DeadlockApiClient/Model/HeroStatsUIDisplay.cs
+src/DeadlockApiClient/Model/HeroSwapStats.cs
 src/DeadlockApiClient/Model/HeroSynergyStats.cs
 src/DeadlockApiClient/Model/HeroType.cs
 src/DeadlockApiClient/Model/HorizontalRecoil.cs

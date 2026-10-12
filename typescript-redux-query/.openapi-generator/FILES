@@ -130,6 +130,7 @@ src/models/HeroPopularItems.ts
 src/models/HeroStats.ts
 src/models/HeroStatsUI.ts
 src/models/HeroStatsUIDisplay.ts
+src/models/HeroSwapStats.ts
 src/models/HeroSynergyStats.ts
 src/models/HeroType.ts
 src/models/HorizontalRecoil.ts

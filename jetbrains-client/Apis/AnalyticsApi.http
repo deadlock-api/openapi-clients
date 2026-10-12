@@ -55,6 +55,11 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/hero-stats?bucket={{bucket}}&gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&minHeroMatches={{minHeroMatches}}&maxHeroMatches={{maxHeroMatches}}&minHeroMatchesTotal={{minHeroMatchesTotal}}&maxHeroMatchesTotal={{maxHeroMatchesTotal}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}&accountId={{accountId}}&accountIds={{accountIds}}
 Accept: application/json
 
+### Hero Swap Stats
+## Hero Swap Stats
+GET https://api.deadlock-api.com/v1/analytics/hero-swap-stats?matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
+Accept: application/json
+
 ### Hero Synergy Stats
 ## Hero Synergy Stats
 GET https://api.deadlock-api.com/v1/analytics/hero-synergy-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}

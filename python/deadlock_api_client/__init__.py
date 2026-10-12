@@ -152,6 +152,7 @@ __all__ = [
     "HeroStats",
     "HeroStatsUI",
     "HeroStatsUIDisplay",
+    "HeroSwapStats",
     "HeroSynergyStats",
     "HeroType",
     "HorizontalRecoil",
@@ -443,6 +444,7 @@ from deadlock_api_client.models.hero_popular_items import HeroPopularItems as He
 from deadlock_api_client.models.hero_stats import HeroStats as HeroStats
 from deadlock_api_client.models.hero_stats_ui import HeroStatsUI as HeroStatsUI
 from deadlock_api_client.models.hero_stats_ui_display import HeroStatsUIDisplay as HeroStatsUIDisplay
+from deadlock_api_client.models.hero_swap_stats import HeroSwapStats as HeroSwapStats
 from deadlock_api_client.models.hero_synergy_stats import HeroSynergyStats as HeroSynergyStats
 from deadlock_api_client.models.hero_type import HeroType as HeroType
 from deadlock_api_client.models.horizontal_recoil import HorizontalRecoil as HorizontalRecoil

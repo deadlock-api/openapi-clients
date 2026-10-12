@@ -77,6 +77,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |
 | *AnalyticsApi* | [**heroStats**](docs/AnalyticsApi.md#herostats) | **GET** /v1/analytics/hero-stats | Hero Stats |
+| *AnalyticsApi* | [**heroSwapStats**](docs/AnalyticsApi.md#heroswapstats) | **GET** /v1/analytics/hero-swap-stats | Hero Swap Stats |
 | *AnalyticsApi* | [**heroSynergiesStats**](docs/AnalyticsApi.md#herosynergiesstats) | **GET** /v1/analytics/hero-synergy-stats | Hero Synergy Stats |
 | *AnalyticsApi* | [**itemFlowStats**](docs/AnalyticsApi.md#itemflowstats) | **GET** /v1/analytics/item-flow-stats | Item Flow Stats |
 | *AnalyticsApi* | [**itemPermutationStats**](docs/AnalyticsApi.md#itempermutationstats) | **GET** /v1/analytics/item-permutation-stats | Item Permutation Stats |
@@ -292,6 +293,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.HeroStats](docs/HeroStats.md)
  - [deadlock_api_client.models.HeroStatsUI](docs/HeroStatsUI.md)
  - [deadlock_api_client.models.HeroStatsUIDisplay](docs/HeroStatsUIDisplay.md)
+ - [deadlock_api_client.models.HeroSwapStats](docs/HeroSwapStats.md)
  - [deadlock_api_client.models.HeroSynergyStats](docs/HeroSynergyStats.md)
  - [deadlock_api_client.models.HeroType](docs/HeroType.md)
  - [deadlock_api_client.models.HorizontalRecoil](docs/HorizontalRecoil.md)

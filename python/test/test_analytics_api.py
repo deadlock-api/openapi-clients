@@ -103,6 +103,13 @@ class TestAnalyticsApi(unittest.TestCase):
         """
         pass
 
+    def test_hero_swap_stats(self) -> None:
+        """Test case for hero_swap_stats
+
+        Hero Swap Stats
+        """
+        pass
+
     def test_hero_synergies_stats(self) -> None:
         """Test case for hero_synergies_stats
 

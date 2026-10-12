@@ -143,6 +143,7 @@ docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
+docs/HeroSwapStats.md
 docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesAPI.md
@@ -408,6 +409,7 @@ model_hero_popular_items.go
 model_hero_stats.go
 model_hero_stats_ui.go
 model_hero_stats_ui_display.go
+model_hero_swap_stats.go
 model_hero_synergy_stats.go
 model_hero_type.go
 model_horizontal_recoil.go

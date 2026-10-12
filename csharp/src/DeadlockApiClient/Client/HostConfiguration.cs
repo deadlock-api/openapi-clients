@@ -146,6 +146,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HeroStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroStatsUIJsonConverter());
             _jsonOptions.Converters.Add(new HeroStatsUIDisplayJsonConverter());
+            _jsonOptions.Converters.Add(new HeroSwapStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroSynergyStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroTypeJsonConverter());
             _jsonOptions.Converters.Add(new HeroTypeNullableJsonConverter());

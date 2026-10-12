@@ -144,6 +144,7 @@ docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
+docs/HeroSwapStats.md
 docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesApi.md
@@ -407,6 +408,7 @@ models/hero-popular-items.ts
 models/hero-stats-ui.ts
 models/hero-stats-uidisplay.ts
 models/hero-stats.ts
+models/hero-swap-stats.ts
 models/hero-synergy-stats.ts
 models/hero-type.ts
 models/hero.ts

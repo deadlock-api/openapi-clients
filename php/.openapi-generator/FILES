@@ -132,6 +132,7 @@ api/Model/HeroPopularItems.php
 api/Model/HeroStats.php
 api/Model/HeroStatsUI.php
 api/Model/HeroStatsUIDisplay.php
+api/Model/HeroSwapStats.php
 api/Model/HeroSynergyStats.php
 api/Model/HeroType.php
 api/Model/HorizontalRecoil.php
@@ -410,6 +411,7 @@ docs/Model/HeroPopularItems.md
 docs/Model/HeroStats.md
 docs/Model/HeroStatsUI.md
 docs/Model/HeroStatsUIDisplay.md
+docs/Model/HeroSwapStats.md
 docs/Model/HeroSynergyStats.md
 docs/Model/HeroType.md
 docs/Model/HorizontalRecoil.md
@@ -686,6 +688,7 @@ test/Model/HeroPopularItemsTest.php
 test/Model/HeroStatsTest.php
 test/Model/HeroStatsUIDisplayTest.php
 test/Model/HeroStatsUITest.php
+test/Model/HeroSwapStatsTest.php
 test/Model/HeroSynergyStatsTest.php
 test/Model/HeroTest.php
 test/Model/HeroTypeTest.php

@@ -184,6 +184,8 @@ pub mod hero_stats_ui;
 pub use self::hero_stats_ui::HeroStatsUi;
 pub mod hero_stats_ui_display;
 pub use self::hero_stats_ui_display::HeroStatsUiDisplay;
+pub mod hero_swap_stats;
+pub use self::hero_swap_stats::HeroSwapStats;
 pub mod hero_synergy_stats;
 pub use self::hero_synergy_stats::HeroSynergyStats;
 pub mod hero_type;

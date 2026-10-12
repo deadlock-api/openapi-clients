@@ -107,6 +107,7 @@ docs/HeroPopularItems.md
 docs/HeroStats.md
 docs/HeroStatsUI.md
 docs/HeroStatsUIDisplay.md
+docs/HeroSwapStats.md
 docs/HeroSynergyStats.md
 docs/HeroType.md
 docs/HeroesApi.md
@@ -419,6 +420,7 @@ src/main/kotlin/deadlock_api_client/models/HeroPopularItems.kt
 src/main/kotlin/deadlock_api_client/models/HeroStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroStatsUI.kt
 src/main/kotlin/deadlock_api_client/models/HeroStatsUIDisplay.kt
+src/main/kotlin/deadlock_api_client/models/HeroSwapStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroSynergyStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroType.kt
 src/main/kotlin/deadlock_api_client/models/HorizontalRecoil.kt
@@ -693,6 +695,7 @@ src/test/kotlin/deadlock_api_client/models/HeroPopularItemsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsUIDisplayTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroStatsUITest.kt
+src/test/kotlin/deadlock_api_client/models/HeroSwapStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroSynergyStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroTypeTest.kt

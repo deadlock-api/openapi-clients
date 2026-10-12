@@ -347,6 +347,27 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test HeroSwapStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task HeroSwapStatsAsyncTest()
+        {
+            Client.Option<string?> matchMode = default!;
+            Client.Option<string> bucket = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            var response = await _instance.HeroSwapStatsAsync(matchMode, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId);
+            var model = response.Ok();
+            Assert.IsType<List<HeroSwapStats>>(model);
+        }
+
+        /// <summary>
         /// Test HeroSynergiesStats
         /// </summary>
         [Fact (Skip = "not implemented")]
