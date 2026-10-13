@@ -48,6 +48,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/Convar.md
+docs/ConvarType.md
+docs/ConvarsApi.md
 docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
@@ -289,6 +292,7 @@ src/apis/client_versions_api.rs
 src/apis/colors_api.rs
 src/apis/commands_api.rs
 src/apis/configuration.rs
+src/apis/convars_api.rs
 src/apis/crosshair_api.rs
 src/apis/custom_matches_api.rs
 src/apis/demo_api.rs
@@ -352,6 +356,8 @@ src/models/clickhouse_salts.rs
 src/models/color.rs
 src/models/color_gradient_stop.rs
 src/models/column_schema.rs
+src/models/convar.rs
+src/models/convar_type.rs
 src/models/corrupted_item_images.rs
 src/models/corrupted_item_info.rs
 src/models/corrupted_penalty.rs

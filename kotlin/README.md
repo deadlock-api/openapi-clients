@@ -105,6 +105,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *CommandsApi* | [**commandResolve**](docs/CommandsApi.md#commandresolve) | **GET** /v1/commands/resolve | Resolve Command |
 | *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables |
 | *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions |
+| *ConvarsApi* | [**getConvar**](docs/ConvarsApi.md#getconvar) | **GET** /v1/assets/convars/{name} | Get Convar |
+| *ConvarsApi* | [**listConvars**](docs/ConvarsApi.md#listconvars) | **GET** /v1/assets/convars | List Convars |
 | *CrosshairApi* | [**codeImage**](docs/CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image |
 | *CrosshairApi* | [**codeSettings**](docs/CrosshairApi.md#codesettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings |
 | *CrosshairApi* | [**settingsCode**](docs/CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code |
@@ -237,6 +239,8 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Color](docs/Color.md)
  - [deadlock_api_client.models.ColorGradientStop](docs/ColorGradientStop.md)
  - [deadlock_api_client.models.ColumnSchema](docs/ColumnSchema.md)
+ - [deadlock_api_client.models.Convar](docs/Convar.md)
+ - [deadlock_api_client.models.ConvarType](docs/ConvarType.md)
  - [deadlock_api_client.models.CorruptedItemImages](docs/CorruptedItemImages.md)
  - [deadlock_api_client.models.CorruptedItemInfo](docs/CorruptedItemInfo.md)
  - [deadlock_api_client.models.CorruptedPenalty](docs/CorruptedPenalty.md)

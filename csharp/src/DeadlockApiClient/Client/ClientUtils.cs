@@ -157,6 +157,8 @@ namespace DeadlockApiClient.Client
                 return ActiveMatchModeValueConverter.ToJsonValue(activeMatchMode);
             if (obj is ActiveMatchTeam activeMatchTeam)
                 return ActiveMatchTeamValueConverter.ToJsonValue(activeMatchTeam);
+            if (obj is ConvarType convarType)
+                return ConvarTypeValueConverter.ToJsonValue(convarType);
             if (obj is FeedItemOneOf.SourceEnum feedItemOneOfSourceEnum)
                 return FeedItemOneOf.SourceEnumToJsonValue(feedItemOneOfSourceEnum);
             if (obj is FeedItemOneOf1.SourceEnum feedItemOneOf1SourceEnum)

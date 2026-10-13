@@ -11,6 +11,7 @@ api/Api/BuildsApi.php
 api/Api/ClientVersionsApi.php
 api/Api/ColorsApi.php
 api/Api/CommandsApi.php
+api/Api/ConvarsApi.php
 api/Api/CrosshairApi.php
 api/Api/CustomMatchesApi.php
 api/Api/DemoApi.php
@@ -76,6 +77,8 @@ api/Model/ClickhouseSalts.php
 api/Model/Color.php
 api/Model/ColorGradientStop.php
 api/Model/ColumnSchema.php
+api/Model/Convar.php
+api/Model/ConvarType.php
 api/Model/CorruptedItemImages.php
 api/Model/CorruptedItemInfo.php
 api/Model/CorruptedPenalty.php
@@ -294,6 +297,7 @@ docs/Api/BuildsApi.md
 docs/Api/ClientVersionsApi.md
 docs/Api/ColorsApi.md
 docs/Api/CommandsApi.md
+docs/Api/ConvarsApi.md
 docs/Api/CrosshairApi.md
 docs/Api/CustomMatchesApi.md
 docs/Api/DemoApi.md
@@ -355,6 +359,8 @@ docs/Model/ClickhouseSalts.md
 docs/Model/Color.md
 docs/Model/ColorGradientStop.md
 docs/Model/ColumnSchema.md
+docs/Model/Convar.md
+docs/Model/ConvarType.md
 docs/Model/CorruptedItemImages.md
 docs/Model/CorruptedItemInfo.md
 docs/Model/CorruptedPenalty.md
@@ -572,6 +578,7 @@ test/Api/BuildsApiTest.php
 test/Api/ClientVersionsApiTest.php
 test/Api/ColorsApiTest.php
 test/Api/CommandsApiTest.php
+test/Api/ConvarsApiTest.php
 test/Api/CrosshairApiTest.php
 test/Api/CustomMatchesApiTest.php
 test/Api/DemoApiTest.php
@@ -633,6 +640,8 @@ test/Model/ClickhouseSaltsTest.php
 test/Model/ColorGradientStopTest.php
 test/Model/ColorTest.php
 test/Model/ColumnSchemaTest.php
+test/Model/ConvarTest.php
+test/Model/ConvarTypeTest.php
 test/Model/CorruptedItemImagesTest.php
 test/Model/CorruptedItemInfoTest.php
 test/Model/CorruptedPenaltyEffectTest.php

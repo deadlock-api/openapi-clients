@@ -11,6 +11,7 @@ apis/builds-api.ts
 apis/client-versions-api.ts
 apis/colors-api.ts
 apis/commands-api.ts
+apis/convars-api.ts
 apis/crosshair-api.ts
 apis/custom-matches-api.ts
 apis/demo-api.ts
@@ -83,6 +84,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/Convar.md
+docs/ConvarType.md
+docs/ConvarsApi.md
 docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
@@ -353,6 +357,8 @@ models/clickhouse-salts.ts
 models/color-gradient-stop.ts
 models/color.ts
 models/column-schema.ts
+models/convar-type.ts
+models/convar.ts
 models/corrupted-item-images.ts
 models/corrupted-item-info.ts
 models/corrupted-penalty-effect.ts

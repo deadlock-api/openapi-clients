@@ -65,6 +65,8 @@ type APIClient struct {
 
 	CommandsAPI *CommandsAPIService
 
+	ConvarsAPI *ConvarsAPIService
+
 	CrosshairAPI *CrosshairAPIService
 
 	CustomMatchesAPI *CustomMatchesAPIService
@@ -138,6 +140,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.ClientVersionsAPI = (*ClientVersionsAPIService)(&c.common)
 	c.ColorsAPI = (*ColorsAPIService)(&c.common)
 	c.CommandsAPI = (*CommandsAPIService)(&c.common)
+	c.ConvarsAPI = (*ConvarsAPIService)(&c.common)
 	c.CrosshairAPI = (*CrosshairAPIService)(&c.common)
 	c.CustomMatchesAPI = (*CustomMatchesAPIService)(&c.common)
 	c.DemoAPI = (*DemoAPIService)(&c.common)

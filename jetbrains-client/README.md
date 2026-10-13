@@ -56,6 +56,8 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandResolve**](Apis/CommandsApi.http#commandresolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variablesResolve**](Apis/CommandsApi.http#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
 *CommandsApi* | [**widgetVersions**](Apis/CommandsApi.http#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
+*ConvarsApi* | [**getConvar**](Apis/ConvarsApi.http#getconvar) | **GET** /v1/assets/convars/{name} | Get Convar
+*ConvarsApi* | [**listConvars**](Apis/ConvarsApi.http#listconvars) | **GET** /v1/assets/convars | List Convars
 *CrosshairApi* | [**codeImage**](Apis/CrosshairApi.http#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image
 *CrosshairApi* | [**codeSettings**](Apis/CrosshairApi.http#codesettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings
 *CrosshairApi* | [**settingsCode**](Apis/CrosshairApi.http#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code

@@ -1,0 +1,11 @@
+## ConvarsApi
+
+### Get Convar
+## Get Convar
+GET https://api.deadlock-api.com/v1/assets/convars/{{name}}?clientVersion={{clientVersion}}
+Accept: application/json
+
+### List Convars
+## List Convars
+GET https://api.deadlock-api.com/v1/assets/convars?clientVersion={{clientVersion}}
+Accept: application/json

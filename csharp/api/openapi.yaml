@@ -109,6 +109,8 @@ tags:
   name: Client Versions
 - description: Panorama color palette from per-version `citadel_base_styles.css`.
   name: Colors
+- description: Console variable defaults extracted from the per-version game binaries.
+  name: Convars
 - description: Game-wide generic configuration derived from per-version `generic_data.vdata`.
   name: Generic Data
 - description: Hero metadata derived from per-version game data files.
@@ -6514,6 +6516,83 @@ paths:
       summary: List Colors
       tags:
       - Colors
+  /v1/assets/convars:
+    get:
+      description: "Returns every console variable registered by the patch's `client.dll`\
+        \ and `server.dll`, keyed by name, with its type, compiled-in default value,\
+        \ `FCVAR_*` flags and help text. These are the defaults the binaries ship\
+        \ with; servers and game modes can override them at runtime."
+      operationId: list_convars
+      parameters:
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  $ref: "#/components/schemas/Convar"
+                type: object
+          description: OK
+        "404":
+          description: "Requested client_version is not available, or it has no convars\
+            \ data (extracted from build 6774 on)"
+        "500":
+          description: Failed to load source assets
+      summary: List Convars
+      tags:
+      - Convars
+  /v1/assets/convars/{name}:
+    get:
+      description: Returns a single console variable by name (case-insensitive).
+      operationId: get_convar
+      parameters:
+      - description: "Convar name, e.g. `citadel_corrupted_item_shop_restock_interval`"
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Client/game version (e.g. `6518`). Defaults to the latest known
+          version.
+        explode: true
+        in: query
+        name: client_version
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Convar"
+          description: OK
+        "404":
+          description: "Unknown convar or client_version, or no convars data for that\
+            \ version"
+        "500":
+          description: Failed to load source assets
+      summary: Get Convar
+      tags:
+      - Convars
   /v1/assets/fonts:
     get:
       description: "Nested file-tree of all hosted fonts, mapping each name to its\
@@ -14716,6 +14795,52 @@ components:
       - data_type
       - name
       - nullable
+    Convar:
+      example:
+        default: "{}"
+        description: description
+        flags: 0
+        type: bool
+      properties:
+        default:
+          description: |-
+            Default value, typed by `type`: a bool, number or string, `[r, g, b, a]`
+            for `color`, and an array of floats for vectors / `qangle`.
+          type: object
+        description:
+          description: Help text shown by the in-game console.
+          nullable: true
+          type: string
+        flags:
+          description: Raw `FCVAR_*` flag bits.
+          format: int64
+          minimum: 0
+          type: integer
+        type:
+          $ref: "#/components/schemas/ConvarType"
+      required:
+      - default
+      - flags
+      - type
+    ConvarType:
+      description: Value type of a convar (`EConVarType`).
+      enum:
+      - bool
+      - int16
+      - uint16
+      - int32
+      - uint32
+      - int64
+      - uint64
+      - float32
+      - float64
+      - string
+      - color
+      - vector2
+      - vector3
+      - vector4
+      - qangle
+      type: string
     CorruptedItemImages:
       description: |-
         Shop art for corrupted items (build 6711+). The game has no per-item corrupted
@@ -24192,6 +24317,7 @@ x-tagGroups:
   - Accolades
   - Steam Info
   - Colors
+  - Convars
   - Ranked Seasons
 - name: Game Info
   tags:

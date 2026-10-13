@@ -26,6 +26,7 @@ __all__ = [
     "ClientVersionsApi",
     "ColorsApi",
     "CommandsApi",
+    "ConvarsApi",
     "CrosshairApi",
     "CustomMatchesApi",
     "DemoApi",
@@ -96,6 +97,8 @@ __all__ = [
     "Color",
     "ColorGradientStop",
     "ColumnSchema",
+    "Convar",
+    "ConvarType",
     "CorruptedItemImages",
     "CorruptedItemInfo",
     "CorruptedPenalty",
@@ -314,6 +317,7 @@ from deadlock_api_client.api.builds_api import BuildsApi as BuildsApi
 from deadlock_api_client.api.client_versions_api import ClientVersionsApi as ClientVersionsApi
 from deadlock_api_client.api.colors_api import ColorsApi as ColorsApi
 from deadlock_api_client.api.commands_api import CommandsApi as CommandsApi
+from deadlock_api_client.api.convars_api import ConvarsApi as ConvarsApi
 from deadlock_api_client.api.crosshair_api import CrosshairApi as CrosshairApi
 from deadlock_api_client.api.custom_matches_api import CustomMatchesApi as CustomMatchesApi
 from deadlock_api_client.api.demo_api import DemoApi as DemoApi
@@ -388,6 +392,8 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts as Click
 from deadlock_api_client.models.color import Color as Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop as ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema as ColumnSchema
+from deadlock_api_client.models.convar import Convar as Convar
+from deadlock_api_client.models.convar_type import ConvarType as ConvarType
 from deadlock_api_client.models.corrupted_item_images import CorruptedItemImages as CorruptedItemImages
 from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo as CorruptedItemInfo
 from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty as CorruptedPenalty

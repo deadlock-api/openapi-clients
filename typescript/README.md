@@ -93,6 +93,8 @@ Class | Method | HTTP request | Description
 *CommandsApi* | [**commandResolve**](docs/CommandsApi.md#commandresolve) | **GET** /v1/commands/resolve | Resolve Command
 *CommandsApi* | [**variablesResolve**](docs/CommandsApi.md#variablesresolve) | **GET** /v1/commands/variables/resolve | Resolve Variables
 *CommandsApi* | [**widgetVersions**](docs/CommandsApi.md#widgetversions) | **GET** /v1/commands/widgets/versions | Widget Versions
+*ConvarsApi* | [**getConvar**](docs/ConvarsApi.md#getconvar) | **GET** /v1/assets/convars/{name} | Get Convar
+*ConvarsApi* | [**listConvars**](docs/ConvarsApi.md#listconvars) | **GET** /v1/assets/convars | List Convars
 *CrosshairApi* | [**codeImage**](docs/CrosshairApi.md#codeimage) | **GET** /v1/crosshair/code/image | Crosshair Code Image
 *CrosshairApi* | [**codeSettings**](docs/CrosshairApi.md#codesettings) | **GET** /v1/crosshair/code/settings | Crosshair Code Settings
 *CrosshairApi* | [**settingsCode**](docs/CrosshairApi.md#settingscode) | **GET** /v1/crosshair/settings/code | Crosshair Settings Code
@@ -224,6 +226,8 @@ Class | Method | HTTP request | Description
  - [Color](docs/Color.md)
  - [ColorGradientStop](docs/ColorGradientStop.md)
  - [ColumnSchema](docs/ColumnSchema.md)
+ - [Convar](docs/Convar.md)
+ - [ConvarType](docs/ConvarType.md)
  - [CorruptedItemImages](docs/CorruptedItemImages.md)
  - [CorruptedItemInfo](docs/CorruptedItemInfo.md)
  - [CorruptedPenalty](docs/CorruptedPenalty.md)

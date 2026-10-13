@@ -35,6 +35,8 @@ export * from './clickhouse-salts.js';
 export * from './color.js';
 export * from './color-gradient-stop.js';
 export * from './column-schema.js';
+export * from './convar.js';
+export * from './convar-type.js';
 export * from './corrupted-item-images.js';
 export * from './corrupted-item-info.js';
 export * from './corrupted-penalty.js';

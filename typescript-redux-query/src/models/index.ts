@@ -35,6 +35,8 @@ export * from './ClickhouseSalts';
 export * from './Color';
 export * from './ColorGradientStop';
 export * from './ColumnSchema';
+export * from './Convar';
+export * from './ConvarType';
 export * from './CorruptedItemImages';
 export * from './CorruptedItemInfo';
 export * from './CorruptedPenalty';

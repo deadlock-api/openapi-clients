@@ -50,6 +50,8 @@ from deadlock_api_client.models.clickhouse_salts import ClickhouseSalts
 from deadlock_api_client.models.color import Color
 from deadlock_api_client.models.color_gradient_stop import ColorGradientStop
 from deadlock_api_client.models.column_schema import ColumnSchema
+from deadlock_api_client.models.convar import Convar
+from deadlock_api_client.models.convar_type import ConvarType
 from deadlock_api_client.models.corrupted_item_images import CorruptedItemImages
 from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo
 from deadlock_api_client.models.corrupted_penalty import CorruptedPenalty

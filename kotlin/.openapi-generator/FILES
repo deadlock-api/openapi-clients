@@ -46,6 +46,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/Convar.md
+docs/ConvarType.md
+docs/ConvarsApi.md
 docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
@@ -286,6 +289,7 @@ src/main/kotlin/deadlock_api_client/apis/BuildsApi.kt
 src/main/kotlin/deadlock_api_client/apis/ClientVersionsApi.kt
 src/main/kotlin/deadlock_api_client/apis/ColorsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CommandsApi.kt
+src/main/kotlin/deadlock_api_client/apis/ConvarsApi.kt
 src/main/kotlin/deadlock_api_client/apis/CrosshairApi.kt
 src/main/kotlin/deadlock_api_client/apis/CustomMatchesApi.kt
 src/main/kotlin/deadlock_api_client/apis/DemoApi.kt
@@ -364,6 +368,8 @@ src/main/kotlin/deadlock_api_client/models/ClickhouseSalts.kt
 src/main/kotlin/deadlock_api_client/models/Color.kt
 src/main/kotlin/deadlock_api_client/models/ColorGradientStop.kt
 src/main/kotlin/deadlock_api_client/models/ColumnSchema.kt
+src/main/kotlin/deadlock_api_client/models/Convar.kt
+src/main/kotlin/deadlock_api_client/models/ConvarType.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedItemImages.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedItemInfo.kt
 src/main/kotlin/deadlock_api_client/models/CorruptedPenalty.kt
@@ -579,6 +585,7 @@ src/test/kotlin/deadlock_api_client/apis/BuildsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/ClientVersionsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/ColorsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CommandsApiTest.kt
+src/test/kotlin/deadlock_api_client/apis/ConvarsApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CrosshairApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/CustomMatchesApiTest.kt
 src/test/kotlin/deadlock_api_client/apis/DemoApiTest.kt
@@ -640,6 +647,8 @@ src/test/kotlin/deadlock_api_client/models/ClickhouseSaltsTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorGradientStopTest.kt
 src/test/kotlin/deadlock_api_client/models/ColorTest.kt
 src/test/kotlin/deadlock_api_client/models/ColumnSchemaTest.kt
+src/test/kotlin/deadlock_api_client/models/ConvarTest.kt
+src/test/kotlin/deadlock_api_client/models/ConvarTypeTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedItemImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedItemInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/CorruptedPenaltyEffectTest.kt

@@ -12,6 +12,7 @@ docs/apis/BuildsApi.md
 docs/apis/ClientVersionsApi.md
 docs/apis/ColorsApi.md
 docs/apis/CommandsApi.md
+docs/apis/ConvarsApi.md
 docs/apis/CrosshairApi.md
 docs/apis/CustomMatchesApi.md
 docs/apis/DemoApi.md
@@ -73,6 +74,8 @@ docs/models/ClickhouseSalts.md
 docs/models/Color.md
 docs/models/ColorGradientStop.md
 docs/models/ColumnSchema.md
+docs/models/Convar.md
+docs/models/ConvarType.md
 docs/models/CorruptedItemImages.md
 docs/models/CorruptedItemInfo.md
 docs/models/CorruptedPenalty.md
@@ -291,6 +294,7 @@ src/DeadlockApiClient.Test/Api/BuildsApiTests.cs
 src/DeadlockApiClient.Test/Api/ClientVersionsApiTests.cs
 src/DeadlockApiClient.Test/Api/ColorsApiTests.cs
 src/DeadlockApiClient.Test/Api/CommandsApiTests.cs
+src/DeadlockApiClient.Test/Api/ConvarsApiTests.cs
 src/DeadlockApiClient.Test/Api/CrosshairApiTests.cs
 src/DeadlockApiClient.Test/Api/CustomMatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/DemoApiTests.cs
@@ -354,6 +358,8 @@ src/DeadlockApiClient.Test/Model/ClickhouseSaltsTests.cs
 src/DeadlockApiClient.Test/Model/ColorGradientStopTests.cs
 src/DeadlockApiClient.Test/Model/ColorTests.cs
 src/DeadlockApiClient.Test/Model/ColumnSchemaTests.cs
+src/DeadlockApiClient.Test/Model/ConvarTests.cs
+src/DeadlockApiClient.Test/Model/ConvarTypeTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedItemImagesTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedItemInfoTests.cs
 src/DeadlockApiClient.Test/Model/CorruptedPenaltyEffectTests.cs
@@ -570,6 +576,7 @@ src/DeadlockApiClient/Api/BuildsApi.cs
 src/DeadlockApiClient/Api/ClientVersionsApi.cs
 src/DeadlockApiClient/Api/ColorsApi.cs
 src/DeadlockApiClient/Api/CommandsApi.cs
+src/DeadlockApiClient/Api/ConvarsApi.cs
 src/DeadlockApiClient/Api/CrosshairApi.cs
 src/DeadlockApiClient/Api/CustomMatchesApi.cs
 src/DeadlockApiClient/Api/DemoApi.cs
@@ -658,6 +665,8 @@ src/DeadlockApiClient/Model/ClickhouseSalts.cs
 src/DeadlockApiClient/Model/Color.cs
 src/DeadlockApiClient/Model/ColorGradientStop.cs
 src/DeadlockApiClient/Model/ColumnSchema.cs
+src/DeadlockApiClient/Model/Convar.cs
+src/DeadlockApiClient/Model/ConvarType.cs
 src/DeadlockApiClient/Model/CorruptedItemImages.cs
 src/DeadlockApiClient/Model/CorruptedItemInfo.cs
 src/DeadlockApiClient/Model/CorruptedPenalty.cs

@@ -14,6 +14,7 @@ deadlock_api_client/api/builds_api.py
 deadlock_api_client/api/client_versions_api.py
 deadlock_api_client/api/colors_api.py
 deadlock_api_client/api/commands_api.py
+deadlock_api_client/api/convars_api.py
 deadlock_api_client/api/crosshair_api.py
 deadlock_api_client/api/custom_matches_api.py
 deadlock_api_client/api/demo_api.py
@@ -80,6 +81,8 @@ deadlock_api_client/models/clickhouse_salts.py
 deadlock_api_client/models/color.py
 deadlock_api_client/models/color_gradient_stop.py
 deadlock_api_client/models/column_schema.py
+deadlock_api_client/models/convar.py
+deadlock_api_client/models/convar_type.py
 deadlock_api_client/models/corrupted_item_images.py
 deadlock_api_client/models/corrupted_item_info.py
 deadlock_api_client/models/corrupted_penalty.py
@@ -334,6 +337,9 @@ docs/ColorGradientStop.md
 docs/ColorsApi.md
 docs/ColumnSchema.md
 docs/CommandsApi.md
+docs/Convar.md
+docs/ConvarType.md
+docs/ConvarsApi.md
 docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
@@ -617,6 +623,9 @@ test/test_color_gradient_stop.py
 test/test_colors_api.py
 test/test_column_schema.py
 test/test_commands_api.py
+test/test_convar.py
+test/test_convar_type.py
+test/test_convars_api.py
 test/test_corrupted_item_images.py
 test/test_corrupted_item_info.py
 test/test_corrupted_penalty.py

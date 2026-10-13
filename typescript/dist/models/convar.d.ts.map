@@ -1,0 +1,1 @@
+{"version":3,"file":"convar.d.ts","sourceRoot":"","sources":["../../models/convar.ts"],"names":[],"mappings":"AAEA;;;;;;;;;;GAUG;AAKH,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,kBAAkB,CAAC;AAEnD,MAAM,WAAW,MAAM;IACnB;;OAEG;IACH,SAAS,EAAE,MAAM,CAAC;IAClB;;OAEG;IACH,aAAa,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAC9B;;OAEG;IACH,OAAO,EAAE,MAAM,CAAC;IAChB,MAAM,EAAE,UAAU,CAAC;CACtB"}

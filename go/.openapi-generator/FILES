@@ -11,6 +11,7 @@ api_builds.go
 api_client_versions.go
 api_colors.go
 api_commands.go
+api_convars.go
 api_crosshair.go
 api_custom_matches.go
 api_demo.go
@@ -82,6 +83,9 @@ docs/ColorGradientStop.md
 docs/ColorsAPI.md
 docs/ColumnSchema.md
 docs/CommandsAPI.md
+docs/Convar.md
+docs/ConvarType.md
+docs/ConvarsAPI.md
 docs/CorruptedItemImages.md
 docs/CorruptedItemInfo.md
 docs/CorruptedPenalty.md
@@ -353,6 +357,8 @@ model_clickhouse_salts.go
 model_color.go
 model_color_gradient_stop.go
 model_column_schema.go
+model_convar.go
+model_convar_type.go
 model_corrupted_item_images.go
 model_corrupted_item_info.go
 model_corrupted_penalty.go
@@ -569,6 +575,7 @@ test/api_builds_test.go
 test/api_client_versions_test.go
 test/api_colors_test.go
 test/api_commands_test.go
+test/api_convars_test.go
 test/api_crosshair_test.go
 test/api_custom_matches_test.go
 test/api_demo_test.go

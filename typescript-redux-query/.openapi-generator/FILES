@@ -11,6 +11,7 @@ src/apis/BuildsApi.ts
 src/apis/ClientVersionsApi.ts
 src/apis/ColorsApi.ts
 src/apis/CommandsApi.ts
+src/apis/ConvarsApi.ts
 src/apis/CrosshairApi.ts
 src/apis/CustomMatchesApi.ts
 src/apis/DemoApi.ts
@@ -74,6 +75,8 @@ src/models/ClickhouseSalts.ts
 src/models/Color.ts
 src/models/ColorGradientStop.ts
 src/models/ColumnSchema.ts
+src/models/Convar.ts
+src/models/ConvarType.ts
 src/models/CorruptedItemImages.ts
 src/models/CorruptedItemInfo.ts
 src/models/CorruptedPenalty.ts

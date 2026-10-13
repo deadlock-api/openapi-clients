@@ -87,6 +87,9 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ColorJsonConverter());
             _jsonOptions.Converters.Add(new ColorGradientStopJsonConverter());
             _jsonOptions.Converters.Add(new ColumnSchemaJsonConverter());
+            _jsonOptions.Converters.Add(new ConvarJsonConverter());
+            _jsonOptions.Converters.Add(new ConvarTypeJsonConverter());
+            _jsonOptions.Converters.Add(new ConvarTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedItemImagesJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedItemInfoJsonConverter());
             _jsonOptions.Converters.Add(new CorruptedPenaltyJsonConverter());
@@ -318,6 +321,7 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<ClientVersionsApiEvents>();
             _services.AddSingleton<ColorsApiEvents>();
             _services.AddSingleton<CommandsApiEvents>();
+            _services.AddSingleton<ConvarsApiEvents>();
             _services.AddSingleton<CrosshairApiEvents>();
             _services.AddSingleton<CustomMatchesApiEvents>();
             _services.AddSingleton<DemoApiEvents>();
@@ -395,6 +399,7 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IClientVersionsApi, ClientVersionsApi>("DeadlockApiClient.Api.IClientVersionsApi", client));
             builders.Add(_services.AddHttpClient<IColorsApi, ColorsApi>("DeadlockApiClient.Api.IColorsApi", client));
             builders.Add(_services.AddHttpClient<ICommandsApi, CommandsApi>("DeadlockApiClient.Api.ICommandsApi", client));
+            builders.Add(_services.AddHttpClient<IConvarsApi, ConvarsApi>("DeadlockApiClient.Api.IConvarsApi", client));
             builders.Add(_services.AddHttpClient<ICrosshairApi, CrosshairApi>("DeadlockApiClient.Api.ICrosshairApi", client));
             builders.Add(_services.AddHttpClient<ICustomMatchesApi, CustomMatchesApi>("DeadlockApiClient.Api.ICustomMatchesApi", client));
             builders.Add(_services.AddHttpClient<IDemoApi, DemoApi>("DeadlockApiClient.Api.IDemoApi", client));
