@@ -59,6 +59,7 @@ docs/models/AnalyticsBuffStats.md
 docs/models/AnalyticsGameStats.md
 docs/models/AnalyticsHeroStats.md
 docs/models/BadgeDistribution.md
+docs/models/BotFriendStatus.md
 docs/models/BreakablePowerupLootParams.md
 docs/models/Build.md
 docs/models/BuildHero.md
@@ -343,6 +344,7 @@ src/DeadlockApiClient.Test/Model/AnalyticsBuffStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsGameStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsHeroStatsTests.cs
 src/DeadlockApiClient.Test/Model/BadgeDistributionTests.cs
+src/DeadlockApiClient.Test/Model/BotFriendStatusTests.cs
 src/DeadlockApiClient.Test/Model/BreakablePowerupLootParamsTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsAbilityOrderCurrencyChangeTests.cs
 src/DeadlockApiClient.Test/Model/BuildHeroDetailsAbilityOrderTests.cs
@@ -650,6 +652,7 @@ src/DeadlockApiClient/Model/AnalyticsBuffStats.cs
 src/DeadlockApiClient/Model/AnalyticsGameStats.cs
 src/DeadlockApiClient/Model/AnalyticsHeroStats.cs
 src/DeadlockApiClient/Model/BadgeDistribution.cs
+src/DeadlockApiClient/Model/BotFriendStatus.cs
 src/DeadlockApiClient/Model/BreakablePowerupLootParams.cs
 src/DeadlockApiClient/Model/Build.cs
 src/DeadlockApiClient/Model/BuildHero.cs

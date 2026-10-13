@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddSteamAccount**](InternalAPI.md#AddSteamAccount) | **Post** /v1/patron/steam-accounts | Add Prioritized Steam Account
+[**BotFriendStatus**](InternalAPI.md#BotFriendStatus) | **Get** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status
 [**DeleteSteamAccount**](InternalAPI.md#DeleteSteamAccount) | **Delete** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 [**IngestSalts**](InternalAPI.md#IngestSalts) | **Post** /v1/matches/salts | Match Salts Ingest
 [**IngestStatus**](InternalAPI.md#IngestStatus) | **Get** /v1/players/{account_id}/ingest-status | Ingest Status
@@ -74,6 +75,76 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BotFriendStatus
+
+> BotFriendStatus BotFriendStatus(ctx, accountId).Execute()
+
+Prioritized Steam Account Bot Friend Status
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := "accountId_example" // string | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.InternalAPI.BotFriendStatus(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `InternalAPI.BotFriendStatus``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `BotFriendStatus`: BotFriendStatus
+	fmt.Fprintf(os.Stdout, "Response from `InternalAPI.BotFriendStatus`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **string** | The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBotFriendStatusRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**BotFriendStatus**](BotFriendStatus.md)
+
+### Authorization
+
+[api_key_query](../README.md#api_key_query), [api_key_header](../README.md#api_key_header)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

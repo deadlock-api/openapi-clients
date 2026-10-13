@@ -8114,6 +8114,7 @@ class AnalyticsApi:
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
         include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
+        enhanced_items: Annotated[Optional[StrictStr], Field(description="How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8197,6 +8198,8 @@ class AnalyticsApi:
         :type corrupted_items: str
         :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
+        :param enhanced_items: How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.
+        :type enhanced_items: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8253,6 +8256,7 @@ class AnalyticsApi:
             item_order=item_order,
             corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
+            enhanced_items=enhanced_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8311,6 +8315,7 @@ class AnalyticsApi:
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
         include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
+        enhanced_items: Annotated[Optional[StrictStr], Field(description="How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8394,6 +8399,8 @@ class AnalyticsApi:
         :type corrupted_items: str
         :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
+        :param enhanced_items: How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.
+        :type enhanced_items: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8450,6 +8457,7 @@ class AnalyticsApi:
             item_order=item_order,
             corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
+            enhanced_items=enhanced_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8508,6 +8516,7 @@ class AnalyticsApi:
         item_order: Annotated[Optional[List[StrictStr]], Field(description="Filter by purchase order. Each value is a comma-separated, ordered list of item ids (e.g. `1396247347,3977876567`). This is a *constraint*, not an inclusion filter: for each adjacent pair in the list, a match is excluded only when the player bought **both** items but bought the later one first. Builds missing either item are unaffected. Repeat the parameter for multiple independent orderings. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         corrupted_items: Annotated[Optional[StrictStr], Field(description="How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.")] = None,
         include_corrupted_items: Annotated[Optional[StrictBool], Field(description="Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.")] = None,
+        enhanced_items: Annotated[Optional[StrictStr], Field(description="How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8591,6 +8600,8 @@ class AnalyticsApi:
         :type corrupted_items: str
         :param include_corrupted_items: Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
         :type include_corrupted_items: bool
+        :param enhanced_items: How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.
+        :type enhanced_items: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -8647,6 +8658,7 @@ class AnalyticsApi:
             item_order=item_order,
             corrupted_items=corrupted_items,
             include_corrupted_items=include_corrupted_items,
+            enhanced_items=enhanced_items,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -8700,6 +8712,7 @@ class AnalyticsApi:
         item_order,
         corrupted_items,
         include_corrupted_items,
+        enhanced_items,
         _request_auth,
         _content_type,
         _headers,
@@ -8859,6 +8872,10 @@ class AnalyticsApi:
         if include_corrupted_items is not None:
             
             _query_params.append(('include_corrupted_items', include_corrupted_items))
+            
+        if enhanced_items is not None:
+            
+            _query_params.append(('enhanced_items', enhanced_items))
             
         # process the header parameters
         # process the form parameters

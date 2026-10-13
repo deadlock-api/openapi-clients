@@ -155,6 +155,7 @@ Class | Method | HTTP request | Description
 *InfoAPI* | [**HealthCheck**](docs/InfoAPI.md#healthcheck) | **Get** /v1/info/health | Health Check
 *InfoAPI* | [**Info**](docs/InfoAPI.md#info) | **Get** /v1/info | API Info
 *InternalAPI* | [**AddSteamAccount**](docs/InternalAPI.md#addsteamaccount) | **Post** /v1/patron/steam-accounts | Add Prioritized Steam Account
+*InternalAPI* | [**BotFriendStatus**](docs/InternalAPI.md#botfriendstatus) | **Get** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status
 *InternalAPI* | [**DeleteSteamAccount**](docs/InternalAPI.md#deletesteamaccount) | **Delete** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalAPI* | [**IngestSalts**](docs/InternalAPI.md#ingestsalts) | **Post** /v1/matches/salts | Match Salts Ingest
 *InternalAPI* | [**IngestStatus**](docs/InternalAPI.md#ingeststatus) | **Get** /v1/players/{account_id}/ingest-status | Ingest Status
@@ -249,6 +250,7 @@ Class | Method | HTTP request | Description
  - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [BadgeDistribution](docs/BadgeDistribution.md)
+ - [BotFriendStatus](docs/BotFriendStatus.md)
  - [BreakablePowerupLootParams](docs/BreakablePowerupLootParams.md)
  - [Build](docs/Build.md)
  - [BuildHero](docs/BuildHero.md)

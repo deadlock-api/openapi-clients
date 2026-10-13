@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addSteamAccount**](InternalApi.md#addSteamAccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
+| [**botFriendStatus**](InternalApi.md#botFriendStatus) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status |
 | [**deleteSteamAccount**](InternalApi.md#deleteSteamAccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**ingestSalts**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest |
 | [**ingestStatus**](InternalApi.md#ingestStatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
@@ -64,6 +65,58 @@ Configure api_key_header:
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a id="botFriendStatus"></a>
+# **botFriendStatus**
+> BotFriendStatus botFriendStatus(accountId)
+
+Prioritized Steam Account Bot Friend Status
+
+ Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as &#x60;X-API-Key&#x60; header, &#x60;api_key&#x60; query parameter or &#x60;Authorization: Bearer &lt;key&gt;&#x60;. A &#x60;patron_session&#x60; from the website login works as well. 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = InternalApi()
+val accountId : kotlin.String = accountId_example // kotlin.String | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+try {
+    val result : BotFriendStatus = apiInstance.botFriendStatus(accountId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling InternalApi#botFriendStatus")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling InternalApi#botFriendStatus")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.String**| The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint | |
+
+### Return type
+
+[**BotFriendStatus**](BotFriendStatus.md)
+
+### Authorization
+
+
+Configure api_key_query:
+    ApiClient.apiKey["api_key"] = ""
+    ApiClient.apiKeyPrefix["api_key"] = ""
+Configure api_key_header:
+    ApiClient.apiKey["X-API-KEY"] = ""
+    ApiClient.apiKeyPrefix["X-API-KEY"] = ""
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a id="deleteSteamAccount"></a>

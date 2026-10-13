@@ -653,7 +653,9 @@ pub struct ItemStatsParams {
     /// How to count corrupted items (build 6712+: a T3/T4 upgrade that the Broker swapped for a corrupted version with the same item id). `exclude`: only normal purchases. `include`: corrupted purchases count as the normal item. `only`: only corrupted purchases, so each row describes the corrupted variant of `item_id`. Compare it with the same request using `exclude`. Corrupted items only exist in matches from 2026-09-29 on, so `only` ignores earlier time and match-id bounds. `include` and `only` skip the pre-aggregated rollups, so those requests are slower. **Default:** `exclude`, or `include` if the deprecated `include_corrupted_items=true` is set.
     pub corrupted_items: Option<String>,
     /// Deprecated alias of `corrupted_items=include`. `corrupted_items` takes precedence when both are set.
-    pub include_corrupted_items: Option<bool>
+    pub include_corrupted_items: Option<bool>,
+    /// How to count enhanced items (Street Brawl only: a draft pick that is the enhanced version of an upgrade, with the same item id). `include`: enhanced purchases count as the normal item. `exclude`: only normal purchases. `only`: only enhanced purchases, so each row describes the enhanced variant of `item_id`. Compare it with the same request using `exclude`. Matches before 2026-04-08 do not record which purchases were enhanced, so `exclude` and `only` ignore earlier time and match-id bounds. `exclude` and `only` require `game_mode=street_brawl` and skip the pre-aggregated rollups, so those requests are slower. **Default:** `include`.
+    pub enhanced_items: Option<String>
 }
 
 /// struct for passing parameters to the method [`kill_death_stats`]
@@ -2634,6 +2636,9 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
     }
     if let Some(ref param_value) = params.include_corrupted_items {
         req_builder = req_builder.query(&[("include_corrupted_items", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.enhanced_items {
+        req_builder = req_builder.query(&[("enhanced_items", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddSteamAccount**](InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
+| [**BotFriendStatus**](InternalApi.md#botfriendstatus) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status |
 | [**DeleteSteamAccount**](InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**IngestSalts**](InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
 | [**IngestStatus**](InternalApi.md#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
@@ -48,6 +49,44 @@ Add Prioritized Steam Account
 | **201** | Created |  -  |
 | **400** | Invalid &#x60;steam_id3&#x60; or no free slot left |  -  |
 | **401** | Missing API key, or the key is not linked to a patron |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="botfriendstatus"></a>
+# **BotFriendStatus**
+> BotFriendStatus BotFriendStatus (string accountId)
+
+Prioritized Steam Account Bot Friend Status
+
+ Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **string** | The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint |  |
+
+### Return type
+
+[**BotFriendStatus**](BotFriendStatus.md)
+
+### Authorization
+
+[api_key_query](../README.md#api_key_query), [api_key_header](../README.md#api_key_header)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Missing API key, or the key is not linked to a patron |  -  |
+| **404** | Account not found or does not belong to the patron |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

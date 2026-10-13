@@ -66,6 +66,7 @@ deadlock_api_client/models/analytics_game_stats.py
 deadlock_api_client/models/analytics_hero_stats.py
 deadlock_api_client/models/api_info.py
 deadlock_api_client/models/badge_distribution.py
+deadlock_api_client/models/bot_friend_status.py
 deadlock_api_client/models/breakable_powerup_loot_params.py
 deadlock_api_client/models/build.py
 deadlock_api_client/models/build_hero.py
@@ -317,6 +318,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BotFriendStatus.md
 docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
@@ -603,6 +605,7 @@ test/test_analytics_hero_stats.py
 test/test_api_info.py
 test/test_assets_bucket_api.py
 test/test_badge_distribution.py
+test/test_bot_friend_status.py
 test/test_breakable_powerup_loot_params.py
 test/test_build.py
 test/test_build_hero.py

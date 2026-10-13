@@ -410,6 +410,7 @@ export interface ItemStatsRequest {
     itemOrder?: Array<string>;
     corruptedItems?: ItemStatsCorruptedItemsEnum;
     includeCorruptedItems?: boolean;
+    enhancedItems?: ItemStatsEnhancedItemsEnum;
 }
 
 export interface KillDeathStatsRequest {
@@ -2649,6 +2650,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
         queryParameters['include_corrupted_items'] = requestParameters.includeCorruptedItems;
     }
 
+
+    if (requestParameters.enhancedItems !== undefined) {
+        queryParameters['enhanced_items'] = requestParameters.enhancedItems;
+    }
+
     const headerParameters : runtime.HttpHeaders = {};
 
 
@@ -3845,6 +3851,15 @@ export enum ItemStatsGameModeEnum {
 export enum ItemStatsCorruptedItemsEnum {
     Exclude = 'exclude',
     Include = 'include',
+    Only = 'only'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum ItemStatsEnhancedItemsEnum {
+    Include = 'include',
+    Exclude = 'exclude',
     Only = 'only'
 }
 /**

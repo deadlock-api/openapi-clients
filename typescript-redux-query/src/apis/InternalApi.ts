@@ -18,6 +18,9 @@ import {
     AddSteamAccountRequest,
     AddSteamAccountRequestFromJSON,
     AddSteamAccountRequestToJSON,
+    BotFriendStatus,
+    BotFriendStatusFromJSON,
+    BotFriendStatusToJSON,
     ClickhouseSalts,
     ClickhouseSaltsFromJSON,
     ClickhouseSaltsToJSON,
@@ -43,6 +46,10 @@ import {
 
 export interface AddSteamAccountRequest {
     addSteamAccountRequest: AddSteamAccountRequest;
+}
+
+export interface BotFriendStatusRequest {
+    accountId: string;
 }
 
 export interface DeleteSteamAccountRequest {
@@ -121,6 +128,56 @@ function addSteamAccountRaw<T>(requestParameters: AddSteamAccountRequest, reques
 */
 export function addSteamAccount<T>(requestParameters: AddSteamAccountRequest, requestConfig?: runtime.TypedQueryConfig<T, SteamAccountResponse>): QueryConfig<T> {
     return addSteamAccountRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+ * Prioritized Steam Account Bot Friend Status
+ */
+function botFriendStatusRaw<T>(requestParameters: BotFriendStatusRequest, requestConfig: runtime.TypedQueryConfig<T, BotFriendStatus> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling botFriendStatus.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    meta.authType = ['api_key', 'query'];
+    meta.authType = ['api_key', 'header'];
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/patron/steam-accounts/{account_id}/bot-friend`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(BotFriendStatusFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+* Prioritized Steam Account Bot Friend Status
+*/
+export function botFriendStatus<T>(requestParameters: BotFriendStatusRequest, requestConfig?: runtime.TypedQueryConfig<T, BotFriendStatus>): QueryConfig<T> {
+    return botFriendStatusRaw(requestParameters, requestConfig);
 }
 
 /**

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_steam_account**](InternalApi.md#add_steam_account) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
+[**bot_friend_status**](InternalApi.md#bot_friend_status) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status
 [**delete_steam_account**](InternalApi.md#delete_steam_account) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 [**ingest_salts**](InternalApi.md#ingest_salts) | **POST** /v1/matches/salts | Match Salts Ingest
 [**ingest_status**](InternalApi.md#ingest_status) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status
@@ -109,6 +110,101 @@ Name | Type | Description  | Notes
 **201** | Created |  -  |
 **400** | Invalid &#x60;steam_id3&#x60; or no free slot left |  -  |
 **401** | Missing API key, or the key is not linked to a patron |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bot_friend_status**
+> BotFriendStatus bot_friend_status(account_id)
+
+Prioritized Steam Account Bot Friend Status
+
+
+Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.
+
+### Authentication
+Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+`api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+website login works as well.
+
+
+### Example
+
+* Api Key Authentication (api_key_query):
+* Api Key Authentication (api_key_header):
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.bot_friend_status import BotFriendStatus
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: api_key_query
+configuration.api_key['api_key_query'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key_query'] = 'Bearer'
+
+# Configure API key authorization: api_key_header
+configuration.api_key['api_key_header'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api_key_header'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.InternalApi(api_client)
+    account_id = 'account_id_example' # str | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+
+    try:
+        # Prioritized Steam Account Bot Friend Status
+        api_response = api_instance.bot_friend_status(account_id)
+        print("The response of InternalApi->bot_friend_status:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling InternalApi->bot_friend_status: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint | 
+
+### Return type
+
+[**BotFriendStatus**](BotFriendStatus.md)
+
+### Authorization
+
+[api_key_query](../README.md#api_key_query), [api_key_header](../README.md#api_key_header)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Missing API key, or the key is not linked to a patron |  -  |
+**404** | Account not found or does not belong to the patron |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

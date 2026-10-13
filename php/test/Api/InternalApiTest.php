@@ -84,6 +84,18 @@ class InternalApiTest extends TestCase
     }
 
     /**
+     * Test case for botFriendStatus
+     *
+     * Prioritized Steam Account Bot Friend Status.
+     *
+     */
+    public function testBotFriendStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for deleteSteamAccount
      *
      * Remove Prioritized Steam Account.

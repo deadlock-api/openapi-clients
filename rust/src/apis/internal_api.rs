@@ -20,6 +20,13 @@ pub struct AddSteamAccountParams {
     pub add_steam_account_request: models::AddSteamAccountRequest
 }
 
+/// struct for passing parameters to the method [`bot_friend_status`]
+#[derive(Clone, Debug)]
+pub struct BotFriendStatusParams {
+    /// The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+    pub account_id: String
+}
+
 /// struct for passing parameters to the method [`delete_steam_account`]
 #[derive(Clone, Debug)]
 pub struct DeleteSteamAccountParams {
@@ -68,6 +75,15 @@ pub struct SubmitFeedbackParams {
 pub enum AddSteamAccountError {
     Status400(),
     Status401(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`bot_friend_status`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum BotFriendStatusError {
+    Status401(),
+    Status404(),
     UnknownValue(serde_json::Value),
 }
 
@@ -187,6 +203,57 @@ pub async fn add_steam_account(configuration: &configuration::Configuration, par
     } else {
         let content = resp.text().await?;
         let entity: Option<AddSteamAccountError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well. 
+pub async fn bot_friend_status(configuration: &configuration::Configuration, params: BotFriendStatusParams) -> Result<models::BotFriendStatus, Error<BotFriendStatusError>> {
+
+    let uri_str = format!("{}/v1/patron/steam-accounts/{account_id}/bot-friend", configuration.base_path, account_id=crate::apis::urlencode(params.account_id));
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.query(&[("api_key", value)]);
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+    if let Some(ref apikey) = configuration.api_key {
+        let key = apikey.key.clone();
+        let value = match apikey.prefix {
+            Some(ref prefix) => format!("{} {}", prefix, key),
+            None => key,
+        };
+        req_builder = req_builder.header("X-API-KEY", value);
+    };
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::BotFriendStatus`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::BotFriendStatus`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<BotFriendStatusError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

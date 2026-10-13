@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.InternalApi
 import deadlock_api_client.models.AddSteamAccountRequest
+import deadlock_api_client.models.BotFriendStatus
 import deadlock_api_client.models.ClickhouseSalts
 import deadlock_api_client.models.DeleteSteamAccountResponse
 import deadlock_api_client.models.FeedbackSubmission
@@ -46,6 +47,14 @@ class InternalApiTest : ShouldSpec() {
             // uncomment below to test addSteamAccount
             //val addSteamAccountRequest : AddSteamAccountRequest =  // AddSteamAccountRequest | 
             //val result : SteamAccountResponse = apiInstance.addSteamAccount(addSteamAccountRequest)
+            //result shouldBe ("TODO")
+        }
+
+        // to test botFriendStatus
+        should("test botFriendStatus") {
+            // uncomment below to test botFriendStatus
+            //val accountId : kotlin.String = accountId_example // kotlin.String | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+            //val result : BotFriendStatus = apiInstance.botFriendStatus(accountId)
             //result shouldBe ("TODO")
         }
 

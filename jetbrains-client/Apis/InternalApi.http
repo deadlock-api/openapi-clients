@@ -12,6 +12,12 @@ X-API-KEY: {{apiKey}}
 }
 
 
+### Prioritized Steam Account Bot Friend Status
+## Prioritized Steam Account Bot Friend Status
+GET https://api.deadlock-api.com/v1/patron/steam-accounts/{{account_id}}/bot-friend?api_key={{queryKey}}
+Accept: application/json
+X-API-KEY: {{apiKey}}
+
 ### Remove Prioritized Steam Account
 ## Remove Prioritized Steam Account
 DELETE https://api.deadlock-api.com/v1/patron/steam-accounts/{{account_id}}?api_key={{queryKey}}

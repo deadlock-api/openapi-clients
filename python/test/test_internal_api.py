@@ -33,6 +33,13 @@ class TestInternalApi(unittest.TestCase):
         """
         pass
 
+    def test_bot_friend_status(self) -> None:
+        """Test case for bot_friend_status
+
+        Prioritized Steam Account Bot Friend Status
+        """
+        pass
+
     def test_delete_steam_account(self) -> None:
         """Test case for delete_steam_account
 

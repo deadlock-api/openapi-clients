@@ -129,6 +129,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *InfoApi* | [**healthCheck**](docs/InfoApi.md#healthcheck) | **GET** /v1/info/health | Health Check |
 | *InfoApi* | [**info**](docs/InfoApi.md#info) | **GET** /v1/info | API Info |
 | *InternalApi* | [**addSteamAccount**](docs/InternalApi.md#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
+| *InternalApi* | [**botFriendStatus**](docs/InternalApi.md#botfriendstatus) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status |
 | *InternalApi* | [**deleteSteamAccount**](docs/InternalApi.md#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | *InternalApi* | [**ingestSalts**](docs/InternalApi.md#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest |
 | *InternalApi* | [**ingestStatus**](docs/InternalApi.md#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
@@ -224,6 +225,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)
  - [deadlock_api_client.models.BadgeDistribution](docs/BadgeDistribution.md)
+ - [deadlock_api_client.models.BotFriendStatus](docs/BotFriendStatus.md)
  - [deadlock_api_client.models.BreakablePowerupLootParams](docs/BreakablePowerupLootParams.md)
  - [deadlock_api_client.models.Build](docs/Build.md)
  - [deadlock_api_client.models.BuildHero](docs/BuildHero.md)

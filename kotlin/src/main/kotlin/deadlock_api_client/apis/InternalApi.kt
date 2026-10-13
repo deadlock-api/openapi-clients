@@ -28,6 +28,7 @@ import okhttp3.Call
 import okhttp3.HttpUrl
 
 import deadlock_api_client.models.AddSteamAccountRequest
+import deadlock_api_client.models.BotFriendStatus
 import deadlock_api_client.models.ClickhouseSalts
 import deadlock_api_client.models.DeleteSteamAccountResponse
 import deadlock_api_client.models.FeedbackSubmission
@@ -127,6 +128,79 @@ open class InternalApi(basePath: kotlin.String = defaultBasePath, client: Call.F
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/v1/patron/steam-accounts",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/patron/steam-accounts/{account_id}/bot-friend
+     * Prioritized Steam Account Bot Friend Status
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as &#x60;X-API-Key&#x60; header, &#x60;api_key&#x60; query parameter or &#x60;Authorization: Bearer &lt;key&gt;&#x60;. A &#x60;patron_session&#x60; from the website login works as well. 
+     * @param accountId The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     * @return BotFriendStatus
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun botFriendStatus(accountId: kotlin.String) : BotFriendStatus {
+        val localVarResponse = botFriendStatusWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as BotFriendStatus
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/patron/steam-accounts/{account_id}/bot-friend
+     * Prioritized Steam Account Bot Friend Status
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as &#x60;X-API-Key&#x60; header, &#x60;api_key&#x60; query parameter or &#x60;Authorization: Bearer &lt;key&gt;&#x60;. A &#x60;patron_session&#x60; from the website login works as well. 
+     * @param accountId The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     * @return ApiResponse<BotFriendStatus?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun botFriendStatusWithHttpInfo(accountId: kotlin.String) : ApiResponse<BotFriendStatus?> {
+        val localVariableConfig = botFriendStatusRequestConfig(accountId = accountId)
+
+        return request<Unit, BotFriendStatus>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation botFriendStatus
+     *
+     * @param accountId The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     * @return RequestConfig
+     */
+    fun botFriendStatusRequestConfig(accountId: kotlin.String) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/patron/steam-accounts/{account_id}/bot-friend".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

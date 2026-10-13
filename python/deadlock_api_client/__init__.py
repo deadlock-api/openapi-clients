@@ -82,6 +82,7 @@ __all__ = [
     "AnalyticsGameStats",
     "AnalyticsHeroStats",
     "BadgeDistribution",
+    "BotFriendStatus",
     "BreakablePowerupLootParams",
     "Build",
     "BuildHero",
@@ -377,6 +378,7 @@ from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats a
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats as AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats as AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution as BadgeDistribution
+from deadlock_api_client.models.bot_friend_status import BotFriendStatus as BotFriendStatus
 from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams as BreakablePowerupLootParams
 from deadlock_api_client.models.build import Build as Build
 from deadlock_api_client.models.build_hero import BuildHero as BuildHero

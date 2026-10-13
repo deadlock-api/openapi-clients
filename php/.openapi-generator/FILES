@@ -62,6 +62,7 @@ api/Model/AnalyticsBuffStats.php
 api/Model/AnalyticsGameStats.php
 api/Model/AnalyticsHeroStats.php
 api/Model/BadgeDistribution.php
+api/Model/BotFriendStatus.php
 api/Model/BreakablePowerupLootParams.php
 api/Model/Build.php
 api/Model/BuildHero.php
@@ -344,6 +345,7 @@ docs/Model/AnalyticsBuffStats.md
 docs/Model/AnalyticsGameStats.md
 docs/Model/AnalyticsHeroStats.md
 docs/Model/BadgeDistribution.md
+docs/Model/BotFriendStatus.md
 docs/Model/BreakablePowerupLootParams.md
 docs/Model/Build.md
 docs/Model/BuildHero.md
@@ -625,6 +627,7 @@ test/Model/AnalyticsBuffStatsTest.php
 test/Model/AnalyticsGameStatsTest.php
 test/Model/AnalyticsHeroStatsTest.php
 test/Model/BadgeDistributionTest.php
+test/Model/BotFriendStatusTest.php
 test/Model/BreakablePowerupLootParamsTest.php
 test/Model/BuildHeroDetailsAbilityOrderCurrencyChangeTest.php
 test/Model/BuildHeroDetailsAbilityOrderTest.php

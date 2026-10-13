@@ -34,6 +34,20 @@ func Test_deadlock_api_client_InternalAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test InternalAPIService BotFriendStatus", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var accountId string
+
+		resp, httpRes, err := apiClient.InternalAPI.BotFriendStatus(context.Background(), accountId).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test InternalAPIService DeleteSteamAccount", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test

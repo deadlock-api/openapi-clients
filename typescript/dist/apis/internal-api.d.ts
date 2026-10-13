@@ -13,6 +13,7 @@ import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { type RequestArgs, BaseAPI } from '../base.js';
 import type { AddSteamAccountRequest } from '../models/index.js';
+import type { BotFriendStatus } from '../models/index.js';
 import type { ClickhouseSalts } from '../models/index.js';
 import type { DeleteSteamAccountResponse } from '../models/index.js';
 import type { FeedbackSubmission } from '../models/index.js';
@@ -32,6 +33,14 @@ export declare const InternalApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     addSteamAccount: (addSteamAccountRequest: AddSteamAccountRequest, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Prioritized Steam Account Bot Friend Status
+     * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    botFriendStatus: (accountId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary Remove Prioritized Steam Account
@@ -102,6 +111,14 @@ export declare const InternalApiFp: (configuration?: Configuration) => {
      */
     addSteamAccount(addSteamAccountRequest: AddSteamAccountRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SteamAccountResponse>>;
     /**
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Prioritized Steam Account Bot Friend Status
+     * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    botFriendStatus(accountId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BotFriendStatus>>;
+    /**
      *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary Remove Prioritized Steam Account
      * @param {string} accountId The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
@@ -171,6 +188,14 @@ export declare const InternalApiFactory: (configuration?: Configuration, basePat
      */
     addSteamAccount(requestParameters: InternalApiAddSteamAccountRequest, options?: RawAxiosRequestConfig): AxiosPromise<SteamAccountResponse>;
     /**
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Prioritized Steam Account Bot Friend Status
+     * @param {InternalApiBotFriendStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    botFriendStatus(requestParameters: InternalApiBotFriendStatusRequest, options?: RawAxiosRequestConfig): AxiosPromise<BotFriendStatus>;
+    /**
      *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary Remove Prioritized Steam Account
      * @param {InternalApiDeleteSteamAccountRequest} requestParameters Request parameters.
@@ -233,6 +258,15 @@ export interface InternalApiAddSteamAccountRequest {
     readonly addSteamAccountRequest: AddSteamAccountRequest;
 }
 /**
+ * Request parameters for botFriendStatus operation in InternalApi.
+ */
+export interface InternalApiBotFriendStatusRequest {
+    /**
+     * The account\&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint
+     */
+    readonly accountId: string;
+}
+/**
  * Request parameters for deleteSteamAccount operation in InternalApi.
  */
 export interface InternalApiDeleteSteamAccountRequest {
@@ -293,6 +327,14 @@ export declare class InternalApi extends BaseAPI {
      * @throws {RequiredError}
      */
     addSteamAccount(requestParameters: InternalApiAddSteamAccountRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SteamAccountResponse, any, {}, any>>;
+    /**
+     *  Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+     * @summary Prioritized Steam Account Bot Friend Status
+     * @param {InternalApiBotFriendStatusRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    botFriendStatus(requestParameters: InternalApiBotFriendStatusRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<BotFriendStatus, any, {}, any>>;
     /**
      *  Removes a Steam account from the patron\'s prioritized fetching list. `account_id` is the `steam_id3` or the entry `id`. Its slot stays in a 24 hour cooldown before it can be reused.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
      * @summary Remove Prioritized Steam Account

@@ -20,6 +20,7 @@ export * from './AnalyticsBuffStats';
 export * from './AnalyticsGameStats';
 export * from './AnalyticsHeroStats';
 export * from './BadgeDistribution';
+export * from './BotFriendStatus';
 export * from './BreakablePowerupLootParams';
 export * from './Build';
 export * from './BuildHero';

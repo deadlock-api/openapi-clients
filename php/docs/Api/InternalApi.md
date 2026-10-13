@@ -7,6 +7,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**addSteamAccount()**](InternalApi.md#addSteamAccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account |
+| [**botFriendStatus()**](InternalApi.md#botFriendStatus) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status |
 | [**deleteSteamAccount()**](InternalApi.md#deleteSteamAccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account |
 | [**ingestSalts()**](InternalApi.md#ingestSalts) | **POST** /v1/matches/salts | Match Salts Ingest |
 | [**ingestStatus()**](InternalApi.md#ingestStatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status |
@@ -77,6 +78,73 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `botFriendStatus()`
+
+```php
+botFriendStatus($account_id): \OpenAPI\Client\Model\BotFriendStatus
+```
+
+Prioritized Steam Account Bot Friend Status
+
+Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.  ### Authentication Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header, `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the website login works as well.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: api_key_query
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('api_key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api_key', 'Bearer');
+
+// Configure API key authorization: api_key_header
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\InternalApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$account_id = 'account_id_example'; // string | The account's `steam_id3`, or the `id` of its entry as returned by the list endpoint
+
+try {
+    $result = $apiInstance->botFriendStatus($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InternalApi->botFriendStatus: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **string**| The account&#39;s &#x60;steam_id3&#x60;, or the &#x60;id&#x60; of its entry as returned by the list endpoint | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\BotFriendStatus**](../Model/BotFriendStatus.md)
+
+### Authorization
+
+[api_key_query](../../README.md#api_key_query), [api_key_header](../../README.md#api_key_header)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

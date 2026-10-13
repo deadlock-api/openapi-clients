@@ -60,6 +60,7 @@ src/models/AnalyticsBuffStats.ts
 src/models/AnalyticsGameStats.ts
 src/models/AnalyticsHeroStats.ts
 src/models/BadgeDistribution.ts
+src/models/BotFriendStatus.ts
 src/models/BreakablePowerupLootParams.ts
 src/models/Build.ts
 src/models/BuildHero.ts

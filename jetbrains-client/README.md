@@ -80,6 +80,7 @@ Class | Method | HTTP request | Description
 *InfoApi* | [**healthCheck**](Apis/InfoApi.http#healthcheck) | **GET** /v1/info/health | Health Check
 *InfoApi* | [**info**](Apis/InfoApi.http#info) | **GET** /v1/info | API Info
 *InternalApi* | [**addSteamAccount**](Apis/InternalApi.http#addsteamaccount) | **POST** /v1/patron/steam-accounts | Add Prioritized Steam Account
+*InternalApi* | [**botFriendStatus**](Apis/InternalApi.http#botfriendstatus) | **GET** /v1/patron/steam-accounts/{account_id}/bot-friend | Prioritized Steam Account Bot Friend Status
 *InternalApi* | [**deleteSteamAccount**](Apis/InternalApi.http#deletesteamaccount) | **DELETE** /v1/patron/steam-accounts/{account_id} | Remove Prioritized Steam Account
 *InternalApi* | [**ingestSalts**](Apis/InternalApi.http#ingestsalts) | **POST** /v1/matches/salts | Match Salts Ingest
 *InternalApi* | [**ingestStatus**](Apis/InternalApi.http#ingeststatus) | **GET** /v1/players/{account_id}/ingest-status | Ingest Status

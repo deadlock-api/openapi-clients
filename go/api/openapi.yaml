@@ -203,7 +203,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -507,7 +507,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -661,7 +661,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -845,7 +845,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -933,7 +933,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -1199,7 +1199,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -1344,7 +1344,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -1577,7 +1577,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -1874,7 +1874,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -2143,7 +2143,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -2458,7 +2458,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -2609,7 +2609,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -2899,7 +2899,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -3264,7 +3264,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -3609,7 +3609,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -3908,6 +3908,29 @@ paths:
           nullable: true
           type: boolean
         style: form
+      - description: "How to count enhanced items (Street Brawl only: a draft pick\
+          \ that is the enhanced version of an upgrade, with the same item id). `include`:\
+          \ enhanced purchases count as the normal item. `exclude`: only normal purchases.\
+          \ `only`: only enhanced purchases, so each row describes the enhanced variant\
+          \ of `item_id`. Compare it with the same request using `exclude`. Matches\
+          \ before 2026-04-08 do not record which purchases were enhanced, so `exclude`\
+          \ and `only` ignore earlier time and match-id bounds. `exclude` and `only`\
+          \ require `game_mode=street_brawl` and skip the pre-aggregated rollups,\
+          \ so those requests are slower. **Default:** `include`."
+        explode: true
+        in: query
+        name: enhanced_items
+        required: false
+        schema:
+          description: |-
+            How enhanced purchases are counted. Street Brawl only: some draft picks are the enhanced
+            version of an upgrade, which keeps the normal item's id.
+          enum:
+          - include
+          - exclude
+          - only
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -3978,7 +4001,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -4287,7 +4310,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -4574,7 +4597,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -4867,7 +4890,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -5136,7 +5159,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -5502,7 +5525,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -11012,6 +11035,44 @@ paths:
       summary: Replace Prioritized Steam Account
       tags:
       - Internal
+  /v1/patron/steam-accounts/{account_id}/bot-friend:
+    get:
+      description: |2
+
+        Reports whether a prioritized Steam account is friends with one of the bots. Bot friends get their match history fetched from Steam directly; an account that is not one yet gets invite links to add a bot as friend.
+
+        ### Authentication
+        Requires an API key linked to an active Patreon membership, sent as `X-API-Key` header,
+        `api_key` query parameter or `Authorization: Bearer <key>`. A `patron_session` from the
+        website login works as well.
+      operationId: bot_friend_status
+      parameters:
+      - description: "The account's `steam_id3`, or the `id` of its entry as returned\
+          \ by the list endpoint"
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BotFriendStatus"
+          description: OK
+        "401":
+          description: "Missing API key, or the key is not linked to a patron"
+        "404":
+          description: Account not found or does not belong to the patron
+      security:
+      - api_key_header: []
+      - api_key_query: []
+      summary: Prioritized Steam Account Bot Friend Status
+      tags:
+      - Internal
   /v1/patron/steam-accounts/{account_id}/reactivate:
     post:
       description: |2
@@ -11314,7 +11375,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -11438,7 +11499,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -11760,7 +11821,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789171200
+          default: 1789257600
           format: int64
           nullable: true
           type: integer
@@ -14231,6 +14292,26 @@ components:
       - badge_level
       - total_matches
       - unique_players
+    BotFriendStatus:
+      description: Whether a prioritized account is friends with one of the bots
+      example:
+        invites:
+        - invites
+        - invites
+        is_friend: true
+      properties:
+        invites:
+          description: "Friend invite links of bots to add, empty once `is_friend`\
+            \ is true"
+          items:
+            type: string
+          type: array
+          default: null
+        is_friend:
+          type: boolean
+      required:
+      - invites
+      - is_friend
     BreakablePowerupLootParams:
       properties:
         loot_list_deck_size:

@@ -20,6 +20,7 @@ export * from './analytics-buff-stats.js';
 export * from './analytics-game-stats.js';
 export * from './analytics-hero-stats.js';
 export * from './badge-distribution.js';
+export * from './bot-friend-status.js';
 export * from './breakable-powerup-loot-params.js';
 export * from './build.js';
 export * from './build-hero.js';

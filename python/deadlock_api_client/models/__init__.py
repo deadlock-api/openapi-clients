@@ -35,6 +35,7 @@ from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
+from deadlock_api_client.models.bot_friend_status import BotFriendStatus
 from deadlock_api_client.models.breakable_powerup_loot_params import BreakablePowerupLootParams
 from deadlock_api_client.models.build import Build
 from deadlock_api_client.models.build_hero import BuildHero

@@ -64,6 +64,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BotFriendStatus.md
 docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
@@ -342,6 +343,7 @@ models/analytics-game-stats.ts
 models/analytics-hero-stats.ts
 models/apiinfo.ts
 models/badge-distribution.ts
+models/bot-friend-status.ts
 models/breakable-powerup-loot-params.ts
 models/build-hero-details-ability-order-currency-change.ts
 models/build-hero-details-ability-order.ts

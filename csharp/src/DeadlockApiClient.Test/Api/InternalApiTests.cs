@@ -63,6 +63,18 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test BotFriendStatus
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task BotFriendStatusAsyncTest()
+        {
+            string accountId = default!;
+            var response = await _instance.BotFriendStatusAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.BotFriendStatus>(model);
+        }
+
+        /// <summary>
         /// Test DeleteSteamAccount
         /// </summary>
         [Fact (Skip = "not implemented")]

@@ -26,6 +26,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketApi.md
 docs/BadgeDistribution.md
+docs/BotFriendStatus.md
 docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
@@ -353,6 +354,7 @@ src/main/kotlin/deadlock_api_client/models/AnalyticsBuffStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsGameStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsHeroStats.kt
 src/main/kotlin/deadlock_api_client/models/BadgeDistribution.kt
+src/main/kotlin/deadlock_api_client/models/BotFriendStatus.kt
 src/main/kotlin/deadlock_api_client/models/BreakablePowerupLootParams.kt
 src/main/kotlin/deadlock_api_client/models/Build.kt
 src/main/kotlin/deadlock_api_client/models/BuildHero.kt
@@ -632,6 +634,7 @@ src/test/kotlin/deadlock_api_client/models/AnalyticsBuffStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsGameStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsHeroStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/BadgeDistributionTest.kt
+src/test/kotlin/deadlock_api_client/models/BotFriendStatusTest.kt
 src/test/kotlin/deadlock_api_client/models/BreakablePowerupLootParamsTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsAbilityOrderCurrencyChangeTest.kt
 src/test/kotlin/deadlock_api_client/models/BuildHeroDetailsAbilityOrderTest.kt

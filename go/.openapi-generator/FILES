@@ -63,6 +63,7 @@ docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
 docs/AssetsBucketAPI.md
 docs/BadgeDistribution.md
+docs/BotFriendStatus.md
 docs/BreakablePowerupLootParams.md
 docs/Build.md
 docs/BuildHero.md
@@ -342,6 +343,7 @@ model_analytics_game_stats.go
 model_analytics_hero_stats.go
 model_api_info.go
 model_badge_distribution.go
+model_bot_friend_status.go
 model_breakable_powerup_loot_params.go
 model_build.go
 model_build_hero.go

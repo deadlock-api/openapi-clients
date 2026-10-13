@@ -42,6 +42,8 @@ pub mod api_info;
 pub use self::api_info::ApiInfo;
 pub mod badge_distribution;
 pub use self::badge_distribution::BadgeDistribution;
+pub mod bot_friend_status;
+pub use self::bot_friend_status::BotFriendStatus;
 pub mod breakable_powerup_loot_params;
 pub use self::breakable_powerup_loot_params::BreakablePowerupLootParams;
 pub mod build;
