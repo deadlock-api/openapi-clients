@@ -225,12 +225,6 @@ docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
 docs/Pickup.md
-docs/PlayerAccountHeroStats.md
-docs/PlayerAccountStats.md
-docs/PlayerCard.md
-docs/PlayerCardSlot.md
-docs/PlayerCardSlotHero.md
-docs/PlayerCardSlotStat.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
@@ -481,12 +475,6 @@ models/patch-category.ts
 models/patch-guid.ts
 models/patch.ts
 models/pickup.ts
-models/player-account-hero-stats.ts
-models/player-account-stats.ts
-models/player-card-slot-hero.ts
-models/player-card-slot-stat.ts
-models/player-card-slot.ts
-models/player-card.ts
 models/player-entry.ts
 models/player-match-history-entry.ts
 models/player-performance-curve-point.ts

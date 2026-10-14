@@ -161,8 +161,6 @@ Class | Method | HTTP request | Description
 *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes
 *PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
-*PlayersApi* | [**accountStats**](docs/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats
-*PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card
 *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -349,12 +347,6 @@ Class | Method | HTTP request | Description
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
  - [Pickup](docs/Pickup.md)
- - [PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
- - [PlayerAccountStats](docs/PlayerAccountStats.md)
- - [PlayerCard](docs/PlayerCard.md)
- - [PlayerCardSlot](docs/PlayerCardSlot.md)
- - [PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
- - [PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
  - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)

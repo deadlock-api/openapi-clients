@@ -5,6 +5,10 @@
 
 We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)
 
+## Load Shedding
+
+Endpoints backed by the database queue uncached queries when it is busy. If a query waits too long, the request fails with `503 Service Unavailable` and a `Retry-After` header: wait that many seconds before retrying, and don't send many uncached requests in parallel from one client. Requests with an API key have a larger share of the queue.
+
 ## Support the Deadlock API
 
 Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.
@@ -173,8 +177,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes |
 | *PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
-| *PlayersApi* | [**accountStats**](docs/PlayersApi.md#accountstats) | **GET** /v1/players/{account_id}/account-stats | Account Stats |
-| *PlayersApi* | [**card**](docs/PlayersApi.md#card) | **GET** /v1/players/{account_id}/card | Card |
 | *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
@@ -362,12 +364,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)
  - [deadlock_api_client.models.Pickup](docs/Pickup.md)
- - [deadlock_api_client.models.PlayerAccountHeroStats](docs/PlayerAccountHeroStats.md)
- - [deadlock_api_client.models.PlayerAccountStats](docs/PlayerAccountStats.md)
- - [deadlock_api_client.models.PlayerCard](docs/PlayerCard.md)
- - [deadlock_api_client.models.PlayerCardSlot](docs/PlayerCardSlot.md)
- - [deadlock_api_client.models.PlayerCardSlotHero](docs/PlayerCardSlotHero.md)
- - [deadlock_api_client.models.PlayerCardSlotStat](docs/PlayerCardSlotStat.md)
  - [deadlock_api_client.models.PlayerEntry](docs/PlayerEntry.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)

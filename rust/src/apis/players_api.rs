@@ -1,7 +1,7 @@
 /*
  * Deadlock API
  *
- *  ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_         
+ *  ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Load Shedding  Endpoints backed by the database queue uncached queries when it is busy. If a query waits too long, the request fails with `503 Service Unavailable` and a `Retry-After` header: wait that many seconds before retrying, and don't send many uncached requests in parallel from one client. Requests with an API key have a larger share of the queue.  ## Support the Deadlock API  Whether you're building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_         
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -13,20 +13,6 @@ use reqwest;
 use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
-
-/// struct for passing parameters to the method [`account_stats`]
-#[derive(Clone, Debug)]
-pub struct AccountStatsParams {
-    /// The players `SteamID3`
-    pub account_id: u32
-}
-
-/// struct for passing parameters to the method [`card`]
-#[derive(Clone, Debug)]
-pub struct CardParams {
-    /// The players `SteamID3`
-    pub account_id: u32
-}
 
 /// struct for passing parameters to the method [`enemy_stats`]
 #[derive(Clone, Debug)]
@@ -203,28 +189,6 @@ pub struct RankPredictImageParams {
 }
 
 
-/// struct for typed errors of method [`account_stats`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum AccountStatsError {
-    Status400(),
-    Status403(),
-    Status429(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`card`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum CardError {
-    Status400(),
-    Status403(),
-    Status429(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`enemy_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -344,76 +308,6 @@ pub enum RankPredictImageError {
     UnknownValue(serde_json::Value),
 }
 
-
-///  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-pub async fn account_stats(configuration: &configuration::Configuration, params: AccountStatsParams) -> Result<models::PlayerAccountStats, Error<AccountStatsError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/account-stats", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PlayerAccountStats`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PlayerAccountStats`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<AccountStatsError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-///  This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player's latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-pub async fn card(configuration: &configuration::Configuration, params: CardParams) -> Result<models::PlayerCard, Error<CardError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/card", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PlayerCard`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PlayerCard`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<CardError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
 
 ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
 pub async fn enemy_stats(configuration: &configuration::Configuration, params: EnemyStatsParams) -> Result<Vec<models::EnemyStats>, Error<EnemyStatsError>> {

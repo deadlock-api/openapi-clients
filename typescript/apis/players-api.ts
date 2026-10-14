@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Deadlock API
- *  ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Support the Deadlock API  Whether you\'re building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_         
+ *  ## API Clients  We have auto generated and updated clients for many languages. You can find them here: [https://github.com/deadlock-api/openapi-clients](https://github.com/deadlock-api/openapi-clients)  ## Load Shedding  Endpoints backed by the database queue uncached queries when it is busy. If a query waits too long, the request fails with `503 Service Unavailable` and a `Retry-After` header: wait that many seconds before retrying, and don\'t send many uncached requests in parallel from one client. Requests with an API key have a larger share of the queue.  ## Support the Deadlock API  Whether you\'re building your own database, developing data science projects, or enhancing your website with game and player analytics, the Deadlock API has the data you need.  Your sponsorship helps keep this resource open, free and future-proof for everyone. By supporting the Deadlock API, you will enable continued development, new features and reliable access for developers, analysts and streamers worldwide.  Help us continue to provide the data you need - sponsor the Deadlock API today!  **-> You can Sponsor the Deadlock API on [Patreon](https://www.patreon.com/c/user?u=68961896) or [GitHub](https://github.com/sponsors/raimannma)**  ## Disclaimer _deadlock-api.com is not endorsed by Valve and does not reflect the views or opinions of Valve or anyone officially involved in producing or managing Valve properties. Valve and all associated properties are trademarks or registered trademarks of Valve Corporation_         
  *
  * The version of the OpenAPI document: 0.1.0
  * 
@@ -30,10 +30,6 @@ import type { HeroStats } from '../models/index.js';
 // @ts-ignore
 import type { MateStats } from '../models/index.js';
 // @ts-ignore
-import type { PlayerAccountStats } from '../models/index.js';
-// @ts-ignore
-import type { PlayerCard } from '../models/index.js';
-// @ts-ignore
 import type { PlayerMatchHistoryEntry } from '../models/index.js';
 // @ts-ignore
 import type { RankDistributionEntry } from '../models/index.js';
@@ -44,74 +40,6 @@ import type { RankResponse } from '../models/index.js';
  */
 export const PlayersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Account Stats
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        accountStats: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('accountStats', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/account-stats`
-                .replace('{account_id}', encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         *  This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player\'s latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        card: async (accountId: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('card', 'accountId', accountId)
-            const localVarPath = `/v1/players/{account_id}/card`
-                .replace('{account_id}', encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            localVarHeaderParameter['Accept'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
@@ -771,32 +699,6 @@ export const PlayersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PlayersApiAxiosParamCreator(configuration)
     return {
         /**
-         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Account Stats
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async accountStats(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerAccountStats>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.accountStats(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.accountStats']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         *  This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player\'s latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async card(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerCard>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.card(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.card']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
@@ -1010,26 +912,6 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PlayersApiFp(configuration)
     return {
         /**
-         *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Account Stats
-         * @param {PlayersApiAccountStatsRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerAccountStats> {
-            return localVarFp.accountStats(requestParameters.accountId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         *  This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player\'s latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-         * @summary Card
-         * @param {PlayersApiCardRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerCard> {
-            return localVarFp.card(requestParameters.accountId, options).then((request) => request(axios, basePath));
-        },
-        /**
          *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
          * @summary Enemy Stats
          * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
@@ -1154,26 +1036,6 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
         },
     };
 };
-
-/**
- * Request parameters for accountStats operation in PlayersApi.
- */
-export interface PlayersApiAccountStatsRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number
-}
-
-/**
- * Request parameters for card operation in PlayersApi.
- */
-export interface PlayersApiCardRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number
-}
 
 /**
  * Request parameters for enemyStats operation in PlayersApi.
@@ -1524,28 +1386,6 @@ export interface PlayersApiRankPredictImageRequest {
  * PlayersApi - object-oriented interface
  */
 export class PlayersApi extends BaseAPI {
-    /**
-     *  This endpoint returns the player account stats for the given `account_id`.  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetAccountStats - CMsgAccountStats  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-     * @summary Account Stats
-     * @param {PlayersApiAccountStatsRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public accountStats(requestParameters: PlayersApiAccountStatsRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).accountStats(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     *  This endpoint returns the player card for the given `account_id`.  Since build 6711 player cards no longer carry a rank, so `ranked_badge_level`, `ranked_rank` and `ranked_subrank` are the rank after the player\'s latest ranked match (same as `/v1/players/{account_id}/rank`).  !THIS IS A PATREON ONLY ENDPOINT!  You have to be friend with one of the bots to use this endpoint. On first use this endpoint will return an error with a list of invite links to add the bot as friend. From then on you can use this endpoint.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetProfileCard - CMsgCitadelProfileCard  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 20req/min & 800req/h | | Global | 200req/min |     
-     * @summary Card
-     * @param {PlayersApiCardRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public card(requestParameters: PlayersApiCardRequest, options?: RawAxiosRequestConfig) {
-        return PlayersApiFp(this.configuration).card(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
      * @summary Enemy Stats
