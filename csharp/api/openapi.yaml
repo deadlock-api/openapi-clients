@@ -207,7 +207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -511,7 +511,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -665,7 +665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -849,7 +849,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -937,7 +937,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -1203,7 +1203,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -1348,7 +1348,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -1581,7 +1581,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -1878,7 +1878,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -2147,7 +2147,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -2462,7 +2462,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -2613,7 +2613,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -2903,7 +2903,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -3268,7 +3268,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -3613,7 +3613,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -4005,7 +4005,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -4314,7 +4314,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -4601,7 +4601,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -4894,7 +4894,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -5163,7 +5163,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -5529,7 +5529,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -11379,7 +11379,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -11503,7 +11503,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -11825,7 +11825,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789257600
+          default: 1789344000
           format: int64
           nullable: true
           type: integer
@@ -12827,12 +12827,16 @@ paths:
       description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
         \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
         \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nExecutes a SQL query on the database.\n\n### Rate Limits:\n| Type | Limit\
-        \ |\n| ---- | ----- |\n| IP | 2req/min, 20req/hr |\n| Key | 10req/min |\n\
-        | Global | 30req/min |\n    "
+        \nExecutes a read-only `DuckDB` SQL query on the public data lake (hourly\
+        \ parquet snapshots of\nthe database), the same one the MCP server at `/v1/mcp`\
+        \ queries. Unqualified table names resolve\nto its views; filter `match_player`\
+        \ on `match_id` or `start_time` to skip files. At most 100,000\nrows are returned\
+        \ (`X-Truncated: true` when cut off), and queries time out after 45 seconds.\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 2req/min, 20req/hr\
+        \ |\n| Key | 10req/min |\n| Global | 30req/min |\n    "
       operationId: sql
       parameters:
-      - description: The SQL query to execute. It must follow the Clickhouse SQL syntax.
+      - description: The SQL query to execute. It must follow the `DuckDB` SQL syntax.
         explode: true
         in: query
         name: query
@@ -12875,9 +12879,9 @@ paths:
       description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
         \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
         \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nLists all tables in the database.\n\n### Rate Limits:\n| Type | Limit |\n\
-        | ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min |\n\
-        \    "
+        \nLists all tables of the public data lake.\n\n### Rate Limits:\n| Type |\
+        \ Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min\
+        \ |\n    "
       operationId: list_tables
       responses:
         "200":
@@ -12904,9 +12908,10 @@ paths:
       description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
         \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
         \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nReturns the schema of a table.\n\n### Rate Limits:\n| Type | Limit |\n|\
-        \ ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min |\n\
-        \    "
+        \nReturns the columns of a data lake table with their `DuckDB` types; column\
+        \ comments carry the\noriginal `ClickHouse` type.\n\n### Rate Limits:\n| Type\
+        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global |\
+        \ 60req/min |\n    "
       operationId: table_schema
       parameters:
       - description: The name of the table to fetch the schema for.

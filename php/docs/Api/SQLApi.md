@@ -19,7 +19,7 @@ listTables(): string[]
 
 List Tables
 
-**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
 
 ### Example
 
@@ -72,7 +72,7 @@ sql($query, $format): string
 
 Query
 
-**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
 
 ### Example
 
@@ -87,7 +87,7 @@ $apiInstance = new OpenAPI\Client\Api\SQLApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$query = 'query_example'; // string | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+$query = 'query_example'; // string | The SQL query to execute. It must follow the `DuckDB` SQL syntax.
 $format = 'json'; // string | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 
 try {
@@ -102,7 +102,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **query** | **string**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | |
+| **query** | **string**| The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax. | |
 | **format** | **string**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to &#39;json&#39;] |
 
 ### Return type
@@ -130,7 +130,7 @@ tableSchema($table): array<string,string>
 
 Table Schema
 
-**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+**Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
 
 ### Example
 

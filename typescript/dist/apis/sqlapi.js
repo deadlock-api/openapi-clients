@@ -23,7 +23,7 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 export const SQLApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -50,9 +50,9 @@ export const SQLApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
          * @summary Query
-         * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {string} query The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
          * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -87,7 +87,7 @@ export const SQLApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary Table Schema
          * @param {string} table The name of the table to fetch the schema for.
          * @param {*} [options] Override http request option.
@@ -126,7 +126,7 @@ export const SQLApiFp = function (configuration) {
     const localVarAxiosParamCreator = SQLApiAxiosParamCreator(configuration);
     return {
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -139,9 +139,9 @@ export const SQLApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
          * @summary Query
-         * @param {string} query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+         * @param {string} query The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
          * @param {SqlFormatEnum} [format] The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects).
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -154,7 +154,7 @@ export const SQLApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary Table Schema
          * @param {string} table The name of the table to fetch the schema for.
          * @param {*} [options] Override http request option.
@@ -176,7 +176,7 @@ export const SQLApiFactory = function (configuration, basePath, axios) {
     const localVarFp = SQLApiFp(configuration);
     return {
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary List Tables
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -186,7 +186,7 @@ export const SQLApiFactory = function (configuration, basePath, axios) {
             return localVarFp.listTables(options).then((request) => request(axios, basePath));
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
          * @summary Query
          * @param {SQLApiSqlRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -197,7 +197,7 @@ export const SQLApiFactory = function (configuration, basePath, axios) {
             return localVarFp.sql(requestParameters.query, requestParameters.format, options).then((request) => request(axios, basePath));
         },
         /**
-         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+         *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
          * @summary Table Schema
          * @param {SQLApiTableSchemaRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -214,7 +214,7 @@ export const SQLApiFactory = function (configuration, basePath, axios) {
  */
 export class SQLApi extends BaseAPI {
     /**
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
      * @summary List Tables
      * @param {*} [options] Override http request option.
      * @deprecated
@@ -224,7 +224,7 @@ export class SQLApi extends BaseAPI {
         return SQLApiFp(this.configuration).listTables(options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |
      * @summary Query
      * @param {SQLApiSqlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -235,7 +235,7 @@ export class SQLApi extends BaseAPI {
         return SQLApiFp(this.configuration).sql(requestParameters.query, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |
      * @summary Table Schema
      * @param {SQLApiTableSchemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

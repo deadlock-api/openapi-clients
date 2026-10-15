@@ -19,7 +19,7 @@ List Tables
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Lists all tables in the database.
+Lists all tables of the public data lake.
 
 ### Rate Limits:
 | Type | Limit |
@@ -96,7 +96,10 @@ Query
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Executes a SQL query on the database.
+Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of
+the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve
+to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000
+rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.
 
 ### Rate Limits:
 | Type | Limit |
@@ -125,7 +128,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.SQLApi(api_client)
-    query = 'query_example' # str | The SQL query to execute. It must follow the Clickhouse SQL syntax.
+    query = 'query_example' # str | The SQL query to execute. It must follow the `DuckDB` SQL syntax.
     format = 'json' # str | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects). (optional) (default to 'json')
 
     try:
@@ -144,7 +147,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **str**| The SQL query to execute. It must follow the Clickhouse SQL syntax. | 
+ **query** | **str**| The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax. | 
  **format** | **str**| The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). | [optional] [default to &#39;json&#39;]
 
 ### Return type
@@ -179,7 +182,8 @@ Table Schema
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Returns the schema of a table.
+Returns the columns of a data lake table with their `DuckDB` types; column comments carry the
+original `ClickHouse` type.
 
 ### Rate Limits:
 | Type | Limit |

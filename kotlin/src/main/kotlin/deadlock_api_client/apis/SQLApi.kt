@@ -55,7 +55,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return kotlin.collections.List<kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -88,7 +88,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables
      * List Tables
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -147,8 +147,8 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
-     * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only &#x60;DuckDB&#x60; SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at &#x60;/v1/mcp&#x60; queries. Unqualified table names resolve to its views; filter &#x60;match_player&#x60; on &#x60;match_id&#x60; or &#x60;start_time&#x60; to skip files. At most 100,000 rows are returned (&#x60;X-Truncated: true&#x60; when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+     * @param query The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return kotlin.String
      * @throws IllegalStateException If the request is not correctly configured
@@ -182,8 +182,8 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql
      * Query
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
-     * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only &#x60;DuckDB&#x60; SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at &#x60;/v1/mcp&#x60; queries. Unqualified table names resolve to its views; filter &#x60;match_player&#x60; on &#x60;match_id&#x60; or &#x60;start_time&#x60; to skip files. At most 100,000 rows are returned (&#x60;X-Truncated: true&#x60; when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+     * @param query The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return ApiResponse<kotlin.String?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -204,7 +204,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * To obtain the request config of the operation sql
      *
-     * @param query The SQL query to execute. It must follow the Clickhouse SQL syntax.
+     * @param query The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
      * @param format The response format. Valid values: &#x60;json&#x60; (a JSON array), &#x60;ndjson&#x60; (newline-delimited JSON objects). (optional, default to Format.json)
      * @return RequestConfig
      */
@@ -234,7 +234,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their &#x60;DuckDB&#x60; types; column comments carry the original &#x60;ClickHouse&#x60; type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return kotlin.collections.Map<kotlin.String, kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
@@ -268,7 +268,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     /**
      * GET /v1/sql/tables/{table}/schema
      * Table Schema
-     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+     *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their &#x60;DuckDB&#x60; types; column comments carry the original &#x60;ClickHouse&#x60; type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
      * @param table The name of the table to fetch the schema for.
      * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured

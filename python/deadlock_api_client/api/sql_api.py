@@ -55,7 +55,7 @@ class SQLApi:
     ) -> List[str]:
         """(Deprecated) List Tables
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -120,7 +120,7 @@ class SQLApi:
     ) -> ApiResponse[List[str]]:
         """(Deprecated) List Tables
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -185,7 +185,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """(Deprecated) List Tables
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables in the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -292,7 +292,7 @@ class SQLApi:
     @validate_call
     def sql(
         self,
-        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the `DuckDB` SQL syntax.")],
         format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
@@ -309,9 +309,9 @@ class SQLApi:
     ) -> str:
         """(Deprecated) Query
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
-        :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+        :param query: The SQL query to execute. It must follow the `DuckDB` SQL syntax. (required)
         :type query: str
         :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
         :type format: str
@@ -365,7 +365,7 @@ class SQLApi:
     @validate_call
     def sql_with_http_info(
         self,
-        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the `DuckDB` SQL syntax.")],
         format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
@@ -382,9 +382,9 @@ class SQLApi:
     ) -> ApiResponse[str]:
         """(Deprecated) Query
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
-        :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+        :param query: The SQL query to execute. It must follow the `DuckDB` SQL syntax. (required)
         :type query: str
         :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
         :type format: str
@@ -438,7 +438,7 @@ class SQLApi:
     @validate_call
     def sql_without_preload_content(
         self,
-        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the Clickhouse SQL syntax.")],
+        query: Annotated[StrictStr, Field(description="The SQL query to execute. It must follow the `DuckDB` SQL syntax.")],
         format: Annotated[Optional[StrictStr], Field(description="The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).")] = None,
         _request_timeout: Union[
             None,
@@ -455,9 +455,9 @@ class SQLApi:
     ) -> RESTResponseType:
         """(Deprecated) Query
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a SQL query on the database.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
 
-        :param query: The SQL query to execute. It must follow the Clickhouse SQL syntax. (required)
+        :param query: The SQL query to execute. It must follow the `DuckDB` SQL syntax. (required)
         :type query: str
         :param format: The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
         :type format: str
@@ -593,7 +593,7 @@ class SQLApi:
     ) -> Dict[str, str]:
         """(Deprecated) Table Schema
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -662,7 +662,7 @@ class SQLApi:
     ) -> ApiResponse[Dict[str, str]]:
         """(Deprecated) Table Schema
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str
@@ -731,7 +731,7 @@ class SQLApi:
     ) -> RESTResponseType:
         """(Deprecated) Table Schema
 
-         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the schema of a table.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+         **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
 
         :param table: The name of the table to fetch the schema for. (required)
         :type table: str

@@ -40,7 +40,7 @@ ListTables List Tables
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Lists all tables in the database.
+Lists all tables of the public data lake.
 
 ### Rate Limits:
 | Type | Limit |
@@ -155,7 +155,7 @@ type ApiSqlRequest struct {
 	format *string
 }
 
-// The SQL query to execute. It must follow the Clickhouse SQL syntax.
+// The SQL query to execute. It must follow the &#x60;DuckDB&#x60; SQL syntax.
 func (r ApiSqlRequest) Query(query string) ApiSqlRequest {
 	r.query = &query
 	return r
@@ -179,7 +179,10 @@ Sql Query
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Executes a SQL query on the database.
+Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of
+the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve
+to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000
+rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.
 
 ### Rate Limits:
 | Type | Limit |
@@ -316,7 +319,8 @@ TableSchema Table Schema
 https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
 see https://deadlock-api.com/data-dumps.
 
-Returns the schema of a table.
+Returns the columns of a data lake table with their `DuckDB` types; column comments carry the
+original `ClickHouse` type.
 
 ### Rate Limits:
 | Type | Limit |
