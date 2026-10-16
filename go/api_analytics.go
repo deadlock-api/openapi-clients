@@ -251,7 +251,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -332,26 +332,10 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -556,7 +540,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -811,7 +795,7 @@ func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1003,7 +987,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -1265,7 +1249,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1330,26 +1314,10 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds
@@ -1555,7 +1523,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1815,7 +1783,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1865,26 +1833,10 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -2155,7 +2107,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2518,7 +2470,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2835,7 +2787,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3164,7 +3116,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3230,26 +3182,10 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.accountId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
@@ -3462,7 +3398,7 @@ func (a *AnalyticsAPIService) HeroSwapStatsExecute(r ApiHeroSwapStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3730,7 +3666,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4109,7 +4045,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4181,48 +4117,16 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.lockedItemIds != nil {
-		t := *r.lockedItemIds
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "locked_item_ids", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "locked_item_ids", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locked_item_ids", r.lockedItemIds, "form", "csv")
 	}
 	if r.lockedColumns != nil {
-		t := *r.lockedColumns
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "locked_columns", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "locked_columns", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "locked_columns", r.lockedColumns, "form", "csv")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -4542,7 +4446,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4588,26 +4492,10 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.includeCorruptedItems != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "include_corrupted_items", r.includeCorruptedItems, "form", "")
@@ -5002,7 +4890,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5056,26 +4944,10 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
@@ -5421,7 +5293,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5757,7 +5629,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6114,7 +5986,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6462,7 +6334,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6519,26 +6391,10 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds
@@ -7144,7 +7000,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7201,26 +7057,10 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 		}
 	}
 	if r.abilityOrderPrefix != nil {
-		t := *r.abilityOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
 	}
 	if r.abilityUnlockOrderPrefix != nil {
-		t := *r.abilityUnlockOrderPrefix
-		if reflect.TypeOf(t).Kind() == reflect.Slice {
-			s := reflect.ValueOf(t)
-			for i := 0; i < s.Len(); i++ {
-				parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", s.Index(i).Interface(), "form", "multi")
-			}
-		} else {
-			parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", t, "form", "multi")
-		}
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
 	}
 	if r.accountIds != nil {
 		t := *r.accountIds

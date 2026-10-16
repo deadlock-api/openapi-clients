@@ -21,7 +21,7 @@ Batch Steam Profile
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**account_ids** | [**Vec<u64>**](U64.md) | Comma separated list of account ids, Account IDs are in `SteamID3` format. | [required] |
+**account_ids** | [**Vec<u64>**](U64.md) | Comma separated list of account ids, in `SteamID3` or `SteamID64` format. | [required] |
 **refresh** | Option<**bool**> | Refresh the listed profiles from the Steam Web API before returning. |  |
 
 ### Return type

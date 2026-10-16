@@ -669,12 +669,12 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -1079,12 +1079,12 @@ function gameStatsRaw<T>(requestParameters: GameStatsRequest, requestConfig: run
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
@@ -1303,12 +1303,12 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -1877,12 +1877,12 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
@@ -2262,22 +2262,22 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.lockedItemIds) {
-        queryParameters['locked_item_ids'] = requestParameters.lockedItemIds;
+        queryParameters['locked_item_ids'] = requestParameters.lockedItemIds?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.lockedColumns) {
-        queryParameters['locked_columns'] = requestParameters.lockedColumns;
+        queryParameters['locked_columns'] = requestParameters.lockedColumns?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
     const headerParameters : runtime.HttpHeaders = {};
@@ -2427,12 +2427,12 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
@@ -2597,12 +2597,12 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
@@ -3232,12 +3232,12 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
@@ -3521,12 +3521,12 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 
 
     if (requestParameters.abilityOrderPrefix) {
-        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix;
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 
     if (requestParameters.abilityUnlockOrderPrefix) {
-        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix;
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
     }
 
 

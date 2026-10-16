@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bulk_metadata**
-> List[int] bulk_metadata(include_info=include_info, include_more_info=include_more_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_kda=include_player_kda, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_final_stats=include_player_final_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_mode=match_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, only_filtered_players=only_filtered_players, hero_ids=hero_ids, item_filter_hero_id=item_filter_hero_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, extra_match_columns=extra_match_columns, extra_player_columns=extra_player_columns, order_by=order_by, order_direction=order_direction, limit=limit, format=format)
+> List[object] bulk_metadata(include_info=include_info, include_more_info=include_more_info, include_objectives=include_objectives, include_mid_boss=include_mid_boss, include_player_info=include_player_info, include_player_kda=include_player_kda, include_player_items=include_player_items, include_player_stats=include_player_stats, include_player_final_stats=include_player_final_stats, include_player_death_details=include_player_death_details, game_mode=game_mode, match_mode=match_mode, match_ids=match_ids, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, is_high_skill_range_parties=is_high_skill_range_parties, is_low_pri_pool=is_low_pri_pool, is_new_player_pool=is_new_player_pool, account_ids=account_ids, only_filtered_players=only_filtered_players, hero_ids=hero_ids, item_filter_hero_id=item_filter_hero_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, extra_match_columns=extra_match_columns, extra_player_columns=extra_player_columns, order_by=order_by, order_direction=order_direction, limit=limit, format=format)
 
 Bulk Metadata
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[int]**
+**List[object]**
 
 ### Authorization
 
@@ -323,7 +323,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, application/x-ndjson
 
 ### HTTP response details
 
@@ -421,7 +421,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **metadata**
-> metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
+> object metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
 
 Metadata
 
@@ -473,7 +473,9 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Metadata
-        api_instance.metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
+        api_response = api_instance.metadata(match_id, is_custom=is_custom, disable_steam=disable_steam)
+        print("The response of MatchesApi->metadata:\n")
+        pprint(api_response)
     except Exception as e:
         print("Exception when calling MatchesApi->metadata: %s\n" % e)
 ```
@@ -491,7 +493,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**object**
 
 ### Authorization
 
@@ -500,7 +502,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 

@@ -17,7 +17,7 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`hero_mmr`]
 #[derive(Clone, Debug)]
 pub struct HeroMmrParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     pub account_ids: Vec<u32>,
     /// The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: u32,
@@ -62,7 +62,7 @@ pub struct HeroMmrHistoryParams {
 /// struct for passing parameters to the method [`mmr`]
 #[derive(Clone, Debug)]
 pub struct MmrParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     pub account_ids: Vec<u32>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>

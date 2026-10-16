@@ -740,7 +740,7 @@ class MatchesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return int[]
+     * @return object[]
      */
     public function bulkMetadata($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = 'json', string $contentType = self::contentTypes['bulkMetadata'][0])
     {
@@ -793,7 +793,7 @@ class MatchesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of int[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
      */
     public function bulkMetadataWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = 'json', string $contentType = self::contentTypes['bulkMetadata'][0])
     {
@@ -825,7 +825,7 @@ class MatchesApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'int[]',
+                        'object[]',
                         $request,
                         $response,
                     );
@@ -847,7 +847,7 @@ class MatchesApi
             }
 
             return $this->handleResponseWithDataType(
-                'int[]',
+                'object[]',
                 $request,
                 $response,
             );
@@ -856,7 +856,7 @@ class MatchesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'int[]',
+                        'object[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -972,7 +972,7 @@ class MatchesApi
      */
     public function bulkMetadataAsyncWithHttpInfo($include_info = true, $include_more_info = null, $include_objectives = null, $include_mid_boss = null, $include_player_info = null, $include_player_kda = null, $include_player_items = null, $include_player_stats = null, $include_player_final_stats = null, $include_player_death_details = null, $game_mode = null, $match_mode = null, $match_ids = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $account_ids = null, $only_filtered_players = null, $hero_ids = null, $item_filter_hero_id = null, $include_item_ids = null, $exclude_item_ids = null, $extra_match_columns = null, $extra_player_columns = null, $order_by = null, $order_direction = null, $limit = 1000, $format = 'json', string $contentType = self::contentTypes['bulkMetadata'][0])
     {
-        $returnType = 'int[]';
+        $returnType = 'object[]';
         $request = $this->bulkMetadataRequest($include_info, $include_more_info, $include_objectives, $include_mid_boss, $include_player_info, $include_player_kda, $include_player_items, $include_player_stats, $include_player_final_stats, $include_player_death_details, $game_mode, $match_mode, $match_ids, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $account_ids, $only_filtered_players, $hero_ids, $item_filter_hero_id, $include_item_ids, $exclude_item_ids, $extra_match_columns, $extra_player_columns, $order_by, $order_direction, $limit, $format, $contentType);
 
         return $this->client
@@ -1476,7 +1476,7 @@ class MatchesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/json', 'application/x-ndjson', ],
             $contentType,
             $multipart
         );
@@ -1769,11 +1769,12 @@ class MatchesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return void
+     * @return object
      */
     public function metadata($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
-        $this->metadataWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType);
+        list($response) = $this->metadataWithHttpInfo($match_id, $is_custom, $disable_steam, $contentType);
+        return $response;
     }
 
     /**
@@ -1788,7 +1789,7 @@ class MatchesApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
     public function metadataWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
@@ -1817,9 +1818,45 @@ class MatchesApi
             $statusCode = $response->getStatusCode();
 
 
-            return [null, $statusCode, $response->getHeaders()];
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        'object',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                'object',
+                $request,
+                $response,
+            );
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
             }
         
 
@@ -1865,14 +1902,27 @@ class MatchesApi
      */
     public function metadataAsyncWithHttpInfo($match_id, $is_custom = null, $disable_steam = null, string $contentType = self::contentTypes['metadata'][0])
     {
-        $returnType = '';
+        $returnType = 'object';
         $request = $this->metadataRequest($match_id, $is_custom, $disable_steam, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1956,7 +2006,7 @@ class MatchesApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            [],
+            ['application/json', ],
             $contentType,
             $multipart
         );

@@ -133,7 +133,7 @@ class SteamApi
      *
      * Batch Steam Profile
      *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
      * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
@@ -152,7 +152,7 @@ class SteamApi
      *
      * Batch Steam Profile
      *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
      * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
@@ -238,7 +238,7 @@ class SteamApi
      *
      * Batch Steam Profile
      *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
      * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
@@ -260,7 +260,7 @@ class SteamApi
      *
      * Batch Steam Profile
      *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
      * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *
@@ -311,7 +311,7 @@ class SteamApi
     /**
      * Create request for operation 'steam'
      *
-     * @param  int[] $account_ids Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. (required)
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
      * @param  bool|null $refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['steam'] to see the possible values for this operation
      *

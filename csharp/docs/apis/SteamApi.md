@@ -20,7 +20,7 @@ Batch Steam Profile
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |  |
+| **accountIds** | [**List&lt;long&gt;**](long.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 | **refresh** | **bool** | Refresh the listed profiles from the Steam Web API before returning. | [optional]  |
 
 ### Return type

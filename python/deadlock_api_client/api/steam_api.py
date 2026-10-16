@@ -41,7 +41,7 @@ class SteamApi:
     @validate_call
     def steam(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         refresh: Annotated[Optional[StrictBool], Field(description="Refresh the listed profiles from the Steam Web API before returning.")] = None,
         _request_timeout: Union[
             None,
@@ -60,7 +60,7 @@ class SteamApi:
 
          This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param refresh: Refresh the listed profiles from the Steam Web API before returning.
         :type refresh: bool
@@ -117,7 +117,7 @@ class SteamApi:
     @validate_call
     def steam_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         refresh: Annotated[Optional[StrictBool], Field(description="Refresh the listed profiles from the Steam Web API before returning.")] = None,
         _request_timeout: Union[
             None,
@@ -136,7 +136,7 @@ class SteamApi:
 
          This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param refresh: Refresh the listed profiles from the Steam Web API before returning.
         :type refresh: bool
@@ -193,7 +193,7 @@ class SteamApi:
     @validate_call
     def steam_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         refresh: Annotated[Optional[StrictBool], Field(description="Refresh the listed profiles from the Steam Web API before returning.")] = None,
         _request_timeout: Union[
             None,
@@ -212,7 +212,7 @@ class SteamApi:
 
          This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param refresh: Refresh the listed profiles from the Steam Web API before returning.
         :type refresh: bool

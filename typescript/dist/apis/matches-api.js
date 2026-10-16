@@ -243,7 +243,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             if (format !== undefined) {
                 localVarQueryParameter['format'] = format;
             }
-            localVarHeaderParameter['Accept'] = 'application/octet-stream';
+            localVarHeaderParameter['Accept'] = 'application/json,application/x-ndjson';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
@@ -311,6 +311,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             if (disableSteam !== undefined) {
                 localVarQueryParameter['disable_steam'] = disableSteam;
             }
+            localVarHeaderParameter['Accept'] = 'application/json';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };

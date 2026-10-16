@@ -39,7 +39,7 @@ class MMRApiTest : ShouldSpec() {
         should("test heroMmr") {
             // uncomment below to test heroMmr
             //val heroId : kotlin.Int = 56 // kotlin.Int | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.heroMmr(heroId, accountIds, maxMatchId)
             //result shouldBe ("TODO")
@@ -74,7 +74,7 @@ class MMRApiTest : ShouldSpec() {
         // to test mmr
         should("test mmr") {
             // uncomment below to test mmr
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
             //val maxMatchId : kotlin.Long = 789 // kotlin.Long | Filter matches based on their ID.
             //val result : kotlin.collections.List<MMRHistory> = apiInstance.mmr(accountIds, maxMatchId)
             //result shouldBe ("TODO")

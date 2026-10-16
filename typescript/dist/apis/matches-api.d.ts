@@ -203,7 +203,7 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, onlyFilteredPlayers?: boolean, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, onlyFilteredPlayers?: boolean, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>>;
     /**
      *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Ingest Live Broadcast URLs
@@ -221,7 +221,7 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    metadata(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
+    metadata(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>>;
     /**
      *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata as Protobuf
@@ -290,7 +290,7 @@ export declare const MatchesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
+    bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<object>>;
     /**
      *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Ingest Live Broadcast URLs
@@ -306,7 +306,7 @@ export declare const MatchesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<void>;
+    metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<object>;
     /**
      *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata as Protobuf
@@ -590,7 +590,7 @@ export declare class MatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
+    bulkMetadata(requestParameters?: MatchesApiBulkMetadataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<object[], any, {}, any>>;
     /**
      *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Ingest Live Broadcast URLs
@@ -606,7 +606,7 @@ export declare class MatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<void, any, {}, any>>;
+    metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<object, any, {}, any>>;
     /**
      *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata as Protobuf

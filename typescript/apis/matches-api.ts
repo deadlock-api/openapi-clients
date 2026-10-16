@@ -307,7 +307,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['format'] = format;
             }
 
-            localVarHeaderParameter['Accept'] = 'application/octet-stream';
+            localVarHeaderParameter['Accept'] = 'application/json,application/x-ndjson';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -385,6 +385,7 @@ export const MatchesApiAxiosParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['disable_steam'] = disableSteam;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -649,7 +650,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, onlyFilteredPlayers?: boolean, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>> {
+        async bulkMetadata(includeInfo?: boolean, includeMoreInfo?: boolean, includeObjectives?: boolean, includeMidBoss?: boolean, includePlayerInfo?: boolean, includePlayerKda?: boolean, includePlayerItems?: boolean, includePlayerStats?: boolean, includePlayerFinalStats?: boolean, includePlayerDeathDetails?: boolean, gameMode?: BulkMetadataGameModeEnum, matchMode?: string | null, matchIds?: Array<number> | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, isHighSkillRangeParties?: boolean | null, isLowPriPool?: boolean | null, isNewPlayerPool?: boolean | null, accountIds?: Array<number> | null, onlyFilteredPlayers?: boolean, heroIds?: string | null, itemFilterHeroId?: number | null, includeItemIds?: string | null, excludeItemIds?: string | null, extraMatchColumns?: string | null, extraPlayerColumns?: string | null, orderBy?: BulkMetadataOrderByEnum, orderDirection?: BulkMetadataOrderDirectionEnum, limit?: number, format?: BulkMetadataFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<object>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.bulkMetadata']?.[localVarOperationServerIndex]?.url;
@@ -677,7 +678,7 @@ export const MatchesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async metadata(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async metadata(matchId: number, isCustom?: boolean | null, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.metadata(matchId, isCustom, disableSteam, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MatchesApi.metadata']?.[localVarOperationServerIndex]?.url;
@@ -784,7 +785,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>> {
+        bulkMetadata(requestParameters: MatchesApiBulkMetadataRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<object>> {
             return localVarFp.bulkMetadata(requestParameters.includeInfo, requestParameters.includeMoreInfo, requestParameters.includeObjectives, requestParameters.includeMidBoss, requestParameters.includePlayerInfo, requestParameters.includePlayerKda, requestParameters.includePlayerItems, requestParameters.includePlayerStats, requestParameters.includePlayerFinalStats, requestParameters.includePlayerDeathDetails, requestParameters.gameMode, requestParameters.matchMode, requestParameters.matchIds, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.isHighSkillRangeParties, requestParameters.isLowPriPool, requestParameters.isNewPlayerPool, requestParameters.accountIds, requestParameters.onlyFilteredPlayers, requestParameters.heroIds, requestParameters.itemFilterHeroId, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.extraMatchColumns, requestParameters.extraPlayerColumns, requestParameters.orderBy, requestParameters.orderDirection, requestParameters.limit, requestParameters.format, options).then((request) => request(axios, basePath));
         },
         /**
@@ -804,7 +805,7 @@ export const MatchesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+        metadata(requestParameters: MatchesApiMetadataRequest, options?: RawAxiosRequestConfig): AxiosPromise<object> {
             return localVarFp.metadata(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**

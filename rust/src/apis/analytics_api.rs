@@ -1206,13 +1206,13 @@ pub async fn ability_order_stats(configuration: &configuration::Configuration, p
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -1505,13 +1505,13 @@ pub async fn game_stats(configuration: &configuration::Configuration, params: Ga
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -1665,13 +1665,13 @@ pub async fn hero_build_stats(configuration: &configuration::Configuration, para
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -2070,13 +2070,13 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -2346,25 +2346,25 @@ pub async fn item_flow_stats(configuration: &configuration::Configuration, param
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.locked_item_ids {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("locked_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("locked_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.locked_columns {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("locked_columns".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("locked_columns", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -2471,13 +2471,13 @@ pub async fn item_permutation_stats(configuration: &configuration::Configuration
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -2593,13 +2593,13 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -3045,13 +3045,13 @@ pub async fn player_performance_curve(configuration: &configuration::Configurati
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
@@ -3248,13 +3248,13 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
         };
     }
     if let Some(ref param_value) = params.ability_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
     }
     if let Some(ref param_value) = params.ability_unlock_order_prefix {
-        req_builder = match "multi" {
+        req_builder = match "csv" {
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };

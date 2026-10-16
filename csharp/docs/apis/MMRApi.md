@@ -24,7 +24,7 @@ Batch Hero MMR (Deprecated)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |  |
+| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 | **heroId** | **int** | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 
@@ -65,7 +65,7 @@ Hero MMR Distribution (Deprecated)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **heroId** | **int** | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1789344000] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1789430400] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -150,7 +150,7 @@ Batch MMR (Deprecated)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. |  |
+| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 
 ### Return type
@@ -189,7 +189,7 @@ MMR Distribution (Deprecated)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1789344000] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1789430400] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |

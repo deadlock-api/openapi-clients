@@ -318,7 +318,7 @@ pub async fn active_matches_raw(configuration: &configuration::Configuration) ->
 }
 
 ///  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |     
-pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<u32>, Error<BulkMetadataError>> {
+pub async fn bulk_metadata(configuration: &configuration::Configuration, params: BulkMetadataParams) -> Result<Vec<serde_json::Value>, Error<BulkMetadataError>> {
 
     let uri_str = format!("{}/v1/matches/metadata", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -456,8 +456,8 @@ pub async fn bulk_metadata(configuration: &configuration::Configuration, params:
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;serde_json::Value&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;serde_json::Value&gt;`")))),
         }
     } else {
         let content = resp.text().await?;
@@ -492,7 +492,7 @@ pub async fn ingest_urls(configuration: &configuration::Configuration, params: I
 }
 
 ///  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
-pub async fn metadata(configuration: &configuration::Configuration, params: MetadataParams) -> Result<(), Error<MetadataError>> {
+pub async fn metadata(configuration: &configuration::Configuration, params: MetadataParams) -> Result<serde_json::Value, Error<MetadataError>> {
 
     let uri_str = format!("{}/v1/matches/{match_id}/metadata", configuration.base_path, match_id=params.match_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -511,9 +511,20 @@ pub async fn metadata(configuration: &configuration::Configuration, params: Meta
     let resp = configuration.client.execute(req).await?;
 
     let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
 
     if !status.is_client_error() && !status.is_server_error() {
-        Ok(())
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `serde_json::Value`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `serde_json::Value`")))),
+        }
     } else {
         let content = resp.text().await?;
         let entity: Option<MetadataError> = serde_json::from_str(&content).ok();

@@ -537,7 +537,7 @@ func (r ApiBulkMetadataRequest) Format(format string) ApiBulkMetadataRequest {
 	return r
 }
 
-func (r ApiBulkMetadataRequest) Execute() ([]int32, *http.Response, error) {
+func (r ApiBulkMetadataRequest) Execute() ([]map[string]interface{}, *http.Response, error) {
 	return r.ApiService.BulkMetadataExecute(r)
 }
 
@@ -572,13 +572,13 @@ func (a *MatchesAPIService) BulkMetadata(ctx context.Context) ApiBulkMetadataReq
 }
 
 // Execute executes the request
-//  @return []int32
-func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int32, *http.Response, error) {
+//  @return []map[string]interface{}
+func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []int32
+		localVarReturnValue  []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatchesAPIService.BulkMetadata")
@@ -738,7 +738,7 @@ func (a *MatchesAPIService) BulkMetadataExecute(r ApiBulkMetadataRequest) ([]int
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/octet-stream"}
+	localVarHTTPHeaderAccepts := []string{"application/json", "application/x-ndjson"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -916,7 +916,7 @@ func (r ApiMetadataRequest) DisableSteam(disableSteam bool) ApiMetadataRequest {
 	return r
 }
 
-func (r ApiMetadataRequest) Execute() (*http.Response, error) {
+func (r ApiMetadataRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.MetadataExecute(r)
 }
 
@@ -959,16 +959,18 @@ func (a *MatchesAPIService) Metadata(ctx context.Context, matchId int64) ApiMeta
 }
 
 // Execute executes the request
-func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Response, error) {
+//  @return map[string]interface{}
+func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
+		localVarReturnValue  map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MatchesAPIService.Metadata")
 	if err != nil {
-		return nil, &GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/v1/matches/{match_id}/metadata"
@@ -978,7 +980,7 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if r.matchId < 0 {
-		return nil, reportError("matchId must be greater than 0")
+		return localVarReturnValue, nil, reportError("matchId must be greater than 0")
 	}
 
 	if r.isCustom != nil {
@@ -997,7 +999,7 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -1006,19 +1008,19 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 	}
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
-		return nil, err
+		return localVarReturnValue, nil, err
 	}
 
 	localVarHTTPResponse, err := a.client.callAPI(req)
 	if err != nil || localVarHTTPResponse == nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
 	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
-		return localVarHTTPResponse, err
+		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
@@ -1026,10 +1028,19 @@ func (a *MatchesAPIService) MetadataExecute(r ApiMetadataRequest) (*http.Respons
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		return localVarHTTPResponse, newErr
+		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
 
-	return localVarHTTPResponse, nil
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
 type ApiMetadataRawRequest struct {

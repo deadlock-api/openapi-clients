@@ -30,7 +30,7 @@ type ApiSteamRequest struct {
 	refresh *bool
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
 func (r ApiSteamRequest) AccountIds(accountIds []int64) ApiSteamRequest {
 	r.accountIds = &accountIds
 	return r

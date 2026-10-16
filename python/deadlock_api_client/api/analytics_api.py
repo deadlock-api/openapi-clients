@@ -550,8 +550,8 @@ class AnalyticsApi:
             'account_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -2372,8 +2372,8 @@ class AnalyticsApi:
             'hero_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
             'account_ids': 'multi',
         }
 
@@ -3332,8 +3332,8 @@ class AnalyticsApi:
 
         _collection_formats: Dict[str, str] = {
             'account_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -5677,8 +5677,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
             'account_ids': 'multi',
         }
 
@@ -7287,10 +7287,10 @@ class AnalyticsApi:
             'account_ids': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
-            'locked_item_ids': 'multi',
-            'locked_columns': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
+            'locked_item_ids': 'csv',
+            'locked_columns': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -7935,8 +7935,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'item_ids': 'multi',
             'account_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
         }
 
         _path_params: Dict[str, str] = {}
@@ -8724,8 +8724,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
             'account_ids': 'multi',
             'item_order': 'multi',
         }
@@ -11195,8 +11195,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
             'account_ids': 'multi',
         }
 
@@ -12379,8 +12379,8 @@ class AnalyticsApi:
         _collection_formats: Dict[str, str] = {
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
-            'ability_order_prefix': 'multi',
-            'ability_unlock_order_prefix': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
             'account_ids': 'multi',
         }
 

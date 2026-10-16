@@ -118,7 +118,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<string> format = default!;
             var response = await _instance.BulkMetadataAsync(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format);
             var model = response.Ok();
-            Assert.IsType<List<int>>(model);
+            Assert.IsType<List<Object>>(model);
         }
 
         /// <summary>
@@ -140,7 +140,9 @@ namespace DeadlockApiClient.Test.Api
             long matchId = default!;
             Client.Option<bool?> isCustom = default!;
             Client.Option<bool?> disableSteam = default!;
-            await _instance.MetadataAsync(matchId, isCustom, disableSteam);
+            var response = await _instance.MetadataAsync(matchId, isCustom, disableSteam);
+            var model = response.Ok();
+            Assert.IsType<Object>(model);
         }
 
         /// <summary>

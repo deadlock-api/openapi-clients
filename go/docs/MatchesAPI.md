@@ -148,7 +148,7 @@ No authorization required
 
 ## BulkMetadata
 
-> []int32 BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).OnlyFilteredPlayers(onlyFilteredPlayers).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Format(format).Execute()
+> []map[string]interface{} BulkMetadata(ctx).IncludeInfo(includeInfo).IncludeMoreInfo(includeMoreInfo).IncludeObjectives(includeObjectives).IncludeMidBoss(includeMidBoss).IncludePlayerInfo(includePlayerInfo).IncludePlayerKda(includePlayerKda).IncludePlayerItems(includePlayerItems).IncludePlayerStats(includePlayerStats).IncludePlayerFinalStats(includePlayerFinalStats).IncludePlayerDeathDetails(includePlayerDeathDetails).GameMode(gameMode).MatchMode(matchMode).MatchIds(matchIds).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).IsHighSkillRangeParties(isHighSkillRangeParties).IsLowPriPool(isLowPriPool).IsNewPlayerPool(isNewPlayerPool).AccountIds(accountIds).OnlyFilteredPlayers(onlyFilteredPlayers).HeroIds(heroIds).ItemFilterHeroId(itemFilterHeroId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).ExtraMatchColumns(extraMatchColumns).ExtraPlayerColumns(extraPlayerColumns).OrderBy(orderBy).OrderDirection(orderDirection).Limit(limit).Format(format).Execute()
 
 Bulk Metadata
 
@@ -211,7 +211,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.BulkMetadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `BulkMetadata`: []int32
+	// response from `BulkMetadata`: []map[string]interface{}
 	fmt.Fprintf(os.Stdout, "Response from `MatchesAPI.BulkMetadata`: %v\n", resp)
 }
 ```
@@ -266,7 +266,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]int32**
+**[]map[string]interface{}**
 
 ### Authorization
 
@@ -275,7 +275,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/json, application/x-ndjson
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -348,7 +348,7 @@ No authorization required
 
 ## Metadata
 
-> Metadata(ctx, matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
+> map[string]interface{} Metadata(ctx, matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 
 Metadata
 
@@ -373,11 +373,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
+	resp, r, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).IsCustom(isCustom).DisableSteam(disableSteam).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MatchesAPI.Metadata``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
+	// response from `Metadata`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `MatchesAPI.Metadata`: %v\n", resp)
 }
 ```
 
@@ -402,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**map[string]interface{}**
 
 ### Authorization
 
@@ -411,7 +413,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

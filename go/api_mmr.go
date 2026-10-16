@@ -32,7 +32,7 @@ type ApiHeroMmrRequest struct {
 	maxMatchId *int64
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
 func (r ApiHeroMmrRequest) AccountIds(accountIds []int32) ApiHeroMmrRequest {
 	r.accountIds = &accountIds
 	return r
@@ -301,7 +301,7 @@ func (a *MMRAPIService) HeroMmrDistributionExecute(r ApiHeroMmrDistributionReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -512,7 +512,7 @@ type ApiMmrRequest struct {
 	maxMatchId *int64
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
 func (r ApiMmrRequest) AccountIds(accountIds []int32) ApiMmrRequest {
 	r.accountIds = &accountIds
 	return r
@@ -768,7 +768,7 @@ func (a *MMRAPIService) MmrDistributionExecute(r ApiMmrDistributionRequest) ([]D
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

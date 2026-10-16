@@ -53,7 +53,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.SteamApi(api_client)
-    account_ids = [56] # List[int] | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    account_ids = [56] # List[int] | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     refresh = True # bool | Refresh the listed profiles from the Steam Web API before returning. (optional)
 
     try:
@@ -72,7 +72,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
  **refresh** | **bool**| Refresh the listed profiles from the Steam Web API before returning. | [optional] 
 
 ### Return type

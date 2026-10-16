@@ -20,7 +20,7 @@ export declare const SteamApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |
      * @summary Batch Steam Profile
-     * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -46,7 +46,7 @@ export declare const SteamApiFp: (configuration?: Configuration) => {
     /**
      *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |
      * @summary Batch Steam Profile
-     * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -91,7 +91,7 @@ export declare const SteamApiFactory: (configuration?: Configuration, basePath?:
  */
 export interface SteamApiSteamRequest {
     /**
-     * Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+     * Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      */
     readonly accountIds: Array<number>;
     /**

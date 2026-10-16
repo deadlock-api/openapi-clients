@@ -23,7 +23,7 @@ Batch Steam Profile
 //import deadlock_api_client.models.*
 
 val apiInstance = SteamApi()
-val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+val accountIds : kotlin.collections.List<kotlin.Long> =  // kotlin.collections.List<kotlin.Long> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 val refresh : kotlin.Boolean = true // kotlin.Boolean | Refresh the listed profiles from the Steam Web API before returning.
 try {
     val result : kotlin.collections.List<SteamProfile> = apiInstance.steam(accountIds, refresh)
@@ -40,7 +40,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
 | **refresh** | **kotlin.Boolean**| Refresh the listed profiles from the Steam Web API before returning. | [optional] |
 
 ### Return type

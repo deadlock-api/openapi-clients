@@ -194,11 +194,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -545,11 +545,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (accountIds) {
@@ -738,11 +738,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -1252,11 +1252,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (accountId !== undefined) {
@@ -1592,19 +1592,19 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (lockedItemIds) {
-                localVarQueryParameter['locked_item_ids'] = lockedItemIds;
+                localVarQueryParameter['locked_item_ids'] = lockedItemIds.join(COLLECTION_FORMATS.csv);
             }
 
             if (lockedColumns) {
-                localVarQueryParameter['locked_columns'] = lockedColumns;
+                localVarQueryParameter['locked_columns'] = lockedColumns.join(COLLECTION_FORMATS.csv);
             }
 
             localVarHeaderParameter['Accept'] = 'application/json';
@@ -1741,11 +1741,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (includeCorruptedItems !== undefined) {
@@ -1905,11 +1905,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (minMatches !== undefined) {
@@ -2471,11 +2471,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (accountIds) {
@@ -2729,11 +2729,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
             }
 
             if (abilityOrderPrefix) {
-                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix;
+                localVarQueryParameter['ability_order_prefix'] = abilityOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (abilityUnlockOrderPrefix) {
-                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix;
+                localVarQueryParameter['ability_unlock_order_prefix'] = abilityUnlockOrderPrefix.join(COLLECTION_FORMATS.csv);
             }
 
             if (accountIds) {

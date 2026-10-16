@@ -94,7 +94,7 @@ class MatchesApiTest : ShouldSpec() {
             //val orderDirection : kotlin.String = orderDirection_example // kotlin.String | The direction to order the results by.
             //val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
             //val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+            //val result : kotlin.collections.List<kotlin.Any> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
             //result shouldBe ("TODO")
         }
 
@@ -111,7 +111,8 @@ class MatchesApiTest : ShouldSpec() {
             //val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
             //val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
             //val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
-            //apiInstance.metadata(matchId, isCustom, disableSteam)
+            //val result : kotlin.Any = apiInstance.metadata(matchId, isCustom, disableSteam)
+            //result shouldBe ("TODO")
         }
 
         // to test metadataRaw

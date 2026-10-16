@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 
@@ -65,7 +65,7 @@ Other parameters are passed through a pointer to a apiHeroMmrRequest struct via 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
 
@@ -109,7 +109,7 @@ import (
 
 func main() {
 	heroId := int32(56) // int32 | The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789344000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789430400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -147,7 +147,7 @@ Other parameters are passed through a pointer to a apiHeroMmrDistributionRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1789344000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1789430400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -269,7 +269,7 @@ import (
 )
 
 func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -295,7 +295,7 @@ Other parameters are passed through a pointer to a apiMmrRequest struct via the 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
 
 ### Return type
@@ -337,7 +337,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789344000)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789430400)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -370,7 +370,7 @@ Other parameters are passed through a pointer to a apiMmrDistributionRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1789344000]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1789430400]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 

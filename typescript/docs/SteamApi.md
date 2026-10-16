@@ -23,7 +23,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new SteamApi(configuration);
 
-let accountIds: Array<number>; //Comma separated list of account ids, Account IDs are in `SteamID3` format. (default to undefined)
+let accountIds: Array<number>; //Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (default to undefined)
 let refresh: boolean; //Refresh the listed profiles from the Steam Web API before returning. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.steam(
@@ -36,7 +36,7 @@ const { status, data } = await apiInstance.steam(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | defaults to undefined|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | defaults to undefined|
 | **refresh** | [**boolean**] | Refresh the listed profiles from the Steam Web API before returning. | (optional) defaults to undefined|
 
 

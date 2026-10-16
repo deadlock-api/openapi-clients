@@ -27,7 +27,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
-let accountIds: Array<number>; //Comma separated list of account ids, Account IDs are in `SteamID3` format. (default to undefined)
+let accountIds: Array<number>; //Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (default to undefined)
 let heroId: number; //The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 
@@ -42,7 +42,7 @@ const { status, data } = await apiInstance.heroMmr(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | defaults to undefined|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | defaults to undefined|
 | **heroId** | [**number**] | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 
@@ -87,7 +87,7 @@ const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
 let heroId: number; //The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789344000)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789430400)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -116,7 +116,7 @@ const { status, data } = await apiInstance.heroMmrDistribution(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1789344000|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1789430400|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -222,7 +222,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
-let accountIds: Array<number>; //Comma separated list of account ids, Account IDs are in `SteamID3` format. (default to undefined)
+let accountIds: Array<number>; //Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.mmr(
@@ -235,7 +235,7 @@ const { status, data } = await apiInstance.mmr(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | defaults to undefined|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 
 
@@ -278,7 +278,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MMRApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789344000)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1789430400)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -305,7 +305,7 @@ const { status, data } = await apiInstance.mmrDistribution(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1789344000|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1789430400|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

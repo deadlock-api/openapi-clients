@@ -75,9 +75,10 @@ func Test_deadlock_api_client_MatchesAPIService(t *testing.T) {
 
 		var matchId int64
 
-		httpRes, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).Execute()
+		resp, httpRes, err := apiClient.MatchesAPI.Metadata(context.Background(), matchId).Execute()
 
 		require.Nil(t, err)
+		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})

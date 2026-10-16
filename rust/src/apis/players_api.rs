@@ -78,7 +78,7 @@ pub struct MateStatsParams {
 /// struct for passing parameters to the method [`player_hero_stats`]
 #[derive(Clone, Debug)]
 pub struct PlayerHeroStatsParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     pub account_ids: Vec<u32>,
     /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
     pub game_mode: Option<String>,
@@ -127,7 +127,7 @@ pub struct RankAvgImageParams {
 /// struct for passing parameters to the method [`rank_batch`]
 #[derive(Clone, Debug)]
 pub struct RankBatchParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     pub account_ids: Vec<u32>
 }
 

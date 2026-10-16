@@ -17,7 +17,7 @@ use super::{Error, configuration, ContentType};
 /// struct for passing parameters to the method [`steam`]
 #[derive(Clone, Debug)]
 pub struct SteamParams {
-    /// Comma separated list of account ids, Account IDs are in `SteamID3` format.
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
     pub account_ids: Vec<u64>,
     /// Refresh the listed profiles from the Steam Web API before returning.
     pub refresh: Option<bool>

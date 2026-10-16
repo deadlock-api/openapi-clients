@@ -13,7 +13,8 @@ Accept: application/octet-stream
 ### Bulk Metadata
 ## Bulk Metadata
 GET https://api.deadlock-api.com/v1/matches/metadata?includeInfo={{includeInfo}}&includeMoreInfo={{includeMoreInfo}}&includeObjectives={{includeObjectives}}&includeMidBoss={{includeMidBoss}}&includePlayerInfo={{includePlayerInfo}}&includePlayerKda={{includePlayerKda}}&includePlayerItems={{includePlayerItems}}&includePlayerStats={{includePlayerStats}}&includePlayerFinalStats={{includePlayerFinalStats}}&includePlayerDeathDetails={{includePlayerDeathDetails}}&gameMode={{gameMode}}&matchMode={{matchMode}}&matchIds={{matchIds}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&isHighSkillRangeParties={{isHighSkillRangeParties}}&isLowPriPool={{isLowPriPool}}&isNewPlayerPool={{isNewPlayerPool}}&accountIds={{accountIds}}&onlyFilteredPlayers={{onlyFilteredPlayers}}&heroIds={{heroIds}}&itemFilterHeroId={{itemFilterHeroId}}&includeItemIds={{includeItemIds}}&excludeItemIds={{excludeItemIds}}&extraMatchColumns={{extraMatchColumns}}&extraPlayerColumns={{extraPlayerColumns}}&orderBy={{orderBy}}&orderDirection={{orderDirection}}&limit={{limit}}&format={{format}}
-Accept: application/octet-stream
+Accept: application/json
+Accept: application/x-ndjson
 
 ### Ingest Live Broadcast URLs
 ## Ingest Live Broadcast URLs
@@ -28,6 +29,7 @@ Content-Type: application/json
 ### Metadata
 ## Metadata
 GET https://api.deadlock-api.com/v1/matches/{{match_id}}/metadata?isCustom={{isCustom}}&disableSteam={{disableSteam}}
+Accept: application/json
 
 ### Metadata as Protobuf
 ## Metadata as Protobuf

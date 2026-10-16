@@ -109,7 +109,7 @@ No authorization required
 
 <a id="bulkMetadata"></a>
 # **bulkMetadata**
-> kotlin.collections.List&lt;kotlin.Int&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+> kotlin.collections.List&lt;kotlin.Any&gt; bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
 
 Bulk Metadata
 
@@ -159,7 +159,7 @@ val orderDirection : kotlin.String = orderDirection_example // kotlin.String | T
 val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of matches to return.
 val format : kotlin.String = format_example // kotlin.String | The response format. Valid values: `json` (a JSON array), `ndjson` (newline-delimited JSON objects).
 try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
+    val result : kotlin.collections.List<kotlin.Any> = apiInstance.bulkMetadata(includeInfo, includeMoreInfo, includeObjectives, includeMidBoss, includePlayerInfo, includePlayerKda, includePlayerItems, includePlayerStats, includePlayerFinalStats, includePlayerDeathDetails, gameMode, matchMode, matchIds, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, isHighSkillRangeParties, isLowPriPool, isNewPlayerPool, accountIds, onlyFilteredPlayers, heroIds, itemFilterHeroId, includeItemIds, excludeItemIds, extraMatchColumns, extraPlayerColumns, orderBy, orderDirection, limit, format)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#bulkMetadata")
@@ -212,7 +212,7 @@ try {
 
 ### Return type
 
-**kotlin.collections.List&lt;kotlin.Int&gt;**
+[**kotlin.collections.List&lt;kotlin.Any&gt;**](kotlin.Any.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, application/x-ndjson
 
 <a id="ingestUrls"></a>
 # **ingestUrls**
@@ -270,7 +270,7 @@ No authorization required
 
 <a id="metadata"></a>
 # **metadata**
-> metadata(matchId, isCustom, disableSteam)
+> kotlin.Any metadata(matchId, isCustom, disableSteam)
 
 Metadata
 
@@ -287,7 +287,8 @@ val matchId : kotlin.Long = 789 // kotlin.Long | The match ID
 val isCustom : kotlin.Boolean = true // kotlin.Boolean | 
 val disableSteam : kotlin.Boolean = true // kotlin.Boolean | If `true`, skip the Steam fallback when the metadata is not available in S3 and return an error instead.
 try {
-    apiInstance.metadata(matchId, isCustom, disableSteam)
+    val result : kotlin.Any = apiInstance.metadata(matchId, isCustom, disableSteam)
+    println(result)
 } catch (e: ClientException) {
     println("4xx response calling MatchesApi#metadata")
     e.printStackTrace()
@@ -306,7 +307,7 @@ try {
 
 ### Return type
 
-null (empty response body)
+[**kotlin.Any**](kotlin.Any.md)
 
 ### Authorization
 
@@ -315,7 +316,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 <a id="metadataRaw"></a>
 # **metadataRaw**

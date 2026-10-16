@@ -25,7 +25,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
         /**
          *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch Hero MMR (Deprecated)
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -168,7 +168,7 @@ export const MMRApiAxiosParamCreator = function (configuration) {
         /**
          *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch MMR (Deprecated)
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @deprecated
@@ -307,7 +307,7 @@ export const MMRApiFp = function (configuration) {
         /**
          *  Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player\'s rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch Hero MMR (Deprecated)
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {number} heroId The hero ID to fetch the MMR history for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
@@ -361,7 +361,7 @@ export const MMRApiFp = function (configuration) {
         /**
          *  Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead.
          * @summary Batch MMR (Deprecated)
-         * @param {Array<number>} accountIds Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {*} [options] Override http request option.
          * @deprecated

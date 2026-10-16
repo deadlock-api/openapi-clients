@@ -612,7 +612,7 @@ type ApiPlayerHeroStatsRequest struct {
 	maxMatchId *int64
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
 func (r ApiPlayerHeroStatsRequest) AccountIds(accountIds []int32) ApiPlayerHeroStatsRequest {
 	r.accountIds = &accountIds
 	return r
@@ -1112,7 +1112,7 @@ type ApiRankBatchRequest struct {
 	accountIds *[]int32
 }
 
-// Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format.
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
 func (r ApiRankBatchRequest) AccountIds(accountIds []int32) ApiRankBatchRequest {
 	r.accountIds = &accountIds
 	return r
@@ -1372,7 +1372,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1789344000
+		var defaultValue int64 = 1789430400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

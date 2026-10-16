@@ -42,7 +42,7 @@ class MMRApi:
     @validate_call
     def hero_mmr(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -62,7 +62,7 @@ class MMRApi:
 
          Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -120,7 +120,7 @@ class MMRApi:
     @validate_call
     def hero_mmr_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -140,7 +140,7 @@ class MMRApi:
 
          Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -198,7 +198,7 @@ class MMRApi:
     @validate_call
     def hero_mmr_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
@@ -218,7 +218,7 @@ class MMRApi:
 
          Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each player's rank on their latest ranked match played on that hero.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param hero_id: The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -1052,7 +1052,7 @@ class MMRApi:
     @validate_call
     def mmr(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -1071,7 +1071,7 @@ class MMRApi:
 
          Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
@@ -1126,7 +1126,7 @@ class MMRApi:
     @validate_call
     def mmr_with_http_info(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -1145,7 +1145,7 @@ class MMRApi:
 
          Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
@@ -1200,7 +1200,7 @@ class MMRApi:
     @validate_call
     def mmr_without_preload_content(
         self,
-        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, Account IDs are in `SteamID3` format.")],
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         _request_timeout: Union[
             None,
@@ -1219,7 +1219,7 @@ class MMRApi:
 
          Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at the end of their latest ranked match. Players without a ranked match carrying a rank are left out.  Use `/v1/players/rank?account_ids=...` instead. 
 
-        :param account_ids: Comma separated list of account ids, Account IDs are in `SteamID3` format. (required)
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
         :type account_ids: List[int]
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int

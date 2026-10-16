@@ -30,7 +30,7 @@ import (
 )
 
 func main() {
-	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, Account IDs are in `SteamID3` format.
+	accountIds := []int64{int64(123)} // []int64 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
 	refresh := true // bool | Refresh the listed profiles from the Steam Web API before returning. (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -56,7 +56,7 @@ Other parameters are passed through a pointer to a apiSteamRequest struct via th
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int64** | Comma separated list of account ids, Account IDs are in &#x60;SteamID3&#x60; format. | 
+ **accountIds** | **[]int64** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
  **refresh** | **bool** | Refresh the listed profiles from the Steam Web API before returning. | 
 
 ### Return type

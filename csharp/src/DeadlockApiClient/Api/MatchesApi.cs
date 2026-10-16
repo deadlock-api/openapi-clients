@@ -390,7 +390,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IBulkMetadataApiResponse"/>
     /// </summary>
-    public interface IBulkMetadataApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<int>?>
+    public interface IBulkMetadataApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<Object>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -444,7 +444,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IMetadataApiResponse"/>
     /// </summary>
-    public interface IMetadataApiResponse : DeadlockApiClient.Client.IApiResponse
+    public interface IMetadataApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<Object?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -1794,7 +1794,8 @@ namespace DeadlockApiClient.Api
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
                     string[] acceptLocalVars = new string[] {
-                        "application/octet-stream"
+                        "application/json",
+                        "application/x-ndjson"
                     };
 
                     IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
@@ -1889,32 +1890,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public List<int>? Ok()
+            public List<Object>? Ok()
             {
                 bool suppressDefault = false;
-                List<int>? result = null;
+                List<Object>? result = null;
                 OnOk(ref suppressDefault, ref result);
                 if (!suppressDefault)
                     result = DefaultOk();
                 return result;
             }
 
-            private List<int>? DefaultOk()
+            private List<Object>? DefaultOk()
             {
                 // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<List<int>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<Object>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
-            partial void OnOk(ref bool suppressDefault, ref List<int>? result);
+            partial void OnOk(ref bool suppressDefault, ref List<Object>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out List<int>? result)
+            public bool TryOk([NotNullWhen(true)]out List<Object>? result)
             {
                 result = null;
 
@@ -2297,6 +2298,15 @@ namespace DeadlockApiClient.Api
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
                     httpRequestMessageLocalVar.Method = HttpMethod.Get;
 
                     DateTime requestedAtLocalVar = DateTime.UtcNow;
@@ -2379,6 +2389,50 @@ namespace DeadlockApiClient.Api
             /// </summary>
             /// <returns></returns>
             public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public Object? Ok()
+            {
+                bool suppressDefault = false;
+                Object? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private Object? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<Object>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref Object? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out Object? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
 
             /// <summary>
             /// Returns true if the response is 400 BadRequest

@@ -89,7 +89,7 @@ No authorization required
 
 <a id="bulkmetadata"></a>
 # **BulkMetadata**
-> List&lt;int&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, bool onlyFilteredPlayers = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
+> List&lt;Object&gt; BulkMetadata (bool includeInfo = null, bool includeMoreInfo = null, bool includeObjectives = null, bool includeMidBoss = null, bool includePlayerInfo = null, bool includePlayerKda = null, bool includePlayerItems = null, bool includePlayerStats = null, bool includePlayerFinalStats = null, bool includePlayerDeathDetails = null, string gameMode = null, string matchMode = null, List<long> matchIds = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool isHighSkillRangeParties = null, bool isLowPriPool = null, bool isNewPlayerPool = null, List<int> accountIds = null, bool onlyFilteredPlayers = null, string heroIds = null, int itemFilterHeroId = null, string includeItemIds = null, string excludeItemIds = null, string extraMatchColumns = null, string extraPlayerColumns = null, string orderBy = null, string orderDirection = null, int limit = null, string format = null)
 
 Bulk Metadata
 
@@ -139,7 +139,7 @@ Bulk Metadata
 
 ### Return type
 
-**List<int>**
+**List<Object>**
 
 ### Authorization
 
@@ -148,7 +148,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/json, application/x-ndjson
 
 
 ### HTTP response details
@@ -201,7 +201,7 @@ No authorization required
 
 <a id="metadata"></a>
 # **Metadata**
-> void Metadata (long matchId, bool isCustom = null, bool disableSteam = null)
+> Object Metadata (long matchId, bool isCustom = null, bool disableSteam = null)
 
 Metadata
 
@@ -218,7 +218,7 @@ Metadata
 
 ### Return type
 
-void (empty response body)
+**Object**
 
 ### Authorization
 
@@ -227,7 +227,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
