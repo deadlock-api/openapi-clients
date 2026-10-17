@@ -310,6 +310,11 @@ export type ItemType = 'ABILITY' | 'WEAPON' | 'UPGRADE'
 /** Set of languages the upstream `localization/<lang>.json` files are keyed by. */
 export type Language = 'BRAZILIAN' | 'BULGARIAN' | 'CZECH' | 'DANISH' | 'DUTCH' | 'ENGLISH' | 'FINNISH' | 'FRENCH' | 'GERMAN' | 'GREEK' | 'HUNGARIAN' | 'INDONESIAN' | 'ITALIAN' | 'JAPANESE' | 'KOREANA' | 'LATAM' | 'NORWEGIAN' | 'POLISH' | 'PORTUGUESE' | 'ROMANIAN' | 'RUSSIAN' | 'SCHINESE' | 'SPANISH' | 'SWEDISH' | 'TCHINESE' | 'THAI' | 'TURKISH' | 'UKRAINIAN' | 'VIETNAMESE'
 
+
+/**
+ * Field weights are row units per match (see `cost.rs`): `players` are a match's ~12 adjacent
+ * rows, read and JSON-encoded in one `groupArray`.
+ */
 export interface Match {
     match_id: (Scalars['Int'] | null)
     start_time: (Scalars['Int'] | null)
@@ -402,6 +407,11 @@ export interface MatchHistoryEntry {
     __typename: 'MatchHistoryEntry'
 }
 
+
+/**
+ * Field weights are row units (see `cost.rs`), measured per row with each row in its own
+ * granule; `items` / `upgrades` / `stats` weigh per selected subfield.
+ */
 export interface MatchPlayer {
     match_id: (Scalars['Int'] | null)
     account_id: (Scalars['Int'] | null)
@@ -601,7 +611,9 @@ export interface QueryRoot {
     match_players: MatchPlayer[]
     /**
      * Player match history — one node per (account_id, match_id), from the
-     * stored `player_match_history` table (no on-demand Steam fetch).
+     * stored `player_match_history` table (no on-demand Steam fetch). Filter on
+     * `account_id`: without it the query merges the whole table and exceeds the
+     * complexity limit.
      */
     match_history: MatchHistoryEntry[]
     /**
@@ -806,6 +818,7 @@ export interface Stat {
     melee_kills: (Scalars['Int'] | null)
     ability_kills: (Scalars['Int'] | null)
     headshot_kills: (Scalars['Int'] | null)
+    /** Rebuilt from the delta-encoded `custom_user_stats_deltas` column: ~20x a plain subfield. */
     custom_user_stats: (Scalars['JsonScalar'] | null)
     gold_source_players_kills: (Scalars['Int'] | null)
     gold_source_players_damage: (Scalars['Int'] | null)
@@ -1301,6 +1314,11 @@ export interface ItemGenqlSelection{
     __scalar?: boolean | number
 }
 
+
+/**
+ * Field weights are row units per match (see `cost.rs`): `players` are a match's ~12 adjacent
+ * rows, read and JSON-encoded in one `groupArray`.
+ */
 export interface MatchGenqlSelection{
     match_id?: boolean | number
     start_time?: boolean | number
@@ -1399,6 +1417,11 @@ export interface MatchHistoryEntryGenqlSelection{
 /** Filter input for the `match_history` query. Operations across fields are AND-ed. */
 export interface MatchHistoryWhere {account_id?: (U32Filter | null),match_id?: (U64Filter | null),hero_id?: (U32Filter | null),hero_level?: (U32Filter | null),start_time?: (I64Filter | null),game_mode?: (StringFilter | null),match_mode?: (StringFilter | null),player_team?: (StringFilter | null),player_kills?: (U32Filter | null),player_deaths?: (U32Filter | null),player_assists?: (U32Filter | null),denies?: (U32Filter | null),net_worth?: (U32Filter | null),last_hits?: (U32Filter | null),team_abandoned?: (BoolFilter | null),match_duration_s?: (U32Filter | null),match_result?: (U32Filter | null),won?: (BoolFilter | null),player_match_outcome?: (StringFilter | null),ranked_display_badge?: (U32Filter | null),ranked_delta?: (I32Filter | null),ranked_calibration_match?: (U32Filter | null),ranked_used_demotion_protection?: (BoolFilter | null)}
 
+
+/**
+ * Field weights are row units (see `cost.rs`), measured per row with each row in its own
+ * granule; `items` / `upgrades` / `stats` weigh per selected subfield.
+ */
 export interface MatchPlayerGenqlSelection{
     match_id?: boolean | number
     account_id?: boolean | number
@@ -1608,7 +1631,9 @@ export interface QueryRootGenqlSelection{
     match_players?: (MatchPlayerGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatchPlayer | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
     /**
      * Player match history — one node per (account_id, match_id), from the
-     * stored `player_match_history` table (no on-demand Steam fetch).
+     * stored `player_match_history` table (no on-demand Steam fetch). Filter on
+     * `account_id`: without it the query merges the whole table and exceeds the
+     * complexity limit.
      */
     match_history?: (MatchHistoryEntryGenqlSelection & { __args?: {where?: (MatchHistoryWhere | null), order_by?: (OrderByMatchHistory | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
     /**
@@ -1820,6 +1845,7 @@ export interface StatGenqlSelection{
     melee_kills?: boolean | number
     ability_kills?: boolean | number
     headshot_kills?: boolean | number
+    /** Rebuilt from the delta-encoded `custom_user_stats_deltas` column: ~20x a plain subfield. */
     custom_user_stats?: boolean | number
     gold_source_players_kills?: boolean | number
     gold_source_players_damage?: boolean | number

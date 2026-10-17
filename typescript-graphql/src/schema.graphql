@@ -465,6 +465,10 @@ enum Language {
   VIETNAMESE
 }
 
+"""
+Field weights are row units per match (see `cost.rs`): `players` are a match's ~12 adjacent
+rows, read and JSON-encoded in one `groupArray`.
+"""
 type Match {
   match_id: Int
   start_time: Int
@@ -601,6 +605,10 @@ input MatchHistoryWhere {
   ranked_used_demotion_protection: BoolFilter
 }
 
+"""
+Field weights are row units (see `cost.rs`), measured per row with each row in its own
+granule; `items` / `upgrades` / `stats` weigh per selected subfield.
+"""
 type MatchPlayer {
   match_id: Int
   account_id: Int
@@ -929,7 +937,9 @@ type QueryRoot {
 
   """
   Player match history — one node per (account_id, match_id), from the
-  stored `player_match_history` table (no on-demand Steam fetch).
+  stored `player_match_history` table (no on-demand Steam fetch). Filter on
+  `account_id`: without it the query merges the whole table and exceeds the
+  complexity limit.
   """
   match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
 
@@ -1109,6 +1119,10 @@ type Stat {
   melee_kills: Int
   ability_kills: Int
   headshot_kills: Int
+
+  """
+  Rebuilt from the delta-encoded `custom_user_stats_deltas` column: ~20x a plain subfield.
+  """
   custom_user_stats: JsonScalar
   gold_source_players_kills: Int
   gold_source_players_damage: Int
