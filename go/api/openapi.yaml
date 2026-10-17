@@ -1460,6 +1460,17 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: |-
+          Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every
+          build. They make the query read about three times as much data, so they are left out unless asked for.
+        explode: true
+        in: query
+        name: include_performance
+        required: false
+        schema:
+          nullable: true
+          type: boolean
+        style: form
       - description: The minimum number of matches played for a build to be included
           in the response.
         explode: true
@@ -16628,14 +16639,46 @@ components:
       - hero_id
     HeroBuildStats:
       example:
+        avg_average_badge: 0.8008281904610115
         bucket: 0
         hero_build_id: 0
         hero_id: 0
         losses: 0
         matches: 0
         players: 0
+        total_assists: 0
+        total_boss_damage: 0
+        total_creep_damage: 0
+        total_creep_kills: 0
+        total_damage_mitigated: 0
+        total_deaths: 0
+        total_denies: 0
+        total_duration_s: 0
+        total_hero_bullets_hit: 0
+        total_hero_bullets_hit_crit: 0
+        total_kills: 0
+        total_last_hits: 0
+        total_level: 0
+        total_max_health: 0
+        total_net_worth: 0
+        total_neutral_damage: 0
+        total_neutral_kills: 0
+        total_player_damage: 0
+        total_player_damage_taken: 0
+        total_player_healing: 0
+        total_self_healing: 0
+        total_shots_hit: 0
+        total_shots_missed: 0
+        total_teammate_healing: 0
         wins: 0
       properties:
+        avg_average_badge:
+          description: "Average badge (tier = first digits, subtier = last digit)\
+            \ of the matches with this build that have one; 0 without any. See more:\
+            \ <https://api.deadlock-api.com/v1/assets/ranks>"
+          format: double
+          nullable: true
+          type: number
         bucket:
           description: "The bucket value (depends on the bucket query parameter, 0\
             \ without one)."
@@ -16668,6 +16711,134 @@ components:
           description: The number of unique players who used this build.
           format: int64
           minimum: 0
+          type: integer
+        total_assists:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_boss_damage:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_creep_damage:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_creep_kills:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_damage_mitigated:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_deaths:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_denies:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_duration_s:
+          description: "Sum of the match durations (seconds), for per-minute rates."
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_hero_bullets_hit:
+          description: Bullets that hit an enemy hero.
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_hero_bullets_hit_crit:
+          description: Hero hits that were crits (headshots).
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_kills:
+          description: |-
+            Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the
+            other totals are only present with `include_performance=true`.
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_last_hits:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_level:
+          description: Sum of the final hero levels.
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_max_health:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_net_worth:
+          description: Sum of the final net worth (souls).
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_neutral_damage:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_neutral_kills:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_player_damage:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_player_damage_taken:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_player_healing:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_self_healing:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_shots_hit:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_shots_missed:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        total_teammate_healing:
+          format: int64
+          minimum: 0
+          nullable: true
           type: integer
         wins:
           description: The number of wins with this build.

@@ -229,6 +229,8 @@ pub struct HeroBuildStatsParams {
     pub max_match_id: Option<u64>,
     /// Filter results for a specific hero build.
     pub hero_build_id: Option<u64>,
+    /// Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+    pub include_performance: Option<bool>,
     /// The minimum number of matches played for a build to be included in the response.
     pub min_matches: Option<u64>,
     /// Filter for matches with a specific player account ID.
@@ -1658,6 +1660,9 @@ pub async fn hero_build_stats(configuration: &configuration::Configuration, para
     }
     if let Some(ref param_value) = params.hero_build_id {
         req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_performance {
+        req_builder = req_builder.query(&[("include_performance", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);

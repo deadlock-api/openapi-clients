@@ -2936,6 +2936,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        include_performance: Annotated[Optional[StrictBool], Field(description="Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
@@ -2982,6 +2983,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_build_id: Filter results for a specific hero build.
         :type hero_build_id: int
+        :param include_performance: Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+        :type include_performance: bool
         :param min_matches: The minimum number of matches played for a build to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
@@ -3027,6 +3030,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             hero_build_id=hero_build_id,
+            include_performance=include_performance,
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
@@ -3069,6 +3073,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        include_performance: Annotated[Optional[StrictBool], Field(description="Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
@@ -3115,6 +3120,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_build_id: Filter results for a specific hero build.
         :type hero_build_id: int
+        :param include_performance: Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+        :type include_performance: bool
         :param min_matches: The minimum number of matches played for a build to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
@@ -3160,6 +3167,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             hero_build_id=hero_build_id,
+            include_performance=include_performance,
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
@@ -3202,6 +3210,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter results for a specific hero build.")] = None,
+        include_performance: Annotated[Optional[StrictBool], Field(description="Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a build to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
@@ -3248,6 +3257,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param hero_build_id: Filter results for a specific hero build.
         :type hero_build_id: int
+        :param include_performance: Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+        :type include_performance: bool
         :param min_matches: The minimum number of matches played for a build to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
@@ -3293,6 +3304,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             hero_build_id=hero_build_id,
+            include_performance=include_performance,
             min_matches=min_matches,
             account_id=account_id,
             account_ids=account_ids,
@@ -3330,6 +3342,7 @@ class AnalyticsApi:
         min_match_id,
         max_match_id,
         hero_build_id,
+        include_performance,
         min_matches,
         account_id,
         account_ids,
@@ -3405,6 +3418,10 @@ class AnalyticsApi:
         if hero_build_id is not None:
             
             _query_params.append(('hero_build_id', hero_build_id))
+            
+        if include_performance is not None:
+            
+            _query_params.append(('include_performance', include_performance))
             
         if min_matches is not None:
             

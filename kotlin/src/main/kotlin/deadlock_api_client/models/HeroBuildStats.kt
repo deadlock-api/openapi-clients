@@ -38,6 +38,31 @@ import java.io.Serializable
  * @param matches The total number of matches played with this build (`wins + losses`).
  * @param players The number of unique players who used this build.
  * @param wins The number of wins with this build.
+ * @param avgAverageBadge Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+ * @param totalAssists 
+ * @param totalBossDamage 
+ * @param totalCreepDamage 
+ * @param totalCreepKills 
+ * @param totalDamageMitigated 
+ * @param totalDeaths 
+ * @param totalDenies 
+ * @param totalDurationS Sum of the match durations (seconds), for per-minute rates.
+ * @param totalHeroBulletsHit Bullets that hit an enemy hero.
+ * @param totalHeroBulletsHitCrit Hero hits that were crits (headshots).
+ * @param totalKills Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+ * @param totalLastHits 
+ * @param totalLevel Sum of the final hero levels.
+ * @param totalMaxHealth 
+ * @param totalNetWorth Sum of the final net worth (souls).
+ * @param totalNeutralDamage 
+ * @param totalNeutralKills 
+ * @param totalPlayerDamage 
+ * @param totalPlayerDamageTaken 
+ * @param totalPlayerHealing 
+ * @param totalSelfHealing 
+ * @param totalShotsHit 
+ * @param totalShotsMissed 
+ * @param totalTeammateHealing 
  */
 
 
@@ -69,7 +94,89 @@ data class HeroBuildStats (
 
     /* The number of wins with this build. */
     @Json(name = "wins")
-    val wins: kotlin.Long
+    val wins: kotlin.Long,
+
+    /* Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks> */
+    @Json(name = "avg_average_badge")
+    val avgAverageBadge: kotlin.Double? = null,
+
+    @Json(name = "total_assists")
+    val totalAssists: kotlin.Long? = null,
+
+    @Json(name = "total_boss_damage")
+    val totalBossDamage: kotlin.Long? = null,
+
+    @Json(name = "total_creep_damage")
+    val totalCreepDamage: kotlin.Long? = null,
+
+    @Json(name = "total_creep_kills")
+    val totalCreepKills: kotlin.Long? = null,
+
+    @Json(name = "total_damage_mitigated")
+    val totalDamageMitigated: kotlin.Long? = null,
+
+    @Json(name = "total_deaths")
+    val totalDeaths: kotlin.Long? = null,
+
+    @Json(name = "total_denies")
+    val totalDenies: kotlin.Long? = null,
+
+    /* Sum of the match durations (seconds), for per-minute rates. */
+    @Json(name = "total_duration_s")
+    val totalDurationS: kotlin.Long? = null,
+
+    /* Bullets that hit an enemy hero. */
+    @Json(name = "total_hero_bullets_hit")
+    val totalHeroBulletsHit: kotlin.Long? = null,
+
+    /* Hero hits that were crits (headshots). */
+    @Json(name = "total_hero_bullets_hit_crit")
+    val totalHeroBulletsHitCrit: kotlin.Long? = null,
+
+    /* Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`. */
+    @Json(name = "total_kills")
+    val totalKills: kotlin.Long? = null,
+
+    @Json(name = "total_last_hits")
+    val totalLastHits: kotlin.Long? = null,
+
+    /* Sum of the final hero levels. */
+    @Json(name = "total_level")
+    val totalLevel: kotlin.Long? = null,
+
+    @Json(name = "total_max_health")
+    val totalMaxHealth: kotlin.Long? = null,
+
+    /* Sum of the final net worth (souls). */
+    @Json(name = "total_net_worth")
+    val totalNetWorth: kotlin.Long? = null,
+
+    @Json(name = "total_neutral_damage")
+    val totalNeutralDamage: kotlin.Long? = null,
+
+    @Json(name = "total_neutral_kills")
+    val totalNeutralKills: kotlin.Long? = null,
+
+    @Json(name = "total_player_damage")
+    val totalPlayerDamage: kotlin.Long? = null,
+
+    @Json(name = "total_player_damage_taken")
+    val totalPlayerDamageTaken: kotlin.Long? = null,
+
+    @Json(name = "total_player_healing")
+    val totalPlayerHealing: kotlin.Long? = null,
+
+    @Json(name = "total_self_healing")
+    val totalSelfHealing: kotlin.Long? = null,
+
+    @Json(name = "total_shots_hit")
+    val totalShotsHit: kotlin.Long? = null,
+
+    @Json(name = "total_shots_missed")
+    val totalShotsMissed: kotlin.Long? = null,
+
+    @Json(name = "total_teammate_healing")
+    val totalTeammateHealing: kotlin.Long? = null
 
 ) : Serializable {
     companion object {

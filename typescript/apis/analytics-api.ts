@@ -662,6 +662,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+         * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
          * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
@@ -670,7 +671,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroBuildStats: async (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroBuildStats: async (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroBuildStats', 'heroId', heroId)
             const localVarPath = `/v1/analytics/hero-build-stats/{hero_id}`
@@ -728,6 +729,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (heroBuildId !== undefined) {
                 localVarQueryParameter['hero_build_id'] = heroBuildId;
+            }
+
+            if (includePerformance !== undefined) {
+                localVarQueryParameter['include_performance'] = includePerformance;
             }
 
             if (minMatches !== undefined) {
@@ -2940,6 +2945,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {number | null} [minMatchId] Filter matches based on their ID.
          * @param {number | null} [maxMatchId] Filter matches based on their ID.
          * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+         * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
          * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
@@ -2948,8 +2954,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBuildStats(heroId, matchMode, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix, options);
+        async heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBuildStats(heroId, matchMode, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, includePerformance, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroBuildStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3521,7 +3527,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBuildStats>> {
-            return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(axios, basePath));
+            return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.includePerformance, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -4164,6 +4170,11 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Filter results for a specific hero build.
      */
     readonly heroBuildId?: number | null
+
+    /**
+     * Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+     */
+    readonly includePerformance?: boolean | null
 
     /**
      * The minimum number of matches played for a build to be included in the response.
@@ -5894,7 +5905,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.includePerformance, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

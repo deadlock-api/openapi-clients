@@ -1617,6 +1617,7 @@ type ApiHeroBuildStatsRequest struct {
 	minMatchId *int64
 	maxMatchId *int64
 	heroBuildId *int64
+	includePerformance *bool
 	minMatches *int64
 	accountId *int32
 	accountIds *[]int32
@@ -1687,6 +1688,12 @@ func (r ApiHeroBuildStatsRequest) MaxMatchId(maxMatchId int64) ApiHeroBuildStats
 // Filter results for a specific hero build.
 func (r ApiHeroBuildStatsRequest) HeroBuildId(heroBuildId int64) ApiHeroBuildStatsRequest {
 	r.heroBuildId = &heroBuildId
+	return r
+}
+
+// Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+func (r ApiHeroBuildStatsRequest) IncludePerformance(includePerformance bool) ApiHeroBuildStatsRequest {
+	r.includePerformance = &includePerformance
 	return r
 }
 
@@ -1820,6 +1827,9 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	}
 	if r.heroBuildId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
+	}
+	if r.includePerformance != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include_performance", r.includePerformance, "form", "")
 	}
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")

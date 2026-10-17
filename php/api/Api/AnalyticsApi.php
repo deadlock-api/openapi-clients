@@ -3106,6 +3106,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $hero_build_id Filter results for a specific hero build. (optional)
+     * @param  bool|null $include_performance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param  int|null $min_matches The minimum number of matches played for a build to be included in the response. (optional, default to 20)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
@@ -3117,9 +3118,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroBuildStats[]
      */
-    public function heroBuildStats($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStats($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        list($response) = $this->heroBuildStatsWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        list($response) = $this->heroBuildStatsWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
     }
 
@@ -3140,6 +3141,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $hero_build_id Filter results for a specific hero build. (optional)
+     * @param  bool|null $include_performance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param  int|null $min_matches The minimum number of matches played for a build to be included in the response. (optional, default to 20)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
@@ -3151,9 +3153,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroBuildStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3241,6 +3243,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $hero_build_id Filter results for a specific hero build. (optional)
+     * @param  bool|null $include_performance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param  int|null $min_matches The minimum number of matches played for a build to be included in the response. (optional, default to 20)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
@@ -3251,9 +3254,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsAsync($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsync($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        return $this->heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
+        return $this->heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3278,6 +3281,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $hero_build_id Filter results for a specific hero build. (optional)
+     * @param  bool|null $include_performance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param  int|null $min_matches The minimum number of matches played for a build to be included in the response. (optional, default to 20)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
@@ -3288,10 +3292,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBuildStats[]';
-        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3344,6 +3348,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $hero_build_id Filter results for a specific hero build. (optional)
+     * @param  bool|null $include_performance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param  int|null $min_matches The minimum number of matches played for a build to be included in the response. (optional, default to 20)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
@@ -3354,7 +3359,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroBuildStatsRequest($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsRequest($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $include_performance = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -3411,6 +3416,7 @@ class AnalyticsApi
             throw new \InvalidArgumentException('invalid value for "$hero_build_id" when calling AnalyticsApi.heroBuildStats, must be bigger than or equal to 0.');
         }
         
+
         if ($min_matches !== null && $min_matches < 1) {
             throw new \InvalidArgumentException('invalid value for "$min_matches" when calling AnalyticsApi.heroBuildStats, must be bigger than or equal to 1.');
         }
@@ -3531,6 +3537,15 @@ class AnalyticsApi
             $hero_build_id,
             'hero_build_id', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_performance,
+            'include_performance', // param base name
+            'boolean', // openApiType
             'form', // style
             true, // explode
             false // required

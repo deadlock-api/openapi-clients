@@ -193,6 +193,7 @@ export interface HeroBuildStatsRequest {
     minMatchId?: number;
     maxMatchId?: number;
     heroBuildId?: number;
+    includePerformance?: boolean;
     minMatches?: number;
     accountId?: number;
     accountIds?: Array<number>;
@@ -1291,6 +1292,11 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 
     if (requestParameters.heroBuildId !== undefined) {
         queryParameters['hero_build_id'] = requestParameters.heroBuildId;
+    }
+
+
+    if (requestParameters.includePerformance !== undefined) {
+        queryParameters['include_performance'] = requestParameters.includePerformance;
     }
 
 

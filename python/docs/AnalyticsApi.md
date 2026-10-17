@@ -684,7 +684,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **hero_build_stats**
-> List[HeroBuildStats] hero_build_stats(hero_id, match_mode=match_mode, bucket=bucket, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_build_id=hero_build_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+> List[HeroBuildStats] hero_build_stats(hero_id, match_mode=match_mode, bucket=bucket, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_build_id=hero_build_id, include_performance=include_performance, min_matches=min_matches, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
 
 Hero Build Stats
 
@@ -739,6 +739,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     min_match_id = 56 # int | Filter matches based on their ID. (optional)
     max_match_id = 56 # int | Filter matches based on their ID. (optional)
     hero_build_id = 56 # int | Filter results for a specific hero build. (optional)
+    include_performance = True # bool | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
     min_matches = 20 # int | The minimum number of matches played for a build to be included in the response. (optional) (default to 20)
     account_id = 56 # int | Filter for matches with a specific player account ID. (optional)
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
@@ -747,7 +748,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Hero Build Stats
-        api_response = api_instance.hero_build_stats(hero_id, match_mode=match_mode, bucket=bucket, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_build_id=hero_build_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+        api_response = api_instance.hero_build_stats(hero_id, match_mode=match_mode, bucket=bucket, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, hero_build_id=hero_build_id, include_performance=include_performance, min_matches=min_matches, account_id=account_id, account_ids=account_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
         print("The response of AnalyticsApi->hero_build_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -773,6 +774,7 @@ Name | Type | Description  | Notes
  **min_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **max_match_id** | **int**| Filter matches based on their ID. | [optional] 
  **hero_build_id** | **int**| Filter results for a specific hero build. | [optional] 
+ **include_performance** | **bool**| Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | [optional] 
  **min_matches** | **int**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20]
  **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] 
  **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids to include | [optional] 

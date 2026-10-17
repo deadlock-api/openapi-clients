@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeroBuildStats {
+    /// Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    #[serde(rename = "avg_average_badge", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub avg_average_badge: Option<Option<f64>>,
     /// The bucket value (depends on the bucket query parameter, 0 without one).
     #[serde(rename = "bucket")]
     pub bucket: u32,
@@ -31,6 +34,60 @@ pub struct HeroBuildStats {
     /// The number of unique players who used this build.
     #[serde(rename = "players")]
     pub players: u64,
+    #[serde(rename = "total_assists", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_assists: Option<Option<u64>>,
+    #[serde(rename = "total_boss_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_boss_damage: Option<Option<u64>>,
+    #[serde(rename = "total_creep_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_creep_damage: Option<Option<u64>>,
+    #[serde(rename = "total_creep_kills", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_creep_kills: Option<Option<u64>>,
+    #[serde(rename = "total_damage_mitigated", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_damage_mitigated: Option<Option<u64>>,
+    #[serde(rename = "total_deaths", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_deaths: Option<Option<u64>>,
+    #[serde(rename = "total_denies", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_denies: Option<Option<u64>>,
+    /// Sum of the match durations (seconds), for per-minute rates.
+    #[serde(rename = "total_duration_s", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_duration_s: Option<Option<u64>>,
+    /// Bullets that hit an enemy hero.
+    #[serde(rename = "total_hero_bullets_hit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_hero_bullets_hit: Option<Option<u64>>,
+    /// Hero hits that were crits (headshots).
+    #[serde(rename = "total_hero_bullets_hit_crit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_hero_bullets_hit_crit: Option<Option<u64>>,
+    /// Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+    #[serde(rename = "total_kills", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_kills: Option<Option<u64>>,
+    #[serde(rename = "total_last_hits", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_last_hits: Option<Option<u64>>,
+    /// Sum of the final hero levels.
+    #[serde(rename = "total_level", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_level: Option<Option<u64>>,
+    #[serde(rename = "total_max_health", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_max_health: Option<Option<u64>>,
+    /// Sum of the final net worth (souls).
+    #[serde(rename = "total_net_worth", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_net_worth: Option<Option<u64>>,
+    #[serde(rename = "total_neutral_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_neutral_damage: Option<Option<u64>>,
+    #[serde(rename = "total_neutral_kills", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_neutral_kills: Option<Option<u64>>,
+    #[serde(rename = "total_player_damage", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_player_damage: Option<Option<u64>>,
+    #[serde(rename = "total_player_damage_taken", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_player_damage_taken: Option<Option<u64>>,
+    #[serde(rename = "total_player_healing", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_player_healing: Option<Option<u64>>,
+    #[serde(rename = "total_self_healing", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_self_healing: Option<Option<u64>>,
+    #[serde(rename = "total_shots_hit", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_shots_hit: Option<Option<u64>>,
+    #[serde(rename = "total_shots_missed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_shots_missed: Option<Option<u64>>,
+    #[serde(rename = "total_teammate_healing", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_teammate_healing: Option<Option<u64>>,
     /// The number of wins with this build.
     #[serde(rename = "wins")]
     pub wins: u64,
@@ -39,12 +96,37 @@ pub struct HeroBuildStats {
 impl HeroBuildStats {
     pub fn new(bucket: u32, hero_build_id: u64, hero_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> HeroBuildStats {
         HeroBuildStats {
+            avg_average_badge: None,
             bucket,
             hero_build_id,
             hero_id,
             losses,
             matches,
             players,
+            total_assists: None,
+            total_boss_damage: None,
+            total_creep_damage: None,
+            total_creep_kills: None,
+            total_damage_mitigated: None,
+            total_deaths: None,
+            total_denies: None,
+            total_duration_s: None,
+            total_hero_bullets_hit: None,
+            total_hero_bullets_hit_crit: None,
+            total_kills: None,
+            total_last_hits: None,
+            total_level: None,
+            total_max_health: None,
+            total_net_worth: None,
+            total_neutral_damage: None,
+            total_neutral_kills: None,
+            total_player_damage: None,
+            total_player_damage_taken: None,
+            total_player_healing: None,
+            total_self_healing: None,
+            total_shots_hit: None,
+            total_shots_missed: None,
+            total_teammate_healing: None,
             wins,
         }
     }

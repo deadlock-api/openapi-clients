@@ -75,5 +75,155 @@ class HeroBuildStatsTest : ShouldSpec() {
             //modelInstance.wins shouldBe ("TODO")
         }
 
+        // to test the property `avgAverageBadge` - Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        should("test avgAverageBadge") {
+            // uncomment below to test the property
+            //modelInstance.avgAverageBadge shouldBe ("TODO")
+        }
+
+        // to test the property `totalAssists`
+        should("test totalAssists") {
+            // uncomment below to test the property
+            //modelInstance.totalAssists shouldBe ("TODO")
+        }
+
+        // to test the property `totalBossDamage`
+        should("test totalBossDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalBossDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalCreepDamage`
+        should("test totalCreepDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalCreepDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalCreepKills`
+        should("test totalCreepKills") {
+            // uncomment below to test the property
+            //modelInstance.totalCreepKills shouldBe ("TODO")
+        }
+
+        // to test the property `totalDamageMitigated`
+        should("test totalDamageMitigated") {
+            // uncomment below to test the property
+            //modelInstance.totalDamageMitigated shouldBe ("TODO")
+        }
+
+        // to test the property `totalDeaths`
+        should("test totalDeaths") {
+            // uncomment below to test the property
+            //modelInstance.totalDeaths shouldBe ("TODO")
+        }
+
+        // to test the property `totalDenies`
+        should("test totalDenies") {
+            // uncomment below to test the property
+            //modelInstance.totalDenies shouldBe ("TODO")
+        }
+
+        // to test the property `totalDurationS` - Sum of the match durations (seconds), for per-minute rates.
+        should("test totalDurationS") {
+            // uncomment below to test the property
+            //modelInstance.totalDurationS shouldBe ("TODO")
+        }
+
+        // to test the property `totalHeroBulletsHit` - Bullets that hit an enemy hero.
+        should("test totalHeroBulletsHit") {
+            // uncomment below to test the property
+            //modelInstance.totalHeroBulletsHit shouldBe ("TODO")
+        }
+
+        // to test the property `totalHeroBulletsHitCrit` - Hero hits that were crits (headshots).
+        should("test totalHeroBulletsHitCrit") {
+            // uncomment below to test the property
+            //modelInstance.totalHeroBulletsHitCrit shouldBe ("TODO")
+        }
+
+        // to test the property `totalKills` - Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+        should("test totalKills") {
+            // uncomment below to test the property
+            //modelInstance.totalKills shouldBe ("TODO")
+        }
+
+        // to test the property `totalLastHits`
+        should("test totalLastHits") {
+            // uncomment below to test the property
+            //modelInstance.totalLastHits shouldBe ("TODO")
+        }
+
+        // to test the property `totalLevel` - Sum of the final hero levels.
+        should("test totalLevel") {
+            // uncomment below to test the property
+            //modelInstance.totalLevel shouldBe ("TODO")
+        }
+
+        // to test the property `totalMaxHealth`
+        should("test totalMaxHealth") {
+            // uncomment below to test the property
+            //modelInstance.totalMaxHealth shouldBe ("TODO")
+        }
+
+        // to test the property `totalNetWorth` - Sum of the final net worth (souls).
+        should("test totalNetWorth") {
+            // uncomment below to test the property
+            //modelInstance.totalNetWorth shouldBe ("TODO")
+        }
+
+        // to test the property `totalNeutralDamage`
+        should("test totalNeutralDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalNeutralDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalNeutralKills`
+        should("test totalNeutralKills") {
+            // uncomment below to test the property
+            //modelInstance.totalNeutralKills shouldBe ("TODO")
+        }
+
+        // to test the property `totalPlayerDamage`
+        should("test totalPlayerDamage") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayerDamage shouldBe ("TODO")
+        }
+
+        // to test the property `totalPlayerDamageTaken`
+        should("test totalPlayerDamageTaken") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayerDamageTaken shouldBe ("TODO")
+        }
+
+        // to test the property `totalPlayerHealing`
+        should("test totalPlayerHealing") {
+            // uncomment below to test the property
+            //modelInstance.totalPlayerHealing shouldBe ("TODO")
+        }
+
+        // to test the property `totalSelfHealing`
+        should("test totalSelfHealing") {
+            // uncomment below to test the property
+            //modelInstance.totalSelfHealing shouldBe ("TODO")
+        }
+
+        // to test the property `totalShotsHit`
+        should("test totalShotsHit") {
+            // uncomment below to test the property
+            //modelInstance.totalShotsHit shouldBe ("TODO")
+        }
+
+        // to test the property `totalShotsMissed`
+        should("test totalShotsMissed") {
+            // uncomment below to test the property
+            //modelInstance.totalShotsMissed shouldBe ("TODO")
+        }
+
+        // to test the property `totalTeammateHealing`
+        should("test totalTeammateHealing") {
+            // uncomment below to test the property
+            //modelInstance.totalTeammateHealing shouldBe ("TODO")
+        }
+
     }
 }

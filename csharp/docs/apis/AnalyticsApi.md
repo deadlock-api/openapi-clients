@@ -330,7 +330,7 @@ No authorization required
 
 <a id="herobuildstats"></a>
 # **HeroBuildStats**
-> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, string bucket = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, long minMatches = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
+> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, string bucket = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, bool includePerformance = null, long minMatches = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Hero Build Stats
 
@@ -353,6 +353,7 @@ Hero Build Stats
 | **minMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **maxMatchId** | **long** | Filter matches based on their ID. | [optional]  |
 | **heroBuildId** | **long** | Filter results for a specific hero build. | [optional]  |
+| **includePerformance** | **bool** | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | [optional]  |
 | **minMatches** | **long** | The minimum number of matches played for a build to be included in the response. | [optional] [default to 20] |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |

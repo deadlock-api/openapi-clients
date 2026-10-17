@@ -21,6 +21,8 @@ var _ MappedNullable = &HeroBuildStats{}
 
 // HeroBuildStats struct for HeroBuildStats
 type HeroBuildStats struct {
+	// Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+	AvgAverageBadge NullableFloat64 `json:"avg_average_badge,omitempty"`
 	// The bucket value (depends on the bucket query parameter, 0 without one).
 	Bucket int32 `json:"bucket"`
 	// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
@@ -33,6 +35,36 @@ type HeroBuildStats struct {
 	Matches int64 `json:"matches"`
 	// The number of unique players who used this build.
 	Players int64 `json:"players"`
+	TotalAssists NullableInt64 `json:"total_assists,omitempty"`
+	TotalBossDamage NullableInt64 `json:"total_boss_damage,omitempty"`
+	TotalCreepDamage NullableInt64 `json:"total_creep_damage,omitempty"`
+	TotalCreepKills NullableInt64 `json:"total_creep_kills,omitempty"`
+	TotalDamageMitigated NullableInt64 `json:"total_damage_mitigated,omitempty"`
+	TotalDeaths NullableInt64 `json:"total_deaths,omitempty"`
+	TotalDenies NullableInt64 `json:"total_denies,omitempty"`
+	// Sum of the match durations (seconds), for per-minute rates.
+	TotalDurationS NullableInt64 `json:"total_duration_s,omitempty"`
+	// Bullets that hit an enemy hero.
+	TotalHeroBulletsHit NullableInt64 `json:"total_hero_bullets_hit,omitempty"`
+	// Hero hits that were crits (headshots).
+	TotalHeroBulletsHitCrit NullableInt64 `json:"total_hero_bullets_hit_crit,omitempty"`
+	// Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+	TotalKills NullableInt64 `json:"total_kills,omitempty"`
+	TotalLastHits NullableInt64 `json:"total_last_hits,omitempty"`
+	// Sum of the final hero levels.
+	TotalLevel NullableInt64 `json:"total_level,omitempty"`
+	TotalMaxHealth NullableInt64 `json:"total_max_health,omitempty"`
+	// Sum of the final net worth (souls).
+	TotalNetWorth NullableInt64 `json:"total_net_worth,omitempty"`
+	TotalNeutralDamage NullableInt64 `json:"total_neutral_damage,omitempty"`
+	TotalNeutralKills NullableInt64 `json:"total_neutral_kills,omitempty"`
+	TotalPlayerDamage NullableInt64 `json:"total_player_damage,omitempty"`
+	TotalPlayerDamageTaken NullableInt64 `json:"total_player_damage_taken,omitempty"`
+	TotalPlayerHealing NullableInt64 `json:"total_player_healing,omitempty"`
+	TotalSelfHealing NullableInt64 `json:"total_self_healing,omitempty"`
+	TotalShotsHit NullableInt64 `json:"total_shots_hit,omitempty"`
+	TotalShotsMissed NullableInt64 `json:"total_shots_missed,omitempty"`
+	TotalTeammateHealing NullableInt64 `json:"total_teammate_healing,omitempty"`
 	// The number of wins with this build.
 	Wins int64 `json:"wins"`
 }
@@ -61,6 +93,48 @@ func NewHeroBuildStats(bucket int32, heroBuildId int64, heroId int32, losses int
 func NewHeroBuildStatsWithDefaults() *HeroBuildStats {
 	this := HeroBuildStats{}
 	return &this
+}
+
+// GetAvgAverageBadge returns the AvgAverageBadge field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetAvgAverageBadge() float64 {
+	if o == nil || IsNil(o.AvgAverageBadge.Get()) {
+		var ret float64
+		return ret
+	}
+	return *o.AvgAverageBadge.Get()
+}
+
+// GetAvgAverageBadgeOk returns a tuple with the AvgAverageBadge field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetAvgAverageBadgeOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.AvgAverageBadge.Get(), o.AvgAverageBadge.IsSet()
+}
+
+// HasAvgAverageBadge returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasAvgAverageBadge() bool {
+	if o != nil && o.AvgAverageBadge.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetAvgAverageBadge gets a reference to the given NullableFloat64 and assigns it to the AvgAverageBadge field.
+func (o *HeroBuildStats) SetAvgAverageBadge(v float64) {
+	o.AvgAverageBadge.Set(&v)
+}
+// SetAvgAverageBadgeNil sets the value for AvgAverageBadge to be an explicit nil
+func (o *HeroBuildStats) SetAvgAverageBadgeNil() {
+	o.AvgAverageBadge.Set(nil)
+}
+
+// UnsetAvgAverageBadge ensures that no value is present for AvgAverageBadge, not even an explicit nil
+func (o *HeroBuildStats) UnsetAvgAverageBadge() {
+	o.AvgAverageBadge.Unset()
 }
 
 // GetBucket returns the Bucket field value
@@ -207,6 +281,1014 @@ func (o *HeroBuildStats) SetPlayers(v int64) {
 	o.Players = v
 }
 
+// GetTotalAssists returns the TotalAssists field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalAssists() int64 {
+	if o == nil || IsNil(o.TotalAssists.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalAssists.Get()
+}
+
+// GetTotalAssistsOk returns a tuple with the TotalAssists field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalAssistsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalAssists.Get(), o.TotalAssists.IsSet()
+}
+
+// HasTotalAssists returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalAssists() bool {
+	if o != nil && o.TotalAssists.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalAssists gets a reference to the given NullableInt64 and assigns it to the TotalAssists field.
+func (o *HeroBuildStats) SetTotalAssists(v int64) {
+	o.TotalAssists.Set(&v)
+}
+// SetTotalAssistsNil sets the value for TotalAssists to be an explicit nil
+func (o *HeroBuildStats) SetTotalAssistsNil() {
+	o.TotalAssists.Set(nil)
+}
+
+// UnsetTotalAssists ensures that no value is present for TotalAssists, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalAssists() {
+	o.TotalAssists.Unset()
+}
+
+// GetTotalBossDamage returns the TotalBossDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalBossDamage() int64 {
+	if o == nil || IsNil(o.TotalBossDamage.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalBossDamage.Get()
+}
+
+// GetTotalBossDamageOk returns a tuple with the TotalBossDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalBossDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalBossDamage.Get(), o.TotalBossDamage.IsSet()
+}
+
+// HasTotalBossDamage returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalBossDamage() bool {
+	if o != nil && o.TotalBossDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalBossDamage gets a reference to the given NullableInt64 and assigns it to the TotalBossDamage field.
+func (o *HeroBuildStats) SetTotalBossDamage(v int64) {
+	o.TotalBossDamage.Set(&v)
+}
+// SetTotalBossDamageNil sets the value for TotalBossDamage to be an explicit nil
+func (o *HeroBuildStats) SetTotalBossDamageNil() {
+	o.TotalBossDamage.Set(nil)
+}
+
+// UnsetTotalBossDamage ensures that no value is present for TotalBossDamage, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalBossDamage() {
+	o.TotalBossDamage.Unset()
+}
+
+// GetTotalCreepDamage returns the TotalCreepDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalCreepDamage() int64 {
+	if o == nil || IsNil(o.TotalCreepDamage.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalCreepDamage.Get()
+}
+
+// GetTotalCreepDamageOk returns a tuple with the TotalCreepDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalCreepDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalCreepDamage.Get(), o.TotalCreepDamage.IsSet()
+}
+
+// HasTotalCreepDamage returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalCreepDamage() bool {
+	if o != nil && o.TotalCreepDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalCreepDamage gets a reference to the given NullableInt64 and assigns it to the TotalCreepDamage field.
+func (o *HeroBuildStats) SetTotalCreepDamage(v int64) {
+	o.TotalCreepDamage.Set(&v)
+}
+// SetTotalCreepDamageNil sets the value for TotalCreepDamage to be an explicit nil
+func (o *HeroBuildStats) SetTotalCreepDamageNil() {
+	o.TotalCreepDamage.Set(nil)
+}
+
+// UnsetTotalCreepDamage ensures that no value is present for TotalCreepDamage, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalCreepDamage() {
+	o.TotalCreepDamage.Unset()
+}
+
+// GetTotalCreepKills returns the TotalCreepKills field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalCreepKills() int64 {
+	if o == nil || IsNil(o.TotalCreepKills.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalCreepKills.Get()
+}
+
+// GetTotalCreepKillsOk returns a tuple with the TotalCreepKills field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalCreepKillsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalCreepKills.Get(), o.TotalCreepKills.IsSet()
+}
+
+// HasTotalCreepKills returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalCreepKills() bool {
+	if o != nil && o.TotalCreepKills.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalCreepKills gets a reference to the given NullableInt64 and assigns it to the TotalCreepKills field.
+func (o *HeroBuildStats) SetTotalCreepKills(v int64) {
+	o.TotalCreepKills.Set(&v)
+}
+// SetTotalCreepKillsNil sets the value for TotalCreepKills to be an explicit nil
+func (o *HeroBuildStats) SetTotalCreepKillsNil() {
+	o.TotalCreepKills.Set(nil)
+}
+
+// UnsetTotalCreepKills ensures that no value is present for TotalCreepKills, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalCreepKills() {
+	o.TotalCreepKills.Unset()
+}
+
+// GetTotalDamageMitigated returns the TotalDamageMitigated field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalDamageMitigated() int64 {
+	if o == nil || IsNil(o.TotalDamageMitigated.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalDamageMitigated.Get()
+}
+
+// GetTotalDamageMitigatedOk returns a tuple with the TotalDamageMitigated field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalDamageMitigatedOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDamageMitigated.Get(), o.TotalDamageMitigated.IsSet()
+}
+
+// HasTotalDamageMitigated returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalDamageMitigated() bool {
+	if o != nil && o.TotalDamageMitigated.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDamageMitigated gets a reference to the given NullableInt64 and assigns it to the TotalDamageMitigated field.
+func (o *HeroBuildStats) SetTotalDamageMitigated(v int64) {
+	o.TotalDamageMitigated.Set(&v)
+}
+// SetTotalDamageMitigatedNil sets the value for TotalDamageMitigated to be an explicit nil
+func (o *HeroBuildStats) SetTotalDamageMitigatedNil() {
+	o.TotalDamageMitigated.Set(nil)
+}
+
+// UnsetTotalDamageMitigated ensures that no value is present for TotalDamageMitigated, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalDamageMitigated() {
+	o.TotalDamageMitigated.Unset()
+}
+
+// GetTotalDeaths returns the TotalDeaths field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalDeaths() int64 {
+	if o == nil || IsNil(o.TotalDeaths.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalDeaths.Get()
+}
+
+// GetTotalDeathsOk returns a tuple with the TotalDeaths field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalDeathsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDeaths.Get(), o.TotalDeaths.IsSet()
+}
+
+// HasTotalDeaths returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalDeaths() bool {
+	if o != nil && o.TotalDeaths.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDeaths gets a reference to the given NullableInt64 and assigns it to the TotalDeaths field.
+func (o *HeroBuildStats) SetTotalDeaths(v int64) {
+	o.TotalDeaths.Set(&v)
+}
+// SetTotalDeathsNil sets the value for TotalDeaths to be an explicit nil
+func (o *HeroBuildStats) SetTotalDeathsNil() {
+	o.TotalDeaths.Set(nil)
+}
+
+// UnsetTotalDeaths ensures that no value is present for TotalDeaths, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalDeaths() {
+	o.TotalDeaths.Unset()
+}
+
+// GetTotalDenies returns the TotalDenies field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalDenies() int64 {
+	if o == nil || IsNil(o.TotalDenies.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalDenies.Get()
+}
+
+// GetTotalDeniesOk returns a tuple with the TotalDenies field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalDeniesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDenies.Get(), o.TotalDenies.IsSet()
+}
+
+// HasTotalDenies returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalDenies() bool {
+	if o != nil && o.TotalDenies.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDenies gets a reference to the given NullableInt64 and assigns it to the TotalDenies field.
+func (o *HeroBuildStats) SetTotalDenies(v int64) {
+	o.TotalDenies.Set(&v)
+}
+// SetTotalDeniesNil sets the value for TotalDenies to be an explicit nil
+func (o *HeroBuildStats) SetTotalDeniesNil() {
+	o.TotalDenies.Set(nil)
+}
+
+// UnsetTotalDenies ensures that no value is present for TotalDenies, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalDenies() {
+	o.TotalDenies.Unset()
+}
+
+// GetTotalDurationS returns the TotalDurationS field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalDurationS() int64 {
+	if o == nil || IsNil(o.TotalDurationS.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalDurationS.Get()
+}
+
+// GetTotalDurationSOk returns a tuple with the TotalDurationS field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalDurationSOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalDurationS.Get(), o.TotalDurationS.IsSet()
+}
+
+// HasTotalDurationS returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalDurationS() bool {
+	if o != nil && o.TotalDurationS.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalDurationS gets a reference to the given NullableInt64 and assigns it to the TotalDurationS field.
+func (o *HeroBuildStats) SetTotalDurationS(v int64) {
+	o.TotalDurationS.Set(&v)
+}
+// SetTotalDurationSNil sets the value for TotalDurationS to be an explicit nil
+func (o *HeroBuildStats) SetTotalDurationSNil() {
+	o.TotalDurationS.Set(nil)
+}
+
+// UnsetTotalDurationS ensures that no value is present for TotalDurationS, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalDurationS() {
+	o.TotalDurationS.Unset()
+}
+
+// GetTotalHeroBulletsHit returns the TotalHeroBulletsHit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalHeroBulletsHit() int64 {
+	if o == nil || IsNil(o.TotalHeroBulletsHit.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalHeroBulletsHit.Get()
+}
+
+// GetTotalHeroBulletsHitOk returns a tuple with the TotalHeroBulletsHit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalHeroBulletsHitOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalHeroBulletsHit.Get(), o.TotalHeroBulletsHit.IsSet()
+}
+
+// HasTotalHeroBulletsHit returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalHeroBulletsHit() bool {
+	if o != nil && o.TotalHeroBulletsHit.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalHeroBulletsHit gets a reference to the given NullableInt64 and assigns it to the TotalHeroBulletsHit field.
+func (o *HeroBuildStats) SetTotalHeroBulletsHit(v int64) {
+	o.TotalHeroBulletsHit.Set(&v)
+}
+// SetTotalHeroBulletsHitNil sets the value for TotalHeroBulletsHit to be an explicit nil
+func (o *HeroBuildStats) SetTotalHeroBulletsHitNil() {
+	o.TotalHeroBulletsHit.Set(nil)
+}
+
+// UnsetTotalHeroBulletsHit ensures that no value is present for TotalHeroBulletsHit, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalHeroBulletsHit() {
+	o.TotalHeroBulletsHit.Unset()
+}
+
+// GetTotalHeroBulletsHitCrit returns the TotalHeroBulletsHitCrit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalHeroBulletsHitCrit() int64 {
+	if o == nil || IsNil(o.TotalHeroBulletsHitCrit.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalHeroBulletsHitCrit.Get()
+}
+
+// GetTotalHeroBulletsHitCritOk returns a tuple with the TotalHeroBulletsHitCrit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalHeroBulletsHitCritOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalHeroBulletsHitCrit.Get(), o.TotalHeroBulletsHitCrit.IsSet()
+}
+
+// HasTotalHeroBulletsHitCrit returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalHeroBulletsHitCrit() bool {
+	if o != nil && o.TotalHeroBulletsHitCrit.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalHeroBulletsHitCrit gets a reference to the given NullableInt64 and assigns it to the TotalHeroBulletsHitCrit field.
+func (o *HeroBuildStats) SetTotalHeroBulletsHitCrit(v int64) {
+	o.TotalHeroBulletsHitCrit.Set(&v)
+}
+// SetTotalHeroBulletsHitCritNil sets the value for TotalHeroBulletsHitCrit to be an explicit nil
+func (o *HeroBuildStats) SetTotalHeroBulletsHitCritNil() {
+	o.TotalHeroBulletsHitCrit.Set(nil)
+}
+
+// UnsetTotalHeroBulletsHitCrit ensures that no value is present for TotalHeroBulletsHitCrit, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalHeroBulletsHitCrit() {
+	o.TotalHeroBulletsHitCrit.Unset()
+}
+
+// GetTotalKills returns the TotalKills field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalKills() int64 {
+	if o == nil || IsNil(o.TotalKills.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalKills.Get()
+}
+
+// GetTotalKillsOk returns a tuple with the TotalKills field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalKillsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalKills.Get(), o.TotalKills.IsSet()
+}
+
+// HasTotalKills returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalKills() bool {
+	if o != nil && o.TotalKills.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalKills gets a reference to the given NullableInt64 and assigns it to the TotalKills field.
+func (o *HeroBuildStats) SetTotalKills(v int64) {
+	o.TotalKills.Set(&v)
+}
+// SetTotalKillsNil sets the value for TotalKills to be an explicit nil
+func (o *HeroBuildStats) SetTotalKillsNil() {
+	o.TotalKills.Set(nil)
+}
+
+// UnsetTotalKills ensures that no value is present for TotalKills, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalKills() {
+	o.TotalKills.Unset()
+}
+
+// GetTotalLastHits returns the TotalLastHits field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalLastHits() int64 {
+	if o == nil || IsNil(o.TotalLastHits.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalLastHits.Get()
+}
+
+// GetTotalLastHitsOk returns a tuple with the TotalLastHits field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalLastHitsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalLastHits.Get(), o.TotalLastHits.IsSet()
+}
+
+// HasTotalLastHits returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalLastHits() bool {
+	if o != nil && o.TotalLastHits.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalLastHits gets a reference to the given NullableInt64 and assigns it to the TotalLastHits field.
+func (o *HeroBuildStats) SetTotalLastHits(v int64) {
+	o.TotalLastHits.Set(&v)
+}
+// SetTotalLastHitsNil sets the value for TotalLastHits to be an explicit nil
+func (o *HeroBuildStats) SetTotalLastHitsNil() {
+	o.TotalLastHits.Set(nil)
+}
+
+// UnsetTotalLastHits ensures that no value is present for TotalLastHits, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalLastHits() {
+	o.TotalLastHits.Unset()
+}
+
+// GetTotalLevel returns the TotalLevel field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalLevel() int64 {
+	if o == nil || IsNil(o.TotalLevel.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalLevel.Get()
+}
+
+// GetTotalLevelOk returns a tuple with the TotalLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalLevelOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalLevel.Get(), o.TotalLevel.IsSet()
+}
+
+// HasTotalLevel returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalLevel() bool {
+	if o != nil && o.TotalLevel.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalLevel gets a reference to the given NullableInt64 and assigns it to the TotalLevel field.
+func (o *HeroBuildStats) SetTotalLevel(v int64) {
+	o.TotalLevel.Set(&v)
+}
+// SetTotalLevelNil sets the value for TotalLevel to be an explicit nil
+func (o *HeroBuildStats) SetTotalLevelNil() {
+	o.TotalLevel.Set(nil)
+}
+
+// UnsetTotalLevel ensures that no value is present for TotalLevel, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalLevel() {
+	o.TotalLevel.Unset()
+}
+
+// GetTotalMaxHealth returns the TotalMaxHealth field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalMaxHealth() int64 {
+	if o == nil || IsNil(o.TotalMaxHealth.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalMaxHealth.Get()
+}
+
+// GetTotalMaxHealthOk returns a tuple with the TotalMaxHealth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalMaxHealthOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalMaxHealth.Get(), o.TotalMaxHealth.IsSet()
+}
+
+// HasTotalMaxHealth returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalMaxHealth() bool {
+	if o != nil && o.TotalMaxHealth.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalMaxHealth gets a reference to the given NullableInt64 and assigns it to the TotalMaxHealth field.
+func (o *HeroBuildStats) SetTotalMaxHealth(v int64) {
+	o.TotalMaxHealth.Set(&v)
+}
+// SetTotalMaxHealthNil sets the value for TotalMaxHealth to be an explicit nil
+func (o *HeroBuildStats) SetTotalMaxHealthNil() {
+	o.TotalMaxHealth.Set(nil)
+}
+
+// UnsetTotalMaxHealth ensures that no value is present for TotalMaxHealth, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalMaxHealth() {
+	o.TotalMaxHealth.Unset()
+}
+
+// GetTotalNetWorth returns the TotalNetWorth field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalNetWorth() int64 {
+	if o == nil || IsNil(o.TotalNetWorth.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalNetWorth.Get()
+}
+
+// GetTotalNetWorthOk returns a tuple with the TotalNetWorth field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalNetWorthOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalNetWorth.Get(), o.TotalNetWorth.IsSet()
+}
+
+// HasTotalNetWorth returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalNetWorth() bool {
+	if o != nil && o.TotalNetWorth.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalNetWorth gets a reference to the given NullableInt64 and assigns it to the TotalNetWorth field.
+func (o *HeroBuildStats) SetTotalNetWorth(v int64) {
+	o.TotalNetWorth.Set(&v)
+}
+// SetTotalNetWorthNil sets the value for TotalNetWorth to be an explicit nil
+func (o *HeroBuildStats) SetTotalNetWorthNil() {
+	o.TotalNetWorth.Set(nil)
+}
+
+// UnsetTotalNetWorth ensures that no value is present for TotalNetWorth, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalNetWorth() {
+	o.TotalNetWorth.Unset()
+}
+
+// GetTotalNeutralDamage returns the TotalNeutralDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalNeutralDamage() int64 {
+	if o == nil || IsNil(o.TotalNeutralDamage.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalNeutralDamage.Get()
+}
+
+// GetTotalNeutralDamageOk returns a tuple with the TotalNeutralDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalNeutralDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalNeutralDamage.Get(), o.TotalNeutralDamage.IsSet()
+}
+
+// HasTotalNeutralDamage returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalNeutralDamage() bool {
+	if o != nil && o.TotalNeutralDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalNeutralDamage gets a reference to the given NullableInt64 and assigns it to the TotalNeutralDamage field.
+func (o *HeroBuildStats) SetTotalNeutralDamage(v int64) {
+	o.TotalNeutralDamage.Set(&v)
+}
+// SetTotalNeutralDamageNil sets the value for TotalNeutralDamage to be an explicit nil
+func (o *HeroBuildStats) SetTotalNeutralDamageNil() {
+	o.TotalNeutralDamage.Set(nil)
+}
+
+// UnsetTotalNeutralDamage ensures that no value is present for TotalNeutralDamage, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalNeutralDamage() {
+	o.TotalNeutralDamage.Unset()
+}
+
+// GetTotalNeutralKills returns the TotalNeutralKills field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalNeutralKills() int64 {
+	if o == nil || IsNil(o.TotalNeutralKills.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalNeutralKills.Get()
+}
+
+// GetTotalNeutralKillsOk returns a tuple with the TotalNeutralKills field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalNeutralKillsOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalNeutralKills.Get(), o.TotalNeutralKills.IsSet()
+}
+
+// HasTotalNeutralKills returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalNeutralKills() bool {
+	if o != nil && o.TotalNeutralKills.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalNeutralKills gets a reference to the given NullableInt64 and assigns it to the TotalNeutralKills field.
+func (o *HeroBuildStats) SetTotalNeutralKills(v int64) {
+	o.TotalNeutralKills.Set(&v)
+}
+// SetTotalNeutralKillsNil sets the value for TotalNeutralKills to be an explicit nil
+func (o *HeroBuildStats) SetTotalNeutralKillsNil() {
+	o.TotalNeutralKills.Set(nil)
+}
+
+// UnsetTotalNeutralKills ensures that no value is present for TotalNeutralKills, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalNeutralKills() {
+	o.TotalNeutralKills.Unset()
+}
+
+// GetTotalPlayerDamage returns the TotalPlayerDamage field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalPlayerDamage() int64 {
+	if o == nil || IsNil(o.TotalPlayerDamage.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalPlayerDamage.Get()
+}
+
+// GetTotalPlayerDamageOk returns a tuple with the TotalPlayerDamage field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalPlayerDamageOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalPlayerDamage.Get(), o.TotalPlayerDamage.IsSet()
+}
+
+// HasTotalPlayerDamage returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalPlayerDamage() bool {
+	if o != nil && o.TotalPlayerDamage.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalPlayerDamage gets a reference to the given NullableInt64 and assigns it to the TotalPlayerDamage field.
+func (o *HeroBuildStats) SetTotalPlayerDamage(v int64) {
+	o.TotalPlayerDamage.Set(&v)
+}
+// SetTotalPlayerDamageNil sets the value for TotalPlayerDamage to be an explicit nil
+func (o *HeroBuildStats) SetTotalPlayerDamageNil() {
+	o.TotalPlayerDamage.Set(nil)
+}
+
+// UnsetTotalPlayerDamage ensures that no value is present for TotalPlayerDamage, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalPlayerDamage() {
+	o.TotalPlayerDamage.Unset()
+}
+
+// GetTotalPlayerDamageTaken returns the TotalPlayerDamageTaken field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalPlayerDamageTaken() int64 {
+	if o == nil || IsNil(o.TotalPlayerDamageTaken.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalPlayerDamageTaken.Get()
+}
+
+// GetTotalPlayerDamageTakenOk returns a tuple with the TotalPlayerDamageTaken field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalPlayerDamageTakenOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalPlayerDamageTaken.Get(), o.TotalPlayerDamageTaken.IsSet()
+}
+
+// HasTotalPlayerDamageTaken returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalPlayerDamageTaken() bool {
+	if o != nil && o.TotalPlayerDamageTaken.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalPlayerDamageTaken gets a reference to the given NullableInt64 and assigns it to the TotalPlayerDamageTaken field.
+func (o *HeroBuildStats) SetTotalPlayerDamageTaken(v int64) {
+	o.TotalPlayerDamageTaken.Set(&v)
+}
+// SetTotalPlayerDamageTakenNil sets the value for TotalPlayerDamageTaken to be an explicit nil
+func (o *HeroBuildStats) SetTotalPlayerDamageTakenNil() {
+	o.TotalPlayerDamageTaken.Set(nil)
+}
+
+// UnsetTotalPlayerDamageTaken ensures that no value is present for TotalPlayerDamageTaken, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalPlayerDamageTaken() {
+	o.TotalPlayerDamageTaken.Unset()
+}
+
+// GetTotalPlayerHealing returns the TotalPlayerHealing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalPlayerHealing() int64 {
+	if o == nil || IsNil(o.TotalPlayerHealing.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalPlayerHealing.Get()
+}
+
+// GetTotalPlayerHealingOk returns a tuple with the TotalPlayerHealing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalPlayerHealingOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalPlayerHealing.Get(), o.TotalPlayerHealing.IsSet()
+}
+
+// HasTotalPlayerHealing returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalPlayerHealing() bool {
+	if o != nil && o.TotalPlayerHealing.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalPlayerHealing gets a reference to the given NullableInt64 and assigns it to the TotalPlayerHealing field.
+func (o *HeroBuildStats) SetTotalPlayerHealing(v int64) {
+	o.TotalPlayerHealing.Set(&v)
+}
+// SetTotalPlayerHealingNil sets the value for TotalPlayerHealing to be an explicit nil
+func (o *HeroBuildStats) SetTotalPlayerHealingNil() {
+	o.TotalPlayerHealing.Set(nil)
+}
+
+// UnsetTotalPlayerHealing ensures that no value is present for TotalPlayerHealing, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalPlayerHealing() {
+	o.TotalPlayerHealing.Unset()
+}
+
+// GetTotalSelfHealing returns the TotalSelfHealing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalSelfHealing() int64 {
+	if o == nil || IsNil(o.TotalSelfHealing.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalSelfHealing.Get()
+}
+
+// GetTotalSelfHealingOk returns a tuple with the TotalSelfHealing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalSelfHealingOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalSelfHealing.Get(), o.TotalSelfHealing.IsSet()
+}
+
+// HasTotalSelfHealing returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalSelfHealing() bool {
+	if o != nil && o.TotalSelfHealing.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalSelfHealing gets a reference to the given NullableInt64 and assigns it to the TotalSelfHealing field.
+func (o *HeroBuildStats) SetTotalSelfHealing(v int64) {
+	o.TotalSelfHealing.Set(&v)
+}
+// SetTotalSelfHealingNil sets the value for TotalSelfHealing to be an explicit nil
+func (o *HeroBuildStats) SetTotalSelfHealingNil() {
+	o.TotalSelfHealing.Set(nil)
+}
+
+// UnsetTotalSelfHealing ensures that no value is present for TotalSelfHealing, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalSelfHealing() {
+	o.TotalSelfHealing.Unset()
+}
+
+// GetTotalShotsHit returns the TotalShotsHit field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalShotsHit() int64 {
+	if o == nil || IsNil(o.TotalShotsHit.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalShotsHit.Get()
+}
+
+// GetTotalShotsHitOk returns a tuple with the TotalShotsHit field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalShotsHitOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalShotsHit.Get(), o.TotalShotsHit.IsSet()
+}
+
+// HasTotalShotsHit returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalShotsHit() bool {
+	if o != nil && o.TotalShotsHit.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalShotsHit gets a reference to the given NullableInt64 and assigns it to the TotalShotsHit field.
+func (o *HeroBuildStats) SetTotalShotsHit(v int64) {
+	o.TotalShotsHit.Set(&v)
+}
+// SetTotalShotsHitNil sets the value for TotalShotsHit to be an explicit nil
+func (o *HeroBuildStats) SetTotalShotsHitNil() {
+	o.TotalShotsHit.Set(nil)
+}
+
+// UnsetTotalShotsHit ensures that no value is present for TotalShotsHit, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalShotsHit() {
+	o.TotalShotsHit.Unset()
+}
+
+// GetTotalShotsMissed returns the TotalShotsMissed field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalShotsMissed() int64 {
+	if o == nil || IsNil(o.TotalShotsMissed.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalShotsMissed.Get()
+}
+
+// GetTotalShotsMissedOk returns a tuple with the TotalShotsMissed field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalShotsMissedOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalShotsMissed.Get(), o.TotalShotsMissed.IsSet()
+}
+
+// HasTotalShotsMissed returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalShotsMissed() bool {
+	if o != nil && o.TotalShotsMissed.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalShotsMissed gets a reference to the given NullableInt64 and assigns it to the TotalShotsMissed field.
+func (o *HeroBuildStats) SetTotalShotsMissed(v int64) {
+	o.TotalShotsMissed.Set(&v)
+}
+// SetTotalShotsMissedNil sets the value for TotalShotsMissed to be an explicit nil
+func (o *HeroBuildStats) SetTotalShotsMissedNil() {
+	o.TotalShotsMissed.Set(nil)
+}
+
+// UnsetTotalShotsMissed ensures that no value is present for TotalShotsMissed, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalShotsMissed() {
+	o.TotalShotsMissed.Unset()
+}
+
+// GetTotalTeammateHealing returns the TotalTeammateHealing field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *HeroBuildStats) GetTotalTeammateHealing() int64 {
+	if o == nil || IsNil(o.TotalTeammateHealing.Get()) {
+		var ret int64
+		return ret
+	}
+	return *o.TotalTeammateHealing.Get()
+}
+
+// GetTotalTeammateHealingOk returns a tuple with the TotalTeammateHealing field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *HeroBuildStats) GetTotalTeammateHealingOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TotalTeammateHealing.Get(), o.TotalTeammateHealing.IsSet()
+}
+
+// HasTotalTeammateHealing returns a boolean if a field has been set.
+func (o *HeroBuildStats) HasTotalTeammateHealing() bool {
+	if o != nil && o.TotalTeammateHealing.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalTeammateHealing gets a reference to the given NullableInt64 and assigns it to the TotalTeammateHealing field.
+func (o *HeroBuildStats) SetTotalTeammateHealing(v int64) {
+	o.TotalTeammateHealing.Set(&v)
+}
+// SetTotalTeammateHealingNil sets the value for TotalTeammateHealing to be an explicit nil
+func (o *HeroBuildStats) SetTotalTeammateHealingNil() {
+	o.TotalTeammateHealing.Set(nil)
+}
+
+// UnsetTotalTeammateHealing ensures that no value is present for TotalTeammateHealing, not even an explicit nil
+func (o *HeroBuildStats) UnsetTotalTeammateHealing() {
+	o.TotalTeammateHealing.Unset()
+}
+
 // GetWins returns the Wins field value
 func (o *HeroBuildStats) GetWins() int64 {
 	if o == nil {
@@ -241,12 +1323,87 @@ func (o HeroBuildStats) MarshalJSON() ([]byte, error) {
 
 func (o HeroBuildStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if o.AvgAverageBadge.IsSet() {
+		toSerialize["avg_average_badge"] = o.AvgAverageBadge.Get()
+	}
 	toSerialize["bucket"] = o.Bucket
 	toSerialize["hero_build_id"] = o.HeroBuildId
 	toSerialize["hero_id"] = o.HeroId
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
 	toSerialize["players"] = o.Players
+	if o.TotalAssists.IsSet() {
+		toSerialize["total_assists"] = o.TotalAssists.Get()
+	}
+	if o.TotalBossDamage.IsSet() {
+		toSerialize["total_boss_damage"] = o.TotalBossDamage.Get()
+	}
+	if o.TotalCreepDamage.IsSet() {
+		toSerialize["total_creep_damage"] = o.TotalCreepDamage.Get()
+	}
+	if o.TotalCreepKills.IsSet() {
+		toSerialize["total_creep_kills"] = o.TotalCreepKills.Get()
+	}
+	if o.TotalDamageMitigated.IsSet() {
+		toSerialize["total_damage_mitigated"] = o.TotalDamageMitigated.Get()
+	}
+	if o.TotalDeaths.IsSet() {
+		toSerialize["total_deaths"] = o.TotalDeaths.Get()
+	}
+	if o.TotalDenies.IsSet() {
+		toSerialize["total_denies"] = o.TotalDenies.Get()
+	}
+	if o.TotalDurationS.IsSet() {
+		toSerialize["total_duration_s"] = o.TotalDurationS.Get()
+	}
+	if o.TotalHeroBulletsHit.IsSet() {
+		toSerialize["total_hero_bullets_hit"] = o.TotalHeroBulletsHit.Get()
+	}
+	if o.TotalHeroBulletsHitCrit.IsSet() {
+		toSerialize["total_hero_bullets_hit_crit"] = o.TotalHeroBulletsHitCrit.Get()
+	}
+	if o.TotalKills.IsSet() {
+		toSerialize["total_kills"] = o.TotalKills.Get()
+	}
+	if o.TotalLastHits.IsSet() {
+		toSerialize["total_last_hits"] = o.TotalLastHits.Get()
+	}
+	if o.TotalLevel.IsSet() {
+		toSerialize["total_level"] = o.TotalLevel.Get()
+	}
+	if o.TotalMaxHealth.IsSet() {
+		toSerialize["total_max_health"] = o.TotalMaxHealth.Get()
+	}
+	if o.TotalNetWorth.IsSet() {
+		toSerialize["total_net_worth"] = o.TotalNetWorth.Get()
+	}
+	if o.TotalNeutralDamage.IsSet() {
+		toSerialize["total_neutral_damage"] = o.TotalNeutralDamage.Get()
+	}
+	if o.TotalNeutralKills.IsSet() {
+		toSerialize["total_neutral_kills"] = o.TotalNeutralKills.Get()
+	}
+	if o.TotalPlayerDamage.IsSet() {
+		toSerialize["total_player_damage"] = o.TotalPlayerDamage.Get()
+	}
+	if o.TotalPlayerDamageTaken.IsSet() {
+		toSerialize["total_player_damage_taken"] = o.TotalPlayerDamageTaken.Get()
+	}
+	if o.TotalPlayerHealing.IsSet() {
+		toSerialize["total_player_healing"] = o.TotalPlayerHealing.Get()
+	}
+	if o.TotalSelfHealing.IsSet() {
+		toSerialize["total_self_healing"] = o.TotalSelfHealing.Get()
+	}
+	if o.TotalShotsHit.IsSet() {
+		toSerialize["total_shots_hit"] = o.TotalShotsHit.Get()
+	}
+	if o.TotalShotsMissed.IsSet() {
+		toSerialize["total_shots_missed"] = o.TotalShotsMissed.Get()
+	}
+	if o.TotalTeammateHealing.IsSet() {
+		toSerialize["total_teammate_healing"] = o.TotalTeammateHealing.Get()
+	}
 	toSerialize["wins"] = o.Wins
 	return toSerialize, nil
 }

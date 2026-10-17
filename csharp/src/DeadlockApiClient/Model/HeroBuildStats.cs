@@ -40,8 +40,33 @@ namespace DeadlockApiClient.Model
         /// <param name="matches">The total number of matches played with this build (&#x60;wins + losses&#x60;).</param>
         /// <param name="players">The number of unique players who used this build.</param>
         /// <param name="wins">The number of wins with this build.</param>
+        /// <param name="avgAverageBadge">Average badge (tier &#x3D; first digits, subtier &#x3D; last digit) of the matches with this build that have one; 0 without any. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
+        /// <param name="totalAssists">totalAssists</param>
+        /// <param name="totalBossDamage">totalBossDamage</param>
+        /// <param name="totalCreepDamage">totalCreepDamage</param>
+        /// <param name="totalCreepKills">totalCreepKills</param>
+        /// <param name="totalDamageMitigated">totalDamageMitigated</param>
+        /// <param name="totalDeaths">totalDeaths</param>
+        /// <param name="totalDenies">totalDenies</param>
+        /// <param name="totalDurationS">Sum of the match durations (seconds), for per-minute rates.</param>
+        /// <param name="totalHeroBulletsHit">Bullets that hit an enemy hero.</param>
+        /// <param name="totalHeroBulletsHitCrit">Hero hits that were crits (headshots).</param>
+        /// <param name="totalKills">Sum of the kills of every match with this build. Average per match: &#x60;total_kills / matches&#x60;. This and the other totals are only present with &#x60;include_performance&#x3D;true&#x60;.</param>
+        /// <param name="totalLastHits">totalLastHits</param>
+        /// <param name="totalLevel">Sum of the final hero levels.</param>
+        /// <param name="totalMaxHealth">totalMaxHealth</param>
+        /// <param name="totalNetWorth">Sum of the final net worth (souls).</param>
+        /// <param name="totalNeutralDamage">totalNeutralDamage</param>
+        /// <param name="totalNeutralKills">totalNeutralKills</param>
+        /// <param name="totalPlayerDamage">totalPlayerDamage</param>
+        /// <param name="totalPlayerDamageTaken">totalPlayerDamageTaken</param>
+        /// <param name="totalPlayerHealing">totalPlayerHealing</param>
+        /// <param name="totalSelfHealing">totalSelfHealing</param>
+        /// <param name="totalShotsHit">totalShotsHit</param>
+        /// <param name="totalShotsMissed">totalShotsMissed</param>
+        /// <param name="totalTeammateHealing">totalTeammateHealing</param>
         [JsonConstructor]
-        public HeroBuildStats(int bucket, long heroBuildId, int heroId, long losses, long matches, long players, long wins)
+        public HeroBuildStats(int bucket, long heroBuildId, int heroId, long losses, long matches, long players, long wins, Option<double?> avgAverageBadge = default, Option<long?> totalAssists = default, Option<long?> totalBossDamage = default, Option<long?> totalCreepDamage = default, Option<long?> totalCreepKills = default, Option<long?> totalDamageMitigated = default, Option<long?> totalDeaths = default, Option<long?> totalDenies = default, Option<long?> totalDurationS = default, Option<long?> totalHeroBulletsHit = default, Option<long?> totalHeroBulletsHitCrit = default, Option<long?> totalKills = default, Option<long?> totalLastHits = default, Option<long?> totalLevel = default, Option<long?> totalMaxHealth = default, Option<long?> totalNetWorth = default, Option<long?> totalNeutralDamage = default, Option<long?> totalNeutralKills = default, Option<long?> totalPlayerDamage = default, Option<long?> totalPlayerDamageTaken = default, Option<long?> totalPlayerHealing = default, Option<long?> totalSelfHealing = default, Option<long?> totalShotsHit = default, Option<long?> totalShotsMissed = default, Option<long?> totalTeammateHealing = default)
         {
             Bucket = bucket;
             HeroBuildId = heroBuildId;
@@ -50,6 +75,31 @@ namespace DeadlockApiClient.Model
             Matches = matches;
             Players = players;
             Wins = wins;
+            AvgAverageBadgeOption = avgAverageBadge;
+            TotalAssistsOption = totalAssists;
+            TotalBossDamageOption = totalBossDamage;
+            TotalCreepDamageOption = totalCreepDamage;
+            TotalCreepKillsOption = totalCreepKills;
+            TotalDamageMitigatedOption = totalDamageMitigated;
+            TotalDeathsOption = totalDeaths;
+            TotalDeniesOption = totalDenies;
+            TotalDurationSOption = totalDurationS;
+            TotalHeroBulletsHitOption = totalHeroBulletsHit;
+            TotalHeroBulletsHitCritOption = totalHeroBulletsHitCrit;
+            TotalKillsOption = totalKills;
+            TotalLastHitsOption = totalLastHits;
+            TotalLevelOption = totalLevel;
+            TotalMaxHealthOption = totalMaxHealth;
+            TotalNetWorthOption = totalNetWorth;
+            TotalNeutralDamageOption = totalNeutralDamage;
+            TotalNeutralKillsOption = totalNeutralKills;
+            TotalPlayerDamageOption = totalPlayerDamage;
+            TotalPlayerDamageTakenOption = totalPlayerDamageTaken;
+            TotalPlayerHealingOption = totalPlayerHealing;
+            TotalSelfHealingOption = totalSelfHealing;
+            TotalShotsHitOption = totalShotsHit;
+            TotalShotsMissedOption = totalShotsMissed;
+            TotalTeammateHealingOption = totalTeammateHealing;
             OnCreated();
         }
 
@@ -105,6 +155,338 @@ namespace DeadlockApiClient.Model
         public long Wins { get; set; }
 
         /// <summary>
+        /// Used to track the state of AvgAverageBadge
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<double?> AvgAverageBadgeOption { get; private set; }
+
+        /// <summary>
+        /// Average badge (tier &#x3D; first digits, subtier &#x3D; last digit) of the matches with this build that have one; 0 without any. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+        /// </summary>
+        /// <value>Average badge (tier &#x3D; first digits, subtier &#x3D; last digit) of the matches with this build that have one; 0 without any. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</value>
+        [JsonPropertyName("avg_average_badge")]
+        public double? AvgAverageBadge { get { return this.AvgAverageBadgeOption.Value; } set { this.AvgAverageBadgeOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalAssists
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalAssistsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalAssists
+        /// </summary>
+        [JsonPropertyName("total_assists")]
+        public long? TotalAssists { get { return this.TotalAssistsOption.Value; } set { this.TotalAssistsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalBossDamage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalBossDamageOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalBossDamage
+        /// </summary>
+        [JsonPropertyName("total_boss_damage")]
+        public long? TotalBossDamage { get { return this.TotalBossDamageOption.Value; } set { this.TotalBossDamageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalCreepDamage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalCreepDamageOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalCreepDamage
+        /// </summary>
+        [JsonPropertyName("total_creep_damage")]
+        public long? TotalCreepDamage { get { return this.TotalCreepDamageOption.Value; } set { this.TotalCreepDamageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalCreepKills
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalCreepKillsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalCreepKills
+        /// </summary>
+        [JsonPropertyName("total_creep_kills")]
+        public long? TotalCreepKills { get { return this.TotalCreepKillsOption.Value; } set { this.TotalCreepKillsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalDamageMitigated
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalDamageMitigatedOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalDamageMitigated
+        /// </summary>
+        [JsonPropertyName("total_damage_mitigated")]
+        public long? TotalDamageMitigated { get { return this.TotalDamageMitigatedOption.Value; } set { this.TotalDamageMitigatedOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalDeaths
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalDeathsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalDeaths
+        /// </summary>
+        [JsonPropertyName("total_deaths")]
+        public long? TotalDeaths { get { return this.TotalDeathsOption.Value; } set { this.TotalDeathsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalDenies
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalDeniesOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalDenies
+        /// </summary>
+        [JsonPropertyName("total_denies")]
+        public long? TotalDenies { get { return this.TotalDeniesOption.Value; } set { this.TotalDeniesOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalDurationS
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalDurationSOption { get; private set; }
+
+        /// <summary>
+        /// Sum of the match durations (seconds), for per-minute rates.
+        /// </summary>
+        /// <value>Sum of the match durations (seconds), for per-minute rates.</value>
+        [JsonPropertyName("total_duration_s")]
+        public long? TotalDurationS { get { return this.TotalDurationSOption.Value; } set { this.TotalDurationSOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalHeroBulletsHit
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalHeroBulletsHitOption { get; private set; }
+
+        /// <summary>
+        /// Bullets that hit an enemy hero.
+        /// </summary>
+        /// <value>Bullets that hit an enemy hero.</value>
+        [JsonPropertyName("total_hero_bullets_hit")]
+        public long? TotalHeroBulletsHit { get { return this.TotalHeroBulletsHitOption.Value; } set { this.TotalHeroBulletsHitOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalHeroBulletsHitCrit
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalHeroBulletsHitCritOption { get; private set; }
+
+        /// <summary>
+        /// Hero hits that were crits (headshots).
+        /// </summary>
+        /// <value>Hero hits that were crits (headshots).</value>
+        [JsonPropertyName("total_hero_bullets_hit_crit")]
+        public long? TotalHeroBulletsHitCrit { get { return this.TotalHeroBulletsHitCritOption.Value; } set { this.TotalHeroBulletsHitCritOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalKills
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalKillsOption { get; private set; }
+
+        /// <summary>
+        /// Sum of the kills of every match with this build. Average per match: &#x60;total_kills / matches&#x60;. This and the other totals are only present with &#x60;include_performance&#x3D;true&#x60;.
+        /// </summary>
+        /// <value>Sum of the kills of every match with this build. Average per match: &#x60;total_kills / matches&#x60;. This and the other totals are only present with &#x60;include_performance&#x3D;true&#x60;.</value>
+        [JsonPropertyName("total_kills")]
+        public long? TotalKills { get { return this.TotalKillsOption.Value; } set { this.TotalKillsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalLastHits
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalLastHitsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalLastHits
+        /// </summary>
+        [JsonPropertyName("total_last_hits")]
+        public long? TotalLastHits { get { return this.TotalLastHitsOption.Value; } set { this.TotalLastHitsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalLevel
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalLevelOption { get; private set; }
+
+        /// <summary>
+        /// Sum of the final hero levels.
+        /// </summary>
+        /// <value>Sum of the final hero levels.</value>
+        [JsonPropertyName("total_level")]
+        public long? TotalLevel { get { return this.TotalLevelOption.Value; } set { this.TotalLevelOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalMaxHealth
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalMaxHealthOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalMaxHealth
+        /// </summary>
+        [JsonPropertyName("total_max_health")]
+        public long? TotalMaxHealth { get { return this.TotalMaxHealthOption.Value; } set { this.TotalMaxHealthOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalNetWorth
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalNetWorthOption { get; private set; }
+
+        /// <summary>
+        /// Sum of the final net worth (souls).
+        /// </summary>
+        /// <value>Sum of the final net worth (souls).</value>
+        [JsonPropertyName("total_net_worth")]
+        public long? TotalNetWorth { get { return this.TotalNetWorthOption.Value; } set { this.TotalNetWorthOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalNeutralDamage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalNeutralDamageOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalNeutralDamage
+        /// </summary>
+        [JsonPropertyName("total_neutral_damage")]
+        public long? TotalNeutralDamage { get { return this.TotalNeutralDamageOption.Value; } set { this.TotalNeutralDamageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalNeutralKills
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalNeutralKillsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalNeutralKills
+        /// </summary>
+        [JsonPropertyName("total_neutral_kills")]
+        public long? TotalNeutralKills { get { return this.TotalNeutralKillsOption.Value; } set { this.TotalNeutralKillsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalPlayerDamage
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalPlayerDamageOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayerDamage
+        /// </summary>
+        [JsonPropertyName("total_player_damage")]
+        public long? TotalPlayerDamage { get { return this.TotalPlayerDamageOption.Value; } set { this.TotalPlayerDamageOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalPlayerDamageTaken
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalPlayerDamageTakenOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayerDamageTaken
+        /// </summary>
+        [JsonPropertyName("total_player_damage_taken")]
+        public long? TotalPlayerDamageTaken { get { return this.TotalPlayerDamageTakenOption.Value; } set { this.TotalPlayerDamageTakenOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalPlayerHealing
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalPlayerHealingOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalPlayerHealing
+        /// </summary>
+        [JsonPropertyName("total_player_healing")]
+        public long? TotalPlayerHealing { get { return this.TotalPlayerHealingOption.Value; } set { this.TotalPlayerHealingOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalSelfHealing
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalSelfHealingOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalSelfHealing
+        /// </summary>
+        [JsonPropertyName("total_self_healing")]
+        public long? TotalSelfHealing { get { return this.TotalSelfHealingOption.Value; } set { this.TotalSelfHealingOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalShotsHit
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalShotsHitOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalShotsHit
+        /// </summary>
+        [JsonPropertyName("total_shots_hit")]
+        public long? TotalShotsHit { get { return this.TotalShotsHitOption.Value; } set { this.TotalShotsHitOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalShotsMissed
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalShotsMissedOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalShotsMissed
+        /// </summary>
+        [JsonPropertyName("total_shots_missed")]
+        public long? TotalShotsMissed { get { return this.TotalShotsMissedOption.Value; } set { this.TotalShotsMissedOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of TotalTeammateHealing
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<long?> TotalTeammateHealingOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets TotalTeammateHealing
+        /// </summary>
+        [JsonPropertyName("total_teammate_healing")]
+        public long? TotalTeammateHealing { get { return this.TotalTeammateHealingOption.Value; } set { this.TotalTeammateHealingOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -119,6 +501,31 @@ namespace DeadlockApiClient.Model
             sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("  Players: ").Append(Players).Append("\n");
             sb.Append("  Wins: ").Append(Wins).Append("\n");
+            sb.Append("  AvgAverageBadge: ").Append(AvgAverageBadge).Append("\n");
+            sb.Append("  TotalAssists: ").Append(TotalAssists).Append("\n");
+            sb.Append("  TotalBossDamage: ").Append(TotalBossDamage).Append("\n");
+            sb.Append("  TotalCreepDamage: ").Append(TotalCreepDamage).Append("\n");
+            sb.Append("  TotalCreepKills: ").Append(TotalCreepKills).Append("\n");
+            sb.Append("  TotalDamageMitigated: ").Append(TotalDamageMitigated).Append("\n");
+            sb.Append("  TotalDeaths: ").Append(TotalDeaths).Append("\n");
+            sb.Append("  TotalDenies: ").Append(TotalDenies).Append("\n");
+            sb.Append("  TotalDurationS: ").Append(TotalDurationS).Append("\n");
+            sb.Append("  TotalHeroBulletsHit: ").Append(TotalHeroBulletsHit).Append("\n");
+            sb.Append("  TotalHeroBulletsHitCrit: ").Append(TotalHeroBulletsHitCrit).Append("\n");
+            sb.Append("  TotalKills: ").Append(TotalKills).Append("\n");
+            sb.Append("  TotalLastHits: ").Append(TotalLastHits).Append("\n");
+            sb.Append("  TotalLevel: ").Append(TotalLevel).Append("\n");
+            sb.Append("  TotalMaxHealth: ").Append(TotalMaxHealth).Append("\n");
+            sb.Append("  TotalNetWorth: ").Append(TotalNetWorth).Append("\n");
+            sb.Append("  TotalNeutralDamage: ").Append(TotalNeutralDamage).Append("\n");
+            sb.Append("  TotalNeutralKills: ").Append(TotalNeutralKills).Append("\n");
+            sb.Append("  TotalPlayerDamage: ").Append(TotalPlayerDamage).Append("\n");
+            sb.Append("  TotalPlayerDamageTaken: ").Append(TotalPlayerDamageTaken).Append("\n");
+            sb.Append("  TotalPlayerHealing: ").Append(TotalPlayerHealing).Append("\n");
+            sb.Append("  TotalSelfHealing: ").Append(TotalSelfHealing).Append("\n");
+            sb.Append("  TotalShotsHit: ").Append(TotalShotsHit).Append("\n");
+            sb.Append("  TotalShotsMissed: ").Append(TotalShotsMissed).Append("\n");
+            sb.Append("  TotalTeammateHealing: ").Append(TotalTeammateHealing).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +579,150 @@ namespace DeadlockApiClient.Model
                 yield return new ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
             }
 
+            // TotalAssists (long) minimum
+            if (this.TotalAssistsOption.IsSet && this.TotalAssistsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalAssists, must be a value greater than or equal to 0.", new [] { "TotalAssists" });
+            }
+
+            // TotalBossDamage (long) minimum
+            if (this.TotalBossDamageOption.IsSet && this.TotalBossDamageOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalBossDamage, must be a value greater than or equal to 0.", new [] { "TotalBossDamage" });
+            }
+
+            // TotalCreepDamage (long) minimum
+            if (this.TotalCreepDamageOption.IsSet && this.TotalCreepDamageOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalCreepDamage, must be a value greater than or equal to 0.", new [] { "TotalCreepDamage" });
+            }
+
+            // TotalCreepKills (long) minimum
+            if (this.TotalCreepKillsOption.IsSet && this.TotalCreepKillsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalCreepKills, must be a value greater than or equal to 0.", new [] { "TotalCreepKills" });
+            }
+
+            // TotalDamageMitigated (long) minimum
+            if (this.TotalDamageMitigatedOption.IsSet && this.TotalDamageMitigatedOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalDamageMitigated, must be a value greater than or equal to 0.", new [] { "TotalDamageMitigated" });
+            }
+
+            // TotalDeaths (long) minimum
+            if (this.TotalDeathsOption.IsSet && this.TotalDeathsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalDeaths, must be a value greater than or equal to 0.", new [] { "TotalDeaths" });
+            }
+
+            // TotalDenies (long) minimum
+            if (this.TotalDeniesOption.IsSet && this.TotalDeniesOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalDenies, must be a value greater than or equal to 0.", new [] { "TotalDenies" });
+            }
+
+            // TotalDurationS (long) minimum
+            if (this.TotalDurationSOption.IsSet && this.TotalDurationSOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalDurationS, must be a value greater than or equal to 0.", new [] { "TotalDurationS" });
+            }
+
+            // TotalHeroBulletsHit (long) minimum
+            if (this.TotalHeroBulletsHitOption.IsSet && this.TotalHeroBulletsHitOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalHeroBulletsHit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHit" });
+            }
+
+            // TotalHeroBulletsHitCrit (long) minimum
+            if (this.TotalHeroBulletsHitCritOption.IsSet && this.TotalHeroBulletsHitCritOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalHeroBulletsHitCrit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHitCrit" });
+            }
+
+            // TotalKills (long) minimum
+            if (this.TotalKillsOption.IsSet && this.TotalKillsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalKills, must be a value greater than or equal to 0.", new [] { "TotalKills" });
+            }
+
+            // TotalLastHits (long) minimum
+            if (this.TotalLastHitsOption.IsSet && this.TotalLastHitsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalLastHits, must be a value greater than or equal to 0.", new [] { "TotalLastHits" });
+            }
+
+            // TotalLevel (long) minimum
+            if (this.TotalLevelOption.IsSet && this.TotalLevelOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalLevel, must be a value greater than or equal to 0.", new [] { "TotalLevel" });
+            }
+
+            // TotalMaxHealth (long) minimum
+            if (this.TotalMaxHealthOption.IsSet && this.TotalMaxHealthOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalMaxHealth, must be a value greater than or equal to 0.", new [] { "TotalMaxHealth" });
+            }
+
+            // TotalNetWorth (long) minimum
+            if (this.TotalNetWorthOption.IsSet && this.TotalNetWorthOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalNetWorth, must be a value greater than or equal to 0.", new [] { "TotalNetWorth" });
+            }
+
+            // TotalNeutralDamage (long) minimum
+            if (this.TotalNeutralDamageOption.IsSet && this.TotalNeutralDamageOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalNeutralDamage, must be a value greater than or equal to 0.", new [] { "TotalNeutralDamage" });
+            }
+
+            // TotalNeutralKills (long) minimum
+            if (this.TotalNeutralKillsOption.IsSet && this.TotalNeutralKillsOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalNeutralKills, must be a value greater than or equal to 0.", new [] { "TotalNeutralKills" });
+            }
+
+            // TotalPlayerDamage (long) minimum
+            if (this.TotalPlayerDamageOption.IsSet && this.TotalPlayerDamageOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayerDamage, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamage" });
+            }
+
+            // TotalPlayerDamageTaken (long) minimum
+            if (this.TotalPlayerDamageTakenOption.IsSet && this.TotalPlayerDamageTakenOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayerDamageTaken, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamageTaken" });
+            }
+
+            // TotalPlayerHealing (long) minimum
+            if (this.TotalPlayerHealingOption.IsSet && this.TotalPlayerHealingOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalPlayerHealing, must be a value greater than or equal to 0.", new [] { "TotalPlayerHealing" });
+            }
+
+            // TotalSelfHealing (long) minimum
+            if (this.TotalSelfHealingOption.IsSet && this.TotalSelfHealingOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalSelfHealing, must be a value greater than or equal to 0.", new [] { "TotalSelfHealing" });
+            }
+
+            // TotalShotsHit (long) minimum
+            if (this.TotalShotsHitOption.IsSet && this.TotalShotsHitOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalShotsHit, must be a value greater than or equal to 0.", new [] { "TotalShotsHit" });
+            }
+
+            // TotalShotsMissed (long) minimum
+            if (this.TotalShotsMissedOption.IsSet && this.TotalShotsMissedOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalShotsMissed, must be a value greater than or equal to 0.", new [] { "TotalShotsMissed" });
+            }
+
+            // TotalTeammateHealing (long) minimum
+            if (this.TotalTeammateHealingOption.IsSet && this.TotalTeammateHealingOption.Value < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for TotalTeammateHealing, must be a value greater than or equal to 0.", new [] { "TotalTeammateHealing" });
+            }
+
             yield break;
         }
     }
@@ -215,6 +766,31 @@ namespace DeadlockApiClient.Model
             Option<long?> matches = default;
             Option<long?> players = default;
             Option<long?> wins = default;
+            Option<double?> avgAverageBadge = default;
+            Option<long?> totalAssists = default;
+            Option<long?> totalBossDamage = default;
+            Option<long?> totalCreepDamage = default;
+            Option<long?> totalCreepKills = default;
+            Option<long?> totalDamageMitigated = default;
+            Option<long?> totalDeaths = default;
+            Option<long?> totalDenies = default;
+            Option<long?> totalDurationS = default;
+            Option<long?> totalHeroBulletsHit = default;
+            Option<long?> totalHeroBulletsHitCrit = default;
+            Option<long?> totalKills = default;
+            Option<long?> totalLastHits = default;
+            Option<long?> totalLevel = default;
+            Option<long?> totalMaxHealth = default;
+            Option<long?> totalNetWorth = default;
+            Option<long?> totalNeutralDamage = default;
+            Option<long?> totalNeutralKills = default;
+            Option<long?> totalPlayerDamage = default;
+            Option<long?> totalPlayerDamageTaken = default;
+            Option<long?> totalPlayerHealing = default;
+            Option<long?> totalSelfHealing = default;
+            Option<long?> totalShotsHit = default;
+            Option<long?> totalShotsMissed = default;
+            Option<long?> totalTeammateHealing = default;
 
             while (utf8JsonReader.Read())
             {
@@ -251,6 +827,81 @@ namespace DeadlockApiClient.Model
                             break;
                         case "wins":
                             wins = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "avg_average_badge":
+                            avgAverageBadge = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
+                            break;
+                        case "total_assists":
+                            totalAssists = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_boss_damage":
+                            totalBossDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_creep_damage":
+                            totalCreepDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_creep_kills":
+                            totalCreepKills = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_damage_mitigated":
+                            totalDamageMitigated = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_deaths":
+                            totalDeaths = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_denies":
+                            totalDenies = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_duration_s":
+                            totalDurationS = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_hero_bullets_hit":
+                            totalHeroBulletsHit = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_hero_bullets_hit_crit":
+                            totalHeroBulletsHitCrit = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_kills":
+                            totalKills = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_last_hits":
+                            totalLastHits = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_level":
+                            totalLevel = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_max_health":
+                            totalMaxHealth = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_net_worth":
+                            totalNetWorth = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_neutral_damage":
+                            totalNeutralDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_neutral_kills":
+                            totalNeutralKills = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_player_damage":
+                            totalPlayerDamage = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_player_damage_taken":
+                            totalPlayerDamageTaken = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_player_healing":
+                            totalPlayerHealing = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_self_healing":
+                            totalSelfHealing = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_shots_hit":
+                            totalShotsHit = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_shots_missed":
+                            totalShotsMissed = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "total_teammate_healing":
+                            totalTeammateHealing = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         default:
                             break;
@@ -300,7 +951,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new JsonException("Property is not nullable for class HeroBuildStats: wins.");
 
-            return new HeroBuildStats(bucket.Value!.Value!, heroBuildId.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!);
+            return new HeroBuildStats(bucket.Value!.Value!, heroBuildId.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!, avgAverageBadge, totalAssists, totalBossDamage, totalCreepDamage, totalCreepKills, totalDamageMitigated, totalDeaths, totalDenies, totalDurationS, totalHeroBulletsHit, totalHeroBulletsHitCrit, totalKills, totalLastHits, totalLevel, totalMaxHealth, totalNetWorth, totalNeutralDamage, totalNeutralKills, totalPlayerDamage, totalPlayerDamageTaken, totalPlayerHealing, totalSelfHealing, totalShotsHit, totalShotsMissed, totalTeammateHealing);
         }
 
         /// <summary>
@@ -338,6 +989,156 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("players", heroBuildStats.Players);
 
             writer.WriteNumber("wins", heroBuildStats.Wins);
+
+            if (heroBuildStats.AvgAverageBadgeOption.IsSet)
+                if (heroBuildStats.AvgAverageBadgeOption.Value != null)
+                    writer.WriteNumber("avg_average_badge", heroBuildStats.AvgAverageBadgeOption.Value!.Value);
+                else
+                    writer.WriteNull("avg_average_badge");
+
+            if (heroBuildStats.TotalAssistsOption.IsSet)
+                if (heroBuildStats.TotalAssistsOption.Value != null)
+                    writer.WriteNumber("total_assists", heroBuildStats.TotalAssistsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_assists");
+
+            if (heroBuildStats.TotalBossDamageOption.IsSet)
+                if (heroBuildStats.TotalBossDamageOption.Value != null)
+                    writer.WriteNumber("total_boss_damage", heroBuildStats.TotalBossDamageOption.Value!.Value);
+                else
+                    writer.WriteNull("total_boss_damage");
+
+            if (heroBuildStats.TotalCreepDamageOption.IsSet)
+                if (heroBuildStats.TotalCreepDamageOption.Value != null)
+                    writer.WriteNumber("total_creep_damage", heroBuildStats.TotalCreepDamageOption.Value!.Value);
+                else
+                    writer.WriteNull("total_creep_damage");
+
+            if (heroBuildStats.TotalCreepKillsOption.IsSet)
+                if (heroBuildStats.TotalCreepKillsOption.Value != null)
+                    writer.WriteNumber("total_creep_kills", heroBuildStats.TotalCreepKillsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_creep_kills");
+
+            if (heroBuildStats.TotalDamageMitigatedOption.IsSet)
+                if (heroBuildStats.TotalDamageMitigatedOption.Value != null)
+                    writer.WriteNumber("total_damage_mitigated", heroBuildStats.TotalDamageMitigatedOption.Value!.Value);
+                else
+                    writer.WriteNull("total_damage_mitigated");
+
+            if (heroBuildStats.TotalDeathsOption.IsSet)
+                if (heroBuildStats.TotalDeathsOption.Value != null)
+                    writer.WriteNumber("total_deaths", heroBuildStats.TotalDeathsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_deaths");
+
+            if (heroBuildStats.TotalDeniesOption.IsSet)
+                if (heroBuildStats.TotalDeniesOption.Value != null)
+                    writer.WriteNumber("total_denies", heroBuildStats.TotalDeniesOption.Value!.Value);
+                else
+                    writer.WriteNull("total_denies");
+
+            if (heroBuildStats.TotalDurationSOption.IsSet)
+                if (heroBuildStats.TotalDurationSOption.Value != null)
+                    writer.WriteNumber("total_duration_s", heroBuildStats.TotalDurationSOption.Value!.Value);
+                else
+                    writer.WriteNull("total_duration_s");
+
+            if (heroBuildStats.TotalHeroBulletsHitOption.IsSet)
+                if (heroBuildStats.TotalHeroBulletsHitOption.Value != null)
+                    writer.WriteNumber("total_hero_bullets_hit", heroBuildStats.TotalHeroBulletsHitOption.Value!.Value);
+                else
+                    writer.WriteNull("total_hero_bullets_hit");
+
+            if (heroBuildStats.TotalHeroBulletsHitCritOption.IsSet)
+                if (heroBuildStats.TotalHeroBulletsHitCritOption.Value != null)
+                    writer.WriteNumber("total_hero_bullets_hit_crit", heroBuildStats.TotalHeroBulletsHitCritOption.Value!.Value);
+                else
+                    writer.WriteNull("total_hero_bullets_hit_crit");
+
+            if (heroBuildStats.TotalKillsOption.IsSet)
+                if (heroBuildStats.TotalKillsOption.Value != null)
+                    writer.WriteNumber("total_kills", heroBuildStats.TotalKillsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_kills");
+
+            if (heroBuildStats.TotalLastHitsOption.IsSet)
+                if (heroBuildStats.TotalLastHitsOption.Value != null)
+                    writer.WriteNumber("total_last_hits", heroBuildStats.TotalLastHitsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_last_hits");
+
+            if (heroBuildStats.TotalLevelOption.IsSet)
+                if (heroBuildStats.TotalLevelOption.Value != null)
+                    writer.WriteNumber("total_level", heroBuildStats.TotalLevelOption.Value!.Value);
+                else
+                    writer.WriteNull("total_level");
+
+            if (heroBuildStats.TotalMaxHealthOption.IsSet)
+                if (heroBuildStats.TotalMaxHealthOption.Value != null)
+                    writer.WriteNumber("total_max_health", heroBuildStats.TotalMaxHealthOption.Value!.Value);
+                else
+                    writer.WriteNull("total_max_health");
+
+            if (heroBuildStats.TotalNetWorthOption.IsSet)
+                if (heroBuildStats.TotalNetWorthOption.Value != null)
+                    writer.WriteNumber("total_net_worth", heroBuildStats.TotalNetWorthOption.Value!.Value);
+                else
+                    writer.WriteNull("total_net_worth");
+
+            if (heroBuildStats.TotalNeutralDamageOption.IsSet)
+                if (heroBuildStats.TotalNeutralDamageOption.Value != null)
+                    writer.WriteNumber("total_neutral_damage", heroBuildStats.TotalNeutralDamageOption.Value!.Value);
+                else
+                    writer.WriteNull("total_neutral_damage");
+
+            if (heroBuildStats.TotalNeutralKillsOption.IsSet)
+                if (heroBuildStats.TotalNeutralKillsOption.Value != null)
+                    writer.WriteNumber("total_neutral_kills", heroBuildStats.TotalNeutralKillsOption.Value!.Value);
+                else
+                    writer.WriteNull("total_neutral_kills");
+
+            if (heroBuildStats.TotalPlayerDamageOption.IsSet)
+                if (heroBuildStats.TotalPlayerDamageOption.Value != null)
+                    writer.WriteNumber("total_player_damage", heroBuildStats.TotalPlayerDamageOption.Value!.Value);
+                else
+                    writer.WriteNull("total_player_damage");
+
+            if (heroBuildStats.TotalPlayerDamageTakenOption.IsSet)
+                if (heroBuildStats.TotalPlayerDamageTakenOption.Value != null)
+                    writer.WriteNumber("total_player_damage_taken", heroBuildStats.TotalPlayerDamageTakenOption.Value!.Value);
+                else
+                    writer.WriteNull("total_player_damage_taken");
+
+            if (heroBuildStats.TotalPlayerHealingOption.IsSet)
+                if (heroBuildStats.TotalPlayerHealingOption.Value != null)
+                    writer.WriteNumber("total_player_healing", heroBuildStats.TotalPlayerHealingOption.Value!.Value);
+                else
+                    writer.WriteNull("total_player_healing");
+
+            if (heroBuildStats.TotalSelfHealingOption.IsSet)
+                if (heroBuildStats.TotalSelfHealingOption.Value != null)
+                    writer.WriteNumber("total_self_healing", heroBuildStats.TotalSelfHealingOption.Value!.Value);
+                else
+                    writer.WriteNull("total_self_healing");
+
+            if (heroBuildStats.TotalShotsHitOption.IsSet)
+                if (heroBuildStats.TotalShotsHitOption.Value != null)
+                    writer.WriteNumber("total_shots_hit", heroBuildStats.TotalShotsHitOption.Value!.Value);
+                else
+                    writer.WriteNull("total_shots_hit");
+
+            if (heroBuildStats.TotalShotsMissedOption.IsSet)
+                if (heroBuildStats.TotalShotsMissedOption.Value != null)
+                    writer.WriteNumber("total_shots_missed", heroBuildStats.TotalShotsMissedOption.Value!.Value);
+                else
+                    writer.WriteNull("total_shots_missed");
+
+            if (heroBuildStats.TotalTeammateHealingOption.IsSet)
+                if (heroBuildStats.TotalTeammateHealingOption.Value != null)
+                    writer.WriteNumber("total_teammate_healing", heroBuildStats.TotalTeammateHealingOption.Value!.Value);
+                else
+                    writer.WriteNull("total_teammate_healing");
         }
     }
 }

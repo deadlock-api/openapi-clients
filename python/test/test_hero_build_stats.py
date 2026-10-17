@@ -35,12 +35,37 @@ class TestHeroBuildStats(unittest.TestCase):
         model = HeroBuildStats()
         if include_optional:
             return HeroBuildStats(
+                avg_average_badge = 1.337,
                 bucket = 0,
                 hero_build_id = 0,
                 hero_id = 0,
                 losses = 0,
                 matches = 0,
                 players = 0,
+                total_assists = 0,
+                total_boss_damage = 0,
+                total_creep_damage = 0,
+                total_creep_kills = 0,
+                total_damage_mitigated = 0,
+                total_deaths = 0,
+                total_denies = 0,
+                total_duration_s = 0,
+                total_hero_bullets_hit = 0,
+                total_hero_bullets_hit_crit = 0,
+                total_kills = 0,
+                total_last_hits = 0,
+                total_level = 0,
+                total_max_health = 0,
+                total_net_worth = 0,
+                total_neutral_damage = 0,
+                total_neutral_kills = 0,
+                total_player_damage = 0,
+                total_player_damage_taken = 0,
+                total_player_healing = 0,
+                total_self_healing = 0,
+                total_shots_hit = 0,
+                total_shots_missed = 0,
+                total_teammate_healing = 0,
                 wins = 0
             )
         else:

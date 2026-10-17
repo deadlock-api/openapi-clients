@@ -19,6 +19,12 @@ import { exists, mapValues } from '../runtime';
  */
 export interface HeroBuildStats  {
     /**
+     * Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    avgAverageBadge?: number;
+    /**
      * The bucket value (depends on the bucket query parameter, 0 without one).
      * @type {number}
      * @memberof HeroBuildStats
@@ -55,6 +61,150 @@ export interface HeroBuildStats  {
      */
     players: number;
     /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalAssists?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalBossDamage?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalCreepDamage?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalCreepKills?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalDamageMitigated?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalDeaths?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalDenies?: number;
+    /**
+     * Sum of the match durations (seconds), for per-minute rates.
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalDurationS?: number;
+    /**
+     * Bullets that hit an enemy hero.
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalHeroBulletsHit?: number;
+    /**
+     * Hero hits that were crits (headshots).
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalHeroBulletsHitCrit?: number;
+    /**
+     * Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalKills?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalLastHits?: number;
+    /**
+     * Sum of the final hero levels.
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalLevel?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalMaxHealth?: number;
+    /**
+     * Sum of the final net worth (souls).
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalNetWorth?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalNeutralDamage?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalNeutralKills?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalPlayerDamage?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalPlayerDamageTaken?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalPlayerHealing?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalSelfHealing?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalShotsHit?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalShotsMissed?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    totalTeammateHealing?: number;
+    /**
      * The number of wins with this build.
      * @type {number}
      * @memberof HeroBuildStats
@@ -64,12 +214,37 @@ export interface HeroBuildStats  {
 
 export function HeroBuildStatsFromJSON(json: any): HeroBuildStats {
     return {
+        'avgAverageBadge': !exists(json, 'avg_average_badge') ? undefined : json['avg_average_badge'],
         'bucket': json['bucket'],
         'heroBuildId': json['hero_build_id'],
         'heroId': json['hero_id'],
         'losses': json['losses'],
         'matches': json['matches'],
         'players': json['players'],
+        'totalAssists': !exists(json, 'total_assists') ? undefined : json['total_assists'],
+        'totalBossDamage': !exists(json, 'total_boss_damage') ? undefined : json['total_boss_damage'],
+        'totalCreepDamage': !exists(json, 'total_creep_damage') ? undefined : json['total_creep_damage'],
+        'totalCreepKills': !exists(json, 'total_creep_kills') ? undefined : json['total_creep_kills'],
+        'totalDamageMitigated': !exists(json, 'total_damage_mitigated') ? undefined : json['total_damage_mitigated'],
+        'totalDeaths': !exists(json, 'total_deaths') ? undefined : json['total_deaths'],
+        'totalDenies': !exists(json, 'total_denies') ? undefined : json['total_denies'],
+        'totalDurationS': !exists(json, 'total_duration_s') ? undefined : json['total_duration_s'],
+        'totalHeroBulletsHit': !exists(json, 'total_hero_bullets_hit') ? undefined : json['total_hero_bullets_hit'],
+        'totalHeroBulletsHitCrit': !exists(json, 'total_hero_bullets_hit_crit') ? undefined : json['total_hero_bullets_hit_crit'],
+        'totalKills': !exists(json, 'total_kills') ? undefined : json['total_kills'],
+        'totalLastHits': !exists(json, 'total_last_hits') ? undefined : json['total_last_hits'],
+        'totalLevel': !exists(json, 'total_level') ? undefined : json['total_level'],
+        'totalMaxHealth': !exists(json, 'total_max_health') ? undefined : json['total_max_health'],
+        'totalNetWorth': !exists(json, 'total_net_worth') ? undefined : json['total_net_worth'],
+        'totalNeutralDamage': !exists(json, 'total_neutral_damage') ? undefined : json['total_neutral_damage'],
+        'totalNeutralKills': !exists(json, 'total_neutral_kills') ? undefined : json['total_neutral_kills'],
+        'totalPlayerDamage': !exists(json, 'total_player_damage') ? undefined : json['total_player_damage'],
+        'totalPlayerDamageTaken': !exists(json, 'total_player_damage_taken') ? undefined : json['total_player_damage_taken'],
+        'totalPlayerHealing': !exists(json, 'total_player_healing') ? undefined : json['total_player_healing'],
+        'totalSelfHealing': !exists(json, 'total_self_healing') ? undefined : json['total_self_healing'],
+        'totalShotsHit': !exists(json, 'total_shots_hit') ? undefined : json['total_shots_hit'],
+        'totalShotsMissed': !exists(json, 'total_shots_missed') ? undefined : json['total_shots_missed'],
+        'totalTeammateHealing': !exists(json, 'total_teammate_healing') ? undefined : json['total_teammate_healing'],
         'wins': json['wins'],
     };
 }
@@ -79,12 +254,37 @@ export function HeroBuildStatsToJSON(value?: HeroBuildStats): any {
         return undefined;
     }
     return {
+        'avg_average_badge': value.avgAverageBadge,
         'bucket': value.bucket,
         'hero_build_id': value.heroBuildId,
         'hero_id': value.heroId,
         'losses': value.losses,
         'matches': value.matches,
         'players': value.players,
+        'total_assists': value.totalAssists,
+        'total_boss_damage': value.totalBossDamage,
+        'total_creep_damage': value.totalCreepDamage,
+        'total_creep_kills': value.totalCreepKills,
+        'total_damage_mitigated': value.totalDamageMitigated,
+        'total_deaths': value.totalDeaths,
+        'total_denies': value.totalDenies,
+        'total_duration_s': value.totalDurationS,
+        'total_hero_bullets_hit': value.totalHeroBulletsHit,
+        'total_hero_bullets_hit_crit': value.totalHeroBulletsHitCrit,
+        'total_kills': value.totalKills,
+        'total_last_hits': value.totalLastHits,
+        'total_level': value.totalLevel,
+        'total_max_health': value.totalMaxHealth,
+        'total_net_worth': value.totalNetWorth,
+        'total_neutral_damage': value.totalNeutralDamage,
+        'total_neutral_kills': value.totalNeutralKills,
+        'total_player_damage': value.totalPlayerDamage,
+        'total_player_damage_taken': value.totalPlayerDamageTaken,
+        'total_player_healing': value.totalPlayerHealing,
+        'total_self_healing': value.totalSelfHealing,
+        'total_shots_hit': value.totalShotsHit,
+        'total_shots_missed': value.totalShotsMissed,
+        'total_teammate_healing': value.totalTeammateHealing,
         'wins': value.wins,
     };
 }

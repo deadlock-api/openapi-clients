@@ -592,6 +592,7 @@ let maxAverageBadge: number; //Filter matches based on the average badge level (
 let minMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let maxMatchId: number; //Filter matches based on their ID. (optional) (default to undefined)
 let heroBuildId: number; //Filter results for a specific hero build. (optional) (default to undefined)
+let includePerformance: boolean; //Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional) (default to undefined)
 let minMatches: number; //The minimum number of matches played for a build to be included in the response. (optional) (default to 20)
 let accountId: number; //Filter for matches with a specific player account ID. (optional) (default to undefined)
 let accountIds: Array<number>; //Comma separated list of account ids to include (optional) (default to undefined)
@@ -611,6 +612,7 @@ const { status, data } = await apiInstance.heroBuildStats(
     minMatchId,
     maxMatchId,
     heroBuildId,
+    includePerformance,
     minMatches,
     accountId,
     accountIds,
@@ -635,6 +637,7 @@ const { status, data } = await apiInstance.heroBuildStats(
 | **minMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **maxMatchId** | [**number**] | Filter matches based on their ID. | (optional) defaults to undefined|
 | **heroBuildId** | [**number**] | Filter results for a specific hero build. | (optional) defaults to undefined|
+| **includePerformance** | [**boolean**] | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | (optional) defaults to undefined|
 | **minMatches** | [**number**] | The minimum number of matches played for a build to be included in the response. | (optional) defaults to 20|
 | **accountId** | [**number**] | Filter for matches with a specific player account ID. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids to include | (optional) defaults to undefined|

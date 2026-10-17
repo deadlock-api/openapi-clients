@@ -115,5 +115,230 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'Wins'
         }
+
+        /// <summary>
+        /// Test the property 'AvgAverageBadge'
+        /// </summary>
+        [Fact]
+        public void AvgAverageBadgeTest()
+        {
+            // TODO unit test for the property 'AvgAverageBadge'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalAssists'
+        /// </summary>
+        [Fact]
+        public void TotalAssistsTest()
+        {
+            // TODO unit test for the property 'TotalAssists'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalBossDamage'
+        /// </summary>
+        [Fact]
+        public void TotalBossDamageTest()
+        {
+            // TODO unit test for the property 'TotalBossDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalCreepDamage'
+        /// </summary>
+        [Fact]
+        public void TotalCreepDamageTest()
+        {
+            // TODO unit test for the property 'TotalCreepDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalCreepKills'
+        /// </summary>
+        [Fact]
+        public void TotalCreepKillsTest()
+        {
+            // TODO unit test for the property 'TotalCreepKills'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalDamageMitigated'
+        /// </summary>
+        [Fact]
+        public void TotalDamageMitigatedTest()
+        {
+            // TODO unit test for the property 'TotalDamageMitigated'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalDeaths'
+        /// </summary>
+        [Fact]
+        public void TotalDeathsTest()
+        {
+            // TODO unit test for the property 'TotalDeaths'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalDenies'
+        /// </summary>
+        [Fact]
+        public void TotalDeniesTest()
+        {
+            // TODO unit test for the property 'TotalDenies'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalDurationS'
+        /// </summary>
+        [Fact]
+        public void TotalDurationSTest()
+        {
+            // TODO unit test for the property 'TotalDurationS'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalHeroBulletsHit'
+        /// </summary>
+        [Fact]
+        public void TotalHeroBulletsHitTest()
+        {
+            // TODO unit test for the property 'TotalHeroBulletsHit'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalHeroBulletsHitCrit'
+        /// </summary>
+        [Fact]
+        public void TotalHeroBulletsHitCritTest()
+        {
+            // TODO unit test for the property 'TotalHeroBulletsHitCrit'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalKills'
+        /// </summary>
+        [Fact]
+        public void TotalKillsTest()
+        {
+            // TODO unit test for the property 'TotalKills'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalLastHits'
+        /// </summary>
+        [Fact]
+        public void TotalLastHitsTest()
+        {
+            // TODO unit test for the property 'TotalLastHits'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalLevel'
+        /// </summary>
+        [Fact]
+        public void TotalLevelTest()
+        {
+            // TODO unit test for the property 'TotalLevel'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalMaxHealth'
+        /// </summary>
+        [Fact]
+        public void TotalMaxHealthTest()
+        {
+            // TODO unit test for the property 'TotalMaxHealth'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalNetWorth'
+        /// </summary>
+        [Fact]
+        public void TotalNetWorthTest()
+        {
+            // TODO unit test for the property 'TotalNetWorth'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalNeutralDamage'
+        /// </summary>
+        [Fact]
+        public void TotalNeutralDamageTest()
+        {
+            // TODO unit test for the property 'TotalNeutralDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalNeutralKills'
+        /// </summary>
+        [Fact]
+        public void TotalNeutralKillsTest()
+        {
+            // TODO unit test for the property 'TotalNeutralKills'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPlayerDamage'
+        /// </summary>
+        [Fact]
+        public void TotalPlayerDamageTest()
+        {
+            // TODO unit test for the property 'TotalPlayerDamage'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPlayerDamageTaken'
+        /// </summary>
+        [Fact]
+        public void TotalPlayerDamageTakenTest()
+        {
+            // TODO unit test for the property 'TotalPlayerDamageTaken'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalPlayerHealing'
+        /// </summary>
+        [Fact]
+        public void TotalPlayerHealingTest()
+        {
+            // TODO unit test for the property 'TotalPlayerHealing'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalSelfHealing'
+        /// </summary>
+        [Fact]
+        public void TotalSelfHealingTest()
+        {
+            // TODO unit test for the property 'TotalSelfHealing'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalShotsHit'
+        /// </summary>
+        [Fact]
+        public void TotalShotsHitTest()
+        {
+            // TODO unit test for the property 'TotalShotsHit'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalShotsMissed'
+        /// </summary>
+        [Fact]
+        public void TotalShotsMissedTest()
+        {
+            // TODO unit test for the property 'TotalShotsMissed'
+        }
+
+        /// <summary>
+        /// Test the property 'TotalTeammateHealing'
+        /// </summary>
+        [Fact]
+        public void TotalTeammateHealingTest()
+        {
+            // TODO unit test for the property 'TotalTeammateHealing'
+        }
     }
 }

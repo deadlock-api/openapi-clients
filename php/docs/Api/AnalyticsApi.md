@@ -515,7 +515,7 @@ No authorization required
 ## `heroBuildStats()`
 
 ```php
-heroBuildStats($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix): \OpenAPI\Client\Model\HeroBuildStats[]
+heroBuildStats($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix): \OpenAPI\Client\Model\HeroBuildStats[]
 ```
 
 Hero Build Stats
@@ -547,6 +547,7 @@ $max_average_badge = 56; // int | Filter matches based on the average badge leve
 $min_match_id = 56; // int | Filter matches based on their ID.
 $max_match_id = 56; // int | Filter matches based on their ID.
 $hero_build_id = 56; // int | Filter results for a specific hero build.
+$include_performance = True; // bool | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
 $min_matches = 20; // int | The minimum number of matches played for a build to be included in the response.
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
@@ -554,7 +555,7 @@ $ability_order_prefix = array(56); // int[] | Comma separated list of ability id
 $ability_unlock_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 
 try {
-    $result = $apiInstance->heroBuildStats($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix);
+    $result = $apiInstance->heroBuildStats($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $include_performance, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroBuildStats: ', $e->getMessage(), PHP_EOL;
@@ -577,6 +578,7 @@ try {
 | **min_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **max_match_id** | **int**| Filter matches based on their ID. | [optional] |
 | **hero_build_id** | **int**| Filter results for a specific hero build. | [optional] |
+| **include_performance** | **bool**| Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | [optional] |
 | **min_matches** | **int**| The minimum number of matches played for a build to be included in the response. | [optional] [default to 20] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |

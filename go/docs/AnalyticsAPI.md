@@ -573,7 +573,7 @@ No authorization required
 
 ## HeroBuildStats
 
-> []HeroBuildStats HeroBuildStats(ctx, heroId).MatchMode(matchMode).Bucket(bucket).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroBuildId(heroBuildId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+> []HeroBuildStats HeroBuildStats(ctx, heroId).MatchMode(matchMode).Bucket(bucket).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroBuildId(heroBuildId).IncludePerformance(includePerformance).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
 
 Hero Build Stats
 
@@ -604,6 +604,7 @@ func main() {
 	minMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	maxMatchId := int64(789) // int64 | Filter matches based on their ID. (optional)
 	heroBuildId := int64(789) // int64 | Filter results for a specific hero build. (optional)
+	includePerformance := true // bool | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
 	minMatches := int64(789) // int64 | The minimum number of matches played for a build to be included in the response. (optional) (default to 20)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
@@ -612,7 +613,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.HeroBuildStats(context.Background(), heroId).MatchMode(matchMode).Bucket(bucket).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroBuildId(heroBuildId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.HeroBuildStats(context.Background(), heroId).MatchMode(matchMode).Bucket(bucket).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).HeroBuildId(heroBuildId).IncludePerformance(includePerformance).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.HeroBuildStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -649,6 +650,7 @@ Name | Type | Description  | Notes
  **minMatchId** | **int64** | Filter matches based on their ID. | 
  **maxMatchId** | **int64** | Filter matches based on their ID. | 
  **heroBuildId** | **int64** | Filter results for a specific hero build. | 
+ **includePerformance** | **bool** | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. | 
  **minMatches** | **int64** | The minimum number of matches played for a build to be included in the response. | [default to 20]
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 

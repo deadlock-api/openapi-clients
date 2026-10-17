@@ -284,7 +284,7 @@ No authorization required
 
 ## hero_build_stats
 
-> Vec<models::HeroBuildStats> hero_build_stats(hero_id, match_mode, bucket, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, min_matches, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix)
+> Vec<models::HeroBuildStats> hero_build_stats(hero_id, match_mode, bucket, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, include_performance, min_matches, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix)
 Hero Build Stats
 
  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -306,6 +306,7 @@ Name | Type | Description  | Required | Notes
 **min_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **max_match_id** | Option<**u64**> | Filter matches based on their ID. |  |
 **hero_build_id** | Option<**u64**> | Filter results for a specific hero build. |  |
+**include_performance** | Option<**bool**> | Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. |  |
 **min_matches** | Option<**u64**> | The minimum number of matches played for a build to be included in the response. |  |[default to 20]
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |

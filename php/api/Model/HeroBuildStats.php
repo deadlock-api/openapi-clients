@@ -57,12 +57,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'avg_average_badge' => 'float',
         'bucket' => 'int',
         'hero_build_id' => 'int',
         'hero_id' => 'int',
         'losses' => 'int',
         'matches' => 'int',
         'players' => 'int',
+        'total_assists' => 'int',
+        'total_boss_damage' => 'int',
+        'total_creep_damage' => 'int',
+        'total_creep_kills' => 'int',
+        'total_damage_mitigated' => 'int',
+        'total_deaths' => 'int',
+        'total_denies' => 'int',
+        'total_duration_s' => 'int',
+        'total_hero_bullets_hit' => 'int',
+        'total_hero_bullets_hit_crit' => 'int',
+        'total_kills' => 'int',
+        'total_last_hits' => 'int',
+        'total_level' => 'int',
+        'total_max_health' => 'int',
+        'total_net_worth' => 'int',
+        'total_neutral_damage' => 'int',
+        'total_neutral_kills' => 'int',
+        'total_player_damage' => 'int',
+        'total_player_damage_taken' => 'int',
+        'total_player_healing' => 'int',
+        'total_self_healing' => 'int',
+        'total_shots_hit' => 'int',
+        'total_shots_missed' => 'int',
+        'total_teammate_healing' => 'int',
         'wins' => 'int'
     ];
 
@@ -74,12 +99,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'avg_average_badge' => 'double',
         'bucket' => 'int32',
         'hero_build_id' => 'int64',
         'hero_id' => 'int32',
         'losses' => 'int64',
         'matches' => 'int64',
         'players' => 'int64',
+        'total_assists' => 'int64',
+        'total_boss_damage' => 'int64',
+        'total_creep_damage' => 'int64',
+        'total_creep_kills' => 'int64',
+        'total_damage_mitigated' => 'int64',
+        'total_deaths' => 'int64',
+        'total_denies' => 'int64',
+        'total_duration_s' => 'int64',
+        'total_hero_bullets_hit' => 'int64',
+        'total_hero_bullets_hit_crit' => 'int64',
+        'total_kills' => 'int64',
+        'total_last_hits' => 'int64',
+        'total_level' => 'int64',
+        'total_max_health' => 'int64',
+        'total_net_worth' => 'int64',
+        'total_neutral_damage' => 'int64',
+        'total_neutral_kills' => 'int64',
+        'total_player_damage' => 'int64',
+        'total_player_damage_taken' => 'int64',
+        'total_player_healing' => 'int64',
+        'total_self_healing' => 'int64',
+        'total_shots_hit' => 'int64',
+        'total_shots_missed' => 'int64',
+        'total_teammate_healing' => 'int64',
         'wins' => 'int64'
     ];
 
@@ -89,12 +139,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'avg_average_badge' => true,
         'bucket' => false,
         'hero_build_id' => false,
         'hero_id' => false,
         'losses' => false,
         'matches' => false,
         'players' => false,
+        'total_assists' => true,
+        'total_boss_damage' => true,
+        'total_creep_damage' => true,
+        'total_creep_kills' => true,
+        'total_damage_mitigated' => true,
+        'total_deaths' => true,
+        'total_denies' => true,
+        'total_duration_s' => true,
+        'total_hero_bullets_hit' => true,
+        'total_hero_bullets_hit_crit' => true,
+        'total_kills' => true,
+        'total_last_hits' => true,
+        'total_level' => true,
+        'total_max_health' => true,
+        'total_net_worth' => true,
+        'total_neutral_damage' => true,
+        'total_neutral_kills' => true,
+        'total_player_damage' => true,
+        'total_player_damage_taken' => true,
+        'total_player_healing' => true,
+        'total_self_healing' => true,
+        'total_shots_hit' => true,
+        'total_shots_missed' => true,
+        'total_teammate_healing' => true,
         'wins' => false
     ];
 
@@ -184,12 +259,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'avg_average_badge' => 'avg_average_badge',
         'bucket' => 'bucket',
         'hero_build_id' => 'hero_build_id',
         'hero_id' => 'hero_id',
         'losses' => 'losses',
         'matches' => 'matches',
         'players' => 'players',
+        'total_assists' => 'total_assists',
+        'total_boss_damage' => 'total_boss_damage',
+        'total_creep_damage' => 'total_creep_damage',
+        'total_creep_kills' => 'total_creep_kills',
+        'total_damage_mitigated' => 'total_damage_mitigated',
+        'total_deaths' => 'total_deaths',
+        'total_denies' => 'total_denies',
+        'total_duration_s' => 'total_duration_s',
+        'total_hero_bullets_hit' => 'total_hero_bullets_hit',
+        'total_hero_bullets_hit_crit' => 'total_hero_bullets_hit_crit',
+        'total_kills' => 'total_kills',
+        'total_last_hits' => 'total_last_hits',
+        'total_level' => 'total_level',
+        'total_max_health' => 'total_max_health',
+        'total_net_worth' => 'total_net_worth',
+        'total_neutral_damage' => 'total_neutral_damage',
+        'total_neutral_kills' => 'total_neutral_kills',
+        'total_player_damage' => 'total_player_damage',
+        'total_player_damage_taken' => 'total_player_damage_taken',
+        'total_player_healing' => 'total_player_healing',
+        'total_self_healing' => 'total_self_healing',
+        'total_shots_hit' => 'total_shots_hit',
+        'total_shots_missed' => 'total_shots_missed',
+        'total_teammate_healing' => 'total_teammate_healing',
         'wins' => 'wins'
     ];
 
@@ -199,12 +299,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'avg_average_badge' => 'setAvgAverageBadge',
         'bucket' => 'setBucket',
         'hero_build_id' => 'setHeroBuildId',
         'hero_id' => 'setHeroId',
         'losses' => 'setLosses',
         'matches' => 'setMatches',
         'players' => 'setPlayers',
+        'total_assists' => 'setTotalAssists',
+        'total_boss_damage' => 'setTotalBossDamage',
+        'total_creep_damage' => 'setTotalCreepDamage',
+        'total_creep_kills' => 'setTotalCreepKills',
+        'total_damage_mitigated' => 'setTotalDamageMitigated',
+        'total_deaths' => 'setTotalDeaths',
+        'total_denies' => 'setTotalDenies',
+        'total_duration_s' => 'setTotalDurationS',
+        'total_hero_bullets_hit' => 'setTotalHeroBulletsHit',
+        'total_hero_bullets_hit_crit' => 'setTotalHeroBulletsHitCrit',
+        'total_kills' => 'setTotalKills',
+        'total_last_hits' => 'setTotalLastHits',
+        'total_level' => 'setTotalLevel',
+        'total_max_health' => 'setTotalMaxHealth',
+        'total_net_worth' => 'setTotalNetWorth',
+        'total_neutral_damage' => 'setTotalNeutralDamage',
+        'total_neutral_kills' => 'setTotalNeutralKills',
+        'total_player_damage' => 'setTotalPlayerDamage',
+        'total_player_damage_taken' => 'setTotalPlayerDamageTaken',
+        'total_player_healing' => 'setTotalPlayerHealing',
+        'total_self_healing' => 'setTotalSelfHealing',
+        'total_shots_hit' => 'setTotalShotsHit',
+        'total_shots_missed' => 'setTotalShotsMissed',
+        'total_teammate_healing' => 'setTotalTeammateHealing',
         'wins' => 'setWins'
     ];
 
@@ -214,12 +339,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'avg_average_badge' => 'getAvgAverageBadge',
         'bucket' => 'getBucket',
         'hero_build_id' => 'getHeroBuildId',
         'hero_id' => 'getHeroId',
         'losses' => 'getLosses',
         'matches' => 'getMatches',
         'players' => 'getPlayers',
+        'total_assists' => 'getTotalAssists',
+        'total_boss_damage' => 'getTotalBossDamage',
+        'total_creep_damage' => 'getTotalCreepDamage',
+        'total_creep_kills' => 'getTotalCreepKills',
+        'total_damage_mitigated' => 'getTotalDamageMitigated',
+        'total_deaths' => 'getTotalDeaths',
+        'total_denies' => 'getTotalDenies',
+        'total_duration_s' => 'getTotalDurationS',
+        'total_hero_bullets_hit' => 'getTotalHeroBulletsHit',
+        'total_hero_bullets_hit_crit' => 'getTotalHeroBulletsHitCrit',
+        'total_kills' => 'getTotalKills',
+        'total_last_hits' => 'getTotalLastHits',
+        'total_level' => 'getTotalLevel',
+        'total_max_health' => 'getTotalMaxHealth',
+        'total_net_worth' => 'getTotalNetWorth',
+        'total_neutral_damage' => 'getTotalNeutralDamage',
+        'total_neutral_kills' => 'getTotalNeutralKills',
+        'total_player_damage' => 'getTotalPlayerDamage',
+        'total_player_damage_taken' => 'getTotalPlayerDamageTaken',
+        'total_player_healing' => 'getTotalPlayerHealing',
+        'total_self_healing' => 'getTotalSelfHealing',
+        'total_shots_hit' => 'getTotalShotsHit',
+        'total_shots_missed' => 'getTotalShotsMissed',
+        'total_teammate_healing' => 'getTotalTeammateHealing',
         'wins' => 'getWins'
     ];
 
@@ -280,12 +430,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('avg_average_badge', $data ?? [], null);
         $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('hero_build_id', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('players', $data ?? [], null);
+        $this->setIfExists('total_assists', $data ?? [], null);
+        $this->setIfExists('total_boss_damage', $data ?? [], null);
+        $this->setIfExists('total_creep_damage', $data ?? [], null);
+        $this->setIfExists('total_creep_kills', $data ?? [], null);
+        $this->setIfExists('total_damage_mitigated', $data ?? [], null);
+        $this->setIfExists('total_deaths', $data ?? [], null);
+        $this->setIfExists('total_denies', $data ?? [], null);
+        $this->setIfExists('total_duration_s', $data ?? [], null);
+        $this->setIfExists('total_hero_bullets_hit', $data ?? [], null);
+        $this->setIfExists('total_hero_bullets_hit_crit', $data ?? [], null);
+        $this->setIfExists('total_kills', $data ?? [], null);
+        $this->setIfExists('total_last_hits', $data ?? [], null);
+        $this->setIfExists('total_level', $data ?? [], null);
+        $this->setIfExists('total_max_health', $data ?? [], null);
+        $this->setIfExists('total_net_worth', $data ?? [], null);
+        $this->setIfExists('total_neutral_damage', $data ?? [], null);
+        $this->setIfExists('total_neutral_kills', $data ?? [], null);
+        $this->setIfExists('total_player_damage', $data ?? [], null);
+        $this->setIfExists('total_player_damage_taken', $data ?? [], null);
+        $this->setIfExists('total_player_healing', $data ?? [], null);
+        $this->setIfExists('total_self_healing', $data ?? [], null);
+        $this->setIfExists('total_shots_hit', $data ?? [], null);
+        $this->setIfExists('total_shots_missed', $data ?? [], null);
+        $this->setIfExists('total_teammate_healing', $data ?? [], null);
         $this->setIfExists('wins', $data ?? [], null);
     }
 
@@ -358,6 +533,102 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'players', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['total_assists']) && ($this->container['total_assists'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_assists', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_boss_damage']) && ($this->container['total_boss_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_boss_damage', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_creep_damage']) && ($this->container['total_creep_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_creep_damage', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_creep_kills']) && ($this->container['total_creep_kills'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_creep_kills', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_damage_mitigated']) && ($this->container['total_damage_mitigated'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_damage_mitigated', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_deaths']) && ($this->container['total_deaths'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_deaths', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_denies']) && ($this->container['total_denies'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_denies', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_duration_s']) && ($this->container['total_duration_s'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_duration_s', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_hero_bullets_hit']) && ($this->container['total_hero_bullets_hit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_hero_bullets_hit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_hero_bullets_hit_crit']) && ($this->container['total_hero_bullets_hit_crit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_hero_bullets_hit_crit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_kills']) && ($this->container['total_kills'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_kills', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_last_hits']) && ($this->container['total_last_hits'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_last_hits', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_level']) && ($this->container['total_level'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_level', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_max_health']) && ($this->container['total_max_health'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_max_health', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_net_worth']) && ($this->container['total_net_worth'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_net_worth', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_neutral_damage']) && ($this->container['total_neutral_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_neutral_damage', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_neutral_kills']) && ($this->container['total_neutral_kills'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_neutral_kills', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_player_damage']) && ($this->container['total_player_damage'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_player_damage', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_player_damage_taken']) && ($this->container['total_player_damage_taken'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_player_damage_taken', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_player_healing']) && ($this->container['total_player_healing'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_player_healing', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_self_healing']) && ($this->container['total_self_healing'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_self_healing', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_shots_hit']) && ($this->container['total_shots_hit'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_shots_hit', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_shots_missed']) && ($this->container['total_shots_missed'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_shots_missed', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['total_teammate_healing']) && ($this->container['total_teammate_healing'] < 0)) {
+            $invalidProperties[] = "invalid value for 'total_teammate_healing', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['wins'] === null) {
             $invalidProperties[] = "'wins' can't be null";
         }
@@ -379,6 +650,40 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets avg_average_badge
+     *
+     * @return float|null
+     */
+    public function getAvgAverageBadge()
+    {
+        return $this->container['avg_average_badge'];
+    }
+
+    /**
+     * Sets avg_average_badge
+     *
+     * @param float|null $avg_average_badge Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     *
+     * @return self
+     */
+    public function setAvgAverageBadge($avg_average_badge)
+    {
+        if (is_null($avg_average_badge)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_average_badge');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avg_average_badge', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avg_average_badge'] = $avg_average_badge;
+
+        return $this;
+    }
 
     /**
      * Gets bucket
@@ -562,6 +867,918 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['players'] = $players;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_assists
+     *
+     * @return int|null
+     */
+    public function getTotalAssists()
+    {
+        return $this->container['total_assists'];
+    }
+
+    /**
+     * Sets total_assists
+     *
+     * @param int|null $total_assists total_assists
+     *
+     * @return self
+     */
+    public function setTotalAssists($total_assists)
+    {
+        if (is_null($total_assists)) {
+            array_push($this->openAPINullablesSetToNull, 'total_assists');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_assists', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_assists) && ($total_assists < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_assists when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_assists'] = $total_assists;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_boss_damage
+     *
+     * @return int|null
+     */
+    public function getTotalBossDamage()
+    {
+        return $this->container['total_boss_damage'];
+    }
+
+    /**
+     * Sets total_boss_damage
+     *
+     * @param int|null $total_boss_damage total_boss_damage
+     *
+     * @return self
+     */
+    public function setTotalBossDamage($total_boss_damage)
+    {
+        if (is_null($total_boss_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'total_boss_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_boss_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_boss_damage) && ($total_boss_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_boss_damage when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_boss_damage'] = $total_boss_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_creep_damage
+     *
+     * @return int|null
+     */
+    public function getTotalCreepDamage()
+    {
+        return $this->container['total_creep_damage'];
+    }
+
+    /**
+     * Sets total_creep_damage
+     *
+     * @param int|null $total_creep_damage total_creep_damage
+     *
+     * @return self
+     */
+    public function setTotalCreepDamage($total_creep_damage)
+    {
+        if (is_null($total_creep_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'total_creep_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_creep_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_creep_damage) && ($total_creep_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_creep_damage when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_creep_damage'] = $total_creep_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_creep_kills
+     *
+     * @return int|null
+     */
+    public function getTotalCreepKills()
+    {
+        return $this->container['total_creep_kills'];
+    }
+
+    /**
+     * Sets total_creep_kills
+     *
+     * @param int|null $total_creep_kills total_creep_kills
+     *
+     * @return self
+     */
+    public function setTotalCreepKills($total_creep_kills)
+    {
+        if (is_null($total_creep_kills)) {
+            array_push($this->openAPINullablesSetToNull, 'total_creep_kills');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_creep_kills', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_creep_kills) && ($total_creep_kills < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_creep_kills when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_creep_kills'] = $total_creep_kills;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_damage_mitigated
+     *
+     * @return int|null
+     */
+    public function getTotalDamageMitigated()
+    {
+        return $this->container['total_damage_mitigated'];
+    }
+
+    /**
+     * Sets total_damage_mitigated
+     *
+     * @param int|null $total_damage_mitigated total_damage_mitigated
+     *
+     * @return self
+     */
+    public function setTotalDamageMitigated($total_damage_mitigated)
+    {
+        if (is_null($total_damage_mitigated)) {
+            array_push($this->openAPINullablesSetToNull, 'total_damage_mitigated');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_damage_mitigated', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_damage_mitigated) && ($total_damage_mitigated < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_damage_mitigated when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_damage_mitigated'] = $total_damage_mitigated;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_deaths
+     *
+     * @return int|null
+     */
+    public function getTotalDeaths()
+    {
+        return $this->container['total_deaths'];
+    }
+
+    /**
+     * Sets total_deaths
+     *
+     * @param int|null $total_deaths total_deaths
+     *
+     * @return self
+     */
+    public function setTotalDeaths($total_deaths)
+    {
+        if (is_null($total_deaths)) {
+            array_push($this->openAPINullablesSetToNull, 'total_deaths');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_deaths', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_deaths) && ($total_deaths < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_deaths when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_deaths'] = $total_deaths;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_denies
+     *
+     * @return int|null
+     */
+    public function getTotalDenies()
+    {
+        return $this->container['total_denies'];
+    }
+
+    /**
+     * Sets total_denies
+     *
+     * @param int|null $total_denies total_denies
+     *
+     * @return self
+     */
+    public function setTotalDenies($total_denies)
+    {
+        if (is_null($total_denies)) {
+            array_push($this->openAPINullablesSetToNull, 'total_denies');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_denies', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_denies) && ($total_denies < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_denies when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_denies'] = $total_denies;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_duration_s
+     *
+     * @return int|null
+     */
+    public function getTotalDurationS()
+    {
+        return $this->container['total_duration_s'];
+    }
+
+    /**
+     * Sets total_duration_s
+     *
+     * @param int|null $total_duration_s Sum of the match durations (seconds), for per-minute rates.
+     *
+     * @return self
+     */
+    public function setTotalDurationS($total_duration_s)
+    {
+        if (is_null($total_duration_s)) {
+            array_push($this->openAPINullablesSetToNull, 'total_duration_s');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_duration_s', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_duration_s) && ($total_duration_s < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_duration_s when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_duration_s'] = $total_duration_s;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_hero_bullets_hit
+     *
+     * @return int|null
+     */
+    public function getTotalHeroBulletsHit()
+    {
+        return $this->container['total_hero_bullets_hit'];
+    }
+
+    /**
+     * Sets total_hero_bullets_hit
+     *
+     * @param int|null $total_hero_bullets_hit Bullets that hit an enemy hero.
+     *
+     * @return self
+     */
+    public function setTotalHeroBulletsHit($total_hero_bullets_hit)
+    {
+        if (is_null($total_hero_bullets_hit)) {
+            array_push($this->openAPINullablesSetToNull, 'total_hero_bullets_hit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_hero_bullets_hit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_hero_bullets_hit) && ($total_hero_bullets_hit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_hero_bullets_hit when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_hero_bullets_hit'] = $total_hero_bullets_hit;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_hero_bullets_hit_crit
+     *
+     * @return int|null
+     */
+    public function getTotalHeroBulletsHitCrit()
+    {
+        return $this->container['total_hero_bullets_hit_crit'];
+    }
+
+    /**
+     * Sets total_hero_bullets_hit_crit
+     *
+     * @param int|null $total_hero_bullets_hit_crit Hero hits that were crits (headshots).
+     *
+     * @return self
+     */
+    public function setTotalHeroBulletsHitCrit($total_hero_bullets_hit_crit)
+    {
+        if (is_null($total_hero_bullets_hit_crit)) {
+            array_push($this->openAPINullablesSetToNull, 'total_hero_bullets_hit_crit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_hero_bullets_hit_crit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_hero_bullets_hit_crit) && ($total_hero_bullets_hit_crit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_hero_bullets_hit_crit when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_hero_bullets_hit_crit'] = $total_hero_bullets_hit_crit;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_kills
+     *
+     * @return int|null
+     */
+    public function getTotalKills()
+    {
+        return $this->container['total_kills'];
+    }
+
+    /**
+     * Sets total_kills
+     *
+     * @param int|null $total_kills Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+     *
+     * @return self
+     */
+    public function setTotalKills($total_kills)
+    {
+        if (is_null($total_kills)) {
+            array_push($this->openAPINullablesSetToNull, 'total_kills');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_kills', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_kills) && ($total_kills < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_kills when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_kills'] = $total_kills;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_last_hits
+     *
+     * @return int|null
+     */
+    public function getTotalLastHits()
+    {
+        return $this->container['total_last_hits'];
+    }
+
+    /**
+     * Sets total_last_hits
+     *
+     * @param int|null $total_last_hits total_last_hits
+     *
+     * @return self
+     */
+    public function setTotalLastHits($total_last_hits)
+    {
+        if (is_null($total_last_hits)) {
+            array_push($this->openAPINullablesSetToNull, 'total_last_hits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_last_hits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_last_hits) && ($total_last_hits < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_last_hits when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_last_hits'] = $total_last_hits;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_level
+     *
+     * @return int|null
+     */
+    public function getTotalLevel()
+    {
+        return $this->container['total_level'];
+    }
+
+    /**
+     * Sets total_level
+     *
+     * @param int|null $total_level Sum of the final hero levels.
+     *
+     * @return self
+     */
+    public function setTotalLevel($total_level)
+    {
+        if (is_null($total_level)) {
+            array_push($this->openAPINullablesSetToNull, 'total_level');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_level', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_level) && ($total_level < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_level when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_level'] = $total_level;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_max_health
+     *
+     * @return int|null
+     */
+    public function getTotalMaxHealth()
+    {
+        return $this->container['total_max_health'];
+    }
+
+    /**
+     * Sets total_max_health
+     *
+     * @param int|null $total_max_health total_max_health
+     *
+     * @return self
+     */
+    public function setTotalMaxHealth($total_max_health)
+    {
+        if (is_null($total_max_health)) {
+            array_push($this->openAPINullablesSetToNull, 'total_max_health');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_max_health', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_max_health) && ($total_max_health < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_max_health when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_max_health'] = $total_max_health;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_net_worth
+     *
+     * @return int|null
+     */
+    public function getTotalNetWorth()
+    {
+        return $this->container['total_net_worth'];
+    }
+
+    /**
+     * Sets total_net_worth
+     *
+     * @param int|null $total_net_worth Sum of the final net worth (souls).
+     *
+     * @return self
+     */
+    public function setTotalNetWorth($total_net_worth)
+    {
+        if (is_null($total_net_worth)) {
+            array_push($this->openAPINullablesSetToNull, 'total_net_worth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_net_worth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_net_worth) && ($total_net_worth < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_net_worth when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_net_worth'] = $total_net_worth;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_neutral_damage
+     *
+     * @return int|null
+     */
+    public function getTotalNeutralDamage()
+    {
+        return $this->container['total_neutral_damage'];
+    }
+
+    /**
+     * Sets total_neutral_damage
+     *
+     * @param int|null $total_neutral_damage total_neutral_damage
+     *
+     * @return self
+     */
+    public function setTotalNeutralDamage($total_neutral_damage)
+    {
+        if (is_null($total_neutral_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'total_neutral_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_neutral_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_neutral_damage) && ($total_neutral_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_neutral_damage when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_neutral_damage'] = $total_neutral_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_neutral_kills
+     *
+     * @return int|null
+     */
+    public function getTotalNeutralKills()
+    {
+        return $this->container['total_neutral_kills'];
+    }
+
+    /**
+     * Sets total_neutral_kills
+     *
+     * @param int|null $total_neutral_kills total_neutral_kills
+     *
+     * @return self
+     */
+    public function setTotalNeutralKills($total_neutral_kills)
+    {
+        if (is_null($total_neutral_kills)) {
+            array_push($this->openAPINullablesSetToNull, 'total_neutral_kills');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_neutral_kills', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_neutral_kills) && ($total_neutral_kills < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_neutral_kills when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_neutral_kills'] = $total_neutral_kills;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_player_damage
+     *
+     * @return int|null
+     */
+    public function getTotalPlayerDamage()
+    {
+        return $this->container['total_player_damage'];
+    }
+
+    /**
+     * Sets total_player_damage
+     *
+     * @param int|null $total_player_damage total_player_damage
+     *
+     * @return self
+     */
+    public function setTotalPlayerDamage($total_player_damage)
+    {
+        if (is_null($total_player_damage)) {
+            array_push($this->openAPINullablesSetToNull, 'total_player_damage');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_player_damage', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_player_damage) && ($total_player_damage < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_player_damage when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_player_damage'] = $total_player_damage;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_player_damage_taken
+     *
+     * @return int|null
+     */
+    public function getTotalPlayerDamageTaken()
+    {
+        return $this->container['total_player_damage_taken'];
+    }
+
+    /**
+     * Sets total_player_damage_taken
+     *
+     * @param int|null $total_player_damage_taken total_player_damage_taken
+     *
+     * @return self
+     */
+    public function setTotalPlayerDamageTaken($total_player_damage_taken)
+    {
+        if (is_null($total_player_damage_taken)) {
+            array_push($this->openAPINullablesSetToNull, 'total_player_damage_taken');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_player_damage_taken', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_player_damage_taken) && ($total_player_damage_taken < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_player_damage_taken when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_player_damage_taken'] = $total_player_damage_taken;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_player_healing
+     *
+     * @return int|null
+     */
+    public function getTotalPlayerHealing()
+    {
+        return $this->container['total_player_healing'];
+    }
+
+    /**
+     * Sets total_player_healing
+     *
+     * @param int|null $total_player_healing total_player_healing
+     *
+     * @return self
+     */
+    public function setTotalPlayerHealing($total_player_healing)
+    {
+        if (is_null($total_player_healing)) {
+            array_push($this->openAPINullablesSetToNull, 'total_player_healing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_player_healing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_player_healing) && ($total_player_healing < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_player_healing when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_player_healing'] = $total_player_healing;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_self_healing
+     *
+     * @return int|null
+     */
+    public function getTotalSelfHealing()
+    {
+        return $this->container['total_self_healing'];
+    }
+
+    /**
+     * Sets total_self_healing
+     *
+     * @param int|null $total_self_healing total_self_healing
+     *
+     * @return self
+     */
+    public function setTotalSelfHealing($total_self_healing)
+    {
+        if (is_null($total_self_healing)) {
+            array_push($this->openAPINullablesSetToNull, 'total_self_healing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_self_healing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_self_healing) && ($total_self_healing < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_self_healing when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_self_healing'] = $total_self_healing;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shots_hit
+     *
+     * @return int|null
+     */
+    public function getTotalShotsHit()
+    {
+        return $this->container['total_shots_hit'];
+    }
+
+    /**
+     * Sets total_shots_hit
+     *
+     * @param int|null $total_shots_hit total_shots_hit
+     *
+     * @return self
+     */
+    public function setTotalShotsHit($total_shots_hit)
+    {
+        if (is_null($total_shots_hit)) {
+            array_push($this->openAPINullablesSetToNull, 'total_shots_hit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_shots_hit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_shots_hit) && ($total_shots_hit < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_shots_hit when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_shots_hit'] = $total_shots_hit;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_shots_missed
+     *
+     * @return int|null
+     */
+    public function getTotalShotsMissed()
+    {
+        return $this->container['total_shots_missed'];
+    }
+
+    /**
+     * Sets total_shots_missed
+     *
+     * @param int|null $total_shots_missed total_shots_missed
+     *
+     * @return self
+     */
+    public function setTotalShotsMissed($total_shots_missed)
+    {
+        if (is_null($total_shots_missed)) {
+            array_push($this->openAPINullablesSetToNull, 'total_shots_missed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_shots_missed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_shots_missed) && ($total_shots_missed < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_shots_missed when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_shots_missed'] = $total_shots_missed;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_teammate_healing
+     *
+     * @return int|null
+     */
+    public function getTotalTeammateHealing()
+    {
+        return $this->container['total_teammate_healing'];
+    }
+
+    /**
+     * Sets total_teammate_healing
+     *
+     * @param int|null $total_teammate_healing total_teammate_healing
+     *
+     * @return self
+     */
+    public function setTotalTeammateHealing($total_teammate_healing)
+    {
+        if (is_null($total_teammate_healing)) {
+            array_push($this->openAPINullablesSetToNull, 'total_teammate_healing');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_teammate_healing', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($total_teammate_healing) && ($total_teammate_healing < 0)) {
+            throw new \InvalidArgumentException('invalid value for $total_teammate_healing when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['total_teammate_healing'] = $total_teammate_healing;
 
         return $this;
     }

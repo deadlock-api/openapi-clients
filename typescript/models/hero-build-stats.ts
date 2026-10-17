@@ -16,6 +16,10 @@
 
 export interface HeroBuildStats {
     /**
+     * Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+     */
+    'avg_average_badge'?: number | null;
+    /**
      * The bucket value (depends on the bucket query parameter, 0 without one).
      */
     'bucket': number;
@@ -39,6 +43,48 @@ export interface HeroBuildStats {
      * The number of unique players who used this build.
      */
     'players': number;
+    'total_assists'?: number | null;
+    'total_boss_damage'?: number | null;
+    'total_creep_damage'?: number | null;
+    'total_creep_kills'?: number | null;
+    'total_damage_mitigated'?: number | null;
+    'total_deaths'?: number | null;
+    'total_denies'?: number | null;
+    /**
+     * Sum of the match durations (seconds), for per-minute rates.
+     */
+    'total_duration_s'?: number | null;
+    /**
+     * Bullets that hit an enemy hero.
+     */
+    'total_hero_bullets_hit'?: number | null;
+    /**
+     * Hero hits that were crits (headshots).
+     */
+    'total_hero_bullets_hit_crit'?: number | null;
+    /**
+     * Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
+     */
+    'total_kills'?: number | null;
+    'total_last_hits'?: number | null;
+    /**
+     * Sum of the final hero levels.
+     */
+    'total_level'?: number | null;
+    'total_max_health'?: number | null;
+    /**
+     * Sum of the final net worth (souls).
+     */
+    'total_net_worth'?: number | null;
+    'total_neutral_damage'?: number | null;
+    'total_neutral_kills'?: number | null;
+    'total_player_damage'?: number | null;
+    'total_player_damage_taken'?: number | null;
+    'total_player_healing'?: number | null;
+    'total_self_healing'?: number | null;
+    'total_shots_hit'?: number | null;
+    'total_shots_missed'?: number | null;
+    'total_teammate_healing'?: number | null;
     /**
      * The number of wins with this build.
      */

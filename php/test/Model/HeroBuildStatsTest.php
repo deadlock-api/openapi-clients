@@ -80,6 +80,15 @@ class HeroBuildStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "avg_average_badge"
+     */
+    public function testPropertyAvgAverageBadge()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "bucket"
      */
     public function testPropertyBucket()
@@ -128,6 +137,222 @@ class HeroBuildStatsTest extends TestCase
      * Test attribute "players"
      */
     public function testPropertyPlayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_assists"
+     */
+    public function testPropertyTotalAssists()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_boss_damage"
+     */
+    public function testPropertyTotalBossDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_creep_damage"
+     */
+    public function testPropertyTotalCreepDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_creep_kills"
+     */
+    public function testPropertyTotalCreepKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_damage_mitigated"
+     */
+    public function testPropertyTotalDamageMitigated()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_deaths"
+     */
+    public function testPropertyTotalDeaths()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_denies"
+     */
+    public function testPropertyTotalDenies()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_duration_s"
+     */
+    public function testPropertyTotalDurationS()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_hero_bullets_hit"
+     */
+    public function testPropertyTotalHeroBulletsHit()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_hero_bullets_hit_crit"
+     */
+    public function testPropertyTotalHeroBulletsHitCrit()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_kills"
+     */
+    public function testPropertyTotalKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_last_hits"
+     */
+    public function testPropertyTotalLastHits()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_level"
+     */
+    public function testPropertyTotalLevel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_max_health"
+     */
+    public function testPropertyTotalMaxHealth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_net_worth"
+     */
+    public function testPropertyTotalNetWorth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_neutral_damage"
+     */
+    public function testPropertyTotalNeutralDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_neutral_kills"
+     */
+    public function testPropertyTotalNeutralKills()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_player_damage"
+     */
+    public function testPropertyTotalPlayerDamage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_player_damage_taken"
+     */
+    public function testPropertyTotalPlayerDamageTaken()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_player_healing"
+     */
+    public function testPropertyTotalPlayerHealing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_self_healing"
+     */
+    public function testPropertyTotalSelfHealing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_shots_hit"
+     */
+    public function testPropertyTotalShotsHit()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_shots_missed"
+     */
+    public function testPropertyTotalShotsMissed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_teammate_healing"
+     */
+    public function testPropertyTotalTeammateHealing()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -174,6 +174,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+     * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
      * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
@@ -182,7 +183,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats: (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    heroBuildStats: (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -739,6 +740,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+     * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
      * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
@@ -747,7 +749,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
+    heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -1747,6 +1749,10 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Filter results for a specific hero build.
      */
     readonly heroBuildId?: number | null;
+    /**
+     * Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+     */
+    readonly includePerformance?: boolean | null;
     /**
      * The minimum number of matches played for a build to be included in the response.
      */

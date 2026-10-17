@@ -1131,6 +1131,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroBuildId Filter results for a specific hero build. (optional)
+     * @param includePerformance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param minMatches The minimum number of matches played for a build to be included in the response. (optional, default to 20L)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
@@ -1145,8 +1146,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroBuildStats(heroId: kotlin.Int, matchMode: kotlin.String? = null, bucket: BucketHeroBuildStats? = null, minUnixTimestamp: kotlin.Long? = 1789603200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, heroBuildId: kotlin.Long? = null, minMatches: kotlin.Long? = 20L, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroBuildStats> {
-        val localVarResponse = heroBuildStatsWithHttpInfo(heroId = heroId, matchMode = matchMode, bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroBuildId = heroBuildId, minMatches = minMatches, accountId = accountId, accountIds = accountIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
+    fun heroBuildStats(heroId: kotlin.Int, matchMode: kotlin.String? = null, bucket: BucketHeroBuildStats? = null, minUnixTimestamp: kotlin.Long? = 1789603200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, heroBuildId: kotlin.Long? = null, includePerformance: kotlin.Boolean? = null, minMatches: kotlin.Long? = 20L, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroBuildStats> {
+        val localVarResponse = heroBuildStatsWithHttpInfo(heroId = heroId, matchMode = matchMode, bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroBuildId = heroBuildId, includePerformance = includePerformance, minMatches = minMatches, accountId = accountId, accountIds = accountIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroBuildStats>
@@ -1179,6 +1180,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroBuildId Filter results for a specific hero build. (optional)
+     * @param includePerformance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param minMatches The minimum number of matches played for a build to be included in the response. (optional, default to 20L)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
@@ -1190,8 +1192,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun heroBuildStatsWithHttpInfo(heroId: kotlin.Int, matchMode: kotlin.String?, bucket: BucketHeroBuildStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroBuildId: kotlin.Long?, minMatches: kotlin.Long?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<HeroBuildStats>?> {
-        val localVariableConfig = heroBuildStatsRequestConfig(heroId = heroId, matchMode = matchMode, bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroBuildId = heroBuildId, minMatches = minMatches, accountId = accountId, accountIds = accountIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
+    fun heroBuildStatsWithHttpInfo(heroId: kotlin.Int, matchMode: kotlin.String?, bucket: BucketHeroBuildStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroBuildId: kotlin.Long?, includePerformance: kotlin.Boolean?, minMatches: kotlin.Long?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<HeroBuildStats>?> {
+        val localVariableConfig = heroBuildStatsRequestConfig(heroId = heroId, matchMode = matchMode, bucket = bucket, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, heroBuildId = heroBuildId, includePerformance = includePerformance, minMatches = minMatches, accountId = accountId, accountIds = accountIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
 
         return request<Unit, kotlin.collections.List<HeroBuildStats>>(
             localVariableConfig
@@ -1213,6 +1215,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param heroBuildId Filter results for a specific hero build. (optional)
+     * @param includePerformance Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for. (optional)
      * @param minMatches The minimum number of matches played for a build to be included in the response. (optional, default to 20L)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
@@ -1220,7 +1223,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @return RequestConfig
      */
-    fun heroBuildStatsRequestConfig(heroId: kotlin.Int, matchMode: kotlin.String?, bucket: BucketHeroBuildStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroBuildId: kotlin.Long?, minMatches: kotlin.Long?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
+    fun heroBuildStatsRequestConfig(heroId: kotlin.Int, matchMode: kotlin.String?, bucket: BucketHeroBuildStats?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, heroBuildId: kotlin.Long?, includePerformance: kotlin.Boolean?, minMatches: kotlin.Long?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1256,6 +1259,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (heroBuildId != null) {
                     put("hero_build_id", listOf(heroBuildId.toString()))
+                }
+                if (includePerformance != null) {
+                    put("include_performance", listOf(includePerformance.toString()))
                 }
                 if (minMatches != null) {
                     put("min_matches", listOf(minMatches.toString()))

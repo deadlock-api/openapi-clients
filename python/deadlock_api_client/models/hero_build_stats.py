@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,14 +28,39 @@ class HeroBuildStats(BaseModel):
     """
     HeroBuildStats
     """ # noqa: E501
+    avg_average_badge: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter, 0 without one).")
     hero_build_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.")
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of losses with this build.")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches played with this build (`wins + losses`).")
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of unique players who used this build.")
+    total_assists: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_boss_damage: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_creep_damage: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_creep_kills: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_damage_mitigated: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_deaths: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_denies: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_duration_s: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Sum of the match durations (seconds), for per-minute rates.")
+    total_hero_bullets_hit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Bullets that hit an enemy hero.")
+    total_hero_bullets_hit_crit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Hero hits that were crits (headshots).")
+    total_kills: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.")
+    total_last_hits: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_level: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Sum of the final hero levels.")
+    total_max_health: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_net_worth: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Sum of the final net worth (souls).")
+    total_neutral_damage: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_neutral_kills: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_player_damage: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_player_damage_taken: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_player_healing: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_self_healing: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_shots_hit: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_shots_missed: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_teammate_healing: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of wins with this build.")
-    __properties: ClassVar[List[str]] = ["bucket", "hero_build_id", "hero_id", "losses", "matches", "players", "wins"]
+    __properties: ClassVar[List[str]] = ["avg_average_badge", "bucket", "hero_build_id", "hero_id", "losses", "matches", "players", "total_assists", "total_boss_damage", "total_creep_damage", "total_creep_kills", "total_damage_mitigated", "total_deaths", "total_denies", "total_duration_s", "total_hero_bullets_hit", "total_hero_bullets_hit_crit", "total_kills", "total_last_hits", "total_level", "total_max_health", "total_net_worth", "total_neutral_damage", "total_neutral_kills", "total_player_damage", "total_player_damage_taken", "total_player_healing", "total_self_healing", "total_shots_hit", "total_shots_missed", "total_teammate_healing", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -76,6 +101,131 @@ class HeroBuildStats(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if avg_average_badge (nullable) is None
+        # and model_fields_set contains the field
+        if self.avg_average_badge is None and "avg_average_badge" in self.model_fields_set:
+            _dict['avg_average_badge'] = None
+
+        # set to None if total_assists (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_assists is None and "total_assists" in self.model_fields_set:
+            _dict['total_assists'] = None
+
+        # set to None if total_boss_damage (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_boss_damage is None and "total_boss_damage" in self.model_fields_set:
+            _dict['total_boss_damage'] = None
+
+        # set to None if total_creep_damage (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_creep_damage is None and "total_creep_damage" in self.model_fields_set:
+            _dict['total_creep_damage'] = None
+
+        # set to None if total_creep_kills (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_creep_kills is None and "total_creep_kills" in self.model_fields_set:
+            _dict['total_creep_kills'] = None
+
+        # set to None if total_damage_mitigated (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_damage_mitigated is None and "total_damage_mitigated" in self.model_fields_set:
+            _dict['total_damage_mitigated'] = None
+
+        # set to None if total_deaths (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_deaths is None and "total_deaths" in self.model_fields_set:
+            _dict['total_deaths'] = None
+
+        # set to None if total_denies (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_denies is None and "total_denies" in self.model_fields_set:
+            _dict['total_denies'] = None
+
+        # set to None if total_duration_s (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_duration_s is None and "total_duration_s" in self.model_fields_set:
+            _dict['total_duration_s'] = None
+
+        # set to None if total_hero_bullets_hit (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_hero_bullets_hit is None and "total_hero_bullets_hit" in self.model_fields_set:
+            _dict['total_hero_bullets_hit'] = None
+
+        # set to None if total_hero_bullets_hit_crit (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_hero_bullets_hit_crit is None and "total_hero_bullets_hit_crit" in self.model_fields_set:
+            _dict['total_hero_bullets_hit_crit'] = None
+
+        # set to None if total_kills (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_kills is None and "total_kills" in self.model_fields_set:
+            _dict['total_kills'] = None
+
+        # set to None if total_last_hits (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_last_hits is None and "total_last_hits" in self.model_fields_set:
+            _dict['total_last_hits'] = None
+
+        # set to None if total_level (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_level is None and "total_level" in self.model_fields_set:
+            _dict['total_level'] = None
+
+        # set to None if total_max_health (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_max_health is None and "total_max_health" in self.model_fields_set:
+            _dict['total_max_health'] = None
+
+        # set to None if total_net_worth (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_net_worth is None and "total_net_worth" in self.model_fields_set:
+            _dict['total_net_worth'] = None
+
+        # set to None if total_neutral_damage (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_neutral_damage is None and "total_neutral_damage" in self.model_fields_set:
+            _dict['total_neutral_damage'] = None
+
+        # set to None if total_neutral_kills (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_neutral_kills is None and "total_neutral_kills" in self.model_fields_set:
+            _dict['total_neutral_kills'] = None
+
+        # set to None if total_player_damage (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_player_damage is None and "total_player_damage" in self.model_fields_set:
+            _dict['total_player_damage'] = None
+
+        # set to None if total_player_damage_taken (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_player_damage_taken is None and "total_player_damage_taken" in self.model_fields_set:
+            _dict['total_player_damage_taken'] = None
+
+        # set to None if total_player_healing (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_player_healing is None and "total_player_healing" in self.model_fields_set:
+            _dict['total_player_healing'] = None
+
+        # set to None if total_self_healing (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_self_healing is None and "total_self_healing" in self.model_fields_set:
+            _dict['total_self_healing'] = None
+
+        # set to None if total_shots_hit (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_shots_hit is None and "total_shots_hit" in self.model_fields_set:
+            _dict['total_shots_hit'] = None
+
+        # set to None if total_shots_missed (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_shots_missed is None and "total_shots_missed" in self.model_fields_set:
+            _dict['total_shots_missed'] = None
+
+        # set to None if total_teammate_healing (nullable) is None
+        # and model_fields_set contains the field
+        if self.total_teammate_healing is None and "total_teammate_healing" in self.model_fields_set:
+            _dict['total_teammate_healing'] = None
+
         return _dict
 
     @classmethod
@@ -88,12 +238,37 @@ class HeroBuildStats(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "avg_average_badge": obj.get("avg_average_badge"),
             "bucket": obj.get("bucket"),
             "hero_build_id": obj.get("hero_build_id"),
             "hero_id": obj.get("hero_id"),
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),
             "players": obj.get("players"),
+            "total_assists": obj.get("total_assists"),
+            "total_boss_damage": obj.get("total_boss_damage"),
+            "total_creep_damage": obj.get("total_creep_damage"),
+            "total_creep_kills": obj.get("total_creep_kills"),
+            "total_damage_mitigated": obj.get("total_damage_mitigated"),
+            "total_deaths": obj.get("total_deaths"),
+            "total_denies": obj.get("total_denies"),
+            "total_duration_s": obj.get("total_duration_s"),
+            "total_hero_bullets_hit": obj.get("total_hero_bullets_hit"),
+            "total_hero_bullets_hit_crit": obj.get("total_hero_bullets_hit_crit"),
+            "total_kills": obj.get("total_kills"),
+            "total_last_hits": obj.get("total_last_hits"),
+            "total_level": obj.get("total_level"),
+            "total_max_health": obj.get("total_max_health"),
+            "total_net_worth": obj.get("total_net_worth"),
+            "total_neutral_damage": obj.get("total_neutral_damage"),
+            "total_neutral_kills": obj.get("total_neutral_kills"),
+            "total_player_damage": obj.get("total_player_damage"),
+            "total_player_damage_taken": obj.get("total_player_damage_taken"),
+            "total_player_healing": obj.get("total_player_healing"),
+            "total_self_healing": obj.get("total_self_healing"),
+            "total_shots_hit": obj.get("total_shots_hit"),
+            "total_shots_missed": obj.get("total_shots_missed"),
+            "total_teammate_healing": obj.get("total_teammate_healing"),
             "wins": obj.get("wins")
         })
         return _obj
