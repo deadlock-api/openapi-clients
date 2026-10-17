@@ -816,6 +816,7 @@ let minMatches: number; //The minimum number of matches played for a hero combin
 let maxMatches: number; //The maximum number of matches played for a hero combination to be included in the response. (optional) (default to undefined)
 let accountId: number; //Filter for matches with a specific player account ID. (optional) (default to undefined)
 let accountIds: Array<number>; //Comma separated list of account ids to include (optional) (default to undefined)
+let heroBuildId: number; //Only matchups where `hero_id`\'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional) (default to undefined)
 
 const { status, data } = await apiInstance.heroCountersStats(
     gameMode,
@@ -836,7 +837,8 @@ const { status, data } = await apiInstance.heroCountersStats(
     minMatches,
     maxMatches,
     accountId,
-    accountIds
+    accountIds,
+    heroBuildId
 );
 ```
 
@@ -863,6 +865,7 @@ const { status, data } = await apiInstance.heroCountersStats(
 | **maxMatches** | [**number**] | The maximum number of matches played for a hero combination to be included in the response. | (optional) defaults to undefined|
 | **accountId** | [**number**] | Filter for matches with a specific player account ID. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids to include | (optional) defaults to undefined|
+| **heroBuildId** | [**number**] | Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | (optional) defaults to undefined|
 
 
 ### Return type

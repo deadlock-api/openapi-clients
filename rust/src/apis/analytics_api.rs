@@ -330,7 +330,9 @@ pub struct HeroCountersStatsParams {
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
-    pub account_ids: Option<Vec<u32>>
+    pub account_ids: Option<Vec<u32>>,
+    /// Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>
 }
 
 /// struct for passing parameters to the method [`hero_scoreboard`]
@@ -1897,6 +1899,9 @@ pub async fn hero_counters_stats(configuration: &configuration::Configuration, p
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
     }
     if let Some(ref user_agent) = configuration.user_agent {
         req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());

@@ -701,7 +701,7 @@ No authorization required
 ## `heroCountersStats()`
 
 ```php
-heroCountersStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids): \OpenAPI\Client\Model\HeroCounterStats[]
+heroCountersStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id): \OpenAPI\Client\Model\HeroCounterStats[]
 ```
 
 Hero Counter Stats
@@ -740,9 +740,10 @@ $min_matches = 20; // int | The minimum number of matches played for a hero comb
 $max_matches = 56; // int | The maximum number of matches played for a hero combination to be included in the response.
 $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
+$hero_build_id = 56; // int | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
 
 try {
-    $result = $apiInstance->heroCountersStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids);
+    $result = $apiInstance->heroCountersStats($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroCountersStats: ', $e->getMessage(), PHP_EOL;
@@ -772,6 +773,7 @@ try {
 | **max_matches** | **int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
 | **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] |
 | **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids to include | [optional] |
+| **hero_build_id** | **int**| Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional] |
 
 ### Return type
 

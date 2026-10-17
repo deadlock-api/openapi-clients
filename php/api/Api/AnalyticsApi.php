@@ -4312,15 +4312,16 @@ class AnalyticsApi
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroCountersStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroCounterStats[]
      */
-    public function heroCountersStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStats($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
-        list($response) = $this->heroCountersStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
+        list($response) = $this->heroCountersStatsWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
         return $response;
     }
 
@@ -4348,15 +4349,16 @@ class AnalyticsApi
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroCountersStats'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroCounterStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroCountersStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
-        $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
+        $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4451,14 +4453,15 @@ class AnalyticsApi
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroCountersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsync($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
-        return $this->heroCountersStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType)
+        return $this->heroCountersStatsAsyncWithHttpInfo($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4490,15 +4493,16 @@ class AnalyticsApi
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroCountersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroCountersStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsAsyncWithHttpInfo($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroCounterStats[]';
-        $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $contentType);
+        $request = $this->heroCountersStatsRequest($game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_enemy_networth, $max_enemy_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $same_lane_filter, $min_matches, $max_matches, $account_id, $account_ids, $hero_build_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4558,12 +4562,13 @@ class AnalyticsApi
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['heroCountersStats'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroCountersStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroCountersStats'][0])
+    public function heroCountersStatsRequest($game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_enemy_networth = null, $max_enemy_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $same_lane_filter = true, $min_matches = 20, $max_matches = null, $account_id = null, $account_ids = null, $hero_build_id = null, string $contentType = self::contentTypes['heroCountersStats'][0])
     {
 
 
@@ -4640,6 +4645,10 @@ class AnalyticsApi
         }
         if ($account_ids !== null && count($account_ids) < 1) {
             throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.heroCountersStats, number of items must be greater than or equal to 1.');
+        }
+        
+        if ($hero_build_id !== null && $hero_build_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_build_id" when calling AnalyticsApi.heroCountersStats, must be bigger than or equal to 0.');
         }
         
 
@@ -4817,6 +4826,15 @@ class AnalyticsApi
             $account_ids,
             'account_ids', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_build_id,
+            'hero_build_id', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

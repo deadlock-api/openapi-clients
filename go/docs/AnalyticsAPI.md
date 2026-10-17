@@ -783,7 +783,7 @@ No authorization required
 
 ## HeroCountersStats
 
-> []HeroCounterStats HeroCountersStats(ctx).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).SameLaneFilter(sameLaneFilter).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).Execute()
+> []HeroCounterStats HeroCountersStats(ctx).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).SameLaneFilter(sameLaneFilter).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).HeroBuildId(heroBuildId).Execute()
 
 Hero Counter Stats
 
@@ -821,10 +821,11 @@ func main() {
 	maxMatches := int32(56) // int32 | The maximum number of matches played for a hero combination to be included in the response. (optional)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	heroBuildId := int64(789) // int64 | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.HeroCountersStats(context.Background()).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).SameLaneFilter(sameLaneFilter).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.HeroCountersStats(context.Background()).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinEnemyNetworth(minEnemyNetworth).MaxEnemyNetworth(maxEnemyNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).SameLaneFilter(sameLaneFilter).MinMatches(minMatches).MaxMatches(maxMatches).AccountId(accountId).AccountIds(accountIds).HeroBuildId(heroBuildId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.HeroCountersStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -864,6 +865,7 @@ Name | Type | Description  | Notes
  **maxMatches** | **int32** | The maximum number of matches played for a hero combination to be included in the response. | 
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **heroBuildId** | **int64** | Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
 
 ### Return type
 

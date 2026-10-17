@@ -42,7 +42,7 @@ Accept: application/json
 
 ### Hero Counter Stats
 ## Hero Counter Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-counter-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minEnemyNetworth={{minEnemyNetworth}}&maxEnemyNetworth={{maxEnemyNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/hero-counter-stats?gameMode={{gameMode}}&matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minEnemyNetworth={{minEnemyNetworth}}&maxEnemyNetworth={{maxEnemyNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&sameLaneFilter={{sameLaneFilter}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&heroBuildId={{heroBuildId}}
 Accept: application/json
 
 ### Hero Scoreboard

@@ -618,7 +618,7 @@ No authorization required
 
 <a id="heroCountersStats"></a>
 # **heroCountersStats**
-> kotlin.collections.List&lt;HeroCounterStats&gt; heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds)
+> kotlin.collections.List&lt;HeroCounterStats&gt; heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId)
 
 Hero Counter Stats
 
@@ -650,8 +650,9 @@ val minMatches : kotlin.Long = 789 // kotlin.Long | The minimum number of matche
 val maxMatches : kotlin.Int = 56 // kotlin.Int | The maximum number of matches played for a hero combination to be included in the response.
 val accountId : kotlin.Int = 56 // kotlin.Int | Filter for matches with a specific player account ID.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
+val heroBuildId : kotlin.Long = 789 // kotlin.Long | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
 try {
-    val result : kotlin.collections.List<HeroCounterStats> = apiInstance.heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds)
+    val result : kotlin.collections.List<HeroCounterStats> = apiInstance.heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#heroCountersStats")
@@ -684,6 +685,7 @@ try {
 | **maxMatches** | **kotlin.Int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
 | **accountId** | **kotlin.Int**| Filter for matches with a specific player account ID. | [optional] |
 | **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids to include | [optional] |
+| **heroBuildId** | **kotlin.Long**| Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional] |
 
 ### Return type
 

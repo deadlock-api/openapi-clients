@@ -2309,6 +2309,7 @@ type ApiHeroCountersStatsRequest struct {
 	maxMatches *int32
 	accountId *int32
 	accountIds *[]int32
+	heroBuildId *int64
 }
 
 // Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -2423,6 +2424,12 @@ func (r ApiHeroCountersStatsRequest) AccountId(accountId int32) ApiHeroCountersS
 // Comma separated list of account ids to include
 func (r ApiHeroCountersStatsRequest) AccountIds(accountIds []int32) ApiHeroCountersStatsRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+func (r ApiHeroCountersStatsRequest) HeroBuildId(heroBuildId int64) ApiHeroCountersStatsRequest {
+	r.heroBuildId = &heroBuildId
 	return r
 }
 
@@ -2557,6 +2564,9 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

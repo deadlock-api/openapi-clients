@@ -281,7 +281,8 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> maxMatches = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.HeroCountersStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
+            Client.Option<long?> heroBuildId = default!;
+            var response = await _instance.HeroCountersStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId);
             var model = response.Ok();
             Assert.IsType<List<HeroCounterStats>>(model);
         }

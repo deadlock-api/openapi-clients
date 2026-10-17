@@ -381,7 +381,7 @@ No authorization required
 
 ## hero_counters_stats
 
-> Vec<models::HeroCounterStats> hero_counters_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_enemy_networth, max_enemy_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, same_lane_filter, min_matches, max_matches, account_id, account_ids)
+> Vec<models::HeroCounterStats> hero_counters_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_enemy_networth, max_enemy_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, same_lane_filter, min_matches, max_matches, account_id, account_ids, hero_build_id)
 Hero Counter Stats
 
  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -410,6 +410,7 @@ Name | Type | Description  | Required | Notes
 **max_matches** | Option<**u32**> | The maximum number of matches played for a hero combination to be included in the response. |  |
 **account_id** | Option<**u32**> | Filter for matches with a specific player account ID. |  |
 **account_ids** | Option<[**Vec<u32>**](U32.md)> | Comma separated list of account ids to include |  |
+**hero_build_id** | Option<**u64**> | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> |  |
 
 ### Return type
 

@@ -1551,6 +1551,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @return kotlin.collections.List<HeroCounterStats>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -1560,8 +1561,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun heroCountersStats(gameMode: GameModeHeroCountersStats? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1789603200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<HeroCounterStats> {
-        val localVarResponse = heroCountersStatsWithHttpInfo(gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
+    fun heroCountersStats(gameMode: GameModeHeroCountersStats? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1789603200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minEnemyNetworth: kotlin.Long? = null, maxEnemyNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, sameLaneFilter: kotlin.Boolean? = true, minMatches: kotlin.Long? = 20L, maxMatches: kotlin.Int? = null, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroBuildId: kotlin.Long? = null) : kotlin.collections.List<HeroCounterStats> {
+        val localVarResponse = heroCountersStatsWithHttpInfo(gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds, heroBuildId = heroBuildId)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<HeroCounterStats>
@@ -1601,14 +1602,15 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @return ApiResponse<kotlin.collections.List<HeroCounterStats>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun heroCountersStatsWithHttpInfo(gameMode: GameModeHeroCountersStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minEnemyNetworth: kotlin.Long?, maxEnemyNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, sameLaneFilter: kotlin.Boolean?, minMatches: kotlin.Long?, maxMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<HeroCounterStats>?> {
-        val localVariableConfig = heroCountersStatsRequestConfig(gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds)
+    fun heroCountersStatsWithHttpInfo(gameMode: GameModeHeroCountersStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minEnemyNetworth: kotlin.Long?, maxEnemyNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, sameLaneFilter: kotlin.Boolean?, minMatches: kotlin.Long?, maxMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, heroBuildId: kotlin.Long?) : ApiResponse<kotlin.collections.List<HeroCounterStats>?> {
+        val localVariableConfig = heroCountersStatsRequestConfig(gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minEnemyNetworth = minEnemyNetworth, maxEnemyNetworth = maxEnemyNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, sameLaneFilter = sameLaneFilter, minMatches = minMatches, maxMatches = maxMatches, accountId = accountId, accountIds = accountIds, heroBuildId = heroBuildId)
 
         return request<Unit, kotlin.collections.List<HeroCounterStats>>(
             localVariableConfig
@@ -1637,9 +1639,10 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @return RequestConfig
      */
-    fun heroCountersStatsRequestConfig(gameMode: GameModeHeroCountersStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minEnemyNetworth: kotlin.Long?, maxEnemyNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, sameLaneFilter: kotlin.Boolean?, minMatches: kotlin.Long?, maxMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
+    fun heroCountersStatsRequestConfig(gameMode: GameModeHeroCountersStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minEnemyNetworth: kotlin.Long?, maxEnemyNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, sameLaneFilter: kotlin.Boolean?, minMatches: kotlin.Long?, maxMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, heroBuildId: kotlin.Long?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -1699,6 +1702,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (accountIds != null) {
                     put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                }
+                if (heroBuildId != null) {
+                    put("hero_build_id", listOf(heroBuildId.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

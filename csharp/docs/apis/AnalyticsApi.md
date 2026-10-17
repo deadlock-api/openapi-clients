@@ -443,7 +443,7 @@ No authorization required
 
 <a id="herocountersstats"></a>
 # **HeroCountersStats**
-> List&lt;HeroCounterStats&gt; HeroCountersStats (string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool sameLaneFilter = null, long minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null)
+> List&lt;HeroCounterStats&gt; HeroCountersStats (string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, long minEnemyNetworth = null, long maxEnemyNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, bool sameLaneFilter = null, long minMatches = null, int maxMatches = null, int accountId = null, List<int> accountIds = null, long heroBuildId = null)
 
 Hero Counter Stats
 
@@ -473,6 +473,7 @@ Hero Counter Stats
 | **maxMatches** | **int** | The maximum number of matches played for a hero combination to be included in the response. | [optional]  |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **heroBuildId** | **long** | Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional]  |
 
 ### Return type
 

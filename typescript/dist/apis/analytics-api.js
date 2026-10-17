@@ -726,10 +726,11 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {number | null} [heroBuildId] Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroCountersStats: async (gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, options = {}) => {
+        heroCountersStats: async (gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId, options = {}) => {
             const localVarPath = `/v1/analytics/hero-counter-stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -796,6 +797,9 @@ export const AnalyticsApiAxiosParamCreator = function (configuration) {
             }
             if (accountIds) {
                 localVarQueryParameter['account_ids'] = accountIds;
+            }
+            if (heroBuildId !== undefined) {
+                localVarQueryParameter['hero_build_id'] = heroBuildId;
             }
             localVarHeaderParameter['Accept'] = 'application/json';
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -2476,11 +2480,12 @@ export const AnalyticsApiFp = function (configuration) {
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [accountId] Filter for matches with a specific player account ID.
          * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+         * @param {number | null} [heroBuildId] Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, options);
+        async heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroCountersStats(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroCountersStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3008,7 +3013,7 @@ export const AnalyticsApiFactory = function (configuration, basePath, axios) {
          * @throws {RequiredError}
          */
         heroCountersStats(requestParameters = {}, options) {
-            return localVarFp.heroCountersStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.heroCountersStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.heroBuildId, options).then((request) => request(axios, basePath));
         },
         /**
          *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
@@ -3234,7 +3239,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     heroCountersStats(requestParameters = {}, options) {
-        return AnalyticsApiFp(this.configuration).heroCountersStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroCountersStats(requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minEnemyNetworth, requestParameters.maxEnemyNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.sameLaneFilter, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.heroBuildId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |

@@ -928,7 +928,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **hero_counters_stats**
-> List[HeroCounterStats] hero_counters_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, same_lane_filter=same_lane_filter, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids)
+> List[HeroCounterStats] hero_counters_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, same_lane_filter=same_lane_filter, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, hero_build_id=hero_build_id)
 
 Hero Counter Stats
 
@@ -988,10 +988,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     max_matches = 56 # int | The maximum number of matches played for a hero combination to be included in the response. (optional)
     account_id = 56 # int | Filter for matches with a specific player account ID. (optional)
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
+    hero_build_id = 56 # int | Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
 
     try:
         # Hero Counter Stats
-        api_response = api_instance.hero_counters_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, same_lane_filter=same_lane_filter, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids)
+        api_response = api_instance.hero_counters_stats(game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_enemy_networth=min_enemy_networth, max_enemy_networth=max_enemy_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, same_lane_filter=same_lane_filter, min_matches=min_matches, max_matches=max_matches, account_id=account_id, account_ids=account_ids, hero_build_id=hero_build_id)
         print("The response of AnalyticsApi->hero_counters_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1024,6 +1025,7 @@ Name | Type | Description  | Notes
  **max_matches** | **int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] 
  **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] 
  **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids to include | [optional] 
+ **hero_build_id** | **int**| Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional] 
 
 ### Return type
 

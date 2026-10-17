@@ -4114,6 +4114,7 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4169,6 +4170,8 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param hero_build_id: Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4211,6 +4214,7 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            hero_build_id=hero_build_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4255,6 +4259,7 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4310,6 +4315,8 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param hero_build_id: Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4352,6 +4359,7 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            hero_build_id=hero_build_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4396,6 +4404,7 @@ class AnalyticsApi:
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4451,6 +4460,8 @@ class AnalyticsApi:
         :type account_id: int
         :param account_ids: Comma separated list of account ids to include
         :type account_ids: List[int]
+        :param hero_build_id: Only matchups where `hero_id`'s player started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -4493,6 +4504,7 @@ class AnalyticsApi:
             max_matches=max_matches,
             account_id=account_id,
             account_ids=account_ids,
+            hero_build_id=hero_build_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -4532,6 +4544,7 @@ class AnalyticsApi:
         max_matches,
         account_id,
         account_ids,
+        hero_build_id,
         _request_auth,
         _content_type,
         _headers,
@@ -4630,6 +4643,10 @@ class AnalyticsApi:
         if account_ids is not None:
             
             _query_params.append(('account_ids', account_ids))
+            
+        if hero_build_id is not None:
+            
+            _query_params.append(('hero_build_id', hero_build_id))
             
         # process the header parameters
         # process the form parameters

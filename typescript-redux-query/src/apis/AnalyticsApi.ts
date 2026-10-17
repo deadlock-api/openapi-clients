@@ -245,6 +245,7 @@ export interface HeroCountersStatsRequest {
     maxMatches?: number;
     accountId?: number;
     accountIds?: Array<number>;
+    heroBuildId?: number;
 }
 
 export interface HeroScoreboardRequest {
@@ -1613,6 +1614,11 @@ function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, re
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
     }
 
     const headerParameters : runtime.HttpHeaders = {};

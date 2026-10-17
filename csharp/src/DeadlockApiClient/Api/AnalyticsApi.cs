@@ -468,9 +468,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroCountersStatsApiResponse"/>&gt;</returns>
-        Task<IHeroCountersStatsApiResponse> HeroCountersStatsAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IHeroCountersStatsApiResponse> HeroCountersStatsAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Counter Stats
@@ -497,9 +498,10 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroCountersStatsApiResponse"/>?&gt;</returns>
-        Task<IHeroCountersStatsApiResponse?> HeroCountersStatsOrDefaultAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IHeroCountersStatsApiResponse?> HeroCountersStatsOrDefaultAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hero Scoreboard
@@ -5422,7 +5424,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatHeroCountersStats(ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<long?> minEnemyNetworth, ref Option<long?> maxEnemyNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<bool?> sameLaneFilter, ref Option<long?> minMatches, ref Option<int?> maxMatches, ref Option<int?> accountId, Option<List<int>?> accountIds);
+        partial void FormatHeroCountersStats(ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<long?> minEnemyNetworth, ref Option<long?> maxEnemyNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<bool?> sameLaneFilter, ref Option<long?> minMatches, ref Option<int?> maxMatches, ref Option<int?> accountId, Option<List<int>?> accountIds, ref Option<long?> heroBuildId);
 
         /// <summary>
         /// Processes the server response
@@ -5447,10 +5449,11 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches"></param>
         /// <param name="accountId"></param>
         /// <param name="accountIds"></param>
-        private void AfterHeroCountersStatsDefaultImplementation(IHeroCountersStatsApiResponse apiResponseLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds)
+        /// <param name="heroBuildId"></param>
+        private void AfterHeroCountersStatsDefaultImplementation(IHeroCountersStatsApiResponse apiResponseLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId)
         {
             bool suppressDefaultLog = false;
-            AfterHeroCountersStats(ref suppressDefaultLog, apiResponseLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
+            AfterHeroCountersStats(ref suppressDefaultLog, apiResponseLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -5479,7 +5482,8 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches"></param>
         /// <param name="accountId"></param>
         /// <param name="accountIds"></param>
-        partial void AfterHeroCountersStats(ref bool suppressDefaultLog, IHeroCountersStatsApiResponse apiResponseLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds);
+        /// <param name="heroBuildId"></param>
+        partial void AfterHeroCountersStats(ref bool suppressDefaultLog, IHeroCountersStatsApiResponse apiResponseLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -5506,10 +5510,11 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches"></param>
         /// <param name="accountId"></param>
         /// <param name="accountIds"></param>
-        private void OnErrorHeroCountersStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds)
+        /// <param name="heroBuildId"></param>
+        private void OnErrorHeroCountersStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorHeroCountersStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
+            OnErrorHeroCountersStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -5540,7 +5545,8 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches"></param>
         /// <param name="accountId"></param>
         /// <param name="accountIds"></param>
-        partial void OnErrorHeroCountersStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds);
+        /// <param name="heroBuildId"></param>
+        partial void OnErrorHeroCountersStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<long?> minEnemyNetworth, Option<long?> maxEnemyNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<bool?> sameLaneFilter, Option<long?> minMatches, Option<int?> maxMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId);
 
         /// <summary>
         /// Hero Counter Stats  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -5564,13 +5570,14 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroCountersStatsApiResponse"/>&gt;</returns>
-        public async Task<IHeroCountersStatsApiResponse?> HeroCountersStatsOrDefaultAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IHeroCountersStatsApiResponse?> HeroCountersStatsOrDefaultAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await HeroCountersStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, cancellationToken).ConfigureAwait(false);
+                return await HeroCountersStatsAsync(gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -5601,15 +5608,16 @@ namespace DeadlockApiClient.Api
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only matchups where &#x60;hero_id&#x60;&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHeroCountersStatsApiResponse"/>&gt;</returns>
-        public async Task<IHeroCountersStatsApiResponse> HeroCountersStatsAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IHeroCountersStatsApiResponse> HeroCountersStatsAsync(Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<long?> minEnemyNetworth = default, Option<long?> maxEnemyNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<bool?> sameLaneFilter = default, Option<long?> minMatches = default, Option<int?> maxMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatHeroCountersStats(ref gameMode, ref matchMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minEnemyNetworth, ref maxEnemyNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref sameLaneFilter, ref minMatches, ref maxMatches, ref accountId, accountIds);
+                FormatHeroCountersStats(ref gameMode, ref matchMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minEnemyNetworth, ref maxEnemyNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref sameLaneFilter, ref minMatches, ref maxMatches, ref accountId, accountIds, ref heroBuildId);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -5679,6 +5687,9 @@ namespace DeadlockApiClient.Api
                     if (accountIds.IsSet)
                         parseQueryStringLocalVar["account_ids"] = ClientUtils.ParameterToString(accountIds.Value);
 
+                    if (heroBuildId.IsSet)
+                        parseQueryStringLocalVar["hero_build_id"] = ClientUtils.ParameterToString(heroBuildId.Value);
+
                     uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
 
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
@@ -5709,7 +5720,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterHeroCountersStatsDefaultImplementation(apiResponseLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
+                        AfterHeroCountersStatsDefaultImplementation(apiResponseLocalVar, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId);
 
                         Events.ExecuteOnHeroCountersStats(apiResponseLocalVar);
 
@@ -5719,7 +5730,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorHeroCountersStatsDefaultImplementation(e, "/v1/analytics/hero-counter-stats", uriBuilderLocalVar.Path, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds);
+                OnErrorHeroCountersStatsDefaultImplementation(e, "/v1/analytics/hero-counter-stats", uriBuilderLocalVar.Path, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minEnemyNetworth, maxEnemyNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, sameLaneFilter, minMatches, maxMatches, accountId, accountIds, heroBuildId);
                 Events.ExecuteOnErrorHeroCountersStats(e);
                 throw;
             }

@@ -234,10 +234,11 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroCountersStats: (gameMode?: HeroCountersStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    heroCountersStats: (gameMode?: HeroCountersStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Scoreboard
@@ -801,10 +802,11 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroCountersStats(gameMode?: HeroCountersStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCounterStats>>>;
+    heroCountersStats(gameMode?: HeroCountersStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minEnemyNetworth?: number | null, maxEnemyNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroCounterStats>>>;
     /**
      *  This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Scoreboard
@@ -1945,6 +1947,10 @@ export interface AnalyticsApiHeroCountersStatsRequest {
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
+    /**
+     * Only matchups where &#x60;hero_id&#x60;\&#39;s player started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     */
+    readonly heroBuildId?: number | null;
 }
 /**
  * Request parameters for heroScoreboard operation in AnalyticsApi.
