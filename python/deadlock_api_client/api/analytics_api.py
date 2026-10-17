@@ -8105,6 +8105,7 @@ class AnalyticsApi:
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -8180,6 +8181,8 @@ class AnalyticsApi:
         :type ability_order_prefix: List[int]
         :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type ability_unlock_order_prefix: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -8247,6 +8250,7 @@ class AnalyticsApi:
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -8306,6 +8310,7 @@ class AnalyticsApi:
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -8381,6 +8386,8 @@ class AnalyticsApi:
         :type ability_order_prefix: List[int]
         :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type ability_unlock_order_prefix: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -8448,6 +8455,7 @@ class AnalyticsApi:
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -8507,6 +8515,7 @@ class AnalyticsApi:
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude. See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
         ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an item to be included in the response.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
@@ -8582,6 +8591,8 @@ class AnalyticsApi:
         :type ability_order_prefix: List[int]
         :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type ability_unlock_order_prefix: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for an item to be included in the response.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -8649,6 +8660,7 @@ class AnalyticsApi:
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
             ability_unlock_order_prefix=ability_unlock_order_prefix,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             account_id=account_id,
@@ -8703,6 +8715,7 @@ class AnalyticsApi:
         exclude_item_ids,
         ability_order_prefix,
         ability_unlock_order_prefix,
+        hero_build_id,
         min_matches,
         max_matches,
         account_id,
@@ -8836,6 +8849,10 @@ class AnalyticsApi:
         if ability_unlock_order_prefix is not None:
             
             _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
+            
+        if hero_build_id is not None:
+            
+            _query_params.append(('hero_build_id', hero_build_id))
             
         if min_matches is not None:
             

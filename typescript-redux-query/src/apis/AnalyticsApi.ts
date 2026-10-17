@@ -401,6 +401,7 @@ export interface ItemStatsRequest {
     excludeItemIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
     abilityUnlockOrderPrefix?: Array<number>;
+    heroBuildId?: number;
     minMatches?: number;
     maxMatches?: number;
     accountId?: number;
@@ -2603,6 +2604,11 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 
     if (requestParameters.abilityUnlockOrderPrefix) {
         queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
     }
 
 

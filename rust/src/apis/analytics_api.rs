@@ -636,6 +636,8 @@ pub struct ItemStatsParams {
     pub ability_order_prefix: Option<Vec<u32>>,
     /// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub ability_unlock_order_prefix: Option<Vec<u32>>,
+    /// Only players who started the match with this hero build selected (the first build they had selected when the game started). Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>,
     /// The minimum number of matches played for an item to be included in the response.
     pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
@@ -2603,6 +2605,9 @@ pub async fn item_stats(configuration: &configuration::Configuration, params: It
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);

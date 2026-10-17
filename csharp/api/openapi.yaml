@@ -207,7 +207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -511,7 +511,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -665,7 +665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -849,7 +849,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -937,7 +937,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -1203,7 +1203,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -1348,7 +1348,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -1581,7 +1581,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -1878,7 +1878,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -2147,7 +2147,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -2462,7 +2462,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -2613,7 +2613,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -2903,7 +2903,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -3268,7 +3268,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -3613,7 +3613,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -3782,6 +3782,19 @@ paths:
           nullable: true
           type: array
           default: null
+        style: form
+      - description: "Only players who started the match with this hero build selected\
+          \ (the first build they had selected when the game started). Matches without\
+          \ a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>"
+        explode: true
+        in: query
+        name: hero_build_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
         style: form
       - description: The minimum number of matches played for an item to be included
           in the response.
@@ -4005,7 +4018,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -4314,7 +4327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -4601,7 +4614,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -4894,7 +4907,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -5163,7 +5176,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -5529,7 +5542,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -11384,7 +11397,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -11508,7 +11521,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
@@ -11830,7 +11843,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789516800
+          default: 1789603200
           format: int64
           nullable: true
           type: integer
