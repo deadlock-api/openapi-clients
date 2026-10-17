@@ -5063,6 +5063,19 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: |-
+          Only players who started the match with this hero build selected. Matches without a processed demo record no
+          build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        explode: true
+        in: query
+        name: hero_build_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
       - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true

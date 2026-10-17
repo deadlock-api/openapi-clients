@@ -6184,6 +6184,7 @@ type ApiPlayerPerformanceCurveRequest struct {
 	minMatchId *int64
 	maxMatchId *int64
 	heroIds *string
+	heroBuildId *int64
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	abilityOrderPrefix *[]int32
@@ -6272,6 +6273,12 @@ func (r ApiPlayerPerformanceCurveRequest) MaxMatchId(maxMatchId int64) ApiPlayer
 // Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiPlayerPerformanceCurveRequest) HeroIds(heroIds string) ApiPlayerPerformanceCurveRequest {
 	r.heroIds = &heroIds
+	return r
+}
+
+// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+func (r ApiPlayerPerformanceCurveRequest) HeroBuildId(heroBuildId int64) ApiPlayerPerformanceCurveRequest {
+	r.heroBuildId = &heroBuildId
 	return r
 }
 
@@ -6407,6 +6414,9 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
 	}
 	if r.includeItemIds != nil {
 		t := *r.includeItemIds

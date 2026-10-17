@@ -628,12 +628,13 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
             Client.Option<string?> heroIds = default!;
+            Client.Option<long?> heroBuildId = default!;
             Client.Option<List<int>?> includeItemIds = default!;
             Client.Option<List<int>?> excludeItemIds = default!;
             Client.Option<List<int>?> abilityOrderPrefix = default!;
             Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.PlayerPerformanceCurveAsync(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds);
+            var response = await _instance.PlayerPerformanceCurveAsync(resolution, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds);
             var model = response.Ok();
             Assert.IsType<List<PlayerPerformanceCurvePoint>>(model);
         }
