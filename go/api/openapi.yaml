@@ -1341,6 +1341,20 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: Bucket allows you to group the stats by a specific field. `min_matches`
+          applies to each build and bucket.
+        explode: true
+        in: query
+        name: bucket
+        required: false
+        schema:
+          enum:
+          - no_bucket
+          - avg_badge
+          - start_time_day
+          - start_time_week
+          type: string
+        style: form
       - description: "Filter matches based on their start time (Unix timestamp). **Default:**\
           \ 30 days ago. **Minimum:** March 1, 2026."
         explode: true
@@ -16614,6 +16628,7 @@ components:
       - hero_id
     HeroBuildStats:
       example:
+        bucket: 0
         hero_build_id: 0
         hero_id: 0
         losses: 0
@@ -16621,6 +16636,12 @@ components:
         players: 0
         wins: 0
       properties:
+        bucket:
+          description: "The bucket value (depends on the bucket query parameter, 0\
+            \ without one)."
+          format: int32
+          minimum: 0
+          type: integer
         hero_build_id:
           description: The ID of the hero build. The `hero_build_id` is the first
             build the player had selected when the game started.
@@ -16654,6 +16675,7 @@ components:
           minimum: 0
           type: integer
       required:
+      - bucket
       - hero_build_id
       - hero_id
       - losses

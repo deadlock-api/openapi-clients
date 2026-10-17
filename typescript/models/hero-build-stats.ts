@@ -16,6 +16,10 @@
 
 export interface HeroBuildStats {
     /**
+     * The bucket value (depends on the bucket query parameter, 0 without one).
+     */
+    'bucket': number;
+    /**
      * The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
      */
     'hero_build_id': number;

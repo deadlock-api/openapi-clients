@@ -57,6 +57,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'bucket' => 'int',
         'hero_build_id' => 'int',
         'hero_id' => 'int',
         'losses' => 'int',
@@ -73,6 +74,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'bucket' => 'int32',
         'hero_build_id' => 'int64',
         'hero_id' => 'int32',
         'losses' => 'int64',
@@ -87,6 +89,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'bucket' => false,
         'hero_build_id' => false,
         'hero_id' => false,
         'losses' => false,
@@ -181,6 +184,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'bucket' => 'bucket',
         'hero_build_id' => 'hero_build_id',
         'hero_id' => 'hero_id',
         'losses' => 'losses',
@@ -195,6 +199,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'bucket' => 'setBucket',
         'hero_build_id' => 'setHeroBuildId',
         'hero_id' => 'setHeroId',
         'losses' => 'setLosses',
@@ -209,6 +214,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'bucket' => 'getBucket',
         'hero_build_id' => 'getHeroBuildId',
         'hero_id' => 'getHeroId',
         'losses' => 'getLosses',
@@ -274,6 +280,7 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('hero_build_id', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
         $this->setIfExists('losses', $data ?? [], null);
@@ -308,6 +315,13 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['bucket'] === null) {
+            $invalidProperties[] = "'bucket' can't be null";
+        }
+        if (($this->container['bucket'] < 0)) {
+            $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
+        }
 
         if ($this->container['hero_build_id'] === null) {
             $invalidProperties[] = "'hero_build_id' can't be null";
@@ -365,6 +379,37 @@ class HeroBuildStats implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets bucket
+     *
+     * @return int
+     */
+    public function getBucket()
+    {
+        return $this->container['bucket'];
+    }
+
+    /**
+     * Sets bucket
+     *
+     * @param int $bucket The bucket value (depends on the bucket query parameter, 0 without one).
+     *
+     * @return self
+     */
+    public function setBucket($bucket)
+    {
+        if (is_null($bucket)) {
+            throw new \InvalidArgumentException('non-nullable bucket cannot be null');
+        }
+        if (($bucket < 0)) {
+            throw new \InvalidArgumentException('invalid value for $bucket when calling HeroBuildStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['bucket'] = $bucket;
+
+        return $this;
+    }
 
     /**
      * Gets hero_build_id

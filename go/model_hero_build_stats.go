@@ -21,6 +21,8 @@ var _ MappedNullable = &HeroBuildStats{}
 
 // HeroBuildStats struct for HeroBuildStats
 type HeroBuildStats struct {
+	// The bucket value (depends on the bucket query parameter, 0 without one).
+	Bucket int32 `json:"bucket"`
 	// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
 	HeroBuildId int64 `json:"hero_build_id"`
 	// The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -41,8 +43,9 @@ type _HeroBuildStats HeroBuildStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroBuildStats(heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64) *HeroBuildStats {
+func NewHeroBuildStats(bucket int32, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64) *HeroBuildStats {
 	this := HeroBuildStats{}
+	this.Bucket = bucket
 	this.HeroBuildId = heroBuildId
 	this.HeroId = heroId
 	this.Losses = losses
@@ -58,6 +61,30 @@ func NewHeroBuildStats(heroBuildId int64, heroId int32, losses int64, matches in
 func NewHeroBuildStatsWithDefaults() *HeroBuildStats {
 	this := HeroBuildStats{}
 	return &this
+}
+
+// GetBucket returns the Bucket field value
+func (o *HeroBuildStats) GetBucket() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Bucket
+}
+
+// GetBucketOk returns a tuple with the Bucket field value
+// and a boolean to check if the value has been set.
+func (o *HeroBuildStats) GetBucketOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Bucket, true
+}
+
+// SetBucket sets field value
+func (o *HeroBuildStats) SetBucket(v int32) {
+	o.Bucket = v
 }
 
 // GetHeroBuildId returns the HeroBuildId field value
@@ -214,6 +241,7 @@ func (o HeroBuildStats) MarshalJSON() ([]byte, error) {
 
 func (o HeroBuildStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["bucket"] = o.Bucket
 	toSerialize["hero_build_id"] = o.HeroBuildId
 	toSerialize["hero_id"] = o.HeroId
 	toSerialize["losses"] = o.Losses
@@ -228,6 +256,7 @@ func (o *HeroBuildStats) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"bucket",
 		"hero_build_id",
 		"hero_id",
 		"losses",

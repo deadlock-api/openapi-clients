@@ -3096,6 +3096,7 @@ class AnalyticsApi
      *
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1789603200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3116,9 +3117,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\HeroBuildStats[]
      */
-    public function heroBuildStats($hero_id, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStats($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        list($response) = $this->heroBuildStatsWithHttpInfo($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        list($response) = $this->heroBuildStatsWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
     }
 
@@ -3129,6 +3130,7 @@ class AnalyticsApi
      *
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1789603200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3149,9 +3151,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\HeroBuildStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3229,6 +3231,7 @@ class AnalyticsApi
      *
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1789603200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3248,9 +3251,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsAsync($hero_id, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsync($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
-        return $this->heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
+        return $this->heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3265,6 +3268,7 @@ class AnalyticsApi
      *
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1789603200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3284,10 +3288,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsAsyncWithHttpInfo($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\HeroBuildStats[]';
-        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->heroBuildStatsRequest($hero_id, $match_mode, $bucket, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $hero_build_id, $min_matches, $account_id, $account_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3330,6 +3334,7 @@ class AnalyticsApi
      *
      * @param  int $hero_id The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  string|null $bucket Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional, default to 1789603200)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -3349,7 +3354,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroBuildStatsRequest($hero_id, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
+    public function heroBuildStatsRequest($hero_id, $match_mode = null, $bucket = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $hero_build_id = null, $min_matches = 20, $account_id = null, $account_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['heroBuildStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -3362,6 +3367,7 @@ class AnalyticsApi
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling AnalyticsApi.heroBuildStats, must be bigger than or equal to 0.');
         }
         
+
 
 
 
@@ -3434,6 +3440,15 @@ class AnalyticsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $match_mode,
             'match_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $bucket,
+            'bucket', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

@@ -209,6 +209,8 @@ pub struct HeroBuildStatsParams {
     pub hero_id: u32,
     /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
     pub match_mode: Option<String>,
+    /// Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.
+    pub bucket: Option<String>,
     /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
     pub min_unix_timestamp: Option<i64>,
     /// Filter matches based on their start time (Unix timestamp).
@@ -1626,6 +1628,9 @@ pub async fn hero_build_stats(configuration: &configuration::Configuration, para
 
     if let Some(ref param_value) = params.match_mode {
         req_builder = req_builder.query(&[("match_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.bucket {
+        req_builder = req_builder.query(&[("bucket", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_unix_timestamp {
         req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);

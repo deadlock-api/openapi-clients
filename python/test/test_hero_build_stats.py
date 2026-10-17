@@ -35,6 +35,7 @@ class TestHeroBuildStats(unittest.TestCase):
         model = HeroBuildStats()
         if include_optional:
             return HeroBuildStats(
+                bucket = 0,
                 hero_build_id = 0,
                 hero_id = 0,
                 losses = 0,
@@ -44,6 +45,7 @@ class TestHeroBuildStats(unittest.TestCase):
             )
         else:
             return HeroBuildStats(
+                bucket = 0,
                 hero_build_id = 0,
                 hero_id = 0,
                 losses = 0,

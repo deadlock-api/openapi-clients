@@ -31,6 +31,7 @@ import java.io.Serializable
 /**
  * 
  *
+ * @param bucket The bucket value (depends on the bucket query parameter, 0 without one).
  * @param heroBuildId The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
  * @param heroId The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param losses The number of losses with this build.
@@ -41,6 +42,10 @@ import java.io.Serializable
 
 
 data class HeroBuildStats (
+
+    /* The bucket value (depends on the bucket query parameter, 0 without one). */
+    @Json(name = "bucket")
+    val bucket: kotlin.Int,
 
     /* The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started. */
     @Json(name = "hero_build_id")

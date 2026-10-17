@@ -32,7 +32,7 @@ Accept: application/json
 
 ### Hero Build Stats
 ## Hero Build Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-build-stats/{{hero_id}}?matchMode={{matchMode}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroBuildId={{heroBuildId}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}
+GET https://api.deadlock-api.com/v1/analytics/hero-build-stats/{{hero_id}}?matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroBuildId={{heroBuildId}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}
 Accept: application/json
 
 ### Hero Comb Stats

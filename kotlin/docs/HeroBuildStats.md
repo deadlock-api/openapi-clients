@@ -4,6 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
+| **bucket** | **kotlin.Int** | The bucket value (depends on the bucket query parameter, 0 without one). |  |
 | **heroBuildId** | **kotlin.Long** | The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. |  |
 | **heroId** | **kotlin.Int** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **losses** | **kotlin.Long** | The number of losses with this build. |  |

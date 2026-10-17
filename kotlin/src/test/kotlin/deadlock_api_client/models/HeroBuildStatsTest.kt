@@ -33,6 +33,12 @@ class HeroBuildStatsTest : ShouldSpec() {
         // uncomment below to create an instance of HeroBuildStats
         //val modelInstance = HeroBuildStats()
 
+        // to test the property `bucket` - The bucket value (depends on the bucket query parameter, 0 without one).
+        should("test bucket") {
+            // uncomment below to test the property
+            //modelInstance.bucket shouldBe ("TODO")
+        }
+
         // to test the property `heroBuildId` - The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
         should("test heroBuildId") {
             // uncomment below to test the property

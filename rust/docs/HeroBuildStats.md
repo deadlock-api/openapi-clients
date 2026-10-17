@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bucket** | **u32** | The bucket value (depends on the bucket query parameter, 0 without one). | 
 **hero_build_id** | **u64** | The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started. | 
 **hero_id** | **u32** | The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **losses** | **u64** | The number of losses with this build. | 

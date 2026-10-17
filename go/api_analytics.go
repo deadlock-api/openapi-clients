@@ -1607,6 +1607,7 @@ type ApiHeroBuildStatsRequest struct {
 	ApiService *AnalyticsAPIService
 	heroId int32
 	matchMode *string
+	bucket *string
 	minUnixTimestamp *int64
 	maxUnixTimestamp *int64
 	minDurationS *int64
@@ -1626,6 +1627,12 @@ type ApiHeroBuildStatsRequest struct {
 // Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
 func (r ApiHeroBuildStatsRequest) MatchMode(matchMode string) ApiHeroBuildStatsRequest {
 	r.matchMode = &matchMode
+	return r
+}
+
+// Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+func (r ApiHeroBuildStatsRequest) Bucket(bucket string) ApiHeroBuildStatsRequest {
+	r.bucket = &bucket
 	return r
 }
 
@@ -1779,6 +1786,9 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 
 	if r.matchMode != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
+	}
+	if r.bucket != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bucket", r.bucket, "form", "")
 	}
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Bucket** | **int32** | The bucket value (depends on the bucket query parameter, 0 without one). | 
 **HeroBuildId** | **int64** | The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. | 
 **HeroId** | **int32** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** | The number of losses with this build. | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewHeroBuildStats
 
-`func NewHeroBuildStats(heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64, ) *HeroBuildStats`
+`func NewHeroBuildStats(bucket int32, heroBuildId int64, heroId int32, losses int64, matches int64, players int64, wins int64, ) *HeroBuildStats`
 
 NewHeroBuildStats instantiates a new HeroBuildStats object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +30,26 @@ will change when the set of required properties is changed
 NewHeroBuildStatsWithDefaults instantiates a new HeroBuildStats object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetBucket
+
+`func (o *HeroBuildStats) GetBucket() int32`
+
+GetBucket returns the Bucket field if non-nil, zero value otherwise.
+
+### GetBucketOk
+
+`func (o *HeroBuildStats) GetBucketOk() (*int32, bool)`
+
+GetBucketOk returns a tuple with the Bucket field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBucket
+
+`func (o *HeroBuildStats) SetBucket(v int32)`
+
+SetBucket sets Bucket field to given value.
+
 
 ### GetHeroBuildId
 

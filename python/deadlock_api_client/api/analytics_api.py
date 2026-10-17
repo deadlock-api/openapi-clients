@@ -2926,6 +2926,7 @@ class AnalyticsApi:
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -2961,6 +2962,8 @@ class AnalyticsApi:
         :type hero_id: int
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
+        :param bucket: Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3014,6 +3017,7 @@ class AnalyticsApi:
         _param = self._hero_build_stats_serialize(
             hero_id=hero_id,
             match_mode=match_mode,
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3055,6 +3059,7 @@ class AnalyticsApi:
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3090,6 +3095,8 @@ class AnalyticsApi:
         :type hero_id: int
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
+        :param bucket: Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3143,6 +3150,7 @@ class AnalyticsApi:
         _param = self._hero_build_stats_serialize(
             hero_id=hero_id,
             match_mode=match_mode,
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3184,6 +3192,7 @@ class AnalyticsApi:
         self,
         hero_id: Annotated[int, Field(strict=True, ge=0, description="The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.")] = None,
         max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
         min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
@@ -3219,6 +3228,8 @@ class AnalyticsApi:
         :type hero_id: int
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
+        :param bucket: Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket.
+        :type bucket: str
         :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
         :type min_unix_timestamp: int
         :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
@@ -3272,6 +3283,7 @@ class AnalyticsApi:
         _param = self._hero_build_stats_serialize(
             hero_id=hero_id,
             match_mode=match_mode,
+            bucket=bucket,
             min_unix_timestamp=min_unix_timestamp,
             max_unix_timestamp=max_unix_timestamp,
             min_duration_s=min_duration_s,
@@ -3308,6 +3320,7 @@ class AnalyticsApi:
         self,
         hero_id,
         match_mode,
+        bucket,
         min_unix_timestamp,
         max_unix_timestamp,
         min_duration_s,
@@ -3352,6 +3365,10 @@ class AnalyticsApi:
         if match_mode is not None:
             
             _query_params.append(('match_mode', match_mode))
+            
+        if bucket is not None:
+            
+            _query_params.append(('bucket', bucket))
             
         if min_unix_timestamp is not None:
             

@@ -80,6 +80,15 @@ class HeroBuildStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "bucket"
+     */
+    public function testPropertyBucket()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "hero_build_id"
      */
     public function testPropertyHeroBuildId()

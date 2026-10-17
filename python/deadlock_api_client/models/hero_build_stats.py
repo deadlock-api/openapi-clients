@@ -28,13 +28,14 @@ class HeroBuildStats(BaseModel):
     """
     HeroBuildStats
     """ # noqa: E501
+    bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter, 0 without one).")
     hero_build_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.")
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of losses with this build.")
     matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The total number of matches played with this build (`wins + losses`).")
     players: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of unique players who used this build.")
     wins: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of wins with this build.")
-    __properties: ClassVar[List[str]] = ["hero_build_id", "hero_id", "losses", "matches", "players", "wins"]
+    __properties: ClassVar[List[str]] = ["bucket", "hero_build_id", "hero_id", "losses", "matches", "players", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,6 +88,7 @@ class HeroBuildStats(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "bucket": obj.get("bucket"),
             "hero_build_id": obj.get("hero_build_id"),
             "hero_id": obj.get("hero_id"),
             "losses": obj.get("losses"),

@@ -33,6 +33,7 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HeroBuildStats" /> class.
         /// </summary>
+        /// <param name="bucket">The bucket value (depends on the bucket query parameter, 0 without one).</param>
         /// <param name="heroBuildId">The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started.</param>
         /// <param name="heroId">The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="losses">The number of losses with this build.</param>
@@ -40,8 +41,9 @@ namespace DeadlockApiClient.Model
         /// <param name="players">The number of unique players who used this build.</param>
         /// <param name="wins">The number of wins with this build.</param>
         [JsonConstructor]
-        public HeroBuildStats(long heroBuildId, int heroId, long losses, long matches, long players, long wins)
+        public HeroBuildStats(int bucket, long heroBuildId, int heroId, long losses, long matches, long players, long wins)
         {
+            Bucket = bucket;
             HeroBuildId = heroBuildId;
             HeroId = heroId;
             Losses = losses;
@@ -52,6 +54,13 @@ namespace DeadlockApiClient.Model
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// The bucket value (depends on the bucket query parameter, 0 without one).
+        /// </summary>
+        /// <value>The bucket value (depends on the bucket query parameter, 0 without one).</value>
+        [JsonPropertyName("bucket")]
+        public int Bucket { get; set; }
 
         /// <summary>
         /// The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started.
@@ -103,6 +112,7 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class HeroBuildStats {\n");
+            sb.Append("  Bucket: ").Append(Bucket).Append("\n");
             sb.Append("  HeroBuildId: ").Append(HeroBuildId).Append("\n");
             sb.Append("  HeroId: ").Append(HeroId).Append("\n");
             sb.Append("  Losses: ").Append(Losses).Append("\n");
@@ -120,6 +130,12 @@ namespace DeadlockApiClient.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Bucket (int) minimum
+            if (this.Bucket < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+            }
+
             // HeroBuildId (long) minimum
             if (this.HeroBuildId < (long)0)
             {
@@ -192,6 +208,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
+            Option<int?> bucket = default;
             Option<long?> heroBuildId = default;
             Option<int?> heroId = default;
             Option<long?> losses = default;
@@ -214,6 +231,9 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "bucket":
+                            bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         case "hero_build_id":
                             heroBuildId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
@@ -238,6 +258,9 @@ namespace DeadlockApiClient.Model
                 }
             }
 
+            if (!bucket.IsSet)
+                throw new JsonException("Property is required for class HeroBuildStats: bucket.");
+
             if (!heroBuildId.IsSet)
                 throw new JsonException("Property is required for class HeroBuildStats: hero_build_id.");
 
@@ -255,6 +278,9 @@ namespace DeadlockApiClient.Model
 
             if (!wins.IsSet)
                 throw new JsonException("Property is required for class HeroBuildStats: wins.");
+
+            if (bucket.IsSet && bucket.Value == null)
+                throw new JsonException("Property is not nullable for class HeroBuildStats: bucket.");
 
             if (heroBuildId.IsSet && heroBuildId.Value == null)
                 throw new JsonException("Property is not nullable for class HeroBuildStats: hero_build_id.");
@@ -274,7 +300,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new JsonException("Property is not nullable for class HeroBuildStats: wins.");
 
-            return new HeroBuildStats(heroBuildId.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!);
+            return new HeroBuildStats(bucket.Value!.Value!, heroBuildId.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, players.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -299,6 +325,8 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, HeroBuildStats heroBuildStats, JsonSerializerOptions jsonSerializerOptions)
         {
+            writer.WriteNumber("bucket", heroBuildStats.Bucket);
+
             writer.WriteNumber("hero_build_id", heroBuildStats.HeroBuildId);
 
             writer.WriteNumber("hero_id", heroBuildStats.HeroId);

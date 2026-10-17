@@ -652,6 +652,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @summary Hero Build Stats
          * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+         * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -669,7 +670,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        heroBuildStats: async (heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        heroBuildStats: async (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'heroId' is not null or undefined
             assertParamExists('heroBuildStats', 'heroId', heroId)
             const localVarPath = `/v1/analytics/hero-build-stats/{hero_id}`
@@ -687,6 +688,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (matchMode !== undefined) {
                 localVarQueryParameter['match_mode'] = matchMode;
+            }
+
+            if (bucket !== undefined) {
+                localVarQueryParameter['bucket'] = bucket;
             }
 
             if (minUnixTimestamp !== undefined) {
@@ -2925,6 +2930,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @summary Hero Build Stats
          * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+         * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
          * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
          * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -2942,8 +2948,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async heroBuildStats(heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBuildStats(heroId, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix, options);
+        async heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.heroBuildStats(heroId, matchMode, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.heroBuildStats']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3515,7 +3521,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBuildStats>> {
-            return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(axios, basePath));
+            return localVarFp.heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(axios, basePath));
         },
         /**
          *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -4108,6 +4114,11 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      */
     readonly matchMode?: string | null
+
+    /**
+     * Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+     */
+    readonly bucket?: HeroBuildStatsBucketEnum
 
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
@@ -5883,7 +5894,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).heroBuildStats(requestParameters.heroId, requestParameters.matchMode, requestParameters.bucket, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.accountId, requestParameters.accountIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -6098,6 +6109,13 @@ export const HeroBanStatsBucketEnum = {
     StartTimeMonth: 'start_time_month',
 } as const;
 export type HeroBanStatsBucketEnum = typeof HeroBanStatsBucketEnum[keyof typeof HeroBanStatsBucketEnum];
+export const HeroBuildStatsBucketEnum = {
+    NoBucket: 'no_bucket',
+    AvgBadge: 'avg_badge',
+    StartTimeDay: 'start_time_day',
+    StartTimeWeek: 'start_time_week',
+} as const;
+export type HeroBuildStatsBucketEnum = typeof HeroBuildStatsBucketEnum[keyof typeof HeroBuildStatsBucketEnum];
 export const HeroCombStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',

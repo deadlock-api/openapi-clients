@@ -330,7 +330,7 @@ No authorization required
 
 <a id="herobuildstats"></a>
 # **HeroBuildStats**
-> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, long minMatches = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
+> List&lt;HeroBuildStats&gt; HeroBuildStats (int heroId, string matchMode = null, string bucket = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, long heroBuildId = null, long minMatches = null, int accountId = null, List<int> accountIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Hero Build Stats
 
@@ -343,6 +343,7 @@ Hero Build Stats
 |------|------|-------------|-------|
 | **heroId** | **int** | The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; |  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
+| **bucket** | **string** | Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1789603200] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |

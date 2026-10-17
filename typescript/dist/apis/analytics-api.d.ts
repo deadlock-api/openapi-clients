@@ -164,6 +164,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @summary Hero Build Stats
      * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
      * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -181,7 +182,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats: (heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    heroBuildStats: (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -728,6 +729,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @summary Hero Build Stats
      * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
      * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
      * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
@@ -745,7 +747,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    heroBuildStats(heroId: number, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
+    heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -1705,6 +1707,10 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      */
     readonly matchMode?: string | null;
+    /**
+     * Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+     */
+    readonly bucket?: HeroBuildStatsBucketEnum;
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
      */
@@ -3306,6 +3312,13 @@ export declare const HeroBanStatsBucketEnum: {
     readonly StartTimeMonth: "start_time_month";
 };
 export type HeroBanStatsBucketEnum = typeof HeroBanStatsBucketEnum[keyof typeof HeroBanStatsBucketEnum];
+export declare const HeroBuildStatsBucketEnum: {
+    readonly NoBucket: "no_bucket";
+    readonly AvgBadge: "avg_badge";
+    readonly StartTimeDay: "start_time_day";
+    readonly StartTimeWeek: "start_time_week";
+};
+export type HeroBuildStatsBucketEnum = typeof HeroBuildStatsBucketEnum[keyof typeof HeroBuildStatsBucketEnum];
 export declare const HeroCombStatsGameModeEnum: {
     readonly Normal: "normal";
     readonly StreetBrawl: "street_brawl";

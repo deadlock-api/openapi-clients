@@ -183,6 +183,7 @@ export interface HeroBanStatsRequest {
 export interface HeroBuildStatsRequest {
     heroId: number;
     matchMode?: string;
+    bucket?: HeroBuildStatsBucketEnum;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
     minDurationS?: number;
@@ -1240,6 +1241,11 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 
     if (requestParameters.matchMode !== undefined) {
         queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.bucket !== undefined) {
+        queryParameters['bucket'] = requestParameters.bucket;
     }
 
 
@@ -3645,6 +3651,16 @@ export enum HeroBanStatsBucketEnum {
     StartTimeDay = 'start_time_day',
     StartTimeWeek = 'start_time_week',
     StartTimeMonth = 'start_time_month'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HeroBuildStatsBucketEnum {
+    NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
+    StartTimeDay = 'start_time_day',
+    StartTimeWeek = 'start_time_week'
 }
 /**
     * @export

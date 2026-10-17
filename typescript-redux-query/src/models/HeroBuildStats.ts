@@ -19,6 +19,12 @@ import { exists, mapValues } from '../runtime';
  */
 export interface HeroBuildStats  {
     /**
+     * The bucket value (depends on the bucket query parameter, 0 without one).
+     * @type {number}
+     * @memberof HeroBuildStats
+     */
+    bucket: number;
+    /**
      * The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
      * @type {number}
      * @memberof HeroBuildStats
@@ -58,6 +64,7 @@ export interface HeroBuildStats  {
 
 export function HeroBuildStatsFromJSON(json: any): HeroBuildStats {
     return {
+        'bucket': json['bucket'],
         'heroBuildId': json['hero_build_id'],
         'heroId': json['hero_id'],
         'losses': json['losses'],
@@ -72,6 +79,7 @@ export function HeroBuildStatsToJSON(value?: HeroBuildStats): any {
         return undefined;
     }
     return {
+        'bucket': value.bucket,
         'hero_build_id': value.heroBuildId,
         'hero_id': value.heroId,
         'losses': value.losses,

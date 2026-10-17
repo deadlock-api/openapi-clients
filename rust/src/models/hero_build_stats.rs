@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct HeroBuildStats {
+    /// The bucket value (depends on the bucket query parameter, 0 without one).
+    #[serde(rename = "bucket")]
+    pub bucket: u32,
     /// The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
     #[serde(rename = "hero_build_id")]
     pub hero_build_id: u64,
@@ -34,8 +37,9 @@ pub struct HeroBuildStats {
 }
 
 impl HeroBuildStats {
-    pub fn new(hero_build_id: u64, hero_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> HeroBuildStats {
+    pub fn new(bucket: u32, hero_build_id: u64, hero_id: u32, losses: u64, matches: u64, players: u64, wins: u64) -> HeroBuildStats {
         HeroBuildStats {
+            bucket,
             hero_build_id,
             hero_id,
             losses,

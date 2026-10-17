@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**bucket** | **number** | The bucket value (depends on the bucket query parameter, 0 without one). | [default to undefined]
 **hero_build_id** | **number** | The ID of the hero build. The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. | [default to undefined]
 **hero_id** | **number** | The ID of the hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 **losses** | **number** | The number of losses with this build. | [default to undefined]
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 import { HeroBuildStats } from 'deadlock_api_client';
 
 const instance: HeroBuildStats = {
+    bucket,
     hero_build_id,
     hero_id,
     losses,
