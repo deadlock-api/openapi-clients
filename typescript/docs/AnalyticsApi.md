@@ -61,6 +61,7 @@ let maxMatchId: number; //Filter matches based on their ID. (optional) (default 
 let minMatches: number; //The minimum number of matches played for an ability order to be included in the response. (optional) (default to 10)
 let accountId: number; //Filter for matches with a specific player account ID. (optional) (default to undefined)
 let accountIds: Array<number>; //Comma separated list of account ids to include (optional) (default to undefined)
+let heroBuildId: number; //Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional) (default to undefined)
 let includeItemIds: Array<number>; //Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional) (default to undefined)
 let excludeItemIds: Array<number>; //Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional) (default to undefined)
 let abilityOrderPrefix: Array<number>; //Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional) (default to undefined)
@@ -85,6 +86,7 @@ const { status, data } = await apiInstance.abilityOrderStats(
     minMatches,
     accountId,
     accountIds,
+    heroBuildId,
     includeItemIds,
     excludeItemIds,
     abilityOrderPrefix,
@@ -114,6 +116,7 @@ const { status, data } = await apiInstance.abilityOrderStats(
 | **minMatches** | [**number**] | The minimum number of matches played for an ability order to be included in the response. | (optional) defaults to 10|
 | **accountId** | [**number**] | Filter for matches with a specific player account ID. | (optional) defaults to undefined|
 | **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids to include | (optional) defaults to undefined|
+| **heroBuildId** | [**number**] | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | (optional) defaults to undefined|
 | **includeItemIds** | **Array&lt;number&gt;** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | (optional) defaults to undefined|
 | **excludeItemIds** | **Array&lt;number&gt;** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | (optional) defaults to undefined|
 | **abilityOrderPrefix** | **Array&lt;number&gt;** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | (optional) defaults to undefined|
@@ -582,7 +585,7 @@ const apiInstance = new AnalyticsApi(configuration);
 
 let heroId: number; //The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (default to undefined)
 let matchMode: string; //Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional) (default to undefined)
-let bucket: 'no_bucket' | 'avg_badge' | 'start_time_day' | 'start_time_week'; //Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. (optional) (default to undefined)
+let bucket: 'no_bucket' | 'avg_badge' | 'start_time_day' | 'start_time_week' | 'duration'; //Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. (optional) (default to 1789603200)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -627,7 +630,7 @@ const { status, data } = await apiInstance.heroBuildStats(
 |------------- | ------------- | ------------- | -------------|
 | **heroId** | [**number**] | The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | defaults to undefined|
 | **matchMode** | [**string**] | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | (optional) defaults to undefined|
-| **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39;>** | Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | (optional) defaults to undefined|
+| **bucket** | [**&#39;no_bucket&#39; | &#39;avg_badge&#39; | &#39;start_time_day&#39; | &#39;start_time_week&#39; | &#39;duration&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;avg_badge&#39; &#124; &#39;start_time_day&#39; &#124; &#39;start_time_week&#39; &#124; &#39;duration&#39;>** | Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | (optional) defaults to 1789603200|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

@@ -45,6 +45,7 @@ type ApiAbilityOrderStatsRequest struct {
 	minMatches *int32
 	accountId *int32
 	accountIds *[]int32
+	heroBuildId *int64
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	abilityOrderPrefix *[]int32
@@ -157,6 +158,12 @@ func (r ApiAbilityOrderStatsRequest) AccountId(accountId int32) ApiAbilityOrderS
 // Comma separated list of account ids to include
 func (r ApiAbilityOrderStatsRequest) AccountIds(accountIds []int32) ApiAbilityOrderStatsRequest {
 	r.accountIds = &accountIds
+	return r
+}
+
+// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+func (r ApiAbilityOrderStatsRequest) HeroBuildId(heroBuildId int64) ApiAbilityOrderStatsRequest {
+	r.heroBuildId = &heroBuildId
 	return r
 }
 
@@ -308,6 +315,9 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 		} else {
 			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
 		}
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
 	}
 	if r.includeItemIds != nil {
 		t := *r.includeItemIds

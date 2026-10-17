@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 ## AbilityOrderStats
 
-> []AnalyticsAbilityOrderStats AbilityOrderStats(ctx).HeroId(heroId).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAbilityUpgrades(minAbilityUpgrades).MaxAbilityUpgrades(maxAbilityUpgrades).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+> []AnalyticsAbilityOrderStats AbilityOrderStats(ctx).HeroId(heroId).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAbilityUpgrades(minAbilityUpgrades).MaxAbilityUpgrades(maxAbilityUpgrades).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).HeroBuildId(heroBuildId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
 
 Ability Order Stats
 
@@ -68,6 +68,7 @@ func main() {
 	minMatches := int32(56) // int32 | The minimum number of matches played for an ability order to be included in the response. (optional) (default to 10)
 	accountId := int32(56) // int32 | Filter for matches with a specific player account ID. (optional)
 	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids to include (optional)
+	heroBuildId := int64(789) // int64 | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
 	includeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
 	excludeItemIds := []int32{int32(123)} // []int32 | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
 	abilityOrderPrefix := []int32{int32(123)} // []int32 | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
@@ -75,7 +76,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.AbilityOrderStats(context.Background()).HeroId(heroId).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAbilityUpgrades(minAbilityUpgrades).MaxAbilityUpgrades(maxAbilityUpgrades).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.AbilityOrderStats(context.Background()).HeroId(heroId).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinAbilityUpgrades(minAbilityUpgrades).MaxAbilityUpgrades(maxAbilityUpgrades).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MinMatches(minMatches).AccountId(accountId).AccountIds(accountIds).HeroBuildId(heroBuildId).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.AbilityOrderStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
  **minMatches** | **int32** | The minimum number of matches played for an ability order to be included in the response. | [default to 10]
  **accountId** | **int32** | Filter for matches with a specific player account ID. | 
  **accountIds** | **[]int32** | Comma separated list of account ids to include | 
+ **heroBuildId** | **int64** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
  **includeItemIds** | **[]int32** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
  **excludeItemIds** | **[]int32** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | 
  **abilityOrderPrefix** | **[]int32** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | 

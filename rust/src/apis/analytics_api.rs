@@ -53,6 +53,8 @@ pub struct AbilityOrderStatsParams {
     pub account_id: Option<u32>,
     /// Comma separated list of account ids to include
     pub account_ids: Option<Vec<u32>>,
+    /// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>,
     /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -1204,6 +1206,9 @@ pub async fn ability_order_stats(configuration: &configuration::Configuration, p
             "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
             _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
         };
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

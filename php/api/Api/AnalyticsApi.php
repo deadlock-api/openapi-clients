@@ -211,6 +211,7 @@ class AnalyticsApi
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -221,9 +222,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]
      */
-    public function abilityOrderStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStats($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
-        list($response) = $this->abilityOrderStatsWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        list($response) = $this->abilityOrderStatsWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
         return $response;
     }
 
@@ -250,6 +251,7 @@ class AnalyticsApi
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -260,9 +262,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsAbilityOrderStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function abilityOrderStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
-        $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -356,6 +358,7 @@ class AnalyticsApi
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -365,9 +368,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
-        return $this->abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
+        return $this->abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -398,6 +401,7 @@ class AnalyticsApi
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -407,10 +411,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityOrderStats[]';
-        $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        $request = $this->abilityOrderStatsRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -469,6 +473,7 @@ class AnalyticsApi
      * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -478,7 +483,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function abilityOrderStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
+    public function abilityOrderStatsRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789603200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderStats'][0])
     {
 
         // verify the required parameter 'hero_id' is set
@@ -566,6 +571,10 @@ class AnalyticsApi
         }
         if ($account_ids !== null && count($account_ids) < 1) {
             throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.abilityOrderStats, number of items must be greater than or equal to 1.');
+        }
+        
+        if ($hero_build_id !== null && $hero_build_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_build_id" when calling AnalyticsApi.abilityOrderStats, must be bigger than or equal to 0.');
         }
         
 
@@ -738,6 +747,15 @@ class AnalyticsApi
             $account_ids,
             'account_ids', // param base name
             'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_build_id,
+            'hero_build_id', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required

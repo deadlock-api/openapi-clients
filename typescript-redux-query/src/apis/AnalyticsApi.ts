@@ -102,6 +102,7 @@ export interface AbilityOrderStatsRequest {
     minMatches?: number;
     accountId?: number;
     accountIds?: Array<number>;
+    heroBuildId?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
@@ -661,6 +662,11 @@ function abilityOrderStatsRaw<T>(requestParameters: AbilityOrderStatsRequest, re
 
     if (requestParameters.accountIds) {
         queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
     }
 
 
@@ -3684,7 +3690,8 @@ export enum HeroBuildStatsBucketEnum {
     NoBucket = 'no_bucket',
     AvgBadge = 'avg_badge',
     StartTimeDay = 'start_time_day',
-    StartTimeWeek = 'start_time_week'
+    StartTimeWeek = 'start_time_week',
+    Duration = 'duration'
 }
 /**
     * @export

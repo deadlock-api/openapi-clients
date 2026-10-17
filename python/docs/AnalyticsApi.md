@@ -29,7 +29,7 @@ Method | HTTP request | Description
 
 
 # **ability_order_stats**
-> List[AnalyticsAbilityOrderStats] ability_order_stats(hero_id, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_ability_upgrades=min_ability_upgrades, max_ability_upgrades=max_ability_upgrades, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+> List[AnalyticsAbilityOrderStats] ability_order_stats(hero_id, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_ability_upgrades=min_ability_upgrades, max_ability_upgrades=max_ability_upgrades, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, hero_build_id=hero_build_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
 
 Ability Order Stats
 
@@ -84,6 +84,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     min_matches = 10 # int | The minimum number of matches played for an ability order to be included in the response. (optional) (default to 10)
     account_id = 56 # int | Filter for matches with a specific player account ID. (optional)
     account_ids = [56] # List[int] | Comma separated list of account ids to include (optional)
+    hero_build_id = 56 # int | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
     include_item_ids = [56] # List[int] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
     exclude_item_ids = [56] # List[int] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional)
     ability_order_prefix = [56] # List[int] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional)
@@ -91,7 +92,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Ability Order Stats
-        api_response = api_instance.ability_order_stats(hero_id, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_ability_upgrades=min_ability_upgrades, max_ability_upgrades=max_ability_upgrades, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
+        api_response = api_instance.ability_order_stats(hero_id, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_ability_upgrades=min_ability_upgrades, max_ability_upgrades=max_ability_upgrades, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, min_matches=min_matches, account_id=account_id, account_ids=account_ids, hero_build_id=hero_build_id, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix)
         print("The response of AnalyticsApi->ability_order_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -123,6 +124,7 @@ Name | Type | Description  | Notes
  **min_matches** | **int**| The minimum number of matches played for an ability order to be included in the response. | [optional] [default to 10]
  **account_id** | **int**| Filter for matches with a specific player account ID. | [optional] 
  **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids to include | [optional] 
+ **hero_build_id** | **int**| Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional] 
  **include_item_ids** | [**List[int]**](int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] 
  **exclude_item_ids** | [**List[int]**](int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] 
  **ability_order_prefix** | [**List[int]**](int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] 

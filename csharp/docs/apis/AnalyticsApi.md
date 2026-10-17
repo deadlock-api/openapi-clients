@@ -29,7 +29,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 <a id="abilityorderstats"></a>
 # **AbilityOrderStats**
-> List&lt;AnalyticsAbilityOrderStats&gt; AbilityOrderStats (int heroId, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minAbilityUpgrades = null, long maxAbilityUpgrades = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, int accountId = null, List<int> accountIds = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
+> List&lt;AnalyticsAbilityOrderStats&gt; AbilityOrderStats (int heroId, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minAbilityUpgrades = null, long maxAbilityUpgrades = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int minMatches = null, int accountId = null, List<int> accountIds = null, long heroBuildId = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null)
 
 Ability Order Stats
 
@@ -58,6 +58,7 @@ Ability Order Stats
 | **minMatches** | **int** | The minimum number of matches played for an ability order to be included in the response. | [optional] [default to 10] |
 | **accountId** | **int** | Filter for matches with a specific player account ID. | [optional]  |
 | **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids to include | [optional]  |
+| **heroBuildId** | **long** | Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional]  |
 | **includeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **excludeItemIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional]  |
 | **abilityOrderPrefix** | [**List&lt;int&gt;**](int.md) | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional]  |

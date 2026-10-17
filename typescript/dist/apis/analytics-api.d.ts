@@ -59,6 +59,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
@@ -66,7 +67,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    abilityOrderStats: (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    abilityOrderStats: (heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Badge Distribution
@@ -628,6 +629,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [minMatches] The minimum number of matches played for an ability order to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
@@ -635,7 +637,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>>;
+    abilityOrderStats(heroId: number, gameMode?: AbilityOrderStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityOrderStats>>>;
     /**
      *  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Badge Distribution
@@ -1433,6 +1435,10 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      * Comma separated list of account ids to include
      */
     readonly accountIds?: Array<number> | null;
+    /**
+     * Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     */
+    readonly heroBuildId?: number | null;
     /**
      * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
@@ -3341,6 +3347,7 @@ export declare const HeroBuildStatsBucketEnum: {
     readonly AvgBadge: "avg_badge";
     readonly StartTimeDay: "start_time_day";
     readonly StartTimeWeek: "start_time_week";
+    readonly Duration: "duration";
 };
 export type HeroBuildStatsBucketEnum = typeof HeroBuildStatsBucketEnum[keyof typeof HeroBuildStatsBucketEnum];
 export declare const HeroCombStatsGameModeEnum: {
