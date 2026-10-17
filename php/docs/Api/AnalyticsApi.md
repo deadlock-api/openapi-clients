@@ -1847,7 +1847,7 @@ No authorization required
 ## `playerScoreboard()`
 
 ```php
-playerScoreboard($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids): \OpenAPI\Client\Model\PlayerEntry[]
+playerScoreboard($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids): \OpenAPI\Client\Model\PlayerEntry[]
 ```
 
 Player Scoreboard
@@ -1872,6 +1872,7 @@ $sort_direction = 'sort_direction_example'; // string | The direction to sort pl
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
 $hero_id = 56; // int | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+$hero_build_id = 56; // int | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
 $min_matches = 20; // int | The minimum number of matches played for a player to be included in the scoreboard.
 $max_matches = 56; // int | The maximum number of matches played for a hero combination to be included in the response.
 $min_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
@@ -1889,7 +1890,7 @@ $limit = 100; // int | The maximum number of players to fetch.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->playerScoreboard($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids);
+    $result = $apiInstance->playerScoreboard($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerScoreboard: ', $e->getMessage(), PHP_EOL;
@@ -1905,6 +1906,7 @@ try {
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **hero_id** | **int**| Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
+| **hero_build_id** | **int**| Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional] |
 | **min_matches** | **int**| The minimum number of matches played for a player to be included in the scoreboard. | [optional] [default to 20] |
 | **max_matches** | **int**| The maximum number of matches played for a hero combination to be included in the response. | [optional] |
 | **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |

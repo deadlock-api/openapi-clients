@@ -861,6 +861,8 @@ pub struct PlayerScoreboardParams {
     pub match_mode: Option<String>,
     /// Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     pub hero_id: Option<u32>,
+    /// Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>,
     /// The minimum number of matches played for a player to be included in the scoreboard.
     pub min_matches: Option<u32>,
     /// The maximum number of matches played for a hero combination to be included in the response.
@@ -3124,6 +3126,9 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
     }
     if let Some(ref param_value) = params.hero_id {
         req_builder = req_builder.query(&[("hero_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.min_matches {
         req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);

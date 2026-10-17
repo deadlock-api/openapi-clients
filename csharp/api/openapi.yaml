@@ -5852,6 +5852,19 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: |-
+          Only matches the player started with this hero build selected. Matches without a processed demo record no
+          build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        explode: true
+        in: query
+        name: hero_build_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
       - description: The minimum number of matches played for a player to be included
           in the scoreboard.
         explode: true

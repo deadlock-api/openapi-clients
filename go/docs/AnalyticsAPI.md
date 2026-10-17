@@ -2049,7 +2049,7 @@ No authorization required
 
 ## PlayerScoreboard
 
-> []PlayerEntry PlayerScoreboard(ctx).SortBy(sortBy).SortDirection(sortDirection).GameMode(gameMode).MatchMode(matchMode).HeroId(heroId).MinMatches(minMatches).MaxMatches(maxMatches).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Start(start).Limit(limit).AccountIds(accountIds).Execute()
+> []PlayerEntry PlayerScoreboard(ctx).SortBy(sortBy).SortDirection(sortDirection).GameMode(gameMode).MatchMode(matchMode).HeroId(heroId).HeroBuildId(heroBuildId).MinMatches(minMatches).MaxMatches(maxMatches).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Start(start).Limit(limit).AccountIds(accountIds).Execute()
 
 Player Scoreboard
 
@@ -2073,6 +2073,7 @@ func main() {
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
 	heroId := int32(56) // int32 | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
+	heroBuildId := int64(789) // int64 | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional)
 	minMatches := int32(56) // int32 | The minimum number of matches played for a player to be included in the scoreboard. (optional) (default to 20)
 	maxMatches := int32(56) // int32 | The maximum number of matches played for a hero combination to be included in the response. (optional)
 	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
@@ -2091,7 +2092,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.PlayerScoreboard(context.Background()).SortBy(sortBy).SortDirection(sortDirection).GameMode(gameMode).MatchMode(matchMode).HeroId(heroId).MinMatches(minMatches).MaxMatches(maxMatches).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Start(start).Limit(limit).AccountIds(accountIds).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.PlayerScoreboard(context.Background()).SortBy(sortBy).SortDirection(sortDirection).GameMode(gameMode).MatchMode(matchMode).HeroId(heroId).HeroBuildId(heroBuildId).MinMatches(minMatches).MaxMatches(maxMatches).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).Start(start).Limit(limit).AccountIds(accountIds).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerScoreboard``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2117,6 +2118,7 @@ Name | Type | Description  | Notes
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 
  **heroId** | **int32** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
+ **heroBuildId** | **int64** | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | 
  **minMatches** | **int32** | The minimum number of matches played for a player to be included in the scoreboard. | [default to 20]
  **maxMatches** | **int32** | The maximum number of matches played for a hero combination to be included in the response. | 
  **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 

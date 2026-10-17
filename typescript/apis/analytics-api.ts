@@ -2516,6 +2516,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {PlayerScoreboardGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number | null} [heroBuildId] Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a player to be included in the scoreboard.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -2534,7 +2535,7 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerScoreboard: async (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        playerScoreboard: async (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sortBy' is not null or undefined
             assertParamExists('playerScoreboard', 'sortBy', sortBy)
             const localVarPath = `/v1/analytics/scoreboards/players`;
@@ -2567,6 +2568,10 @@ export const AnalyticsApiAxiosParamCreator = function (configuration?: Configura
 
             if (heroId !== undefined) {
                 localVarQueryParameter['hero_id'] = heroId;
+            }
+
+            if (heroBuildId !== undefined) {
+                localVarQueryParameter['hero_build_id'] = heroBuildId;
             }
 
             if (minMatches !== undefined) {
@@ -3394,6 +3399,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {PlayerScoreboardGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
          * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
          * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+         * @param {number | null} [heroBuildId] Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
          * @param {number | null} [minMatches] The minimum number of matches played for a player to be included in the scoreboard.
          * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
          * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -3412,8 +3418,8 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.playerScoreboard(sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, options);
+        async playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.playerScoreboard(sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerScoreboard']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -3667,7 +3673,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @throws {RequiredError}
          */
         playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerEntry>> {
-            return localVarFp.playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(axios, basePath));
+            return localVarFp.playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(axios, basePath));
         },
         /**
          *  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -5647,6 +5653,11 @@ export interface AnalyticsApiPlayerScoreboardRequest {
     readonly heroId?: number | null
 
     /**
+     * Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     */
+    readonly heroBuildId?: number | null
+
+    /**
      * The minimum number of matches played for a player to be included in the scoreboard.
      */
     readonly minMatches?: number | null
@@ -6059,7 +6070,7 @@ export class AnalyticsApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig) {
-        return AnalyticsApiFp(this.configuration).playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
+        return AnalyticsApiFp(this.configuration).playerScoreboard(requestParameters.sortBy, requestParameters.sortDirection, requestParameters.gameMode, requestParameters.matchMode, requestParameters.heroId, requestParameters.heroBuildId, requestParameters.minMatches, requestParameters.maxMatches, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.start, requestParameters.limit, requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

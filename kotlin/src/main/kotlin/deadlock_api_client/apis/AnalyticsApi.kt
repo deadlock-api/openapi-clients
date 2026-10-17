@@ -4405,6 +4405,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param heroBuildId Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param minMatches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -4429,8 +4430,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerScoreboard(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard? = null, gameMode: GameModePlayerScoreboard? = null, matchMode: kotlin.String? = null, heroId: kotlin.Int? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = 100, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<PlayerEntry> {
-        val localVarResponse = playerScoreboardWithHttpInfo(sortBy = sortBy, sortDirection = sortDirection, gameMode = gameMode, matchMode = matchMode, heroId = heroId, minMatches = minMatches, maxMatches = maxMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, start = start, limit = limit, accountIds = accountIds)
+    fun playerScoreboard(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard? = null, gameMode: GameModePlayerScoreboard? = null, matchMode: kotlin.String? = null, heroId: kotlin.Int? = null, heroBuildId: kotlin.Long? = null, minMatches: kotlin.Int? = 20, maxMatches: kotlin.Int? = null, minUnixTimestamp: kotlin.Long? = null, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, start: kotlin.Int? = null, limit: kotlin.Int? = 100, accountIds: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<PlayerEntry> {
+        val localVarResponse = playerScoreboardWithHttpInfo(sortBy = sortBy, sortDirection = sortDirection, gameMode = gameMode, matchMode = matchMode, heroId = heroId, heroBuildId = heroBuildId, minMatches = minMatches, maxMatches = maxMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, start = start, limit = limit, accountIds = accountIds)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerEntry>
@@ -4456,6 +4457,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param heroBuildId Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param minMatches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -4477,8 +4479,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerScoreboardWithHttpInfo(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard?, gameMode: GameModePlayerScoreboard?, matchMode: kotlin.String?, heroId: kotlin.Int?, minMatches: kotlin.Int?, maxMatches: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<PlayerEntry>?> {
-        val localVariableConfig = playerScoreboardRequestConfig(sortBy = sortBy, sortDirection = sortDirection, gameMode = gameMode, matchMode = matchMode, heroId = heroId, minMatches = minMatches, maxMatches = maxMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, start = start, limit = limit, accountIds = accountIds)
+    fun playerScoreboardWithHttpInfo(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard?, gameMode: GameModePlayerScoreboard?, matchMode: kotlin.String?, heroId: kotlin.Int?, heroBuildId: kotlin.Long?, minMatches: kotlin.Int?, maxMatches: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<PlayerEntry>?> {
+        val localVariableConfig = playerScoreboardRequestConfig(sortBy = sortBy, sortDirection = sortDirection, gameMode = gameMode, matchMode = matchMode, heroId = heroId, heroBuildId = heroBuildId, minMatches = minMatches, maxMatches = maxMatches, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, start = start, limit = limit, accountIds = accountIds)
 
         return request<Unit, kotlin.collections.List<PlayerEntry>>(
             localVariableConfig
@@ -4493,6 +4495,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param heroId Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param heroBuildId Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param minMatches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param maxMatches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -4510,7 +4513,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param accountIds Comma separated list of account ids to include (optional)
      * @return RequestConfig
      */
-    fun playerScoreboardRequestConfig(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard?, gameMode: GameModePlayerScoreboard?, matchMode: kotlin.String?, heroId: kotlin.Int?, minMatches: kotlin.Int?, maxMatches: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
+    fun playerScoreboardRequestConfig(sortBy: SortByPlayerScoreboard, sortDirection: SortDirectionPlayerScoreboard?, gameMode: GameModePlayerScoreboard?, matchMode: kotlin.String?, heroId: kotlin.Int?, heroBuildId: kotlin.Long?, minMatches: kotlin.Int?, maxMatches: kotlin.Int?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, start: kotlin.Int?, limit: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -4526,6 +4529,9 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (heroId != null) {
                     put("hero_id", listOf(heroId.toString()))
+                }
+                if (heroBuildId != null) {
+                    put("hero_build_id", listOf(heroBuildId.toString()))
                 }
                 if (minMatches != null) {
                     put("min_matches", listOf(minMatches.toString()))

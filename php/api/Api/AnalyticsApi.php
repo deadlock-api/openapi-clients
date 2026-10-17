@@ -11696,6 +11696,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $hero_build_id Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int|null $min_matches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -11717,9 +11718,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\PlayerEntry[]
      */
-    public function playerScoreboard($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
+    public function playerScoreboard($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
     {
-        list($response) = $this->playerScoreboardWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
+        list($response) = $this->playerScoreboardWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
         return $response;
     }
 
@@ -11733,6 +11734,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $hero_build_id Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int|null $min_matches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -11754,9 +11756,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\PlayerEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerScoreboardWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
+    public function playerScoreboardWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
     {
-        $request = $this->playerScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
+        $request = $this->playerScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -11837,6 +11839,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $hero_build_id Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int|null $min_matches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -11857,9 +11860,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerScoreboardAsync($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
+    public function playerScoreboardAsync($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
     {
-        return $this->playerScoreboardAsyncWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType)
+        return $this->playerScoreboardAsyncWithHttpInfo($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -11877,6 +11880,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $hero_build_id Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int|null $min_matches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -11897,10 +11901,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
+    public function playerScoreboardAsyncWithHttpInfo($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
     {
         $returnType = '\OpenAPI\Client\Model\PlayerEntry[]';
-        $request = $this->playerScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
+        $request = $this->playerScoreboardRequest($sort_by, $sort_direction, $game_mode, $match_mode, $hero_id, $hero_build_id, $min_matches, $max_matches, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $start, $limit, $account_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -11946,6 +11950,7 @@ class AnalyticsApi
      * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
      * @param  int|null $hero_id Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  int|null $hero_build_id Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
      * @param  int|null $min_matches The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)
      * @param  int|null $max_matches The maximum number of matches played for a hero combination to be included in the response. (optional)
      * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -11966,7 +11971,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerScoreboardRequest($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
+    public function playerScoreboardRequest($sort_by, $sort_direction = null, $game_mode = null, $match_mode = null, $hero_id = null, $hero_build_id = null, $min_matches = 20, $max_matches = null, $min_unix_timestamp = null, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $start = null, $limit = 100, $account_ids = null, string $contentType = self::contentTypes['playerScoreboard'][0])
     {
 
         // verify the required parameter 'sort_by' is set
@@ -11981,6 +11986,10 @@ class AnalyticsApi
 
         if ($hero_id !== null && $hero_id < 0) {
             throw new \InvalidArgumentException('invalid value for "$hero_id" when calling AnalyticsApi.playerScoreboard, must be bigger than or equal to 0.');
+        }
+        
+        if ($hero_build_id !== null && $hero_build_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_build_id" when calling AnalyticsApi.playerScoreboard, must be bigger than or equal to 0.');
         }
         
         if ($min_matches !== null && $min_matches < 1) {
@@ -12103,6 +12112,15 @@ class AnalyticsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $hero_id,
             'hero_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_build_id,
+            'hero_build_id', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

@@ -553,6 +553,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {PlayerScoreboardGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number | null} [heroBuildId] Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {number | null} [minMatches] The minimum number of matches played for a player to be included in the scoreboard.
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -571,7 +572,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerScoreboard: (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    playerScoreboard: (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
@@ -1119,6 +1120,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {PlayerScoreboardGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {number | null} [heroId] Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {number | null} [heroBuildId] Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
      * @param {number | null} [minMatches] The minimum number of matches played for a player to be included in the scoreboard.
      * @param {number | null} [maxMatches] The maximum number of matches played for a hero combination to be included in the response.
      * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp).
@@ -1137,7 +1139,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>>;
+    playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>>;
     /**
      *  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
@@ -2943,6 +2945,10 @@ export interface AnalyticsApiPlayerScoreboardRequest {
      * Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      */
     readonly heroId?: number | null;
+    /**
+     * Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     */
+    readonly heroBuildId?: number | null;
     /**
      * The minimum number of matches played for a player to be included in the scoreboard.
      */

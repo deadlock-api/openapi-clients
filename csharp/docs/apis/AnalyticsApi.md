@@ -1136,7 +1136,7 @@ No authorization required
 
 <a id="playerscoreboard"></a>
 # **PlayerScoreboard**
-> List&lt;PlayerEntry&gt; PlayerScoreboard (string sortBy, string sortDirection = null, string gameMode = null, string matchMode = null, int heroId = null, int minMatches = null, int maxMatches = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int start = null, int limit = null, List<int> accountIds = null)
+> List&lt;PlayerEntry&gt; PlayerScoreboard (string sortBy, string sortDirection = null, string gameMode = null, string matchMode = null, int heroId = null, long heroBuildId = null, int minMatches = null, int maxMatches = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int start = null, int limit = null, List<int> accountIds = null)
 
 Player Scoreboard
 
@@ -1152,6 +1152,7 @@ Player Scoreboard
 | **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional]  |
 | **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional]  |
 | **heroId** | **int** | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional]  |
+| **heroBuildId** | **long** | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | [optional]  |
 | **minMatches** | **int** | The minimum number of matches played for a player to be included in the scoreboard. | [optional] [default to 20] |
 | **maxMatches** | **int** | The maximum number of matches played for a hero combination to be included in the response. | [optional]  |
 | **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |

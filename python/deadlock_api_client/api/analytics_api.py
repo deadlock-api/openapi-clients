@@ -11382,6 +11382,7 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -11424,6 +11425,8 @@ class AnalyticsApi:
         :type match_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
+        :param hero_build_id: Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -11482,6 +11485,7 @@ class AnalyticsApi:
             game_mode=game_mode,
             match_mode=match_mode,
             hero_id=hero_id,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             min_unix_timestamp=min_unix_timestamp,
@@ -11527,6 +11531,7 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -11569,6 +11574,8 @@ class AnalyticsApi:
         :type match_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
+        :param hero_build_id: Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -11627,6 +11634,7 @@ class AnalyticsApi:
             game_mode=game_mode,
             match_mode=match_mode,
             hero_id=hero_id,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             min_unix_timestamp=min_unix_timestamp,
@@ -11672,6 +11680,7 @@ class AnalyticsApi:
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
         hero_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
         min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for a player to be included in the scoreboard.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches played for a hero combination to be included in the response.")] = None,
         min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
@@ -11714,6 +11723,8 @@ class AnalyticsApi:
         :type match_mode: str
         :param hero_id: Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_id: int
+        :param hero_build_id: Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
         :param min_matches: The minimum number of matches played for a player to be included in the scoreboard.
         :type min_matches: int
         :param max_matches: The maximum number of matches played for a hero combination to be included in the response.
@@ -11772,6 +11783,7 @@ class AnalyticsApi:
             game_mode=game_mode,
             match_mode=match_mode,
             hero_id=hero_id,
+            hero_build_id=hero_build_id,
             min_matches=min_matches,
             max_matches=max_matches,
             min_unix_timestamp=min_unix_timestamp,
@@ -11812,6 +11824,7 @@ class AnalyticsApi:
         game_mode,
         match_mode,
         hero_id,
+        hero_build_id,
         min_matches,
         max_matches,
         min_unix_timestamp,
@@ -11869,6 +11882,10 @@ class AnalyticsApi:
         if hero_id is not None:
             
             _query_params.append(('hero_id', hero_id))
+            
+        if hero_build_id is not None:
+            
+            _query_params.append(('hero_build_id', hero_build_id))
             
         if min_matches is not None:
             

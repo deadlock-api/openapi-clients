@@ -1204,6 +1204,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="heroBuildId">Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="minMatches">The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)</param>
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -1221,7 +1222,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerScoreboardApiResponse"/>&gt;</returns>
-        Task<IPlayerScoreboardApiResponse> PlayerScoreboardAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerScoreboardApiResponse> PlayerScoreboardAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<long?> heroBuildId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Player Scoreboard
@@ -1234,6 +1235,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="heroBuildId">Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="minMatches">The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)</param>
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -1251,7 +1253,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerScoreboardApiResponse"/>?&gt;</returns>
-        Task<IPlayerScoreboardApiResponse?> PlayerScoreboardOrDefaultAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerScoreboardApiResponse?> PlayerScoreboardOrDefaultAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<long?> heroBuildId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Player Stats Metrics
@@ -10708,7 +10710,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPlayerScoreboard(ref string sortBy, ref Option<string> sortDirection, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<int?> heroId, ref Option<int?> minMatches, ref Option<int?> maxMatches, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> start, ref Option<int?> limit, Option<List<int>?> accountIds);
+        partial void FormatPlayerScoreboard(ref string sortBy, ref Option<string> sortDirection, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<int?> heroId, ref Option<long?> heroBuildId, ref Option<int?> minMatches, ref Option<int?> maxMatches, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> start, ref Option<int?> limit, Option<List<int>?> accountIds);
 
         /// <summary>
         /// Validates the request parameters
@@ -10734,6 +10736,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode"></param>
         /// <param name="matchMode"></param>
         /// <param name="heroId"></param>
+        /// <param name="heroBuildId"></param>
         /// <param name="minMatches"></param>
         /// <param name="maxMatches"></param>
         /// <param name="minUnixTimestamp"></param>
@@ -10749,10 +10752,10 @@ namespace DeadlockApiClient.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountIds"></param>
-        private void AfterPlayerScoreboardDefaultImplementation(IPlayerScoreboardApiResponse apiResponseLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds)
+        private void AfterPlayerScoreboardDefaultImplementation(IPlayerScoreboardApiResponse apiResponseLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<long?> heroBuildId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds)
         {
             bool suppressDefaultLog = false;
-            AfterPlayerScoreboard(ref suppressDefaultLog, apiResponseLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
+            AfterPlayerScoreboard(ref suppressDefaultLog, apiResponseLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -10767,6 +10770,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode"></param>
         /// <param name="matchMode"></param>
         /// <param name="heroId"></param>
+        /// <param name="heroBuildId"></param>
         /// <param name="minMatches"></param>
         /// <param name="maxMatches"></param>
         /// <param name="minUnixTimestamp"></param>
@@ -10782,7 +10786,7 @@ namespace DeadlockApiClient.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountIds"></param>
-        partial void AfterPlayerScoreboard(ref bool suppressDefaultLog, IPlayerScoreboardApiResponse apiResponseLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds);
+        partial void AfterPlayerScoreboard(ref bool suppressDefaultLog, IPlayerScoreboardApiResponse apiResponseLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<long?> heroBuildId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -10795,6 +10799,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode"></param>
         /// <param name="matchMode"></param>
         /// <param name="heroId"></param>
+        /// <param name="heroBuildId"></param>
         /// <param name="minMatches"></param>
         /// <param name="maxMatches"></param>
         /// <param name="minUnixTimestamp"></param>
@@ -10810,10 +10815,10 @@ namespace DeadlockApiClient.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountIds"></param>
-        private void OnErrorPlayerScoreboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds)
+        private void OnErrorPlayerScoreboardDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<long?> heroBuildId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPlayerScoreboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
+            OnErrorPlayerScoreboard(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -10830,6 +10835,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode"></param>
         /// <param name="matchMode"></param>
         /// <param name="heroId"></param>
+        /// <param name="heroBuildId"></param>
         /// <param name="minMatches"></param>
         /// <param name="maxMatches"></param>
         /// <param name="minUnixTimestamp"></param>
@@ -10845,7 +10851,7 @@ namespace DeadlockApiClient.Api
         /// <param name="start"></param>
         /// <param name="limit"></param>
         /// <param name="accountIds"></param>
-        partial void OnErrorPlayerScoreboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds);
+        partial void OnErrorPlayerScoreboard(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string sortBy, Option<string> sortDirection, Option<string?> gameMode, Option<string?> matchMode, Option<int?> heroId, Option<long?> heroBuildId, Option<int?> minMatches, Option<int?> maxMatches, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> start, Option<int?> limit, Option<List<int>?> accountIds);
 
         /// <summary>
         /// Player Scoreboard  This endpoint returns the player scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -10855,6 +10861,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="heroBuildId">Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="minMatches">The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)</param>
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -10872,11 +10879,11 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerScoreboardApiResponse"/>&gt;</returns>
-        public async Task<IPlayerScoreboardApiResponse?> PlayerScoreboardOrDefaultAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerScoreboardApiResponse?> PlayerScoreboardOrDefaultAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<long?> heroBuildId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PlayerScoreboardAsync(sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, cancellationToken).ConfigureAwait(false);
+                return await PlayerScoreboardAsync(sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -10893,6 +10900,7 @@ namespace DeadlockApiClient.Api
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
         /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
         /// <param name="heroId">Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="heroBuildId">Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
         /// <param name="minMatches">The minimum number of matches played for a player to be included in the scoreboard. (optional, default to 20)</param>
         /// <param name="maxMatches">The maximum number of matches played for a hero combination to be included in the response. (optional)</param>
         /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
@@ -10910,7 +10918,7 @@ namespace DeadlockApiClient.Api
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerScoreboardApiResponse"/>&gt;</returns>
-        public async Task<IPlayerScoreboardApiResponse> PlayerScoreboardAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerScoreboardApiResponse> PlayerScoreboardAsync(string sortBy, Option<string> sortDirection = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<int?> heroId = default, Option<long?> heroBuildId = default, Option<int?> minMatches = default, Option<int?> maxMatches = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> start = default, Option<int?> limit = default, Option<List<int>?> accountIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -10918,7 +10926,7 @@ namespace DeadlockApiClient.Api
             {
                 ValidatePlayerScoreboard(sortBy, sortDirection);
 
-                FormatPlayerScoreboard(ref sortBy, ref sortDirection, ref gameMode, ref matchMode, ref heroId, ref minMatches, ref maxMatches, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref start, ref limit, accountIds);
+                FormatPlayerScoreboard(ref sortBy, ref sortDirection, ref gameMode, ref matchMode, ref heroId, ref heroBuildId, ref minMatches, ref maxMatches, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref start, ref limit, accountIds);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -10944,6 +10952,9 @@ namespace DeadlockApiClient.Api
 
                     if (heroId.IsSet)
                         parseQueryStringLocalVar["hero_id"] = ClientUtils.ParameterToString(heroId.Value);
+
+                    if (heroBuildId.IsSet)
+                        parseQueryStringLocalVar["hero_build_id"] = ClientUtils.ParameterToString(heroBuildId.Value);
 
                     if (minMatches.IsSet)
                         parseQueryStringLocalVar["min_matches"] = ClientUtils.ParameterToString(minMatches.Value);
@@ -11020,7 +11031,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterPlayerScoreboardDefaultImplementation(apiResponseLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
+                        AfterPlayerScoreboardDefaultImplementation(apiResponseLocalVar, sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
 
                         Events.ExecuteOnPlayerScoreboard(apiResponseLocalVar);
 
@@ -11030,7 +11041,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorPlayerScoreboardDefaultImplementation(e, "/v1/analytics/scoreboards/players", uriBuilderLocalVar.Path, sortBy, sortDirection, gameMode, matchMode, heroId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
+                OnErrorPlayerScoreboardDefaultImplementation(e, "/v1/analytics/scoreboards/players", uriBuilderLocalVar.Path, sortBy, sortDirection, gameMode, matchMode, heroId, heroBuildId, minMatches, maxMatches, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, start, limit, accountIds);
                 Events.ExecuteOnErrorPlayerScoreboard(e);
                 throw;
             }

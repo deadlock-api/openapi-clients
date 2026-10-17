@@ -6499,6 +6499,7 @@ type ApiPlayerScoreboardRequest struct {
 	gameMode *string
 	matchMode *string
 	heroId *int32
+	heroBuildId *int64
 	minMatches *int32
 	maxMatches *int32
 	minUnixTimestamp *int64
@@ -6543,6 +6544,12 @@ func (r ApiPlayerScoreboardRequest) MatchMode(matchMode string) ApiPlayerScorebo
 // Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
 func (r ApiPlayerScoreboardRequest) HeroId(heroId int32) ApiPlayerScoreboardRequest {
 	r.heroId = &heroId
+	return r
+}
+
+// Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+func (r ApiPlayerScoreboardRequest) HeroBuildId(heroBuildId int64) ApiPlayerScoreboardRequest {
+	r.heroBuildId = &heroBuildId
 	return r
 }
 
@@ -6702,6 +6709,9 @@ func (a *AnalyticsAPIService) PlayerScoreboardExecute(r ApiPlayerScoreboardReque
 	}
 	if r.heroId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
 	}
 	if r.minMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")

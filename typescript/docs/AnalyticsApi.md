@@ -2149,6 +2149,7 @@ let sortDirection: 'desc' | 'asc'; //The direction to sort players in. (optional
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let matchMode: string; //Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional) (default to undefined)
 let heroId: number; //Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
+let heroBuildId: number; //Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}> (optional) (default to undefined)
 let minMatches: number; //The minimum number of matches played for a player to be included in the scoreboard. (optional) (default to 20)
 let maxMatches: number; //The maximum number of matches played for a hero combination to be included in the response. (optional) (default to undefined)
 let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
@@ -2171,6 +2172,7 @@ const { status, data } = await apiInstance.playerScoreboard(
     gameMode,
     matchMode,
     heroId,
+    heroBuildId,
     minMatches,
     maxMatches,
     minUnixTimestamp,
@@ -2198,6 +2200,7 @@ const { status, data } = await apiInstance.playerScoreboard(
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **matchMode** | [**string**] | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | (optional) defaults to undefined|
 | **heroId** | [**number**] | Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
+| **heroBuildId** | [**number**] | Only matches the player started with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; | (optional) defaults to undefined|
 | **minMatches** | [**number**] | The minimum number of matches played for a player to be included in the scoreboard. | (optional) defaults to 20|
 | **maxMatches** | [**number**] | The maximum number of matches played for a hero combination to be included in the response. | (optional) defaults to undefined|
 | **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|

@@ -516,6 +516,7 @@ export interface PlayerScoreboardRequest {
     gameMode?: PlayerScoreboardGameModeEnum;
     matchMode?: string;
     heroId?: number;
+    heroBuildId?: number;
     minMatches?: number;
     maxMatches?: number;
     minUnixTimestamp?: number;
@@ -3335,6 +3336,11 @@ function playerScoreboardRaw<T>(requestParameters: PlayerScoreboardRequest, requ
 
     if (requestParameters.heroId !== undefined) {
         queryParameters['hero_id'] = requestParameters.heroId;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
     }
 
 

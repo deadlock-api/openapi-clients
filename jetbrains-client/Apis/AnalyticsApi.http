@@ -102,7 +102,7 @@ Accept: application/json
 
 ### Player Scoreboard
 ## Player Scoreboard
-GET https://api.deadlock-api.com/v1/analytics/scoreboards/players?sortBy={{sortBy}}&sortDirection={{sortDirection}}&gameMode={{gameMode}}&matchMode={{matchMode}}&heroId={{heroId}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&start={{start}}&limit={{limit}}&accountIds={{accountIds}}
+GET https://api.deadlock-api.com/v1/analytics/scoreboards/players?sortBy={{sortBy}}&sortDirection={{sortDirection}}&gameMode={{gameMode}}&matchMode={{matchMode}}&heroId={{heroId}}&heroBuildId={{heroBuildId}}&minMatches={{minMatches}}&maxMatches={{maxMatches}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minNetworth={{minNetworth}}&maxNetworth={{maxNetworth}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&start={{start}}&limit={{limit}}&accountIds={{accountIds}}
 Accept: application/json
 
 ### Player Stats Metrics
