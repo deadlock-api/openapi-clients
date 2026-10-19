@@ -207,7 +207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -524,7 +524,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -678,7 +678,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -862,7 +862,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -950,7 +950,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -1216,7 +1216,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -1376,7 +1376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -1620,7 +1620,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -1917,7 +1917,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -2199,7 +2199,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -2514,7 +2514,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -2665,7 +2665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -2955,7 +2955,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -3320,7 +3320,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -3665,7 +3665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -4070,7 +4070,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -4379,7 +4379,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -4666,7 +4666,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -4959,7 +4959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -5241,7 +5241,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -5607,7 +5607,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -10709,8 +10709,8 @@ paths:
         \ fields:\n\n- `match_id`: The match ID\n- `cluster_id`: The cluster ID\n\
         - `metadata_salt`: The metadata salt\n- `replay_salt`: The replay salt\n-\
         \ `username`: The username of the person who submitted the match (defaults\
-        \ to `api-ingest`)\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+        \ to the request's `User-Agent`)\n\n### Rate Limits:\n| Type | Limit |\n|\
+        \ ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: ingest_salts
       requestBody:
         content:
@@ -11475,7 +11475,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -11599,7 +11599,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
@@ -11921,7 +11921,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789603200
+          default: 1789689600
           format: int64
           nullable: true
           type: integer
