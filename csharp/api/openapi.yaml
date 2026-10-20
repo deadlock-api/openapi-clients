@@ -207,7 +207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -524,7 +524,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -678,7 +678,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -862,7 +862,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -950,7 +950,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -1216,7 +1216,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -1376,7 +1376,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -1620,7 +1620,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -1917,7 +1917,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -2199,7 +2199,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -2514,7 +2514,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -2665,7 +2665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -2955,7 +2955,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -3320,7 +3320,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -3665,7 +3665,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -4070,7 +4070,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -4379,7 +4379,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -4666,7 +4666,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -4959,7 +4959,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -5241,7 +5241,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -5607,7 +5607,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -10015,8 +10015,10 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h |
-        | Key | With broadcast_url: -<br>With match_id: 20req/10m, 100req/h |
-        | Global | With broadcast_url: 100req/m<br>With match_id: 100req/10m, 500req/h |
+        | Key | With broadcast_url: -<br>With match_id: 10req/10m, 50req/h |
+        | Global | With broadcast_url: 100req/m<br>With match_id, without API key: 60req/10m, 300req/h<br>With match_id, with API key: 20req/10m, 100req/h |
+
+        With `match_id`, only spectating counts against the limits; a match spectated within the last hour is served from cache.
       operationId: live_query
       parameters:
       - description: SQL query to run over the broadcast's entity/event tables (see
@@ -10737,9 +10739,11 @@ paths:
     get:
       description: "\nThis endpoints spectates a match and returns the live URL to\
         \ be used in any demofile broadcast parser.\n\nExample Parsers:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
-        - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 6req/h |\n| Key | 20req/10m, 100req/h\
-        \ |\n| Global | 100req/10m, 500req/h |\n    "
+        - [Haste](https://github.com/blukai/haste/)\n\nOnly spectating counts against\
+        \ these limits; a match spectated within the last hour is served from cache.\n\
+        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 6req/h |\n\
+        | Key | 10req/10m, 50req/h |\n| Global (without API key) | 60req/10m, 300req/h\
+        \ |\n| Global (with API key) | 20req/10m, 100req/h |\n    "
       operationId: url
       parameters:
       - description: The match ID
@@ -11475,7 +11479,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -11599,7 +11603,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -11921,7 +11925,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789689600
+          default: 1789776000
           format: int64
           nullable: true
           type: integer
@@ -20798,7 +20802,6 @@ components:
         ranked_display_badge: 0
         ranked_used_demotion_protection: true
         start_time: 0
-        team_abandoned: true
       properties:
         abandoned_time_s:
           format: int32
@@ -20921,9 +20924,6 @@ components:
           format: int32
           minimum: 0
           type: integer
-        team_abandoned:
-          nullable: true
-          type: boolean
       required:
       - account_id
       - denies

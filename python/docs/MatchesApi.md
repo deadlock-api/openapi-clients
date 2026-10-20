@@ -778,12 +778,15 @@ Example Parsers:
 - [Demofile-Net](https://github.com/saul/demofile-net)
 - [Haste](https://github.com/blukai/haste/)
 
+Only spectating counts against these limits; a match spectated within the last hour is served from cache.
+
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
 | IP | 6req/h |
-| Key | 20req/10m, 100req/h |
-| Global | 100req/10m, 500req/h |
+| Key | 10req/10m, 50req/h |
+| Global (without API key) | 60req/10m, 300req/h |
+| Global (with API key) | 20req/10m, 100req/h |
     
 
 ### Example

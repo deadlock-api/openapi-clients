@@ -295,14 +295,5 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'RankedUsedDemotionProtection'
         }
-
-        /// <summary>
-        /// Test the property 'TeamAbandoned'
-        /// </summary>
-        [Fact]
-        public void TeamAbandonedTest()
-        {
-            // TODO unit test for the property 'TeamAbandoned'
-        }
     }
 }

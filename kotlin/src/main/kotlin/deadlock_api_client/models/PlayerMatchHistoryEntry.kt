@@ -58,7 +58,6 @@ import java.io.Serializable
  * @param rankedDelta The ranked progress change the player got from this match.
  * @param rankedDisplayBadge The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param rankedUsedDemotionProtection Whether the player's demotion protection absorbed a loss in this match.
- * @param teamAbandoned 
  */
 
 
@@ -149,10 +148,7 @@ data class PlayerMatchHistoryEntry (
 
     /* Whether the player's demotion protection absorbed a loss in this match. */
     @Json(name = "ranked_used_demotion_protection")
-    val rankedUsedDemotionProtection: kotlin.Boolean? = null,
-
-    @Json(name = "team_abandoned")
-    val teamAbandoned: kotlin.Boolean? = null
+    val rankedUsedDemotionProtection: kotlin.Boolean? = null
 
 ) : Serializable {
     companion object {

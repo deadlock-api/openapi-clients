@@ -31,7 +31,6 @@ Name | Type | Description | Notes
 **ranked_display_badge** | Option<**u32**> | The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
 **ranked_used_demotion_protection** | Option<**bool**> | Whether the player's demotion protection absorbed a loss in this match. | [optional]
 **start_time** | **u32** |  | 
-**team_abandoned** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

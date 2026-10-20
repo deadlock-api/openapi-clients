@@ -31,7 +31,6 @@ Name | Type | Description | Notes
 **RankedDisplayBadge** | Pointer to **NullableInt32** | The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
 **RankedUsedDemotionProtection** | Pointer to **NullableBool** | Whether the player&#39;s demotion protection absorbed a loss in this match. | [optional] 
 **StartTime** | **int32** |  | 
-**TeamAbandoned** | Pointer to **NullableBool** |  | [optional] 
 
 ## Methods
 
@@ -712,41 +711,6 @@ and a boolean to check if the value has been set.
 SetStartTime sets StartTime field to given value.
 
 
-### GetTeamAbandoned
-
-`func (o *PlayerMatchHistoryEntry) GetTeamAbandoned() bool`
-
-GetTeamAbandoned returns the TeamAbandoned field if non-nil, zero value otherwise.
-
-### GetTeamAbandonedOk
-
-`func (o *PlayerMatchHistoryEntry) GetTeamAbandonedOk() (*bool, bool)`
-
-GetTeamAbandonedOk returns a tuple with the TeamAbandoned field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTeamAbandoned
-
-`func (o *PlayerMatchHistoryEntry) SetTeamAbandoned(v bool)`
-
-SetTeamAbandoned sets TeamAbandoned field to given value.
-
-### HasTeamAbandoned
-
-`func (o *PlayerMatchHistoryEntry) HasTeamAbandoned() bool`
-
-HasTeamAbandoned returns a boolean if a field has been set.
-
-### SetTeamAbandonedNil
-
-`func (o *PlayerMatchHistoryEntry) SetTeamAbandonedNil(b bool)`
-
- SetTeamAbandonedNil sets the value for TeamAbandoned to be an explicit nil
-
-### UnsetTeamAbandoned
-`func (o *PlayerMatchHistoryEntry) UnsetTeamAbandoned()`
-
-UnsetTeamAbandoned ensures that no value is present for TeamAbandoned, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

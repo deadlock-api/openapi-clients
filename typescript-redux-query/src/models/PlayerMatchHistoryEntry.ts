@@ -180,12 +180,6 @@ export interface PlayerMatchHistoryEntry  {
      * @memberof PlayerMatchHistoryEntry
      */
     startTime: number;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof PlayerMatchHistoryEntry
-     */
-    teamAbandoned?: boolean;
 }
 
 export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEntry {
@@ -217,7 +211,6 @@ export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEn
         'rankedDisplayBadge': !exists(json, 'ranked_display_badge') ? undefined : json['ranked_display_badge'],
         'rankedUsedDemotionProtection': !exists(json, 'ranked_used_demotion_protection') ? undefined : json['ranked_used_demotion_protection'],
         'startTime': json['start_time'],
-        'teamAbandoned': !exists(json, 'team_abandoned') ? undefined : json['team_abandoned'],
     };
 }
 
@@ -253,7 +246,6 @@ export function PlayerMatchHistoryEntryToJSON(value?: PlayerMatchHistoryEntry): 
         'ranked_display_badge': value.rankedDisplayBadge,
         'ranked_used_demotion_protection': value.rankedUsedDemotionProtection,
         'start_time': value.startTime,
-        'team_abandoned': value.teamAbandoned,
     };
 }
 

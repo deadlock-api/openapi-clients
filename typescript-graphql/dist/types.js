@@ -892,9 +892,6 @@ export default {
             "last_hits": [
                 33
             ],
-            "team_abandoned": [
-                8
-            ],
             "abandoned_time_s": [
                 33
             ],
@@ -986,9 +983,6 @@ export default {
             ],
             "last_hits": [
                 65
-            ],
-            "team_abandoned": [
-                7
             ],
             "match_duration_s": [
                 65

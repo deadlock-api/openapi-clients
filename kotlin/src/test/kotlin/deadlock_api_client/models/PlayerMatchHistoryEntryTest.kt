@@ -195,11 +195,5 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.rankedUsedDemotionProtection shouldBe ("TODO")
         }
 
-        // to test the property `teamAbandoned`
-        should("test teamAbandoned") {
-            // uncomment below to test the property
-            //modelInstance.teamAbandoned shouldBe ("TODO")
-        }
-
     }
 }

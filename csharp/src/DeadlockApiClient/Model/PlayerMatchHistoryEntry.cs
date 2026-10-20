@@ -60,9 +60,8 @@ namespace DeadlockApiClient.Model
         /// <param name="rankedDelta">The ranked progress change the player got from this match.</param>
         /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedUsedDemotionProtection">Whether the player&#39;s demotion protection absorbed a loss in this match.</param>
-        /// <param name="teamAbandoned">teamAbandoned</param>
         [JsonConstructor]
-        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default, Option<bool?> teamAbandoned = default)
+        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default)
         {
             AccountId = accountId;
             Denies = denies;
@@ -91,7 +90,6 @@ namespace DeadlockApiClient.Model
             RankedDeltaOption = rankedDelta;
             RankedDisplayBadgeOption = rankedDisplayBadge;
             RankedUsedDemotionProtectionOption = rankedUsedDemotionProtection;
-            TeamAbandonedOption = teamAbandoned;
             OnCreated();
         }
 
@@ -322,19 +320,6 @@ namespace DeadlockApiClient.Model
         public bool? RankedUsedDemotionProtection { get { return this.RankedUsedDemotionProtectionOption.Value; } set { this.RankedUsedDemotionProtectionOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of TeamAbandoned
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<bool?> TeamAbandonedOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets TeamAbandoned
-        /// </summary>
-        [JsonPropertyName("team_abandoned")]
-        public bool? TeamAbandoned { get { return this.TeamAbandonedOption.Value; } set { this.TeamAbandonedOption = new(value); } }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -369,7 +354,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  RankedDelta: ").Append(RankedDelta).Append("\n");
             sb.Append("  RankedDisplayBadge: ").Append(RankedDisplayBadge).Append("\n");
             sb.Append("  RankedUsedDemotionProtection: ").Append(RankedUsedDemotionProtection).Append("\n");
-            sb.Append("  TeamAbandoned: ").Append(TeamAbandoned).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -570,7 +554,6 @@ namespace DeadlockApiClient.Model
             Option<int?> rankedDelta = default;
             Option<int?> rankedDisplayBadge = default;
             Option<bool?> rankedUsedDemotionProtection = default;
-            Option<bool?> teamAbandoned = default;
 
             while (utf8JsonReader.Read())
             {
@@ -667,9 +650,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "ranked_used_demotion_protection":
                             rankedUsedDemotionProtection = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
-                            break;
-                        case "team_abandoned":
-                            teamAbandoned = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         default:
                             break;
@@ -791,7 +771,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: start_time.");
 
-            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection, teamAbandoned);
+            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection);
         }
 
         /// <summary>
@@ -901,12 +881,6 @@ namespace DeadlockApiClient.Model
                     writer.WriteBoolean("ranked_used_demotion_protection", playerMatchHistoryEntry.RankedUsedDemotionProtectionOption.Value!.Value);
                 else
                     writer.WriteNull("ranked_used_demotion_protection");
-
-            if (playerMatchHistoryEntry.TeamAbandonedOption.IsSet)
-                if (playerMatchHistoryEntry.TeamAbandonedOption.Value != null)
-                    writer.WriteBoolean("team_abandoned", playerMatchHistoryEntry.TeamAbandonedOption.Value!.Value);
-                else
-                    writer.WriteNull("team_abandoned");
         }
     }
 }

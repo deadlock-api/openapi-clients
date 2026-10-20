@@ -54,7 +54,6 @@ type PlayerMatchHistoryEntry struct {
 	// Whether the player's demotion protection absorbed a loss in this match.
 	RankedUsedDemotionProtection NullableBool `json:"ranked_used_demotion_protection,omitempty"`
 	StartTime int32 `json:"start_time"`
-	TeamAbandoned NullableBool `json:"team_abandoned,omitempty"`
 }
 
 type _PlayerMatchHistoryEntry PlayerMatchHistoryEntry
@@ -887,48 +886,6 @@ func (o *PlayerMatchHistoryEntry) SetStartTime(v int32) {
 	o.StartTime = v
 }
 
-// GetTeamAbandoned returns the TeamAbandoned field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *PlayerMatchHistoryEntry) GetTeamAbandoned() bool {
-	if o == nil || IsNil(o.TeamAbandoned.Get()) {
-		var ret bool
-		return ret
-	}
-	return *o.TeamAbandoned.Get()
-}
-
-// GetTeamAbandonedOk returns a tuple with the TeamAbandoned field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-// NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *PlayerMatchHistoryEntry) GetTeamAbandonedOk() (*bool, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return o.TeamAbandoned.Get(), o.TeamAbandoned.IsSet()
-}
-
-// HasTeamAbandoned returns a boolean if a field has been set.
-func (o *PlayerMatchHistoryEntry) HasTeamAbandoned() bool {
-	if o != nil && o.TeamAbandoned.IsSet() {
-		return true
-	}
-
-	return false
-}
-
-// SetTeamAbandoned gets a reference to the given NullableBool and assigns it to the TeamAbandoned field.
-func (o *PlayerMatchHistoryEntry) SetTeamAbandoned(v bool) {
-	o.TeamAbandoned.Set(&v)
-}
-// SetTeamAbandonedNil sets the value for TeamAbandoned to be an explicit nil
-func (o *PlayerMatchHistoryEntry) SetTeamAbandonedNil() {
-	o.TeamAbandoned.Set(nil)
-}
-
-// UnsetTeamAbandoned ensures that no value is present for TeamAbandoned, not even an explicit nil
-func (o *PlayerMatchHistoryEntry) UnsetTeamAbandoned() {
-	o.TeamAbandoned.Unset()
-}
-
 func (o PlayerMatchHistoryEntry) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -982,9 +939,6 @@ func (o PlayerMatchHistoryEntry) ToMap() (map[string]interface{}, error) {
 		toSerialize["ranked_used_demotion_protection"] = o.RankedUsedDemotionProtection.Get()
 	}
 	toSerialize["start_time"] = o.StartTime
-	if o.TeamAbandoned.IsSet() {
-		toSerialize["team_abandoned"] = o.TeamAbandoned.Get()
-	}
 	return toSerialize, nil
 }
 

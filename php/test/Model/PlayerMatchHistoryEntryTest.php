@@ -321,13 +321,4 @@ class PlayerMatchHistoryEntryTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "team_abandoned"
-     */
-    public function testPropertyTeamAbandoned()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

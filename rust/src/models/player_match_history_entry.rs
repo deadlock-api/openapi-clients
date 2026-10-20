@@ -73,8 +73,6 @@ pub struct PlayerMatchHistoryEntry {
     pub ranked_used_demotion_protection: Option<Option<bool>>,
     #[serde(rename = "start_time")]
     pub start_time: u32,
-    #[serde(rename = "team_abandoned", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub team_abandoned: Option<Option<bool>>,
 }
 
 impl PlayerMatchHistoryEntry {
@@ -107,7 +105,6 @@ impl PlayerMatchHistoryEntry {
             ranked_display_badge: None,
             ranked_used_demotion_protection: None,
             start_time,
-            team_abandoned: None,
         }
     }
 }

@@ -61,8 +61,7 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
                 ranked_delta = 56,
                 ranked_display_badge = 0,
                 ranked_used_demotion_protection = True,
-                start_time = 0,
-                team_abandoned = True
+                start_time = 0
             )
         else:
             return PlayerMatchHistoryEntry(

@@ -536,7 +536,6 @@ type MatchHistoryEntry {
   denies: Int
   net_worth: Int
   last_hits: Int
-  team_abandoned: Boolean
   abandoned_time_s: Int
   match_duration_s: Int
 
@@ -594,7 +593,6 @@ input MatchHistoryWhere {
   denies: U32Filter
   net_worth: U32Filter
   last_hits: U32Filter
-  team_abandoned: BoolFilter
   match_duration_s: U32Filter
   match_result: U32Filter
   won: BoolFilter

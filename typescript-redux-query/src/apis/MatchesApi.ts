@@ -691,7 +691,7 @@ export function salts<T>(requestParameters: SaltsRequest, requestConfig?: runtim
 }
 
 /**
- *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |     
+ *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
  * Live Broadcast URL
  */
 function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQueryConfig<T, MatchSpectateResponse> = {}): QueryConfig<T> {
@@ -731,7 +731,7 @@ function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |     
+*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
 * Live Broadcast URL
 */
 export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.TypedQueryConfig<T, MatchSpectateResponse>): QueryConfig<T> {

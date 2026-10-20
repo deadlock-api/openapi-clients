@@ -381,7 +381,6 @@ export interface MatchHistoryEntry {
     denies: (Scalars['Int'] | null)
     net_worth: (Scalars['Int'] | null)
     last_hits: (Scalars['Int'] | null)
-    team_abandoned: (Scalars['Boolean'] | null)
     abandoned_time_s: (Scalars['Int'] | null)
     match_duration_s: (Scalars['Int'] | null)
     /** The winning team id. */
@@ -1389,7 +1388,6 @@ export interface MatchHistoryEntryGenqlSelection{
     denies?: boolean | number
     net_worth?: boolean | number
     last_hits?: boolean | number
-    team_abandoned?: boolean | number
     abandoned_time_s?: boolean | number
     match_duration_s?: boolean | number
     /** The winning team id. */
@@ -1418,7 +1416,7 @@ export interface MatchHistoryEntryGenqlSelection{
 
 
 /** Filter input for the `match_history` query. Operations across fields are AND-ed. */
-export interface MatchHistoryWhere {account_id?: (U32Filter | null),match_id?: (U64Filter | null),hero_id?: (U32Filter | null),hero_level?: (U32Filter | null),start_time?: (I64Filter | null),game_mode?: (StringFilter | null),match_mode?: (StringFilter | null),player_team?: (StringFilter | null),player_kills?: (U32Filter | null),player_deaths?: (U32Filter | null),player_assists?: (U32Filter | null),denies?: (U32Filter | null),net_worth?: (U32Filter | null),last_hits?: (U32Filter | null),team_abandoned?: (BoolFilter | null),match_duration_s?: (U32Filter | null),match_result?: (U32Filter | null),won?: (BoolFilter | null),player_match_outcome?: (StringFilter | null),ranked_display_badge?: (U32Filter | null),ranked_delta?: (I32Filter | null),ranked_calibration_match?: (U32Filter | null),ranked_used_demotion_protection?: (BoolFilter | null)}
+export interface MatchHistoryWhere {account_id?: (U32Filter | null),match_id?: (U64Filter | null),hero_id?: (U32Filter | null),hero_level?: (U32Filter | null),start_time?: (I64Filter | null),game_mode?: (StringFilter | null),match_mode?: (StringFilter | null),player_team?: (StringFilter | null),player_kills?: (U32Filter | null),player_deaths?: (U32Filter | null),player_assists?: (U32Filter | null),denies?: (U32Filter | null),net_worth?: (U32Filter | null),last_hits?: (U32Filter | null),match_duration_s?: (U32Filter | null),match_result?: (U32Filter | null),won?: (BoolFilter | null),player_match_outcome?: (StringFilter | null),ranked_display_badge?: (U32Filter | null),ranked_delta?: (I32Filter | null),ranked_calibration_match?: (U32Filter | null),ranked_used_demotion_protection?: (BoolFilter | null)}
 
 
 /**

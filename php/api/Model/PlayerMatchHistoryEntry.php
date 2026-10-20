@@ -83,8 +83,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => 'int',
         'ranked_display_badge' => 'int',
         'ranked_used_demotion_protection' => 'bool',
-        'start_time' => 'int',
-        'team_abandoned' => 'bool'
+        'start_time' => 'int'
     ];
 
     /**
@@ -121,8 +120,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => 'int32',
         'ranked_display_badge' => 'int32',
         'ranked_used_demotion_protection' => null,
-        'start_time' => 'int32',
-        'team_abandoned' => null
+        'start_time' => 'int32'
     ];
 
     /**
@@ -157,8 +155,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => true,
         'ranked_display_badge' => true,
         'ranked_used_demotion_protection' => true,
-        'start_time' => false,
-        'team_abandoned' => true
+        'start_time' => false
     ];
 
     /**
@@ -273,8 +270,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => 'ranked_delta',
         'ranked_display_badge' => 'ranked_display_badge',
         'ranked_used_demotion_protection' => 'ranked_used_demotion_protection',
-        'start_time' => 'start_time',
-        'team_abandoned' => 'team_abandoned'
+        'start_time' => 'start_time'
     ];
 
     /**
@@ -309,8 +305,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => 'setRankedDelta',
         'ranked_display_badge' => 'setRankedDisplayBadge',
         'ranked_used_demotion_protection' => 'setRankedUsedDemotionProtection',
-        'start_time' => 'setStartTime',
-        'team_abandoned' => 'setTeamAbandoned'
+        'start_time' => 'setStartTime'
     ];
 
     /**
@@ -345,8 +340,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'ranked_delta' => 'getRankedDelta',
         'ranked_display_badge' => 'getRankedDisplayBadge',
         'ranked_used_demotion_protection' => 'getRankedUsedDemotionProtection',
-        'start_time' => 'getStartTime',
-        'team_abandoned' => 'getTeamAbandoned'
+        'start_time' => 'getStartTime'
     ];
 
     /**
@@ -433,7 +427,6 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('ranked_display_badge', $data ?? [], null);
         $this->setIfExists('ranked_used_demotion_protection', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
-        $this->setIfExists('team_abandoned', $data ?? [], null);
     }
 
     /**
@@ -1484,40 +1477,6 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         }
 
         $this->container['start_time'] = $start_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets team_abandoned
-     *
-     * @return bool|null
-     */
-    public function getTeamAbandoned()
-    {
-        return $this->container['team_abandoned'];
-    }
-
-    /**
-     * Sets team_abandoned
-     *
-     * @param bool|null $team_abandoned team_abandoned
-     *
-     * @return self
-     */
-    public function setTeamAbandoned($team_abandoned)
-    {
-        if (is_null($team_abandoned)) {
-            array_push($this->openAPINullablesSetToNull, 'team_abandoned');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('team_abandoned', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['team_abandoned'] = $team_abandoned;
 
         return $this;
     }

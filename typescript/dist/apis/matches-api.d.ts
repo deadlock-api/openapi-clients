@@ -126,7 +126,7 @@ export declare const MatchesApiAxiosParamCreator: (configuration?: Configuration
      */
     salts: (matchId: number, disableSteam?: boolean | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |
      * @summary Live Broadcast URL
      * @param {number} matchId The match ID
      * @param {*} [options] Override http request option.
@@ -249,7 +249,7 @@ export declare const MatchesApiFp: (configuration?: Configuration) => {
      */
     salts(matchId: number, disableSteam?: boolean | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MatchSaltsResponse>>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |
      * @summary Live Broadcast URL
      * @param {number} matchId The match ID
      * @param {*} [options] Override http request option.
@@ -331,7 +331,7 @@ export declare const MatchesApiFactory: (configuration?: Configuration, basePath
      */
     salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig): AxiosPromise<MatchSaltsResponse>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -631,7 +631,7 @@ export declare class MatchesApi extends BaseAPI {
      */
     salts(requestParameters: MatchesApiSaltsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MatchSaltsResponse, any, {}, any>>;
     /**
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |
      * @summary Live Broadcast URL
      * @param {MatchesApiUrlRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

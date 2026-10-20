@@ -971,7 +971,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |     
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
      * @param matchId The match ID
      * @return MatchSpectateResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -1003,7 +1003,7 @@ open class MatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/matches/{match_id}/live/url
      * Live Broadcast URL
-     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 20req/10m, 100req/h | | Global | 100req/10m, 500req/h |     
+     *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
      * @param matchId The match ID
      * @return ApiResponse<MatchSpectateResponse?>
      * @throws IllegalStateException If the request is not correctly configured

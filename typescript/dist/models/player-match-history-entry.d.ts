@@ -55,6 +55,5 @@ export interface PlayerMatchHistoryEntry {
      */
     'ranked_used_demotion_protection'?: boolean | null;
     'start_time': number;
-    'team_abandoned'?: boolean | null;
 }
 //# sourceMappingURL=player-match-history-entry.d.ts.map

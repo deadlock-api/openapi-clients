@@ -335,7 +335,6 @@ declare const _default: {
             denies: number[];
             net_worth: number[];
             last_hits: number[];
-            team_abandoned: number[];
             abandoned_time_s: number[];
             match_duration_s: number[];
             match_result: number[];
@@ -368,7 +367,6 @@ declare const _default: {
             denies: number[];
             net_worth: number[];
             last_hits: number[];
-            team_abandoned: number[];
             match_duration_s: number[];
             match_result: number[];
             won: number[];

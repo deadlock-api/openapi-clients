@@ -55,8 +55,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     ranked_display_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     ranked_used_demotion_protection: Optional[StrictBool] = Field(default=None, description="Whether the player's demotion protection absorbed a loss in this match.")
     start_time: Annotated[int, Field(strict=True, ge=0)]
-    team_abandoned: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_match_outcome", "player_team", "ranked_calibration_match", "ranked_delta", "ranked_display_badge", "ranked_used_demotion_protection", "start_time", "team_abandoned"]
+    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_match_outcome", "player_team", "ranked_calibration_match", "ranked_delta", "ranked_display_badge", "ranked_used_demotion_protection", "start_time"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -137,11 +136,6 @@ class PlayerMatchHistoryEntry(BaseModel):
         if self.ranked_used_demotion_protection is None and "ranked_used_demotion_protection" in self.model_fields_set:
             _dict['ranked_used_demotion_protection'] = None
 
-        # set to None if team_abandoned (nullable) is None
-        # and model_fields_set contains the field
-        if self.team_abandoned is None and "team_abandoned" in self.model_fields_set:
-            _dict['team_abandoned'] = None
-
         return _dict
 
     @classmethod
@@ -180,8 +174,7 @@ class PlayerMatchHistoryEntry(BaseModel):
             "ranked_delta": obj.get("ranked_delta"),
             "ranked_display_badge": obj.get("ranked_display_badge"),
             "ranked_used_demotion_protection": obj.get("ranked_used_demotion_protection"),
-            "start_time": obj.get("start_time"),
-            "team_abandoned": obj.get("team_abandoned")
+            "start_time": obj.get("start_time")
         })
         return _obj
 

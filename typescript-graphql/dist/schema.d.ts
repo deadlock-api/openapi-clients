@@ -343,7 +343,6 @@ export interface MatchHistoryEntry {
     denies: (Scalars['Int'] | null);
     net_worth: (Scalars['Int'] | null);
     last_hits: (Scalars['Int'] | null);
-    team_abandoned: (Scalars['Boolean'] | null);
     abandoned_time_s: (Scalars['Int'] | null);
     match_duration_s: (Scalars['Int'] | null);
     /** The winning team id. */
@@ -1320,7 +1319,6 @@ export interface MatchHistoryEntryGenqlSelection {
     denies?: boolean | number;
     net_worth?: boolean | number;
     last_hits?: boolean | number;
-    team_abandoned?: boolean | number;
     abandoned_time_s?: boolean | number;
     match_duration_s?: boolean | number;
     /** The winning team id. */
@@ -1362,7 +1360,6 @@ export interface MatchHistoryWhere {
     denies?: (U32Filter | null);
     net_worth?: (U32Filter | null);
     last_hits?: (U32Filter | null);
-    team_abandoned?: (BoolFilter | null);
     match_duration_s?: (U32Filter | null);
     match_result?: (U32Filter | null);
     won?: (BoolFilter | null);
