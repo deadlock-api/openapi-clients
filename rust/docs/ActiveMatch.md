@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **game_mode_parsed** | Option<[**models::ActiveMatchGameMode**](ActiveMatchGameMode.md)> |  | [optional]
 **game_mode_version** | Option<**u32**> |  | [optional]
 **lobby_id** | Option<**u64**> |  | [optional]
+**low_pri_pool** | Option<**bool**> |  | [optional]
 **match_id** | Option<**u64**> |  | [optional]
 **match_mode** | Option<**i32**> |  | [optional]
 **match_mode_parsed** | Option<[**models::ActiveMatchMode**](ActiveMatchMode.md)> |  | [optional]
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **region_mode_parsed** | Option<[**models::RegionMode**](RegionMode.md)> |  | [optional]
 **spectators** | Option<**u32**> |  | [optional]
 **start_time** | Option<**u32**> |  | [optional]
+**team_stats** | [**Vec<models::ActiveMatchTeamStats>**](ActiveMatchTeamStats.md) |  | 
 **winning_team** | Option<**i32**> |  | [optional]
 **winning_team_parsed** | Option<[**models::ActiveMatchTeam**](ActiveMatchTeam.md)> |  | [optional]
 

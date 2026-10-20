@@ -32,6 +32,8 @@ type PlayerMatchHistoryEntry struct {
 	HeroId int32 `json:"hero_id"`
 	HeroLevel int32 `json:"hero_level"`
 	LastHits int32 `json:"last_hits"`
+	// Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+	LowPriPool NullableBool `json:"low_pri_pool,omitempty"`
 	MatchDurationS int32 `json:"match_duration_s"`
 	MatchId int64 `json:"match_id"`
 	MatchMode int32 `json:"match_mode"`
@@ -404,6 +406,48 @@ func (o *PlayerMatchHistoryEntry) GetLastHitsOk() (*int32, bool) {
 // SetLastHits sets field value
 func (o *PlayerMatchHistoryEntry) SetLastHits(v int32) {
 	o.LastHits = v
+}
+
+// GetLowPriPool returns the LowPriPool field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerMatchHistoryEntry) GetLowPriPool() bool {
+	if o == nil || IsNil(o.LowPriPool.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.LowPriPool.Get()
+}
+
+// GetLowPriPoolOk returns a tuple with the LowPriPool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerMatchHistoryEntry) GetLowPriPoolOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LowPriPool.Get(), o.LowPriPool.IsSet()
+}
+
+// HasLowPriPool returns a boolean if a field has been set.
+func (o *PlayerMatchHistoryEntry) HasLowPriPool() bool {
+	if o != nil && o.LowPriPool.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLowPriPool gets a reference to the given NullableBool and assigns it to the LowPriPool field.
+func (o *PlayerMatchHistoryEntry) SetLowPriPool(v bool) {
+	o.LowPriPool.Set(&v)
+}
+// SetLowPriPoolNil sets the value for LowPriPool to be an explicit nil
+func (o *PlayerMatchHistoryEntry) SetLowPriPoolNil() {
+	o.LowPriPool.Set(nil)
+}
+
+// UnsetLowPriPool ensures that no value is present for LowPriPool, not even an explicit nil
+func (o *PlayerMatchHistoryEntry) UnsetLowPriPool() {
+	o.LowPriPool.Unset()
 }
 
 // GetMatchDurationS returns the MatchDurationS field value
@@ -914,6 +958,9 @@ func (o PlayerMatchHistoryEntry) ToMap() (map[string]interface{}, error) {
 	toSerialize["hero_id"] = o.HeroId
 	toSerialize["hero_level"] = o.HeroLevel
 	toSerialize["last_hits"] = o.LastHits
+	if o.LowPriPool.IsSet() {
+		toSerialize["low_pri_pool"] = o.LowPriPool.Get()
+	}
 	toSerialize["match_duration_s"] = o.MatchDurationS
 	toSerialize["match_id"] = o.MatchId
 	toSerialize["match_mode"] = o.MatchMode

@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **denies_avg** | **number** | Average lane creeps denied at this time point | [default to undefined]
 **denies_std** | **number** | Standard deviation of &#x60;denies_avg&#x60; at this time point | [default to undefined]
 **game_time** | **number** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | [default to undefined]
+**game_time_avg** | **number** | Where in the match the stats snapshots of this point were taken on average, in the unit of &#x60;game_time&#x60;. Snapshots are taken every few minutes and at the end of the match, so with &#x60;resolution&#x60; &gt; 0 a point holds the snapshots from &#x60;game_time&#x60; up to the next point and this is usually about half a bucket later than &#x60;game_time&#x60;. Percentages are averaged from whole percents, so they can be off by a few tenths. | [default to undefined]
 **gold_ability_assassinate_avg** | **number** | Average souls earned from the Assassinate ability at this time point | [default to undefined]
 **gold_ability_assassinate_std** | **number** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | [default to undefined]
 **gold_assists_avg** | **number** | Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;) | [default to undefined]
@@ -72,6 +73,7 @@ Name | Type | Description | Notes
 **player_damage_std** | **number** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | [default to undefined]
 **player_healing_avg** | **number** | Average healing done at this time point | [default to undefined]
 **player_healing_std** | **number** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | [default to undefined]
+**samples** | **number** | Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often. | [default to undefined]
 **self_damage_avg** | **number** | Average self-inflicted damage at this time point | [default to undefined]
 **self_damage_std** | **number** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | [default to undefined]
 
@@ -96,6 +98,7 @@ const instance: PlayerPerformanceCurvePoint = {
     denies_avg,
     denies_std,
     game_time,
+    game_time_avg,
     gold_ability_assassinate_avg,
     gold_ability_assassinate_std,
     gold_assists_avg,
@@ -148,6 +151,7 @@ const instance: PlayerPerformanceCurvePoint = {
     player_damage_std,
     player_healing_avg,
     player_healing_std,
+    samples,
     self_damage_avg,
     self_damage_std,
 };

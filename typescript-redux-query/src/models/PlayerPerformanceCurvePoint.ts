@@ -109,6 +109,12 @@ export interface PlayerPerformanceCurvePoint  {
      */
     gameTime: number;
     /**
+     * Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    gameTimeAvg: number;
+    /**
      * Average souls earned from the Assassinate ability at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -421,6 +427,12 @@ export interface PlayerPerformanceCurvePoint  {
      */
     playerHealingStd: number;
     /**
+     * Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often.
+     * @type {number}
+     * @memberof PlayerPerformanceCurvePoint
+     */
+    samples: number;
+    /**
      * Average self-inflicted damage at this time point
      * @type {number}
      * @memberof PlayerPerformanceCurvePoint
@@ -451,6 +463,7 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'deniesAvg': json['denies_avg'],
         'deniesStd': json['denies_std'],
         'gameTime': json['game_time'],
+        'gameTimeAvg': json['game_time_avg'],
         'goldAbilityAssassinateAvg': json['gold_ability_assassinate_avg'],
         'goldAbilityAssassinateStd': json['gold_ability_assassinate_std'],
         'goldAssistsAvg': json['gold_assists_avg'],
@@ -503,6 +516,7 @@ export function PlayerPerformanceCurvePointFromJSON(json: any): PlayerPerformanc
         'playerDamageStd': json['player_damage_std'],
         'playerHealingAvg': json['player_healing_avg'],
         'playerHealingStd': json['player_healing_std'],
+        'samples': json['samples'],
         'selfDamageAvg': json['self_damage_avg'],
         'selfDamageStd': json['self_damage_std'],
     };
@@ -528,6 +542,7 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'denies_avg': value.deniesAvg,
         'denies_std': value.deniesStd,
         'game_time': value.gameTime,
+        'game_time_avg': value.gameTimeAvg,
         'gold_ability_assassinate_avg': value.goldAbilityAssassinateAvg,
         'gold_ability_assassinate_std': value.goldAbilityAssassinateStd,
         'gold_assists_avg': value.goldAssistsAvg,
@@ -580,6 +595,7 @@ export function PlayerPerformanceCurvePointToJSON(value?: PlayerPerformanceCurve
         'player_damage_std': value.playerDamageStd,
         'player_healing_avg': value.playerHealingAvg,
         'player_healing_std': value.playerHealingStd,
+        'samples': value.samples,
         'self_damage_avg': value.selfDamageAvg,
         'self_damage_std': value.selfDamageStd,
     };

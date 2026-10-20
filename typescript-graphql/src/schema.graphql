@@ -570,6 +570,11 @@ type MatchHistoryEntry {
   ranked_used_demotion_protection: Boolean
 
   """
+  Whether the match was played in the low priority pool. Null for entries stored before this was recorded.
+  """
+  low_pri_pool: Boolean
+
+  """
   Hero asset metadata for this entry's `hero_id` (latest version, English).
   """
   hero: Hero
@@ -601,6 +606,7 @@ input MatchHistoryWhere {
   ranked_delta: I32Filter
   ranked_calibration_match: U32Filter
   ranked_used_demotion_protection: BoolFilter
+  low_pri_pool: BoolFilter
 }
 
 """

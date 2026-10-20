@@ -54,8 +54,10 @@ src/models/ActiveMatchGameMode.ts
 src/models/ActiveMatchMode.ts
 src/models/ActiveMatchPlayer.ts
 src/models/ActiveMatchTeam.ts
+src/models/ActiveMatchTeamStats.ts
 src/models/AddSteamAccountRequest.ts
 src/models/AnalyticsAbilityOrderStats.ts
+src/models/AnalyticsAbilityOrderTreeNode.ts
 src/models/AnalyticsBuffStats.ts
 src/models/AnalyticsGameStats.ts
 src/models/AnalyticsHeroStats.ts

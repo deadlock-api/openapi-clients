@@ -63,6 +63,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'TeamStats'
+        /// </summary>
+        [Fact]
+        public void TeamStatsTest()
+        {
+            // TODO unit test for the property 'TeamStats'
+        }
+
+        /// <summary>
         /// Test the property 'CompatVersion'
         /// </summary>
         [Fact]
@@ -114,6 +123,15 @@ namespace DeadlockApiClient.Test.Model
         public void LobbyIdTest()
         {
             // TODO unit test for the property 'LobbyId'
+        }
+
+        /// <summary>
+        /// Test the property 'LowPriPool'
+        /// </summary>
+        [Fact]
+        public void LowPriPoolTest()
+        {
+            // TODO unit test for the property 'LowPriPool'
         }
 
         /// <summary>

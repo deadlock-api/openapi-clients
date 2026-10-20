@@ -63,6 +63,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => '\OpenAPI\Client\Model\ActiveMatchGameMode',
         'game_mode_version' => 'int',
         'lobby_id' => 'int',
+        'low_pri_pool' => 'bool',
         'match_id' => 'int',
         'match_mode' => 'int',
         'match_mode_parsed' => '\OpenAPI\Client\Model\ActiveMatchMode',
@@ -77,6 +78,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => '\OpenAPI\Client\Model\RegionMode',
         'spectators' => 'int',
         'start_time' => 'int',
+        'team_stats' => '\OpenAPI\Client\Model\ActiveMatchTeamStats[]',
         'winning_team' => 'int',
         'winning_team_parsed' => '\OpenAPI\Client\Model\ActiveMatchTeam'
     ];
@@ -95,6 +97,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => null,
         'game_mode_version' => 'int32',
         'lobby_id' => 'int64',
+        'low_pri_pool' => null,
         'match_id' => 'int64',
         'match_mode' => 'int32',
         'match_mode_parsed' => null,
@@ -109,6 +112,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => null,
         'spectators' => 'int32',
         'start_time' => 'int32',
+        'team_stats' => null,
         'winning_team' => 'int32',
         'winning_team_parsed' => null
     ];
@@ -125,6 +129,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => true,
         'game_mode_version' => true,
         'lobby_id' => true,
+        'low_pri_pool' => true,
         'match_id' => true,
         'match_mode' => true,
         'match_mode_parsed' => true,
@@ -139,6 +144,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => true,
         'spectators' => true,
         'start_time' => true,
+        'team_stats' => false,
         'winning_team' => true,
         'winning_team_parsed' => true
     ];
@@ -235,6 +241,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => 'game_mode_parsed',
         'game_mode_version' => 'game_mode_version',
         'lobby_id' => 'lobby_id',
+        'low_pri_pool' => 'low_pri_pool',
         'match_id' => 'match_id',
         'match_mode' => 'match_mode',
         'match_mode_parsed' => 'match_mode_parsed',
@@ -249,6 +256,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => 'region_mode_parsed',
         'spectators' => 'spectators',
         'start_time' => 'start_time',
+        'team_stats' => 'team_stats',
         'winning_team' => 'winning_team',
         'winning_team_parsed' => 'winning_team_parsed'
     ];
@@ -265,6 +273,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => 'setGameModeParsed',
         'game_mode_version' => 'setGameModeVersion',
         'lobby_id' => 'setLobbyId',
+        'low_pri_pool' => 'setLowPriPool',
         'match_id' => 'setMatchId',
         'match_mode' => 'setMatchMode',
         'match_mode_parsed' => 'setMatchModeParsed',
@@ -279,6 +288,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => 'setRegionModeParsed',
         'spectators' => 'setSpectators',
         'start_time' => 'setStartTime',
+        'team_stats' => 'setTeamStats',
         'winning_team' => 'setWinningTeam',
         'winning_team_parsed' => 'setWinningTeamParsed'
     ];
@@ -295,6 +305,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'game_mode_parsed' => 'getGameModeParsed',
         'game_mode_version' => 'getGameModeVersion',
         'lobby_id' => 'getLobbyId',
+        'low_pri_pool' => 'getLowPriPool',
         'match_id' => 'getMatchId',
         'match_mode' => 'getMatchMode',
         'match_mode_parsed' => 'getMatchModeParsed',
@@ -309,6 +320,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'region_mode_parsed' => 'getRegionModeParsed',
         'spectators' => 'getSpectators',
         'start_time' => 'getStartTime',
+        'team_stats' => 'getTeamStats',
         'winning_team' => 'getWinningTeam',
         'winning_team_parsed' => 'getWinningTeamParsed'
     ];
@@ -376,6 +388,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('game_mode_parsed', $data ?? [], null);
         $this->setIfExists('game_mode_version', $data ?? [], null);
         $this->setIfExists('lobby_id', $data ?? [], null);
+        $this->setIfExists('low_pri_pool', $data ?? [], null);
         $this->setIfExists('match_id', $data ?? [], null);
         $this->setIfExists('match_mode', $data ?? [], null);
         $this->setIfExists('match_mode_parsed', $data ?? [], null);
@@ -390,6 +403,7 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('region_mode_parsed', $data ?? [], null);
         $this->setIfExists('spectators', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
+        $this->setIfExists('team_stats', $data ?? [], null);
         $this->setIfExists('winning_team', $data ?? [], null);
         $this->setIfExists('winning_team_parsed', $data ?? [], null);
     }
@@ -476,6 +490,9 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'start_time', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['team_stats'] === null) {
+            $invalidProperties[] = "'team_stats' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -707,6 +724,40 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['lobby_id'] = $lobby_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets low_pri_pool
+     *
+     * @return bool|null
+     */
+    public function getLowPriPool()
+    {
+        return $this->container['low_pri_pool'];
+    }
+
+    /**
+     * Sets low_pri_pool
+     *
+     * @param bool|null $low_pri_pool low_pri_pool
+     *
+     * @return self
+     */
+    public function setLowPriPool($low_pri_pool)
+    {
+        if (is_null($low_pri_pool)) {
+            array_push($this->openAPINullablesSetToNull, 'low_pri_pool');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('low_pri_pool', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['low_pri_pool'] = $low_pri_pool;
 
         return $this;
     }
@@ -1212,6 +1263,33 @@ class ActiveMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['start_time'] = $start_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets team_stats
+     *
+     * @return \OpenAPI\Client\Model\ActiveMatchTeamStats[]
+     */
+    public function getTeamStats()
+    {
+        return $this->container['team_stats'];
+    }
+
+    /**
+     * Sets team_stats
+     *
+     * @param \OpenAPI\Client\Model\ActiveMatchTeamStats[] $team_stats team_stats
+     *
+     * @return self
+     */
+    public function setTeamStats($team_stats)
+    {
+        if (is_null($team_stats)) {
+            throw new \InvalidArgumentException('non-nullable team_stats cannot be null');
+        }
+        $this->container['team_stats'] = $team_stats;
 
         return $this;
     }

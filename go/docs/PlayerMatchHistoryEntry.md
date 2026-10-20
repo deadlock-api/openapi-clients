@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **HeroLevel** | **int32** |  | 
 **LastHits** | **int32** |  | 
+**LowPriPool** | Pointer to **NullableBool** | Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded. | [optional] 
 **MatchDurationS** | **int32** |  | 
 **MatchId** | **int64** |  | 
 **MatchMode** | **int32** |  | 
@@ -311,6 +312,41 @@ and a boolean to check if the value has been set.
 SetLastHits sets LastHits field to given value.
 
 
+### GetLowPriPool
+
+`func (o *PlayerMatchHistoryEntry) GetLowPriPool() bool`
+
+GetLowPriPool returns the LowPriPool field if non-nil, zero value otherwise.
+
+### GetLowPriPoolOk
+
+`func (o *PlayerMatchHistoryEntry) GetLowPriPoolOk() (*bool, bool)`
+
+GetLowPriPoolOk returns a tuple with the LowPriPool field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLowPriPool
+
+`func (o *PlayerMatchHistoryEntry) SetLowPriPool(v bool)`
+
+SetLowPriPool sets LowPriPool field to given value.
+
+### HasLowPriPool
+
+`func (o *PlayerMatchHistoryEntry) HasLowPriPool() bool`
+
+HasLowPriPool returns a boolean if a field has been set.
+
+### SetLowPriPoolNil
+
+`func (o *PlayerMatchHistoryEntry) SetLowPriPoolNil(b bool)`
+
+ SetLowPriPoolNil sets the value for LowPriPool to be an explicit nil
+
+### UnsetLowPriPool
+`func (o *PlayerMatchHistoryEntry) UnsetLowPriPool()`
+
+UnsetLowPriPool ensures that no value is present for LowPriPool, not even an explicit nil
 ### GetMatchDurationS
 
 `func (o *PlayerMatchHistoryEntry) GetMatchDurationS() int32`

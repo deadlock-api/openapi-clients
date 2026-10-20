@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **GameModeParsed** | Pointer to [**NullableActiveMatchGameMode**](ActiveMatchGameMode.md) |  | [optional] 
 **GameModeVersion** | Pointer to **NullableInt32** |  | [optional] 
 **LobbyId** | Pointer to **NullableInt64** |  | [optional] 
+**LowPriPool** | Pointer to **NullableBool** |  | [optional] 
 **MatchId** | Pointer to **NullableInt64** |  | [optional] 
 **MatchMode** | Pointer to **NullableInt32** |  | [optional] 
 **MatchModeParsed** | Pointer to [**NullableActiveMatchMode**](ActiveMatchMode.md) |  | [optional] 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **RegionModeParsed** | Pointer to [**NullableRegionMode**](RegionMode.md) |  | [optional] 
 **Spectators** | Pointer to **NullableInt32** |  | [optional] 
 **StartTime** | Pointer to **NullableInt32** |  | [optional] 
+**TeamStats** | [**[]ActiveMatchTeamStats**](ActiveMatchTeamStats.md) |  | 
 **WinningTeam** | Pointer to **NullableInt32** |  | [optional] 
 **WinningTeamParsed** | Pointer to [**NullableActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
 
@@ -31,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewActiveMatch
 
-`func NewActiveMatch(players []ActiveMatchPlayer, ) *ActiveMatch`
+`func NewActiveMatch(players []ActiveMatchPlayer, teamStats []ActiveMatchTeamStats, ) *ActiveMatch`
 
 NewActiveMatch instantiates a new ActiveMatch object
 This constructor will assign default values to properties that have it defined,
@@ -256,6 +258,41 @@ HasLobbyId returns a boolean if a field has been set.
 `func (o *ActiveMatch) UnsetLobbyId()`
 
 UnsetLobbyId ensures that no value is present for LobbyId, not even an explicit nil
+### GetLowPriPool
+
+`func (o *ActiveMatch) GetLowPriPool() bool`
+
+GetLowPriPool returns the LowPriPool field if non-nil, zero value otherwise.
+
+### GetLowPriPoolOk
+
+`func (o *ActiveMatch) GetLowPriPoolOk() (*bool, bool)`
+
+GetLowPriPoolOk returns a tuple with the LowPriPool field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLowPriPool
+
+`func (o *ActiveMatch) SetLowPriPool(v bool)`
+
+SetLowPriPool sets LowPriPool field to given value.
+
+### HasLowPriPool
+
+`func (o *ActiveMatch) HasLowPriPool() bool`
+
+HasLowPriPool returns a boolean if a field has been set.
+
+### SetLowPriPoolNil
+
+`func (o *ActiveMatch) SetLowPriPoolNil(b bool)`
+
+ SetLowPriPoolNil sets the value for LowPriPool to be an explicit nil
+
+### UnsetLowPriPool
+`func (o *ActiveMatch) UnsetLowPriPool()`
+
+UnsetLowPriPool ensures that no value is present for LowPriPool, not even an explicit nil
 ### GetMatchId
 
 `func (o *ActiveMatch) GetMatchId() int64`
@@ -731,6 +768,26 @@ HasStartTime returns a boolean if a field has been set.
 `func (o *ActiveMatch) UnsetStartTime()`
 
 UnsetStartTime ensures that no value is present for StartTime, not even an explicit nil
+### GetTeamStats
+
+`func (o *ActiveMatch) GetTeamStats() []ActiveMatchTeamStats`
+
+GetTeamStats returns the TeamStats field if non-nil, zero value otherwise.
+
+### GetTeamStatsOk
+
+`func (o *ActiveMatch) GetTeamStatsOk() (*[]ActiveMatchTeamStats, bool)`
+
+GetTeamStatsOk returns a tuple with the TeamStats field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTeamStats
+
+`func (o *ActiveMatch) SetTeamStats(v []ActiveMatchTeamStats)`
+
+SetTeamStats sets TeamStats field to given value.
+
+
 ### GetWinningTeam
 
 `func (o *ActiveMatch) GetWinningTeam() int32`

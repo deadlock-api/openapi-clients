@@ -47,7 +47,58 @@ pub struct AbilityOrderStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// The minimum number of matches played for an ability order to be included in the response.
+    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+    pub min_matches: Option<u32>,
+    /// Filter for matches with a specific player account ID.
+    pub account_id: Option<u32>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>,
+    /// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>,
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub include_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub exclude_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+    pub ability_order_prefix: Option<Vec<u32>>,
+    /// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub ability_unlock_order_prefix: Option<Vec<u32>>
+}
+
+/// struct for passing parameters to the method [`ability_order_tree`]
+#[derive(Clone, Debug)]
+pub struct AbilityOrderTreeParams {
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub hero_id: u32,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+    pub game_mode: Option<String>,
+    /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+    pub match_mode: Option<String>,
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter players based on their minimum number of ability upgrades over the whole match.
+    pub min_ability_upgrades: Option<u64>,
+    /// Filter players based on their maximum number of ability upgrades over the whole match.
+    pub max_ability_upgrades: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub max_networth: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
     pub min_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
@@ -405,13 +456,13 @@ pub struct HeroStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
     pub min_hero_matches: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+    /// Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
     pub max_hero_matches: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero in their entire history.
+    /// Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
     pub min_hero_matches_total: Option<u64>,
-    /// Filter players based on the number of matches they have played with a specific hero in their entire history.
+    /// Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
     pub max_hero_matches_total: Option<u64>,
     /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
@@ -932,6 +983,8 @@ pub struct PlayerStatsMetricsParams {
     pub max_match_id: Option<u64>,
     /// The maximum number of matches to analyze.
     pub max_matches: Option<u32>,
+    /// The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.
+    pub min_matches: Option<u32>,
     /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -951,6 +1004,15 @@ pub struct PlayerStatsMetricsParams {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum AbilityOrderStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`ability_order_tree`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AbilityOrderTreeError {
     Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
@@ -1263,6 +1325,123 @@ pub async fn ability_order_stats(configuration: &configuration::Configuration, p
     }
 }
 
+///  Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+pub async fn ability_order_tree(configuration: &configuration::Configuration, params: AbilityOrderTreeParams) -> Result<Vec<models::AnalyticsAbilityOrderTreeNode>, Error<AbilityOrderTreeError>> {
+
+    let uri_str = format!("{}/v1/analytics/ability-order-tree", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("hero_id", &params.hero_id.to_string())]);
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.match_mode {
+        req_builder = req_builder.query(&[("match_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_ability_upgrades {
+        req_builder = req_builder.query(&[("min_ability_upgrades", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_ability_upgrades {
+        req_builder = req_builder.query(&[("max_ability_upgrades", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.ability_order_prefix {
+        req_builder = match "csv" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.ability_unlock_order_prefix {
+        req_builder = match "csv" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityOrderTreeNode&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityOrderTreeNode&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AbilityOrderTreeError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
 ///  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn badge_distribution(configuration: &configuration::Configuration, params: BadgeDistributionParams) -> Result<Vec<models::BadgeDistribution>, Error<BadgeDistributionError>> {
 
@@ -1331,7 +1510,7 @@ pub async fn badge_distribution(configuration: &configuration::Configuration, pa
     }
 }
 
-///  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn buff_stats(configuration: &configuration::Configuration, params: BuffStatsParams) -> Result<Vec<models::AnalyticsBuffStats>, Error<BuffStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/buff-stats", configuration.base_path);
@@ -1568,7 +1747,7 @@ pub async fn game_stats(configuration: &configuration::Configuration, params: Ga
     }
 }
 
-///  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_ban_stats(configuration: &configuration::Configuration, params: HeroBanStatsParams) -> Result<Vec<models::HeroBanStats>, Error<HeroBanStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-ban-stats", configuration.base_path);
@@ -1633,7 +1812,7 @@ pub async fn hero_ban_stats(configuration: &configuration::Configuration, params
     }
 }
 
-///  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_build_stats(configuration: &configuration::Configuration, params: HeroBuildStatsParams) -> Result<Vec<models::HeroBuildStats>, Error<HeroBuildStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-build-stats/{hero_id}", configuration.base_path, hero_id=params.hero_id);
@@ -1728,7 +1907,7 @@ pub async fn hero_build_stats(configuration: &configuration::Configuration, para
     }
 }
 
-///  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_comb_stats(configuration: &configuration::Configuration, params: HeroCombStatsParams) -> Result<Vec<models::HeroCombStats>, Error<HeroCombStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-comb-stats", configuration.base_path);
@@ -1841,7 +2020,7 @@ pub async fn hero_comb_stats(configuration: &configuration::Configuration, param
     }
 }
 
-///  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_counters_stats(configuration: &configuration::Configuration, params: HeroCountersStatsParams) -> Result<Vec<models::HeroCounterStats>, Error<HeroCountersStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-counter-stats", configuration.base_path);
@@ -2145,7 +2324,7 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
     }
 }
 
-///  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_swap_stats(configuration: &configuration::Configuration, params: HeroSwapStatsParams) -> Result<Vec<models::HeroSwapStats>, Error<HeroSwapStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-swap-stats", configuration.base_path);
@@ -2210,7 +2389,7 @@ pub async fn hero_swap_stats(configuration: &configuration::Configuration, param
     }
 }
 
-///  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn hero_synergies_stats(configuration: &configuration::Configuration, params: HeroSynergiesStatsParams) -> Result<Vec<models::HeroSynergyStats>, Error<HeroSynergiesStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/hero-synergy-stats", configuration.base_path);
@@ -2299,7 +2478,7 @@ pub async fn hero_synergies_stats(configuration: &configuration::Configuration, 
     }
 }
 
-///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn item_flow_stats(configuration: &configuration::Configuration, params: ItemFlowStatsParams) -> Result<models::ItemFlowStats, Error<ItemFlowStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/item-flow-stats", configuration.base_path);
@@ -2424,7 +2603,7 @@ pub async fn item_flow_stats(configuration: &configuration::Configuration, param
     }
 }
 
-///  Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn item_permutation_stats(configuration: &configuration::Configuration, params: ItemPermutationStatsParams) -> Result<Vec<models::ItemPermutationStats>, Error<ItemPermutationStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/item-permutation-stats", configuration.base_path);
@@ -2540,7 +2719,7 @@ pub async fn item_permutation_stats(configuration: &configuration::Configuration
     }
 }
 
-///  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn item_stats(configuration: &configuration::Configuration, params: ItemStatsParams) -> Result<Vec<models::ItemStats>, Error<ItemStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/item-stats", configuration.base_path);
@@ -2808,7 +2987,7 @@ pub async fn kill_death_stats(configuration: &configuration::Configuration, para
     }
 }
 
-///  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn lane_matchup_stats(configuration: &configuration::Configuration, params: LaneMatchupStatsParams) -> Result<Vec<models::LaneMatchupStats>, Error<LaneMatchupStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/lane-matchup-stats", configuration.base_path);
@@ -2909,7 +3088,7 @@ pub async fn lane_matchup_stats(configuration: &configuration::Configuration, pa
     }
 }
 
-///  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn lane_soul_curve(configuration: &configuration::Configuration, params: LaneSoulCurveParams) -> Result<Vec<models::LaneSoulCurve>, Error<LaneSoulCurveError>> {
 
     let uri_str = format!("{}/v1/analytics/lane-soul-curve", configuration.base_path);
@@ -3013,7 +3192,7 @@ pub async fn lane_soul_curve(configuration: &configuration::Configuration, param
     }
 }
 
-///  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn player_performance_curve(configuration: &configuration::Configuration, params: PlayerPerformanceCurveParams) -> Result<Vec<models::PlayerPerformanceCurvePoint>, Error<PlayerPerformanceCurveError>> {
 
     let uri_str = format!("{}/v1/analytics/player-performance-curve", configuration.base_path);
@@ -3222,7 +3401,7 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
     }
 }
 
-///  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<std::collections::HashMap<String, models::HashMapValue>, Error<PlayerStatsMetricsError>> {
 
     let uri_str = format!("{}/v1/analytics/player-stats/metrics", configuration.base_path);
@@ -3269,6 +3448,9 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
     }
     if let Some(ref param_value) = params.max_matches {
         req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

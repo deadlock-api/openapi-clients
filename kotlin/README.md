@@ -71,6 +71,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AccoladesApi* | [**getAccoladeByName**](docs/AccoladesApi.md#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name |
 | *AccoladesApi* | [**listAccolades**](docs/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades |
 | *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats |
+| *AnalyticsApi* | [**abilityOrderTree**](docs/AnalyticsApi.md#abilityordertree) | **GET** /v1/analytics/ability-order-tree | Ability Order Tree |
 | *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution |
 | *AnalyticsApi* | [**buffStats**](docs/AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats |
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
@@ -221,8 +222,10 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ActiveMatchMode](docs/ActiveMatchMode.md)
  - [deadlock_api_client.models.ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [deadlock_api_client.models.ActiveMatchTeam](docs/ActiveMatchTeam.md)
+ - [deadlock_api_client.models.ActiveMatchTeamStats](docs/ActiveMatchTeamStats.md)
  - [deadlock_api_client.models.AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [deadlock_api_client.models.AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [deadlock_api_client.models.AnalyticsAbilityOrderTreeNode](docs/AnalyticsAbilityOrderTreeNode.md)
  - [deadlock_api_client.models.AnalyticsBuffStats](docs/AnalyticsBuffStats.md)
  - [deadlock_api_client.models.AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [deadlock_api_client.models.AnalyticsHeroStats](docs/AnalyticsHeroStats.md)

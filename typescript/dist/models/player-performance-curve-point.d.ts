@@ -71,6 +71,10 @@ export interface PlayerPerformanceCurvePoint {
      */
     'game_time': number;
     /**
+     * Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.
+     */
+    'game_time_avg': number;
+    /**
      * Average souls earned from the Assassinate ability at this time point
      */
     'gold_ability_assassinate_avg': number;
@@ -278,6 +282,10 @@ export interface PlayerPerformanceCurvePoint {
      * Standard deviation of `player_healing_avg` at this time point
      */
     'player_healing_std': number;
+    /**
+     * Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often.
+     */
+    'samples': number;
     /**
      * Average self-inflicted damage at this time point
      */

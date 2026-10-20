@@ -25,6 +25,8 @@ pub struct ActiveMatch {
     pub game_mode_version: Option<Option<u32>>,
     #[serde(rename = "lobby_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub lobby_id: Option<Option<u64>>,
+    #[serde(rename = "low_pri_pool", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub low_pri_pool: Option<Option<bool>>,
     #[serde(rename = "match_id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub match_id: Option<Option<u64>>,
     #[serde(rename = "match_mode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -53,6 +55,8 @@ pub struct ActiveMatch {
     pub spectators: Option<Option<u32>>,
     #[serde(rename = "start_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub start_time: Option<Option<u32>>,
+    #[serde(rename = "team_stats")]
+    pub team_stats: Vec<models::ActiveMatchTeamStats>,
     #[serde(rename = "winning_team", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub winning_team: Option<Option<i32>>,
     #[serde(rename = "winning_team_parsed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -60,7 +64,7 @@ pub struct ActiveMatch {
 }
 
 impl ActiveMatch {
-    pub fn new(players: Vec<models::ActiveMatchPlayer>) -> ActiveMatch {
+    pub fn new(players: Vec<models::ActiveMatchPlayer>, team_stats: Vec<models::ActiveMatchTeamStats>) -> ActiveMatch {
         ActiveMatch {
             compat_version: None,
             duration_s: None,
@@ -68,6 +72,7 @@ impl ActiveMatch {
             game_mode_parsed: None,
             game_mode_version: None,
             lobby_id: None,
+            low_pri_pool: None,
             match_id: None,
             match_mode: None,
             match_mode_parsed: None,
@@ -82,6 +87,7 @@ impl ActiveMatch {
             region_mode_parsed: None,
             spectators: None,
             start_time: None,
+            team_stats,
             winning_team: None,
             winning_team_parsed: None,
         }

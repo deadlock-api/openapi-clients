@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **DeniesAvg** | **float64** | Average lane creeps denied at this time point | 
 **DeniesStd** | **float64** | Standard deviation of &#x60;denies_avg&#x60; at this time point | 
 **GameTime** | **int32** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**GameTimeAvg** | **float64** | Where in the match the stats snapshots of this point were taken on average, in the unit of &#x60;game_time&#x60;. Snapshots are taken every few minutes and at the end of the match, so with &#x60;resolution&#x60; &gt; 0 a point holds the snapshots from &#x60;game_time&#x60; up to the next point and this is usually about half a bucket later than &#x60;game_time&#x60;. Percentages are averaged from whole percents, so they can be off by a few tenths. | 
 **GoldAbilityAssassinateAvg** | **float64** | Average souls earned from the Assassinate ability at this time point | 
 **GoldAbilityAssassinateStd** | **float64** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | 
 **GoldAssistsAvg** | **float64** | Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;) | 
@@ -71,6 +72,7 @@ Name | Type | Description | Notes
 **PlayerDamageStd** | **float64** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
 **PlayerHealingAvg** | **float64** | Average healing done at this time point | 
 **PlayerHealingStd** | **float64** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | 
+**Samples** | **int64** | Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often. | 
 **SelfDamageAvg** | **float64** | Average self-inflicted damage at this time point | 
 **SelfDamageStd** | **float64** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | 
 
@@ -78,7 +80,7 @@ Name | Type | Description | Notes
 
 ### NewPlayerPerformanceCurvePoint
 
-`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerBarrieringAvg float64, playerBarrieringStd float64, playerDamageAvg float64, playerDamageStd float64, playerHealingAvg float64, playerHealingStd float64, selfDamageAvg float64, selfDamageStd float64, ) *PlayerPerformanceCurvePoint`
+`func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, gameTimeAvg float64, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerBarrieringAvg float64, playerBarrieringStd float64, playerDamageAvg float64, playerDamageStd float64, playerHealingAvg float64, playerHealingStd float64, samples int64, selfDamageAvg float64, selfDamageStd float64, ) *PlayerPerformanceCurvePoint`
 
 NewPlayerPerformanceCurvePoint instantiates a new PlayerPerformanceCurvePoint object
 This constructor will assign default values to properties that have it defined,
@@ -391,6 +393,26 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetGameTime(v int32)`
 
 SetGameTime sets GameTime field to given value.
+
+
+### GetGameTimeAvg
+
+`func (o *PlayerPerformanceCurvePoint) GetGameTimeAvg() float64`
+
+GetGameTimeAvg returns the GameTimeAvg field if non-nil, zero value otherwise.
+
+### GetGameTimeAvgOk
+
+`func (o *PlayerPerformanceCurvePoint) GetGameTimeAvgOk() (*float64, bool)`
+
+GetGameTimeAvgOk returns a tuple with the GameTimeAvg field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGameTimeAvg
+
+`func (o *PlayerPerformanceCurvePoint) SetGameTimeAvg(v float64)`
+
+SetGameTimeAvg sets GameTimeAvg field to given value.
 
 
 ### GetGoldAbilityAssassinateAvg
@@ -1461,6 +1483,26 @@ and a boolean to check if the value has been set.
 `func (o *PlayerPerformanceCurvePoint) SetPlayerHealingStd(v float64)`
 
 SetPlayerHealingStd sets PlayerHealingStd field to given value.
+
+
+### GetSamples
+
+`func (o *PlayerPerformanceCurvePoint) GetSamples() int64`
+
+GetSamples returns the Samples field if non-nil, zero value otherwise.
+
+### GetSamplesOk
+
+`func (o *PlayerPerformanceCurvePoint) GetSamplesOk() (*int64, bool)`
+
+GetSamplesOk returns a tuple with the Samples field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSamples
+
+`func (o *PlayerPerformanceCurvePoint) SetSamples(v int64)`
+
+SetSamples sets Samples field to given value.
 
 
 ### GetSelfDamageAvg

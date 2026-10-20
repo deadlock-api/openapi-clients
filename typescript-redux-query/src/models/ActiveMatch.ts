@@ -25,6 +25,9 @@ import {
     ActiveMatchTeam,
     ActiveMatchTeamFromJSON,
     ActiveMatchTeamToJSON,
+    ActiveMatchTeamStats,
+    ActiveMatchTeamStatsFromJSON,
+    ActiveMatchTeamStatsToJSON,
     RegionMode,
     RegionModeFromJSON,
     RegionModeToJSON,
@@ -72,6 +75,12 @@ export interface ActiveMatch  {
      * @memberof ActiveMatch
      */
     lobbyId?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ActiveMatch
+     */
+    lowPriPool?: boolean;
     /**
      * 
      * @type {number}
@@ -158,6 +167,12 @@ export interface ActiveMatch  {
     startTime?: number;
     /**
      * 
+     * @type {Array<ActiveMatchTeamStats>}
+     * @memberof ActiveMatch
+     */
+    teamStats: Array<ActiveMatchTeamStats>;
+    /**
+     * 
      * @type {number}
      * @memberof ActiveMatch
      */
@@ -178,6 +193,7 @@ export function ActiveMatchFromJSON(json: any): ActiveMatch {
         'gameModeParsed': !exists(json, 'game_mode_parsed') ? undefined : ActiveMatchGameModeFromJSON(json['game_mode_parsed']),
         'gameModeVersion': !exists(json, 'game_mode_version') ? undefined : json['game_mode_version'],
         'lobbyId': !exists(json, 'lobby_id') ? undefined : json['lobby_id'],
+        'lowPriPool': !exists(json, 'low_pri_pool') ? undefined : json['low_pri_pool'],
         'matchId': !exists(json, 'match_id') ? undefined : json['match_id'],
         'matchMode': !exists(json, 'match_mode') ? undefined : json['match_mode'],
         'matchModeParsed': !exists(json, 'match_mode_parsed') ? undefined : ActiveMatchModeFromJSON(json['match_mode_parsed']),
@@ -192,6 +208,7 @@ export function ActiveMatchFromJSON(json: any): ActiveMatch {
         'regionModeParsed': !exists(json, 'region_mode_parsed') ? undefined : RegionModeFromJSON(json['region_mode_parsed']),
         'spectators': !exists(json, 'spectators') ? undefined : json['spectators'],
         'startTime': !exists(json, 'start_time') ? undefined : json['start_time'],
+        'teamStats': (json['team_stats'] as Array<any>).map(ActiveMatchTeamStatsFromJSON),
         'winningTeam': !exists(json, 'winning_team') ? undefined : json['winning_team'],
         'winningTeamParsed': !exists(json, 'winning_team_parsed') ? undefined : ActiveMatchTeamFromJSON(json['winning_team_parsed']),
     };
@@ -208,6 +225,7 @@ export function ActiveMatchToJSON(value?: ActiveMatch): any {
         'game_mode_parsed': ActiveMatchGameModeToJSON(value.gameModeParsed),
         'game_mode_version': value.gameModeVersion,
         'lobby_id': value.lobbyId,
+        'low_pri_pool': value.lowPriPool,
         'match_id': value.matchId,
         'match_mode': value.matchMode,
         'match_mode_parsed': ActiveMatchModeToJSON(value.matchModeParsed),
@@ -222,6 +240,7 @@ export function ActiveMatchToJSON(value?: ActiveMatch): any {
         'region_mode_parsed': RegionModeToJSON(value.regionModeParsed),
         'spectators': value.spectators,
         'start_time': value.startTime,
+        'team_stats': (value.teamStats as Array<any>).map(ActiveMatchTeamStatsToJSON),
         'winning_team': value.winningTeam,
         'winning_team_parsed': ActiveMatchTeamToJSON(value.winningTeamParsed),
     };

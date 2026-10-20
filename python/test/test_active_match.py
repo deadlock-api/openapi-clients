@@ -41,6 +41,7 @@ class TestActiveMatch(unittest.TestCase):
                 game_mode_parsed = 'KECitadelGameModeInvalid',
                 game_mode_version = 0,
                 lobby_id = 0,
+                low_pri_pool = True,
                 match_id = 0,
                 match_mode = 56,
                 match_mode_parsed = 'Invalid',
@@ -62,6 +63,14 @@ class TestActiveMatch(unittest.TestCase):
                 region_mode_parsed = 'row',
                 spectators = 0,
                 start_time = 0,
+                team_stats = [
+                    deadlock_api_client.models.active_match_team_stats.ActiveMatchTeamStats(
+                        brawl_score = 0, 
+                        net_worth = 0, 
+                        objectives_mask = 0, 
+                        team = 56, 
+                        team_parsed = null, )
+                    ],
                 winning_team = 56,
                 winning_team_parsed = 'Team0'
             )
@@ -72,6 +81,14 @@ class TestActiveMatch(unittest.TestCase):
                         abandoned = True, 
                         account_id = 0, 
                         hero_id = 0, 
+                        team = 56, 
+                        team_parsed = null, )
+                    ],
+                team_stats = [
+                    deadlock_api_client.models.active_match_team_stats.ActiveMatchTeamStats(
+                        brawl_score = 0, 
+                        net_worth = 0, 
+                        objectives_mask = 0, 
                         team = 56, 
                         team_parsed = null, )
                     ],

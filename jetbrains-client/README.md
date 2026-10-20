@@ -18,6 +18,7 @@ Class | Method | HTTP request | Description
 *AccoladesApi* | [**getAccoladeByName**](Apis/AccoladesApi.http#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
 *AccoladesApi* | [**listAccolades**](Apis/AccoladesApi.http#listaccolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**abilityOrderStats**](Apis/AnalyticsApi.http#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+*AnalyticsApi* | [**abilityOrderTree**](Apis/AnalyticsApi.http#abilityordertree) | **GET** /v1/analytics/ability-order-tree | Ability Order Tree
 *AnalyticsApi* | [**badgeDistribution**](Apis/AnalyticsApi.http#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buffStats**](Apis/AnalyticsApi.http#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats
 *AnalyticsApi* | [**buildItemStats**](Apis/AnalyticsApi.http#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats

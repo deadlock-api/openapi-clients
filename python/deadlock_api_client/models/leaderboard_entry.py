@@ -31,7 +31,7 @@ class LeaderboardEntry(BaseModel):
     account_name: Optional[StrictStr] = Field(default=None, description="The account name of the player.")
     possible_account_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**")
     rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    top_hero_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
+    top_hero_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     __properties: ClassVar[List[str]] = ["account_name", "possible_account_ids", "rank", "top_hero_ids"]
 
     model_config = ConfigDict(

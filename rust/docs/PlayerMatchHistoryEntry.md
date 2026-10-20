@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **hero_level** | **u32** |  | 
 **last_hits** | **u32** |  | 
+**low_pri_pool** | Option<**bool**> | Whether the match was played in the low priority pool. `None` for entries stored before this was recorded. | [optional]
 **match_duration_s** | **u32** |  | 
 **match_id** | **u64** |  | 
 **match_mode** | **i32** |  | 

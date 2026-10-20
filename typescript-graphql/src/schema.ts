@@ -401,6 +401,8 @@ export interface MatchHistoryEntry {
     ranked_calibration_match: (Scalars['Int'] | null)
     /** Whether the player's demotion protection absorbed a loss in this match. */
     ranked_used_demotion_protection: (Scalars['Boolean'] | null)
+    /** Whether the match was played in the low priority pool. Null for entries stored before this was recorded. */
+    low_pri_pool: (Scalars['Boolean'] | null)
     /** Hero asset metadata for this entry's `hero_id` (latest version, English). */
     hero: (Hero | null)
     __typename: 'MatchHistoryEntry'
@@ -1362,6 +1364,8 @@ export interface MatchHistoryEntryGenqlSelection{
     ranked_calibration_match?: boolean | number
     /** Whether the player's demotion protection absorbed a loss in this match. */
     ranked_used_demotion_protection?: boolean | number
+    /** Whether the match was played in the low priority pool. Null for entries stored before this was recorded. */
+    low_pri_pool?: boolean | number
     /** Hero asset metadata for this entry's `hero_id` (latest version, English). */
     hero?: HeroGenqlSelection
     __typename?: boolean | number
@@ -1370,7 +1374,7 @@ export interface MatchHistoryEntryGenqlSelection{
 
 
 /** Filter input for the `match_history` query. Operations across fields are AND-ed. */
-export interface MatchHistoryWhere {account_id?: (U32Filter | null),match_id?: (U64Filter | null),hero_id?: (U32Filter | null),hero_level?: (U32Filter | null),start_time?: (I64Filter | null),game_mode?: (StringFilter | null),match_mode?: (StringFilter | null),player_team?: (StringFilter | null),player_kills?: (U32Filter | null),player_deaths?: (U32Filter | null),player_assists?: (U32Filter | null),denies?: (U32Filter | null),net_worth?: (U32Filter | null),last_hits?: (U32Filter | null),match_duration_s?: (U32Filter | null),match_result?: (U32Filter | null),won?: (BoolFilter | null),player_match_outcome?: (StringFilter | null),ranked_display_badge?: (U32Filter | null),ranked_delta?: (I32Filter | null),ranked_calibration_match?: (U32Filter | null),ranked_used_demotion_protection?: (BoolFilter | null)}
+export interface MatchHistoryWhere {account_id?: (U32Filter | null),match_id?: (U64Filter | null),hero_id?: (U32Filter | null),hero_level?: (U32Filter | null),start_time?: (I64Filter | null),game_mode?: (StringFilter | null),match_mode?: (StringFilter | null),player_team?: (StringFilter | null),player_kills?: (U32Filter | null),player_deaths?: (U32Filter | null),player_assists?: (U32Filter | null),denies?: (U32Filter | null),net_worth?: (U32Filter | null),last_hits?: (U32Filter | null),match_duration_s?: (U32Filter | null),match_result?: (U32Filter | null),won?: (BoolFilter | null),player_match_outcome?: (StringFilter | null),ranked_display_badge?: (U32Filter | null),ranked_delta?: (I32Filter | null),ranked_calibration_match?: (U32Filter | null),ranked_used_demotion_protection?: (BoolFilter | null),low_pri_pool?: (BoolFilter | null)}
 
 
 /**

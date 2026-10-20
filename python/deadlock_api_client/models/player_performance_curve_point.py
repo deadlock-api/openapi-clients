@@ -43,6 +43,7 @@ class PlayerPerformanceCurvePoint(BaseModel):
     denies_avg: Union[StrictFloat, StrictInt] = Field(description="Average lane creeps denied at this time point")
     denies_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `denies_avg` at this time point")
     game_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.")
+    game_time_avg: Union[StrictFloat, StrictInt] = Field(description="Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.")
     gold_ability_assassinate_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from the Assassinate ability at this time point")
     gold_ability_assassinate_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `gold_ability_assassinate_avg` at this time point")
     gold_assists_avg: Union[StrictFloat, StrictInt] = Field(description="Average souls earned from assists at this time point (part of `gold_player_avg`)")
@@ -95,9 +96,10 @@ class PlayerPerformanceCurvePoint(BaseModel):
     player_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `player_damage_avg` at this time point")
     player_healing_avg: Union[StrictFloat, StrictInt] = Field(description="Average healing done at this time point")
     player_healing_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `player_healing_avg` at this time point")
+    samples: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often.")
     self_damage_avg: Union[StrictFloat, StrictInt] = Field(description="Average self-inflicted damage at this time point")
     self_damage_std: Union[StrictFloat, StrictInt] = Field(description="Standard deviation of `self_damage_avg` at this time point")
-    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "boss_damage_avg", "boss_damage_std", "boss_kills_avg", "boss_kills_std", "creep_damage_avg", "creep_damage_std", "creep_kills_avg", "creep_kills_std", "deaths_avg", "deaths_std", "denies_avg", "denies_std", "game_time", "gold_ability_assassinate_avg", "gold_ability_assassinate_std", "gold_assists_avg", "gold_assists_std", "gold_boss_avg", "gold_boss_orb_avg", "gold_boss_orb_std", "gold_boss_std", "gold_breakable_avg", "gold_breakable_std", "gold_death_loss_avg", "gold_death_loss_std", "gold_denied_avg", "gold_denied_std", "gold_item_cultist_sacrifice_avg", "gold_item_cultist_sacrifice_std", "gold_item_goose_egg_avg", "gold_item_goose_egg_std", "gold_item_trophy_collector_avg", "gold_item_trophy_collector_std", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_lane_creep_orbs_std", "gold_lane_creep_std", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_neutral_creep_orbs_std", "gold_neutral_creep_std", "gold_player_avg", "gold_player_orbs_avg", "gold_player_orbs_std", "gold_player_std", "gold_team_bonus_avg", "gold_team_bonus_std", "gold_treasure_avg", "gold_treasure_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "neutral_damage_avg", "neutral_damage_std", "neutral_kills_avg", "neutral_kills_std", "permanent_buffs_avg", "permanent_buffs_std", "player_barriering_avg", "player_barriering_std", "player_damage_avg", "player_damage_std", "player_healing_avg", "player_healing_std", "self_damage_avg", "self_damage_std"]
+    __properties: ClassVar[List[str]] = ["assists_avg", "assists_std", "boss_damage_avg", "boss_damage_std", "boss_kills_avg", "boss_kills_std", "creep_damage_avg", "creep_damage_std", "creep_kills_avg", "creep_kills_std", "deaths_avg", "deaths_std", "denies_avg", "denies_std", "game_time", "game_time_avg", "gold_ability_assassinate_avg", "gold_ability_assassinate_std", "gold_assists_avg", "gold_assists_std", "gold_boss_avg", "gold_boss_orb_avg", "gold_boss_orb_std", "gold_boss_std", "gold_breakable_avg", "gold_breakable_std", "gold_death_loss_avg", "gold_death_loss_std", "gold_denied_avg", "gold_denied_std", "gold_item_cultist_sacrifice_avg", "gold_item_cultist_sacrifice_std", "gold_item_goose_egg_avg", "gold_item_goose_egg_std", "gold_item_trophy_collector_avg", "gold_item_trophy_collector_std", "gold_lane_creep_avg", "gold_lane_creep_orbs_avg", "gold_lane_creep_orbs_std", "gold_lane_creep_std", "gold_neutral_creep_avg", "gold_neutral_creep_orbs_avg", "gold_neutral_creep_orbs_std", "gold_neutral_creep_std", "gold_player_avg", "gold_player_orbs_avg", "gold_player_orbs_std", "gold_player_std", "gold_team_bonus_avg", "gold_team_bonus_std", "gold_treasure_avg", "gold_treasure_std", "kills_avg", "kills_std", "net_worth_avg", "net_worth_std", "neutral_damage_avg", "neutral_damage_std", "neutral_kills_avg", "neutral_kills_std", "permanent_buffs_avg", "permanent_buffs_std", "player_barriering_avg", "player_barriering_std", "player_damage_avg", "player_damage_std", "player_healing_avg", "player_healing_std", "samples", "self_damage_avg", "self_damage_std"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -175,6 +177,7 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "denies_avg": obj.get("denies_avg"),
             "denies_std": obj.get("denies_std"),
             "game_time": obj.get("game_time"),
+            "game_time_avg": obj.get("game_time_avg"),
             "gold_ability_assassinate_avg": obj.get("gold_ability_assassinate_avg"),
             "gold_ability_assassinate_std": obj.get("gold_ability_assassinate_std"),
             "gold_assists_avg": obj.get("gold_assists_avg"),
@@ -227,6 +230,7 @@ class PlayerPerformanceCurvePoint(BaseModel):
             "player_damage_std": obj.get("player_damage_std"),
             "player_healing_avg": obj.get("player_healing_avg"),
             "player_healing_std": obj.get("player_healing_std"),
+            "samples": obj.get("samples"),
             "self_damage_avg": obj.get("self_damage_avg"),
             "self_damage_std": obj.get("self_damage_std")
         })

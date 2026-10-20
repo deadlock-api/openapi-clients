@@ -84,6 +84,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for abilityOrderTree
+     *
+     * Ability Order Tree.
+     *
+     */
+    public function testAbilityOrderTree()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for badgeDistribution
      *
      * Badge Distribution.

@@ -27,6 +27,7 @@
 | **brawlAvgRoundTimeS** | **kotlin.Int** |  |  [optional] |
 | **brawlScoreTeam0** | **kotlin.Int** |  |  [optional] |
 | **brawlScoreTeam1** | **kotlin.Int** |  |  [optional] |
+| **lowPriPool** | **kotlin.Boolean** | Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded. |  [optional] |
 | **rankedCalibrationMatch** | **kotlin.Int** | Non-zero if this match counted towards the player&#39;s ranked calibration. |  [optional] |
 | **rankedDelta** | **kotlin.Int** | The ranked progress change the player got from this match. |  [optional] |
 | **rankedDisplayBadge** | **kotlin.Int** | The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; |  [optional] |

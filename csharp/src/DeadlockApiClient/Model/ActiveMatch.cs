@@ -34,12 +34,14 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="ActiveMatch" /> class.
         /// </summary>
         /// <param name="players">players</param>
+        /// <param name="teamStats">teamStats</param>
         /// <param name="compatVersion">compatVersion</param>
         /// <param name="durationS">durationS</param>
         /// <param name="gameMode">gameMode</param>
         /// <param name="gameModeParsed">gameModeParsed</param>
         /// <param name="gameModeVersion">gameModeVersion</param>
         /// <param name="lobbyId">lobbyId</param>
+        /// <param name="lowPriPool">lowPriPool</param>
         /// <param name="matchId">matchId</param>
         /// <param name="matchMode">matchMode</param>
         /// <param name="matchModeParsed">matchModeParsed</param>
@@ -56,15 +58,17 @@ namespace DeadlockApiClient.Model
         /// <param name="winningTeam">winningTeam</param>
         /// <param name="winningTeamParsed">winningTeamParsed</param>
         [JsonConstructor]
-        public ActiveMatch(List<ActiveMatchPlayer> players, Option<int?> compatVersion = default, Option<int?> durationS = default, Option<int?> gameMode = default, Option<ActiveMatchGameMode?> gameModeParsed = default, Option<int?> gameModeVersion = default, Option<long?> lobbyId = default, Option<long?> matchId = default, Option<int?> matchMode = default, Option<ActiveMatchMode?> matchModeParsed = default, Option<int?> matchScore = default, Option<int?> netWorthTeam0 = default, Option<int?> netWorthTeam1 = default, Option<long?> objectivesMaskTeam0 = default, Option<long?> objectivesMaskTeam1 = default, Option<int?> openSpectatorSlots = default, Option<int?> regionMode = default, Option<RegionMode?> regionModeParsed = default, Option<int?> spectators = default, Option<int?> startTime = default, Option<int?> winningTeam = default, Option<ActiveMatchTeam?> winningTeamParsed = default)
+        public ActiveMatch(List<ActiveMatchPlayer> players, List<ActiveMatchTeamStats> teamStats, Option<int?> compatVersion = default, Option<int?> durationS = default, Option<int?> gameMode = default, Option<ActiveMatchGameMode?> gameModeParsed = default, Option<int?> gameModeVersion = default, Option<long?> lobbyId = default, Option<bool?> lowPriPool = default, Option<long?> matchId = default, Option<int?> matchMode = default, Option<ActiveMatchMode?> matchModeParsed = default, Option<int?> matchScore = default, Option<int?> netWorthTeam0 = default, Option<int?> netWorthTeam1 = default, Option<long?> objectivesMaskTeam0 = default, Option<long?> objectivesMaskTeam1 = default, Option<int?> openSpectatorSlots = default, Option<int?> regionMode = default, Option<RegionMode?> regionModeParsed = default, Option<int?> spectators = default, Option<int?> startTime = default, Option<int?> winningTeam = default, Option<ActiveMatchTeam?> winningTeamParsed = default)
         {
             Players = players;
+            TeamStats = teamStats;
             CompatVersionOption = compatVersion;
             DurationSOption = durationS;
             GameModeOption = gameMode;
             GameModeParsedOption = gameModeParsed;
             GameModeVersionOption = gameModeVersion;
             LobbyIdOption = lobbyId;
+            LowPriPoolOption = lowPriPool;
             MatchIdOption = matchId;
             MatchModeOption = matchMode;
             MatchModeParsedOption = matchModeParsed;
@@ -144,6 +148,12 @@ namespace DeadlockApiClient.Model
         public List<ActiveMatchPlayer> Players { get; set; }
 
         /// <summary>
+        /// Gets or Sets TeamStats
+        /// </summary>
+        [JsonPropertyName("team_stats")]
+        public List<ActiveMatchTeamStats> TeamStats { get; set; }
+
+        /// <summary>
         /// Used to track the state of CompatVersion
         /// </summary>
         [JsonIgnore]
@@ -207,6 +217,19 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("lobby_id")]
         public long? LobbyId { get { return this.LobbyIdOption.Value; } set { this.LobbyIdOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of LowPriPool
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> LowPriPoolOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets LowPriPool
+        /// </summary>
+        [JsonPropertyName("low_pri_pool")]
+        public bool? LowPriPool { get { return this.LowPriPoolOption.Value; } set { this.LowPriPoolOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of MatchId
@@ -373,12 +396,14 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class ActiveMatch {\n");
             sb.Append("  Players: ").Append(Players).Append("\n");
+            sb.Append("  TeamStats: ").Append(TeamStats).Append("\n");
             sb.Append("  CompatVersion: ").Append(CompatVersion).Append("\n");
             sb.Append("  DurationS: ").Append(DurationS).Append("\n");
             sb.Append("  GameMode: ").Append(GameMode).Append("\n");
             sb.Append("  GameModeParsed: ").Append(GameModeParsed).Append("\n");
             sb.Append("  GameModeVersion: ").Append(GameModeVersion).Append("\n");
             sb.Append("  LobbyId: ").Append(LobbyId).Append("\n");
+            sb.Append("  LowPriPool: ").Append(LowPriPool).Append("\n");
             sb.Append("  MatchId: ").Append(MatchId).Append("\n");
             sb.Append("  MatchMode: ").Append(MatchMode).Append("\n");
             sb.Append("  MatchModeParsed: ").Append(MatchModeParsed).Append("\n");
@@ -520,12 +545,14 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<List<ActiveMatchPlayer>?> players = default;
+            Option<List<ActiveMatchTeamStats>?> teamStats = default;
             Option<int?> compatVersion = default;
             Option<int?> durationS = default;
             Option<int?> gameMode = default;
             Option<ActiveMatchGameMode?> gameModeParsed = default;
             Option<int?> gameModeVersion = default;
             Option<long?> lobbyId = default;
+            Option<bool?> lowPriPool = default;
             Option<long?> matchId = default;
             Option<int?> matchMode = default;
             Option<ActiveMatchMode?> matchModeParsed = default;
@@ -560,6 +587,9 @@ namespace DeadlockApiClient.Model
                         case "players":
                             players = new Option<List<ActiveMatchPlayer>?>(JsonSerializer.Deserialize<List<ActiveMatchPlayer>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "team_stats":
+                            teamStats = new Option<List<ActiveMatchTeamStats>?>(JsonSerializer.Deserialize<List<ActiveMatchTeamStats>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
                         case "compat_version":
                             compatVersion = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
@@ -577,6 +607,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "lobby_id":
                             lobbyId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
+                        case "low_pri_pool":
+                            lowPriPool = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "match_id":
                             matchId = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
@@ -632,10 +665,16 @@ namespace DeadlockApiClient.Model
             if (!players.IsSet)
                 throw new JsonException("Property is required for class ActiveMatch: players.");
 
+            if (!teamStats.IsSet)
+                throw new JsonException("Property is required for class ActiveMatch: team_stats.");
+
             if (players.IsSet && players.Value == null)
                 throw new JsonException("Property is not nullable for class ActiveMatch: players.");
 
-            return new ActiveMatch(players.Value!, compatVersion, durationS, gameMode, gameModeParsed, gameModeVersion, lobbyId, matchId, matchMode, matchModeParsed, matchScore, netWorthTeam0, netWorthTeam1, objectivesMaskTeam0, objectivesMaskTeam1, openSpectatorSlots, regionMode, regionModeParsed, spectators, startTime, winningTeam, winningTeamParsed);
+            if (teamStats.IsSet && teamStats.Value == null)
+                throw new JsonException("Property is not nullable for class ActiveMatch: team_stats.");
+
+            return new ActiveMatch(players.Value!, teamStats.Value!, compatVersion, durationS, gameMode, gameModeParsed, gameModeVersion, lobbyId, lowPriPool, matchId, matchMode, matchModeParsed, matchScore, netWorthTeam0, netWorthTeam1, objectivesMaskTeam0, objectivesMaskTeam1, openSpectatorSlots, regionMode, regionModeParsed, spectators, startTime, winningTeam, winningTeamParsed);
         }
 
         /// <summary>
@@ -662,6 +701,8 @@ namespace DeadlockApiClient.Model
         {
             writer.WritePropertyName("players");
             JsonSerializer.Serialize(writer, activeMatch.Players, jsonSerializerOptions);
+            writer.WritePropertyName("team_stats");
+            JsonSerializer.Serialize(writer, activeMatch.TeamStats, jsonSerializerOptions);
             if (activeMatch.CompatVersionOption.IsSet)
                 if (activeMatch.CompatVersionOption.Value != null)
                     writer.WriteNumber("compat_version", activeMatch.CompatVersionOption.Value!.Value);
@@ -699,6 +740,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("lobby_id", activeMatch.LobbyIdOption.Value!.Value);
                 else
                     writer.WriteNull("lobby_id");
+
+            if (activeMatch.LowPriPoolOption.IsSet)
+                if (activeMatch.LowPriPoolOption.Value != null)
+                    writer.WriteBoolean("low_pri_pool", activeMatch.LowPriPoolOption.Value!.Value);
+                else
+                    writer.WriteNull("low_pri_pool");
 
             if (activeMatch.MatchIdOption.IsSet)
                 if (activeMatch.MatchIdOption.Value != null)

@@ -363,6 +363,8 @@ export interface MatchHistoryEntry {
     ranked_calibration_match: (Scalars['Int'] | null);
     /** Whether the player's demotion protection absorbed a loss in this match. */
     ranked_used_demotion_protection: (Scalars['Boolean'] | null);
+    /** Whether the match was played in the low priority pool. Null for entries stored before this was recorded. */
+    low_pri_pool: (Scalars['Boolean'] | null);
     /** Hero asset metadata for this entry's `hero_id` (latest version, English). */
     hero: (Hero | null);
     __typename: 'MatchHistoryEntry';
@@ -1295,6 +1297,8 @@ export interface MatchHistoryEntryGenqlSelection {
     ranked_calibration_match?: boolean | number;
     /** Whether the player's demotion protection absorbed a loss in this match. */
     ranked_used_demotion_protection?: boolean | number;
+    /** Whether the match was played in the low priority pool. Null for entries stored before this was recorded. */
+    low_pri_pool?: boolean | number;
     /** Hero asset metadata for this entry's `hero_id` (latest version, English). */
     hero?: HeroGenqlSelection;
     __typename?: boolean | number;
@@ -1324,6 +1328,7 @@ export interface MatchHistoryWhere {
     ranked_delta?: (I32Filter | null);
     ranked_calibration_match?: (U32Filter | null);
     ranked_used_demotion_protection?: (BoolFilter | null);
+    low_pri_pool?: (BoolFilter | null);
 }
 /**
  * Field weights are row units (see `cost.rs`), measured per row with each row in its own

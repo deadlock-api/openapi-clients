@@ -56,8 +56,10 @@ api/Model/ActiveMatchGameMode.php
 api/Model/ActiveMatchMode.php
 api/Model/ActiveMatchPlayer.php
 api/Model/ActiveMatchTeam.php
+api/Model/ActiveMatchTeamStats.php
 api/Model/AddSteamAccountRequest.php
 api/Model/AnalyticsAbilityOrderStats.php
+api/Model/AnalyticsAbilityOrderTreeNode.php
 api/Model/AnalyticsBuffStats.php
 api/Model/AnalyticsGameStats.php
 api/Model/AnalyticsHeroStats.php
@@ -333,8 +335,10 @@ docs/Model/ActiveMatchGameMode.md
 docs/Model/ActiveMatchMode.md
 docs/Model/ActiveMatchPlayer.md
 docs/Model/ActiveMatchTeam.md
+docs/Model/ActiveMatchTeamStats.md
 docs/Model/AddSteamAccountRequest.md
 docs/Model/AnalyticsAbilityOrderStats.md
+docs/Model/AnalyticsAbilityOrderTreeNode.md
 docs/Model/AnalyticsBuffStats.md
 docs/Model/AnalyticsGameStats.md
 docs/Model/AnalyticsHeroStats.md
@@ -607,10 +611,12 @@ test/Model/AccountRankTest.php
 test/Model/ActiveMatchGameModeTest.php
 test/Model/ActiveMatchModeTest.php
 test/Model/ActiveMatchPlayerTest.php
+test/Model/ActiveMatchTeamStatsTest.php
 test/Model/ActiveMatchTeamTest.php
 test/Model/ActiveMatchTest.php
 test/Model/AddSteamAccountRequestTest.php
 test/Model/AnalyticsAbilityOrderStatsTest.php
+test/Model/AnalyticsAbilityOrderTreeNodeTest.php
 test/Model/AnalyticsBuffStatsTest.php
 test/Model/AnalyticsGameStatsTest.php
 test/Model/AnalyticsHeroStatsTest.php

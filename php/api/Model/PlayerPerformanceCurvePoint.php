@@ -72,6 +72,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => 'float',
         'denies_std' => 'float',
         'game_time' => 'int',
+        'game_time_avg' => 'float',
         'gold_ability_assassinate_avg' => 'float',
         'gold_ability_assassinate_std' => 'float',
         'gold_assists_avg' => 'float',
@@ -124,6 +125,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => 'float',
         'player_healing_avg' => 'float',
         'player_healing_std' => 'float',
+        'samples' => 'int',
         'self_damage_avg' => 'float',
         'self_damage_std' => 'float'
     ];
@@ -151,6 +153,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => 'double',
         'denies_std' => 'double',
         'game_time' => 'int32',
+        'game_time_avg' => 'double',
         'gold_ability_assassinate_avg' => 'double',
         'gold_ability_assassinate_std' => 'double',
         'gold_assists_avg' => 'double',
@@ -203,6 +206,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => 'double',
         'player_healing_avg' => 'double',
         'player_healing_std' => 'double',
+        'samples' => 'int64',
         'self_damage_avg' => 'double',
         'self_damage_std' => 'double'
     ];
@@ -228,6 +232,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => false,
         'denies_std' => false,
         'game_time' => false,
+        'game_time_avg' => false,
         'gold_ability_assassinate_avg' => false,
         'gold_ability_assassinate_std' => false,
         'gold_assists_avg' => false,
@@ -280,6 +285,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => false,
         'player_healing_avg' => false,
         'player_healing_std' => false,
+        'samples' => false,
         'self_damage_avg' => false,
         'self_damage_std' => false
     ];
@@ -385,6 +391,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => 'denies_avg',
         'denies_std' => 'denies_std',
         'game_time' => 'game_time',
+        'game_time_avg' => 'game_time_avg',
         'gold_ability_assassinate_avg' => 'gold_ability_assassinate_avg',
         'gold_ability_assassinate_std' => 'gold_ability_assassinate_std',
         'gold_assists_avg' => 'gold_assists_avg',
@@ -437,6 +444,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => 'player_damage_std',
         'player_healing_avg' => 'player_healing_avg',
         'player_healing_std' => 'player_healing_std',
+        'samples' => 'samples',
         'self_damage_avg' => 'self_damage_avg',
         'self_damage_std' => 'self_damage_std'
     ];
@@ -462,6 +470,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => 'setDeniesAvg',
         'denies_std' => 'setDeniesStd',
         'game_time' => 'setGameTime',
+        'game_time_avg' => 'setGameTimeAvg',
         'gold_ability_assassinate_avg' => 'setGoldAbilityAssassinateAvg',
         'gold_ability_assassinate_std' => 'setGoldAbilityAssassinateStd',
         'gold_assists_avg' => 'setGoldAssistsAvg',
@@ -514,6 +523,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => 'setPlayerDamageStd',
         'player_healing_avg' => 'setPlayerHealingAvg',
         'player_healing_std' => 'setPlayerHealingStd',
+        'samples' => 'setSamples',
         'self_damage_avg' => 'setSelfDamageAvg',
         'self_damage_std' => 'setSelfDamageStd'
     ];
@@ -539,6 +549,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'denies_avg' => 'getDeniesAvg',
         'denies_std' => 'getDeniesStd',
         'game_time' => 'getGameTime',
+        'game_time_avg' => 'getGameTimeAvg',
         'gold_ability_assassinate_avg' => 'getGoldAbilityAssassinateAvg',
         'gold_ability_assassinate_std' => 'getGoldAbilityAssassinateStd',
         'gold_assists_avg' => 'getGoldAssistsAvg',
@@ -591,6 +602,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         'player_damage_std' => 'getPlayerDamageStd',
         'player_healing_avg' => 'getPlayerHealingAvg',
         'player_healing_std' => 'getPlayerHealingStd',
+        'samples' => 'getSamples',
         'self_damage_avg' => 'getSelfDamageAvg',
         'self_damage_std' => 'getSelfDamageStd'
     ];
@@ -667,6 +679,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('denies_avg', $data ?? [], null);
         $this->setIfExists('denies_std', $data ?? [], null);
         $this->setIfExists('game_time', $data ?? [], null);
+        $this->setIfExists('game_time_avg', $data ?? [], null);
         $this->setIfExists('gold_ability_assassinate_avg', $data ?? [], null);
         $this->setIfExists('gold_ability_assassinate_std', $data ?? [], null);
         $this->setIfExists('gold_assists_avg', $data ?? [], null);
@@ -719,6 +732,7 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         $this->setIfExists('player_damage_std', $data ?? [], null);
         $this->setIfExists('player_healing_avg', $data ?? [], null);
         $this->setIfExists('player_healing_std', $data ?? [], null);
+        $this->setIfExists('samples', $data ?? [], null);
         $this->setIfExists('self_damage_avg', $data ?? [], null);
         $this->setIfExists('self_damage_std', $data ?? [], null);
     }
@@ -799,6 +813,9 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             $invalidProperties[] = "invalid value for 'game_time', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['game_time_avg'] === null) {
+            $invalidProperties[] = "'game_time_avg' can't be null";
+        }
         if ($this->container['gold_ability_assassinate_avg'] === null) {
             $invalidProperties[] = "'gold_ability_assassinate_avg' can't be null";
         }
@@ -949,6 +966,13 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['player_healing_std'] === null) {
             $invalidProperties[] = "'player_healing_std' can't be null";
         }
+        if ($this->container['samples'] === null) {
+            $invalidProperties[] = "'samples' can't be null";
+        }
+        if (($this->container['samples'] < 0)) {
+            $invalidProperties[] = "invalid value for 'samples', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['self_damage_avg'] === null) {
             $invalidProperties[] = "'self_damage_avg' can't be null";
         }
@@ -1375,6 +1399,33 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
         }
 
         $this->container['game_time'] = $game_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets game_time_avg
+     *
+     * @return float
+     */
+    public function getGameTimeAvg()
+    {
+        return $this->container['game_time_avg'];
+    }
+
+    /**
+     * Sets game_time_avg
+     *
+     * @param float $game_time_avg Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.
+     *
+     * @return self
+     */
+    public function setGameTimeAvg($game_time_avg)
+    {
+        if (is_null($game_time_avg)) {
+            throw new \InvalidArgumentException('non-nullable game_time_avg cannot be null');
+        }
+        $this->container['game_time_avg'] = $game_time_avg;
 
         return $this;
     }
@@ -2793,6 +2844,37 @@ class PlayerPerformanceCurvePoint implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable player_healing_std cannot be null');
         }
         $this->container['player_healing_std'] = $player_healing_std;
+
+        return $this;
+    }
+
+    /**
+     * Gets samples
+     *
+     * @return int
+     */
+    public function getSamples()
+    {
+        return $this->container['samples'];
+    }
+
+    /**
+     * Sets samples
+     *
+     * @param int $samples Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often.
+     *
+     * @return self
+     */
+    public function setSamples($samples)
+    {
+        if (is_null($samples)) {
+            throw new \InvalidArgumentException('non-nullable samples cannot be null');
+        }
+        if (($samples < 0)) {
+            throw new \InvalidArgumentException('invalid value for $samples when calling PlayerPerformanceCurvePoint., must be bigger than or equal to 0.');
+        }
+
+        $this->container['samples'] = $samples;
 
         return $this;
     }

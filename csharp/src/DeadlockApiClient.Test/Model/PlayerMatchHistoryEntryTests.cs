@@ -261,6 +261,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'LowPriPool'
+        /// </summary>
+        [Fact]
+        public void LowPriPoolTest()
+        {
+            // TODO unit test for the property 'LowPriPool'
+        }
+
+        /// <summary>
         /// Test the property 'RankedCalibrationMatch'
         /// </summary>
         [Fact]

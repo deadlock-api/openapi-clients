@@ -13,6 +13,7 @@ import type { ActiveMatchGameMode } from './active-match-game-mode.js';
 import type { ActiveMatchMode } from './active-match-mode.js';
 import type { ActiveMatchPlayer } from './active-match-player.js';
 import type { ActiveMatchTeam } from './active-match-team.js';
+import type { ActiveMatchTeamStats } from './active-match-team-stats.js';
 import type { RegionMode } from './region-mode.js';
 export interface ActiveMatch {
     'compat_version'?: number | null;
@@ -21,6 +22,7 @@ export interface ActiveMatch {
     'game_mode_parsed'?: ActiveMatchGameMode | null;
     'game_mode_version'?: number | null;
     'lobby_id'?: number | null;
+    'low_pri_pool'?: boolean | null;
     'match_id'?: number | null;
     'match_mode'?: number | null;
     'match_mode_parsed'?: ActiveMatchMode | null;
@@ -35,6 +37,7 @@ export interface ActiveMatch {
     'region_mode_parsed'?: RegionMode | null;
     'spectators'?: number | null;
     'start_time'?: number | null;
+    'team_stats': Array<ActiveMatchTeamStats>;
     'winning_team'?: number | null;
     'winning_team_parsed'?: ActiveMatchTeam | null;
 }

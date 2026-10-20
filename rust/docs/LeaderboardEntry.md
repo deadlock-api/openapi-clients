@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **account_name** | Option<**String**> | The account name of the player. | [optional]
 **possible_account_ids** | Option<**Vec<u32>**> | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | [optional]
 **rank** | Option<**u32**> | The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks> | [optional]
-**top_hero_ids** | Option<**Vec<u32>**> | The top hero IDs of the player. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [optional]
+**top_hero_ids** | Option<**Vec<u32>**> | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

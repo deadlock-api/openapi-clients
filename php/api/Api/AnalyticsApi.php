@@ -77,6 +77,9 @@ class AnalyticsApi
         'abilityOrderStats' => [
             'application/json',
         ],
+        'abilityOrderTree' => [
+            'application/json',
+        ],
         'badgeDistribution' => [
             'application/json',
         ],
@@ -208,7 +211,7 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -248,7 +251,7 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -355,7 +358,7 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -398,7 +401,7 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -470,7 +473,7 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_matches The minimum number of matches played for an ability order to be included in the response. (optional, default to 10)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
      * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
      * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
      * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -583,6 +586,675 @@ class AnalyticsApi
 
 
         $resourcePath = '/v1/analytics/ability-order-stats';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_id,
+            'hero_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $game_mode,
+            'game_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $match_mode,
+            'match_mode', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_unix_timestamp,
+            'min_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_unix_timestamp,
+            'max_unix_timestamp', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_duration_s,
+            'min_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_duration_s,
+            'max_duration_s', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_ability_upgrades,
+            'min_ability_upgrades', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_ability_upgrades,
+            'max_ability_upgrades', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_networth,
+            'min_networth', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_networth,
+            'max_networth', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_average_badge,
+            'min_average_badge', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_average_badge,
+            'max_average_badge', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_match_id,
+            'min_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $max_match_id,
+            'max_match_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_matches,
+            'min_matches', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_id,
+            'account_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_build_id,
+            'hero_build_id', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $include_item_ids,
+            'include_item_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $exclude_item_ids,
+            'exclude_item_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ability_order_prefix,
+            'ability_order_prefix', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $ability_unlock_order_prefix,
+            'ability_unlock_order_prefix', // param base name
+            'array', // openApiType
+            'form', // style
+            false, // explode
+            false // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation abilityOrderTree
+     *
+     * Ability Order Tree
+     *
+     * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789862400)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_ability_upgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $min_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $max_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['abilityOrderTree'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]
+     */
+    public function abilityOrderTree($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    {
+        list($response) = $this->abilityOrderTreeWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation abilityOrderTreeWithHttpInfo
+     *
+     * Ability Order Tree
+     *
+     * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789862400)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_ability_upgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $min_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $max_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['abilityOrderTree'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function abilityOrderTreeWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    {
+        $request = $this->abilityOrderTreeRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation abilityOrderTreeAsync
+     *
+     * Ability Order Tree
+     *
+     * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789862400)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_ability_upgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $min_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $max_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['abilityOrderTree'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function abilityOrderTreeAsync($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    {
+        return $this->abilityOrderTreeAsyncWithHttpInfo($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation abilityOrderTreeAsyncWithHttpInfo
+     *
+     * Ability Order Tree
+     *
+     * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789862400)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_ability_upgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $min_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $max_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['abilityOrderTree'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function abilityOrderTreeAsyncWithHttpInfo($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\AnalyticsAbilityOrderTreeNode[]';
+        $request = $this->abilityOrderTreeRequest($hero_id, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_ability_upgrades, $max_ability_upgrades, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_matches, $account_id, $account_ids, $hero_build_id, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'abilityOrderTree'
+     *
+     * @param  int $hero_id See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (required)
+     * @param  string|null $game_mode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param  string|null $match_mode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789862400)
+     * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param  int|null $min_ability_upgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $max_ability_upgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param  int|null $min_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $max_networth Filter players based on their final net worth. (optional)
+     * @param  int|null $min_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param  int|null $min_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $max_match_id Filter matches based on their ID. (optional)
+     * @param  int|null $min_matches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param  int|null $account_id Filter for matches with a specific player account ID. (optional) (deprecated)
+     * @param  int[]|null $account_ids Comma separated list of account ids to include (optional)
+     * @param  int|null $hero_build_id Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param  int[]|null $ability_unlock_order_prefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['abilityOrderTree'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function abilityOrderTreeRequest($hero_id, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_ability_upgrades = null, $max_ability_upgrades = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_matches = 10, $account_id = null, $account_ids = null, $hero_build_id = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, string $contentType = self::contentTypes['abilityOrderTree'][0])
+    {
+
+        // verify the required parameter 'hero_id' is set
+        if ($hero_id === null || (is_array($hero_id) && count($hero_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $hero_id when calling abilityOrderTree'
+            );
+        }
+        if ($hero_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_id" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+
+
+
+
+        if ($min_duration_s !== null && $min_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 7000.');
+        }
+        if ($min_duration_s !== null && $min_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_duration_s" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_duration_s !== null && $max_duration_s > 7000) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 7000.');
+        }
+        if ($max_duration_s !== null && $max_duration_s < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_duration_s" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_ability_upgrades !== null && $min_ability_upgrades > 16) {
+            throw new \InvalidArgumentException('invalid value for "$min_ability_upgrades" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 16.');
+        }
+        if ($min_ability_upgrades !== null && $min_ability_upgrades < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_ability_upgrades" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_ability_upgrades !== null && $max_ability_upgrades > 16) {
+            throw new \InvalidArgumentException('invalid value for "$max_ability_upgrades" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 16.');
+        }
+        if ($max_ability_upgrades !== null && $max_ability_upgrades < 1) {
+            throw new \InvalidArgumentException('invalid value for "$max_ability_upgrades" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 1.');
+        }
+        
+        if ($min_networth !== null && $min_networth < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_networth" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_networth !== null && $max_networth < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_networth" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_average_badge !== null && $min_average_badge > 116) {
+            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 116.');
+        }
+        if ($min_average_badge !== null && $min_average_badge < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_average_badge" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_average_badge !== null && $max_average_badge > 116) {
+            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling AnalyticsApi.abilityOrderTree, must be smaller than or equal to 116.');
+        }
+        if ($max_average_badge !== null && $max_average_badge < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_average_badge" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_match_id !== null && $min_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$min_match_id" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($max_match_id !== null && $max_match_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$max_match_id" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($min_matches !== null && $min_matches < 1) {
+            throw new \InvalidArgumentException('invalid value for "$min_matches" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 1.');
+        }
+        
+        if ($account_id !== null && $account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+        if ($account_ids !== null && count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.abilityOrderTree, number of items must be less than or equal to 1000.');
+        }
+        if ($account_ids !== null && count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling AnalyticsApi.abilityOrderTree, number of items must be greater than or equal to 1.');
+        }
+        
+        if ($hero_build_id !== null && $hero_build_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$hero_build_id" when calling AnalyticsApi.abilityOrderTree, must be bigger than or equal to 0.');
+        }
+        
+
+
+
+
+
+        $resourcePath = '/v1/analytics/ability-order-tree';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -5497,10 +6169,10 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
+     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -5537,10 +6209,10 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
+     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -5644,10 +6316,10 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
+     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -5687,10 +6359,10 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
+     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -5759,10 +6431,10 @@ class AnalyticsApi
      * @param  int|null $max_average_badge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
-     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range. (optional)
-     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
-     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history. (optional)
+     * @param  int|null $min_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
+     * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12395,6 +13067,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
+     * @param  int|null $min_matches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12407,9 +13080,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array<string,\OpenAPI\Client\Model\HashMapValue>
      */
-    public function playerStatsMetrics($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetrics($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $min_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
-        list($response) = $this->playerStatsMetricsWithHttpInfo($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
+        list($response) = $this->playerStatsMetricsWithHttpInfo($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $min_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
         return $response;
     }
 
@@ -12432,6 +13105,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
+     * @param  int|null $min_matches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12444,9 +13118,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of array<string,\OpenAPI\Client\Model\HashMapValue>, HTTP status code, HTTP response headers (array of strings)
      */
-    public function playerStatsMetricsWithHttpInfo($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsWithHttpInfo($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $min_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
-        $request = $this->playerStatsMetricsRequest($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
+        $request = $this->playerStatsMetricsRequest($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $min_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -12536,6 +13210,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
+     * @param  int|null $min_matches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12547,9 +13222,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsync($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsync($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $min_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
-        return $this->playerStatsMetricsAsyncWithHttpInfo($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType)
+        return $this->playerStatsMetricsAsyncWithHttpInfo($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $min_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -12576,6 +13251,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
+     * @param  int|null $min_matches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12587,10 +13263,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function playerStatsMetricsAsyncWithHttpInfo($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsAsyncWithHttpInfo($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $min_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
         $returnType = 'array<string,\OpenAPI\Client\Model\HashMapValue>';
-        $request = $this->playerStatsMetricsRequest($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
+        $request = $this->playerStatsMetricsRequest($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $min_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -12645,6 +13321,7 @@ class AnalyticsApi
      * @param  int|null $min_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_match_id Filter matches based on their ID. (optional)
      * @param  int|null $max_matches The maximum number of matches to analyze. (optional)
+     * @param  int|null $min_matches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -12656,7 +13333,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function playerStatsMetricsRequest($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
+    public function playerStatsMetricsRequest($hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1789862400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $min_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
 
 
@@ -12710,6 +13387,10 @@ class AnalyticsApi
         
         if ($max_matches !== null && $max_matches < 1) {
             throw new \InvalidArgumentException('invalid value for "$max_matches" when calling AnalyticsApi.playerStatsMetrics, must be bigger than or equal to 1.');
+        }
+        
+        if ($min_matches !== null && $min_matches < 1) {
+            throw new \InvalidArgumentException('invalid value for "$min_matches" when calling AnalyticsApi.playerStatsMetrics, must be bigger than or equal to 1.');
         }
         
 
@@ -12853,6 +13534,15 @@ class AnalyticsApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $max_matches,
             'max_matches', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $min_matches,
+            'min_matches', // param base name
             'integer', // openApiType
             'form', // style
             true, // explode

@@ -79,6 +79,12 @@ export interface PlayerMatchHistoryEntry  {
      */
     lastHits: number;
     /**
+     * Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+     * @type {boolean}
+     * @memberof PlayerMatchHistoryEntry
+     */
+    lowPriPool?: boolean;
+    /**
      * 
      * @type {number}
      * @memberof PlayerMatchHistoryEntry
@@ -194,6 +200,7 @@ export function PlayerMatchHistoryEntryFromJSON(json: any): PlayerMatchHistoryEn
         'heroId': json['hero_id'],
         'heroLevel': json['hero_level'],
         'lastHits': json['last_hits'],
+        'lowPriPool': !exists(json, 'low_pri_pool') ? undefined : json['low_pri_pool'],
         'matchDurationS': json['match_duration_s'],
         'matchId': json['match_id'],
         'matchMode': json['match_mode'],
@@ -229,6 +236,7 @@ export function PlayerMatchHistoryEntryToJSON(value?: PlayerMatchHistoryEntry): 
         'hero_id': value.heroId,
         'hero_level': value.heroLevel,
         'last_hits': value.lastHits,
+        'low_pri_pool': value.lowPriPool,
         'match_duration_s': value.matchDurationS,
         'match_id': value.matchId,
         'match_mode': value.matchMode,

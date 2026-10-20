@@ -67,6 +67,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => 'int',
         'hero_level' => 'int',
         'last_hits' => 'int',
+        'low_pri_pool' => 'bool',
         'match_duration_s' => 'int',
         'match_id' => 'int',
         'match_mode' => 'int',
@@ -104,6 +105,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => 'int32',
         'hero_level' => 'int32',
         'last_hits' => 'int32',
+        'low_pri_pool' => null,
         'match_duration_s' => 'int32',
         'match_id' => 'int64',
         'match_mode' => 'int32',
@@ -139,6 +141,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => false,
         'hero_level' => false,
         'last_hits' => false,
+        'low_pri_pool' => true,
         'match_duration_s' => false,
         'match_id' => false,
         'match_mode' => false,
@@ -254,6 +257,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => 'hero_id',
         'hero_level' => 'hero_level',
         'last_hits' => 'last_hits',
+        'low_pri_pool' => 'low_pri_pool',
         'match_duration_s' => 'match_duration_s',
         'match_id' => 'match_id',
         'match_mode' => 'match_mode',
@@ -289,6 +293,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => 'setHeroId',
         'hero_level' => 'setHeroLevel',
         'last_hits' => 'setLastHits',
+        'low_pri_pool' => 'setLowPriPool',
         'match_duration_s' => 'setMatchDurationS',
         'match_id' => 'setMatchId',
         'match_mode' => 'setMatchMode',
@@ -324,6 +329,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         'hero_id' => 'getHeroId',
         'hero_level' => 'getHeroLevel',
         'last_hits' => 'getLastHits',
+        'low_pri_pool' => 'getLowPriPool',
         'match_duration_s' => 'getMatchDurationS',
         'match_id' => 'getMatchId',
         'match_mode' => 'getMatchMode',
@@ -410,6 +416,7 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         $this->setIfExists('hero_id', $data ?? [], null);
         $this->setIfExists('hero_level', $data ?? [], null);
         $this->setIfExists('last_hits', $data ?? [], null);
+        $this->setIfExists('low_pri_pool', $data ?? [], null);
         $this->setIfExists('match_duration_s', $data ?? [], null);
         $this->setIfExists('match_id', $data ?? [], null);
         $this->setIfExists('match_mode', $data ?? [], null);
@@ -942,6 +949,40 @@ class PlayerMatchHistoryEntry implements ModelInterface, ArrayAccess, \JsonSeria
         }
 
         $this->container['last_hits'] = $last_hits;
+
+        return $this;
+    }
+
+    /**
+     * Gets low_pri_pool
+     *
+     * @return bool|null
+     */
+    public function getLowPriPool()
+    {
+        return $this->container['low_pri_pool'];
+    }
+
+    /**
+     * Sets low_pri_pool
+     *
+     * @param bool|null $low_pri_pool Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+     *
+     * @return self
+     */
+    public function setLowPriPool($low_pri_pool)
+    {
+        if (is_null($low_pri_pool)) {
+            array_push($this->openAPINullablesSetToNull, 'low_pri_pool');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('low_pri_pool', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['low_pri_pool'] = $low_pri_pool;
 
         return $this;
     }

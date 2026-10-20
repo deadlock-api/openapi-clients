@@ -134,6 +134,15 @@ class ActiveMatchTest extends TestCase
     }
 
     /**
+     * Test attribute "low_pri_pool"
+     */
+    public function testPropertyLowPriPool()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "match_id"
      */
     public function testPropertyMatchId()
@@ -254,6 +263,15 @@ class ActiveMatchTest extends TestCase
      * Test attribute "start_time"
      */
     public function testPropertyStartTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "team_stats"
+     */
+    public function testPropertyTeamStats()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

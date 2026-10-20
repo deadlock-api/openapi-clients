@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *AccoladesApi* | [**getAccoladeByName**](docs/Api/AccoladesApi.md#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
 *AccoladesApi* | [**listAccolades**](docs/Api/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**abilityOrderStats**](docs/Api/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+*AnalyticsApi* | [**abilityOrderTree**](docs/Api/AnalyticsApi.md#abilityordertree) | **GET** /v1/analytics/ability-order-tree | Ability Order Tree
 *AnalyticsApi* | [**badgeDistribution**](docs/Api/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buffStats**](docs/Api/AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats
 *AnalyticsApi* | [**buildItemStats**](docs/Api/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
@@ -247,8 +248,10 @@ Class | Method | HTTP request | Description
 - [ActiveMatchMode](docs/Model/ActiveMatchMode.md)
 - [ActiveMatchPlayer](docs/Model/ActiveMatchPlayer.md)
 - [ActiveMatchTeam](docs/Model/ActiveMatchTeam.md)
+- [ActiveMatchTeamStats](docs/Model/ActiveMatchTeamStats.md)
 - [AddSteamAccountRequest](docs/Model/AddSteamAccountRequest.md)
 - [AnalyticsAbilityOrderStats](docs/Model/AnalyticsAbilityOrderStats.md)
+- [AnalyticsAbilityOrderTreeNode](docs/Model/AnalyticsAbilityOrderTreeNode.md)
 - [AnalyticsBuffStats](docs/Model/AnalyticsBuffStats.md)
 - [AnalyticsGameStats](docs/Model/AnalyticsGameStats.md)
 - [AnalyticsHeroStats](docs/Model/AnalyticsHeroStats.md)

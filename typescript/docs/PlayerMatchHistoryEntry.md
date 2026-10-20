@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **hero_id** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 **hero_level** | **number** |  | [default to undefined]
 **last_hits** | **number** |  | [default to undefined]
+**low_pri_pool** | **boolean** | Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded. | [optional] [default to undefined]
 **match_duration_s** | **number** |  | [default to undefined]
 **match_id** | **number** |  | [default to undefined]
 **match_mode** | **number** |  | [default to undefined]
@@ -49,6 +50,7 @@ const instance: PlayerMatchHistoryEntry = {
     hero_id,
     hero_level,
     last_hits,
+    low_pri_pool,
     match_duration_s,
     match_id,
     match_mode,

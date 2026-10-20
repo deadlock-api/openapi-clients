@@ -50,6 +50,7 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 denies_avg = 1.337,
                 denies_std = 1.337,
                 game_time = 0,
+                game_time_avg = 1.337,
                 gold_ability_assassinate_avg = 1.337,
                 gold_ability_assassinate_std = 1.337,
                 gold_assists_avg = 1.337,
@@ -102,6 +103,7 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 player_damage_std = 1.337,
                 player_healing_avg = 1.337,
                 player_healing_std = 1.337,
+                samples = 0,
                 self_damage_avg = 1.337,
                 self_damage_std = 1.337
             )
@@ -122,6 +124,7 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 denies_avg = 1.337,
                 denies_std = 1.337,
                 game_time = 0,
+                game_time_avg = 1.337,
                 gold_ability_assassinate_avg = 1.337,
                 gold_ability_assassinate_std = 1.337,
                 gold_assists_avg = 1.337,
@@ -172,6 +175,7 @@ class TestPlayerPerformanceCurvePoint(unittest.TestCase):
                 player_damage_std = 1.337,
                 player_healing_avg = 1.337,
                 player_healing_std = 1.337,
+                samples = 0,
                 self_damage_avg = 1.337,
                 self_damage_std = 1.337,
         )

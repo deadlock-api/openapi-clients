@@ -23,6 +23,10 @@ export interface PlayerMatchHistoryEntry {
     'hero_id': number;
     'hero_level': number;
     'last_hits': number;
+    /**
+     * Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+     */
+    'low_pri_pool'?: boolean | null;
     'match_duration_s': number;
     'match_id': number;
     'match_mode': number;

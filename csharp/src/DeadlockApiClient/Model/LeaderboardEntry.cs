@@ -36,7 +36,7 @@ namespace DeadlockApiClient.Model
         /// <param name="accountName">The account name of the player.</param>
         /// <param name="possibleAccountIds">The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</param>
         /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
-        /// <param name="topHeroIds">The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="topHeroIds">The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         [JsonConstructor]
         public LeaderboardEntry(Option<string?> accountName = default, Option<List<int>?> possibleAccountIds = default, Option<int?> rank = default, Option<List<int>?> topHeroIds = default)
         {
@@ -99,9 +99,9 @@ namespace DeadlockApiClient.Model
         public Option<List<int>?> TopHeroIdsOption { get; private set; }
 
         /// <summary>
-        /// The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+        /// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
         /// </summary>
-        /// <value>The top hero IDs of the player. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
+        /// <value>The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
         [JsonPropertyName("top_hero_ids")]
         public List<int>? TopHeroIds { get { return this.TopHeroIdsOption.Value; } set { this.TopHeroIdsOption = new(value); } }
 

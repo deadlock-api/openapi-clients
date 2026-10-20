@@ -34,6 +34,9 @@ pub struct PlayerMatchHistoryEntry {
     pub hero_level: u32,
     #[serde(rename = "last_hits")]
     pub last_hits: u32,
+    /// Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+    #[serde(rename = "low_pri_pool", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub low_pri_pool: Option<Option<bool>>,
     #[serde(rename = "match_duration_s")]
     pub match_duration_s: u32,
     #[serde(rename = "match_id")]
@@ -88,6 +91,7 @@ impl PlayerMatchHistoryEntry {
             hero_id,
             hero_level,
             last_hits,
+            low_pri_pool: None,
             match_duration_s,
             match_id,
             match_mode,

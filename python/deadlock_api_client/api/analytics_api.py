@@ -19,6 +19,7 @@ from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
+from deadlock_api_client.models.analytics_ability_order_tree_node import AnalyticsAbilityOrderTreeNode
 from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats
 from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
@@ -77,7 +78,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
@@ -132,7 +133,7 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_matches: The minimum number of matches played for an ability order to be included in the response.
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -234,7 +235,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
@@ -289,7 +290,7 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_matches: The minimum number of matches played for an ability order to be included in the response.
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -391,7 +392,7 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order to be included in the response.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
         account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
         account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
         hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
@@ -446,7 +447,7 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_matches: The minimum number of matches played for an ability order to be included in the response.
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
         :type min_matches: int
         :param account_id: Filter for matches with a specific player account ID.
         :type account_id: int
@@ -691,6 +692,653 @@ class AnalyticsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/analytics/ability-order-stats',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def ability_order_tree(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=0)]], Field(description="Filter players based on their minimum number of ability upgrades over the whole match.")] = None,
+        max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[AnalyticsAbilityOrderTreeNode]:
+        """Ability Order Tree
+
+         Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
+        :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_ability_upgrades: Filter players based on their minimum number of ability upgrades over the whole match.
+        :type min_ability_upgrades: int
+        :param max_ability_upgrades: Filter players based on their maximum number of ability upgrades over the whole match.
+        :type max_ability_upgrades: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ability_order_tree_serialize(
+            hero_id=hero_id,
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_ability_upgrades=min_ability_upgrades,
+            max_ability_upgrades=max_ability_upgrades,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            hero_build_id=hero_build_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsAbilityOrderTreeNode]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def ability_order_tree_with_http_info(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=0)]], Field(description="Filter players based on their minimum number of ability upgrades over the whole match.")] = None,
+        max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[AnalyticsAbilityOrderTreeNode]]:
+        """Ability Order Tree
+
+         Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
+        :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_ability_upgrades: Filter players based on their minimum number of ability upgrades over the whole match.
+        :type min_ability_upgrades: int
+        :param max_ability_upgrades: Filter players based on their maximum number of ability upgrades over the whole match.
+        :type max_ability_upgrades: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ability_order_tree_serialize(
+            hero_id=hero_id,
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_ability_upgrades=min_ability_upgrades,
+            max_ability_upgrades=max_ability_upgrades,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            hero_build_id=hero_build_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsAbilityOrderTreeNode]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def ability_order_tree_without_preload_content(
+        self,
+        hero_id: Annotated[int, Field(strict=True, ge=0, description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")],
+        game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
+        match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
+        min_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.")] = None,
+        max_unix_timestamp: Annotated[Optional[StrictInt], Field(description="Filter matches based on their start time (Unix timestamp).")] = None,
+        min_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        max_duration_s: Annotated[Optional[Annotated[int, Field(le=7000, strict=True, ge=0)]], Field(description="Filter matches based on their duration in seconds (up to 7000s).")] = None,
+        min_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=0)]], Field(description="Filter players based on their minimum number of ability upgrades over the whole match.")] = None,
+        max_ability_upgrades: Annotated[Optional[Annotated[int, Field(le=16, strict=True, ge=1)]], Field(description="Filter players based on their maximum number of ability upgrades over the whole match.")] = None,
+        min_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        max_networth: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on their final net worth.")] = None,
+        min_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
+        min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.")] = None,
+        account_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter for matches with a specific player account ID.")] = None,
+        account_ids: Annotated[Optional[Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000)]], Field(description="Comma separated list of account ids to include")] = None,
+        hero_build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>")] = None,
+        include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
+        ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
+        ability_unlock_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Ability Order Tree
+
+         Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+
+        :param hero_id: See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
+        :type hero_id: int
+        :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+        :type game_mode: str
+        :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+        :type match_mode: str
+        :param min_unix_timestamp: Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+        :type min_unix_timestamp: int
+        :param max_unix_timestamp: Filter matches based on their start time (Unix timestamp).
+        :type max_unix_timestamp: int
+        :param min_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type min_duration_s: int
+        :param max_duration_s: Filter matches based on their duration in seconds (up to 7000s).
+        :type max_duration_s: int
+        :param min_ability_upgrades: Filter players based on their minimum number of ability upgrades over the whole match.
+        :type min_ability_upgrades: int
+        :param max_ability_upgrades: Filter players based on their maximum number of ability upgrades over the whole match.
+        :type max_ability_upgrades: int
+        :param min_networth: Filter players based on their final net worth.
+        :type min_networth: int
+        :param max_networth: Filter players based on their final net worth.
+        :type max_networth: int
+        :param min_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type min_average_badge: int
+        :param max_average_badge: Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+        :type max_average_badge: int
+        :param min_match_id: Filter matches based on their ID.
+        :type min_match_id: int
+        :param max_match_id: Filter matches based on their ID.
+        :type max_match_id: int
+        :param min_matches: The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+        :type min_matches: int
+        :param account_id: Filter for matches with a specific player account ID.
+        :type account_id: int
+        :param account_ids: Comma separated list of account ids to include
+        :type account_ids: List[int]
+        :param hero_build_id: Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        :type hero_build_id: int
+        :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type include_item_ids: List[int]
+        :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+        :type exclude_item_ids: List[int]
+        :param ability_order_prefix: Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+        :type ability_order_prefix: List[int]
+        :param ability_unlock_order_prefix: Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+        :type ability_unlock_order_prefix: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ability_order_tree_serialize(
+            hero_id=hero_id,
+            game_mode=game_mode,
+            match_mode=match_mode,
+            min_unix_timestamp=min_unix_timestamp,
+            max_unix_timestamp=max_unix_timestamp,
+            min_duration_s=min_duration_s,
+            max_duration_s=max_duration_s,
+            min_ability_upgrades=min_ability_upgrades,
+            max_ability_upgrades=max_ability_upgrades,
+            min_networth=min_networth,
+            max_networth=max_networth,
+            min_average_badge=min_average_badge,
+            max_average_badge=max_average_badge,
+            min_match_id=min_match_id,
+            max_match_id=max_match_id,
+            min_matches=min_matches,
+            account_id=account_id,
+            account_ids=account_ids,
+            hero_build_id=hero_build_id,
+            include_item_ids=include_item_ids,
+            exclude_item_ids=exclude_item_ids,
+            ability_order_prefix=ability_order_prefix,
+            ability_unlock_order_prefix=ability_unlock_order_prefix,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[AnalyticsAbilityOrderTreeNode]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ability_order_tree_serialize(
+        self,
+        hero_id,
+        game_mode,
+        match_mode,
+        min_unix_timestamp,
+        max_unix_timestamp,
+        min_duration_s,
+        max_duration_s,
+        min_ability_upgrades,
+        max_ability_upgrades,
+        min_networth,
+        max_networth,
+        min_average_badge,
+        max_average_badge,
+        min_match_id,
+        max_match_id,
+        min_matches,
+        account_id,
+        account_ids,
+        hero_build_id,
+        include_item_ids,
+        exclude_item_ids,
+        ability_order_prefix,
+        ability_unlock_order_prefix,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'account_ids': 'multi',
+            'include_item_ids': 'multi',
+            'exclude_item_ids': 'multi',
+            'ability_order_prefix': 'csv',
+            'ability_unlock_order_prefix': 'csv',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if hero_id is not None:
+            
+            _query_params.append(('hero_id', hero_id))
+            
+        if game_mode is not None:
+            
+            _query_params.append(('game_mode', game_mode))
+            
+        if match_mode is not None:
+            
+            _query_params.append(('match_mode', match_mode))
+            
+        if min_unix_timestamp is not None:
+            
+            _query_params.append(('min_unix_timestamp', min_unix_timestamp))
+            
+        if max_unix_timestamp is not None:
+            
+            _query_params.append(('max_unix_timestamp', max_unix_timestamp))
+            
+        if min_duration_s is not None:
+            
+            _query_params.append(('min_duration_s', min_duration_s))
+            
+        if max_duration_s is not None:
+            
+            _query_params.append(('max_duration_s', max_duration_s))
+            
+        if min_ability_upgrades is not None:
+            
+            _query_params.append(('min_ability_upgrades', min_ability_upgrades))
+            
+        if max_ability_upgrades is not None:
+            
+            _query_params.append(('max_ability_upgrades', max_ability_upgrades))
+            
+        if min_networth is not None:
+            
+            _query_params.append(('min_networth', min_networth))
+            
+        if max_networth is not None:
+            
+            _query_params.append(('max_networth', max_networth))
+            
+        if min_average_badge is not None:
+            
+            _query_params.append(('min_average_badge', min_average_badge))
+            
+        if max_average_badge is not None:
+            
+            _query_params.append(('max_average_badge', max_average_badge))
+            
+        if min_match_id is not None:
+            
+            _query_params.append(('min_match_id', min_match_id))
+            
+        if max_match_id is not None:
+            
+            _query_params.append(('max_match_id', max_match_id))
+            
+        if min_matches is not None:
+            
+            _query_params.append(('min_matches', min_matches))
+            
+        if account_id is not None:
+            
+            _query_params.append(('account_id', account_id))
+            
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
+            
+        if hero_build_id is not None:
+            
+            _query_params.append(('hero_build_id', hero_build_id))
+            
+        if include_item_ids is not None:
+            
+            _query_params.append(('include_item_ids', include_item_ids))
+            
+        if exclude_item_ids is not None:
+            
+            _query_params.append(('exclude_item_ids', exclude_item_ids))
+            
+        if ability_order_prefix is not None:
+            
+            _query_params.append(('ability_order_prefix', ability_order_prefix))
+            
+        if ability_unlock_order_prefix is not None:
+            
+            _query_params.append(('ability_unlock_order_prefix', ability_unlock_order_prefix))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/analytics/ability-order-tree',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1176,7 +1824,7 @@ class AnalyticsApi:
     ) -> List[AnalyticsBuffStats]:
         """Buff Stats
 
-         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -1297,7 +1945,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[AnalyticsBuffStats]]:
         """Buff Stats
 
-         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -1418,7 +2066,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Buff Stats
 
-         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -2545,7 +3193,7 @@ class AnalyticsApi:
     ) -> List[HeroBanStats]:
         """Hero Ban Stats
 
-         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -2650,7 +3298,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroBanStats]]:
         """Hero Ban Stats
 
-         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -2755,7 +3403,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Ban Stats
 
-         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -2974,7 +3622,7 @@ class AnalyticsApi:
     ) -> List[HeroBuildStats]:
         """Hero Build Stats
 
-         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -3111,7 +3759,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroBuildStats]]:
         """Hero Build Stats
 
-         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -3248,7 +3896,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Build Stats
 
-         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_id: The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> (required)
         :type hero_id: int
@@ -3535,7 +4183,7 @@ class AnalyticsApi:
     ) -> List[HeroCombStats]:
         """Hero Comb Stats
 
-         Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -3684,7 +4332,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroCombStats]]:
         """Hero Comb Stats
 
-         Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -3833,7 +4481,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Comb Stats
 
-         Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -4147,7 +4795,7 @@ class AnalyticsApi:
     ) -> List[HeroCounterStats]:
         """Hero Counter Stats
 
-         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -4292,7 +4940,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroCounterStats]]:
         """Hero Counter Stats
 
-         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -4437,7 +5085,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Counter Stats
 
-         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -5258,10 +5906,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -5311,13 +5959,13 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type max_hero_matches: int
-        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type min_hero_matches_total: int
-        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
@@ -5415,10 +6063,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -5468,13 +6116,13 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type max_hero_matches: int
-        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type min_hero_matches_total: int
-        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
@@ -5572,10 +6220,10 @@ class AnalyticsApi:
         max_average_badge: Annotated[Optional[Annotated[int, Field(le=116, strict=True, ge=0)]], Field(description="Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>")] = None,
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
-        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range.")] = None,
-        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
-        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history.")] = None,
+        min_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
+        min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -5625,13 +6273,13 @@ class AnalyticsApi:
         :type min_match_id: int
         :param max_match_id: Filter matches based on their ID.
         :type max_match_id: int
-        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param min_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type min_hero_matches: int
-        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range.
+        :param max_hero_matches: Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
         :type max_hero_matches: int
-        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param min_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type min_hero_matches_total: int
-        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history.
+        :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
@@ -5917,7 +6565,7 @@ class AnalyticsApi:
     ) -> List[HeroSwapStats]:
         """Hero Swap Stats
 
-         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -6022,7 +6670,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroSwapStats]]:
         """Hero Swap Stats
 
-         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -6127,7 +6775,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Swap Stats
 
-         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param match_mode: Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
         :type match_mode: str
@@ -6345,7 +6993,7 @@ class AnalyticsApi:
     ) -> List[HeroSynergyStats]:
         """Hero Synergy Stats
 
-         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -6478,7 +7126,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[HeroSynergyStats]]:
         """Hero Synergy Stats
 
-         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -6611,7 +7259,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Hero Synergy Stats
 
-         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -6892,7 +7540,7 @@ class AnalyticsApi:
     ) -> ItemFlowStats:
         """Item Flow Stats
 
-         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param phase_interval_s: Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds.
         :type phase_interval_s: int
@@ -7049,7 +7697,7 @@ class AnalyticsApi:
     ) -> ApiResponse[ItemFlowStats]:
         """Item Flow Stats
 
-         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param phase_interval_s: Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds.
         :type phase_interval_s: int
@@ -7206,7 +7854,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Item Flow Stats
 
-         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param phase_interval_s: Deprecated/unused. `normal` mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; `street_brawl` columns are rounds.
         :type phase_interval_s: int
@@ -7541,7 +8189,7 @@ class AnalyticsApi:
     ) -> List[ItemPermutationStats]:
         """Item Permutation Stats
 
-         Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
@@ -7698,7 +8346,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[ItemPermutationStats]]:
         """Item Permutation Stats
 
-         Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
@@ -7855,7 +8503,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Item Permutation Stats
 
-         Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param item_ids: Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>
         :type item_ids: List[int]
@@ -8199,7 +8847,7 @@ class AnalyticsApi:
     ) -> List[ItemStats]:
         """Item Stats
 
-         Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
@@ -8404,7 +9052,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[ItemStats]]:
         """Item Stats
 
-         Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
@@ -8609,7 +9257,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Item Stats
 
-         Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param bucket: Bucket allows you to group the stats by a specific field.
         :type bucket: str
@@ -9695,7 +10343,7 @@ class AnalyticsApi:
     ) -> List[LaneMatchupStats]:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -9836,7 +10484,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[LaneMatchupStats]]:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -9977,7 +10625,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Lane Matchup Stats (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -10273,7 +10921,7 @@ class AnalyticsApi:
     ) -> List[LaneSoulCurve]:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -10418,7 +11066,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[LaneSoulCurve]]:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -10563,7 +11211,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Lane Soul Curve (Subject to Change)
 
-         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
         :type game_mode: str
@@ -10867,7 +11515,7 @@ class AnalyticsApi:
     ) -> List[PlayerPerformanceCurvePoint]:
         """Player Performance Curve
 
-         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
@@ -11012,7 +11660,7 @@ class AnalyticsApi:
     ) -> ApiResponse[List[PlayerPerformanceCurvePoint]]:
         """Player Performance Curve
 
-         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
@@ -11157,7 +11805,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Player Performance Curve
 
-         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param resolution: Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds).
         :type resolution: int
@@ -12051,6 +12699,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -12072,7 +12721,7 @@ class AnalyticsApi:
     ) -> Dict[str, HashMapValue]:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
@@ -12102,6 +12751,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
+        :param min_matches: The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.
+        :type min_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -12151,6 +12802,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             max_matches=max_matches,
+            min_matches=min_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -12196,6 +12848,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -12217,7 +12870,7 @@ class AnalyticsApi:
     ) -> ApiResponse[Dict[str, HashMapValue]]:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
@@ -12247,6 +12900,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
+        :param min_matches: The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.
+        :type min_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -12296,6 +12951,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             max_matches=max_matches,
+            min_matches=min_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -12341,6 +12997,7 @@ class AnalyticsApi:
         min_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_match_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter matches based on their ID.")] = None,
         max_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The maximum number of matches to analyze.")] = None,
+        min_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -12362,7 +13019,7 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+         Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
@@ -12392,6 +13049,8 @@ class AnalyticsApi:
         :type max_match_id: int
         :param max_matches: The maximum number of matches to analyze.
         :type max_matches: int
+        :param min_matches: The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.
+        :type min_matches: int
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -12441,6 +13100,7 @@ class AnalyticsApi:
             min_match_id=min_match_id,
             max_match_id=max_match_id,
             max_matches=max_matches,
+            min_matches=min_matches,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -12481,6 +13141,7 @@ class AnalyticsApi:
         min_match_id,
         max_match_id,
         max_matches,
+        min_matches,
         include_item_ids,
         exclude_item_ids,
         ability_order_prefix,
@@ -12569,6 +13230,10 @@ class AnalyticsApi:
         if max_matches is not None:
             
             _query_params.append(('max_matches', max_matches))
+            
+        if min_matches is not None:
+            
+            _query_params.append(('min_matches', min_matches))
             
         if include_item_ids is not None:
             

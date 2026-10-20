@@ -171,6 +171,12 @@ class PlayerMatchHistoryEntryTest : ShouldSpec() {
             //modelInstance.brawlScoreTeam1 shouldBe ("TODO")
         }
 
+        // to test the property `lowPriPool` - Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
+        should("test lowPriPool") {
+            // uncomment below to test the property
+            //modelInstance.lowPriPool shouldBe ("TODO")
+        }
+
         // to test the property `rankedCalibrationMatch` - Non-zero if this match counted towards the player's ranked calibration.
         should("test rankedCalibrationMatch") {
             // uncomment below to test the property

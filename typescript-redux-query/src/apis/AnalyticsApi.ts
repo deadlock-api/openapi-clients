@@ -18,6 +18,9 @@ import {
     AnalyticsAbilityOrderStats,
     AnalyticsAbilityOrderStatsFromJSON,
     AnalyticsAbilityOrderStatsToJSON,
+    AnalyticsAbilityOrderTreeNode,
+    AnalyticsAbilityOrderTreeNodeFromJSON,
+    AnalyticsAbilityOrderTreeNodeToJSON,
     AnalyticsBuffStats,
     AnalyticsBuffStatsFromJSON,
     AnalyticsBuffStatsToJSON,
@@ -86,6 +89,32 @@ import {
 export interface AbilityOrderStatsRequest {
     heroId: number;
     gameMode?: AbilityOrderStatsGameModeEnum;
+    matchMode?: string;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAbilityUpgrades?: number;
+    maxAbilityUpgrades?: number;
+    minNetworth?: number;
+    maxNetworth?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    minMatches?: number;
+    accountId?: number;
+    accountIds?: Array<number>;
+    heroBuildId?: number;
+    includeItemIds?: Array<number>;
+    excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
+}
+
+export interface AbilityOrderTreeRequest {
+    heroId: number;
+    gameMode?: AbilityOrderTreeGameModeEnum;
     matchMode?: string;
     minUnixTimestamp?: number;
     maxUnixTimestamp?: number;
@@ -552,6 +581,7 @@ export interface PlayerStatsMetricsRequest {
     minMatchId?: number;
     maxMatchId?: number;
     maxMatches?: number;
+    minMatches?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
@@ -726,6 +756,170 @@ export function abilityOrderStats<T>(requestParameters: AbilityOrderStatsRequest
 }
 
 /**
+ *  Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node\'s parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ * Ability Order Tree
+ */
+function abilityOrderTreeRaw<T>(requestParameters: AbilityOrderTreeRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityOrderTreeNode>> = {}): QueryConfig<T> {
+    if (requestParameters.heroId === null || requestParameters.heroId === undefined) {
+        throw new runtime.RequiredError('heroId','Required parameter requestParameters.heroId was null or undefined when calling abilityOrderTree.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.heroId !== undefined) {
+        queryParameters['hero_id'] = requestParameters.heroId;
+    }
+
+
+    if (requestParameters.gameMode !== undefined) {
+        queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAbilityUpgrades !== undefined) {
+        queryParameters['min_ability_upgrades'] = requestParameters.minAbilityUpgrades;
+    }
+
+
+    if (requestParameters.maxAbilityUpgrades !== undefined) {
+        queryParameters['max_ability_upgrades'] = requestParameters.maxAbilityUpgrades;
+    }
+
+
+    if (requestParameters.minNetworth !== undefined) {
+        queryParameters['min_networth'] = requestParameters.minNetworth;
+    }
+
+
+    if (requestParameters.maxNetworth !== undefined) {
+        queryParameters['max_networth'] = requestParameters.maxNetworth;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.accountId !== undefined) {
+        queryParameters['account_id'] = requestParameters.accountId;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
+    }
+
+
+    if (requestParameters.includeItemIds) {
+        queryParameters['include_item_ids'] = requestParameters.includeItemIds;
+    }
+
+
+    if (requestParameters.excludeItemIds) {
+        queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/ability-order-tree`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(AnalyticsAbilityOrderTreeNodeFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node\'s parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+* Ability Order Tree
+*/
+export function abilityOrderTree<T>(requestParameters: AbilityOrderTreeRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityOrderTreeNode>>): QueryConfig<T> {
+    return abilityOrderTreeRaw(requestParameters, requestConfig);
+}
+
+/**
  *  This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Badge Distribution
  */
@@ -826,7 +1020,7 @@ export function badgeDistribution<T>(requestParameters: BadgeDistributionRequest
 }
 
 /**
- *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Buff Stats
  */
 function buffStatsRaw<T>(requestParameters: BuffStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsBuffStats>> = {}): QueryConfig<T> {
@@ -933,7 +1127,7 @@ function buffStatsRaw<T>(requestParameters: BuffStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Buff Stats
 */
 export function buffStats<T>(requestParameters: BuffStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsBuffStats>>): QueryConfig<T> {
@@ -1141,7 +1335,7 @@ export function gameStats<T>(requestParameters: GameStatsRequest, requestConfig?
 }
 
 /**
- *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero\'s ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero\'s ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Ban Stats
  */
 function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBanStats>> = {}): QueryConfig<T> {
@@ -1228,7 +1422,7 @@ function heroBanStatsRaw<T>(requestParameters: HeroBanStatsRequest, requestConfi
 }
 
 /**
-*  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero\'s ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero\'s ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Ban Stats
 */
 export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBanStats>>): QueryConfig<T> {
@@ -1236,7 +1430,7 @@ export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestC
 }
 
 /**
- *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Build Stats
  */
 function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBuildStats>> = {}): QueryConfig<T> {
@@ -1362,7 +1556,7 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 }
 
 /**
-*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Build Stats
 */
 export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBuildStats>>): QueryConfig<T> {
@@ -1370,7 +1564,7 @@ export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requ
 }
 
 /**
- *  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Comb Stats
  */
 function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroCombStats>> = {}): QueryConfig<T> {
@@ -1512,7 +1706,7 @@ function heroCombStatsRaw<T>(requestParameters: HeroCombStatsRequest, requestCon
 }
 
 /**
-*  Retrieves overall statistics for each hero combination.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Comb Stats
 */
 export function heroCombStats<T>(requestParameters: HeroCombStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroCombStats>>): QueryConfig<T> {
@@ -1520,7 +1714,7 @@ export function heroCombStats<T>(requestParameters: HeroCombStatsRequest, reques
 }
 
 /**
- *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Counter Stats
  */
 function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroCounterStats>> = {}): QueryConfig<T> {
@@ -1657,7 +1851,7 @@ function heroCountersStatsRaw<T>(requestParameters: HeroCountersStatsRequest, re
 }
 
 /**
-*  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Counter Stats
 */
 export function heroCountersStats<T>(requestParameters: HeroCountersStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroCounterStats>>): QueryConfig<T> {
@@ -1959,7 +2153,7 @@ export function heroStats<T>(requestParameters: HeroStatsRequest, requestConfig?
 }
 
 /**
- *  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Swap Stats
  */
 function heroSwapStatsRaw<T>(requestParameters: HeroSwapStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroSwapStats>> = {}): QueryConfig<T> {
@@ -2046,7 +2240,7 @@ function heroSwapStatsRaw<T>(requestParameters: HeroSwapStatsRequest, requestCon
 }
 
 /**
-*  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **6 hours** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero\'s players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Swap Stats
 */
 export function heroSwapStats<T>(requestParameters: HeroSwapStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroSwapStats>>): QueryConfig<T> {
@@ -2054,7 +2248,7 @@ export function heroSwapStats<T>(requestParameters: HeroSwapStatsRequest, reques
 }
 
 /**
- *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Hero Synergy Stats
  */
 function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroSynergyStats>> = {}): QueryConfig<T> {
@@ -2176,7 +2370,7 @@ function heroSynergiesStatsRaw<T>(requestParameters: HeroSynergiesStatsRequest, 
 }
 
 /**
-*  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Hero Synergy Stats
 */
 export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroSynergyStats>>): QueryConfig<T> {
@@ -2184,7 +2378,7 @@ export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsReque
 }
 
 /**
- *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Flow Stats
  */
 function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestConfig: runtime.TypedQueryConfig<T, ItemFlowStats> = {}): QueryConfig<T> {
@@ -2336,7 +2530,7 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
 }
 
 /**
-*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **6 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Flow Stats
 */
 export function itemFlowStats<T>(requestParameters: ItemFlowStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, ItemFlowStats>): QueryConfig<T> {
@@ -2344,7 +2538,7 @@ export function itemFlowStats<T>(requestParameters: ItemFlowStatsRequest, reques
 }
 
 /**
- *  Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Permutation Stats
  */
 function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ItemPermutationStats>> = {}): QueryConfig<T> {
@@ -2496,7 +2690,7 @@ function itemPermutationStatsRaw<T>(requestParameters: ItemPermutationStatsReque
 }
 
 /**
-*  Retrieves item permutation statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Permutation Stats
 */
 export function itemPermutationStats<T>(requestParameters: ItemPermutationStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ItemPermutationStats>>): QueryConfig<T> {
@@ -2504,7 +2698,7 @@ export function itemPermutationStats<T>(requestParameters: ItemPermutationStatsR
 }
 
 /**
- *  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Stats
  */
 function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ItemStats>> = {}): QueryConfig<T> {
@@ -2716,7 +2910,7 @@ function itemStatsRaw<T>(requestParameters: ItemStatsRequest, requestConfig: run
 }
 
 /**
-*  Retrieves item statistics based on historical match data.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Stats
 */
 export function itemStats<T>(requestParameters: ItemStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ItemStats>>): QueryConfig<T> {
@@ -2889,7 +3083,7 @@ export function killDeathStats<T>(requestParameters: KillDeathStatsRequest, requ
 }
 
 /**
- *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Lane Matchup Stats (Subject to Change)
  */
 function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>> = {}): QueryConfig<T> {
@@ -3021,7 +3215,7 @@ function laneMatchupStatsRaw<T>(requestParameters: LaneMatchupStatsRequest, requ
 }
 
 /**
-*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game\'s recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Lane Matchup Stats (Subject to Change)
 */
 export function laneMatchupStats<T>(requestParameters: LaneMatchupStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<LaneMatchupStats>>): QueryConfig<T> {
@@ -3029,7 +3223,7 @@ export function laneMatchupStats<T>(requestParameters: LaneMatchupStatsRequest, 
 }
 
 /**
- *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Lane Soul Curve (Subject to Change)
  */
 function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<LaneSoulCurve>> = {}): QueryConfig<T> {
@@ -3166,7 +3360,7 @@ function laneSoulCurveRaw<T>(requestParameters: LaneSoulCurveRequest, requestCon
 }
 
 /**
-*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **6 hours** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo\'s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo\'s own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo\'s curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Lane Soul Curve (Subject to Change)
 */
 export function laneSoulCurve<T>(requestParameters: LaneSoulCurveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<LaneSoulCurve>>): QueryConfig<T> {
@@ -3174,7 +3368,7 @@ export function laneSoulCurve<T>(requestParameters: LaneSoulCurveRequest, reques
 }
 
 /**
- *  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Performance Curve
  */
 function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>> = {}): QueryConfig<T> {
@@ -3311,7 +3505,7 @@ function playerPerformanceCurveRaw<T>(requestParameters: PlayerPerformanceCurveR
 }
 
 /**
-*  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **12 hours** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Performance Curve
 */
 export function playerPerformanceCurve<T>(requestParameters: PlayerPerformanceCurveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerPerformanceCurvePoint>>): QueryConfig<T> {
@@ -3473,7 +3667,7 @@ export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, 
 }
 
 /**
- *  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Stats Metrics
  */
 function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }> = {}): QueryConfig<T> {
@@ -3552,6 +3746,11 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
     }
 
 
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
     if (requestParameters.includeItemIds) {
         queryParameters['include_item_ids'] = requestParameters.includeItemIds;
     }
@@ -3610,7 +3809,7 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 }
 
 /**
-*  Returns comprehensive statistical analysis of player performance.  Results are cached for **6 hours** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Stats Metrics
 */
 export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }>): QueryConfig<T> {
@@ -3623,6 +3822,16 @@ export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsReque
     * @enum {string}
     */
 export enum AbilityOrderStatsGameModeEnum {
+    Normal = 'normal',
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AbilityOrderTreeGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',

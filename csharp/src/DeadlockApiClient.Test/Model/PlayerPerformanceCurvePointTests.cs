@@ -189,6 +189,15 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'GameTimeAvg'
+        /// </summary>
+        [Fact]
+        public void GameTimeAvgTest()
+        {
+            // TODO unit test for the property 'GameTimeAvg'
+        }
+
+        /// <summary>
         /// Test the property 'GoldAbilityAssassinateAvg'
         /// </summary>
         [Fact]
@@ -636,6 +645,15 @@ namespace DeadlockApiClient.Test.Model
         public void PlayerHealingStdTest()
         {
             // TODO unit test for the property 'PlayerHealingStd'
+        }
+
+        /// <summary>
+        /// Test the property 'Samples'
+        /// </summary>
+        [Fact]
+        public void SamplesTest()
+        {
+            // TODO unit test for the property 'Samples'
         }
 
         /// <summary>

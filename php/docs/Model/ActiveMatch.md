@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **game_mode_parsed** | [**\OpenAPI\Client\Model\ActiveMatchGameMode**](ActiveMatchGameMode.md) |  | [optional]
 **game_mode_version** | **int** |  | [optional]
 **lobby_id** | **int** |  | [optional]
+**low_pri_pool** | **bool** |  | [optional]
 **match_id** | **int** |  | [optional]
 **match_mode** | **int** |  | [optional]
 **match_mode_parsed** | [**\OpenAPI\Client\Model\ActiveMatchMode**](ActiveMatchMode.md) |  | [optional]
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **region_mode_parsed** | [**\OpenAPI\Client\Model\RegionMode**](RegionMode.md) |  | [optional]
 **spectators** | **int** |  | [optional]
 **start_time** | **int** |  | [optional]
+**team_stats** | [**\OpenAPI\Client\Model\ActiveMatchTeamStats[]**](ActiveMatchTeamStats.md) |  |
 **winning_team** | **int** |  | [optional]
 **winning_team_parsed** | [**\OpenAPI\Client\Model\ActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional]
 

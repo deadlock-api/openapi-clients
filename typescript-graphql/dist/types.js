@@ -934,6 +934,9 @@ export default {
             "ranked_used_demotion_protection": [
                 8
             ],
+            "low_pri_pool": [
+                8
+            ],
             "hero": [
                 19
             ],
@@ -1006,6 +1009,9 @@ export default {
                 63
             ],
             "ranked_used_demotion_protection": [
+                7
+            ],
+            "low_pri_pool": [
                 7
             ],
             "__typename": [

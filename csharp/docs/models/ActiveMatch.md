@@ -5,12 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Players** | [**List&lt;ActiveMatchPlayer&gt;**](ActiveMatchPlayer.md) |  | 
+**TeamStats** | [**List&lt;ActiveMatchTeamStats&gt;**](ActiveMatchTeamStats.md) |  | 
 **CompatVersion** | **int** |  | [optional] 
 **DurationS** | **int** |  | [optional] 
 **GameMode** | **int** |  | [optional] 
 **GameModeParsed** | **ActiveMatchGameMode** |  | [optional] 
 **GameModeVersion** | **int** |  | [optional] 
 **LobbyId** | **long** |  | [optional] 
+**LowPriPool** | **bool** |  | [optional] 
 **MatchId** | **long** |  | [optional] 
 **MatchMode** | **int** |  | [optional] 
 **MatchModeParsed** | **ActiveMatchMode** |  | [optional] 

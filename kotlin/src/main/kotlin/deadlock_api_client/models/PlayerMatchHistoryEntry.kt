@@ -54,6 +54,7 @@ import java.io.Serializable
  * @param brawlAvgRoundTimeS 
  * @param brawlScoreTeam0 
  * @param brawlScoreTeam1 
+ * @param lowPriPool Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
  * @param rankedCalibrationMatch Non-zero if this match counted towards the player's ranked calibration.
  * @param rankedDelta The ranked progress change the player got from this match.
  * @param rankedDisplayBadge The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>
@@ -133,6 +134,10 @@ data class PlayerMatchHistoryEntry (
 
     @Json(name = "brawl_score_team1")
     val brawlScoreTeam1: kotlin.Int? = null,
+
+    /* Whether the match was played in the low priority pool. `None` for entries stored before this was recorded. */
+    @Json(name = "low_pri_pool")
+    val lowPriPool: kotlin.Boolean? = null,
 
     /* Non-zero if this match counted towards the player's ranked calibration. */
     @Json(name = "ranked_calibration_match")

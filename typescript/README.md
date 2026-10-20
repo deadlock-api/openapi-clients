@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
 *AccoladesApi* | [**getAccoladeByName**](docs/AccoladesApi.md#getaccoladebyname) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
 *AccoladesApi* | [**listAccolades**](docs/AccoladesApi.md#listaccolades) | **GET** /v1/assets/accolades | List Accolades
 *AnalyticsApi* | [**abilityOrderStats**](docs/AnalyticsApi.md#abilityorderstats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
+*AnalyticsApi* | [**abilityOrderTree**](docs/AnalyticsApi.md#abilityordertree) | **GET** /v1/analytics/ability-order-tree | Ability Order Tree
 *AnalyticsApi* | [**badgeDistribution**](docs/AnalyticsApi.md#badgedistribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
 *AnalyticsApi* | [**buffStats**](docs/AnalyticsApi.md#buffstats) | **GET** /v1/analytics/buff-stats | Buff Stats
 *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
@@ -204,8 +205,10 @@ Class | Method | HTTP request | Description
  - [ActiveMatchMode](docs/ActiveMatchMode.md)
  - [ActiveMatchPlayer](docs/ActiveMatchPlayer.md)
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
+ - [ActiveMatchTeamStats](docs/ActiveMatchTeamStats.md)
  - [AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
+ - [AnalyticsAbilityOrderTreeNode](docs/AnalyticsAbilityOrderTreeNode.md)
  - [AnalyticsBuffStats](docs/AnalyticsBuffStats.md)
  - [AnalyticsGameStats](docs/AnalyticsGameStats.md)
  - [AnalyticsHeroStats](docs/AnalyticsHeroStats.md)

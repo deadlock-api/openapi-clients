@@ -45,6 +45,7 @@ class TestPlayerMatchHistoryEntry(unittest.TestCase):
                 hero_id = 0,
                 hero_level = 0,
                 last_hits = 0,
+                low_pri_pool = True,
                 match_duration_s = 0,
                 match_id = 0,
                 match_mode = 56,

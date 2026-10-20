@@ -38,6 +38,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     hero_level: Annotated[int, Field(strict=True, ge=0)]
     last_hits: Annotated[int, Field(strict=True, ge=0)]
+    low_pri_pool: Optional[StrictBool] = Field(default=None, description="Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.")
     match_duration_s: Annotated[int, Field(strict=True, ge=0)]
     match_id: Annotated[int, Field(strict=True, ge=0)]
     match_mode: StrictInt
@@ -55,7 +56,7 @@ class PlayerMatchHistoryEntry(BaseModel):
     ranked_display_badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The ranked badge shown for the player after the match (tier = first digits, subtier = last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
     ranked_used_demotion_protection: Optional[StrictBool] = Field(default=None, description="Whether the player's demotion protection absorbed a loss in this match.")
     start_time: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_match_outcome", "player_team", "ranked_calibration_match", "ranked_delta", "ranked_display_badge", "ranked_used_demotion_protection", "start_time"]
+    __properties: ClassVar[List[str]] = ["abandoned_time_s", "account_id", "brawl_avg_round_time_s", "brawl_score_team0", "brawl_score_team1", "denies", "game_mode", "hero_id", "hero_level", "last_hits", "low_pri_pool", "match_duration_s", "match_id", "match_mode", "match_result", "net_worth", "objectives_mask_team0", "objectives_mask_team1", "player_assists", "player_deaths", "player_kills", "player_match_outcome", "player_team", "ranked_calibration_match", "ranked_delta", "ranked_display_badge", "ranked_used_demotion_protection", "start_time"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -116,6 +117,11 @@ class PlayerMatchHistoryEntry(BaseModel):
         if self.brawl_score_team1 is None and "brawl_score_team1" in self.model_fields_set:
             _dict['brawl_score_team1'] = None
 
+        # set to None if low_pri_pool (nullable) is None
+        # and model_fields_set contains the field
+        if self.low_pri_pool is None and "low_pri_pool" in self.model_fields_set:
+            _dict['low_pri_pool'] = None
+
         # set to None if ranked_calibration_match (nullable) is None
         # and model_fields_set contains the field
         if self.ranked_calibration_match is None and "ranked_calibration_match" in self.model_fields_set:
@@ -158,6 +164,7 @@ class PlayerMatchHistoryEntry(BaseModel):
             "hero_id": obj.get("hero_id"),
             "hero_level": obj.get("hero_level"),
             "last_hits": obj.get("last_hits"),
+            "low_pri_pool": obj.get("low_pri_pool"),
             "match_duration_s": obj.get("match_duration_s"),
             "match_id": obj.get("match_id"),
             "match_mode": obj.get("match_mode"),

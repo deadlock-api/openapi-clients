@@ -31,6 +31,7 @@ import deadlock_api_client.models.ActiveMatchGameMode
 import deadlock_api_client.models.ActiveMatchMode
 import deadlock_api_client.models.ActiveMatchPlayer
 import deadlock_api_client.models.ActiveMatchTeam
+import deadlock_api_client.models.ActiveMatchTeamStats
 import deadlock_api_client.models.RegionMode
 
 class ActiveMatchTest : ShouldSpec() {
@@ -42,6 +43,12 @@ class ActiveMatchTest : ShouldSpec() {
         should("test players") {
             // uncomment below to test the property
             //modelInstance.players shouldBe ("TODO")
+        }
+
+        // to test the property `teamStats`
+        should("test teamStats") {
+            // uncomment below to test the property
+            //modelInstance.teamStats shouldBe ("TODO")
         }
 
         // to test the property `compatVersion`
@@ -78,6 +85,12 @@ class ActiveMatchTest : ShouldSpec() {
         should("test lobbyId") {
             // uncomment below to test the property
             //modelInstance.lobbyId shouldBe ("TODO")
+        }
+
+        // to test the property `lowPriPool`
+        should("test lowPriPool") {
+            // uncomment below to test the property
+            //modelInstance.lowPriPool shouldBe ("TODO")
         }
 
         // to test the property `matchId`

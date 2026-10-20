@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **game_mode_parsed** | [**ActiveMatchGameMode**](ActiveMatchGameMode.md) |  | [optional] [default to undefined]
 **game_mode_version** | **number** |  | [optional] [default to undefined]
 **lobby_id** | **number** |  | [optional] [default to undefined]
+**low_pri_pool** | **boolean** |  | [optional] [default to undefined]
 **match_id** | **number** |  | [optional] [default to undefined]
 **match_mode** | **number** |  | [optional] [default to undefined]
 **match_mode_parsed** | [**ActiveMatchMode**](ActiveMatchMode.md) |  | [optional] [default to undefined]
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **region_mode_parsed** | [**RegionMode**](RegionMode.md) |  | [optional] [default to undefined]
 **spectators** | **number** |  | [optional] [default to undefined]
 **start_time** | **number** |  | [optional] [default to undefined]
+**team_stats** | [**Array&lt;ActiveMatchTeamStats&gt;**](ActiveMatchTeamStats.md) |  | [default to undefined]
 **winning_team** | **number** |  | [optional] [default to undefined]
 **winning_team_parsed** | [**ActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] [default to undefined]
 
@@ -40,6 +42,7 @@ const instance: ActiveMatch = {
     game_mode_parsed,
     game_mode_version,
     lobby_id,
+    low_pri_pool,
     match_id,
     match_mode,
     match_mode_parsed,
@@ -54,6 +57,7 @@ const instance: ActiveMatch = {
     region_mode_parsed,
     spectators,
     start_time,
+    team_stats,
     winning_team,
     winning_team_parsed,
 };

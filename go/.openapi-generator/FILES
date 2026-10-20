@@ -55,9 +55,11 @@ docs/ActiveMatchGameMode.md
 docs/ActiveMatchMode.md
 docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
+docs/ActiveMatchTeamStats.md
 docs/AddSteamAccountRequest.md
 docs/AnalyticsAPI.md
 docs/AnalyticsAbilityOrderStats.md
+docs/AnalyticsAbilityOrderTreeNode.md
 docs/AnalyticsBuffStats.md
 docs/AnalyticsGameStats.md
 docs/AnalyticsHeroStats.md
@@ -330,8 +332,10 @@ model_active_match_game_mode.go
 model_active_match_mode.go
 model_active_match_player.go
 model_active_match_team.go
+model_active_match_team_stats.go
 model_add_steam_account_request.go
 model_analytics_ability_order_stats.go
+model_analytics_ability_order_tree_node.go
 model_analytics_buff_stats.go
 model_analytics_game_stats.go
 model_analytics_hero_stats.go

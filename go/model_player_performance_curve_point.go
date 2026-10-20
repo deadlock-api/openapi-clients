@@ -51,6 +51,8 @@ type PlayerPerformanceCurvePoint struct {
 	DeniesStd float64 `json:"denies_std"`
 	// The time point of the data. If `resolution` (default 10) is > 0, this is a percentage (0, 10, ..., 100). If `resolution` is 0, this is the match time in seconds.
 	GameTime int32 `json:"game_time"`
+	// Where in the match the stats snapshots of this point were taken on average, in the unit of `game_time`. Snapshots are taken every few minutes and at the end of the match, so with `resolution` > 0 a point holds the snapshots from `game_time` up to the next point and this is usually about half a bucket later than `game_time`. Percentages are averaged from whole percents, so they can be off by a few tenths.
+	GameTimeAvg float64 `json:"game_time_avg"`
 	// Average souls earned from the Assassinate ability at this time point
 	GoldAbilityAssassinateAvg float64 `json:"gold_ability_assassinate_avg"`
 	// Standard deviation of `gold_ability_assassinate_avg` at this time point
@@ -155,6 +157,8 @@ type PlayerPerformanceCurvePoint struct {
 	PlayerHealingAvg float64 `json:"player_healing_avg"`
 	// Standard deviation of `player_healing_avg` at this time point
 	PlayerHealingStd float64 `json:"player_healing_std"`
+	// Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often.
+	Samples int64 `json:"samples"`
 	// Average self-inflicted damage at this time point
 	SelfDamageAvg float64 `json:"self_damage_avg"`
 	// Standard deviation of `self_damage_avg` at this time point
@@ -167,7 +171,7 @@ type _PlayerPerformanceCurvePoint PlayerPerformanceCurvePoint
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerBarrieringAvg float64, playerBarrieringStd float64, playerDamageAvg float64, playerDamageStd float64, playerHealingAvg float64, playerHealingStd float64, selfDamageAvg float64, selfDamageStd float64) *PlayerPerformanceCurvePoint {
+func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, bossDamageAvg float64, bossDamageStd float64, bossKillsAvg float64, bossKillsStd float64, creepDamageAvg float64, creepDamageStd float64, creepKillsAvg float64, creepKillsStd float64, deathsAvg float64, deathsStd float64, deniesAvg float64, deniesStd float64, gameTime int32, gameTimeAvg float64, goldAbilityAssassinateAvg float64, goldAbilityAssassinateStd float64, goldAssistsAvg float64, goldAssistsStd float64, goldBossAvg float64, goldBossOrbAvg float64, goldBossOrbStd float64, goldBossStd float64, goldBreakableAvg float64, goldBreakableStd float64, goldDeathLossAvg float64, goldDeathLossStd float64, goldDeniedAvg float64, goldDeniedStd float64, goldItemCultistSacrificeAvg float64, goldItemCultistSacrificeStd float64, goldItemGooseEggAvg float64, goldItemGooseEggStd float64, goldItemTrophyCollectorAvg float64, goldItemTrophyCollectorStd float64, goldLaneCreepAvg float64, goldLaneCreepOrbsAvg float64, goldLaneCreepOrbsStd float64, goldLaneCreepStd float64, goldNeutralCreepAvg float64, goldNeutralCreepOrbsAvg float64, goldNeutralCreepOrbsStd float64, goldNeutralCreepStd float64, goldPlayerAvg float64, goldPlayerOrbsAvg float64, goldPlayerOrbsStd float64, goldPlayerStd float64, goldTeamBonusAvg float64, goldTeamBonusStd float64, goldTreasureAvg float64, goldTreasureStd float64, killsAvg float64, killsStd float64, netWorthAvg float64, netWorthStd float64, neutralDamageAvg float64, neutralDamageStd float64, neutralKillsAvg float64, neutralKillsStd float64, playerBarrieringAvg float64, playerBarrieringStd float64, playerDamageAvg float64, playerDamageStd float64, playerHealingAvg float64, playerHealingStd float64, samples int64, selfDamageAvg float64, selfDamageStd float64) *PlayerPerformanceCurvePoint {
 	this := PlayerPerformanceCurvePoint{}
 	this.AssistsAvg = assistsAvg
 	this.AssistsStd = assistsStd
@@ -184,6 +188,7 @@ func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, boss
 	this.DeniesAvg = deniesAvg
 	this.DeniesStd = deniesStd
 	this.GameTime = gameTime
+	this.GameTimeAvg = gameTimeAvg
 	this.GoldAbilityAssassinateAvg = goldAbilityAssassinateAvg
 	this.GoldAbilityAssassinateStd = goldAbilityAssassinateStd
 	this.GoldAssistsAvg = goldAssistsAvg
@@ -234,6 +239,7 @@ func NewPlayerPerformanceCurvePoint(assistsAvg float64, assistsStd float64, boss
 	this.PlayerDamageStd = playerDamageStd
 	this.PlayerHealingAvg = playerHealingAvg
 	this.PlayerHealingStd = playerHealingStd
+	this.Samples = samples
 	this.SelfDamageAvg = selfDamageAvg
 	this.SelfDamageStd = selfDamageStd
 	return &this
@@ -605,6 +611,30 @@ func (o *PlayerPerformanceCurvePoint) GetGameTimeOk() (*int32, bool) {
 // SetGameTime sets field value
 func (o *PlayerPerformanceCurvePoint) SetGameTime(v int32) {
 	o.GameTime = v
+}
+
+// GetGameTimeAvg returns the GameTimeAvg field value
+func (o *PlayerPerformanceCurvePoint) GetGameTimeAvg() float64 {
+	if o == nil {
+		var ret float64
+		return ret
+	}
+
+	return o.GameTimeAvg
+}
+
+// GetGameTimeAvgOk returns a tuple with the GameTimeAvg field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetGameTimeAvgOk() (*float64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.GameTimeAvg, true
+}
+
+// SetGameTimeAvg sets field value
+func (o *PlayerPerformanceCurvePoint) SetGameTimeAvg(v float64) {
+	o.GameTimeAvg = v
 }
 
 // GetGoldAbilityAssassinateAvg returns the GoldAbilityAssassinateAvg field value
@@ -1891,6 +1921,30 @@ func (o *PlayerPerformanceCurvePoint) SetPlayerHealingStd(v float64) {
 	o.PlayerHealingStd = v
 }
 
+// GetSamples returns the Samples field value
+func (o *PlayerPerformanceCurvePoint) GetSamples() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Samples
+}
+
+// GetSamplesOk returns a tuple with the Samples field value
+// and a boolean to check if the value has been set.
+func (o *PlayerPerformanceCurvePoint) GetSamplesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Samples, true
+}
+
+// SetSamples sets field value
+func (o *PlayerPerformanceCurvePoint) SetSamples(v int64) {
+	o.Samples = v
+}
+
 // GetSelfDamageAvg returns the SelfDamageAvg field value
 func (o *PlayerPerformanceCurvePoint) GetSelfDamageAvg() float64 {
 	if o == nil {
@@ -1964,6 +2018,7 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["denies_avg"] = o.DeniesAvg
 	toSerialize["denies_std"] = o.DeniesStd
 	toSerialize["game_time"] = o.GameTime
+	toSerialize["game_time_avg"] = o.GameTimeAvg
 	toSerialize["gold_ability_assassinate_avg"] = o.GoldAbilityAssassinateAvg
 	toSerialize["gold_ability_assassinate_std"] = o.GoldAbilityAssassinateStd
 	toSerialize["gold_assists_avg"] = o.GoldAssistsAvg
@@ -2020,6 +2075,7 @@ func (o PlayerPerformanceCurvePoint) ToMap() (map[string]interface{}, error) {
 	toSerialize["player_damage_std"] = o.PlayerDamageStd
 	toSerialize["player_healing_avg"] = o.PlayerHealingAvg
 	toSerialize["player_healing_std"] = o.PlayerHealingStd
+	toSerialize["samples"] = o.Samples
 	toSerialize["self_damage_avg"] = o.SelfDamageAvg
 	toSerialize["self_damage_std"] = o.SelfDamageStd
 	return toSerialize, nil
@@ -2045,6 +2101,7 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 		"denies_avg",
 		"denies_std",
 		"game_time",
+		"game_time_avg",
 		"gold_ability_assassinate_avg",
 		"gold_ability_assassinate_std",
 		"gold_assists_avg",
@@ -2095,6 +2152,7 @@ func (o *PlayerPerformanceCurvePoint) UnmarshalJSON(data []byte) (err error) {
 		"player_damage_std",
 		"player_healing_avg",
 		"player_healing_std",
+		"samples",
 		"self_damage_avg",
 		"self_damage_std",
 	}

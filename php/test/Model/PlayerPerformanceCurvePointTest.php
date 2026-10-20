@@ -215,6 +215,15 @@ class PlayerPerformanceCurvePointTest extends TestCase
     }
 
     /**
+     * Test attribute "game_time_avg"
+     */
+    public function testPropertyGameTimeAvg()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gold_ability_assassinate_avg"
      */
     public function testPropertyGoldAbilityAssassinateAvg()
@@ -677,6 +686,15 @@ class PlayerPerformanceCurvePointTest extends TestCase
      * Test attribute "player_healing_std"
      */
     public function testPropertyPlayerHealingStd()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "samples"
+     */
+    public function testPropertySamples()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

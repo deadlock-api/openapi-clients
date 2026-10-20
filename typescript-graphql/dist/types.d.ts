@@ -349,6 +349,7 @@ declare const _default: {
             ranked_delta: number[];
             ranked_calibration_match: number[];
             ranked_used_demotion_protection: number[];
+            low_pri_pool: number[];
             hero: number[];
             __typename: number[];
         };
@@ -375,6 +376,7 @@ declare const _default: {
             ranked_delta: number[];
             ranked_calibration_match: number[];
             ranked_used_demotion_protection: number[];
+            low_pri_pool: number[];
             __typename: number[];
         };
         MatchPlayer: {

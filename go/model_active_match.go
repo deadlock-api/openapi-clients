@@ -27,6 +27,7 @@ type ActiveMatch struct {
 	GameModeParsed NullableActiveMatchGameMode `json:"game_mode_parsed,omitempty"`
 	GameModeVersion NullableInt32 `json:"game_mode_version,omitempty"`
 	LobbyId NullableInt64 `json:"lobby_id,omitempty"`
+	LowPriPool NullableBool `json:"low_pri_pool,omitempty"`
 	MatchId NullableInt64 `json:"match_id,omitempty"`
 	MatchMode NullableInt32 `json:"match_mode,omitempty"`
 	MatchModeParsed NullableActiveMatchMode `json:"match_mode_parsed,omitempty"`
@@ -41,6 +42,7 @@ type ActiveMatch struct {
 	RegionModeParsed NullableRegionMode `json:"region_mode_parsed,omitempty"`
 	Spectators NullableInt32 `json:"spectators,omitempty"`
 	StartTime NullableInt32 `json:"start_time,omitempty"`
+	TeamStats []ActiveMatchTeamStats `json:"team_stats"`
 	WinningTeam NullableInt32 `json:"winning_team,omitempty"`
 	WinningTeamParsed NullableActiveMatchTeam `json:"winning_team_parsed,omitempty"`
 }
@@ -51,9 +53,10 @@ type _ActiveMatch ActiveMatch
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewActiveMatch(players []ActiveMatchPlayer) *ActiveMatch {
+func NewActiveMatch(players []ActiveMatchPlayer, teamStats []ActiveMatchTeamStats) *ActiveMatch {
 	this := ActiveMatch{}
 	this.Players = players
+	this.TeamStats = teamStats
 	return &this
 }
 
@@ -315,6 +318,48 @@ func (o *ActiveMatch) SetLobbyIdNil() {
 // UnsetLobbyId ensures that no value is present for LobbyId, not even an explicit nil
 func (o *ActiveMatch) UnsetLobbyId() {
 	o.LobbyId.Unset()
+}
+
+// GetLowPriPool returns the LowPriPool field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *ActiveMatch) GetLowPriPool() bool {
+	if o == nil || IsNil(o.LowPriPool.Get()) {
+		var ret bool
+		return ret
+	}
+	return *o.LowPriPool.Get()
+}
+
+// GetLowPriPoolOk returns a tuple with the LowPriPool field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *ActiveMatch) GetLowPriPoolOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.LowPriPool.Get(), o.LowPriPool.IsSet()
+}
+
+// HasLowPriPool returns a boolean if a field has been set.
+func (o *ActiveMatch) HasLowPriPool() bool {
+	if o != nil && o.LowPriPool.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLowPriPool gets a reference to the given NullableBool and assigns it to the LowPriPool field.
+func (o *ActiveMatch) SetLowPriPool(v bool) {
+	o.LowPriPool.Set(&v)
+}
+// SetLowPriPoolNil sets the value for LowPriPool to be an explicit nil
+func (o *ActiveMatch) SetLowPriPoolNil() {
+	o.LowPriPool.Set(nil)
+}
+
+// UnsetLowPriPool ensures that no value is present for LowPriPool, not even an explicit nil
+func (o *ActiveMatch) UnsetLowPriPool() {
+	o.LowPriPool.Unset()
 }
 
 // GetMatchId returns the MatchId field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -887,6 +932,30 @@ func (o *ActiveMatch) UnsetStartTime() {
 	o.StartTime.Unset()
 }
 
+// GetTeamStats returns the TeamStats field value
+func (o *ActiveMatch) GetTeamStats() []ActiveMatchTeamStats {
+	if o == nil {
+		var ret []ActiveMatchTeamStats
+		return ret
+	}
+
+	return o.TeamStats
+}
+
+// GetTeamStatsOk returns a tuple with the TeamStats field value
+// and a boolean to check if the value has been set.
+func (o *ActiveMatch) GetTeamStatsOk() ([]ActiveMatchTeamStats, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.TeamStats, true
+}
+
+// SetTeamStats sets field value
+func (o *ActiveMatch) SetTeamStats(v []ActiveMatchTeamStats) {
+	o.TeamStats = v
+}
+
 // GetWinningTeam returns the WinningTeam field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ActiveMatch) GetWinningTeam() int32 {
 	if o == nil || IsNil(o.WinningTeam.Get()) {
@@ -999,6 +1068,9 @@ func (o ActiveMatch) ToMap() (map[string]interface{}, error) {
 	if o.LobbyId.IsSet() {
 		toSerialize["lobby_id"] = o.LobbyId.Get()
 	}
+	if o.LowPriPool.IsSet() {
+		toSerialize["low_pri_pool"] = o.LowPriPool.Get()
+	}
 	if o.MatchId.IsSet() {
 		toSerialize["match_id"] = o.MatchId.Get()
 	}
@@ -1039,6 +1111,7 @@ func (o ActiveMatch) ToMap() (map[string]interface{}, error) {
 	if o.StartTime.IsSet() {
 		toSerialize["start_time"] = o.StartTime.Get()
 	}
+	toSerialize["team_stats"] = o.TeamStats
 	if o.WinningTeam.IsSet() {
 		toSerialize["winning_team"] = o.WinningTeam.Get()
 	}
@@ -1054,6 +1127,7 @@ func (o *ActiveMatch) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"players",
+		"team_stats",
 	}
 
 	allProperties := make(map[string]interface{})

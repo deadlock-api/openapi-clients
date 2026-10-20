@@ -66,8 +66,10 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ActiveMatchPlayerJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchTeamJsonConverter());
             _jsonOptions.Converters.Add(new ActiveMatchTeamNullableJsonConverter());
+            _jsonOptions.Converters.Add(new ActiveMatchTeamStatsJsonConverter());
             _jsonOptions.Converters.Add(new AddSteamAccountRequestJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsAbilityOrderStatsJsonConverter());
+            _jsonOptions.Converters.Add(new AnalyticsAbilityOrderTreeNodeJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsBuffStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsGameStatsJsonConverter());
             _jsonOptions.Converters.Add(new AnalyticsHeroStatsJsonConverter());

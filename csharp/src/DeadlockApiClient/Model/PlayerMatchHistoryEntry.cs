@@ -56,12 +56,13 @@ namespace DeadlockApiClient.Model
         /// <param name="brawlAvgRoundTimeS">brawlAvgRoundTimeS</param>
         /// <param name="brawlScoreTeam0">brawlScoreTeam0</param>
         /// <param name="brawlScoreTeam1">brawlScoreTeam1</param>
+        /// <param name="lowPriPool">Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded.</param>
         /// <param name="rankedCalibrationMatch">Non-zero if this match counted towards the player&#39;s ranked calibration.</param>
         /// <param name="rankedDelta">The ranked progress change the player got from this match.</param>
         /// <param name="rankedDisplayBadge">The ranked badge shown for the player after the match (tier &#x3D; first digits, subtier &#x3D; last digit). Within Eternus, where subranks are percentile cuts the GC misreports, this is the badge the player entered the match with. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="rankedUsedDemotionProtection">Whether the player&#39;s demotion protection absorbed a loss in this match.</param>
         [JsonConstructor]
-        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default)
+        public PlayerMatchHistoryEntry(int accountId, int denies, int gameMode, int heroId, int heroLevel, int lastHits, int matchDurationS, long matchId, int matchMode, int matchResult, int netWorth, int objectivesMaskTeam0, int objectivesMaskTeam1, int playerAssists, int playerDeaths, int playerKills, int playerMatchOutcome, int playerTeam, int startTime, Option<int?> abandonedTimeS = default, Option<int?> brawlAvgRoundTimeS = default, Option<int?> brawlScoreTeam0 = default, Option<int?> brawlScoreTeam1 = default, Option<bool?> lowPriPool = default, Option<int?> rankedCalibrationMatch = default, Option<int?> rankedDelta = default, Option<int?> rankedDisplayBadge = default, Option<bool?> rankedUsedDemotionProtection = default)
         {
             AccountId = accountId;
             Denies = denies;
@@ -86,6 +87,7 @@ namespace DeadlockApiClient.Model
             BrawlAvgRoundTimeSOption = brawlAvgRoundTimeS;
             BrawlScoreTeam0Option = brawlScoreTeam0;
             BrawlScoreTeam1Option = brawlScoreTeam1;
+            LowPriPoolOption = lowPriPool;
             RankedCalibrationMatchOption = rankedCalibrationMatch;
             RankedDeltaOption = rankedDelta;
             RankedDisplayBadgeOption = rankedDisplayBadge;
@@ -264,6 +266,20 @@ namespace DeadlockApiClient.Model
         public int? BrawlScoreTeam1 { get { return this.BrawlScoreTeam1Option.Value; } set { this.BrawlScoreTeam1Option = new(value); } }
 
         /// <summary>
+        /// Used to track the state of LowPriPool
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<bool?> LowPriPoolOption { get; private set; }
+
+        /// <summary>
+        /// Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded.
+        /// </summary>
+        /// <value>Whether the match was played in the low priority pool. &#x60;None&#x60; for entries stored before this was recorded.</value>
+        [JsonPropertyName("low_pri_pool")]
+        public bool? LowPriPool { get { return this.LowPriPoolOption.Value; } set { this.LowPriPoolOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of RankedCalibrationMatch
         /// </summary>
         [JsonIgnore]
@@ -350,6 +366,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  BrawlAvgRoundTimeS: ").Append(BrawlAvgRoundTimeS).Append("\n");
             sb.Append("  BrawlScoreTeam0: ").Append(BrawlScoreTeam0).Append("\n");
             sb.Append("  BrawlScoreTeam1: ").Append(BrawlScoreTeam1).Append("\n");
+            sb.Append("  LowPriPool: ").Append(LowPriPool).Append("\n");
             sb.Append("  RankedCalibrationMatch: ").Append(RankedCalibrationMatch).Append("\n");
             sb.Append("  RankedDelta: ").Append(RankedDelta).Append("\n");
             sb.Append("  RankedDisplayBadge: ").Append(RankedDisplayBadge).Append("\n");
@@ -550,6 +567,7 @@ namespace DeadlockApiClient.Model
             Option<int?> brawlAvgRoundTimeS = default;
             Option<int?> brawlScoreTeam0 = default;
             Option<int?> brawlScoreTeam1 = default;
+            Option<bool?> lowPriPool = default;
             Option<int?> rankedCalibrationMatch = default;
             Option<int?> rankedDelta = default;
             Option<int?> rankedDisplayBadge = default;
@@ -638,6 +656,9 @@ namespace DeadlockApiClient.Model
                             break;
                         case "brawl_score_team1":
                             brawlScoreTeam1 = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "low_pri_pool":
+                            lowPriPool = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "ranked_calibration_match":
                             rankedCalibrationMatch = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -771,7 +792,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new JsonException("Property is not nullable for class PlayerMatchHistoryEntry: start_time.");
 
-            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection);
+            return new PlayerMatchHistoryEntry(accountId.Value!.Value!, denies.Value!.Value!, gameMode.Value!.Value!, heroId.Value!.Value!, heroLevel.Value!.Value!, lastHits.Value!.Value!, matchDurationS.Value!.Value!, matchId.Value!.Value!, matchMode.Value!.Value!, matchResult.Value!.Value!, netWorth.Value!.Value!, objectivesMaskTeam0.Value!.Value!, objectivesMaskTeam1.Value!.Value!, playerAssists.Value!.Value!, playerDeaths.Value!.Value!, playerKills.Value!.Value!, playerMatchOutcome.Value!.Value!, playerTeam.Value!.Value!, startTime.Value!.Value!, abandonedTimeS, brawlAvgRoundTimeS, brawlScoreTeam0, brawlScoreTeam1, lowPriPool, rankedCalibrationMatch, rankedDelta, rankedDisplayBadge, rankedUsedDemotionProtection);
         }
 
         /// <summary>
@@ -857,6 +878,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("brawl_score_team1", playerMatchHistoryEntry.BrawlScoreTeam1Option.Value!.Value);
                 else
                     writer.WriteNull("brawl_score_team1");
+
+            if (playerMatchHistoryEntry.LowPriPoolOption.IsSet)
+                if (playerMatchHistoryEntry.LowPriPoolOption.Value != null)
+                    writer.WriteBoolean("low_pri_pool", playerMatchHistoryEntry.LowPriPoolOption.Value!.Value);
+                else
+                    writer.WriteNull("low_pri_pool");
 
             if (playerMatchHistoryEntry.RankedCalibrationMatchOption.IsSet)
                 if (playerMatchHistoryEntry.RankedCalibrationMatchOption.Value != null)

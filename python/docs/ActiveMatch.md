@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **game_mode_parsed** | [**ActiveMatchGameMode**](ActiveMatchGameMode.md) |  | [optional] 
 **game_mode_version** | **int** |  | [optional] 
 **lobby_id** | **int** |  | [optional] 
+**low_pri_pool** | **bool** |  | [optional] 
 **match_id** | **int** |  | [optional] 
 **match_mode** | **int** |  | [optional] 
 **match_mode_parsed** | [**ActiveMatchMode**](ActiveMatchMode.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **region_mode_parsed** | [**RegionMode**](RegionMode.md) |  | [optional] 
 **spectators** | **int** |  | [optional] 
 **start_time** | **int** |  | [optional] 
+**team_stats** | [**List[ActiveMatchTeamStats]**](ActiveMatchTeamStats.md) |  | 
 **winning_team** | **int** |  | [optional] 
 **winning_team_parsed** | [**ActiveMatchTeam**](ActiveMatchTeam.md) |  | [optional] 
 

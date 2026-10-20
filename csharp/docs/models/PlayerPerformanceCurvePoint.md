@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **DeniesAvg** | **double** | Average lane creeps denied at this time point | 
 **DeniesStd** | **double** | Standard deviation of &#x60;denies_avg&#x60; at this time point | 
 **GameTime** | **int** | The time point of the data. If &#x60;resolution&#x60; (default 10) is &gt; 0, this is a percentage (0, 10, ..., 100). If &#x60;resolution&#x60; is 0, this is the match time in seconds. | 
+**GameTimeAvg** | **double** | Where in the match the stats snapshots of this point were taken on average, in the unit of &#x60;game_time&#x60;. Snapshots are taken every few minutes and at the end of the match, so with &#x60;resolution&#x60; &gt; 0 a point holds the snapshots from &#x60;game_time&#x60; up to the next point and this is usually about half a bucket later than &#x60;game_time&#x60;. Percentages are averaged from whole percents, so they can be off by a few tenths. | 
 **GoldAbilityAssassinateAvg** | **double** | Average souls earned from the Assassinate ability at this time point | 
 **GoldAbilityAssassinateStd** | **double** | Standard deviation of &#x60;gold_ability_assassinate_avg&#x60; at this time point | 
 **GoldAssistsAvg** | **double** | Average souls earned from assists at this time point (part of &#x60;gold_player_avg&#x60;) | 
@@ -69,6 +70,7 @@ Name | Type | Description | Notes
 **PlayerDamageStd** | **double** | Standard deviation of &#x60;player_damage_avg&#x60; at this time point | 
 **PlayerHealingAvg** | **double** | Average healing done at this time point | 
 **PlayerHealingStd** | **double** | Standard deviation of &#x60;player_healing_avg&#x60; at this time point | 
+**Samples** | **long** | Number of stats snapshots (one per player per snapshot time) averaged in this point. Each match has a snapshot at 100%, but only some matches have one in any earlier bucket, and longer matches more often. | 
 **SelfDamageAvg** | **double** | Average self-inflicted damage at this time point | 
 **SelfDamageStd** | **double** | Standard deviation of &#x60;self_damage_avg&#x60; at this time point | 
 **PermanentBuffsAvg** | **double** | Average permanent buff (power-up) pickups collected up to this time point. Only matches since build 6712 (2026-09-29) record pickup times, so only players with at least one timed permanent pickup count; &#x60;null&#x60; when there are none. | [optional] 

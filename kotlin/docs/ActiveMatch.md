@@ -5,12 +5,14 @@
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
 | **players** | [**kotlin.collections.List&lt;ActiveMatchPlayer&gt;**](ActiveMatchPlayer.md) |  |  |
+| **teamStats** | [**kotlin.collections.List&lt;ActiveMatchTeamStats&gt;**](ActiveMatchTeamStats.md) |  |  |
 | **compatVersion** | **kotlin.Int** |  |  [optional] |
 | **durationS** | **kotlin.Int** |  |  [optional] |
 | **gameMode** | **kotlin.Int** |  |  [optional] |
 | **gameModeParsed** | [**ActiveMatchGameMode**](ActiveMatchGameMode.md) |  |  [optional] |
 | **gameModeVersion** | **kotlin.Int** |  |  [optional] |
 | **lobbyId** | **kotlin.Long** |  |  [optional] |
+| **lowPriPool** | **kotlin.Boolean** |  |  [optional] |
 | **matchId** | **kotlin.Long** |  |  [optional] |
 | **matchMode** | **kotlin.Int** |  |  [optional] |
 | **matchModeParsed** | [**ActiveMatchMode**](ActiveMatchMode.md) |  |  [optional] |

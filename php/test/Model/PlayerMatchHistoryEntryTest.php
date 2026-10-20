@@ -170,6 +170,15 @@ class PlayerMatchHistoryEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "low_pri_pool"
+     */
+    public function testPropertyLowPriPool()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "match_duration_s"
      */
     public function testPropertyMatchDurationS()

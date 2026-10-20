@@ -27,6 +27,7 @@ import deadlock_api_client.models.ActiveMatchGameMode
 import deadlock_api_client.models.ActiveMatchMode
 import deadlock_api_client.models.ActiveMatchPlayer
 import deadlock_api_client.models.ActiveMatchTeam
+import deadlock_api_client.models.ActiveMatchTeamStats
 import deadlock_api_client.models.RegionMode
 
 import com.squareup.moshi.Json
@@ -37,12 +38,14 @@ import java.io.Serializable
  * 
  *
  * @param players 
+ * @param teamStats 
  * @param compatVersion 
  * @param durationS 
  * @param gameMode 
  * @param gameModeParsed 
  * @param gameModeVersion 
  * @param lobbyId 
+ * @param lowPriPool 
  * @param matchId 
  * @param matchMode 
  * @param matchModeParsed 
@@ -66,6 +69,9 @@ data class ActiveMatch (
     @Json(name = "players")
     val players: kotlin.collections.List<ActiveMatchPlayer>,
 
+    @Json(name = "team_stats")
+    val teamStats: kotlin.collections.List<ActiveMatchTeamStats>,
+
     @Json(name = "compat_version")
     val compatVersion: kotlin.Int? = null,
 
@@ -83,6 +89,9 @@ data class ActiveMatch (
 
     @Json(name = "lobby_id")
     val lobbyId: kotlin.Long? = null,
+
+    @Json(name = "low_pri_pool")
+    val lowPriPool: kotlin.Boolean? = null,
 
     @Json(name = "match_id")
     val matchId: kotlin.Long? = null,

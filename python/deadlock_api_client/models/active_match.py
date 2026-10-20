@@ -17,13 +17,14 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.active_match_game_mode import ActiveMatchGameMode
 from deadlock_api_client.models.active_match_mode import ActiveMatchMode
 from deadlock_api_client.models.active_match_player import ActiveMatchPlayer
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam
+from deadlock_api_client.models.active_match_team_stats import ActiveMatchTeamStats
 from deadlock_api_client.models.region_mode import RegionMode
 from typing import Optional, Set
 from typing_extensions import Self
@@ -39,6 +40,7 @@ class ActiveMatch(BaseModel):
     game_mode_parsed: Optional[ActiveMatchGameMode] = None
     game_mode_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     lobby_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    low_pri_pool: Optional[StrictBool] = None
     match_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     match_mode: Optional[StrictInt] = None
     match_mode_parsed: Optional[ActiveMatchMode] = None
@@ -53,9 +55,10 @@ class ActiveMatch(BaseModel):
     region_mode_parsed: Optional[RegionMode] = None
     spectators: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     start_time: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    team_stats: List[ActiveMatchTeamStats]
     winning_team: Optional[StrictInt] = None
     winning_team_parsed: Optional[ActiveMatchTeam] = None
-    __properties: ClassVar[List[str]] = ["compat_version", "duration_s", "game_mode", "game_mode_parsed", "game_mode_version", "lobby_id", "match_id", "match_mode", "match_mode_parsed", "match_score", "net_worth_team_0", "net_worth_team_1", "objectives_mask_team0", "objectives_mask_team1", "open_spectator_slots", "players", "region_mode", "region_mode_parsed", "spectators", "start_time", "winning_team", "winning_team_parsed"]
+    __properties: ClassVar[List[str]] = ["compat_version", "duration_s", "game_mode", "game_mode_parsed", "game_mode_version", "lobby_id", "low_pri_pool", "match_id", "match_mode", "match_mode_parsed", "match_score", "net_worth_team_0", "net_worth_team_1", "objectives_mask_team0", "objectives_mask_team1", "open_spectator_slots", "players", "region_mode", "region_mode_parsed", "spectators", "start_time", "team_stats", "winning_team", "winning_team_parsed"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -102,6 +105,12 @@ class ActiveMatch(BaseModel):
             for _item_players in self.players:
                 _items.append(_item_players.to_dict() if _item_players is not None else None)
             _dict['players'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in team_stats (list)
+        _items = []
+        if self.team_stats:
+            for _item_team_stats in self.team_stats:
+                _items.append(_item_team_stats.to_dict() if _item_team_stats is not None else None)
+            _dict['team_stats'] = _items
         # set to None if compat_version (nullable) is None
         # and model_fields_set contains the field
         if self.compat_version is None and "compat_version" in self.model_fields_set:
@@ -131,6 +140,11 @@ class ActiveMatch(BaseModel):
         # and model_fields_set contains the field
         if self.lobby_id is None and "lobby_id" in self.model_fields_set:
             _dict['lobby_id'] = None
+
+        # set to None if low_pri_pool (nullable) is None
+        # and model_fields_set contains the field
+        if self.low_pri_pool is None and "low_pri_pool" in self.model_fields_set:
+            _dict['low_pri_pool'] = None
 
         # set to None if match_id (nullable) is None
         # and model_fields_set contains the field
@@ -225,6 +239,7 @@ class ActiveMatch(BaseModel):
             "game_mode_parsed": obj.get("game_mode_parsed"),
             "game_mode_version": obj.get("game_mode_version"),
             "lobby_id": obj.get("lobby_id"),
+            "low_pri_pool": obj.get("low_pri_pool"),
             "match_id": obj.get("match_id"),
             "match_mode": obj.get("match_mode"),
             "match_mode_parsed": obj.get("match_mode_parsed"),
@@ -239,6 +254,7 @@ class ActiveMatch(BaseModel):
             "region_mode_parsed": obj.get("region_mode_parsed"),
             "spectators": obj.get("spectators"),
             "start_time": obj.get("start_time"),
+            "team_stats": [ActiveMatchTeamStats.from_dict(_item) for _item in obj["team_stats"]] if obj.get("team_stats") is not None else None,
             "winning_team": obj.get("winning_team"),
             "winning_team_parsed": obj.get("winning_team_parsed")
         })
