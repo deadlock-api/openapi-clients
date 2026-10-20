@@ -23,7 +23,7 @@ import { BASE_PATH, BaseAPI, operationServerMap } from '../base.js';
 export const PatchesApiAxiosParamCreator = function (configuration) {
     return {
         /**
-         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Big Days
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -110,7 +110,7 @@ export const PatchesApiFp = function (configuration) {
     const localVarAxiosParamCreator = PatchesApiAxiosParamCreator(configuration);
     return {
         /**
-         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Big Days
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -155,7 +155,7 @@ export const PatchesApiFactory = function (configuration, basePath, axios) {
     const localVarFp = PatchesApiFp(configuration);
     return {
         /**
-         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Big Days
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -189,7 +189,7 @@ export const PatchesApiFactory = function (configuration, basePath, axios) {
  */
 export class PatchesApi extends BaseAPI {
     /**
-     *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the announcement forum post was published.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Big Days
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

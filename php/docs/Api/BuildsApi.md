@@ -160,7 +160,7 @@ $limit = 100; // int | The maximum number of builds to return.
 $sort_direction = 'sort_direction_example'; // string | The direction to sort the builds in.
 $search_name = 'search_name_example'; // string | Search for builds with a name containing this string.
 $search_description = 'search_description_example'; // string | Search for builds with a description containing this string.
-$only_latest = True; // bool | Only return the latest version of each build.
+$only_latest = True; // bool | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
 $language = 56; // int | Filter builds by language.
 $build_language = 'build_language_example'; // string | Filter builds by language.
 $build_id = 56; // int | Filter builds by ID.
@@ -192,7 +192,7 @@ try {
 | **sort_direction** | **string**| The direction to sort the builds in. | [optional] |
 | **search_name** | **string**| Search for builds with a name containing this string. | [optional] |
 | **search_description** | **string**| Search for builds with a description containing this string. | [optional] |
-| **only_latest** | **bool**| Only return the latest version of each build. | [optional] |
+| **only_latest** | **bool**| Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional] |
 | **language** | **int**| Filter builds by language. | [optional] |
 | **build_language** | **string**| Filter builds by language. | [optional] |
 | **build_id** | **int**| Filter builds by ID. | [optional] |

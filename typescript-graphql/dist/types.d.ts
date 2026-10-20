@@ -541,45 +541,6 @@ declare const _default: {
         OrderByMatchHistory: {};
         OrderByMatchPlayer: {};
         OrderDirection: {};
-        Patch: {
-            source: number[];
-            title: number[];
-            pub_date: number[];
-            end_date: number[];
-            link: number[];
-            guid: number[];
-            category: number[];
-            content: number[];
-            matches: (number | {
-                where: number[];
-                order_by: number[];
-                order_direction: number[];
-                limit: (string | number)[];
-                offset: (string | number)[];
-            })[];
-            match_players: (number | {
-                where: number[];
-                order_by: number[];
-                order_direction: number[];
-                limit: (string | number)[];
-                offset: (string | number)[];
-            })[];
-            match_history: (number | {
-                where: number[];
-                order_by: number[];
-                order_direction: number[];
-                limit: (string | number)[];
-                offset: (string | number)[];
-            })[];
-            __typename: number[];
-        };
-        PatchWhere: {
-            source: number[];
-            category: number[];
-            pub_date: number[];
-            end_date: number[];
-            __typename: number[];
-        };
         Rank: {
             tier: number[];
             name: number[];
@@ -899,12 +860,6 @@ declare const _default: {
                 offset: (string | number)[];
             })[];
             match_salts: (number | {
-                where: number[];
-                order_direction: number[];
-                limit: (string | number)[];
-                offset: (string | number)[];
-            })[];
-            patches: (number | {
                 where: number[];
                 order_direction: number[];
                 limit: (string | number)[];

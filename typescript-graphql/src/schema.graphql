@@ -871,61 +871,6 @@ enum OrderDirection {
   ASC
 }
 
-"""
-One entry of the patch feed — the same data as the REST `/v2/patches`
-endpoint.
-"""
-type Patch {
-  """`forum` (official forum changelog) or `steam` (Steam news feed)."""
-  source: String!
-  title: String!
-
-  """When the patch was published, as a unix timestamp."""
-  pub_date: Int!
-
-  """
-  When the next patch of the same `source` was published, as a unix
-  timestamp. `null` for the patch that is currently live.
-  """
-  end_date: Int
-  link: String!
-  guid: String!
-
-  """Only set for `forum` patches."""
-  category: String
-  content: String!
-
-  """
-  The root `matches` query, scoped to the matches started while this
-  patch was live (`pub_date` until `end_date`).
-  """
-  matches(where: MatchPlayerWhere, order_by: OrderByMatch, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Match!]!
-
-  """
-  The root `match_players` query, scoped to the matches started while
-  this patch was live (`pub_date` until `end_date`).
-  """
-  match_players(where: MatchPlayerWhere, order_by: OrderByMatchPlayer, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchPlayer!]!
-
-  """
-  The root `match_history` query, scoped to the matches started while
-  this patch was live (`pub_date` until `end_date`).
-  """
-  match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
-}
-
-"""
-Filter input for the `patches` query. Operations across fields are AND-ed.
-"""
-input PatchWhere {
-  source: StringFilter
-  category: StringFilter
-  pub_date: I64Filter
-
-  """`{is_null: true}` selects the patches that are currently live."""
-  end_date: I64Filter
-}
-
 type QueryRoot {
   """Match-grouped query — one node per match_id with players aggregated."""
   matches(where: MatchPlayerWhere, order_by: OrderByMatch, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Match!]!
@@ -948,14 +893,6 @@ type QueryRoot {
   paging, so a page can hold slightly fewer than `limit` nodes.
   """
   match_salts(where: MatchSaltsWhere, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchSalts!]!
-
-  """
-  Patch notes from the official forum changelog and the Steam news feed —
-  the same data as the REST `/v2/patches` feed, so only as far back as
-  those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
-  match queries to the time it was live.
-  """
-  patches(where: PatchWhere, order_direction: OrderDirection, limit: Int! = 10, offset: Int! = 0): [Patch!]!
 
   """
   Hero builds from the stored `hero_builds` table — the same data as the

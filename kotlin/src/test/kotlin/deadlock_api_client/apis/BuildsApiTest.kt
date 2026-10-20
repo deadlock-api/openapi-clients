@@ -65,7 +65,7 @@ class BuildsApiTest : ShouldSpec() {
             //val sortDirection : kotlin.String = sortDirection_example // kotlin.String | The direction to sort the builds in.
             //val searchName : kotlin.String = searchName_example // kotlin.String | Search for builds with a name containing this string.
             //val searchDescription : kotlin.String = searchDescription_example // kotlin.String | Search for builds with a description containing this string.
-            //val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build.
+            //val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
             //val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
             //val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
             //val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.

@@ -105,4 +105,13 @@ class HeroBanStatsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "matches"
+     */
+    public function testPropertyMatches()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

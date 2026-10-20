@@ -146,12 +146,6 @@ export const isMatchSalts = (obj) => {
         throw new Error('__typename is missing in "isMatchSalts"');
     return MatchSalts_possibleTypes.includes(obj.__typename);
 };
-const Patch_possibleTypes = ['Patch'];
-export const isPatch = (obj) => {
-    if (!obj?.__typename)
-        throw new Error('__typename is missing in "isPatch"');
-    return Patch_possibleTypes.includes(obj.__typename);
-};
 const QueryRoot_possibleTypes = ['QueryRoot'];
 export const isQueryRoot = (obj) => {
     if (!obj?.__typename)

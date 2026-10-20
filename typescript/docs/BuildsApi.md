@@ -149,7 +149,7 @@ let limit: number; //The maximum number of builds to return. (optional) (default
 let sortDirection: 'desc' | 'asc'; //The direction to sort the builds in. (optional) (default to undefined)
 let searchName: string; //Search for builds with a name containing this string. (optional) (default to undefined)
 let searchDescription: string; //Search for builds with a description containing this string. (optional) (default to undefined)
-let onlyLatest: boolean; //Only return the latest version of each build. (optional) (default to undefined)
+let onlyLatest: boolean; //Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional) (default to undefined)
 let language: number; //Filter builds by language. (optional) (default to undefined)
 let buildLanguage: 'English' | 'German' | 'French' | 'Italian' | 'Korean' | 'SpanishSpain' | 'ChineseSimplified' | 'Russian' | 'Thai' | 'Japanese' | 'PortuguesePortugal' | 'Polish' | 'Czech' | 'Turkish' | 'PortugueseBrazil' | 'Ukrainian' | 'SpanishLatinAmerica' | 'Vietnamese'; //Filter builds by language. (optional) (default to undefined)
 let buildId: number; //Filter builds by ID. (optional) (default to undefined)
@@ -196,7 +196,7 @@ const { status, data } = await apiInstance.searchBuilds(
 | **sortDirection** | [**&#39;desc&#39; | &#39;asc&#39;**]**Array<&#39;desc&#39; &#124; &#39;asc&#39;>** | The direction to sort the builds in. | (optional) defaults to undefined|
 | **searchName** | [**string**] | Search for builds with a name containing this string. | (optional) defaults to undefined|
 | **searchDescription** | [**string**] | Search for builds with a description containing this string. | (optional) defaults to undefined|
-| **onlyLatest** | [**boolean**] | Only return the latest version of each build. | (optional) defaults to undefined|
+| **onlyLatest** | [**boolean**] | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | (optional) defaults to undefined|
 | **language** | [**number**] | Filter builds by language. | (optional) defaults to undefined|
 | **buildLanguage** | [**&#39;English&#39; | &#39;German&#39; | &#39;French&#39; | &#39;Italian&#39; | &#39;Korean&#39; | &#39;SpanishSpain&#39; | &#39;ChineseSimplified&#39; | &#39;Russian&#39; | &#39;Thai&#39; | &#39;Japanese&#39; | &#39;PortuguesePortugal&#39; | &#39;Polish&#39; | &#39;Czech&#39; | &#39;Turkish&#39; | &#39;PortugueseBrazil&#39; | &#39;Ukrainian&#39; | &#39;SpanishLatinAmerica&#39; | &#39;Vietnamese&#39;**]**Array<&#39;English&#39; &#124; &#39;German&#39; &#124; &#39;French&#39; &#124; &#39;Italian&#39; &#124; &#39;Korean&#39; &#124; &#39;SpanishSpain&#39; &#124; &#39;ChineseSimplified&#39; &#124; &#39;Russian&#39; &#124; &#39;Thai&#39; &#124; &#39;Japanese&#39; &#124; &#39;PortuguesePortugal&#39; &#124; &#39;Polish&#39; &#124; &#39;Czech&#39; &#124; &#39;Turkish&#39; &#124; &#39;PortugueseBrazil&#39; &#124; &#39;Ukrainian&#39; &#124; &#39;SpanishLatinAmerica&#39; &#124; &#39;Vietnamese&#39;>** | Filter builds by language. | (optional) defaults to undefined|
 | **buildId** | [**number**] | Filter builds by ID. | (optional) defaults to undefined|

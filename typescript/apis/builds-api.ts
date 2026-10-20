@@ -118,7 +118,7 @@ export const BuildsApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {SearchBuildsSortDirectionEnum} [sortDirection] The direction to sort the builds in.
          * @param {string} [searchName] Search for builds with a name containing this string.
          * @param {string} [searchDescription] Search for builds with a description containing this string.
-         * @param {boolean} [onlyLatest] Only return the latest version of each build.
+         * @param {boolean} [onlyLatest] Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
          * @param {number} [language] Filter builds by language.
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
@@ -280,7 +280,7 @@ export const BuildsApiFp = function(configuration?: Configuration) {
          * @param {SearchBuildsSortDirectionEnum} [sortDirection] The direction to sort the builds in.
          * @param {string} [searchName] Search for builds with a name containing this string.
          * @param {string} [searchDescription] Search for builds with a description containing this string.
-         * @param {boolean} [onlyLatest] Only return the latest version of each build.
+         * @param {boolean} [onlyLatest] Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
          * @param {number} [language] Filter builds by language.
          * @param {SearchBuildsBuildLanguageEnum} [buildLanguage] Filter builds by language.
          * @param {number} [buildId] Filter builds by ID.
@@ -425,7 +425,7 @@ export interface BuildsApiSearchBuildsRequest {
     readonly searchDescription?: string
 
     /**
-     * Only return the latest version of each build.
+     * Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
      */
     readonly onlyLatest?: boolean
 

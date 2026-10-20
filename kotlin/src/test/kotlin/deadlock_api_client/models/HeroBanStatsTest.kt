@@ -51,5 +51,11 @@ class HeroBanStatsTest : ShouldSpec() {
             //modelInstance.heroId shouldBe ("TODO")
         }
 
+        // to test the property `matches` - The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+        should("test matches") {
+            // uncomment below to test the property
+            //modelInstance.matches shouldBe ("TODO")
+        }
+
     }
 }

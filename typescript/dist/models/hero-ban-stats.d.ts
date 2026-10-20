@@ -22,5 +22,9 @@ export interface HeroBanStats {
      * The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      */
     'hero_id': number;
+    /**
+     * The number of matches with ban data in this bucket. A hero\'s ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+     */
+    'matches': number;
 }
 //# sourceMappingURL=hero-ban-stats.d.ts.map

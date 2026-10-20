@@ -55,7 +55,7 @@ pub struct SearchBuildsParams {
     pub search_name: Option<String>,
     /// Search for builds with a description containing this string.
     pub search_description: Option<String>,
-    /// Only return the latest version of each build.
+    /// Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
     pub only_latest: Option<bool>,
     /// Filter builds by language.
     pub language: Option<u32>,

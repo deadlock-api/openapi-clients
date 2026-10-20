@@ -27,6 +27,8 @@ type HeroBanStats struct {
 	Bucket int32 `json:"bucket"`
 	// The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
+	// The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+	Matches int64 `json:"matches"`
 }
 
 type _HeroBanStats HeroBanStats
@@ -35,11 +37,12 @@ type _HeroBanStats HeroBanStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewHeroBanStats(bans int64, bucket int32, heroId int32) *HeroBanStats {
+func NewHeroBanStats(bans int64, bucket int32, heroId int32, matches int64) *HeroBanStats {
 	this := HeroBanStats{}
 	this.Bans = bans
 	this.Bucket = bucket
 	this.HeroId = heroId
+	this.Matches = matches
 	return &this
 }
 
@@ -123,6 +126,30 @@ func (o *HeroBanStats) SetHeroId(v int32) {
 	o.HeroId = v
 }
 
+// GetMatches returns the Matches field value
+func (o *HeroBanStats) GetMatches() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.Matches
+}
+
+// GetMatchesOk returns a tuple with the Matches field value
+// and a boolean to check if the value has been set.
+func (o *HeroBanStats) GetMatchesOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Matches, true
+}
+
+// SetMatches sets field value
+func (o *HeroBanStats) SetMatches(v int64) {
+	o.Matches = v
+}
+
 func (o HeroBanStats) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -136,6 +163,7 @@ func (o HeroBanStats) ToMap() (map[string]interface{}, error) {
 	toSerialize["bans"] = o.Bans
 	toSerialize["bucket"] = o.Bucket
 	toSerialize["hero_id"] = o.HeroId
+	toSerialize["matches"] = o.Matches
 	return toSerialize, nil
 }
 
@@ -147,6 +175,7 @@ func (o *HeroBanStats) UnmarshalJSON(data []byte) (err error) {
 		"bans",
 		"bucket",
 		"hero_id",
+		"matches",
 	}
 
 	allProperties := make(map[string]interface{})

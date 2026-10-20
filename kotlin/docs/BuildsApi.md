@@ -130,7 +130,7 @@ val limit : kotlin.Int = 56 // kotlin.Int | The maximum number of builds to retu
 val sortDirection : kotlin.String = sortDirection_example // kotlin.String | The direction to sort the builds in.
 val searchName : kotlin.String = searchName_example // kotlin.String | Search for builds with a name containing this string.
 val searchDescription : kotlin.String = searchDescription_example // kotlin.String | Search for builds with a description containing this string.
-val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build.
+val onlyLatest : kotlin.Boolean = true // kotlin.Boolean | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
 val language : kotlin.Int = 56 // kotlin.Int | Filter builds by language.
 val buildLanguage : kotlin.String = buildLanguage_example // kotlin.String | Filter builds by language.
 val buildId : kotlin.Int = 56 // kotlin.Int | Filter builds by ID.
@@ -164,7 +164,7 @@ try {
 | **sortDirection** | **kotlin.String**| The direction to sort the builds in. | [optional] [enum: desc, asc] |
 | **searchName** | **kotlin.String**| Search for builds with a name containing this string. | [optional] |
 | **searchDescription** | **kotlin.String**| Search for builds with a description containing this string. | [optional] |
-| **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. | [optional] |
+| **onlyLatest** | **kotlin.Boolean**| Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional] |
 | **language** | **kotlin.Int**| Filter builds by language. | [optional] |
 | **buildLanguage** | **kotlin.String**| Filter builds by language. | [optional] [enum: English, German, French, Italian, Korean, SpanishSpain, ChineseSimplified, Russian, Thai, Japanese, PortuguesePortugal, Polish, Czech, Turkish, PortugueseBrazil, Ukrainian, SpanishLatinAmerica, Vietnamese] |
 | **buildId** | **kotlin.Int**| Filter builds by ID. | [optional] |

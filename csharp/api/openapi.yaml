@@ -207,7 +207,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -524,7 +524,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -678,7 +678,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -862,7 +862,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -908,6 +908,8 @@ paths:
         name: bucket
         required: false
         schema:
+          description: "How the match-level analytics group their rows: by the match's\
+            \ start time or badge."
           enum:
           - no_bucket
           - avg_badge
@@ -950,7 +952,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -1175,7 +1177,8 @@ paths:
     get:
       description: "\nRetrieves ban statistics for each hero based on historical match\
         \ data from demo analysis.\n\nOnly matches with successfully extracted ban\
-        \ data are included. Matches where ban extraction failed (empty `banned_hero_ids`)\
+        \ data are included. `matches` counts them per bucket, so a hero's ban rate\n\
+        is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`)\
         \ are excluded entirely.\n\nResults are cached for **6 hours** based on the\
         \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
         \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
@@ -1200,6 +1203,8 @@ paths:
         name: bucket
         required: false
         schema:
+          description: "How the match-level analytics group their rows: by the match's\
+            \ start time or badge."
           enum:
           - no_bucket
           - avg_badge
@@ -1216,7 +1221,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -1376,7 +1381,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -1620,7 +1625,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -1917,7 +1922,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -2157,6 +2162,8 @@ paths:
         name: bucket
         required: false
         schema:
+          description: "How the match-level analytics group their rows: by the match's\
+            \ start time or badge."
           enum:
           - no_bucket
           - avg_badge
@@ -2199,7 +2206,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -2498,6 +2505,8 @@ paths:
         name: bucket
         required: false
         schema:
+          description: "How the match-level analytics group their rows: by the match's\
+            \ start time or badge."
           enum:
           - no_bucket
           - avg_badge
@@ -2514,7 +2523,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -2665,7 +2674,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -2860,24 +2869,25 @@ paths:
     get:
       description: "\nRetrieves item build-flow statistics: per-phase item win/pick\
         \ rates and the transitions between them.\n\nItems are grouped into columns\
-        \ by the in-match phase they were bought in (controlled by\n`phase_interval_s`\
-        \ and `phase_count`). The response contains `nodes` (items aggregated within\
-        \ a phase)\nand `edges` (transitions between an item and items in the next\
-        \ phase). A locked build path can be\nsupplied via `locked_item_ids` / `locked_columns`\
-        \ to restrict the population to players who bought\nthose items in the given\
-        \ stage columns.\n\nEach node also carries `adjusted_win_rate`: the item's\
-        \ win rate standardized to the stage's\nnet-worth-at-buy distribution. Because\
-        \ players who are already ahead have more souls and buy items\nsooner, raw\
-        \ win rate is heavily confounded by wealth; the adjusted figure re-weights\
-        \ each item's win\nrate across net-worth buckets to the stage-wide distribution,\
-        \ isolating the item's contribution from\nthe buyer's lead. It is still observational,\
-        \ not a controlled/causal estimate. `reached_per_column`\ngives the distinct\
-        \ baseline games that bought any upgrade in each column, so consumers can\
-        \ show how\nsurvivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column`\
-        \ counts the won\nones among them, the win rate a build ending in that stage\
-        \ should be compared with.\n\nCorrupted items (build 6712+, same item id as\
-        \ the normal item) are not counted as purchases; the\nnormal item they replaced\
-        \ still is.\n\nResults are cached for **6 hours** based on the unique combination\
+        \ by the in-match phase they were bought in: fixed time phases (0-9m,\n9-20m,\
+        \ 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The\
+        \ response contains\n`nodes` (items aggregated within a phase) and `edges`\
+        \ (transitions between an item and items in the\nnext phase). A locked build\
+        \ path can be supplied via `locked_item_ids` / `locked_columns` to\nrestrict\
+        \ the population to players who bought those items in the given stage columns.\n\
+        \nEach node also carries `adjusted_win_rate`: the item's win rate standardized\
+        \ to the stage's\nnet-worth-at-buy distribution. Because players who are already\
+        \ ahead have more souls and buy items\nsooner, raw win rate is heavily confounded\
+        \ by wealth; the adjusted figure re-weights each item's win\nrate across net-worth\
+        \ buckets to the stage-wide distribution, isolating the item's contribution\
+        \ from\nthe buyer's lead. It is still observational, not a controlled/causal\
+        \ estimate. `reached_per_column`\ngives the distinct baseline games that bought\
+        \ any upgrade in each column, so consumers can show how\nsurvivorship-selected\
+        \ (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts\
+        \ the won\nones among them, the win rate a build ending in that stage should\
+        \ be compared with.\n\nCorrupted items (build 6712+, same item id as the normal\
+        \ item) are not counted as purchases; the\nnormal item they replaced still\
+        \ is.\n\nResults are cached for **6 hours** based on the unique combination\
         \ of query parameters provided.\n\n### Rate Limits:\n> The rate limits below\
         \ are **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ----\
         \ | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
@@ -2955,7 +2965,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -3320,7 +3330,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -3665,7 +3675,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -4070,7 +4080,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -4379,7 +4389,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -4666,7 +4676,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -4959,7 +4969,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -5241,7 +5251,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -5607,7 +5617,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -6044,7 +6054,7 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: The offset to start fetching players from.
+      - description: "The rank to start fetching players from (1-based, like `rank`)."
         explode: true
         in: query
         name: start
@@ -8435,7 +8445,9 @@ paths:
         schema:
           type: string
         style: form
-      - description: Only return the latest version of each build.
+      - description: |-
+          Only return the latest version of each build. The filters do not pick the version: a build
+          whose latest version fails them is left out.
         explode: true
         in: query
         name: only_latest
@@ -10975,11 +10987,10 @@ paths:
   /v1/patches/big-days:
     get:
       description: "\nReturns a list of dates where Deadlock's \"big\" patch days\
-        \ were, usually bi-weekly.\nThe exact date is the time when the announcement\
-        \ forum post was published.\n\nThis list is manually maintained, and so new\
-        \ patch dates may be delayed by a few hours.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+        \ were, usually bi-weekly.\nThe exact date is the time when the update was\
+        \ announced.\n\nThis list is manually maintained, and so new patch dates may\
+        \ be delayed by a few hours.\n\n### Rate Limits:\n| Type | Limit |\n| ----\
+        \ | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
       operationId: big_patch_days
       responses:
         "200":
@@ -11479,7 +11490,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -11603,7 +11614,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -11925,7 +11936,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1789776000
+          default: 1789862400
           format: int64
           nullable: true
           type: integer
@@ -16674,6 +16685,7 @@ components:
         bans: 0
         bucket: 0
         hero_id: 0
+        matches: 0
       properties:
         bans:
           description: The number of matches in which this hero was banned.
@@ -16690,10 +16702,18 @@ components:
           format: int32
           minimum: 0
           type: integer
+        matches:
+          description: |-
+            The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3
+            bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+          format: int64
+          minimum: 0
+          type: integer
       required:
       - bans
       - bucket
       - hero_id
+      - matches
     HeroBuildStats:
       example:
         avg_average_badge: 0.8008281904610115

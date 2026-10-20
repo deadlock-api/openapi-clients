@@ -112,7 +112,7 @@ Search
 | **sortDirection** | **string** | The direction to sort the builds in. | [optional]  |
 | **searchName** | **string** | Search for builds with a name containing this string. | [optional]  |
 | **searchDescription** | **string** | Search for builds with a description containing this string. | [optional]  |
-| **onlyLatest** | **bool** | Only return the latest version of each build. | [optional]  |
+| **onlyLatest** | **bool** | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional]  |
 | **language** | **int** | Filter builds by language. | [optional]  |
 | **buildLanguage** | **string** | Filter builds by language. | [optional]  |
 | **buildId** | **int** | Filter builds by ID. | [optional]  |

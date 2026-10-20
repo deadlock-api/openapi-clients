@@ -186,7 +186,7 @@ func main() {
 	sortDirection := "sortDirection_example" // string | The direction to sort the builds in. (optional)
 	searchName := "searchName_example" // string | Search for builds with a name containing this string. (optional)
 	searchDescription := "searchDescription_example" // string | Search for builds with a description containing this string. (optional)
-	onlyLatest := true // bool | Only return the latest version of each build. (optional)
+	onlyLatest := true // bool | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)
 	language := int32(56) // int32 | Filter builds by language. (optional)
 	buildLanguage := "buildLanguage_example" // string | Filter builds by language. (optional)
 	buildId := int32(56) // int32 | Filter builds by ID. (optional)
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
  **sortDirection** | **string** | The direction to sort the builds in. | 
  **searchName** | **string** | Search for builds with a name containing this string. | 
  **searchDescription** | **string** | Search for builds with a description containing this string. | 
- **onlyLatest** | **bool** | Only return the latest version of each build. | 
+ **onlyLatest** | **bool** | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | 
  **language** | **int32** | Filter builds by language. | 
  **buildLanguage** | **string** | Filter builds by language. | 
  **buildId** | **int32** | Filter builds by ID. | 

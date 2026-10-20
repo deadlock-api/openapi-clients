@@ -624,7 +624,7 @@ class BuildsApi:
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
-        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
+        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
@@ -670,7 +670,7 @@ class BuildsApi:
         :type search_name: str
         :param search_description: Search for builds with a description containing this string.
         :type search_description: str
-        :param only_latest: Only return the latest version of each build.
+        :param only_latest: Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int
@@ -766,7 +766,7 @@ class BuildsApi:
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
-        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
+        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
@@ -812,7 +812,7 @@ class BuildsApi:
         :type search_name: str
         :param search_description: Search for builds with a description containing this string.
         :type search_description: str
-        :param only_latest: Only return the latest version of each build.
+        :param only_latest: Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int
@@ -908,7 +908,7 @@ class BuildsApi:
         sort_direction: Annotated[Optional[StrictStr], Field(description="The direction to sort the builds in.")] = None,
         search_name: Annotated[Optional[StrictStr], Field(description="Search for builds with a name containing this string.")] = None,
         search_description: Annotated[Optional[StrictStr], Field(description="Search for builds with a description containing this string.")] = None,
-        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build.")] = None,
+        only_latest: Annotated[Optional[StrictBool], Field(description="Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.")] = None,
         language: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by language.")] = None,
         build_language: Annotated[Optional[StrictStr], Field(description="Filter builds by language.")] = None,
         build_id: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter builds by ID.")] = None,
@@ -954,7 +954,7 @@ class BuildsApi:
         :type search_name: str
         :param search_description: Search for builds with a description containing this string.
         :type search_description: str
-        :param only_latest: Only return the latest version of each build.
+        :param only_latest: Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
         :type only_latest: bool
         :param language: Filter builds by language.
         :type language: int

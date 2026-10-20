@@ -36,6 +36,12 @@ export interface HeroBanStats  {
      * @memberof HeroBanStats
      */
     heroId: number;
+    /**
+     * The number of matches with ban data in this bucket. A hero\'s ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+     * @type {number}
+     * @memberof HeroBanStats
+     */
+    matches: number;
 }
 
 export function HeroBanStatsFromJSON(json: any): HeroBanStats {
@@ -43,6 +49,7 @@ export function HeroBanStatsFromJSON(json: any): HeroBanStats {
         'bans': json['bans'],
         'bucket': json['bucket'],
         'heroId': json['hero_id'],
+        'matches': json['matches'],
     };
 }
 
@@ -54,6 +61,7 @@ export function HeroBanStatsToJSON(value?: HeroBanStats): any {
         'bans': value.bans,
         'bucket': value.bucket,
         'hero_id': value.heroId,
+        'matches': value.matches,
     };
 }
 

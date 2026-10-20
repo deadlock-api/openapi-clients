@@ -59,7 +59,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'bans' => 'int',
         'bucket' => 'int',
-        'hero_id' => 'int'
+        'hero_id' => 'int',
+        'matches' => 'int'
     ];
 
     /**
@@ -72,7 +73,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'bans' => 'int64',
         'bucket' => 'int32',
-        'hero_id' => 'int32'
+        'hero_id' => 'int32',
+        'matches' => 'int64'
     ];
 
     /**
@@ -83,7 +85,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'bans' => false,
         'bucket' => false,
-        'hero_id' => false
+        'hero_id' => false,
+        'matches' => false
     ];
 
     /**
@@ -174,7 +177,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'bans' => 'bans',
         'bucket' => 'bucket',
-        'hero_id' => 'hero_id'
+        'hero_id' => 'hero_id',
+        'matches' => 'matches'
     ];
 
     /**
@@ -185,7 +189,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'bans' => 'setBans',
         'bucket' => 'setBucket',
-        'hero_id' => 'setHeroId'
+        'hero_id' => 'setHeroId',
+        'matches' => 'setMatches'
     ];
 
     /**
@@ -196,7 +201,8 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'bans' => 'getBans',
         'bucket' => 'getBucket',
-        'hero_id' => 'getHeroId'
+        'hero_id' => 'getHeroId',
+        'matches' => 'getMatches'
     ];
 
     /**
@@ -259,6 +265,7 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bans', $data ?? [], null);
         $this->setIfExists('bucket', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
+        $this->setIfExists('matches', $data ?? [], null);
     }
 
     /**
@@ -307,6 +314,13 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if (($this->container['hero_id'] < 0)) {
             $invalidProperties[] = "invalid value for 'hero_id', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['matches'] === null) {
+            $invalidProperties[] = "'matches' can't be null";
+        }
+        if (($this->container['matches'] < 0)) {
+            $invalidProperties[] = "invalid value for 'matches', must be bigger than or equal to 0.";
         }
 
         return $invalidProperties;
@@ -413,6 +427,37 @@ class HeroBanStats implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['hero_id'] = $hero_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets matches
+     *
+     * @return int
+     */
+    public function getMatches()
+    {
+        return $this->container['matches'];
+    }
+
+    /**
+     * Sets matches
+     *
+     * @param int $matches The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+     *
+     * @return self
+     */
+    public function setMatches($matches)
+    {
+        if (is_null($matches)) {
+            throw new \InvalidArgumentException('non-nullable matches cannot be null');
+        }
+        if (($matches < 0)) {
+            throw new \InvalidArgumentException('invalid value for $matches when calling HeroBanStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['matches'] = $matches;
 
         return $this;
     }

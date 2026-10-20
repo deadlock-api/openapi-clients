@@ -240,7 +240,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
     sort_direction = 'sort_direction_example' # str | The direction to sort the builds in. (optional)
     search_name = 'search_name_example' # str | Search for builds with a name containing this string. (optional)
     search_description = 'search_description_example' # str | Search for builds with a description containing this string. (optional)
-    only_latest = True # bool | Only return the latest version of each build. (optional)
+    only_latest = True # bool | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)
     language = 56 # int | Filter builds by language. (optional)
     build_language = 'build_language_example' # str | Filter builds by language. (optional)
     build_id = 56 # int | Filter builds by ID. (optional)
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
  **sort_direction** | **str**| The direction to sort the builds in. | [optional] 
  **search_name** | **str**| Search for builds with a name containing this string. | [optional] 
  **search_description** | **str**| Search for builds with a description containing this string. | [optional] 
- **only_latest** | **bool**| Only return the latest version of each build. | [optional] 
+ **only_latest** | **bool**| Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. | [optional] 
  **language** | **int**| Filter builds by language. | [optional] 
  **build_language** | **str**| Filter builds by language. | [optional] 
  **build_id** | **int**| Filter builds by ID. | [optional] 

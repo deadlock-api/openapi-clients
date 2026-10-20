@@ -105,7 +105,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sortDirection">The direction to sort the builds in. (optional)</param>
         /// <param name="searchName">Search for builds with a name containing this string. (optional)</param>
         /// <param name="searchDescription">Search for builds with a description containing this string. (optional)</param>
-        /// <param name="onlyLatest">Only return the latest version of each build. (optional)</param>
+        /// <param name="onlyLatest">Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)</param>
         /// <param name="language">Filter builds by language. (optional) (deprecated)</param>
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
@@ -134,7 +134,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sortDirection">The direction to sort the builds in. (optional)</param>
         /// <param name="searchName">Search for builds with a name containing this string. (optional)</param>
         /// <param name="searchDescription">Search for builds with a description containing this string. (optional)</param>
-        /// <param name="onlyLatest">Only return the latest version of each build. (optional)</param>
+        /// <param name="onlyLatest">Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)</param>
         /// <param name="language">Filter builds by language. (optional) (deprecated)</param>
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
@@ -1053,7 +1053,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sortDirection">The direction to sort the builds in. (optional)</param>
         /// <param name="searchName">Search for builds with a name containing this string. (optional)</param>
         /// <param name="searchDescription">Search for builds with a description containing this string. (optional)</param>
-        /// <param name="onlyLatest">Only return the latest version of each build. (optional)</param>
+        /// <param name="onlyLatest">Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)</param>
         /// <param name="language">Filter builds by language. (optional)</param>
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>
@@ -1090,7 +1090,7 @@ namespace DeadlockApiClient.Api
         /// <param name="sortDirection">The direction to sort the builds in. (optional)</param>
         /// <param name="searchName">Search for builds with a name containing this string. (optional)</param>
         /// <param name="searchDescription">Search for builds with a description containing this string. (optional)</param>
-        /// <param name="onlyLatest">Only return the latest version of each build. (optional)</param>
+        /// <param name="onlyLatest">Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. (optional)</param>
         /// <param name="language">Filter builds by language. (optional)</param>
         /// <param name="buildLanguage">Filter builds by language. (optional)</param>
         /// <param name="buildId">Filter builds by ID. (optional)</param>

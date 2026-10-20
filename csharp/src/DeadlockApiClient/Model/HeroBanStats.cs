@@ -36,12 +36,14 @@ namespace DeadlockApiClient.Model
         /// <param name="bans">The number of matches in which this hero was banned.</param>
         /// <param name="bucket">The bucket value (depends on the bucket query parameter).</param>
         /// <param name="heroId">The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="matches">The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</param>
         [JsonConstructor]
-        public HeroBanStats(long bans, int bucket, int heroId)
+        public HeroBanStats(long bans, int bucket, int heroId, long matches)
         {
             Bans = bans;
             Bucket = bucket;
             HeroId = heroId;
+            Matches = matches;
             OnCreated();
         }
 
@@ -69,6 +71,13 @@ namespace DeadlockApiClient.Model
         public int HeroId { get; set; }
 
         /// <summary>
+        /// The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+        /// </summary>
+        /// <value>The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</value>
+        [JsonPropertyName("matches")]
+        public long Matches { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +88,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Bans: ").Append(Bans).Append("\n");
             sb.Append("  Bucket: ").Append(Bucket).Append("\n");
             sb.Append("  HeroId: ").Append(HeroId).Append("\n");
+            sb.Append("  Matches: ").Append(Matches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +116,12 @@ namespace DeadlockApiClient.Model
             if (this.HeroId < (int)0)
             {
                 yield return new ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
+            }
+
+            // Matches (long) minimum
+            if (this.Matches < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             yield break;
@@ -147,6 +163,7 @@ namespace DeadlockApiClient.Model
             Option<long?> bans = default;
             Option<int?> bucket = default;
             Option<int?> heroId = default;
+            Option<long?> matches = default;
 
             while (utf8JsonReader.Read())
             {
@@ -172,6 +189,9 @@ namespace DeadlockApiClient.Model
                         case "hero_id":
                             heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "matches":
+                            matches = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
+                            break;
                         default:
                             break;
                     }
@@ -187,6 +207,9 @@ namespace DeadlockApiClient.Model
             if (!heroId.IsSet)
                 throw new JsonException("Property is required for class HeroBanStats: hero_id.");
 
+            if (!matches.IsSet)
+                throw new JsonException("Property is required for class HeroBanStats: matches.");
+
             if (bans.IsSet && bans.Value == null)
                 throw new JsonException("Property is not nullable for class HeroBanStats: bans.");
 
@@ -196,7 +219,10 @@ namespace DeadlockApiClient.Model
             if (heroId.IsSet && heroId.Value == null)
                 throw new JsonException("Property is not nullable for class HeroBanStats: hero_id.");
 
-            return new HeroBanStats(bans.Value!.Value!, bucket.Value!.Value!, heroId.Value!.Value!);
+            if (matches.IsSet && matches.Value == null)
+                throw new JsonException("Property is not nullable for class HeroBanStats: matches.");
+
+            return new HeroBanStats(bans.Value!.Value!, bucket.Value!.Value!, heroId.Value!.Value!, matches.Value!.Value!);
         }
 
         /// <summary>
@@ -226,6 +252,8 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("bucket", heroBanStats.Bucket);
 
             writer.WriteNumber("hero_id", heroBanStats.HeroId);
+
+            writer.WriteNumber("matches", heroBanStats.Matches);
         }
     }
 }

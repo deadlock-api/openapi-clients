@@ -374,7 +374,7 @@ func (r ApiSearchBuildsRequest) SearchDescription(searchDescription string) ApiS
 	return r
 }
 
-// Only return the latest version of each build.
+// Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out.
 func (r ApiSearchBuildsRequest) OnlyLatest(onlyLatest bool) ApiSearchBuildsRequest {
 	r.onlyLatest = &onlyLatest
 	return r

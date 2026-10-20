@@ -94,7 +94,7 @@ Name | Type | Description  | Required | Notes
 **sort_direction** | Option<**String**> | The direction to sort the builds in. |  |
 **search_name** | Option<**String**> | Search for builds with a name containing this string. |  |
 **search_description** | Option<**String**> | Search for builds with a description containing this string. |  |
-**only_latest** | Option<**bool**> | Only return the latest version of each build. |  |
+**only_latest** | Option<**bool**> | Only return the latest version of each build. The filters do not pick the version: a build whose latest version fails them is left out. |  |
 **language** | Option<**u32**> | Filter builds by language. |  |
 **build_language** | Option<**String**> | Filter builds by language. |  |
 **build_id** | Option<**u32**> | Filter builds by ID. |  |

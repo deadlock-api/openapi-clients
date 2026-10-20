@@ -37,13 +37,15 @@ class TestHeroBanStats(unittest.TestCase):
             return HeroBanStats(
                 bans = 0,
                 bucket = 0,
-                hero_id = 0
+                hero_id = 0,
+                matches = 0
             )
         else:
             return HeroBanStats(
                 bans = 0,
                 bucket = 0,
                 hero_id = 0,
+                matches = 0,
         )
         """
 

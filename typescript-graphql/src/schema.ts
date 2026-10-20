@@ -564,45 +564,6 @@ export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME' | 'LAS
 
 export type OrderDirection = 'DESC' | 'ASC'
 
-
-/**
- * One entry of the patch feed — the same data as the REST `/v2/patches`
- * endpoint.
- */
-export interface Patch {
-    /** `forum` (official forum changelog) or `steam` (Steam news feed). */
-    source: Scalars['String']
-    title: Scalars['String']
-    /** When the patch was published, as a unix timestamp. */
-    pub_date: Scalars['Int']
-    /**
-     * When the next patch of the same `source` was published, as a unix
-     * timestamp. `null` for the patch that is currently live.
-     */
-    end_date: (Scalars['Int'] | null)
-    link: Scalars['String']
-    guid: Scalars['String']
-    /** Only set for `forum` patches. */
-    category: (Scalars['String'] | null)
-    content: Scalars['String']
-    /**
-     * The root `matches` query, scoped to the matches started while this
-     * patch was live (`pub_date` until `end_date`).
-     */
-    matches: Match[]
-    /**
-     * The root `match_players` query, scoped to the matches started while
-     * this patch was live (`pub_date` until `end_date`).
-     */
-    match_players: MatchPlayer[]
-    /**
-     * The root `match_history` query, scoped to the matches started while
-     * this patch was live (`pub_date` until `end_date`).
-     */
-    match_history: MatchHistoryEntry[]
-    __typename: 'Patch'
-}
-
 export interface QueryRoot {
     /** Match-grouped query — one node per match_id with players aggregated. */
     matches: Match[]
@@ -622,13 +583,6 @@ export interface QueryRoot {
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts: MatchSalts[]
-    /**
-     * Patch notes from the official forum changelog and the Steam news feed —
-     * the same data as the REST `/v2/patches` feed, so only as far back as
-     * those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
-     * match queries to the time it was live.
-     */
-    patches: Patch[]
     /**
      * Hero builds from the stored `hero_builds` table — the same data as the
      * REST `/v1/builds` search. Every version of a build is returned unless
@@ -1579,52 +1533,6 @@ export interface MatchSaltsGenqlSelection{
 /** Filter input for the `match_salts` query. Operations across fields are AND-ed. */
 export interface MatchSaltsWhere {match_id?: (U64Filter | null),cluster_id?: (U32Filter | null)}
 
-
-/**
- * One entry of the patch feed — the same data as the REST `/v2/patches`
- * endpoint.
- */
-export interface PatchGenqlSelection{
-    /** `forum` (official forum changelog) or `steam` (Steam news feed). */
-    source?: boolean | number
-    title?: boolean | number
-    /** When the patch was published, as a unix timestamp. */
-    pub_date?: boolean | number
-    /**
-     * When the next patch of the same `source` was published, as a unix
-     * timestamp. `null` for the patch that is currently live.
-     */
-    end_date?: boolean | number
-    link?: boolean | number
-    guid?: boolean | number
-    /** Only set for `forum` patches. */
-    category?: boolean | number
-    content?: boolean | number
-    /**
-     * The root `matches` query, scoped to the matches started while this
-     * patch was live (`pub_date` until `end_date`).
-     */
-    matches?: (MatchGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatch | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
-    /**
-     * The root `match_players` query, scoped to the matches started while
-     * this patch was live (`pub_date` until `end_date`).
-     */
-    match_players?: (MatchPlayerGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatchPlayer | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
-    /**
-     * The root `match_history` query, scoped to the matches started while
-     * this patch was live (`pub_date` until `end_date`).
-     */
-    match_history?: (MatchHistoryEntryGenqlSelection & { __args?: {where?: (MatchHistoryWhere | null), order_by?: (OrderByMatchHistory | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
-    __typename?: boolean | number
-    __scalar?: boolean | number
-}
-
-
-/** Filter input for the `patches` query. Operations across fields are AND-ed. */
-export interface PatchWhere {source?: (StringFilter | null),category?: (StringFilter | null),pub_date?: (I64Filter | null),
-/** `{is_null: true}` selects the patches that are currently live. */
-end_date?: (I64Filter | null)}
-
 export interface QueryRootGenqlSelection{
     /** Match-grouped query — one node per match_id with players aggregated. */
     matches?: (MatchGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatch | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
@@ -1644,13 +1552,6 @@ export interface QueryRootGenqlSelection{
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts?: (MatchSaltsGenqlSelection & { __args?: {where?: (MatchSaltsWhere | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
-    /**
-     * Patch notes from the official forum changelog and the Steam news feed —
-     * the same data as the REST `/v2/patches` feed, so only as far back as
-     * those RSS feeds reach. Ordered by `pub_date`. Every patch can scope the
-     * match queries to the time it was live.
-     */
-    patches?: (PatchGenqlSelection & { __args?: {where?: (PatchWhere | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
     /**
      * Hero builds from the stored `hero_builds` table — the same data as the
      * REST `/v1/builds` search. Every version of a build is returned unless
@@ -2218,14 +2119,6 @@ export type QueryGenqlSelection = QueryRootGenqlSelection
     export const isMatchSalts = (obj?: { __typename?: any } | null): obj is MatchSalts => {
       if (!obj?.__typename) throw new Error('__typename is missing in "isMatchSalts"')
       return MatchSalts_possibleTypes.includes(obj.__typename)
-    }
-    
-
-
-    const Patch_possibleTypes: string[] = ['Patch']
-    export const isPatch = (obj?: { __typename?: any } | null): obj is Patch => {
-      if (!obj?.__typename) throw new Error('__typename is missing in "isPatch"')
-      return Patch_possibleTypes.includes(obj.__typename)
     }
     
 
