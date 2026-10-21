@@ -16,6 +16,7 @@ export * from './ActiveMatchPlayer';
 export * from './ActiveMatchTeam';
 export * from './ActiveMatchTeamStats';
 export * from './AddSteamAccountRequest';
+export * from './AnalyticsAbilityMaxFirstStats';
 export * from './AnalyticsAbilityOrderStats';
 export * from './AnalyticsAbilityOrderTreeNode';
 export * from './AnalyticsBuffStats';

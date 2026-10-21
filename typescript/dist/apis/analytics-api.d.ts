@@ -12,6 +12,7 @@
 import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { type RequestArgs, BaseAPI } from '../base.js';
+import type { AnalyticsAbilityMaxFirstStats } from '../models/index.js';
 import type { AnalyticsAbilityOrderStats } from '../models/index.js';
 import type { AnalyticsAbilityOrderTreeNode } from '../models/index.js';
 import type { AnalyticsBuffStats } from '../models/index.js';
@@ -40,6 +41,36 @@ import type { PlayerPerformanceCurvePoint } from '../models/index.js';
  */
 export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Ability Max First Stats
+     * @param {number} heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {AbilityMaxFirstStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAbilityUpgrades] Filter players based on their minimum number of ability upgrades over the whole match.
+     * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
+     * @param {number | null} [minNetworth] Filter players based on their final net worth.
+     * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
+     * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    abilityMaxFirstStats: (heroId: number, gameMode?: AbilityMaxFirstStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Ability Order Stats
      * @param {number} heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -57,7 +88,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
-     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
@@ -87,7 +118,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
-     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
@@ -367,7 +398,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      */
     heroSynergiesStats: (gameMode?: HeroSynergiesStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Flow Stats
      * @param {number | null} [phaseIntervalS] Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds.
      * @param {number | null} [phaseCount] Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4.
@@ -608,7 +639,7 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      */
     playerScoreboard: (sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {PlayerStatsMetricsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -624,7 +655,6 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-     * @param {number | null} [minMatches] The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
@@ -634,12 +664,42 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics: (heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, minMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    playerStatsMetrics: (heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AnalyticsApi - functional programming interface
  */
 export declare const AnalyticsApiFp: (configuration?: Configuration) => {
+    /**
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Ability Max First Stats
+     * @param {number} heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {AbilityMaxFirstStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAbilityUpgrades] Filter players based on their minimum number of ability upgrades over the whole match.
+     * @param {number | null} [maxAbilityUpgrades] Filter players based on their maximum number of ability upgrades over the whole match.
+     * @param {number | null} [minNetworth] Filter players based on their final net worth.
+     * @param {number | null} [maxNetworth] Filter players based on their final net worth.
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
+     * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    abilityMaxFirstStats(heroId: number, gameMode?: AbilityMaxFirstStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAbilityUpgrades?: number | null, maxAbilityUpgrades?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, heroBuildId?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AnalyticsAbilityMaxFirstStats>>>;
     /**
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Ability Order Stats
@@ -658,7 +718,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
-     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
@@ -688,7 +748,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
-     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * @param {number | null} [minMatches] The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      * @param {number | null} [accountId] Filter for matches with a specific player account ID.
      * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
      * @param {number | null} [heroBuildId] Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
@@ -968,7 +1028,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      */
     heroSynergiesStats(gameMode?: HeroSynergiesStatsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, sameLaneFilter?: boolean | null, minMatches?: number | null, maxMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroSynergyStats>>>;
     /**
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Flow Stats
      * @param {number | null} [phaseIntervalS] Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds.
      * @param {number | null} [phaseCount] Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4.
@@ -1209,7 +1269,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      */
     playerScoreboard(sortBy: PlayerScoreboardSortByEnum, sortDirection?: PlayerScoreboardSortDirectionEnum, gameMode?: PlayerScoreboardGameModeEnum, matchMode?: string | null, heroId?: number | null, heroBuildId?: number | null, minMatches?: number | null, maxMatches?: number | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, start?: number | null, limit?: number | null, accountIds?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerEntry>>>;
     /**
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
      * @param {string | null} [heroIds] Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {PlayerStatsMetricsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -1225,7 +1285,6 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {number | null} [minMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatchId] Filter matches based on their ID.
      * @param {number | null} [maxMatches] The maximum number of matches to analyze.
-     * @param {number | null} [minMatches] The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set.
      * @param {Array<number> | null} [includeItemIds] Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [excludeItemIds] Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
@@ -1235,7 +1294,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics(heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, minMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+    playerStatsMetrics(heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
         [key: string]: HashMapValue;
     }>>;
 };
@@ -1243,6 +1302,14 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
  * AnalyticsApi - factory interface
  */
 export declare const AnalyticsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Ability Max First Stats
+     * @param {AnalyticsApiAbilityMaxFirstStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    abilityMaxFirstStats(requestParameters: AnalyticsApiAbilityMaxFirstStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<AnalyticsAbilityMaxFirstStats>>;
     /**
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Ability Order Stats
@@ -1356,7 +1423,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      */
     heroSynergiesStats(requestParameters?: AnalyticsApiHeroSynergiesStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroSynergyStats>>;
     /**
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Flow Stats
      * @param {AnalyticsApiItemFlowStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1420,7 +1487,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      */
     playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerEntry>>;
     /**
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
      * @param {AnalyticsApiPlayerStatsMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1430,6 +1497,103 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
         [key: string]: HashMapValue;
     }>;
 };
+/**
+ * Request parameters for abilityMaxFirstStats operation in AnalyticsApi.
+ */
+export interface AnalyticsApiAbilityMaxFirstStatsRequest {
+    /**
+     * See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly heroId: number;
+    /**
+     * Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+     */
+    readonly gameMode?: AbilityMaxFirstStatsGameModeEnum;
+    /**
+     * Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     */
+    readonly matchMode?: string | null;
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+     */
+    readonly minUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null;
+    /**
+     * Filter players based on their minimum number of ability upgrades over the whole match.
+     */
+    readonly minAbilityUpgrades?: number | null;
+    /**
+     * Filter players based on their maximum number of ability upgrades over the whole match.
+     */
+    readonly maxAbilityUpgrades?: number | null;
+    /**
+     * Filter players based on their final net worth.
+     */
+    readonly minNetworth?: number | null;
+    /**
+     * Filter players based on their final net worth.
+     */
+    readonly maxNetworth?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null;
+    /**
+     * The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
+     */
+    readonly minMatches?: number | null;
+    /**
+     * Filter for matches with a specific player account ID.
+     */
+    readonly accountId?: number | null;
+    /**
+     * Comma separated list of account ids to include
+     */
+    readonly accountIds?: Array<number> | null;
+    /**
+     * Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+     */
+    readonly heroBuildId?: number | null;
+    /**
+     * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     */
+    readonly includeItemIds?: Array<number> | null;
+    /**
+     * Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+     */
+    readonly excludeItemIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+}
 /**
  * Request parameters for abilityOrderStats operation in AnalyticsApi.
  */
@@ -1495,7 +1659,7 @@ export interface AnalyticsApiAbilityOrderStatsRequest {
      */
     readonly maxMatchId?: number | null;
     /**
-     * The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      */
     readonly minMatches?: number | null;
     /**
@@ -1592,7 +1756,7 @@ export interface AnalyticsApiAbilityOrderTreeRequest {
      */
     readonly maxMatchId?: number | null;
     /**
-     * The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+     * The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
      */
     readonly minMatches?: number | null;
     /**
@@ -3257,10 +3421,6 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
      */
     readonly maxMatches?: number | null;
     /**
-     * The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set.
-     */
-    readonly minMatches?: number | null;
-    /**
      * Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
      */
     readonly includeItemIds?: Array<number> | null;
@@ -3289,6 +3449,14 @@ export interface AnalyticsApiPlayerStatsMetricsRequest {
  * AnalyticsApi - object-oriented interface
  */
 export declare class AnalyticsApi extends BaseAPI {
+    /**
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     * @summary Ability Max First Stats
+     * @param {AnalyticsApiAbilityMaxFirstStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    abilityMaxFirstStats(requestParameters: AnalyticsApiAbilityMaxFirstStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AnalyticsAbilityMaxFirstStats[], any, {}, any>>;
     /**
      *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Ability Order Stats
@@ -3402,7 +3570,7 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     heroSynergiesStats(requestParameters?: AnalyticsApiHeroSynergiesStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroSynergyStats[], any, {}, any>>;
     /**
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Item Flow Stats
      * @param {AnalyticsApiItemFlowStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -3466,7 +3634,7 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     playerScoreboard(requestParameters: AnalyticsApiPlayerScoreboardRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerEntry[], any, {}, any>>;
     /**
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
+     *  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |
      * @summary Player Stats Metrics
      * @param {AnalyticsApiPlayerStatsMetricsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -3476,6 +3644,13 @@ export declare class AnalyticsApi extends BaseAPI {
         [key: string]: HashMapValue;
     }, any, {}, any>>;
 }
+export declare const AbilityMaxFirstStatsGameModeEnum: {
+    readonly Normal: "normal";
+    readonly StreetBrawl: "street_brawl";
+    readonly ExploreNYC: "explore_n_y_c";
+    readonly Internal: "internal";
+};
+export type AbilityMaxFirstStatsGameModeEnum = typeof AbilityMaxFirstStatsGameModeEnum[keyof typeof AbilityMaxFirstStatsGameModeEnum];
 export declare const AbilityOrderStatsGameModeEnum: {
     readonly Normal: "normal";
     readonly StreetBrawl: "street_brawl";

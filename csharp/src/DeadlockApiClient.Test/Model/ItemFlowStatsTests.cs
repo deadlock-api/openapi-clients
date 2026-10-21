@@ -115,5 +115,23 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'ReachedWinsPerColumn'
         }
+
+        /// <summary>
+        /// Test the property 'SummaryReachedPerColumn'
+        /// </summary>
+        [Fact]
+        public void SummaryReachedPerColumnTest()
+        {
+            // TODO unit test for the property 'SummaryReachedPerColumn'
+        }
+
+        /// <summary>
+        /// Test the property 'SummaryReachedWinsPerColumn'
+        /// </summary>
+        [Fact]
+        public void SummaryReachedWinsPerColumnTest()
+        {
+            // TODO unit test for the property 'SummaryReachedWinsPerColumn'
+        }
     }
 }

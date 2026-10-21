@@ -49,5 +49,13 @@ export interface ItemFlowStats {
      * Totals for the locked build-path population (all filters applied). Denominator for pick rate.
      */
     'summary': ItemFlowSummary;
+    /**
+     * `reached_per_column` for the locked build path\'s games (`summary`). Late stages hold long games only, so an item bought there is compared with the build\'s games that got that far.
+     */
+    'summary_reached_per_column'?: Array<number>;
+    /**
+     * Of `summary_reached_per_column`, the games that were won (index = column).
+     */
+    'summary_reached_wins_per_column'?: Array<number>;
 }
 

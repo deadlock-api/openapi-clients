@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **reached_per_column** | **Vec<u64>** | Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is. | 
 **reached_wins_per_column** | Option<**Vec<u64>**> | Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there. | [optional]
 **summary** | [**models::ItemFlowSummary**](ItemFlowSummary.md) | Totals for the locked build-path population (all filters applied). Denominator for pick rate. | 
+**summary_reached_per_column** | Option<**Vec<u64>**> | `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far. | [optional]
+**summary_reached_wins_per_column** | Option<**Vec<u64>**> | Of `summary_reached_per_column`, the games that were won (index = column). | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

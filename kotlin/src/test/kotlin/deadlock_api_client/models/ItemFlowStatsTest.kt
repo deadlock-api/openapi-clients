@@ -79,5 +79,17 @@ class ItemFlowStatsTest : ShouldSpec() {
             //modelInstance.reachedWinsPerColumn shouldBe ("TODO")
         }
 
+        // to test the property `summaryReachedPerColumn` - `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.
+        should("test summaryReachedPerColumn") {
+            // uncomment below to test the property
+            //modelInstance.summaryReachedPerColumn shouldBe ("TODO")
+        }
+
+        // to test the property `summaryReachedWinsPerColumn` - Of `summary_reached_per_column`, the games that were won (index = column).
+        should("test summaryReachedWinsPerColumn") {
+            // uncomment below to test the property
+            //modelInstance.summaryReachedWinsPerColumn shouldBe ("TODO")
+        }
+
     }
 }

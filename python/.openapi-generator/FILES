@@ -61,6 +61,7 @@ deadlock_api_client/models/active_match_player.py
 deadlock_api_client/models/active_match_team.py
 deadlock_api_client/models/active_match_team_stats.py
 deadlock_api_client/models/add_steam_account_request.py
+deadlock_api_client/models/analytics_ability_max_first_stats.py
 deadlock_api_client/models/analytics_ability_order_stats.py
 deadlock_api_client/models/analytics_ability_order_tree_node.py
 deadlock_api_client/models/analytics_buff_stats.py
@@ -308,6 +309,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/ActiveMatchTeamStats.md
 docs/AddSteamAccountRequest.md
+docs/AnalyticsAbilityMaxFirstStats.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsAbilityOrderTreeNode.md
 docs/AnalyticsApi.md
@@ -590,6 +592,7 @@ test/test_active_match_player.py
 test/test_active_match_team.py
 test/test_active_match_team_stats.py
 test/test_add_steam_account_request.py
+test/test_analytics_ability_max_first_stats.py
 test/test_analytics_ability_order_stats.py
 test/test_analytics_ability_order_tree_node.py
 test/test_analytics_api.py

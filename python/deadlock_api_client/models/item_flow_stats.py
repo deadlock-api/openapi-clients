@@ -39,7 +39,9 @@ class ItemFlowStats(BaseModel):
     reached_per_column: List[Annotated[int, Field(strict=True, ge=0)]] = Field(description="Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.")
     reached_wins_per_column: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.")
     summary: ItemFlowSummary = Field(description="Totals for the locked build-path population (all filters applied). Denominator for pick rate.")
-    __properties: ClassVar[List[str]] = ["baseline", "edges", "leave_one_out", "nodes", "reached_per_column", "reached_wins_per_column", "summary"]
+    summary_reached_per_column: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="`reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.")
+    summary_reached_wins_per_column: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, description="Of `summary_reached_per_column`, the games that were won (index = column).")
+    __properties: ClassVar[List[str]] = ["baseline", "edges", "leave_one_out", "nodes", "reached_per_column", "reached_wins_per_column", "summary", "summary_reached_per_column", "summary_reached_wins_per_column"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -122,7 +124,9 @@ class ItemFlowStats(BaseModel):
             "nodes": [ItemFlowNode.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,
             "reached_per_column": obj.get("reached_per_column"),
             "reached_wins_per_column": obj.get("reached_wins_per_column"),
-            "summary": ItemFlowSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None
+            "summary": ItemFlowSummary.from_dict(obj["summary"]) if obj.get("summary") is not None else None,
+            "summary_reached_per_column": obj.get("summary_reached_per_column"),
+            "summary_reached_wins_per_column": obj.get("summary_reached_wins_per_column")
         })
         return _obj
 

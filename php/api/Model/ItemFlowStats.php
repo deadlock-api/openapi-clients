@@ -63,7 +63,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => '\OpenAPI\Client\Model\ItemFlowNode[]',
         'reached_per_column' => 'int[]',
         'reached_wins_per_column' => 'int[]',
-        'summary' => '\OpenAPI\Client\Model\ItemFlowSummary'
+        'summary' => '\OpenAPI\Client\Model\ItemFlowSummary',
+        'summary_reached_per_column' => 'int[]',
+        'summary_reached_wins_per_column' => 'int[]'
     ];
 
     /**
@@ -80,7 +82,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => null,
         'reached_per_column' => 'int64',
         'reached_wins_per_column' => 'int64',
-        'summary' => null
+        'summary' => null,
+        'summary_reached_per_column' => 'int64',
+        'summary_reached_wins_per_column' => 'int64'
     ];
 
     /**
@@ -95,7 +99,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => false,
         'reached_per_column' => false,
         'reached_wins_per_column' => false,
-        'summary' => false
+        'summary' => false,
+        'summary_reached_per_column' => false,
+        'summary_reached_wins_per_column' => false
     ];
 
     /**
@@ -190,7 +196,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => 'nodes',
         'reached_per_column' => 'reached_per_column',
         'reached_wins_per_column' => 'reached_wins_per_column',
-        'summary' => 'summary'
+        'summary' => 'summary',
+        'summary_reached_per_column' => 'summary_reached_per_column',
+        'summary_reached_wins_per_column' => 'summary_reached_wins_per_column'
     ];
 
     /**
@@ -205,7 +213,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => 'setNodes',
         'reached_per_column' => 'setReachedPerColumn',
         'reached_wins_per_column' => 'setReachedWinsPerColumn',
-        'summary' => 'setSummary'
+        'summary' => 'setSummary',
+        'summary_reached_per_column' => 'setSummaryReachedPerColumn',
+        'summary_reached_wins_per_column' => 'setSummaryReachedWinsPerColumn'
     ];
 
     /**
@@ -220,7 +230,9 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         'nodes' => 'getNodes',
         'reached_per_column' => 'getReachedPerColumn',
         'reached_wins_per_column' => 'getReachedWinsPerColumn',
-        'summary' => 'getSummary'
+        'summary' => 'getSummary',
+        'summary_reached_per_column' => 'getSummaryReachedPerColumn',
+        'summary_reached_wins_per_column' => 'getSummaryReachedWinsPerColumn'
     ];
 
     /**
@@ -287,6 +299,8 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('reached_per_column', $data ?? [], null);
         $this->setIfExists('reached_wins_per_column', $data ?? [], null);
         $this->setIfExists('summary', $data ?? [], null);
+        $this->setIfExists('summary_reached_per_column', $data ?? [], null);
+        $this->setIfExists('summary_reached_wins_per_column', $data ?? [], null);
     }
 
     /**
@@ -534,6 +548,60 @@ class ItemFlowStats implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable summary cannot be null');
         }
         $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary_reached_per_column
+     *
+     * @return int[]|null
+     */
+    public function getSummaryReachedPerColumn()
+    {
+        return $this->container['summary_reached_per_column'];
+    }
+
+    /**
+     * Sets summary_reached_per_column
+     *
+     * @param int[]|null $summary_reached_per_column `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.
+     *
+     * @return self
+     */
+    public function setSummaryReachedPerColumn($summary_reached_per_column)
+    {
+        if (is_null($summary_reached_per_column)) {
+            throw new \InvalidArgumentException('non-nullable summary_reached_per_column cannot be null');
+        }
+        $this->container['summary_reached_per_column'] = $summary_reached_per_column;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary_reached_wins_per_column
+     *
+     * @return int[]|null
+     */
+    public function getSummaryReachedWinsPerColumn()
+    {
+        return $this->container['summary_reached_wins_per_column'];
+    }
+
+    /**
+     * Sets summary_reached_wins_per_column
+     *
+     * @param int[]|null $summary_reached_wins_per_column Of `summary_reached_per_column`, the games that were won (index = column).
+     *
+     * @return self
+     */
+    public function setSummaryReachedWinsPerColumn($summary_reached_wins_per_column)
+    {
+        if (is_null($summary_reached_wins_per_column)) {
+            throw new \InvalidArgumentException('non-nullable summary_reached_wins_per_column cannot be null');
+        }
+        $this->container['summary_reached_wins_per_column'] = $summary_reached_wins_per_column;
 
         return $this;
     }

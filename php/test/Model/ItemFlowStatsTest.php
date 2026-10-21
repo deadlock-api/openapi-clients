@@ -141,4 +141,22 @@ class ItemFlowStatsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "summary_reached_per_column"
+     */
+    public function testPropertySummaryReachedPerColumn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "summary_reached_wins_per_column"
+     */
+    public function testPropertySummaryReachedWinsPerColumn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

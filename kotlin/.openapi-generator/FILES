@@ -20,6 +20,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/ActiveMatchTeamStats.md
 docs/AddSteamAccountRequest.md
+docs/AnalyticsAbilityMaxFirstStats.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsAbilityOrderTreeNode.md
 docs/AnalyticsApi.md
@@ -346,6 +347,7 @@ src/main/kotlin/deadlock_api_client/models/ActiveMatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchTeam.kt
 src/main/kotlin/deadlock_api_client/models/ActiveMatchTeamStats.kt
 src/main/kotlin/deadlock_api_client/models/AddSteamAccountRequest.kt
+src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityMaxFirstStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStats.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderTreeNode.kt
 src/main/kotlin/deadlock_api_client/models/AnalyticsBuffStats.kt
@@ -622,6 +624,7 @@ src/test/kotlin/deadlock_api_client/models/ActiveMatchTeamStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTeamTest.kt
 src/test/kotlin/deadlock_api_client/models/ActiveMatchTest.kt
 src/test/kotlin/deadlock_api_client/models/AddSteamAccountRequestTest.kt
+src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityMaxFirstStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsAbilityOrderTreeNodeTest.kt
 src/test/kotlin/deadlock_api_client/models/AnalyticsBuffStatsTest.kt

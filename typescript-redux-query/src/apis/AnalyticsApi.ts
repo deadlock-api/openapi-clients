@@ -15,6 +15,9 @@
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
 import {
+    AnalyticsAbilityMaxFirstStats,
+    AnalyticsAbilityMaxFirstStatsFromJSON,
+    AnalyticsAbilityMaxFirstStatsToJSON,
     AnalyticsAbilityOrderStats,
     AnalyticsAbilityOrderStatsFromJSON,
     AnalyticsAbilityOrderStatsToJSON,
@@ -85,6 +88,32 @@ import {
     PlayerPerformanceCurvePointFromJSON,
     PlayerPerformanceCurvePointToJSON,
 } from '../models';
+
+export interface AbilityMaxFirstStatsRequest {
+    heroId: number;
+    gameMode?: AbilityMaxFirstStatsGameModeEnum;
+    matchMode?: string;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAbilityUpgrades?: number;
+    maxAbilityUpgrades?: number;
+    minNetworth?: number;
+    maxNetworth?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    minMatches?: number;
+    accountId?: number;
+    accountIds?: Array<number>;
+    heroBuildId?: number;
+    includeItemIds?: Array<number>;
+    excludeItemIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
+}
 
 export interface AbilityOrderStatsRequest {
     heroId: number;
@@ -581,7 +610,6 @@ export interface PlayerStatsMetricsRequest {
     minMatchId?: number;
     maxMatchId?: number;
     maxMatches?: number;
-    minMatches?: number;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
@@ -590,6 +618,170 @@ export interface PlayerStatsMetricsRequest {
     includeBuffMetrics?: boolean;
 }
 
+
+/**
+ *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ * Ability Max First Stats
+ */
+function abilityMaxFirstStatsRaw<T>(requestParameters: AbilityMaxFirstStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityMaxFirstStats>> = {}): QueryConfig<T> {
+    if (requestParameters.heroId === null || requestParameters.heroId === undefined) {
+        throw new runtime.RequiredError('heroId','Required parameter requestParameters.heroId was null or undefined when calling abilityMaxFirstStats.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.heroId !== undefined) {
+        queryParameters['hero_id'] = requestParameters.heroId;
+    }
+
+
+    if (requestParameters.gameMode !== undefined) {
+        queryParameters['game_mode'] = requestParameters.gameMode;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAbilityUpgrades !== undefined) {
+        queryParameters['min_ability_upgrades'] = requestParameters.minAbilityUpgrades;
+    }
+
+
+    if (requestParameters.maxAbilityUpgrades !== undefined) {
+        queryParameters['max_ability_upgrades'] = requestParameters.maxAbilityUpgrades;
+    }
+
+
+    if (requestParameters.minNetworth !== undefined) {
+        queryParameters['min_networth'] = requestParameters.minNetworth;
+    }
+
+
+    if (requestParameters.maxNetworth !== undefined) {
+        queryParameters['max_networth'] = requestParameters.maxNetworth;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.accountId !== undefined) {
+        queryParameters['account_id'] = requestParameters.accountId;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
+    }
+
+
+    if (requestParameters.includeItemIds) {
+        queryParameters['include_item_ids'] = requestParameters.includeItemIds;
+    }
+
+
+    if (requestParameters.excludeItemIds) {
+        queryParameters['exclude_item_ids'] = requestParameters.excludeItemIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/ability-max-first-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(AnalyticsAbilityMaxFirstStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero\'s players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+* Ability Max First Stats
+*/
+export function abilityMaxFirstStats<T>(requestParameters: AbilityMaxFirstStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AnalyticsAbilityMaxFirstStats>>): QueryConfig<T> {
+    return abilityMaxFirstStatsRaw(requestParameters, requestConfig);
+}
 
 /**
  *  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
@@ -2378,7 +2570,7 @@ export function heroSynergiesStats<T>(requestParameters: HeroSynergiesStatsReque
 }
 
 /**
- *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Item Flow Stats
  */
 function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestConfig: runtime.TypedQueryConfig<T, ItemFlowStats> = {}): QueryConfig<T> {
@@ -2530,7 +2722,7 @@ function itemFlowStatsRaw<T>(requestParameters: ItemFlowStatsRequest, requestCon
 }
 
 /**
-*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item\'s win rate standardized to the stage\'s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item\'s win rate across net-worth buckets to the stage-wide distribution, isolating the item\'s contribution from the buyer\'s lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path\'s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Item Flow Stats
 */
 export function itemFlowStats<T>(requestParameters: ItemFlowStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, ItemFlowStats>): QueryConfig<T> {
@@ -3667,7 +3859,7 @@ export function playerScoreboard<T>(requestParameters: PlayerScoreboardRequest, 
 }
 
 /**
- *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ *  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
  * Player Stats Metrics
  */
 function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }> = {}): QueryConfig<T> {
@@ -3746,11 +3938,6 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
     }
 
 
-    if (requestParameters.minMatches !== undefined) {
-        queryParameters['min_matches'] = requestParameters.minMatches;
-    }
-
-
     if (requestParameters.includeItemIds) {
         queryParameters['include_item_ids'] = requestParameters.includeItemIds;
     }
@@ -3809,7 +3996,7 @@ function playerStatsMetricsRaw<T>(requestParameters: PlayerStatsMetricsRequest, 
 }
 
 /**
-*  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+*  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 * Player Stats Metrics
 */
 export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: HashMapValue; }>): QueryConfig<T> {
@@ -3817,6 +4004,16 @@ export function playerStatsMetrics<T>(requestParameters: PlayerStatsMetricsReque
 }
 
 
+/**
+    * @export
+    * @enum {string}
+    */
+export enum AbilityMaxFirstStatsGameModeEnum {
+    Normal = 'normal',
+    StreetBrawl = 'street_brawl',
+    ExploreNYC = 'explore_n_y_c',
+    Internal = 'internal'
+}
 /**
     * @export
     * @enum {string}

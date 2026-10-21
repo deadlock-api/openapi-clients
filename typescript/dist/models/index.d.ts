@@ -16,6 +16,7 @@ export * from './active-match-player.js';
 export * from './active-match-team.js';
 export * from './active-match-team-stats.js';
 export * from './add-steam-account-request.js';
+export * from './analytics-ability-max-first-stats.js';
 export * from './analytics-ability-order-stats.js';
 export * from './analytics-ability-order-tree-node.js';
 export * from './analytics-buff-stats.js';

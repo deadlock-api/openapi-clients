@@ -75,6 +75,18 @@ export interface ItemFlowStats  {
      * @memberof ItemFlowStats
      */
     summary: ItemFlowSummary;
+    /**
+     * `reached_per_column` for the locked build path\'s games (`summary`). Late stages hold long games only, so an item bought there is compared with the build\'s games that got that far.
+     * @type {Array<number>}
+     * @memberof ItemFlowStats
+     */
+    summaryReachedPerColumn?: Array<number>;
+    /**
+     * Of `summary_reached_per_column`, the games that were won (index = column).
+     * @type {Array<number>}
+     * @memberof ItemFlowStats
+     */
+    summaryReachedWinsPerColumn?: Array<number>;
 }
 
 export function ItemFlowStatsFromJSON(json: any): ItemFlowStats {
@@ -86,6 +98,8 @@ export function ItemFlowStatsFromJSON(json: any): ItemFlowStats {
         'reachedPerColumn': json['reached_per_column'],
         'reachedWinsPerColumn': !exists(json, 'reached_wins_per_column') ? undefined : json['reached_wins_per_column'],
         'summary': ItemFlowSummaryFromJSON(json['summary']),
+        'summaryReachedPerColumn': !exists(json, 'summary_reached_per_column') ? undefined : json['summary_reached_per_column'],
+        'summaryReachedWinsPerColumn': !exists(json, 'summary_reached_wins_per_column') ? undefined : json['summary_reached_wins_per_column'],
     };
 }
 
@@ -101,6 +115,8 @@ export function ItemFlowStatsToJSON(value?: ItemFlowStats): any {
         'reached_per_column': value.reachedPerColumn,
         'reached_wins_per_column': value.reachedWinsPerColumn,
         'summary': ItemFlowSummaryToJSON(value.summary),
+        'summary_reached_per_column': value.summaryReachedPerColumn,
+        'summary_reached_wins_per_column': value.summaryReachedWinsPerColumn,
     };
 }
 

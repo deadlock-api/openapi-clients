@@ -40,8 +40,10 @@ namespace DeadlockApiClient.Model
         /// <param name="reachedPerColumn">Distinct baseline games that bought any upgrade in each stage column (index &#x3D; column). &#x60;reached / baseline.matches&#x60; shows how survivorship-selected a (late) stage is.</param>
         /// <param name="summary">Totals for the locked build-path population (all filters applied). Denominator for pick rate.</param>
         /// <param name="reachedWinsPerColumn">Of &#x60;reached_per_column&#x60;, the games that were won (index &#x3D; column). &#x60;reached_wins / reached&#x60; is the win rate of games that got that far, the fair baseline for a build ending there.</param>
+        /// <param name="summaryReachedPerColumn">&#x60;reached_per_column&#x60; for the locked build path&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build&#39;s games that got that far.</param>
+        /// <param name="summaryReachedWinsPerColumn">Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column).</param>
         [JsonConstructor]
-        public ItemFlowStats(ItemFlowSummary baseline, List<ItemFlowEdge> edges, List<ItemFlowLeaveOneOut> leaveOneOut, List<ItemFlowNode> nodes, List<long> reachedPerColumn, ItemFlowSummary summary, Option<List<long>?> reachedWinsPerColumn = default)
+        public ItemFlowStats(ItemFlowSummary baseline, List<ItemFlowEdge> edges, List<ItemFlowLeaveOneOut> leaveOneOut, List<ItemFlowNode> nodes, List<long> reachedPerColumn, ItemFlowSummary summary, Option<List<long>?> reachedWinsPerColumn = default, Option<List<long>?> summaryReachedPerColumn = default, Option<List<long>?> summaryReachedWinsPerColumn = default)
         {
             Baseline = baseline;
             Edges = edges;
@@ -50,6 +52,8 @@ namespace DeadlockApiClient.Model
             ReachedPerColumn = reachedPerColumn;
             Summary = summary;
             ReachedWinsPerColumnOption = reachedWinsPerColumn;
+            SummaryReachedPerColumnOption = summaryReachedPerColumn;
+            SummaryReachedWinsPerColumnOption = summaryReachedWinsPerColumn;
             OnCreated();
         }
 
@@ -110,6 +114,34 @@ namespace DeadlockApiClient.Model
         public List<long>? ReachedWinsPerColumn { get { return this.ReachedWinsPerColumnOption.Value; } set { this.ReachedWinsPerColumnOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of SummaryReachedPerColumn
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<long>?> SummaryReachedPerColumnOption { get; private set; }
+
+        /// <summary>
+        /// &#x60;reached_per_column&#x60; for the locked build path&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build&#39;s games that got that far.
+        /// </summary>
+        /// <value>&#x60;reached_per_column&#x60; for the locked build path&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build&#39;s games that got that far.</value>
+        [JsonPropertyName("summary_reached_per_column")]
+        public List<long>? SummaryReachedPerColumn { get { return this.SummaryReachedPerColumnOption.Value; } set { this.SummaryReachedPerColumnOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of SummaryReachedWinsPerColumn
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<List<long>?> SummaryReachedWinsPerColumnOption { get; private set; }
+
+        /// <summary>
+        /// Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column).
+        /// </summary>
+        /// <value>Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column).</value>
+        [JsonPropertyName("summary_reached_wins_per_column")]
+        public List<long>? SummaryReachedWinsPerColumn { get { return this.SummaryReachedWinsPerColumnOption.Value; } set { this.SummaryReachedWinsPerColumnOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -124,6 +156,8 @@ namespace DeadlockApiClient.Model
             sb.Append("  ReachedPerColumn: ").Append(ReachedPerColumn).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
             sb.Append("  ReachedWinsPerColumn: ").Append(ReachedWinsPerColumn).Append("\n");
+            sb.Append("  SummaryReachedPerColumn: ").Append(SummaryReachedPerColumn).Append("\n");
+            sb.Append("  SummaryReachedWinsPerColumn: ").Append(SummaryReachedWinsPerColumn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +212,8 @@ namespace DeadlockApiClient.Model
             Option<List<long>?> reachedPerColumn = default;
             Option<ItemFlowSummary?> summary = default;
             Option<List<long>?> reachedWinsPerColumn = default;
+            Option<List<long>?> summaryReachedPerColumn = default;
+            Option<List<long>?> summaryReachedWinsPerColumn = default;
 
             while (utf8JsonReader.Read())
             {
@@ -214,6 +250,12 @@ namespace DeadlockApiClient.Model
                             break;
                         case "reached_wins_per_column":
                             reachedWinsPerColumn = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "summary_reached_per_column":
+                            summaryReachedPerColumn = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "summary_reached_wins_per_column":
+                            summaryReachedWinsPerColumn = new Option<List<long>?>(JsonSerializer.Deserialize<List<long>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -260,7 +302,13 @@ namespace DeadlockApiClient.Model
             if (reachedWinsPerColumn.IsSet && reachedWinsPerColumn.Value == null)
                 throw new JsonException("Property is not nullable for class ItemFlowStats: reached_wins_per_column.");
 
-            return new ItemFlowStats(baseline.Value!, edges.Value!, leaveOneOut.Value!, nodes.Value!, reachedPerColumn.Value!, summary.Value!, reachedWinsPerColumn);
+            if (summaryReachedPerColumn.IsSet && summaryReachedPerColumn.Value == null)
+                throw new JsonException("Property is not nullable for class ItemFlowStats: summary_reached_per_column.");
+
+            if (summaryReachedWinsPerColumn.IsSet && summaryReachedWinsPerColumn.Value == null)
+                throw new JsonException("Property is not nullable for class ItemFlowStats: summary_reached_wins_per_column.");
+
+            return new ItemFlowStats(baseline.Value!, edges.Value!, leaveOneOut.Value!, nodes.Value!, reachedPerColumn.Value!, summary.Value!, reachedWinsPerColumn, summaryReachedPerColumn, summaryReachedWinsPerColumn);
         }
 
         /// <summary>
@@ -288,6 +336,12 @@ namespace DeadlockApiClient.Model
             if (itemFlowStats.ReachedWinsPerColumnOption.IsSet && itemFlowStats.ReachedWinsPerColumn == null)
                 throw new JsonException("Cannot write null property ItemFlowStats.ReachedWinsPerColumn to non-nullable JSON property 'reached_wins_per_column'.");
 
+            if (itemFlowStats.SummaryReachedPerColumnOption.IsSet && itemFlowStats.SummaryReachedPerColumn == null)
+                throw new JsonException("Cannot write null property ItemFlowStats.SummaryReachedPerColumn to non-nullable JSON property 'summary_reached_per_column'.");
+
+            if (itemFlowStats.SummaryReachedWinsPerColumnOption.IsSet && itemFlowStats.SummaryReachedWinsPerColumn == null)
+                throw new JsonException("Cannot write null property ItemFlowStats.SummaryReachedWinsPerColumn to non-nullable JSON property 'summary_reached_wins_per_column'.");
+
             writer.WritePropertyName("baseline");
             JsonSerializer.Serialize(writer, itemFlowStats.Baseline, jsonSerializerOptions);
             writer.WritePropertyName("edges");
@@ -304,6 +358,16 @@ namespace DeadlockApiClient.Model
             {
                 writer.WritePropertyName("reached_wins_per_column");
                 JsonSerializer.Serialize(writer, itemFlowStats.ReachedWinsPerColumn, jsonSerializerOptions);
+            }
+            if (itemFlowStats.SummaryReachedPerColumnOption.IsSet)
+            {
+                writer.WritePropertyName("summary_reached_per_column");
+                JsonSerializer.Serialize(writer, itemFlowStats.SummaryReachedPerColumn, jsonSerializerOptions);
+            }
+            if (itemFlowStats.SummaryReachedWinsPerColumnOption.IsSet)
+            {
+                writer.WritePropertyName("summary_reached_wins_per_column");
+                JsonSerializer.Serialize(writer, itemFlowStats.SummaryReachedWinsPerColumn, jsonSerializerOptions);
             }
         }
     }

@@ -24,6 +24,388 @@ import (
 // AnalyticsAPIService AnalyticsAPI service
 type AnalyticsAPIService service
 
+type ApiAbilityMaxFirstStatsRequest struct {
+	ctx context.Context
+	ApiService *AnalyticsAPIService
+	heroId *int32
+	gameMode *string
+	matchMode *string
+	minUnixTimestamp *int64
+	maxUnixTimestamp *int64
+	minDurationS *int64
+	maxDurationS *int64
+	minAbilityUpgrades *int64
+	maxAbilityUpgrades *int64
+	minNetworth *int64
+	maxNetworth *int64
+	minAverageBadge *int32
+	maxAverageBadge *int32
+	minMatchId *int64
+	maxMatchId *int64
+	minMatches *int32
+	accountId *int32
+	accountIds *[]int32
+	heroBuildId *int64
+	includeItemIds *[]int32
+	excludeItemIds *[]int32
+	abilityOrderPrefix *[]int32
+	abilityUnlockOrderPrefix *[]int32
+}
+
+// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiAbilityMaxFirstStatsRequest) HeroId(heroId int32) ApiAbilityMaxFirstStatsRequest {
+	r.heroId = &heroId
+	return r
+}
+
+// Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
+func (r ApiAbilityMaxFirstStatsRequest) GameMode(gameMode string) ApiAbilityMaxFirstStatsRequest {
+	r.gameMode = &gameMode
+	return r
+}
+
+// Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+func (r ApiAbilityMaxFirstStatsRequest) MatchMode(matchMode string) ApiAbilityMaxFirstStatsRequest {
+	r.matchMode = &matchMode
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+func (r ApiAbilityMaxFirstStatsRequest) MinUnixTimestamp(minUnixTimestamp int64) ApiAbilityMaxFirstStatsRequest {
+	r.minUnixTimestamp = &minUnixTimestamp
+	return r
+}
+
+// Filter matches based on their start time (Unix timestamp).
+func (r ApiAbilityMaxFirstStatsRequest) MaxUnixTimestamp(maxUnixTimestamp int64) ApiAbilityMaxFirstStatsRequest {
+	r.maxUnixTimestamp = &maxUnixTimestamp
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiAbilityMaxFirstStatsRequest) MinDurationS(minDurationS int64) ApiAbilityMaxFirstStatsRequest {
+	r.minDurationS = &minDurationS
+	return r
+}
+
+// Filter matches based on their duration in seconds (up to 7000s).
+func (r ApiAbilityMaxFirstStatsRequest) MaxDurationS(maxDurationS int64) ApiAbilityMaxFirstStatsRequest {
+	r.maxDurationS = &maxDurationS
+	return r
+}
+
+// Filter players based on their minimum number of ability upgrades over the whole match.
+func (r ApiAbilityMaxFirstStatsRequest) MinAbilityUpgrades(minAbilityUpgrades int64) ApiAbilityMaxFirstStatsRequest {
+	r.minAbilityUpgrades = &minAbilityUpgrades
+	return r
+}
+
+// Filter players based on their maximum number of ability upgrades over the whole match.
+func (r ApiAbilityMaxFirstStatsRequest) MaxAbilityUpgrades(maxAbilityUpgrades int64) ApiAbilityMaxFirstStatsRequest {
+	r.maxAbilityUpgrades = &maxAbilityUpgrades
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiAbilityMaxFirstStatsRequest) MinNetworth(minNetworth int64) ApiAbilityMaxFirstStatsRequest {
+	r.minNetworth = &minNetworth
+	return r
+}
+
+// Filter players based on their final net worth.
+func (r ApiAbilityMaxFirstStatsRequest) MaxNetworth(maxNetworth int64) ApiAbilityMaxFirstStatsRequest {
+	r.maxNetworth = &maxNetworth
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+func (r ApiAbilityMaxFirstStatsRequest) MinAverageBadge(minAverageBadge int32) ApiAbilityMaxFirstStatsRequest {
+	r.minAverageBadge = &minAverageBadge
+	return r
+}
+
+// Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+func (r ApiAbilityMaxFirstStatsRequest) MaxAverageBadge(maxAverageBadge int32) ApiAbilityMaxFirstStatsRequest {
+	r.maxAverageBadge = &maxAverageBadge
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiAbilityMaxFirstStatsRequest) MinMatchId(minMatchId int64) ApiAbilityMaxFirstStatsRequest {
+	r.minMatchId = &minMatchId
+	return r
+}
+
+// Filter matches based on their ID.
+func (r ApiAbilityMaxFirstStatsRequest) MaxMatchId(maxMatchId int64) ApiAbilityMaxFirstStatsRequest {
+	r.maxMatchId = &maxMatchId
+	return r
+}
+
+// The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
+func (r ApiAbilityMaxFirstStatsRequest) MinMatches(minMatches int32) ApiAbilityMaxFirstStatsRequest {
+	r.minMatches = &minMatches
+	return r
+}
+
+// Filter for matches with a specific player account ID.
+// Deprecated
+func (r ApiAbilityMaxFirstStatsRequest) AccountId(accountId int32) ApiAbilityMaxFirstStatsRequest {
+	r.accountId = &accountId
+	return r
+}
+
+// Comma separated list of account ids to include
+func (r ApiAbilityMaxFirstStatsRequest) AccountIds(accountIds []int32) ApiAbilityMaxFirstStatsRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt;
+func (r ApiAbilityMaxFirstStatsRequest) HeroBuildId(heroBuildId int64) ApiAbilityMaxFirstStatsRequest {
+	r.heroBuildId = &heroBuildId
+	return r
+}
+
+// Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+func (r ApiAbilityMaxFirstStatsRequest) IncludeItemIds(includeItemIds []int32) ApiAbilityMaxFirstStatsRequest {
+	r.includeItemIds = &includeItemIds
+	return r
+}
+
+// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
+func (r ApiAbilityMaxFirstStatsRequest) ExcludeItemIds(excludeItemIds []int32) ApiAbilityMaxFirstStatsRequest {
+	r.excludeItemIds = &excludeItemIds
+	return r
+}
+
+// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+func (r ApiAbilityMaxFirstStatsRequest) AbilityOrderPrefix(abilityOrderPrefix []int32) ApiAbilityMaxFirstStatsRequest {
+	r.abilityOrderPrefix = &abilityOrderPrefix
+	return r
+}
+
+// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+func (r ApiAbilityMaxFirstStatsRequest) AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix []int32) ApiAbilityMaxFirstStatsRequest {
+	r.abilityUnlockOrderPrefix = &abilityUnlockOrderPrefix
+	return r
+}
+
+func (r ApiAbilityMaxFirstStatsRequest) Execute() ([]AnalyticsAbilityMaxFirstStats, *http.Response, error) {
+	return r.ApiService.AbilityMaxFirstStatsExecute(r)
+}
+
+/*
+AbilityMaxFirstStats Ability Max First Stats
+
+
+Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order
+unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed
+none. Every player is in exactly one row, so the rows add up to all the hero's players, and `min_matches` never drops
+the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.
+
+In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
+
+### Rate Limits:
+> The rate limits below are **shared across all analytics endpoints**.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 200req/min |
+| Key | 400req/min |
+| Global | 2000req/min |
+    
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiAbilityMaxFirstStatsRequest
+*/
+func (a *AnalyticsAPIService) AbilityMaxFirstStats(ctx context.Context) ApiAbilityMaxFirstStatsRequest {
+	return ApiAbilityMaxFirstStatsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []AnalyticsAbilityMaxFirstStats
+func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstStatsRequest) ([]AnalyticsAbilityMaxFirstStats, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []AnalyticsAbilityMaxFirstStats
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.AbilityMaxFirstStats")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/analytics/ability-max-first-stats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.heroId == nil {
+		return localVarReturnValue, nil, reportError("heroId is required and must be specified")
+	}
+	if *r.heroId < 0 {
+		return localVarReturnValue, nil, reportError("heroId must be greater than 0")
+	}
+
+	parameterAddToHeaderOrQuery(localVarQueryParams, "hero_id", r.heroId, "form", "")
+	if r.gameMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "game_mode", r.gameMode, "form", "")
+	}
+	if r.matchMode != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "match_mode", r.matchMode, "form", "")
+	}
+	if r.minUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
+	} else {
+		var defaultValue int64 = 1789948800
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
+		r.minUnixTimestamp = &defaultValue
+	}
+	if r.maxUnixTimestamp != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_unix_timestamp", r.maxUnixTimestamp, "form", "")
+	}
+	if r.minDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_duration_s", r.minDurationS, "form", "")
+	}
+	if r.maxDurationS != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_duration_s", r.maxDurationS, "form", "")
+	}
+	if r.minAbilityUpgrades != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_ability_upgrades", r.minAbilityUpgrades, "form", "")
+	}
+	if r.maxAbilityUpgrades != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_ability_upgrades", r.maxAbilityUpgrades, "form", "")
+	}
+	if r.minNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_networth", r.minNetworth, "form", "")
+	}
+	if r.maxNetworth != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_networth", r.maxNetworth, "form", "")
+	}
+	if r.minAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_average_badge", r.minAverageBadge, "form", "")
+	}
+	if r.maxAverageBadge != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_average_badge", r.maxAverageBadge, "form", "")
+	}
+	if r.minMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_match_id", r.minMatchId, "form", "")
+	}
+	if r.maxMatchId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "max_match_id", r.maxMatchId, "form", "")
+	}
+	if r.minMatches != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
+	} else {
+		var defaultValue int32 = 10
+		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", defaultValue, "form", "")
+		r.minMatches = &defaultValue
+	}
+	if r.accountId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "account_id", r.accountId, "form", "")
+	}
+	if r.accountIds != nil {
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	if r.heroBuildId != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_build_id", r.heroBuildId, "form", "")
+	}
+	if r.includeItemIds != nil {
+		t := *r.includeItemIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "include_item_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "include_item_ids", t, "form", "multi")
+		}
+	}
+	if r.excludeItemIds != nil {
+		t := *r.excludeItemIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "exclude_item_ids", t, "form", "multi")
+		}
+	}
+	if r.abilityOrderPrefix != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_order_prefix", r.abilityOrderPrefix, "form", "csv")
+	}
+	if r.abilityUnlockOrderPrefix != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "ability_unlock_order_prefix", r.abilityUnlockOrderPrefix, "form", "csv")
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiAbilityOrderStatsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
@@ -142,7 +524,7 @@ func (r ApiAbilityOrderStatsRequest) MaxMatchId(maxMatchId int64) ApiAbilityOrde
 	return r
 }
 
-// The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+// The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
 func (r ApiAbilityOrderStatsRequest) MinMatches(minMatches int32) ApiAbilityOrderStatsRequest {
 	r.minMatches = &minMatches
 	return r
@@ -519,7 +901,7 @@ func (r ApiAbilityOrderTreeRequest) MaxMatchId(maxMatchId int64) ApiAbilityOrder
 	return r
 }
 
-// The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response.
+// The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response.
 func (r ApiAbilityOrderTreeRequest) MinMatches(minMatches int32) ApiAbilityOrderTreeRequest {
 	r.minMatches = &minMatches
 	return r
@@ -4394,6 +4776,8 @@ the buyer's lead. It is still observational, not a controlled/causal estimate. `
 gives the distinct baseline games that bought any upgrade in each column, so consumers can show how
 survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won
 ones among them, the win rate a build ending in that stage should be compared with.
+`summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked
+build path's games, the win rate an item bought in that stage should be compared with.
 
 Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the
 normal item they replaced still is.
@@ -7257,7 +7641,6 @@ type ApiPlayerStatsMetricsRequest struct {
 	minMatchId *int64
 	maxMatchId *int64
 	maxMatches *int32
-	minMatches *int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	abilityOrderPrefix *[]int32
@@ -7350,12 +7733,6 @@ func (r ApiPlayerStatsMetricsRequest) MaxMatches(maxMatches int32) ApiPlayerStat
 	return r
 }
 
-// The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set.
-func (r ApiPlayerStatsMetricsRequest) MinMatches(minMatches int32) ApiPlayerStatsMetricsRequest {
-	r.minMatches = &minMatches
-	return r
-}
-
 // Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt;
 func (r ApiPlayerStatsMetricsRequest) IncludeItemIds(includeItemIds []int32) ApiPlayerStatsMetricsRequest {
 	r.includeItemIds = &includeItemIds
@@ -7402,9 +7779,11 @@ PlayerStatsMetrics Player Stats Metrics
 
 Returns comprehensive statistical analysis of player performance.
 
-Every metric is first averaged per player over the matching matches; `avg`, `std` and the
-percentiles describe the distribution of those player averages, not of single matches. Players
-with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.
+`avg`, `std` and the percentiles describe the distribution over single matches: each player's
+row in each matching match is one value, so players with more matches weigh more. With
+`account_ids` it is the distribution of those players' matches. The percentiles rank a single
+match, not a player: a player's average over many matches spreads much narrower than single
+matches do, so read against these percentiles it looks less extreme than it is among players.
 
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
@@ -7496,9 +7875,6 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	}
 	if r.maxMatches != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_matches", r.maxMatches, "form", "")
-	}
-	if r.minMatches != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "min_matches", r.minMatches, "form", "")
 	}
 	if r.includeItemIds != nil {
 		t := *r.includeItemIds

@@ -78,6 +78,7 @@ __all__ = [
     "ActiveMatchTeam",
     "ActiveMatchTeamStats",
     "AddSteamAccountRequest",
+    "AnalyticsAbilityMaxFirstStats",
     "AnalyticsAbilityOrderStats",
     "AnalyticsAbilityOrderTreeNode",
     "AnalyticsBuffStats",
@@ -370,6 +371,7 @@ from deadlock_api_client.models.active_match_player import ActiveMatchPlayer as 
 from deadlock_api_client.models.active_match_team import ActiveMatchTeam as ActiveMatchTeam
 from deadlock_api_client.models.active_match_team_stats import ActiveMatchTeamStats as ActiveMatchTeamStats
 from deadlock_api_client.models.add_steam_account_request import AddSteamAccountRequest as AddSteamAccountRequest
+from deadlock_api_client.models.analytics_ability_max_first_stats import AnalyticsAbilityMaxFirstStats as AnalyticsAbilityMaxFirstStats
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats as AnalyticsAbilityOrderStats
 from deadlock_api_client.models.analytics_ability_order_tree_node import AnalyticsAbilityOrderTreeNode as AnalyticsAbilityOrderTreeNode
 from deadlock_api_client.models.analytics_buff_stats import AnalyticsBuffStats as AnalyticsBuffStats

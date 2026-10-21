@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 *AccoladesApi* | [**get_accolade**](docs/AccoladesApi.md#get_accolade) | **GET** /v1/assets/accolades/{accolade_id} | Get Accolade
 *AccoladesApi* | [**get_accolade_by_name**](docs/AccoladesApi.md#get_accolade_by_name) | **GET** /v1/assets/accolades/by-name/{name} | Get Accolade By Name
 *AccoladesApi* | [**list_accolades**](docs/AccoladesApi.md#list_accolades) | **GET** /v1/assets/accolades | List Accolades
+*AnalyticsApi* | [**ability_max_first_stats**](docs/AnalyticsApi.md#ability_max_first_stats) | **GET** /v1/analytics/ability-max-first-stats | Ability Max First Stats
 *AnalyticsApi* | [**ability_order_stats**](docs/AnalyticsApi.md#ability_order_stats) | **GET** /v1/analytics/ability-order-stats | Ability Order Stats
 *AnalyticsApi* | [**ability_order_tree**](docs/AnalyticsApi.md#ability_order_tree) | **GET** /v1/analytics/ability-order-tree | Ability Order Tree
 *AnalyticsApi* | [**badge_distribution**](docs/AnalyticsApi.md#badge_distribution) | **GET** /v1/analytics/badge-distribution | Badge Distribution
@@ -270,6 +271,7 @@ Class | Method | HTTP request | Description
  - [ActiveMatchTeam](docs/ActiveMatchTeam.md)
  - [ActiveMatchTeamStats](docs/ActiveMatchTeamStats.md)
  - [AddSteamAccountRequest](docs/AddSteamAccountRequest.md)
+ - [AnalyticsAbilityMaxFirstStats](docs/AnalyticsAbilityMaxFirstStats.md)
  - [AnalyticsAbilityOrderStats](docs/AnalyticsAbilityOrderStats.md)
  - [AnalyticsAbilityOrderTreeNode](docs/AnalyticsAbilityOrderTreeNode.md)
  - [AnalyticsBuffStats](docs/AnalyticsBuffStats.md)

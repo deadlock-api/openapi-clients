@@ -21,6 +21,7 @@ docs/ActiveMatchPlayer.md
 docs/ActiveMatchTeam.md
 docs/ActiveMatchTeamStats.md
 docs/AddSteamAccountRequest.md
+docs/AnalyticsAbilityMaxFirstStats.md
 docs/AnalyticsAbilityOrderStats.md
 docs/AnalyticsAbilityOrderTreeNode.md
 docs/AnalyticsApi.md
@@ -333,6 +334,7 @@ src/models/active_match_player.rs
 src/models/active_match_team.rs
 src/models/active_match_team_stats.rs
 src/models/add_steam_account_request.rs
+src/models/analytics_ability_max_first_stats.rs
 src/models/analytics_ability_order_stats.rs
 src/models/analytics_ability_order_tree_node.rs
 src/models/analytics_buff_stats.rs

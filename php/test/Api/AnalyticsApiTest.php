@@ -72,6 +72,18 @@ class AnalyticsApiTest extends TestCase
     }
 
     /**
+     * Test case for abilityMaxFirstStats
+     *
+     * Ability Max First Stats.
+     *
+     */
+    public function testAbilityMaxFirstStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for abilityOrderStats
      *
      * Ability Order Stats.

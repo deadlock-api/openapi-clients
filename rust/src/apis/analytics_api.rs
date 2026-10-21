@@ -14,6 +14,57 @@ use serde::{Deserialize, Serialize, de::Error as _};
 use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
+/// struct for passing parameters to the method [`ability_max_first_stats`]
+#[derive(Clone, Debug)]
+pub struct AbilityMaxFirstStatsParams {
+    /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub hero_id: u32,
+    /// Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
+    pub game_mode: Option<String>,
+    /// Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
+    pub match_mode: Option<String>,
+    /// Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+    pub min_unix_timestamp: Option<i64>,
+    /// Filter matches based on their start time (Unix timestamp).
+    pub max_unix_timestamp: Option<i64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub min_duration_s: Option<u64>,
+    /// Filter matches based on their duration in seconds (up to 7000s).
+    pub max_duration_s: Option<u64>,
+    /// Filter players based on their minimum number of ability upgrades over the whole match.
+    pub min_ability_upgrades: Option<u64>,
+    /// Filter players based on their maximum number of ability upgrades over the whole match.
+    pub max_ability_upgrades: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub min_networth: Option<u64>,
+    /// Filter players based on their final net worth.
+    pub max_networth: Option<u64>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub min_average_badge: Option<u32>,
+    /// Filter matches based on the average badge level (tier = first digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>
+    pub max_average_badge: Option<u32>,
+    /// Filter matches based on their ID.
+    pub min_match_id: Option<u64>,
+    /// Filter matches based on their ID.
+    pub max_match_id: Option<u64>,
+    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response.
+    pub min_matches: Option<u32>,
+    /// Filter for matches with a specific player account ID.
+    pub account_id: Option<u32>,
+    /// Comma separated list of account ids to include
+    pub account_ids: Option<Vec<u32>>,
+    /// Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+    pub hero_build_id: Option<u64>,
+    /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub include_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
+    pub exclude_item_ids: Option<Vec<u32>>,
+    /// Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
+    pub ability_order_prefix: Option<Vec<u32>>,
+    /// Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+    pub ability_unlock_order_prefix: Option<Vec<u32>>
+}
+
 /// struct for passing parameters to the method [`ability_order_stats`]
 #[derive(Clone, Debug)]
 pub struct AbilityOrderStatsParams {
@@ -47,7 +98,7 @@ pub struct AbilityOrderStatsParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response.
     pub min_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
@@ -98,7 +149,7 @@ pub struct AbilityOrderTreeParams {
     pub min_match_id: Option<u64>,
     /// Filter matches based on their ID.
     pub max_match_id: Option<u64>,
-    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix) to be included in the response.
+    /// The minimum number of matches played for an ability order (on `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`: an ability) to be included in the response.
     pub min_matches: Option<u32>,
     /// Filter for matches with a specific player account ID.
     pub account_id: Option<u32>,
@@ -983,8 +1034,6 @@ pub struct PlayerStatsMetricsParams {
     pub max_match_id: Option<u64>,
     /// The maximum number of matches to analyze.
     pub max_matches: Option<u32>,
-    /// The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when `account_ids` is set.
-    pub min_matches: Option<u32>,
     /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -999,6 +1048,15 @@ pub struct PlayerStatsMetricsParams {
     pub include_buff_metrics: Option<bool>
 }
 
+
+/// struct for typed errors of method [`ability_max_first_stats`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AbilityMaxFirstStatsError {
+    Status400(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
 
 /// struct for typed errors of method [`ability_order_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -1207,6 +1265,123 @@ pub enum PlayerStatsMetricsError {
     UnknownValue(serde_json::Value),
 }
 
+
+///  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero's players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+pub async fn ability_max_first_stats(configuration: &configuration::Configuration, params: AbilityMaxFirstStatsParams) -> Result<Vec<models::AnalyticsAbilityMaxFirstStats>, Error<AbilityMaxFirstStatsError>> {
+
+    let uri_str = format!("{}/v1/analytics/ability-max-first-stats", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = req_builder.query(&[("hero_id", &params.hero_id.to_string())]);
+    if let Some(ref param_value) = params.game_mode {
+        req_builder = req_builder.query(&[("game_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.match_mode {
+        req_builder = req_builder.query(&[("match_mode", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_unix_timestamp {
+        req_builder = req_builder.query(&[("min_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_unix_timestamp {
+        req_builder = req_builder.query(&[("max_unix_timestamp", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_duration_s {
+        req_builder = req_builder.query(&[("min_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_duration_s {
+        req_builder = req_builder.query(&[("max_duration_s", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_ability_upgrades {
+        req_builder = req_builder.query(&[("min_ability_upgrades", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_ability_upgrades {
+        req_builder = req_builder.query(&[("max_ability_upgrades", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_networth {
+        req_builder = req_builder.query(&[("min_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_networth {
+        req_builder = req_builder.query(&[("max_networth", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_average_badge {
+        req_builder = req_builder.query(&[("min_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_average_badge {
+        req_builder = req_builder.query(&[("max_average_badge", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_match_id {
+        req_builder = req_builder.query(&[("min_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.max_match_id {
+        req_builder = req_builder.query(&[("max_match_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.min_matches {
+        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_id {
+        req_builder = req_builder.query(&[("account_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.account_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("account_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.hero_build_id {
+        req_builder = req_builder.query(&[("hero_build_id", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.include_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("include_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("include_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.exclude_item_ids {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("exclude_item_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("exclude_item_ids", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.ability_order_prefix {
+        req_builder = match "csv" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("ability_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref param_value) = params.ability_unlock_order_prefix {
+        req_builder = match "csv" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("ability_unlock_order_prefix".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("ability_unlock_order_prefix", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
+    }
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityMaxFirstStats&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::AnalyticsAbilityMaxFirstStats&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<AbilityMaxFirstStatsError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
 
 ///  Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn ability_order_stats(configuration: &configuration::Configuration, params: AbilityOrderStatsParams) -> Result<Vec<models::AnalyticsAbilityOrderStats>, Error<AbilityOrderStatsError>> {
@@ -2478,7 +2653,7 @@ pub async fn hero_synergies_stats(configuration: &configuration::Configuration, 
     }
 }
 
-///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path's games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn item_flow_stats(configuration: &configuration::Configuration, params: ItemFlowStatsParams) -> Result<models::ItemFlowStats, Error<ItemFlowStatsError>> {
 
     let uri_str = format!("{}/v1/analytics/item-flow-stats", configuration.base_path);
@@ -3401,7 +3576,7 @@ pub async fn player_scoreboard(configuration: &configuration::Configuration, par
     }
 }
 
-///  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; `avg`, `std` and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than `min_matches` matches (default 10, or 1 when `account_ids` is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+///  Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
 pub async fn player_stats_metrics(configuration: &configuration::Configuration, params: PlayerStatsMetricsParams) -> Result<std::collections::HashMap<String, models::HashMapValue>, Error<PlayerStatsMetricsError>> {
 
     let uri_str = format!("{}/v1/analytics/player-stats/metrics", configuration.base_path);
@@ -3448,9 +3623,6 @@ pub async fn player_stats_metrics(configuration: &configuration::Configuration, 
     }
     if let Some(ref param_value) = params.max_matches {
         req_builder = req_builder.query(&[("max_matches", &param_value.to_string())]);
-    }
-    if let Some(ref param_value) = params.min_matches {
-        req_builder = req_builder.query(&[("min_matches", &param_value.to_string())]);
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

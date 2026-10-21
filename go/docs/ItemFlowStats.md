@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **ReachedPerColumn** | **[]int64** | Distinct baseline games that bought any upgrade in each stage column (index &#x3D; column). &#x60;reached / baseline.matches&#x60; shows how survivorship-selected a (late) stage is. | 
 **ReachedWinsPerColumn** | Pointer to **[]int64** | Of &#x60;reached_per_column&#x60;, the games that were won (index &#x3D; column). &#x60;reached_wins / reached&#x60; is the win rate of games that got that far, the fair baseline for a build ending there. | [optional] 
 **Summary** | [**ItemFlowSummary**](ItemFlowSummary.md) | Totals for the locked build-path population (all filters applied). Denominator for pick rate. | 
+**SummaryReachedPerColumn** | Pointer to **[]int64** | &#x60;reached_per_column&#x60; for the locked build path&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build&#39;s games that got that far. | [optional] 
+**SummaryReachedWinsPerColumn** | Pointer to **[]int64** | Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column). | [optional] 
 
 ## Methods
 
@@ -175,6 +177,56 @@ and a boolean to check if the value has been set.
 
 SetSummary sets Summary field to given value.
 
+
+### GetSummaryReachedPerColumn
+
+`func (o *ItemFlowStats) GetSummaryReachedPerColumn() []int64`
+
+GetSummaryReachedPerColumn returns the SummaryReachedPerColumn field if non-nil, zero value otherwise.
+
+### GetSummaryReachedPerColumnOk
+
+`func (o *ItemFlowStats) GetSummaryReachedPerColumnOk() (*[]int64, bool)`
+
+GetSummaryReachedPerColumnOk returns a tuple with the SummaryReachedPerColumn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSummaryReachedPerColumn
+
+`func (o *ItemFlowStats) SetSummaryReachedPerColumn(v []int64)`
+
+SetSummaryReachedPerColumn sets SummaryReachedPerColumn field to given value.
+
+### HasSummaryReachedPerColumn
+
+`func (o *ItemFlowStats) HasSummaryReachedPerColumn() bool`
+
+HasSummaryReachedPerColumn returns a boolean if a field has been set.
+
+### GetSummaryReachedWinsPerColumn
+
+`func (o *ItemFlowStats) GetSummaryReachedWinsPerColumn() []int64`
+
+GetSummaryReachedWinsPerColumn returns the SummaryReachedWinsPerColumn field if non-nil, zero value otherwise.
+
+### GetSummaryReachedWinsPerColumnOk
+
+`func (o *ItemFlowStats) GetSummaryReachedWinsPerColumnOk() (*[]int64, bool)`
+
+GetSummaryReachedWinsPerColumnOk returns a tuple with the SummaryReachedWinsPerColumn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSummaryReachedWinsPerColumn
+
+`func (o *ItemFlowStats) SetSummaryReachedWinsPerColumn(v []int64)`
+
+SetSummaryReachedWinsPerColumn sets SummaryReachedWinsPerColumn field to given value.
+
+### HasSummaryReachedWinsPerColumn
+
+`func (o *ItemFlowStats) HasSummaryReachedWinsPerColumn() bool`
+
+HasSummaryReachedWinsPerColumn returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

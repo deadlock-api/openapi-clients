@@ -33,6 +33,10 @@ type ItemFlowStats struct {
 	ReachedWinsPerColumn []int64 `json:"reached_wins_per_column,omitempty"`
 	// Totals for the locked build-path population (all filters applied). Denominator for pick rate.
 	Summary ItemFlowSummary `json:"summary"`
+	// `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.
+	SummaryReachedPerColumn []int64 `json:"summary_reached_per_column,omitempty"`
+	// Of `summary_reached_per_column`, the games that were won (index = column).
+	SummaryReachedWinsPerColumn []int64 `json:"summary_reached_wins_per_column,omitempty"`
 }
 
 type _ItemFlowStats ItemFlowStats
@@ -236,6 +240,70 @@ func (o *ItemFlowStats) SetSummary(v ItemFlowSummary) {
 	o.Summary = v
 }
 
+// GetSummaryReachedPerColumn returns the SummaryReachedPerColumn field value if set, zero value otherwise.
+func (o *ItemFlowStats) GetSummaryReachedPerColumn() []int64 {
+	if o == nil || IsNil(o.SummaryReachedPerColumn) {
+		var ret []int64
+		return ret
+	}
+	return o.SummaryReachedPerColumn
+}
+
+// GetSummaryReachedPerColumnOk returns a tuple with the SummaryReachedPerColumn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemFlowStats) GetSummaryReachedPerColumnOk() ([]int64, bool) {
+	if o == nil || IsNil(o.SummaryReachedPerColumn) {
+		return nil, false
+	}
+	return o.SummaryReachedPerColumn, true
+}
+
+// HasSummaryReachedPerColumn returns a boolean if a field has been set.
+func (o *ItemFlowStats) HasSummaryReachedPerColumn() bool {
+	if o != nil && !IsNil(o.SummaryReachedPerColumn) {
+		return true
+	}
+
+	return false
+}
+
+// SetSummaryReachedPerColumn gets a reference to the given []int64 and assigns it to the SummaryReachedPerColumn field.
+func (o *ItemFlowStats) SetSummaryReachedPerColumn(v []int64) {
+	o.SummaryReachedPerColumn = v
+}
+
+// GetSummaryReachedWinsPerColumn returns the SummaryReachedWinsPerColumn field value if set, zero value otherwise.
+func (o *ItemFlowStats) GetSummaryReachedWinsPerColumn() []int64 {
+	if o == nil || IsNil(o.SummaryReachedWinsPerColumn) {
+		var ret []int64
+		return ret
+	}
+	return o.SummaryReachedWinsPerColumn
+}
+
+// GetSummaryReachedWinsPerColumnOk returns a tuple with the SummaryReachedWinsPerColumn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ItemFlowStats) GetSummaryReachedWinsPerColumnOk() ([]int64, bool) {
+	if o == nil || IsNil(o.SummaryReachedWinsPerColumn) {
+		return nil, false
+	}
+	return o.SummaryReachedWinsPerColumn, true
+}
+
+// HasSummaryReachedWinsPerColumn returns a boolean if a field has been set.
+func (o *ItemFlowStats) HasSummaryReachedWinsPerColumn() bool {
+	if o != nil && !IsNil(o.SummaryReachedWinsPerColumn) {
+		return true
+	}
+
+	return false
+}
+
+// SetSummaryReachedWinsPerColumn gets a reference to the given []int64 and assigns it to the SummaryReachedWinsPerColumn field.
+func (o *ItemFlowStats) SetSummaryReachedWinsPerColumn(v []int64) {
+	o.SummaryReachedWinsPerColumn = v
+}
+
 func (o ItemFlowStats) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -255,6 +323,12 @@ func (o ItemFlowStats) ToMap() (map[string]interface{}, error) {
 		toSerialize["reached_wins_per_column"] = o.ReachedWinsPerColumn
 	}
 	toSerialize["summary"] = o.Summary
+	if !IsNil(o.SummaryReachedPerColumn) {
+		toSerialize["summary_reached_per_column"] = o.SummaryReachedPerColumn
+	}
+	if !IsNil(o.SummaryReachedWinsPerColumn) {
+		toSerialize["summary_reached_wins_per_column"] = o.SummaryReachedWinsPerColumn
+	}
 	return toSerialize, nil
 }
 

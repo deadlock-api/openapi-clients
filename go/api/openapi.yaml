@@ -156,6 +156,334 @@ tags:
     Visit [/v1/graphql](/v1/graphql) in a browser for the interactive GraphiQL playground.
   name: GraphQL
 paths:
+  /v1/analytics/ability-max-first-stats:
+    get:
+      description: "\nRetrieves which ability the players of a hero max first: one\
+        \ row per ability, with every player whose upgrade order\nunlocks and upgrades\
+        \ it three times before any other ability, and one row (`ability_id` null)\
+        \ for the players who maxed\nnone. Every player is in exactly one row, so\
+        \ the rows add up to all the hero's players, and `min_matches` never drops\n\
+        the null row. Unlike summing `/ability-order-tree` nodes, no player is lost\
+        \ to `min_matches` on a rare order.\n\nIn `street_brawl`, ability points come\
+        \ in blocks, and the upgrades within one block are sorted by ability id.\n\
+        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
+        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
+        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      operationId: ability_max_first_stats
+      parameters:
+      - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: true
+        in: query
+        name: hero_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: form
+      - description: "Filter matches based on their game mode. Valid values: `normal`,\
+          \ `street_brawl`. **Default:** `normal`."
+        explode: true
+        in: query
+        name: game_mode
+        required: false
+        schema:
+          enum:
+          - normal
+          - street_brawl
+          - explore_n_y_c
+          - internal
+          nullable: true
+          type: string
+        style: form
+      - description: "Filter matches based on the match mode. Valid values: `unranked`,\
+          \ `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`.\
+          \ **Default:** `ranked,unranked`."
+        explode: true
+        in: query
+        name: match_mode
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp). **Default:**
+          30 days ago.
+        explode: true
+        in: query
+        name: min_unix_timestamp
+        required: false
+        schema:
+          default: 1789948800
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their start time (Unix timestamp).
+        explode: true
+        in: query
+        name: max_unix_timestamp
+        required: false
+        schema:
+          format: int64
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: min_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their duration in seconds (up to 7000s).
+        explode: true
+        in: query
+        name: max_duration_s
+        required: false
+        schema:
+          format: int64
+          maximum: 7000
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their minimum number of ability upgrades
+          over the whole match.
+        explode: true
+        in: query
+        name: min_ability_upgrades
+        required: false
+        schema:
+          format: int64
+          maximum: 16
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their maximum number of ability upgrades
+          over the whole match.
+        explode: true
+        in: query
+        name: max_ability_upgrades
+        required: false
+        schema:
+          format: int64
+          maximum: 16
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: min_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter players based on their final net worth.
+        explode: true
+        in: query
+        name: max_networth
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: min_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Filter matches based on the average badge level (tier = first\
+          \ digits, subtier = last digit) of *both* teams involved. See more: <https://api.deadlock-api.com/v1/assets/ranks>"
+        explode: true
+        in: query
+        name: max_average_badge
+        required: false
+        schema:
+          format: int32
+          maximum: 116
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: min_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Filter matches based on their ID.
+        explode: true
+        in: query
+        name: max_match_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "The minimum number of matches played for an ability order (on\
+          \ `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`:\
+          \ an ability) to be included in the response."
+        explode: true
+        in: query
+        name: min_matches
+        required: false
+        schema:
+          default: 10
+          format: int32
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - deprecated: true
+        description: Filter for matches with a specific player account ID.
+        explode: true
+        in: query
+        name: account_id
+        required: false
+        schema:
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Comma separated list of account ids to include
+        explode: true
+        in: query
+        name: account_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: |-
+          Only players who started the match with this hero build selected. Matches without a processed demo record no
+          build. See more: <https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}>
+        explode: true
+        in: query
+        name: hero_build_id
+        required: false
+        schema:
+          format: int64
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Comma separated list of item ids to include (only players who\
+          \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
+        explode: true
+        in: query
+        name: include_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of item ids to exclude (only players who\
+          \ have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
+        explode: true
+        in: query
+        name: exclude_item_ids
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players whose ability\
+          \ upgrade order starts with exactly this sequence (one entry per ability\
+          \ point spent, unlocks included; see `ability_unlock_order_prefix` to match\
+          \ only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>"
+        explode: false
+        in: query
+        name: ability_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      - description: "Comma separated list of ability ids: only players who unlocked\
+          \ (put their first point into) their abilities in exactly this order, e.g.\
+          \ `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
+        explode: false
+        in: query
+        name: ability_unlock_order_prefix
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/AnalyticsAbilityMaxFirstStats"
+                type: array
+                default: null
+          description: Ability Max First Stats
+        "400":
+          description: Provided parameters are invalid.
+        "500":
+          description: Failed to fetch ability max first stats
+      summary: Ability Max First Stats
+      tags:
+      - Analytics
   /v1/analytics/ability-order-stats:
     get:
       description: "\nRetrieves statistics for the ability order of a hero.\n\n###\
@@ -343,7 +671,8 @@ paths:
           type: integer
         style: form
       - description: "The minimum number of matches played for an ability order (on\
-          \ `/ability-order-tree`: an order prefix) to be included in the response."
+          \ `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`:\
+          \ an ability) to be included in the response."
         explode: true
         in: query
         name: min_matches
@@ -668,7 +997,8 @@ paths:
           type: integer
         style: form
       - description: "The minimum number of matches played for an ability order (on\
-          \ `/ability-order-tree`: an order prefix) to be included in the response."
+          \ `/ability-order-tree`: an order prefix, on `/ability-max-first-stats`:\
+          \ an ability) to be included in the response."
         explode: true
         in: query
         name: min_matches
@@ -3214,13 +3544,15 @@ paths:
         \ any upgrade in each column, so consumers can show how\nsurvivorship-selected\
         \ (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts\
         \ the won\nones among them, the win rate a build ending in that stage should\
-        \ be compared with.\n\nCorrupted items (build 6712+, same item id as the normal\
-        \ item) are not counted as purchases; the\nnormal item they replaced still\
-        \ is.\n\nResults are cached for **1 hour** based on the unique combination\
-        \ of query parameters provided.\n\n### Rate Limits:\n> The rate limits below\
-        \ are **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
-        \ |\n    "
+        \ be compared with.\n`summary_reached_per_column` and `summary_reached_wins_per_column`\
+        \ count the same over the locked\nbuild path's games, the win rate an item\
+        \ bought in that stage should be compared with.\n\nCorrupted items (build\
+        \ 6712+, same item id as the normal item) are not counted as purchases; the\n\
+        normal item they replaced still is.\n\nResults are cached for **1 hour** based\
+        \ on the unique combination of query parameters provided.\n\n### Rate Limits:\n\
+        > The rate limits below are **shared across all analytics endpoints**.\n\n\
+        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
+        \ |\n| Global | 2000req/min |\n    "
       operationId: item_flow_stats
       parameters:
       - description: |-
@@ -5528,13 +5860,16 @@ paths:
   /v1/analytics/player-stats/metrics:
     get:
       description: "\nReturns comprehensive statistical analysis of player performance.\n\
-        \nEvery metric is first averaged per player over the matching matches; `avg`,\
-        \ `std` and the\npercentiles describe the distribution of those player averages,\
-        \ not of single matches. Players\nwith fewer than `min_matches` matches (default\
-        \ 10, or 1 when `account_ids` is set) are left out.\n\nResults are cached\
-        \ for **1 hour** based on the unique combination of query parameters provided.\
-        \ Subsequent identical requests within this timeframe will receive the cached\
-        \ response.\n\n> Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf)\
+        \n`avg`, `std` and the percentiles describe the distribution over single matches:\
+        \ each player's\nrow in each matching match is one value, so players with\
+        \ more matches weigh more. With\n`account_ids` it is the distribution of those\
+        \ players' matches. The percentiles rank a single\nmatch, not a player: a\
+        \ player's average over many matches spreads much narrower than single\nmatches\
+        \ do, so read against these percentiles it looks less extreme than it is among\
+        \ players.\n\nResults are cached for **1 hour** based on the unique combination\
+        \ of query parameters provided. Subsequent identical requests within this\
+        \ timeframe will receive the cached response.\n\n> Note: Quantiles are calculated\
+        \ using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf)\
         \ algorithm, so they are not exact but have a maximum relative error of 0.01.\n\
         \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
         \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
@@ -5696,20 +6031,6 @@ paths:
         explode: true
         in: query
         name: max_matches
-        required: false
-        schema:
-          format: int32
-          minimum: 1
-          nullable: true
-          type: integer
-        style: form
-      - description: |-
-          The minimum number of matches a player needs on the filters to count. Players with few
-          matches have noisy averages that widen the distribution. **Default:** 10, or 1 when
-          `account_ids` is set.
-        explode: true
-        in: query
-        name: min_matches
         required: false
         schema:
           format: int32
@@ -14070,6 +14391,46 @@ components:
           type: integer
       required:
       - steam_id3
+    AnalyticsAbilityMaxFirstStats:
+      description: "The players who maxed one ability first, or (`ability_id` null)\
+        \ none."
+      example:
+        ability_id: 0
+        losses: 0
+        matches: 0
+        players: 0
+        wins: 0
+      properties:
+        ability_id:
+          description: |-
+            The ability these players maxed first (unlocked and upgraded three times before any other), null for the
+            players who maxed none. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+        losses:
+          format: int64
+          minimum: 0
+          type: integer
+        matches:
+          format: int64
+          minimum: 0
+          type: integer
+        players:
+          description: "Distinct players, counted exactly."
+          format: int64
+          minimum: 0
+          type: integer
+        wins:
+          format: int64
+          minimum: 0
+          type: integer
+      required:
+      - losses
+      - matches
+      - players
+      - wins
     AnalyticsAbilityOrderStats:
       example:
         abilities:
@@ -18636,6 +18997,12 @@ components:
         - 0
         - 0
         summary: ""
+        summary_reached_per_column:
+        - 0
+        - 0
+        summary_reached_wins_per_column:
+        - 0
+        - 0
       properties:
         baseline:
           allOf:
@@ -18685,6 +19052,25 @@ components:
           - $ref: "#/components/schemas/ItemFlowSummary"
           description: Totals for the locked build-path population (all filters applied).
             Denominator for pick rate.
+        summary_reached_per_column:
+          description: |-
+            `reached_per_column` for the locked build path's games (`summary`). Late stages hold long
+            games only, so an item bought there is compared with the build's games that got that far.
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
+        summary_reached_wins_per_column:
+          description: "Of `summary_reached_per_column`, the games that were won (index\
+            \ = column)."
+          items:
+            format: int64
+            minimum: 0
+            type: integer
+          type: array
+          default: null
       required:
       - baseline
       - edges

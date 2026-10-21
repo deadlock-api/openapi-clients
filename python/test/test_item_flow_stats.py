@@ -90,7 +90,13 @@ class TestItemFlowStats(unittest.TestCase):
                     total_assists = 0, 
                     total_deaths = 0, 
                     total_kills = 0, 
-                    wins = 0, )
+                    wins = 0, ),
+                summary_reached_per_column = [
+                    0
+                    ],
+                summary_reached_wins_per_column = [
+                    0
+                    ]
             )
         else:
             return ItemFlowStats(

@@ -26,6 +26,13 @@ class TestAnalyticsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_ability_max_first_stats(self) -> None:
+        """Test case for ability_max_first_stats
+
+        Ability Max First Stats
+        """
+        pass
+
     def test_ability_order_stats(self) -> None:
         """Test case for ability_order_stats
 

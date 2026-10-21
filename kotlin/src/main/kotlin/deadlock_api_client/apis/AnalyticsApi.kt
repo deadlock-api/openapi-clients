@@ -27,6 +27,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import deadlock_api_client.models.AnalyticsAbilityMaxFirstStats
 import deadlock_api_client.models.AnalyticsAbilityOrderStats
 import deadlock_api_client.models.AnalyticsAbilityOrderTreeNode
 import deadlock_api_client.models.AnalyticsBuffStats
@@ -78,6 +79,233 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * enum for parameter gameMode
      */
+     enum class GameModeAbilityMaxFirstStats(val value: kotlin.String) {
+         @Json(name = "normal") normal("normal"),
+         @Json(name = "street_brawl") street_brawl("street_brawl"),
+         @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
+         @Json(name = "internal") `internal`("internal");
+
+        /**
+         * Override [toString()] to avoid using the enum variable name as the value, and instead use
+         * the actual value defined in the API spec file.
+         *
+         * This solves a problem when the variable name and its value are different, and ensures that
+         * the client sends the correct enum values to the server always.
+         */
+        override fun toString(): kotlin.String = "$value"
+     }
+
+    /**
+     * GET /v1/analytics/ability-max-first-stats
+     * Ability Max First Stats
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     * @param heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAbilityUpgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param maxAbilityUpgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param minNetworth Filter players based on their final net worth. (optional)
+     * @param maxNetworth Filter players based on their final net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
+     * @param accountId Filter for matches with a specific player account ID. (optional)
+     * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @return kotlin.collections.List<AnalyticsAbilityMaxFirstStats>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun abilityMaxFirstStats(heroId: kotlin.Int, gameMode: GameModeAbilityMaxFirstStats? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1789948800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minAbilityUpgrades: kotlin.Long? = null, maxAbilityUpgrades: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, minMatches: kotlin.Int? = 10, accountId: kotlin.Int? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, heroBuildId: kotlin.Long? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null) : kotlin.collections.List<AnalyticsAbilityMaxFirstStats> {
+        val localVarResponse = abilityMaxFirstStatsWithHttpInfo(heroId = heroId, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAbilityUpgrades = minAbilityUpgrades, maxAbilityUpgrades = maxAbilityUpgrades, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatches = minMatches, accountId = accountId, accountIds = accountIds, heroBuildId = heroBuildId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<AnalyticsAbilityMaxFirstStats>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/analytics/ability-max-first-stats
+     * Ability Max First Stats
+     *  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     * @param heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAbilityUpgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param maxAbilityUpgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param minNetworth Filter players based on their final net worth. (optional)
+     * @param maxNetworth Filter players based on their final net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
+     * @param accountId Filter for matches with a specific player account ID. (optional)
+     * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @return ApiResponse<kotlin.collections.List<AnalyticsAbilityMaxFirstStats>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun abilityMaxFirstStatsWithHttpInfo(heroId: kotlin.Int, gameMode: GameModeAbilityMaxFirstStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAbilityUpgrades: kotlin.Long?, maxAbilityUpgrades: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, heroBuildId: kotlin.Long?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : ApiResponse<kotlin.collections.List<AnalyticsAbilityMaxFirstStats>?> {
+        val localVariableConfig = abilityMaxFirstStatsRequestConfig(heroId = heroId, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minAbilityUpgrades = minAbilityUpgrades, maxAbilityUpgrades = maxAbilityUpgrades, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, minMatches = minMatches, accountId = accountId, accountIds = accountIds, heroBuildId = heroBuildId, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix)
+
+        return request<Unit, kotlin.collections.List<AnalyticsAbilityMaxFirstStats>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation abilityMaxFirstStats
+     *
+     * @param heroId See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
+     * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800L)
+     * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
+     * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
+     * @param minAbilityUpgrades Filter players based on their minimum number of ability upgrades over the whole match. (optional)
+     * @param maxAbilityUpgrades Filter players based on their maximum number of ability upgrades over the whole match. (optional)
+     * @param minNetworth Filter players based on their final net worth. (optional)
+     * @param maxNetworth Filter players based on their final net worth. (optional)
+     * @param minAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
+     * @param minMatchId Filter matches based on their ID. (optional)
+     * @param maxMatchId Filter matches based on their ID. (optional)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
+     * @param accountId Filter for matches with a specific player account ID. (optional)
+     * @param accountIds Comma separated list of account ids to include (optional)
+     * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
+     * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
+     * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
+     * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
+     * @return RequestConfig
+     */
+    fun abilityMaxFirstStatsRequestConfig(heroId: kotlin.Int, gameMode: GameModeAbilityMaxFirstStats?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minAbilityUpgrades: kotlin.Long?, maxAbilityUpgrades: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, minMatches: kotlin.Int?, accountId: kotlin.Int?, accountIds: kotlin.collections.List<kotlin.Int>?, heroBuildId: kotlin.Long?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("hero_id", listOf(heroId.toString()))
+                if (gameMode != null) {
+                    put("game_mode", listOf(gameMode.value))
+                }
+                if (matchMode != null) {
+                    put("match_mode", listOf(matchMode.toString()))
+                }
+                if (minUnixTimestamp != null) {
+                    put("min_unix_timestamp", listOf(minUnixTimestamp.toString()))
+                }
+                if (maxUnixTimestamp != null) {
+                    put("max_unix_timestamp", listOf(maxUnixTimestamp.toString()))
+                }
+                if (minDurationS != null) {
+                    put("min_duration_s", listOf(minDurationS.toString()))
+                }
+                if (maxDurationS != null) {
+                    put("max_duration_s", listOf(maxDurationS.toString()))
+                }
+                if (minAbilityUpgrades != null) {
+                    put("min_ability_upgrades", listOf(minAbilityUpgrades.toString()))
+                }
+                if (maxAbilityUpgrades != null) {
+                    put("max_ability_upgrades", listOf(maxAbilityUpgrades.toString()))
+                }
+                if (minNetworth != null) {
+                    put("min_networth", listOf(minNetworth.toString()))
+                }
+                if (maxNetworth != null) {
+                    put("max_networth", listOf(maxNetworth.toString()))
+                }
+                if (minAverageBadge != null) {
+                    put("min_average_badge", listOf(minAverageBadge.toString()))
+                }
+                if (maxAverageBadge != null) {
+                    put("max_average_badge", listOf(maxAverageBadge.toString()))
+                }
+                if (minMatchId != null) {
+                    put("min_match_id", listOf(minMatchId.toString()))
+                }
+                if (maxMatchId != null) {
+                    put("max_match_id", listOf(maxMatchId.toString()))
+                }
+                if (minMatches != null) {
+                    put("min_matches", listOf(minMatches.toString()))
+                }
+                if (accountId != null) {
+                    put("account_id", listOf(accountId.toString()))
+                }
+                if (accountIds != null) {
+                    put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+                }
+                if (heroBuildId != null) {
+                    put("hero_build_id", listOf(heroBuildId.toString()))
+                }
+                if (includeItemIds != null) {
+                    put("include_item_ids", toMultiValue(includeItemIds.toList(), "multi"))
+                }
+                if (excludeItemIds != null) {
+                    put("exclude_item_ids", toMultiValue(excludeItemIds.toList(), "multi"))
+                }
+                if (abilityOrderPrefix != null) {
+                    put("ability_order_prefix", toMultiValue(abilityOrderPrefix.toList(), "csv"))
+                }
+                if (abilityUnlockOrderPrefix != null) {
+                    put("ability_unlock_order_prefix", toMultiValue(abilityUnlockOrderPrefix.toList(), "csv"))
+                }
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/analytics/ability-max-first-stats",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * enum for parameter gameMode
+     */
      enum class GameModeAbilityOrderStats(val value: kotlin.String) {
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
@@ -113,7 +341,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -167,7 +395,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -207,7 +435,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -340,7 +568,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -394,7 +622,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -434,7 +662,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param maxAverageBadge Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
-     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)
+     * @param minMatches The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)
      * @param accountId Filter for matches with a specific player account ID. (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param heroBuildId Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)
@@ -2862,7 +3090,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/analytics/item-flow-stats
      * Item Flow Stats
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @param phaseIntervalS Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)
      * @param phaseCount Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4. (optional, default to 4)
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
@@ -2916,7 +3144,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/analytics/item-flow-stats
      * Item Flow Stats
-     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     *  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @param phaseIntervalS Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)
      * @param phaseCount Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4. (optional, default to 4)
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
@@ -4861,7 +5089,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/analytics/player-stats/metrics
      * Player Stats Metrics
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     *  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
@@ -4876,7 +5104,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param minMatches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -4892,8 +5119,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerStatsMetrics(heroIds: kotlin.String? = null, gameMode: GameModePlayerStatsMetrics? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1789948800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, minMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, includeBuffMetrics: kotlin.Boolean? = false) : kotlin.collections.Map<kotlin.String, HashMapValue> {
-        val localVarResponse = playerStatsMetricsWithHttpInfo(heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, minMatches = minMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
+    fun playerStatsMetrics(heroIds: kotlin.String? = null, gameMode: GameModePlayerStatsMetrics? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1789948800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, includeBuffMetrics: kotlin.Boolean? = false) : kotlin.collections.Map<kotlin.String, HashMapValue> {
+        val localVarResponse = playerStatsMetricsWithHttpInfo(heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, HashMapValue>
@@ -4913,7 +5140,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
     /**
      * GET /v1/analytics/player-stats/metrics
      * Player Stats Metrics
-     *  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+     *  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
      * @param heroIds Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
@@ -4928,7 +5155,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param minMatches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -4941,8 +5167,8 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerStatsMetricsWithHttpInfo(heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, minMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?> {
-        val localVariableConfig = playerStatsMetricsRequestConfig(heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, minMatches = minMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
+    fun playerStatsMetricsWithHttpInfo(heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?> {
+        val localVariableConfig = playerStatsMetricsRequestConfig(heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
 
         return request<Unit, kotlin.collections.Map<kotlin.String, HashMapValue>>(
             localVariableConfig
@@ -4966,7 +5192,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param minMatchId Filter matches based on their ID. (optional)
      * @param maxMatchId Filter matches based on their ID. (optional)
      * @param maxMatches The maximum number of matches to analyze. (optional)
-     * @param minMatches The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)
      * @param includeItemIds Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param excludeItemIds Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param abilityOrderPrefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -4975,7 +5200,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param includeBuffMetrics Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)
      * @return RequestConfig
      */
-    fun playerStatsMetricsRequestConfig(heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, minMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : RequestConfig<Unit> {
+    fun playerStatsMetricsRequestConfig(heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
@@ -5020,9 +5245,6 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
                 }
                 if (maxMatches != null) {
                     put("max_matches", listOf(maxMatches.toString()))
-                }
-                if (minMatches != null) {
-                    put("min_matches", listOf(minMatches.toString()))
                 }
                 if (includeItemIds != null) {
                     put("include_item_ids", toMultiValue(includeItemIds.toList(), "multi"))

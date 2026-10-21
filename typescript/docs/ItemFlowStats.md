@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **reached_per_column** | **Array&lt;number&gt;** | Distinct baseline games that bought any upgrade in each stage column (index &#x3D; column). &#x60;reached / baseline.matches&#x60; shows how survivorship-selected a (late) stage is. | [default to undefined]
 **reached_wins_per_column** | **Array&lt;number&gt;** | Of &#x60;reached_per_column&#x60;, the games that were won (index &#x3D; column). &#x60;reached_wins / reached&#x60; is the win rate of games that got that far, the fair baseline for a build ending there. | [optional] [default to undefined]
 **summary** | [**ItemFlowSummary**](ItemFlowSummary.md) | Totals for the locked build-path population (all filters applied). Denominator for pick rate. | [default to undefined]
+**summary_reached_per_column** | **Array&lt;number&gt;** | &#x60;reached_per_column&#x60; for the locked build path\&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build\&#39;s games that got that far. | [optional] [default to undefined]
+**summary_reached_wins_per_column** | **Array&lt;number&gt;** | Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column). | [optional] [default to undefined]
 
 ## Example
 
@@ -26,6 +28,8 @@ const instance: ItemFlowStats = {
     reached_per_column,
     reached_wins_per_column,
     summary,
+    summary_reached_per_column,
+    summary_reached_wins_per_column,
 };
 ```
 

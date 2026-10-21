@@ -51,6 +51,40 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test AbilityMaxFirstStats
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task AbilityMaxFirstStatsAsyncTest()
+        {
+            int heroId = default!;
+            Client.Option<string?> gameMode = default!;
+            Client.Option<string?> matchMode = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<long?> minAbilityUpgrades = default!;
+            Client.Option<long?> maxAbilityUpgrades = default!;
+            Client.Option<long?> minNetworth = default!;
+            Client.Option<long?> maxNetworth = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<int?> minMatches = default!;
+            Client.Option<int?> accountId = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            Client.Option<long?> heroBuildId = default!;
+            Client.Option<List<int>?> includeItemIds = default!;
+            Client.Option<List<int>?> excludeItemIds = default!;
+            Client.Option<List<int>?> abilityOrderPrefix = default!;
+            Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
+            var response = await _instance.AbilityMaxFirstStatsAsync(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+            var model = response.Ok();
+            Assert.IsType<List<AnalyticsAbilityMaxFirstStats>>(model);
+        }
+
+        /// <summary>
         /// Test AbilityOrderStats
         /// </summary>
         [Fact (Skip = "not implemented")]
@@ -726,14 +760,13 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> minMatchId = default!;
             Client.Option<long?> maxMatchId = default!;
             Client.Option<int?> maxMatches = default!;
-            Client.Option<int?> minMatches = default!;
             Client.Option<List<int>?> includeItemIds = default!;
             Client.Option<List<int>?> excludeItemIds = default!;
             Client.Option<List<int>?> abilityOrderPrefix = default!;
             Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
             Client.Option<List<int>?> accountIds = default!;
             Client.Option<bool> includeBuffMetrics = default!;
-            var response = await _instance.PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+            var response = await _instance.PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(model);
         }

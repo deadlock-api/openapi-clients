@@ -39,6 +39,73 @@ namespace DeadlockApiClient.Api
         AnalyticsApiEvents Events { get; }
 
         /// <summary>
+        /// Ability Max First Stats
+        /// </summary>
+        /// <remarks>
+        ///  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAbilityUpgrades">Filter players based on their minimum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="maxAbilityUpgrades">Filter players based on their maximum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="minNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="maxNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
+        /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
+        /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
+        /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
+        /// <param name="abilityUnlockOrderPrefix">Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IAbilityMaxFirstStatsApiResponse"/>&gt;</returns>
+        Task<IAbilityMaxFirstStatsApiResponse> AbilityMaxFirstStatsAsync(int heroId, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minAbilityUpgrades = default, Option<long?> maxAbilityUpgrades = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> minMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Ability Max First Stats
+        /// </summary>
+        /// <remarks>
+        ///  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// </remarks>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAbilityUpgrades">Filter players based on their minimum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="maxAbilityUpgrades">Filter players based on their maximum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="minNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="maxNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
+        /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
+        /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
+        /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
+        /// <param name="abilityUnlockOrderPrefix">Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IAbilityMaxFirstStatsApiResponse"/>?&gt;</returns>
+        Task<IAbilityMaxFirstStatsApiResponse?> AbilityMaxFirstStatsOrDefaultAsync(int heroId, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minAbilityUpgrades = default, Option<long?> maxAbilityUpgrades = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> minMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Ability Order Stats
         /// </summary>
         /// <remarks>
@@ -60,7 +127,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -93,7 +160,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -127,7 +194,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -160,7 +227,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional) (deprecated)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -794,7 +861,7 @@ namespace DeadlockApiClient.Api
         /// Item Flow Stats
         /// </summary>
         /// <remarks>
-        ///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        ///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="phaseIntervalS">Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)</param>
@@ -828,7 +895,7 @@ namespace DeadlockApiClient.Api
         /// Item Flow Stats
         /// </summary>
         /// <remarks>
-        ///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        ///  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </remarks>
         /// <param name="phaseIntervalS">Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)</param>
         /// <param name="phaseCount">Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4. (optional, default to 4)</param>
@@ -1332,7 +1399,7 @@ namespace DeadlockApiClient.Api
         /// Player Stats Metrics
         /// </summary>
         /// <remarks>
-        ///  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        ///  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
@@ -1349,7 +1416,6 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatches">The maximum number of matches to analyze. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)</param>
         /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
@@ -1358,13 +1424,13 @@ namespace DeadlockApiClient.Api
         /// <param name="includeBuffMetrics">Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerStatsMetricsApiResponse"/>&gt;</returns>
-        Task<IPlayerStatsMetricsApiResponse> PlayerStatsMetricsAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<int?> minMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerStatsMetricsApiResponse> PlayerStatsMetricsAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Player Stats Metrics
         /// </summary>
         /// <remarks>
-        ///  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        ///  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </remarks>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -1380,7 +1446,6 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatches">The maximum number of matches to analyze. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)</param>
         /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
@@ -1389,7 +1454,31 @@ namespace DeadlockApiClient.Api
         /// <param name="includeBuffMetrics">Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerStatsMetricsApiResponse"/>?&gt;</returns>
-        Task<IPlayerStatsMetricsApiResponse?> PlayerStatsMetricsOrDefaultAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<int?> minMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default);
+        Task<IPlayerStatsMetricsApiResponse?> PlayerStatsMetricsOrDefaultAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default);
+    }
+
+    /// <summary>
+    /// The <see cref="IAbilityMaxFirstStatsApiResponse"/>
+    /// </summary>
+    public interface IAbilityMaxFirstStatsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<AnalyticsAbilityMaxFirstStats>?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 400 BadRequest
+        /// </summary>
+        /// <returns></returns>
+        bool IsBadRequest { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
     }
 
     /// <summary>
@@ -1952,6 +2041,26 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnAbilityMaxFirstStats;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorAbilityMaxFirstStats;
+
+        internal void ExecuteOnAbilityMaxFirstStats(AnalyticsApi.AbilityMaxFirstStatsApiResponse apiResponse)
+        {
+            OnAbilityMaxFirstStats?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorAbilityMaxFirstStats(Exception exception)
+        {
+            OnErrorAbilityMaxFirstStats?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
         public event EventHandler<ApiResponseEventArgs>? OnAbilityOrderStats;
 
         /// <summary>
@@ -2451,6 +2560,461 @@ namespace DeadlockApiClient.Api
             ApiKeyProvider = apiKeyProvider;
         }
 
+        partial void FormatAbilityMaxFirstStats(ref int heroId, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minAbilityUpgrades, ref Option<long?> maxAbilityUpgrades, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> minMatches, ref Option<int?> accountId, Option<List<int>?> accountIds, ref Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix);
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="heroId"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="matchMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAbilityUpgrades"></param>
+        /// <param name="maxAbilityUpgrades"></param>
+        /// <param name="minNetworth"></param>
+        /// <param name="maxNetworth"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        /// <param name="minMatches"></param>
+        /// <param name="accountId"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="heroBuildId"></param>
+        /// <param name="includeItemIds"></param>
+        /// <param name="excludeItemIds"></param>
+        /// <param name="abilityOrderPrefix"></param>
+        /// <param name="abilityUnlockOrderPrefix"></param>
+        private void AfterAbilityMaxFirstStatsDefaultImplementation(IAbilityMaxFirstStatsApiResponse apiResponseLocalVar, int heroId, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minAbilityUpgrades, Option<long?> maxAbilityUpgrades, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> minMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix)
+        {
+            bool suppressDefaultLog = false;
+            AfterAbilityMaxFirstStats(ref suppressDefaultLog, apiResponseLocalVar, heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+            if (!suppressDefaultLog)
+                Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="heroId"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="matchMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAbilityUpgrades"></param>
+        /// <param name="maxAbilityUpgrades"></param>
+        /// <param name="minNetworth"></param>
+        /// <param name="maxNetworth"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        /// <param name="minMatches"></param>
+        /// <param name="accountId"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="heroBuildId"></param>
+        /// <param name="includeItemIds"></param>
+        /// <param name="excludeItemIds"></param>
+        /// <param name="abilityOrderPrefix"></param>
+        /// <param name="abilityUnlockOrderPrefix"></param>
+        partial void AfterAbilityMaxFirstStats(ref bool suppressDefaultLog, IAbilityMaxFirstStatsApiResponse apiResponseLocalVar, int heroId, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minAbilityUpgrades, Option<long?> maxAbilityUpgrades, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> minMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="heroId"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="matchMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAbilityUpgrades"></param>
+        /// <param name="maxAbilityUpgrades"></param>
+        /// <param name="minNetworth"></param>
+        /// <param name="maxNetworth"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        /// <param name="minMatches"></param>
+        /// <param name="accountId"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="heroBuildId"></param>
+        /// <param name="includeItemIds"></param>
+        /// <param name="excludeItemIds"></param>
+        /// <param name="abilityOrderPrefix"></param>
+        /// <param name="abilityUnlockOrderPrefix"></param>
+        private void OnErrorAbilityMaxFirstStatsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minAbilityUpgrades, Option<long?> maxAbilityUpgrades, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> minMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorAbilityMaxFirstStats(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="heroId"></param>
+        /// <param name="gameMode"></param>
+        /// <param name="matchMode"></param>
+        /// <param name="minUnixTimestamp"></param>
+        /// <param name="maxUnixTimestamp"></param>
+        /// <param name="minDurationS"></param>
+        /// <param name="maxDurationS"></param>
+        /// <param name="minAbilityUpgrades"></param>
+        /// <param name="maxAbilityUpgrades"></param>
+        /// <param name="minNetworth"></param>
+        /// <param name="maxNetworth"></param>
+        /// <param name="minAverageBadge"></param>
+        /// <param name="maxAverageBadge"></param>
+        /// <param name="minMatchId"></param>
+        /// <param name="maxMatchId"></param>
+        /// <param name="minMatches"></param>
+        /// <param name="accountId"></param>
+        /// <param name="accountIds"></param>
+        /// <param name="heroBuildId"></param>
+        /// <param name="includeItemIds"></param>
+        /// <param name="excludeItemIds"></param>
+        /// <param name="abilityOrderPrefix"></param>
+        /// <param name="abilityUnlockOrderPrefix"></param>
+        partial void OnErrorAbilityMaxFirstStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int heroId, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minAbilityUpgrades, Option<long?> maxAbilityUpgrades, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> minMatches, Option<int?> accountId, Option<List<int>?> accountIds, Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix);
+
+        /// <summary>
+        /// Ability Max First Stats  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// </summary>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAbilityUpgrades">Filter players based on their minimum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="maxAbilityUpgrades">Filter players based on their maximum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="minNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="maxNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
+        /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
+        /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
+        /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
+        /// <param name="abilityUnlockOrderPrefix">Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IAbilityMaxFirstStatsApiResponse"/>&gt;</returns>
+        public async Task<IAbilityMaxFirstStatsApiResponse?> AbilityMaxFirstStatsOrDefaultAsync(int heroId, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minAbilityUpgrades = default, Option<long?> maxAbilityUpgrades = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> minMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await AbilityMaxFirstStatsAsync(heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Ability Max First Stats  Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
+        /// <param name="matchMode">Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1789948800)</param>
+        /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
+        /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
+        /// <param name="minAbilityUpgrades">Filter players based on their minimum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="maxAbilityUpgrades">Filter players based on their maximum number of ability upgrades over the whole match. (optional)</param>
+        /// <param name="minNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="maxNetworth">Filter players based on their final net worth. (optional)</param>
+        /// <param name="minAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
+        /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
+        /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
+        /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
+        /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
+        /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
+        /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
+        /// <param name="abilityUnlockOrderPrefix">Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="IAbilityMaxFirstStatsApiResponse"/>&gt;</returns>
+        public async Task<IAbilityMaxFirstStatsApiResponse> AbilityMaxFirstStatsAsync(int heroId, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minAbilityUpgrades = default, Option<long?> maxAbilityUpgrades = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> minMatches = default, Option<int?> accountId = default, Option<List<int>?> accountIds = default, Option<long?> heroBuildId = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                FormatAbilityMaxFirstStats(ref heroId, ref gameMode, ref matchMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minAbilityUpgrades, ref maxAbilityUpgrades, ref minNetworth, ref maxNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref minMatches, ref accountId, accountIds, ref heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
+                        ? "/v1/analytics/ability-max-first-stats"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath.TrimEnd('/'), "/v1/analytics/ability-max-first-stats");
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    parseQueryStringLocalVar["hero_id"] = ClientUtils.ParameterToString(heroId);
+
+                    if (gameMode.IsSet)
+                        parseQueryStringLocalVar["game_mode"] = ClientUtils.ParameterToString(gameMode.Value);
+
+                    if (matchMode.IsSet)
+                        parseQueryStringLocalVar["match_mode"] = ClientUtils.ParameterToString(matchMode.Value);
+
+                    if (minUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["min_unix_timestamp"] = ClientUtils.ParameterToString(minUnixTimestamp.Value);
+
+                    if (maxUnixTimestamp.IsSet)
+                        parseQueryStringLocalVar["max_unix_timestamp"] = ClientUtils.ParameterToString(maxUnixTimestamp.Value);
+
+                    if (minDurationS.IsSet)
+                        parseQueryStringLocalVar["min_duration_s"] = ClientUtils.ParameterToString(minDurationS.Value);
+
+                    if (maxDurationS.IsSet)
+                        parseQueryStringLocalVar["max_duration_s"] = ClientUtils.ParameterToString(maxDurationS.Value);
+
+                    if (minAbilityUpgrades.IsSet)
+                        parseQueryStringLocalVar["min_ability_upgrades"] = ClientUtils.ParameterToString(minAbilityUpgrades.Value);
+
+                    if (maxAbilityUpgrades.IsSet)
+                        parseQueryStringLocalVar["max_ability_upgrades"] = ClientUtils.ParameterToString(maxAbilityUpgrades.Value);
+
+                    if (minNetworth.IsSet)
+                        parseQueryStringLocalVar["min_networth"] = ClientUtils.ParameterToString(minNetworth.Value);
+
+                    if (maxNetworth.IsSet)
+                        parseQueryStringLocalVar["max_networth"] = ClientUtils.ParameterToString(maxNetworth.Value);
+
+                    if (minAverageBadge.IsSet)
+                        parseQueryStringLocalVar["min_average_badge"] = ClientUtils.ParameterToString(minAverageBadge.Value);
+
+                    if (maxAverageBadge.IsSet)
+                        parseQueryStringLocalVar["max_average_badge"] = ClientUtils.ParameterToString(maxAverageBadge.Value);
+
+                    if (minMatchId.IsSet)
+                        parseQueryStringLocalVar["min_match_id"] = ClientUtils.ParameterToString(minMatchId.Value);
+
+                    if (maxMatchId.IsSet)
+                        parseQueryStringLocalVar["max_match_id"] = ClientUtils.ParameterToString(maxMatchId.Value);
+
+                    if (minMatches.IsSet)
+                        parseQueryStringLocalVar["min_matches"] = ClientUtils.ParameterToString(minMatches.Value);
+
+                    if (accountId.IsSet)
+                        parseQueryStringLocalVar["account_id"] = ClientUtils.ParameterToString(accountId.Value);
+
+                    if (accountIds.IsSet)
+                        parseQueryStringLocalVar["account_ids"] = ClientUtils.ParameterToString(accountIds.Value);
+
+                    if (heroBuildId.IsSet)
+                        parseQueryStringLocalVar["hero_build_id"] = ClientUtils.ParameterToString(heroBuildId.Value);
+
+                    if (includeItemIds.IsSet)
+                        parseQueryStringLocalVar["include_item_ids"] = ClientUtils.ParameterToString(includeItemIds.Value);
+
+                    if (excludeItemIds.IsSet)
+                        parseQueryStringLocalVar["exclude_item_ids"] = ClientUtils.ParameterToString(excludeItemIds.Value);
+
+                    if (abilityOrderPrefix.IsSet)
+                        parseQueryStringLocalVar["ability_order_prefix"] = ClientUtils.ParameterToString(abilityOrderPrefix.Value);
+
+                    if (abilityUnlockOrderPrefix.IsSet)
+                        parseQueryStringLocalVar["ability_unlock_order_prefix"] = ClientUtils.ParameterToString(abilityUnlockOrderPrefix.Value);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
+
+                    foreach (var acceptLocalVar in acceptHeaderValuesLocalVar)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(acceptLocalVar);
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        AbilityMaxFirstStatsApiResponse apiResponseLocalVar;
+
+                        switch ((int)httpResponseMessageLocalVar.StatusCode) {
+                            default: {
+                                string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+                                apiResponseLocalVar = new(Logger, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/v1/analytics/ability-max-first-stats", requestedAtLocalVar, _jsonSerializerOptions);
+
+                                break;
+                            }
+                        }
+
+                        AfterAbilityMaxFirstStatsDefaultImplementation(apiResponseLocalVar, heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+
+                        Events.ExecuteOnAbilityMaxFirstStats(apiResponseLocalVar);
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorAbilityMaxFirstStatsDefaultImplementation(e, "/v1/analytics/ability-max-first-stats", uriBuilderLocalVar.Path, heroId, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAbilityUpgrades, maxAbilityUpgrades, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minMatches, accountId, accountIds, heroBuildId, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+                Events.ExecuteOnErrorAbilityMaxFirstStats(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="AbilityMaxFirstStatsApiResponse"/>
+        /// </summary>
+        public partial class AbilityMaxFirstStatsApiResponse : DeadlockApiClient.Client.ApiResponse, IAbilityMaxFirstStatsApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<AnalyticsApi> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="AbilityMaxFirstStatsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public AbilityMaxFirstStatsApiResponse(ILogger<AnalyticsApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            /// <summary>
+            /// The <see cref="AbilityMaxFirstStatsApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="contentStream"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public AbilityMaxFirstStatsApiResponse(ILogger<AnalyticsApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public List<AnalyticsAbilityMaxFirstStats>? Ok()
+            {
+                bool suppressDefault = false;
+                List<AnalyticsAbilityMaxFirstStats>? result = null;
+                OnOk(ref suppressDefault, ref result);
+                if (!suppressDefault)
+                    result = DefaultOk();
+                return result;
+            }
+
+            private List<AnalyticsAbilityMaxFirstStats>? DefaultOk()
+            {
+                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<AnalyticsAbilityMaxFirstStats>>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            partial void OnOk(ref bool suppressDefault, ref List<AnalyticsAbilityMaxFirstStats>? result);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out List<AnalyticsAbilityMaxFirstStats>? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 400 BadRequest
+            /// </summary>
+            /// <returns></returns>
+            public bool IsBadRequest => 400 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(RestLogEvents.ApiDeserializationFailed, exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
+        }
+
         partial void FormatAbilityOrderStats(ref int heroId, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minAbilityUpgrades, ref Option<long?> maxAbilityUpgrades, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> minMatches, ref Option<int?> accountId, Option<List<int>?> accountIds, ref Option<long?> heroBuildId, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix);
 
         /// <summary>
@@ -2605,7 +3169,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -2646,7 +3210,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -3060,7 +3624,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -3101,7 +3665,7 @@ namespace DeadlockApiClient.Api
         /// <param name="maxAverageBadge">Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; (optional)</param>
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix) to be included in the response. (optional, default to 10)</param>
+        /// <param name="minMatches">The minimum number of matches played for an ability order (on &#x60;/ability-order-tree&#x60;: an order prefix, on &#x60;/ability-max-first-stats&#x60;: an ability) to be included in the response. (optional, default to 10)</param>
         /// <param name="accountId">Filter for matches with a specific player account ID. (optional)</param>
         /// <param name="accountIds">Comma separated list of account ids to include (optional)</param>
         /// <param name="heroBuildId">Only players who started the match with this hero build selected. Matches without a processed demo record no build. See more: &lt;https://api.deadlock-api.com/v1/analytics/hero-build-stats/{hero_id}&gt; (optional)</param>
@@ -8212,7 +8776,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorItemFlowStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<int?> phaseIntervalS, Option<int?> phaseCount, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> minMatches, Option<List<int>?> accountIds, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> lockedItemIds, Option<List<int>?> lockedColumns);
 
         /// <summary>
-        /// Item Flow Stats  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// Item Flow Stats  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </summary>
         /// <param name="phaseIntervalS">Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)</param>
         /// <param name="phaseCount">Number of columns for &#x60;street_brawl&#x60; (rounds). Ignored for &#x60;normal&#x60;, which has fixed time phases. **Default:** 4. (optional, default to 4)</param>
@@ -8252,7 +8816,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Item Flow Stats  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// Item Flow Stats  Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="phaseIntervalS">Deprecated/unused. &#x60;normal&#x60; mode uses fixed phase boundaries (0-9m, 9-20m, 20-30m, 30m+) aligned to the stats time-series; &#x60;street_brawl&#x60; columns are rounds. (optional, default to 600)</param>
@@ -11765,7 +12329,7 @@ namespace DeadlockApiClient.Api
             partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
-        partial void FormatPlayerStatsMetrics(ref Option<string?> heroIds, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> maxMatches, ref Option<int?> minMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, ref Option<bool> includeBuffMetrics);
+        partial void FormatPlayerStatsMetrics(ref Option<string?> heroIds, ref Option<string?> gameMode, ref Option<string?> matchMode, ref Option<long?> minUnixTimestamp, ref Option<long?> maxUnixTimestamp, ref Option<long?> minDurationS, ref Option<long?> maxDurationS, ref Option<long?> minNetworth, ref Option<long?> maxNetworth, ref Option<int?> minAverageBadge, ref Option<int?> maxAverageBadge, ref Option<long?> minMatchId, ref Option<long?> maxMatchId, ref Option<int?> maxMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, ref Option<bool> includeBuffMetrics);
 
         /// <summary>
         /// Processes the server response
@@ -11785,17 +12349,16 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
         /// <param name="maxMatches"></param>
-        /// <param name="minMatches"></param>
         /// <param name="includeItemIds"></param>
         /// <param name="excludeItemIds"></param>
         /// <param name="abilityOrderPrefix"></param>
         /// <param name="abilityUnlockOrderPrefix"></param>
         /// <param name="accountIds"></param>
         /// <param name="includeBuffMetrics"></param>
-        private void AfterPlayerStatsMetricsDefaultImplementation(IPlayerStatsMetricsApiResponse apiResponseLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<int?> minMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics)
+        private void AfterPlayerStatsMetricsDefaultImplementation(IPlayerStatsMetricsApiResponse apiResponseLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics)
         {
             bool suppressDefaultLog = false;
-            AfterPlayerStatsMetrics(ref suppressDefaultLog, apiResponseLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+            AfterPlayerStatsMetrics(ref suppressDefaultLog, apiResponseLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -11819,14 +12382,13 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
         /// <param name="maxMatches"></param>
-        /// <param name="minMatches"></param>
         /// <param name="includeItemIds"></param>
         /// <param name="excludeItemIds"></param>
         /// <param name="abilityOrderPrefix"></param>
         /// <param name="abilityUnlockOrderPrefix"></param>
         /// <param name="accountIds"></param>
         /// <param name="includeBuffMetrics"></param>
-        partial void AfterPlayerStatsMetrics(ref bool suppressDefaultLog, IPlayerStatsMetricsApiResponse apiResponseLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<int?> minMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics);
+        partial void AfterPlayerStatsMetrics(ref bool suppressDefaultLog, IPlayerStatsMetricsApiResponse apiResponseLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -11848,17 +12410,16 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
         /// <param name="maxMatches"></param>
-        /// <param name="minMatches"></param>
         /// <param name="includeItemIds"></param>
         /// <param name="excludeItemIds"></param>
         /// <param name="abilityOrderPrefix"></param>
         /// <param name="abilityUnlockOrderPrefix"></param>
         /// <param name="accountIds"></param>
         /// <param name="includeBuffMetrics"></param>
-        private void OnErrorPlayerStatsMetricsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<int?> minMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics)
+        private void OnErrorPlayerStatsMetricsDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorPlayerStatsMetrics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+            OnErrorPlayerStatsMetrics(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -11884,17 +12445,16 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId"></param>
         /// <param name="maxMatchId"></param>
         /// <param name="maxMatches"></param>
-        /// <param name="minMatches"></param>
         /// <param name="includeItemIds"></param>
         /// <param name="excludeItemIds"></param>
         /// <param name="abilityOrderPrefix"></param>
         /// <param name="abilityUnlockOrderPrefix"></param>
         /// <param name="accountIds"></param>
         /// <param name="includeBuffMetrics"></param>
-        partial void OnErrorPlayerStatsMetrics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<int?> minMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics);
+        partial void OnErrorPlayerStatsMetrics(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, Option<string?> heroIds, Option<string?> gameMode, Option<string?> matchMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId, Option<int?> maxMatches, Option<List<int>?> includeItemIds, Option<List<int>?> excludeItemIds, Option<List<int>?> abilityOrderPrefix, Option<List<int>?> abilityUnlockOrderPrefix, Option<List<int>?> accountIds, Option<bool> includeBuffMetrics);
 
         /// <summary>
-        /// Player Stats Metrics  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// Player Stats Metrics  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </summary>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -11910,7 +12470,6 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatches">The maximum number of matches to analyze. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)</param>
         /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
@@ -11919,11 +12478,11 @@ namespace DeadlockApiClient.Api
         /// <param name="includeBuffMetrics">Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerStatsMetricsApiResponse"/>&gt;</returns>
-        public async Task<IPlayerStatsMetricsApiResponse?> PlayerStatsMetricsOrDefaultAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<int?> minMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerStatsMetricsApiResponse?> PlayerStatsMetricsOrDefaultAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, cancellationToken).ConfigureAwait(false);
+                return await PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -11932,7 +12491,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Player Stats Metrics  Returns comprehensive statistical analysis of player performance.  Every metric is first averaged per player over the matching matches; &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution of those player averages, not of single matches. Players with fewer than &#x60;min_matches&#x60; matches (default 10, or 1 when &#x60;account_ids&#x60; is set) are left out.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+        /// Player Stats Metrics  Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | - -- - | - -- -- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="heroIds">Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)</param>
@@ -11949,7 +12508,6 @@ namespace DeadlockApiClient.Api
         /// <param name="minMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatchId">Filter matches based on their ID. (optional)</param>
         /// <param name="maxMatches">The maximum number of matches to analyze. (optional)</param>
-        /// <param name="minMatches">The minimum number of matches a player needs on the filters to count. Players with few matches have noisy averages that widen the distribution. **Default:** 10, or 1 when &#x60;account_ids&#x60; is set. (optional)</param>
         /// <param name="includeItemIds">Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="excludeItemIds">Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)</param>
         /// <param name="abilityOrderPrefix">Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)</param>
@@ -11958,13 +12516,13 @@ namespace DeadlockApiClient.Api
         /// <param name="includeBuffMetrics">Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IPlayerStatsMetricsApiResponse"/>&gt;</returns>
-        public async Task<IPlayerStatsMetricsApiResponse> PlayerStatsMetricsAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<int?> minMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default)
+        public async Task<IPlayerStatsMetricsApiResponse> PlayerStatsMetricsAsync(Option<string?> heroIds = default, Option<string?> gameMode = default, Option<string?> matchMode = default, Option<long?> minUnixTimestamp = default, Option<long?> maxUnixTimestamp = default, Option<long?> minDurationS = default, Option<long?> maxDurationS = default, Option<long?> minNetworth = default, Option<long?> maxNetworth = default, Option<int?> minAverageBadge = default, Option<int?> maxAverageBadge = default, Option<long?> minMatchId = default, Option<long?> maxMatchId = default, Option<int?> maxMatches = default, Option<List<int>?> includeItemIds = default, Option<List<int>?> excludeItemIds = default, Option<List<int>?> abilityOrderPrefix = default, Option<List<int>?> abilityUnlockOrderPrefix = default, Option<List<int>?> accountIds = default, Option<bool> includeBuffMetrics = default, System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
             try
             {
-                FormatPlayerStatsMetrics(ref heroIds, ref gameMode, ref matchMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref maxMatches, ref minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, ref includeBuffMetrics);
+                FormatPlayerStatsMetrics(ref heroIds, ref gameMode, ref matchMode, ref minUnixTimestamp, ref maxUnixTimestamp, ref minDurationS, ref maxDurationS, ref minNetworth, ref maxNetworth, ref minAverageBadge, ref maxAverageBadge, ref minMatchId, ref maxMatchId, ref maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, ref includeBuffMetrics);
 
                 using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
                 {
@@ -12019,9 +12577,6 @@ namespace DeadlockApiClient.Api
                     if (maxMatches.IsSet)
                         parseQueryStringLocalVar["max_matches"] = ClientUtils.ParameterToString(maxMatches.Value);
 
-                    if (minMatches.IsSet)
-                        parseQueryStringLocalVar["min_matches"] = ClientUtils.ParameterToString(minMatches.Value);
-
                     if (includeItemIds.IsSet)
                         parseQueryStringLocalVar["include_item_ids"] = ClientUtils.ParameterToString(includeItemIds.Value);
 
@@ -12070,7 +12625,7 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterPlayerStatsMetricsDefaultImplementation(apiResponseLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+                        AfterPlayerStatsMetricsDefaultImplementation(apiResponseLocalVar, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
 
                         Events.ExecuteOnPlayerStatsMetrics(apiResponseLocalVar);
 
@@ -12080,7 +12635,7 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorPlayerStatsMetricsDefaultImplementation(e, "/v1/analytics/player-stats/metrics", uriBuilderLocalVar.Path, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, minMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+                OnErrorPlayerStatsMetricsDefaultImplementation(e, "/v1/analytics/player-stats/metrics", uriBuilderLocalVar.Path, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
                 Events.ExecuteOnErrorPlayerStatsMetrics(e);
                 throw;
             }

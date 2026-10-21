@@ -55,6 +55,7 @@ docs/models/ActiveMatchPlayer.md
 docs/models/ActiveMatchTeam.md
 docs/models/ActiveMatchTeamStats.md
 docs/models/AddSteamAccountRequest.md
+docs/models/AnalyticsAbilityMaxFirstStats.md
 docs/models/AnalyticsAbilityOrderStats.md
 docs/models/AnalyticsAbilityOrderTreeNode.md
 docs/models/AnalyticsBuffStats.md
@@ -336,6 +337,7 @@ src/DeadlockApiClient.Test/Model/ActiveMatchTeamStatsTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchTeamTests.cs
 src/DeadlockApiClient.Test/Model/ActiveMatchTests.cs
 src/DeadlockApiClient.Test/Model/AddSteamAccountRequestTests.cs
+src/DeadlockApiClient.Test/Model/AnalyticsAbilityMaxFirstStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsAbilityOrderStatsTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsAbilityOrderTreeNodeTests.cs
 src/DeadlockApiClient.Test/Model/AnalyticsBuffStatsTests.cs
@@ -640,6 +642,7 @@ src/DeadlockApiClient/Model/ActiveMatchPlayer.cs
 src/DeadlockApiClient/Model/ActiveMatchTeam.cs
 src/DeadlockApiClient/Model/ActiveMatchTeamStats.cs
 src/DeadlockApiClient/Model/AddSteamAccountRequest.cs
+src/DeadlockApiClient/Model/AnalyticsAbilityMaxFirstStats.cs
 src/DeadlockApiClient/Model/AnalyticsAbilityOrderStats.cs
 src/DeadlockApiClient/Model/AnalyticsAbilityOrderTreeNode.cs
 src/DeadlockApiClient/Model/AnalyticsBuffStats.cs

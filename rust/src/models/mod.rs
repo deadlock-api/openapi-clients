@@ -32,6 +32,8 @@ pub mod active_match_team_stats;
 pub use self::active_match_team_stats::ActiveMatchTeamStats;
 pub mod add_steam_account_request;
 pub use self::add_steam_account_request::AddSteamAccountRequest;
+pub mod analytics_ability_max_first_stats;
+pub use self::analytics_ability_max_first_stats::AnalyticsAbilityMaxFirstStats;
 pub mod analytics_ability_order_stats;
 pub use self::analytics_ability_order_stats::AnalyticsAbilityOrderStats;
 pub mod analytics_ability_order_tree_node;

@@ -42,6 +42,8 @@ import java.io.Serializable
  * @param reachedPerColumn Distinct baseline games that bought any upgrade in each stage column (index = column). `reached / baseline.matches` shows how survivorship-selected a (late) stage is.
  * @param summary Totals for the locked build-path population (all filters applied). Denominator for pick rate.
  * @param reachedWinsPerColumn Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there.
+ * @param summaryReachedPerColumn `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.
+ * @param summaryReachedWinsPerColumn Of `summary_reached_per_column`, the games that were won (index = column).
  */
 
 
@@ -71,7 +73,15 @@ data class ItemFlowStats (
 
     /* Of `reached_per_column`, the games that were won (index = column). `reached_wins / reached` is the win rate of games that got that far, the fair baseline for a build ending there. */
     @Json(name = "reached_wins_per_column")
-    val reachedWinsPerColumn: kotlin.collections.List<kotlin.Long>? = null
+    val reachedWinsPerColumn: kotlin.collections.List<kotlin.Long>? = null,
+
+    /* `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far. */
+    @Json(name = "summary_reached_per_column")
+    val summaryReachedPerColumn: kotlin.collections.List<kotlin.Long>? = null,
+
+    /* Of `summary_reached_per_column`, the games that were won (index = column). */
+    @Json(name = "summary_reached_wins_per_column")
+    val summaryReachedWinsPerColumn: kotlin.collections.List<kotlin.Long>? = null
 
 ) : Serializable {
     companion object {

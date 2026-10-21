@@ -32,6 +32,12 @@ pub struct ItemFlowStats {
     /// Totals for the locked build-path population (all filters applied). Denominator for pick rate.
     #[serde(rename = "summary")]
     pub summary: Box<models::ItemFlowSummary>,
+    /// `reached_per_column` for the locked build path's games (`summary`). Late stages hold long games only, so an item bought there is compared with the build's games that got that far.
+    #[serde(rename = "summary_reached_per_column", skip_serializing_if = "Option::is_none")]
+    pub summary_reached_per_column: Option<Vec<u64>>,
+    /// Of `summary_reached_per_column`, the games that were won (index = column).
+    #[serde(rename = "summary_reached_wins_per_column", skip_serializing_if = "Option::is_none")]
+    pub summary_reached_wins_per_column: Option<Vec<u64>>,
 }
 
 impl ItemFlowStats {
@@ -44,6 +50,8 @@ impl ItemFlowStats {
             reached_per_column,
             reached_wins_per_column: None,
             summary: Box::new(summary),
+            summary_reached_per_column: None,
+            summary_reached_wins_per_column: None,
         }
     }
 }

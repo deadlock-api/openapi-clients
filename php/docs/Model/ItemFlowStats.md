@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **reached_per_column** | **int[]** | Distinct baseline games that bought any upgrade in each stage column (index &#x3D; column). &#x60;reached / baseline.matches&#x60; shows how survivorship-selected a (late) stage is. |
 **reached_wins_per_column** | **int[]** | Of &#x60;reached_per_column&#x60;, the games that were won (index &#x3D; column). &#x60;reached_wins / reached&#x60; is the win rate of games that got that far, the fair baseline for a build ending there. | [optional]
 **summary** | [**\OpenAPI\Client\Model\ItemFlowSummary**](ItemFlowSummary.md) | Totals for the locked build-path population (all filters applied). Denominator for pick rate. |
+**summary_reached_per_column** | **int[]** | &#x60;reached_per_column&#x60; for the locked build path&#39;s games (&#x60;summary&#x60;). Late stages hold long games only, so an item bought there is compared with the build&#39;s games that got that far. | [optional]
+**summary_reached_wins_per_column** | **int[]** | Of &#x60;summary_reached_per_column&#x60;, the games that were won (index &#x3D; column). | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
