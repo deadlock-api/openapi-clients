@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bucket** | **u32** |  | 
+**bucket_matches_since_first_day** | **u64** | Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match. | 
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | 
 **losses** | **u64** |  | 
 **matches** | **u64** |  | 

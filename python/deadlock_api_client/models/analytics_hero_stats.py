@@ -29,6 +29,7 @@ class AnalyticsHeroStats(BaseModel):
     AnalyticsHeroStats
     """ # noqa: E501
     bucket: Annotated[int, Field(strict=True, ge=0)]
+    bucket_matches_since_first_day: Annotated[int, Field(strict=True, ge=0)] = Field(description="Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.")
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="See more: <https://api.deadlock-api.com/v1/assets/heroes>")
     losses: Annotated[int, Field(strict=True, ge=0)]
     matches: Annotated[int, Field(strict=True, ge=0)]
@@ -52,7 +53,7 @@ class AnalyticsHeroStats(BaseModel):
     total_shots_hit: Annotated[int, Field(strict=True, ge=0)]
     total_shots_missed: Annotated[int, Field(strict=True, ge=0)]
     wins: Annotated[int, Field(strict=True, ge=0)]
-    __properties: ClassVar[List[str]] = ["bucket", "hero_id", "losses", "matches", "matches_per_bucket", "permanent_buff_matches", "permanent_buff_timing_matches", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_first_permanent_buff_time_s", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_permanent_buffs", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
+    __properties: ClassVar[List[str]] = ["bucket", "bucket_matches_since_first_day", "hero_id", "losses", "matches", "matches_per_bucket", "permanent_buff_matches", "permanent_buff_timing_matches", "total_assists", "total_boss_damage", "total_creep_damage", "total_deaths", "total_denies", "total_first_permanent_buff_time_s", "total_kills", "total_last_hits", "total_max_health", "total_net_worth", "total_neutral_damage", "total_permanent_buffs", "total_player_damage", "total_player_damage_taken", "total_shots_hit", "total_shots_missed", "wins"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -106,6 +107,7 @@ class AnalyticsHeroStats(BaseModel):
 
         _obj = cls.model_validate({
             "bucket": obj.get("bucket"),
+            "bucket_matches_since_first_day": obj.get("bucket_matches_since_first_day"),
             "hero_id": obj.get("hero_id"),
             "losses": obj.get("losses"),
             "matches": obj.get("matches"),

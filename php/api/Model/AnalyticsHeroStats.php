@@ -58,6 +58,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $openAPITypes = [
         'bucket' => 'int',
+        'bucket_matches_since_first_day' => 'int',
         'hero_id' => 'int',
         'losses' => 'int',
         'matches' => 'int',
@@ -92,6 +93,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $openAPIFormats = [
         'bucket' => 'int32',
+        'bucket_matches_since_first_day' => 'int64',
         'hero_id' => 'int32',
         'losses' => 'int64',
         'matches' => 'int64',
@@ -124,6 +126,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static array $openAPINullables = [
         'bucket' => false,
+        'bucket_matches_since_first_day' => false,
         'hero_id' => false,
         'losses' => false,
         'matches' => false,
@@ -236,6 +239,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $attributeMap = [
         'bucket' => 'bucket',
+        'bucket_matches_since_first_day' => 'bucket_matches_since_first_day',
         'hero_id' => 'hero_id',
         'losses' => 'losses',
         'matches' => 'matches',
@@ -268,6 +272,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $setters = [
         'bucket' => 'setBucket',
+        'bucket_matches_since_first_day' => 'setBucketMatchesSinceFirstDay',
         'hero_id' => 'setHeroId',
         'losses' => 'setLosses',
         'matches' => 'setMatches',
@@ -300,6 +305,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static $getters = [
         'bucket' => 'getBucket',
+        'bucket_matches_since_first_day' => 'getBucketMatchesSinceFirstDay',
         'hero_id' => 'getHeroId',
         'losses' => 'getLosses',
         'matches' => 'getMatches',
@@ -383,6 +389,7 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
     public function __construct(?array $data = null)
     {
         $this->setIfExists('bucket', $data ?? [], null);
+        $this->setIfExists('bucket_matches_since_first_day', $data ?? [], null);
         $this->setIfExists('hero_id', $data ?? [], null);
         $this->setIfExists('losses', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
@@ -440,6 +447,13 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if (($this->container['bucket'] < 0)) {
             $invalidProperties[] = "invalid value for 'bucket', must be bigger than or equal to 0.";
+        }
+
+        if ($this->container['bucket_matches_since_first_day'] === null) {
+            $invalidProperties[] = "'bucket_matches_since_first_day' can't be null";
+        }
+        if (($this->container['bucket_matches_since_first_day'] < 0)) {
+            $invalidProperties[] = "invalid value for 'bucket_matches_since_first_day', must be bigger than or equal to 0.";
         }
 
         if ($this->container['hero_id'] === null) {
@@ -645,6 +659,37 @@ class AnalyticsHeroStats implements ModelInterface, ArrayAccess, \JsonSerializab
         }
 
         $this->container['bucket'] = $bucket;
+
+        return $this;
+    }
+
+    /**
+     * Gets bucket_matches_since_first_day
+     *
+     * @return int
+     */
+    public function getBucketMatchesSinceFirstDay()
+    {
+        return $this->container['bucket_matches_since_first_day'];
+    }
+
+    /**
+     * Sets bucket_matches_since_first_day
+     *
+     * @param int $bucket_matches_since_first_day Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.
+     *
+     * @return self
+     */
+    public function setBucketMatchesSinceFirstDay($bucket_matches_since_first_day)
+    {
+        if (is_null($bucket_matches_since_first_day)) {
+            throw new \InvalidArgumentException('non-nullable bucket_matches_since_first_day cannot be null');
+        }
+        if (($bucket_matches_since_first_day < 0)) {
+            throw new \InvalidArgumentException('invalid value for $bucket_matches_since_first_day when calling AnalyticsHeroStats., must be bigger than or equal to 0.');
+        }
+
+        $this->container['bucket_matches_since_first_day'] = $bucket_matches_since_first_day;
 
         return $this;
     }

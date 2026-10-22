@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bucket** | **int32** |  | 
+**BucketMatchesSinceFirstDay** | **int64** | Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero&#39;s first day counts whole, so it still includes the hours before its first match. | 
 **HeroId** | **int32** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 **Losses** | **int64** |  | 
 **Matches** | **int64** |  | 
@@ -33,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewAnalyticsHeroStats
 
-`func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
+`func NewAnalyticsHeroStats(bucket int32, bucketMatchesSinceFirstDay int64, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64, ) *AnalyticsHeroStats`
 
 NewAnalyticsHeroStats instantiates a new AnalyticsHeroStats object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +67,26 @@ and a boolean to check if the value has been set.
 `func (o *AnalyticsHeroStats) SetBucket(v int32)`
 
 SetBucket sets Bucket field to given value.
+
+
+### GetBucketMatchesSinceFirstDay
+
+`func (o *AnalyticsHeroStats) GetBucketMatchesSinceFirstDay() int64`
+
+GetBucketMatchesSinceFirstDay returns the BucketMatchesSinceFirstDay field if non-nil, zero value otherwise.
+
+### GetBucketMatchesSinceFirstDayOk
+
+`func (o *AnalyticsHeroStats) GetBucketMatchesSinceFirstDayOk() (*int64, bool)`
+
+GetBucketMatchesSinceFirstDayOk returns a tuple with the BucketMatchesSinceFirstDay field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBucketMatchesSinceFirstDay
+
+`func (o *AnalyticsHeroStats) SetBucketMatchesSinceFirstDay(v int64)`
+
+SetBucketMatchesSinceFirstDay sets BucketMatchesSinceFirstDay field to given value.
 
 
 ### GetHeroId

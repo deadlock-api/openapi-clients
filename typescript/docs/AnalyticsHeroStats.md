@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bucket** | **number** |  | [default to undefined]
+**bucket_matches_since_first_day** | **number** | Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero\&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero\&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero\&#39;s first day counts whole, so it still includes the hours before its first match. | [default to undefined]
 **hero_id** | **number** | See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [default to undefined]
 **losses** | **number** |  | [default to undefined]
 **matches** | **number** |  | [default to undefined]
@@ -37,6 +38,7 @@ import { AnalyticsHeroStats } from 'deadlock_api_client';
 
 const instance: AnalyticsHeroStats = {
     bucket,
+    bucket_matches_since_first_day,
     hero_id,
     losses,
     matches,

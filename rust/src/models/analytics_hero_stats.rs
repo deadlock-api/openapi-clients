@@ -15,6 +15,9 @@ use serde::{Deserialize, Serialize};
 pub struct AnalyticsHeroStats {
     #[serde(rename = "bucket")]
     pub bucket: u32,
+    /// Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.
+    #[serde(rename = "bucket_matches_since_first_day")]
+    pub bucket_matches_since_first_day: u64,
     /// See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
@@ -69,9 +72,10 @@ pub struct AnalyticsHeroStats {
 }
 
 impl AnalyticsHeroStats {
-    pub fn new(bucket: u32, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, permanent_buff_matches: u64, permanent_buff_timing_matches: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_first_permanent_buff_time_s: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_permanent_buffs: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
+    pub fn new(bucket: u32, bucket_matches_since_first_day: u64, hero_id: u32, losses: u64, matches: u64, matches_per_bucket: u64, permanent_buff_matches: u64, permanent_buff_timing_matches: u64, total_assists: u64, total_boss_damage: u64, total_creep_damage: u64, total_deaths: u64, total_denies: u64, total_first_permanent_buff_time_s: u64, total_kills: u64, total_last_hits: u64, total_max_health: u64, total_net_worth: u64, total_neutral_damage: u64, total_permanent_buffs: u64, total_player_damage: u64, total_player_damage_taken: u64, total_shots_hit: u64, total_shots_missed: u64, wins: u64) -> AnalyticsHeroStats {
         AnalyticsHeroStats {
             bucket,
+            bucket_matches_since_first_day,
             hero_id,
             losses,
             matches,

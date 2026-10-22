@@ -22,6 +22,8 @@ var _ MappedNullable = &AnalyticsHeroStats{}
 // AnalyticsHeroStats struct for AnalyticsHeroStats
 type AnalyticsHeroStats struct {
 	Bucket int32 `json:"bucket"`
+	// Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.
+	BucketMatchesSinceFirstDay int64 `json:"bucket_matches_since_first_day"`
 	// See more: <https://api.deadlock-api.com/v1/assets/heroes>
 	HeroId int32 `json:"hero_id"`
 	Losses int64 `json:"losses"`
@@ -58,9 +60,10 @@ type _AnalyticsHeroStats AnalyticsHeroStats
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAnalyticsHeroStats(bucket int32, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64) *AnalyticsHeroStats {
+func NewAnalyticsHeroStats(bucket int32, bucketMatchesSinceFirstDay int64, heroId int32, losses int64, matches int64, matchesPerBucket int64, permanentBuffMatches int64, permanentBuffTimingMatches int64, totalAssists int64, totalBossDamage int64, totalCreepDamage int64, totalDeaths int64, totalDenies int64, totalFirstPermanentBuffTimeS int64, totalKills int64, totalLastHits int64, totalMaxHealth int64, totalNetWorth int64, totalNeutralDamage int64, totalPermanentBuffs int64, totalPlayerDamage int64, totalPlayerDamageTaken int64, totalShotsHit int64, totalShotsMissed int64, wins int64) *AnalyticsHeroStats {
 	this := AnalyticsHeroStats{}
 	this.Bucket = bucket
+	this.BucketMatchesSinceFirstDay = bucketMatchesSinceFirstDay
 	this.HeroId = heroId
 	this.Losses = losses
 	this.Matches = matches
@@ -117,6 +120,30 @@ func (o *AnalyticsHeroStats) GetBucketOk() (*int32, bool) {
 // SetBucket sets field value
 func (o *AnalyticsHeroStats) SetBucket(v int32) {
 	o.Bucket = v
+}
+
+// GetBucketMatchesSinceFirstDay returns the BucketMatchesSinceFirstDay field value
+func (o *AnalyticsHeroStats) GetBucketMatchesSinceFirstDay() int64 {
+	if o == nil {
+		var ret int64
+		return ret
+	}
+
+	return o.BucketMatchesSinceFirstDay
+}
+
+// GetBucketMatchesSinceFirstDayOk returns a tuple with the BucketMatchesSinceFirstDay field value
+// and a boolean to check if the value has been set.
+func (o *AnalyticsHeroStats) GetBucketMatchesSinceFirstDayOk() (*int64, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.BucketMatchesSinceFirstDay, true
+}
+
+// SetBucketMatchesSinceFirstDay sets field value
+func (o *AnalyticsHeroStats) SetBucketMatchesSinceFirstDay(v int64) {
+	o.BucketMatchesSinceFirstDay = v
 }
 
 // GetHeroId returns the HeroId field value
@@ -682,6 +709,7 @@ func (o AnalyticsHeroStats) MarshalJSON() ([]byte, error) {
 func (o AnalyticsHeroStats) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["bucket"] = o.Bucket
+	toSerialize["bucket_matches_since_first_day"] = o.BucketMatchesSinceFirstDay
 	toSerialize["hero_id"] = o.HeroId
 	toSerialize["losses"] = o.Losses
 	toSerialize["matches"] = o.Matches
@@ -714,6 +742,7 @@ func (o *AnalyticsHeroStats) UnmarshalJSON(data []byte) (err error) {
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
 		"bucket",
+		"bucket_matches_since_first_day",
 		"hero_id",
 		"losses",
 		"matches",

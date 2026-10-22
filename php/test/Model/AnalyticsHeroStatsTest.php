@@ -89,6 +89,15 @@ class AnalyticsHeroStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "bucket_matches_since_first_day"
+     */
+    public function testPropertyBucketMatchesSinceFirstDay()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "hero_id"
      */
     public function testPropertyHeroId()

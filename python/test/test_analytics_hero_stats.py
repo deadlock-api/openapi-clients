@@ -36,6 +36,7 @@ class TestAnalyticsHeroStats(unittest.TestCase):
         if include_optional:
             return AnalyticsHeroStats(
                 bucket = 0,
+                bucket_matches_since_first_day = 0,
                 hero_id = 0,
                 losses = 0,
                 matches = 0,
@@ -63,6 +64,7 @@ class TestAnalyticsHeroStats(unittest.TestCase):
         else:
             return AnalyticsHeroStats(
                 bucket = 0,
+                bucket_matches_since_first_day = 0,
                 hero_id = 0,
                 losses = 0,
                 matches = 0,

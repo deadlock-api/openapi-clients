@@ -39,6 +39,12 @@ class AnalyticsHeroStatsTest : ShouldSpec() {
             //modelInstance.bucket shouldBe ("TODO")
         }
 
+        // to test the property `bucketMatchesSinceFirstDay` - Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.
+        should("test bucketMatchesSinceFirstDay") {
+            // uncomment below to test the property
+            //modelInstance.bucketMatchesSinceFirstDay shouldBe ("TODO")
+        }
+
         // to test the property `heroId` - See more: <https://api.deadlock-api.com/v1/assets/heroes>
         should("test heroId") {
             // uncomment below to test the property

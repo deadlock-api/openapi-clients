@@ -25,6 +25,12 @@ export interface AnalyticsHeroStats  {
      */
     bucket: number;
     /**
+     * Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero\'s first match in the response on. A pick rate that leaves out the part of the range before the hero\'s release: `matches / bucket_matches_since_first_day` times the players per match. The hero\'s first day counts whole, so it still includes the hours before its first match.
+     * @type {number}
+     * @memberof AnalyticsHeroStats
+     */
+    bucketMatchesSinceFirstDay: number;
+    /**
      * See more: <https://api.deadlock-api.com/v1/assets/heroes>
      * @type {number}
      * @memberof AnalyticsHeroStats
@@ -167,6 +173,7 @@ export interface AnalyticsHeroStats  {
 export function AnalyticsHeroStatsFromJSON(json: any): AnalyticsHeroStats {
     return {
         'bucket': json['bucket'],
+        'bucketMatchesSinceFirstDay': json['bucket_matches_since_first_day'],
         'heroId': json['hero_id'],
         'losses': json['losses'],
         'matches': json['matches'],
@@ -199,6 +206,7 @@ export function AnalyticsHeroStatsToJSON(value?: AnalyticsHeroStats): any {
     }
     return {
         'bucket': value.bucket,
+        'bucket_matches_since_first_day': value.bucketMatchesSinceFirstDay,
         'hero_id': value.heroId,
         'losses': value.losses,
         'matches': value.matches,

@@ -34,6 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="AnalyticsHeroStats" /> class.
         /// </summary>
         /// <param name="bucket">bucket</param>
+        /// <param name="bucketMatchesSinceFirstDay">Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero&#39;s first day counts whole, so it still includes the hours before its first match.</param>
         /// <param name="heroId">See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
         /// <param name="losses">losses</param>
         /// <param name="matches">matches</param>
@@ -58,9 +59,10 @@ namespace DeadlockApiClient.Model
         /// <param name="totalShotsMissed">totalShotsMissed</param>
         /// <param name="wins">wins</param>
         [JsonConstructor]
-        public AnalyticsHeroStats(int bucket, int heroId, long losses, long matches, long matchesPerBucket, long permanentBuffMatches, long permanentBuffTimingMatches, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalFirstPermanentBuffTimeS, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPermanentBuffs, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
+        public AnalyticsHeroStats(int bucket, long bucketMatchesSinceFirstDay, int heroId, long losses, long matches, long matchesPerBucket, long permanentBuffMatches, long permanentBuffTimingMatches, long totalAssists, long totalBossDamage, long totalCreepDamage, long totalDeaths, long totalDenies, long totalFirstPermanentBuffTimeS, long totalKills, long totalLastHits, long totalMaxHealth, long totalNetWorth, long totalNeutralDamage, long totalPermanentBuffs, long totalPlayerDamage, long totalPlayerDamageTaken, long totalShotsHit, long totalShotsMissed, long wins)
         {
             Bucket = bucket;
+            BucketMatchesSinceFirstDay = bucketMatchesSinceFirstDay;
             HeroId = heroId;
             Losses = losses;
             Matches = matches;
@@ -94,6 +96,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("bucket")]
         public int Bucket { get; set; }
+
+        /// <summary>
+        /// Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero&#39;s first day counts whole, so it still includes the hours before its first match.
+        /// </summary>
+        /// <value>Sum of &#x60;matches&#x60; over all heroes in this bucket, counting only the UTC days from this hero&#39;s first match in the response on. A pick rate that leaves out the part of the range before the hero&#39;s release: &#x60;matches / bucket_matches_since_first_day&#x60; times the players per match. The hero&#39;s first day counts whole, so it still includes the hours before its first match.</value>
+        [JsonPropertyName("bucket_matches_since_first_day")]
+        public long BucketMatchesSinceFirstDay { get; set; }
 
         /// <summary>
         /// See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -247,6 +256,7 @@ namespace DeadlockApiClient.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AnalyticsHeroStats {\n");
             sb.Append("  Bucket: ").Append(Bucket).Append("\n");
+            sb.Append("  BucketMatchesSinceFirstDay: ").Append(BucketMatchesSinceFirstDay).Append("\n");
             sb.Append("  HeroId: ").Append(HeroId).Append("\n");
             sb.Append("  Losses: ").Append(Losses).Append("\n");
             sb.Append("  Matches: ").Append(Matches).Append("\n");
@@ -285,6 +295,12 @@ namespace DeadlockApiClient.Model
             if (this.Bucket < (int)0)
             {
                 yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+            }
+
+            // BucketMatchesSinceFirstDay (long) minimum
+            if (this.BucketMatchesSinceFirstDay < (long)0)
+            {
+                yield return new ValidationResult("Invalid value for BucketMatchesSinceFirstDay, must be a value greater than or equal to 0.", new [] { "BucketMatchesSinceFirstDay" });
             }
 
             // HeroId (int) minimum
@@ -462,6 +478,7 @@ namespace DeadlockApiClient.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<int?> bucket = default;
+            Option<long?> bucketMatchesSinceFirstDay = default;
             Option<int?> heroId = default;
             Option<long?> losses = default;
             Option<long?> matches = default;
@@ -503,6 +520,9 @@ namespace DeadlockApiClient.Model
                     {
                         case "bucket":
                             bucket = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
+                        case "bucket_matches_since_first_day":
+                            bucketMatchesSinceFirstDay = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "hero_id":
                             heroId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
@@ -582,6 +602,9 @@ namespace DeadlockApiClient.Model
             if (!bucket.IsSet)
                 throw new JsonException("Property is required for class AnalyticsHeroStats: bucket.");
 
+            if (!bucketMatchesSinceFirstDay.IsSet)
+                throw new JsonException("Property is required for class AnalyticsHeroStats: bucket_matches_since_first_day.");
+
             if (!heroId.IsSet)
                 throw new JsonException("Property is required for class AnalyticsHeroStats: hero_id.");
 
@@ -654,6 +677,9 @@ namespace DeadlockApiClient.Model
             if (bucket.IsSet && bucket.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsHeroStats: bucket.");
 
+            if (bucketMatchesSinceFirstDay.IsSet && bucketMatchesSinceFirstDay.Value == null)
+                throw new JsonException("Property is not nullable for class AnalyticsHeroStats: bucket_matches_since_first_day.");
+
             if (heroId.IsSet && heroId.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsHeroStats: hero_id.");
 
@@ -723,7 +749,7 @@ namespace DeadlockApiClient.Model
             if (wins.IsSet && wins.Value == null)
                 throw new JsonException("Property is not nullable for class AnalyticsHeroStats: wins.");
 
-            return new AnalyticsHeroStats(bucket.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, matchesPerBucket.Value!.Value!, permanentBuffMatches.Value!.Value!, permanentBuffTimingMatches.Value!.Value!, totalAssists.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalDeaths.Value!.Value!, totalDenies.Value!.Value!, totalFirstPermanentBuffTimeS.Value!.Value!, totalKills.Value!.Value!, totalLastHits.Value!.Value!, totalMaxHealth.Value!.Value!, totalNetWorth.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPermanentBuffs.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, totalShotsHit.Value!.Value!, totalShotsMissed.Value!.Value!, wins.Value!.Value!);
+            return new AnalyticsHeroStats(bucket.Value!.Value!, bucketMatchesSinceFirstDay.Value!.Value!, heroId.Value!.Value!, losses.Value!.Value!, matches.Value!.Value!, matchesPerBucket.Value!.Value!, permanentBuffMatches.Value!.Value!, permanentBuffTimingMatches.Value!.Value!, totalAssists.Value!.Value!, totalBossDamage.Value!.Value!, totalCreepDamage.Value!.Value!, totalDeaths.Value!.Value!, totalDenies.Value!.Value!, totalFirstPermanentBuffTimeS.Value!.Value!, totalKills.Value!.Value!, totalLastHits.Value!.Value!, totalMaxHealth.Value!.Value!, totalNetWorth.Value!.Value!, totalNeutralDamage.Value!.Value!, totalPermanentBuffs.Value!.Value!, totalPlayerDamage.Value!.Value!, totalPlayerDamageTaken.Value!.Value!, totalShotsHit.Value!.Value!, totalShotsMissed.Value!.Value!, wins.Value!.Value!);
         }
 
         /// <summary>
@@ -749,6 +775,8 @@ namespace DeadlockApiClient.Model
         public void WriteProperties(Utf8JsonWriter writer, AnalyticsHeroStats analyticsHeroStats, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteNumber("bucket", analyticsHeroStats.Bucket);
+
+            writer.WriteNumber("bucket_matches_since_first_day", analyticsHeroStats.BucketMatchesSinceFirstDay);
 
             writer.WriteNumber("hero_id", analyticsHeroStats.HeroId);
 
