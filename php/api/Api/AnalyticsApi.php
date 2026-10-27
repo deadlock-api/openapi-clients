@@ -6845,6 +6845,7 @@ class AnalyticsApi
      * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
      * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int[]|null $hero_matches_total_buckets Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -6857,9 +6858,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\AnalyticsHeroStats[]
      */
-    public function heroStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStats($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
-        list($response) = $this->heroStatsWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
+        list($response) = $this->heroStatsWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
         return $response;
     }
 
@@ -6885,6 +6886,7 @@ class AnalyticsApi
      * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
      * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int[]|null $hero_matches_total_buckets Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -6897,9 +6899,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\AnalyticsHeroStats[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function heroStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
-        $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
+        $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6992,6 +6994,7 @@ class AnalyticsApi
      * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
      * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int[]|null $hero_matches_total_buckets Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -7003,9 +7006,9 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsync($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
-        return $this->heroStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType)
+        return $this->heroStatsAsyncWithHttpInfo($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7035,6 +7038,7 @@ class AnalyticsApi
      * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
      * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int[]|null $hero_matches_total_buckets Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -7046,10 +7050,10 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function heroStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsAsyncWithHttpInfo($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
         $returnType = '\OpenAPI\Client\Model\AnalyticsHeroStats[]';
-        $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
+        $request = $this->heroStatsRequest($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7107,6 +7111,7 @@ class AnalyticsApi
      * @param  int|null $max_hero_matches Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional)
      * @param  int|null $min_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
      * @param  int|null $max_hero_matches_total Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. (optional)
+     * @param  int[]|null $hero_matches_total_buckets Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. (optional)
      * @param  int[]|null $include_item_ids Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $exclude_item_ids Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; (optional)
      * @param  int[]|null $ability_order_prefix Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; (optional)
@@ -7118,7 +7123,7 @@ class AnalyticsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function heroStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
+    public function heroStatsRequest($bucket = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790467200, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $min_hero_matches = null, $max_hero_matches = null, $min_hero_matches_total = null, $max_hero_matches_total = null, $hero_matches_total_buckets = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_id = null, $account_ids = null, string $contentType = self::contentTypes['heroStats'][0])
     {
 
 
@@ -7186,6 +7191,7 @@ class AnalyticsApi
             throw new \InvalidArgumentException('invalid value for "$max_hero_matches_total" when calling AnalyticsApi.heroStats, must be bigger than or equal to 0.');
         }
         
+
 
 
 
@@ -7358,6 +7364,15 @@ class AnalyticsApi
             $max_hero_matches_total,
             'max_hero_matches_total', // param base name
             'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $hero_matches_total_buckets,
+            'hero_matches_total_buckets', // param base name
+            'array', // openApiType
             'form', // style
             true, // explode
             false // required

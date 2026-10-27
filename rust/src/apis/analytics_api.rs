@@ -515,6 +515,8 @@ pub struct HeroStatsParams {
     pub min_hero_matches_total: Option<u64>,
     /// Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
     pub max_hero_matches_total: Option<u64>,
+    /// Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.
+    pub hero_matches_total_buckets: Option<Vec<u32>>,
     /// Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
     pub include_item_ids: Option<Vec<u32>>,
     /// Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -2436,6 +2438,12 @@ pub async fn hero_stats(configuration: &configuration::Configuration, params: He
     }
     if let Some(ref param_value) = params.max_hero_matches_total {
         req_builder = req_builder.query(&[("max_hero_matches_total", &param_value.to_string())]);
+    }
+    if let Some(ref param_value) = params.hero_matches_total_buckets {
+        req_builder = match "multi" {
+            "multi" => req_builder.query(&param_value.into_iter().map(|p| ("hero_matches_total_buckets".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+            _ => req_builder.query(&[("hero_matches_total_buckets", &param_value.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+        };
     }
     if let Some(ref param_value) = params.include_item_ids {
         req_builder = match "multi" {

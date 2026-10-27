@@ -3022,6 +3022,26 @@ paths:
           nullable: true
           type: integer
         style: form
+      - description: "Comma separated list of entire-history hero match counts, each\
+          \ the lower bound of a bucket that ends where the next one starts (the last\
+          \ one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches.\
+          \ Groups each player's matches by their entire-history match count on the\
+          \ hero (counted like `min_hero_matches_total`), and the `bucket` of each\
+          \ row is the lower bound of its bucket. Players below the first bound are\
+          \ left out. Only with `bucket=no_bucket`, at most 10 bounds."
+        explode: true
+        in: query
+        name: hero_matches_total_buckets
+        required: false
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          nullable: true
+          type: array
+          default: null
+        style: form
       - description: "Comma separated list of item ids to include (only players who\
           \ have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>"
         explode: true

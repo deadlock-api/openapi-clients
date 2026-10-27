@@ -6558,6 +6558,7 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        hero_matches_total_buckets: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -6615,6 +6616,8 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
+        :param hero_matches_total_buckets: Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.
+        :type hero_matches_total_buckets: List[int]
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -6667,6 +6670,7 @@ class AnalyticsApi:
             max_hero_matches=max_hero_matches,
             min_hero_matches_total=min_hero_matches_total,
             max_hero_matches_total=max_hero_matches_total,
+            hero_matches_total_buckets=hero_matches_total_buckets,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -6715,6 +6719,7 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        hero_matches_total_buckets: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -6772,6 +6777,8 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
+        :param hero_matches_total_buckets: Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.
+        :type hero_matches_total_buckets: List[int]
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -6824,6 +6831,7 @@ class AnalyticsApi:
             max_hero_matches=max_hero_matches,
             min_hero_matches_total=min_hero_matches_total,
             max_hero_matches_total=max_hero_matches_total,
+            hero_matches_total_buckets=hero_matches_total_buckets,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -6872,6 +6880,7 @@ class AnalyticsApi:
         max_hero_matches: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).")] = None,
         min_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
         max_hero_matches_total: Annotated[Optional[Annotated[int, Field(strict=True, ge=0)]], Field(description="Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.")] = None,
+        hero_matches_total_buckets: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.")] = None,
         include_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         exclude_item_ids: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>")] = None,
         ability_order_prefix: Annotated[Optional[List[Annotated[int, Field(strict=True, ge=0)]]], Field(description="Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>")] = None,
@@ -6929,6 +6938,8 @@ class AnalyticsApi:
         :type min_hero_matches_total: int
         :param max_hero_matches_total: Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
         :type max_hero_matches_total: int
+        :param hero_matches_total_buckets: Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.
+        :type hero_matches_total_buckets: List[int]
         :param include_item_ids: Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
         :type include_item_ids: List[int]
         :param exclude_item_ids: Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
@@ -6981,6 +6992,7 @@ class AnalyticsApi:
             max_hero_matches=max_hero_matches,
             min_hero_matches_total=min_hero_matches_total,
             max_hero_matches_total=max_hero_matches_total,
+            hero_matches_total_buckets=hero_matches_total_buckets,
             include_item_ids=include_item_ids,
             exclude_item_ids=exclude_item_ids,
             ability_order_prefix=ability_order_prefix,
@@ -7024,6 +7036,7 @@ class AnalyticsApi:
         max_hero_matches,
         min_hero_matches_total,
         max_hero_matches_total,
+        hero_matches_total_buckets,
         include_item_ids,
         exclude_item_ids,
         ability_order_prefix,
@@ -7039,6 +7052,7 @@ class AnalyticsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'hero_matches_total_buckets': 'multi',
             'include_item_ids': 'multi',
             'exclude_item_ids': 'multi',
             'ability_order_prefix': 'csv',
@@ -7124,6 +7138,10 @@ class AnalyticsApi:
         if max_hero_matches_total is not None:
             
             _query_params.append(('max_hero_matches_total', max_hero_matches_total))
+            
+        if hero_matches_total_buckets is not None:
+            
+            _query_params.append(('hero_matches_total_buckets', hero_matches_total_buckets))
             
         if include_item_ids is not None:
             

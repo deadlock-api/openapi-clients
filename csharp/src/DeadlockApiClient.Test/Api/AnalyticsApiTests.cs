@@ -407,13 +407,14 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<long?> maxHeroMatches = default!;
             Client.Option<long?> minHeroMatchesTotal = default!;
             Client.Option<long?> maxHeroMatchesTotal = default!;
+            Client.Option<List<int>?> heroMatchesTotalBuckets = default!;
             Client.Option<List<int>?> includeItemIds = default!;
             Client.Option<List<int>?> excludeItemIds = default!;
             Client.Option<List<int>?> abilityOrderPrefix = default!;
             Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
             Client.Option<int?> accountId = default!;
             Client.Option<List<int>?> accountIds = default!;
-            var response = await _instance.HeroStatsAsync(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountId, accountIds);
+            var response = await _instance.HeroStatsAsync(bucket, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, minHeroMatches, maxHeroMatches, minHeroMatchesTotal, maxHeroMatchesTotal, heroMatchesTotalBuckets, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountId, accountIds);
             var model = response.Ok();
             Assert.IsType<List<AnalyticsHeroStats>>(model);
         }

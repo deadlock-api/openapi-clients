@@ -345,6 +345,7 @@ export interface HeroStatsRequest {
     maxHeroMatches?: number;
     minHeroMatchesTotal?: number;
     maxHeroMatchesTotal?: number;
+    heroMatchesTotalBuckets?: Array<number>;
     includeItemIds?: Array<number>;
     excludeItemIds?: Array<number>;
     abilityOrderPrefix?: Array<number>;
@@ -2276,6 +2277,11 @@ function heroStatsRaw<T>(requestParameters: HeroStatsRequest, requestConfig: run
 
     if (requestParameters.maxHeroMatchesTotal !== undefined) {
         queryParameters['max_hero_matches_total'] = requestParameters.maxHeroMatchesTotal;
+    }
+
+
+    if (requestParameters.heroMatchesTotalBuckets) {
+        queryParameters['hero_matches_total_buckets'] = requestParameters.heroMatchesTotalBuckets;
     }
 
 

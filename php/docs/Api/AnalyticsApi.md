@@ -1087,7 +1087,7 @@ No authorization required
 ## `heroStats()`
 
 ```php
-heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids): \OpenAPI\Client\Model\AnalyticsHeroStats[]
+heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids): \OpenAPI\Client\Model\AnalyticsHeroStats[]
 ```
 
 Hero Stats
@@ -1124,6 +1124,7 @@ $min_hero_matches = 56; // int | Filter players based on the number of matches t
 $max_hero_matches = 56; // int | Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter).
 $min_hero_matches_total = 56; // int | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
 $max_hero_matches_total = 56; // int | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`.
+$hero_matches_total_buckets = array(56); // int[] | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player's matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds.
 $include_item_ids = array(56); // int[] | Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $exclude_item_ids = array(56); // int[] | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items>
 $ability_order_prefix = array(56); // int[] | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats>
@@ -1132,7 +1133,7 @@ $account_id = 56; // int | Filter for matches with a specific player account ID.
 $account_ids = array(56); // int[] | Comma separated list of account ids to include
 
 try {
-    $result = $apiInstance->heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids);
+    $result = $apiInstance->heroStats($bucket, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $min_hero_matches, $max_hero_matches, $min_hero_matches_total, $max_hero_matches_total, $hero_matches_total_buckets, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_id, $account_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->heroStats: ', $e->getMessage(), PHP_EOL;
@@ -1160,6 +1161,7 @@ try {
 | **max_hero_matches** | **int**| Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). | [optional] |
 | **min_hero_matches_total** | **int**| Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. | [optional] |
 | **max_hero_matches_total** | **int**| Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. | [optional] |
+| **hero_matches_total_buckets** | [**int[]**](../Model/int.md)| Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. | [optional] |
 | **include_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **exclude_item_ids** | [**int[]**](../Model/int.md)| Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | [optional] |
 | **ability_order_prefix** | [**int[]**](../Model/int.md)| Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | [optional] |

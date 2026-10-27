@@ -1268,6 +1268,7 @@ let minHeroMatches: number; //Filter players based on the number of matches they
 let maxHeroMatches: number; //Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). (optional) (default to undefined)
 let minHeroMatchesTotal: number; //Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`. (optional) (default to undefined)
 let maxHeroMatchesTotal: number; //Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected `game_mode`. (optional) (default to undefined)
+let heroMatchesTotalBuckets: Array<number>; //Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. `1,25,100` for 1-24, 25-99 and 100+ matches. Groups each player\'s matches by their entire-history match count on the hero (counted like `min_hero_matches_total`), and the `bucket` of each row is the lower bound of its bucket. Players below the first bound are left out. Only with `bucket=no_bucket`, at most 10 bounds. (optional) (default to undefined)
 let includeItemIds: Array<number>; //Comma separated list of item ids to include (only players who have purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional) (default to undefined)
 let excludeItemIds: Array<number>; //Comma separated list of item ids to exclude (only players who have not purchased these items). See more: <https://api.deadlock-api.com/v1/assets/items> (optional) (default to undefined)
 let abilityOrderPrefix: Array<number>; //Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see `ability_unlock_order_prefix` to match only the unlock order). See more: <https://api.deadlock-api.com/v1/analytics/ability-order-stats> (optional) (default to undefined)
@@ -1293,6 +1294,7 @@ const { status, data } = await apiInstance.heroStats(
     maxHeroMatches,
     minHeroMatchesTotal,
     maxHeroMatchesTotal,
+    heroMatchesTotalBuckets,
     includeItemIds,
     excludeItemIds,
     abilityOrderPrefix,
@@ -1323,6 +1325,7 @@ const { status, data } = await apiInstance.heroStats(
 | **maxHeroMatches** | [**number**] | Filter players based on the number of matches they have played with a specific hero within the filtered time range (all durations, even with a duration filter). | (optional) defaults to undefined|
 | **minHeroMatchesTotal** | [**number**] | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. | (optional) defaults to undefined|
 | **maxHeroMatchesTotal** | [**number**] | Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;. | (optional) defaults to undefined|
+| **heroMatchesTotalBuckets** | **Array&lt;number&gt;** | Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player\&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds. | (optional) defaults to undefined|
 | **includeItemIds** | **Array&lt;number&gt;** | Comma separated list of item ids to include (only players who have purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | (optional) defaults to undefined|
 | **excludeItemIds** | **Array&lt;number&gt;** | Comma separated list of item ids to exclude (only players who have not purchased these items). See more: &lt;https://api.deadlock-api.com/v1/assets/items&gt; | (optional) defaults to undefined|
 | **abilityOrderPrefix** | **Array&lt;number&gt;** | Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt; | (optional) defaults to undefined|

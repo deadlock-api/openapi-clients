@@ -3710,6 +3710,7 @@ type ApiHeroStatsRequest struct {
 	maxHeroMatches *int64
 	minHeroMatchesTotal *int64
 	maxHeroMatchesTotal *int64
+	heroMatchesTotalBuckets *[]int32
 	includeItemIds *[]int32
 	excludeItemIds *[]int32
 	abilityOrderPrefix *[]int32
@@ -3817,6 +3818,12 @@ func (r ApiHeroStatsRequest) MinHeroMatchesTotal(minHeroMatchesTotal int64) ApiH
 // Filter players based on the number of matches they have played with a specific hero in their entire history, counting only matches of the selected &#x60;game_mode&#x60;.
 func (r ApiHeroStatsRequest) MaxHeroMatchesTotal(maxHeroMatchesTotal int64) ApiHeroStatsRequest {
 	r.maxHeroMatchesTotal = &maxHeroMatchesTotal
+	return r
+}
+
+// Comma separated list of entire-history hero match counts, each the lower bound of a bucket that ends where the next one starts (the last one is open-ended), e.g. &#x60;1,25,100&#x60; for 1-24, 25-99 and 100+ matches. Groups each player&#39;s matches by their entire-history match count on the hero (counted like &#x60;min_hero_matches_total&#x60;), and the &#x60;bucket&#x60; of each row is the lower bound of its bucket. Players below the first bound are left out. Only with &#x60;bucket&#x3D;no_bucket&#x60;, at most 10 bounds.
+func (r ApiHeroStatsRequest) HeroMatchesTotalBuckets(heroMatchesTotalBuckets []int32) ApiHeroStatsRequest {
+	r.heroMatchesTotalBuckets = &heroMatchesTotalBuckets
 	return r
 }
 
@@ -3962,6 +3969,17 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	}
 	if r.maxHeroMatchesTotal != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "max_hero_matches_total", r.maxHeroMatchesTotal, "form", "")
+	}
+	if r.heroMatchesTotalBuckets != nil {
+		t := *r.heroMatchesTotalBuckets
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "hero_matches_total_buckets", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "hero_matches_total_buckets", t, "form", "multi")
+		}
 	}
 	if r.includeItemIds != nil {
 		t := *r.includeItemIds
