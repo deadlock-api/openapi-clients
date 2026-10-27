@@ -719,8 +719,8 @@ export interface Stat {
     ability_kills: (Scalars['Int'] | null);
     headshot_kills: (Scalars['Int'] | null);
     /**
-     * Rebuilt from the delta-encoded `custom_user_stats_deltas` column, one cumulative sum per
-     * time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
+     * Rebuilt from the delta-encoded `custom_user_stats_keys`/`_values` columns, one cumulative
+     * sum per time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
      */
     custom_user_stats: (Scalars['JsonScalar'] | null);
     gold_source_players_kills: (Scalars['Int'] | null);
@@ -1785,8 +1785,8 @@ export interface StatGenqlSelection {
     ability_kills?: boolean | number;
     headshot_kills?: boolean | number;
     /**
-     * Rebuilt from the delta-encoded `custom_user_stats_deltas` column, one cumulative sum per
-     * time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
+     * Rebuilt from the delta-encoded `custom_user_stats_keys`/`_values` columns, one cumulative
+     * sum per time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
      */
     custom_user_stats?: boolean | number;
     gold_source_players_kills?: boolean | number;

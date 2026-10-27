@@ -1062,8 +1062,8 @@ type Stat {
   headshot_kills: Int
 
   """
-  Rebuilt from the delta-encoded `custom_user_stats_deltas` column, one cumulative sum per
-  time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
+  Rebuilt from the delta-encoded `custom_user_stats_keys`/`_values` columns, one cumulative
+  sum per time stamp: measured 1.7-5 ms per row, ~40x a plain subfield.
   """
   custom_user_stats: JsonScalar
   gold_source_players_kills: Int
