@@ -567,21 +567,21 @@ export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME' | 'LAS
 export type OrderDirection = 'DESC' | 'ASC'
 
 export interface QueryRoot {
-    /** Match-grouped query — one node per match_id with players aggregated. */
+    /** Match-grouped query — one node per `match_id` with players aggregated. */
     matches: Match[]
-    /** Player-row query — one node per (match_id, account_id). */
+    /** Player-row query — one node per (`match_id`, `account_id`). */
     match_players: MatchPlayer[]
     /**
-     * Player match history — one node per (account_id, match_id), from the
+     * Player match history — one node per (`account_id`, `match_id`), from the
      * stored `player_match_history` table (no on-demand Steam fetch). Filter on
      * `account_id`: without it the query merges the whole table and exceeds the
      * complexity limit.
      */
     match_history: MatchHistoryEntry[]
     /**
-     * Stored match salts — one node per match_id, the same data as the REST
+     * Stored match salts — one node per `match_id`, the same data as the REST
      * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
-     * Ordered by match_id. Salts that failed verification are dropped after
+     * Ordered by `match_id`. Salts that failed verification are dropped after
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts: MatchSalts[]
@@ -594,7 +594,7 @@ export interface QueryRoot {
     /**
      * All heroes for the given client version (defaults to latest), localized
      * to `language` (defaults to English). Sourced from the versioned assets,
-     * not ClickHouse.
+     * not `ClickHouse`.
      */
     heroes: Hero[]
     /**
@@ -1538,21 +1538,21 @@ export interface MatchSaltsGenqlSelection{
 export interface MatchSaltsWhere {match_id?: (U64Filter | null),cluster_id?: (U32Filter | null)}
 
 export interface QueryRootGenqlSelection{
-    /** Match-grouped query — one node per match_id with players aggregated. */
+    /** Match-grouped query — one node per `match_id` with players aggregated. */
     matches?: (MatchGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatch | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
-    /** Player-row query — one node per (match_id, account_id). */
+    /** Player-row query — one node per (`match_id`, `account_id`). */
     match_players?: (MatchPlayerGenqlSelection & { __args?: {where?: (MatchPlayerWhere | null), order_by?: (OrderByMatchPlayer | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
     /**
-     * Player match history — one node per (account_id, match_id), from the
+     * Player match history — one node per (`account_id`, `match_id`), from the
      * stored `player_match_history` table (no on-demand Steam fetch). Filter on
      * `account_id`: without it the query merges the whole table and exceeds the
      * complexity limit.
      */
     match_history?: (MatchHistoryEntryGenqlSelection & { __args?: {where?: (MatchHistoryWhere | null), order_by?: (OrderByMatchHistory | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
     /**
-     * Stored match salts — one node per match_id, the same data as the REST
+     * Stored match salts — one node per `match_id`, the same data as the REST
      * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
-     * Ordered by match_id. Salts that failed verification are dropped after
+     * Ordered by `match_id`. Salts that failed verification are dropped after
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts?: (MatchSaltsGenqlSelection & { __args?: {where?: (MatchSaltsWhere | null), order_direction?: (OrderDirection | null), limit?: Scalars['Int'], offset?: Scalars['Int']} })
@@ -1565,7 +1565,7 @@ export interface QueryRootGenqlSelection{
     /**
      * All heroes for the given client version (defaults to latest), localized
      * to `language` (defaults to English). Sourced from the versioned assets,
-     * not ClickHouse.
+     * not `ClickHouse`.
      */
     heroes?: (HeroGenqlSelection & { __args?: {client_version?: (Scalars['Int'] | null), language?: (Language | null)} })
     /**

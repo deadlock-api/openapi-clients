@@ -118,6 +118,15 @@ hero id or pawn entity index rather than through `m_hPawn`.
 
 With `match_id`, only spectating counts against the limits; a match spectated within the last hour is served from cache.
 
+A limited number of live queries per client (API key, or IP without one) stream at once, 16 by
+default. One more ends the client's oldest stream with an `error` event (status 409), so open a new
+stream only when you no longer need an old one. A `429` means the server as a whole is at its live
+query limit.
+
+A query whose result rows queue up unread (a client not reading the stream, or a join/aggregation
+that holds rows until the broadcast ends) is stopped with an `error` event once it buffers too much
+(128 MiB by default).
+
 
 ### Example
 

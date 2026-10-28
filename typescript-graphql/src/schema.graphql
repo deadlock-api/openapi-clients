@@ -878,14 +878,14 @@ enum OrderDirection {
 }
 
 type QueryRoot {
-  """Match-grouped query — one node per match_id with players aggregated."""
+  """Match-grouped query — one node per `match_id` with players aggregated."""
   matches(where: MatchPlayerWhere, order_by: OrderByMatch, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [Match!]!
 
-  """Player-row query — one node per (match_id, account_id)."""
+  """Player-row query — one node per (`match_id`, `account_id`)."""
   match_players(where: MatchPlayerWhere, order_by: OrderByMatchPlayer, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchPlayer!]!
 
   """
-  Player match history — one node per (account_id, match_id), from the
+  Player match history — one node per (`account_id`, `match_id`), from the
   stored `player_match_history` table (no on-demand Steam fetch). Filter on
   `account_id`: without it the query merges the whole table and exceeds the
   complexity limit.
@@ -893,9 +893,9 @@ type QueryRoot {
   match_history(where: MatchHistoryWhere, order_by: OrderByMatchHistory, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchHistoryEntry!]!
 
   """
-  Stored match salts — one node per match_id, the same data as the REST
+  Stored match salts — one node per `match_id`, the same data as the REST
   `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
-  Ordered by match_id. Salts that failed verification are dropped after
+  Ordered by `match_id`. Salts that failed verification are dropped after
   paging, so a page can hold slightly fewer than `limit` nodes.
   """
   match_salts(where: MatchSaltsWhere, order_direction: OrderDirection, limit: Int! = 100, offset: Int! = 0): [MatchSalts!]!
@@ -910,7 +910,7 @@ type QueryRoot {
   """
   All heroes for the given client version (defaults to latest), localized
   to `language` (defaults to English). Sourced from the versioned assets,
-  not ClickHouse.
+  not `ClickHouse`.
   """
   heroes(client_version: Int, language: Language): [Hero!]!
 

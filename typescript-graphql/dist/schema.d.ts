@@ -520,21 +520,21 @@ export type OrderByMatchHistory = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME';
 export type OrderByMatchPlayer = 'MATCH_ID' | 'ACCOUNT_ID' | 'START_TIME' | 'LAST_HITS' | 'DENIES' | 'MVP_RANK' | 'PLAYER_RANK_INITIAL_DISPLAY_RANK' | 'PLAYER_RANK_INITIAL_FLAT_PROGRESS' | 'PLAYER_RANK_FINAL_FLAT_PROGRESS' | 'PLAYER_RANK_DESIRED_PROGRESS_CHANGE' | 'PLAYER_RANK_INITIAL_CALIBRATION_GAMES' | 'PLAYER_RANK_INITIAL_DEMOTION_PROTECTION_GAMES' | 'PLAYER_RANK_CONSUMED_DEMOTION_PROTECTION' | 'PLAYER_RANK_INITIAL_WIN_STREAK';
 export type OrderDirection = 'DESC' | 'ASC';
 export interface QueryRoot {
-    /** Match-grouped query — one node per match_id with players aggregated. */
+    /** Match-grouped query — one node per `match_id` with players aggregated. */
     matches: Match[];
-    /** Player-row query — one node per (match_id, account_id). */
+    /** Player-row query — one node per (`match_id`, `account_id`). */
     match_players: MatchPlayer[];
     /**
-     * Player match history — one node per (account_id, match_id), from the
+     * Player match history — one node per (`account_id`, `match_id`), from the
      * stored `player_match_history` table (no on-demand Steam fetch). Filter on
      * `account_id`: without it the query merges the whole table and exceeds the
      * complexity limit.
      */
     match_history: MatchHistoryEntry[];
     /**
-     * Stored match salts — one node per match_id, the same data as the REST
+     * Stored match salts — one node per `match_id`, the same data as the REST
      * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
-     * Ordered by match_id. Salts that failed verification are dropped after
+     * Ordered by `match_id`. Salts that failed verification are dropped after
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts: MatchSalts[];
@@ -547,7 +547,7 @@ export interface QueryRoot {
     /**
      * All heroes for the given client version (defaults to latest), localized
      * to `language` (defaults to English). Sourced from the versioned assets,
-     * not ClickHouse.
+     * not `ClickHouse`.
      */
     heroes: Hero[];
     /**
@@ -1525,7 +1525,7 @@ export interface MatchSaltsWhere {
     cluster_id?: (U32Filter | null);
 }
 export interface QueryRootGenqlSelection {
-    /** Match-grouped query — one node per match_id with players aggregated. */
+    /** Match-grouped query — one node per `match_id` with players aggregated. */
     matches?: (MatchGenqlSelection & {
         __args?: {
             where?: (MatchPlayerWhere | null);
@@ -1535,7 +1535,7 @@ export interface QueryRootGenqlSelection {
             offset?: Scalars['Int'];
         };
     });
-    /** Player-row query — one node per (match_id, account_id). */
+    /** Player-row query — one node per (`match_id`, `account_id`). */
     match_players?: (MatchPlayerGenqlSelection & {
         __args?: {
             where?: (MatchPlayerWhere | null);
@@ -1546,7 +1546,7 @@ export interface QueryRootGenqlSelection {
         };
     });
     /**
-     * Player match history — one node per (account_id, match_id), from the
+     * Player match history — one node per (`account_id`, `match_id`), from the
      * stored `player_match_history` table (no on-demand Steam fetch). Filter on
      * `account_id`: without it the query merges the whole table and exceeds the
      * complexity limit.
@@ -1561,9 +1561,9 @@ export interface QueryRootGenqlSelection {
         };
     });
     /**
-     * Stored match salts — one node per match_id, the same data as the REST
+     * Stored match salts — one node per `match_id`, the same data as the REST
      * `/v1/matches/{match_id}/salts` endpoint minus the on-demand Steam fetch.
-     * Ordered by match_id. Salts that failed verification are dropped after
+     * Ordered by `match_id`. Salts that failed verification are dropped after
      * paging, so a page can hold slightly fewer than `limit` nodes.
      */
     match_salts?: (MatchSaltsGenqlSelection & {
@@ -1591,7 +1591,7 @@ export interface QueryRootGenqlSelection {
     /**
      * All heroes for the given client version (defaults to latest), localized
      * to `language` (defaults to English). Sourced from the versioned assets,
-     * not ClickHouse.
+     * not `ClickHouse`.
      */
     heroes?: (HeroGenqlSelection & {
         __args?: {
