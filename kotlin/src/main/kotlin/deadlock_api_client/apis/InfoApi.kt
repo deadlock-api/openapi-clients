@@ -57,7 +57,7 @@ open class InfoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/info/health
      * Health Check
-     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return Status
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -88,7 +88,7 @@ open class InfoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/info/health
      * Health Check
-     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<Status?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -127,7 +127,7 @@ open class InfoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/info
      * API Info
-     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return APIInfo
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -158,7 +158,7 @@ open class InfoApi(basePath: kotlin.String = defaultBasePath, client: Call.Facto
     /**
      * GET /v1/info
      * API Info
-     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<APIInfo?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception

@@ -20,7 +20,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **enemyStats**
 > Array<EnemyStats> enemyStats()
 
- This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 
@@ -100,7 +100,7 @@ No authorization required
 # **matchHistory**
 > Array<PlayerMatchHistoryEntry> matchHistory()
 
- This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+ This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
 
 ### Example
 
@@ -157,7 +157,7 @@ No authorization required
 # **mateStats**
 > Array<MateStats> mateStats()
 
- This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 
@@ -240,7 +240,7 @@ No authorization required
 # **playerHeroStats**
 > Array<HeroStats> playerHeroStats()
 
- This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 
@@ -444,7 +444,7 @@ No authorization required
 # **rankBatch**
 > Array<AccountRank> rankBatch()
 
- Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+ Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
 
 ### Example
 
@@ -510,7 +510,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790467200)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790553600)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -537,7 +537,7 @@ const { status, data } = await apiInstance.rankDistribution(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1790467200|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1790553600|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|

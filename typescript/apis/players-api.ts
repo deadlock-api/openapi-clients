@@ -41,7 +41,7 @@ import type { RankResponse } from '../models/index.js';
 export const PlayersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {EnemyStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -120,7 +120,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
@@ -159,7 +159,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Mate Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {MateStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -243,7 +243,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {PlayerHeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -421,7 +421,7 @@ export const PlayersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
          * @summary Batch Rank
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {*} [options] Override http request option.
@@ -699,7 +699,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PlayersApiAxiosParamCreator(configuration)
     return {
         /**
-         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Enemy Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {EnemyStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -721,7 +721,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
          * @summary Match History
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {boolean} [forceRefetch] Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit.
@@ -735,7 +735,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Mate Stats
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {MateStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -758,7 +758,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Hero Stats
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {PlayerHeroStatsGameModeEnum} [gameMode] Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;.
@@ -811,7 +811,7 @@ export const PlayersApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
          * @summary Batch Rank
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {*} [options] Override http request option.
@@ -912,7 +912,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = PlayersApiFp(configuration)
     return {
         /**
-         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Enemy Stats
          * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -922,7 +922,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.enemyStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+         *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
          * @summary Match History
          * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -932,7 +932,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.matchHistory(requestParameters.accountId, requestParameters.forceRefetch, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Mate Stats
          * @param {PlayersApiMateStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -942,7 +942,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.mateStats(requestParameters.accountId, requestParameters.gameMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.minMatchesPlayed, requestParameters.maxMatchesPlayed, requestParameters.sameParty, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Hero Stats
          * @param {PlayersApiPlayerHeroStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -972,7 +972,7 @@ export const PlayersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.rankAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+         *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
          * @summary Batch Rank
          * @param {PlayersApiRankBatchRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -1387,7 +1387,7 @@ export interface PlayersApiRankPredictImageRequest {
  */
 export class PlayersApi extends BaseAPI {
     /**
-     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Enemy Stats
      * @param {PlayersApiEnemyStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1398,7 +1398,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+     *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
      * @summary Match History
      * @param {PlayersApiMatchHistoryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1409,7 +1409,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Mate Stats
      * @param {PlayersApiMateStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1420,7 +1420,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Hero Stats
      * @param {PlayersApiPlayerHeroStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -1453,7 +1453,7 @@ export class PlayersApi extends BaseAPI {
     }
 
     /**
-     *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
      * @summary Batch Rank
      * @param {PlayersApiRankBatchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

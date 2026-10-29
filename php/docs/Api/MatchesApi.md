@@ -318,7 +318,7 @@ metadata($match_id, $is_custom, $disable_steam): object
 
 Metadata
 
-This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
+This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
 
 ### Example
 
@@ -378,7 +378,7 @@ metadataRaw($match_id, $is_custom, $disable_steam): int[]
 
 Metadata as Protobuf
 
-This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
+This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
 
 ### Example
 
@@ -491,7 +491,7 @@ salts($match_id, $disable_steam): \OpenAPI\Client\Model\MatchSaltsResponse
 
 Salts
 
-This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |
+This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 3req/h | | Key | From DB: -<br>From Steam: 300req/h | | Global | From DB: -<br>From Steam: 1500req/h |
 
 ### Example
 
@@ -549,7 +549,7 @@ url($match_id): \OpenAPI\Client\Model\MatchSpectateResponse
 
 Live Broadcast URL
 
-This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |
+This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Without API key: 6req/h<br>With API key: - | | Key | Without API key: -<br>With API key: 10req/10min, 50req/h | | Global | Without API key: 60req/10min, 300req/h<br>With API key: 20req/10min, 100req/h |
 
 ### Example
 

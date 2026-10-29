@@ -49,7 +49,7 @@ export const CommandsApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
          * @summary Resolve Command
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {CommandResolveRegionEnum} [region] The players region
@@ -183,7 +183,7 @@ export const CommandsApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
          * @summary Resolve Command
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {CommandResolveRegionEnum} [region] The players region
@@ -244,7 +244,7 @@ export const CommandsApiFactory = function (configuration, basePath, axios) {
             return localVarFp.availableVariables(options).then((request) => request(axios, basePath));
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
          * @summary Resolve Command
          * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -288,7 +288,7 @@ export class CommandsApi extends BaseAPI {
         return CommandsApiFp(this.configuration).availableVariables(options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Command
      * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

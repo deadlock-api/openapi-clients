@@ -44,7 +44,7 @@ export interface LeaderboardRawRequest {
 
 
 /**
- *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Leaderboard
  */
 function leaderboardRaw<T>(requestParameters: LeaderboardRequest, requestConfig: runtime.TypedQueryConfig<T, Leaderboard> = {}): QueryConfig<T> {
@@ -90,7 +90,7 @@ function leaderboardRaw<T>(requestParameters: LeaderboardRequest, requestConfig:
 }
 
 /**
-*  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns the leaderboard.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Leaderboard
 */
 export function leaderboard<T>(requestParameters: LeaderboardRequest, requestConfig?: runtime.TypedQueryConfig<T, Leaderboard>): QueryConfig<T> {
@@ -98,7 +98,7 @@ export function leaderboard<T>(requestParameters: LeaderboardRequest, requestCon
 }
 
 /**
- *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Hero Leaderboard
  */
 function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRequest, requestConfig: runtime.TypedQueryConfig<T, Leaderboard> = {}): QueryConfig<T> {
@@ -148,7 +148,7 @@ function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRequest, reques
 }
 
 /**
-*  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns the leaderboard for a specific hero.  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Hero Leaderboard
 */
 export function leaderboardHero<T>(requestParameters: LeaderboardHeroRequest, requestConfig?: runtime.TypedQueryConfig<T, Leaderboard>): QueryConfig<T> {
@@ -156,7 +156,7 @@ export function leaderboardHero<T>(requestParameters: LeaderboardHeroRequest, re
 }
 
 /**
- *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Hero Leaderboard as Protobuf
  */
 function leaderboardHeroRawRaw<T>(requestParameters: LeaderboardHeroRawRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -205,7 +205,7 @@ function leaderboardHeroRawRaw<T>(requestParameters: LeaderboardHeroRawRequest, 
 }
 
 /**
-*  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns the leaderboard for a specific hero, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Hero Leaderboard as Protobuf
 */
 export function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRawRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -213,7 +213,7 @@ export function leaderboardHeroRaw<T>(requestParameters: LeaderboardHeroRawReque
 }
 
 /**
- *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Leaderboard as Protobuf
  */
 function leaderboardRawRaw<T>(requestParameters: LeaderboardRawRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -258,7 +258,7 @@ function leaderboardRawRaw<T>(requestParameters: LeaderboardRawRequest, requestC
 }
 
 /**
-*  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns the leaderboard, serialized as protobuf message.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetLeaderboardResponse  ### Note:  Valve updates the leaderboard once per hour.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Leaderboard as Protobuf
 */
 export function leaderboardRaw<T>(requestParameters: LeaderboardRawRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {

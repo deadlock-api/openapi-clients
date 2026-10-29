@@ -14,7 +14,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Batch Steam Profile
 
- This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+ This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
 
 ### Example
 ```kotlin
@@ -62,7 +62,7 @@ No authorization required
 
 Steam Profile Search
 
- This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 ```kotlin

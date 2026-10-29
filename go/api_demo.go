@@ -70,15 +70,6 @@ Projection/filter queries emit rows continuously as they are decoded. A whole-ma
 at a `CCitadelObserverPawn`, not the hero's `CCitadelPlayerPawn`. Join controllers to hero pawns by
 hero id or pawn entity index rather than through `m_hPawn`.
 
-### Rate Limits:
-| Type | Limit |
-| ---- | ----- |
-| IP | With broadcast_url: 20req/m<br>With match_id: 6req/h |
-| Key | With broadcast_url: -<br>With match_id: 10req/10m, 50req/h |
-| Global | With broadcast_url: 100req/m<br>With match_id, without API key: 60req/10m, 300req/h<br>With match_id, with API key: 20req/10m, 100req/h |
-
-With `match_id`, only spectating counts against the limits; a match spectated within the last hour is served from cache.
-
 A limited number of live queries per client (API key, or IP without one) stream at once, 16 by
 default. One more ends the client's oldest stream with an `error` event (status 409), so open a new
 stream only when you no longer need an old one. A `429` means the server as a whole is at its live
@@ -87,6 +78,15 @@ query limit.
 A query whose result rows queue up unread (a client not reading the stream, or a join/aggregation
 that holds rows until the broadcast ends) is stopped with an `error` event once it buffers too much
 (128 MiB by default).
+
+### Rate Limits:
+> A match spectated within the last hour is served from cache and does not count against the spectate limits.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | Every query: 20req/min<br>Spectating a `match_id` without API key: 6req/h<br>Spectating a `match_id` with API key: - |
+| Key | Every query: -<br>Spectating a `match_id` without API key: -<br>Spectating a `match_id` with API key: 10req/10min, 50req/h |
+| Global | Every query: 100req/min<br>Spectating a `match_id` without API key: 60req/10min, 300req/h<br>Spectating a `match_id` with API key: 20req/10min, 100req/h |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().

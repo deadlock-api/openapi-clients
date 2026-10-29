@@ -15,7 +15,7 @@ Method | HTTP request | Description
 > Vec<String> list_tables()
 List Tables
 
- **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+ **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Lists all tables of the public data lake.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
 
 ### Parameters
 
@@ -42,7 +42,7 @@ No authorization required
 > String sql(query, format)
 Query
 
- **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/hr | | Key | 10req/min | | Global | 30req/min |     
+ **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000 rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 2req/min, 20req/h | | Key | 10req/min | | Global | 30req/min | 
 
 ### Parameters
 
@@ -73,7 +73,7 @@ No authorization required
 > std::collections::HashMap<String, String> table_schema(table)
 Table Schema
 
- **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min |     
+ **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
 
 ### Parameters
 

@@ -54,7 +54,7 @@ class InfoApi:
     ) -> Status:
         """Health Check
 
-         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -118,7 +118,7 @@ class InfoApi:
     ) -> ApiResponse[Status]:
         """Health Check
 
-         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -182,7 +182,7 @@ class InfoApi:
     ) -> RESTResponseType:
         """Health Check
 
-         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -303,7 +303,7 @@ class InfoApi:
     ) -> APIInfo:
         """API Info
 
-         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -367,7 +367,7 @@ class InfoApi:
     ) -> ApiResponse[APIInfo]:
         """API Info
 
-         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -431,7 +431,7 @@ class InfoApi:
     ) -> RESTResponseType:
         """API Info
 
-         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

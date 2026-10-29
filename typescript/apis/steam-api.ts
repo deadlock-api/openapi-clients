@@ -29,7 +29,7 @@ import type { SteamProfile } from '../models/index.js';
 export const SteamApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h | | Key | Read: -<br>Refresh: 10req/min, 60req/h | | Global | Read: -<br>Refresh: 30req/min, 200req/h | 
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
@@ -71,7 +71,7 @@ export const SteamApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Steam Profile Search
          * @param {string} searchQuery Search query for Steam profiles.
          * @param {number | null} [limit] Maximum number of profiles to return.
@@ -137,7 +137,7 @@ export const SteamApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SteamApiAxiosParamCreator(configuration)
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h | | Key | Read: -<br>Refresh: 10req/min, 60req/h | | Global | Read: -<br>Refresh: 30req/min, 200req/h | 
          * @summary Batch Steam Profile
          * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
          * @param {boolean} [refresh] Refresh the listed profiles from the Steam Web API before returning.
@@ -151,7 +151,7 @@ export const SteamApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Steam Profile Search
          * @param {string} searchQuery Search query for Steam profiles.
          * @param {number | null} [limit] Maximum number of profiles to return.
@@ -177,7 +177,7 @@ export const SteamApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = SteamApiFp(configuration)
     return {
         /**
-         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+         *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h | | Key | Read: -<br>Refresh: 10req/min, 60req/h | | Global | Read: -<br>Refresh: 30req/min, 200req/h | 
          * @summary Batch Steam Profile
          * @param {SteamApiSteamRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -187,7 +187,7 @@ export const SteamApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.steam(requestParameters.accountIds, requestParameters.refresh, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Steam Profile Search
          * @param {SteamApiSteamSearchRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -249,7 +249,7 @@ export interface SteamApiSteamSearchRequest {
  */
 export class SteamApi extends BaseAPI {
     /**
-     *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+     *  This endpoint returns Steam profiles of players.  Pass `refresh=true` to force a live refresh of the listed accounts from the Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The refreshed rows are persisted to the `steam_profiles` table and returned in the response with `last_updated` set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h | | Key | Read: -<br>Refresh: 10req/min, 60req/h | | Global | Read: -<br>Refresh: 30req/min, 200req/h | 
      * @summary Batch Steam Profile
      * @param {SteamApiSteamRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -260,7 +260,7 @@ export class SteamApi extends BaseAPI {
     }
 
     /**
-     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Steam Profile Search
      * @param {SteamApiSteamSearchRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

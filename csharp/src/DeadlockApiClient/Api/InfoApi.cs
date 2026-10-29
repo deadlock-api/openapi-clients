@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Health Check
         /// </summary>
         /// <remarks>
-        ///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Api
         /// Health Check
         /// </summary>
         /// <remarks>
-        ///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHealthCheckApiResponse"/>?&gt;</returns>
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// API Info
         /// </summary>
         /// <remarks>
-        ///  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -74,7 +74,7 @@ namespace DeadlockApiClient.Api
         /// API Info
         /// </summary>
         /// <remarks>
-        ///  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInfoApiResponse"/>?&gt;</returns>
@@ -247,7 +247,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorHealthCheck(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// Health Check  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Health Check  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IHealthCheckApiResponse"/>&gt;</returns>
@@ -264,7 +264,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Health Check  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Health Check  Checks the health of the services.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -527,7 +527,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorInfo(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// API Info  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// API Info  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IInfoApiResponse"/>&gt;</returns>
@@ -544,7 +544,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// API Info  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// API Info  Returns information about the API.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

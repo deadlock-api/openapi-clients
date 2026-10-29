@@ -108,7 +108,7 @@ pub enum SearchBuildsError {
 }
 
 
-///  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+///  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 pub async fn fetch_build_live(configuration: &configuration::Configuration, params: FetchBuildLiveParams) -> Result<models::Build, Error<FetchBuildLiveError>> {
 
     let uri_str = format!("{}/v1/builds/{hero_id}/{build_id}", configuration.base_path, hero_id=params.hero_id, build_id=params.build_id);
@@ -146,7 +146,7 @@ pub async fn fetch_build_live(configuration: &configuration::Configuration, para
     }
 }
 
-///  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+///  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 pub async fn fetch_builds_by_author_live(configuration: &configuration::Configuration, params: FetchBuildsByAuthorLiveParams) -> Result<Vec<models::Build>, Error<FetchBuildsByAuthorLiveError>> {
 
     let uri_str = format!("{}/v1/builds/by-author/{account_id}", configuration.base_path, account_id=params.account_id);
@@ -181,7 +181,7 @@ pub async fn fetch_builds_by_author_live(configuration: &configuration::Configur
     }
 }
 
-///  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn search_builds(configuration: &configuration::Configuration, params: SearchBuildsParams) -> Result<Vec<models::Build>, Error<SearchBuildsError>> {
 
     let uri_str = format!("{}/v1/builds", configuration.base_path);

@@ -73,7 +73,7 @@ commandResolve($account_id, $region, $template, $hero_name): string
 
 Resolve Command
 
-Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
 
 ### Example
 

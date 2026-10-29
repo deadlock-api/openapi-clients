@@ -481,7 +481,7 @@ The endpoint accepts a list of MatchSalts objects, which contain the following f
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestSaltsRequest
@@ -1121,7 +1121,7 @@ Stores a component annotation or general feedback submitted from deadlock-api.co
 | IP | 10req/min, 100req/h |
 | Key | - |
 | Global | 2000req/h |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitFeedbackRequest

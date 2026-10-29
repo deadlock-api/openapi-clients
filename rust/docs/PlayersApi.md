@@ -24,7 +24,7 @@ Method | HTTP request | Description
 > Vec<models::EnemyStats> enemy_stats(account_id, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played)
 Enemy Stats
 
- This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 
@@ -63,7 +63,7 @@ No authorization required
 > Vec<models::PlayerMatchHistoryEntry> match_history(account_id, force_refetch)
 Match History
 
- This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+ This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
 
 ### Parameters
 
@@ -94,7 +94,7 @@ No authorization required
 > Vec<models::MateStats> mate_stats(account_id, game_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_match_id, max_match_id, min_matches_played, max_matches_played, same_party)
 Mate Stats
 
- This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 
@@ -134,7 +134,7 @@ No authorization required
 > Vec<models::HeroStats> player_hero_stats(account_ids, game_mode, match_mode, hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id)
 Hero Stats
 
- This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 
@@ -238,7 +238,7 @@ No authorization required
 > Vec<models::AccountRank> rank_batch(account_ids)
 Batch Rank
 
- Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+ Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
 
 ### Parameters
 
@@ -275,7 +275,7 @@ Rank Distribution
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

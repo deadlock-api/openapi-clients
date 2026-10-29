@@ -214,7 +214,7 @@ In `street_brawl`, ability points come in blocks, and the upgrades within one bl
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAbilityMaxFirstStatsRequest
@@ -263,7 +263,7 @@ func (a *AnalyticsAPIService) AbilityMaxFirstStatsExecute(r ApiAbilityMaxFirstSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -591,7 +591,7 @@ Retrieves statistics for the ability order of a hero.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAbilityOrderStatsRequest
@@ -640,7 +640,7 @@ func (a *AnalyticsAPIService) AbilityOrderStatsExecute(r ApiAbilityOrderStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -972,7 +972,7 @@ In `street_brawl`, ability points come in blocks, and the upgrades within one bl
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAbilityOrderTreeRequest
@@ -1021,7 +1021,7 @@ func (a *AnalyticsAPIService) AbilityOrderTreeExecute(r ApiAbilityOrderTreeReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1271,7 +1271,7 @@ Ranks exist only from the first ranked season on, so `min_unix_timestamp` is cla
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBadgeDistributionRequest
@@ -1313,7 +1313,7 @@ func (a *AnalyticsAPIService) BadgeDistributionExecute(r ApiBadgeDistributionReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1526,7 +1526,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBuffStatsRequest
@@ -1568,7 +1568,7 @@ func (a *AnalyticsAPIService) BuffStatsExecute(r ApiBuffStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1721,7 +1721,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBuildItemStatsRequest
@@ -1760,7 +1760,7 @@ func (a *AnalyticsAPIService) BuildItemStatsExecute(r ApiBuildItemStatsRequest) 
 	if r.minLastUpdatedUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", r.minLastUpdatedUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_last_updated_unix_timestamp", defaultValue, "form", "")
 		r.minLastUpdatedUnixTimestamp = &defaultValue
 	}
@@ -1977,7 +1977,7 @@ Retrieves aggregate game-level statistics.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiGameStatsRequest
@@ -2022,7 +2022,7 @@ func (a *AnalyticsAPIService) GameStatsExecute(r ApiGameStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2255,7 +2255,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroBanStatsRequest
@@ -2297,7 +2297,7 @@ func (a *AnalyticsAPIService) HeroBanStatsExecute(r ApiHeroBanStatsRequest) ([]H
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2526,7 +2526,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -2574,7 +2574,7 @@ func (a *AnalyticsAPIService) HeroBuildStatsExecute(r ApiHeroBuildStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -2859,7 +2859,7 @@ Results are cached for **1 hour**. The cache key is determined by the specific c
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroCombStatsRequest
@@ -2901,7 +2901,7 @@ func (a *AnalyticsAPIService) HeroCombStatsExecute(r ApiHeroCombStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3229,7 +3229,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroCountersStatsRequest
@@ -3271,7 +3271,7 @@ func (a *AnalyticsAPIService) HeroCountersStatsExecute(r ApiHeroCountersStatsReq
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3539,7 +3539,7 @@ This endpoint returns the hero scoreboard.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroScoreboardRequest
@@ -3591,7 +3591,7 @@ func (a *AnalyticsAPIService) HeroScoreboardExecute(r ApiHeroScoreboardRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -3882,7 +3882,7 @@ Retrieves performance statistics for each hero based on historical match data.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroStatsRequest
@@ -3927,7 +3927,7 @@ func (a *AnalyticsAPIService) HeroStatsExecute(r ApiHeroStatsRequest) ([]Analyti
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4178,7 +4178,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroSwapStatsRequest
@@ -4220,7 +4220,7 @@ func (a *AnalyticsAPIService) HeroSwapStatsExecute(r ApiHeroSwapStatsRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4446,7 +4446,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHeroSynergiesStatsRequest
@@ -4488,7 +4488,7 @@ func (a *AnalyticsAPIService) HeroSynergiesStatsExecute(r ApiHeroSynergiesStatsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -4810,7 +4810,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemFlowStatsRequest
@@ -4869,7 +4869,7 @@ func (a *AnalyticsAPIService) ItemFlowStatsExecute(r ApiItemFlowStatsRequest) (*
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5194,7 +5194,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemPermutationStatsRequest
@@ -5270,7 +5270,7 @@ func (a *AnalyticsAPIService) ItemPermutationStatsExecute(r ApiItemPermutationSt
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -5655,7 +5655,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiItemStatsRequest
@@ -5721,7 +5721,7 @@ func (a *AnalyticsAPIService) ItemStatsExecute(r ApiItemStatsRequest) ([]ItemSta
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6082,7 +6082,7 @@ This endpoint returns the kill-death statistics across a 128x128 pixel raster.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiKillDeathStatsRequest
@@ -6127,7 +6127,7 @@ func (a *AnalyticsAPIService) KillDeathStatsExecute(r ApiKillDeathStatsRequest) 
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6421,7 +6421,7 @@ Results are cached for **1 hour**. The cache key is determined by the specific c
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLaneMatchupStatsRequest
@@ -6463,7 +6463,7 @@ func (a *AnalyticsAPIService) LaneMatchupStatsExecute(r ApiLaneMatchupStatsReque
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -6778,7 +6778,7 @@ Results are cached for **1 hour** based on the combination of query parameters p
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiLaneSoulCurveRequest
@@ -6820,7 +6820,7 @@ func (a *AnalyticsAPIService) LaneSoulCurveExecute(r ApiLaneSoulCurveRequest) ([
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7126,7 +7126,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPlayerPerformanceCurveRequest
@@ -7175,7 +7175,7 @@ func (a *AnalyticsAPIService) PlayerPerformanceCurveExecute(r ApiPlayerPerforman
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -7475,7 +7475,7 @@ This endpoint returns the player scoreboard.
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPlayerScoreboardRequest
@@ -7815,7 +7815,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 | IP | 200req/min |
 | Key | 400req/min |
 | Global | 2000req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPlayerStatsMetricsRequest
@@ -7860,7 +7860,7 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

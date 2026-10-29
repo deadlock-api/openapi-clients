@@ -46,7 +46,7 @@ This list is manually maintained, and so new patch dates may be delayed by a few
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBigPatchDaysRequest
@@ -158,7 +158,7 @@ RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFeedRequest
@@ -274,7 +274,7 @@ Each entry is tagged with a `source` field (`forum` or `steam`).
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiFeed_0Request

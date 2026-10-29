@@ -24,7 +24,7 @@ Returns a list of available variables that can be used in the command endpoint.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -95,10 +95,10 @@ Resolve Command
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 60req/60s |
+| IP | 60req/min |
 | Key | - |
-| Global | 300req/60s |
-    
+| Global | 300req/min |
+
 
 ### Example
 
@@ -181,7 +181,7 @@ Resolves variables and returns a map of variable name to resolved value.
 | IP | 60req/min |
 | Key | - |
 | Global | 300req/min |
-    
+
 
 ### Example
 

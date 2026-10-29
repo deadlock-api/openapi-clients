@@ -72,7 +72,7 @@ pub enum WidgetVersionsError {
 }
 
 
-///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn available_variables(configuration: &configuration::Configuration) -> Result<Vec<models::VariableDescription>, Error<AvailableVariablesError>> {
 
     let uri_str = format!("{}/v1/commands/variables/available", configuration.base_path);
@@ -107,7 +107,7 @@ pub async fn available_variables(configuration: &configuration::Configuration) -
     }
 }
 
-///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 pub async fn command_resolve(configuration: &configuration::Configuration, params: CommandResolveParams) -> Result<String, Error<CommandResolveError>> {
 
     let uri_str = format!("{}/v1/commands/resolve", configuration.base_path);
@@ -152,7 +152,7 @@ pub async fn command_resolve(configuration: &configuration::Configuration, param
     }
 }
 
-///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 pub async fn variables_resolve(configuration: &configuration::Configuration, params: VariablesResolveParams) -> Result<std::collections::HashMap<String, String>, Error<VariablesResolveError>> {
 
     let uri_str = format!("{}/v1/commands/variables/resolve", configuration.base_path);

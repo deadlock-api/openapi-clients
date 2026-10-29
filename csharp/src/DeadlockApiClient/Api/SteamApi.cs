@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Batch Steam Profile
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -55,7 +55,7 @@ namespace DeadlockApiClient.Api
         /// Batch Steam Profile
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+        ///  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
@@ -67,7 +67,7 @@ namespace DeadlockApiClient.Api
         /// Steam Profile Search
         /// </summary>
         /// <remarks>
-        ///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Api
         /// Steam Profile Search
         /// </summary>
         /// <remarks>
-        ///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
         /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
@@ -318,7 +318,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorSteam(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<long> accountIds, Option<bool> refresh);
 
         /// <summary>
-        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="refresh">Refresh the listed profiles from the Steam Web API before returning. (optional)</param>
@@ -337,7 +337,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+        /// Batch Steam Profile  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -627,7 +627,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorSteamSearch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string searchQuery, Option<int?> limit, Option<int?> minMatchesPlayedLast30d, Option<int?> minLastTeamAvgBadge, Option<double?> matchesPlayedWeight);
 
         /// <summary>
-        /// Steam Profile Search  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Steam Profile Search  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="searchQuery">Search query for Steam profiles.</param>
         /// <param name="limit">Maximum number of profiles to return. (optional, default to 100)</param>
@@ -649,7 +649,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Steam Profile Search  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Steam Profile Search  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchQuery">Search query for Steam profiles.</param>

@@ -43,7 +43,7 @@ Checks the health of the services.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiHealthCheckRequest
@@ -161,7 +161,7 @@ Returns information about the API.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiInfoRequest

@@ -56,7 +56,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.
@@ -183,7 +183,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.
@@ -323,7 +323,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.
@@ -462,7 +462,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param region The region to fetch the leaderboard for.

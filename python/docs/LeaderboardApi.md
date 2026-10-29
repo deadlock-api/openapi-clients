@@ -28,7 +28,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -113,7 +113,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -207,7 +207,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -300,7 +300,7 @@ Valve updates the leaderboard once per hour.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 

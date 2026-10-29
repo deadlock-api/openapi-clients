@@ -109,7 +109,7 @@ This endpoint returns the enemy stats.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -261,13 +261,13 @@ Relevant Protobuf Messages:
 - CMsgClientToGcGetMatchHistory
 - CMsgClientToGcGetMatchHistoryResponse
 
-### Rate Limits (only applies to bot friends):
+### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h |
-| Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h |
-| Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |
-    
+| IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h |
+| Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h |
+| Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -466,7 +466,7 @@ This endpoint returns the mate stats.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -712,7 +712,7 @@ This endpoint returns statistics for each hero played by a given player account.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiPlayerHeroStatsRequest
@@ -1137,7 +1137,7 @@ Protected accounts are left out.
 | Type | Limit |
 | ---- | ----- |
 | IP | 20req/min |
-| Key | 100req/min & 2000req/h |
+| Key | 100req/min, 2000req/h |
 | Global | 200req/min |
 
 
@@ -1372,7 +1372,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790467200
+		var defaultValue int64 = 1790553600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

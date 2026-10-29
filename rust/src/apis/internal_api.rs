@@ -309,7 +309,7 @@ pub async fn delete_steam_account(configuration: &configuration::Configuration, 
     }
 }
 
-///  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request's `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request's `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn ingest_salts(configuration: &configuration::Configuration, params: IngestSaltsParams) -> Result<(), Error<IngestSaltsError>> {
 
     let uri_str = format!("{}/v1/matches/salts", configuration.base_path);
@@ -523,7 +523,7 @@ pub async fn replace_steam_account(configuration: &configuration::Configuration,
     }
 }
 
-///  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+///  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h | 
 pub async fn submit_feedback(configuration: &configuration::Configuration, params: SubmitFeedbackParams) -> Result<(), Error<SubmitFeedbackError>> {
 
     let uri_str = format!("{}/v1/feedback", configuration.base_path);

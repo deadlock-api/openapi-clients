@@ -31,7 +31,7 @@ import type { Status } from '../models/index.js';
 export const InfoApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Health Check
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -61,7 +61,7 @@ export const InfoApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary API Info
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -100,7 +100,7 @@ export const InfoApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = InfoApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Health Check
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -112,7 +112,7 @@ export const InfoApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary API Info
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -133,7 +133,7 @@ export const InfoApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = InfoApiFp(configuration)
     return {
         /**
-         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Health Check
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -142,7 +142,7 @@ export const InfoApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.healthCheck(options).then((request) => request(axios, basePath));
         },
         /**
-         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary API Info
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -158,7 +158,7 @@ export const InfoApiFactory = function (configuration?: Configuration, basePath?
  */
 export class InfoApi extends BaseAPI {
     /**
-     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Health Check
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -168,7 +168,7 @@ export class InfoApi extends BaseAPI {
     }
 
     /**
-     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary API Info
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

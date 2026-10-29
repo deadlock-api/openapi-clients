@@ -64,7 +64,7 @@ Relevant Protobuf Messages:
 | IP | 20req/min |
 | Key | 100req/min |
 | Global | 500req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param heroId The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -197,7 +197,7 @@ Relevant Protobuf Messages:
 | IP | 20req/min |
 | Key | 100req/min |
 | Global | 500req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -445,7 +445,7 @@ Search for builds based on various criteria.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSearchBuildsRequest

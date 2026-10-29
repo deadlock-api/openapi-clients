@@ -56,7 +56,7 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam
      * Batch Steam Profile
-     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @return kotlin.collections.List<SteamProfile>
@@ -89,7 +89,7 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam
      * Batch Steam Profile
-     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s (read path), 3req/min + 15req/h (refresh) | | Key | - (read path), 10req/min + 60req/h (refresh) | | Global | - (read path), 30req/min + 200req/h (refresh) |     
+     *  This endpoint returns Steam profiles of players.  Pass &#x60;refresh&#x3D;true&#x60; to force a live refresh of the listed accounts from the Steam Web API (&#x60;GetPlayerSummaries&#x60; + &#x60;GetFriendList&#x60;) before returning. The refreshed rows are persisted to the &#x60;steam_profiles&#x60; table and returned in the response with &#x60;last_updated&#x60; set to the current time. Refresh requests are rate limited and capped at 100 account ids per call to stay inside the shared Steam Web API key budget.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Read: 100req/s&lt;br&gt;Refresh: 3req/min, 15req/h | | Key | Read: -&lt;br&gt;Refresh: 10req/min, 60req/h | | Global | Read: -&lt;br&gt;Refresh: 30req/min, 200req/h | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param refresh Refresh the listed profiles from the Steam Web API before returning. (optional)
      * @return ApiResponse<kotlin.collections.List<SteamProfile>?>
@@ -138,7 +138,7 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam-search
      * Steam Profile Search
-     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param searchQuery Search query for Steam profiles.
      * @param limit Maximum number of profiles to return. (optional, default to 100)
      * @param minMatchesPlayedLast30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)
@@ -174,7 +174,7 @@ open class SteamApi(basePath: kotlin.String = defaultBasePath, client: Call.Fact
     /**
      * GET /v1/players/steam-search
      * Steam Profile Search
-     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint lets you search for Steam profiles by account_id or personaname.  See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param searchQuery Search query for Steam profiles.
      * @param limit Maximum number of profiles to return. (optional, default to 100)
      * @param minMatchesPlayedLast30d Only return profiles that have played at least this many matches in the last 30 days. Defaults to 5 to filter out inactive/empty profiles and keep search responsive. (optional, default to 5)

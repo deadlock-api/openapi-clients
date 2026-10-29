@@ -14,7 +14,7 @@ Method | HTTP request | Description
 > models::Status health_check()
 Health Check
 
- Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 
@@ -41,7 +41,7 @@ No authorization required
 > models::ApiInfo info()
 API Info
 
- Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 

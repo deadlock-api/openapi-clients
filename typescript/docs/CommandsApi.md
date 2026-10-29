@@ -12,7 +12,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **availableVariables**
 > Array<VariableDescription> availableVariables()
 
- Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 
@@ -57,7 +57,7 @@ No authorization required
 # **commandResolve**
 > string commandResolve()
 
-     Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+     Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
 ### Example
 
@@ -118,7 +118,7 @@ No authorization required
 # **variablesResolve**
 > { [key: string]: string; } variablesResolve()
 
- Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+ Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
 ### Example
 

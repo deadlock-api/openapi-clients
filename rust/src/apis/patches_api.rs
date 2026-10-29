@@ -39,7 +39,7 @@ pub enum Feed0Error {
 }
 
 
-///  Returns a list of dates where Deadlock's \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns a list of dates where Deadlock's \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn big_patch_days(configuration: &configuration::Configuration) -> Result<Vec<String>, Error<BigPatchDaysError>> {
 
     let uri_str = format!("{}/v1/patches/big-days", configuration.base_path);
@@ -74,7 +74,7 @@ pub async fn big_patch_days(configuration: &configuration::Configuration) -> Res
     }
 }
 
-///  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 #[deprecated]
 pub async fn feed(configuration: &configuration::Configuration) -> Result<Vec<models::Patch>, Error<FeedError>> {
 
@@ -110,7 +110,7 @@ pub async fn feed(configuration: &configuration::Configuration) -> Result<Vec<mo
     }
 }
 
-///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn feed_0(configuration: &configuration::Configuration) -> Result<Vec<models::FeedItem>, Error<Feed0Error>> {
 
     let uri_str = format!("{}/v2/patches", configuration.base_path);

@@ -25,7 +25,7 @@ import {
 
 
 /**
- *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Health Check
  */
 function healthCheckRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Status> = {}): QueryConfig<T> {
@@ -61,7 +61,7 @@ function healthCheckRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Status> =
 }
 
 /**
-*  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Health Check
 */
 export function healthCheck<T>( requestConfig?: runtime.TypedQueryConfig<T, Status>): QueryConfig<T> {
@@ -69,7 +69,7 @@ export function healthCheck<T>( requestConfig?: runtime.TypedQueryConfig<T, Stat
 }
 
 /**
- *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * API Info
  */
 function infoRaw<T>( requestConfig: runtime.TypedQueryConfig<T, APIInfo> = {}): QueryConfig<T> {
@@ -105,7 +105,7 @@ function infoRaw<T>( requestConfig: runtime.TypedQueryConfig<T, APIInfo> = {}): 
 }
 
 /**
-*  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * API Info
 */
 export function info<T>( requestConfig?: runtime.TypedQueryConfig<T, APIInfo>): QueryConfig<T> {

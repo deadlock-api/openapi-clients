@@ -26,7 +26,7 @@ This list is manually maintained, and so new patch dates may be delayed by a few
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -102,7 +102,7 @@ RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -181,7 +181,7 @@ Each entry is tagged with a `source` field (`forum` or `steam`).
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 

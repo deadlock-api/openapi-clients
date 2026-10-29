@@ -13,7 +13,7 @@ Method | HTTP request | Description
 > playground()
 GraphQL Playground
 
- Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits (POST): | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min |     
+ Interactive GraphiQL playground for exploring the GraphQL API.  Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\", \"variables\": {...} }`.  ### Rate Limits: > They apply to `POST /v1/graphql`.  | Type | Limit | | ---- | ----- | | IP | 300req/min | | Key | 500req/10s | | Global | 5000req/min | 
 
 ### Parameters
 

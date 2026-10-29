@@ -54,7 +54,7 @@ export interface SearchBuildsRequest {
 
 
 /**
- *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+ *  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
  * Fetch Live
  */
 function fetchBuildLiveRaw<T>(requestParameters: FetchBuildLiveRequest, requestConfig: runtime.TypedQueryConfig<T, Build> = {}): QueryConfig<T> {
@@ -104,7 +104,7 @@ function fetchBuildLiveRaw<T>(requestParameters: FetchBuildLiveRequest, requestC
 }
 
 /**
-*  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+*  Returns a single build. If the build is already in our database it is served from there, otherwise it is fetched live from the Deadlock Game Coordinator and stored in the database.  Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.  Rate limits only apply when the build is fetched from the Game Coordinator.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 * Fetch Live
 */
 export function fetchBuildLive<T>(requestParameters: FetchBuildLiveRequest, requestConfig?: runtime.TypedQueryConfig<T, Build>): QueryConfig<T> {
@@ -112,7 +112,7 @@ export function fetchBuildLive<T>(requestParameters: FetchBuildLiveRequest, requ
 }
 
 /**
- *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+ *  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
  * Fetch Live by Author
  */
 function fetchBuildsByAuthorLiveRaw<T>(requestParameters: FetchBuildsByAuthorLiveRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Build>> = {}): QueryConfig<T> {
@@ -152,7 +152,7 @@ function fetchBuildsByAuthorLiveRaw<T>(requestParameters: FetchBuildsByAuthorLiv
 }
 
 /**
-*  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min |     
+*  Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.  Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to look up builds that have not been crawled yet. Every fetched build is upserted into the database.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGCFindHeroBuilds - CMsgClientToGCFindHeroBuildsResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min | | Global | 500req/min | 
 * Fetch Live by Author
 */
 export function fetchBuildsByAuthorLive<T>(requestParameters: FetchBuildsByAuthorLiveRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Build>>): QueryConfig<T> {
@@ -160,7 +160,7 @@ export function fetchBuildsByAuthorLive<T>(requestParameters: FetchBuildsByAutho
 }
 
 /**
- *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Search
  */
 function searchBuildsRaw<T>(requestParameters: SearchBuildsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<Build>> = {}): QueryConfig<T> {
@@ -292,7 +292,7 @@ function searchBuildsRaw<T>(requestParameters: SearchBuildsRequest, requestConfi
 }
 
 /**
-*  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Search for builds based on various criteria.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Search
 */
 export function searchBuilds<T>(requestParameters: SearchBuildsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<Build>>): QueryConfig<T> {

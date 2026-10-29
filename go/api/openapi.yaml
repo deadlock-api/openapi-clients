@@ -53,25 +53,44 @@ tags:
   name: Demo
 - description: Player related endpoints
   name: Players
-- description: "\n# DEPRECATED! READ THIS FIRST!\n\nAll MMR endpoints are deprecated\
-    \ and will be removed. We no longer estimate a MMR: Valve reports the\nactual\
-    \ rank on ranked matches, and these endpoints now serve that rank instead of the\
-    \ old exponential\nmoving average over team average badges.\n\nMigrate to:\n\n\
-    | Deprecated | Replacement |\n| ---------- | ----------- |\n| `/v1/players/mmr`,\
-    \ `/v1/players/mmr/{hero_id}` | `/v1/players/rank?account_ids=...` or `/v1/players/{account_id}/rank`\
-    \ |\n| `/v1/players/mmr/distribution`, `/v1/players/mmr/distribution/{hero_id}`\
-    \ | `/v1/players/rank/distribution` |\n| `/v1/players/{account_id}/mmr-history`,\
-    \ `/v1/players/{account_id}/mmr-history/{hero_id}` | `ranked_display_badge` /\
-    \ `ranked_delta` in `/v1/players/{account_id}/match-history` |\n\nSince ranks\
-    \ only exist on ranked matches, players without one are missing from the responses,\
-    \ and the\nhero-scoped variants no longer differ per hero: they report the account-wide\
-    \ rank restricted to\nmatches played on that hero.\n\n### Rate Limits:\n\nThe\
-    \ rank and rank-history endpoints share one bucket:\n\n| Type | Limit |\n| ----\
-    \ | ----- |\n| IP | 20req/min |\n| Key | 100req/min & 2000req/h |\n| Global |\
-    \ 200req/min |\n\nThe distribution endpoints aggregate over every ranked match\
-    \ and are far more expensive, so they\nhave their own, tighter bucket:\n\n| Type\
-    \ | Limit |\n| ---- | ----- |\n| IP | 5req/min |\n| Key | 25req/min |\n| Global\
-    \ | 50req/min |\n    "
+- description: |2
+
+    # DEPRECATED! READ THIS FIRST!
+
+    All MMR endpoints are deprecated and will be removed. We no longer estimate a MMR: Valve reports the
+    actual rank on ranked matches, and these endpoints now serve that rank instead of the old exponential
+    moving average over team average badges.
+
+    Migrate to:
+
+    | Deprecated | Replacement |
+    | ---------- | ----------- |
+    | `/v1/players/mmr`, `/v1/players/mmr/{hero_id}` | `/v1/players/rank?account_ids=...` or `/v1/players/{account_id}/rank` |
+    | `/v1/players/mmr/distribution`, `/v1/players/mmr/distribution/{hero_id}` | `/v1/players/rank/distribution` |
+    | `/v1/players/{account_id}/mmr-history`, `/v1/players/{account_id}/mmr-history/{hero_id}` | `ranked_display_badge` / `ranked_delta` in `/v1/players/{account_id}/match-history` |
+
+    Since ranks only exist on ranked matches, players without one are missing from the responses, and the
+    hero-scoped variants no longer differ per hero: they report the account-wide rank restricted to
+    matches played on that hero.
+
+    ### Rate Limits:
+
+    The rank and rank-history endpoints share one bucket:
+
+    | Type | Limit |
+    | ---- | ----- |
+    | IP | 20req/min |
+    | Key | 100req/min, 2000req/h |
+    | Global | 200req/min |
+
+    The distribution endpoints aggregate over every ranked match and are far more expensive, so they
+    have their own, tighter bucket:
+
+    | Type | Limit |
+    | ---- | ----- |
+    | IP | 5req/min |
+    | Key | 25req/min |
+    | Global | 50req/min |
   name: MMR
 - description: Steam related endpoints
   name: Steam
@@ -162,17 +181,23 @@ tags:
 paths:
   /v1/analytics/ability-max-first-stats:
     get:
-      description: "\nRetrieves which ability the players of a hero max first: one\
-        \ row per ability, with every player whose upgrade order\nunlocks and upgrades\
-        \ it three times before any other ability, and one row (`ability_id` null)\
-        \ for the players who maxed\nnone. Every player is in exactly one row, so\
-        \ the rows add up to all the hero's players, and `min_matches` never drops\n\
-        the null row. Unlike summing `/ability-order-tree` nodes, no player is lost\
-        \ to `min_matches` on a rare order.\n\nIn `street_brawl`, ability points come\
-        \ in blocks, and the upgrades within one block are sorted by ability id.\n\
-        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order
+        unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed
+        none. Every player is in exactly one row, so the rows add up to all the hero's players, and `min_matches` never drops
+        the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.
+
+        In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: ability_max_first_stats
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -218,7 +243,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -490,10 +515,18 @@ paths:
       - Analytics
   /v1/analytics/ability-order-stats:
     get:
-      description: "\nRetrieves statistics for the ability order of a hero.\n\n###\
-        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves statistics for the ability order of a hero.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: ability_order_stats
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -539,7 +572,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -811,15 +844,22 @@ paths:
       - Analytics
   /v1/analytics/ability-order-tree:
     get:
-      description: "\nRetrieves the ability upgrade orders of a hero as a tree: one\
-        \ node per order prefix, with the stats of every player\nwhose order starts\
-        \ with it. `min_matches` applies to each node, so a node counts all its players\
-        \ even when their full\norders are rare (which `/ability-order-stats`, grouping\
-        \ by full order, leaves out). A node's parent is always present.\n\nIn `street_brawl`,\
-        \ ability points come in blocks, and the upgrades within one block are sorted\
-        \ by ability id.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player
+        whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full
+        orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.
+
+        In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: ability_order_tree
       parameters:
       - description: "See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -865,7 +905,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1137,16 +1177,25 @@ paths:
       - Analytics
   /v1/analytics/badge-distribution:
     get:
-      description: "\nThis endpoint returns the player badge distribution.\n\n`total_matches`\
-        \ counts matches by their average badge, while `unique_players` counts players\
-        \ by the\nrank Valve reported at the end of their latest ranked match within\
-        \ the filtered range. Since only\nranked matches carry a rank, `unique_players`\
-        \ ignores the `match_mode` filter and always looks at\nranked matches.\n\n\
-        Ranks exist only from the first ranked season on, so `min_unix_timestamp`\
-        \ is clamped to its start.\n\n### Rate Limits:\n> The rate limits below are\
-        \ **shared across all analytics endpoints**.\n\n| Type | Limit |\n| ---- |\
-        \ ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
-        \ |\n    "
+      description: |2
+
+        This endpoint returns the player badge distribution.
+
+        `total_matches` counts matches by their average badge, while `unique_players` counts players by the
+        rank Valve reported at the end of their latest ranked match within the filtered range. Since only
+        ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at
+        ranked matches.
+
+        Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: badge_distribution
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1183,7 +1232,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1291,17 +1340,28 @@ paths:
       - Analytics
   /v1/analytics/buff-stats:
     get:
-      description: "\nRetrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`):\
-        \ how often\nplayers pick each one up and, for matches since build 6712 (2026-09-29),\
-        \ when they pick it up\nand how much stat it grants.\n\nPickup counts cover\
-        \ every match. Pickup times and stat values are only recorded since build\n\
-        6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average\
-        \ times only cover\nthose matches. Temporary power-ups have no timings.\n\n\
-        Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>\n\
-        \nResults are cached for **1 hour** based on the unique combination of query\
-        \ parameters provided.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often
+        players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up
+        and how much stat it grants.
+
+        Pickup counts cover every match. Pickup times and stat values are only recorded since build
+        6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover
+        those matches. Temporary power-ups have no timings.
+
+        Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: buff_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -1337,7 +1397,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1495,12 +1555,20 @@ paths:
       - Analytics
   /v1/analytics/build-item-stats:
     get:
-      description: "\nRetrieves item statistics from hero builds.\n\nResults are cached\
-        \ for **1 hour** based on the unique combination of query parameters provided.\
-        \ Subsequent identical requests within this timeframe will receive the cached\
-        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
-        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves item statistics from hero builds.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: build_item_stats
       parameters:
       - description: "Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -1521,7 +1589,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1555,10 +1623,18 @@ paths:
       - Analytics
   /v1/analytics/game-stats:
     get:
-      description: "\nRetrieves aggregate game-level statistics.\n\n### Rate Limits:\n\
-        > The rate limits below are **shared across all analytics endpoints**.\n\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves aggregate game-level statistics.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: game_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -1611,7 +1687,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1834,15 +1910,23 @@ paths:
       - Analytics
   /v1/analytics/hero-ban-stats:
     get:
-      description: "\nRetrieves ban statistics for each hero based on historical match\
-        \ data from demo analysis.\n\nOnly matches with successfully extracted ban\
-        \ data are included. `matches` counts them per bucket, so a hero's ban rate\n\
-        is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`)\
-        \ are excluded entirely.\n\nResults are cached for **1 hour** based on the\
-        \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
-        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
-        \ Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves ban statistics for each hero based on historical match data from demo analysis.
+
+        Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate
+        is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_ban_stats
       parameters:
       - description: "Filter matches based on the match mode. Valid values: `unranked`,\
@@ -1880,7 +1964,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -1986,15 +2070,24 @@ paths:
       - Analytics
   /v1/analytics/hero-build-stats/{hero_id}:
     get:
-      description: "\nRetrieves performance statistics for hero builds based on historical\
-        \ match data from demo analysis.\n\nOnly includes builds that exist in the\
-        \ hero builds database.\n\nThe `hero_build_id` is the first build the player\
-        \ had selected when the game started. It does not reflect any build changes\
-        \ made during the match.\n\nResults are cached for **1 hour** based on the\
-        \ combination of query parameters provided.\n\n### Rate Limits:\n> The rate\
-        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
-        \ Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves performance statistics for hero builds based on historical match data from demo analysis.
+
+        Only includes builds that exist in the hero builds database.
+
+        The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_build_stats
       parameters:
       - description: "The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -2040,7 +2133,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -2242,13 +2335,20 @@ paths:
       - Analytics
   /v1/analytics/hero-comb-stats:
     get:
-      description: "\nRetrieves overall statistics for each hero combination.\n\n\
-        Results are cached for **1 hour**. The cache key is determined by the specific\
-        \ combination of filter parameters used in the query. Subsequent requests\
-        \ using the exact same filters within this timeframe will receive the cached\
-        \ response.\n\n### Rate Limits:\n> The rate limits below are **shared across\
-        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves overall statistics for each hero combination.
+
+        Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_comb_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -2284,7 +2384,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -2536,16 +2636,22 @@ paths:
       - Analytics
   /v1/analytics/hero-counter-stats:
     get:
-      description: "\nRetrieves hero-versus-hero matchup statistics based on historical\
-        \ match data.\n\nThis endpoint analyzes completed matches to calculate how\
-        \ often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`)\
-        \ and the total number of times they have faced each other under the specified\
-        \ filter conditions.\n\nResults are cached for **1 hour** based on the combination\
-        \ of query parameters provided. Subsequent identical requests within this\
-        \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
-        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
-        \ Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves hero-versus-hero matchup statistics based on historical match data.
+
+        This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_counters_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -2581,7 +2687,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -2809,10 +2915,18 @@ paths:
       - Analytics
   /v1/analytics/hero-stats:
     get:
-      description: "\nRetrieves performance statistics for each hero based on historical\
-        \ match data.\n\n### Rate Limits:\n> The rate limits below are **shared across\
-        \ all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP |\
-        \ 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves performance statistics for each hero based on historical match data.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -2865,7 +2979,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -3156,19 +3270,26 @@ paths:
       - Analytics
   /v1/analytics/hero-swap-stats:
     get:
-      description: "\nRetrieves hero swap statistics for each hero based on historical\
-        \ match data from demo analysis.\n\nA player swapped when the hero they had\
-        \ locked before the pre-game swap window (`pregame_hero_id`) differs from\
-        \ the hero they played. Only players whose pre-game hero was extracted from\
-        \ the demo are counted, so all fields share the same sample:\n\n- **Swap-in\
-        \ rate:** `swapped_in / matches`, the share of this hero's players who swapped\
-        \ to it.\n- **Swap-in win rate:** `swapped_in_wins / swapped_in`.\n- **Swap-away\
-        \ rate:** `swapped_away / pregame_picks`, the share of players who had this\
-        \ hero locked and swapped away from it.\n\nResults are cached for **1 hour**\
-        \ based on the combination of query parameters provided.\n\n### Rate Limits:\n\
-        > The rate limits below are **shared across all analytics endpoints**.\n\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves hero swap statistics for each hero based on historical match data from demo analysis.
+
+        A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:
+
+        - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it.
+        - **Swap-in win rate:** `swapped_in_wins / swapped_in`.
+        - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_swap_stats
       parameters:
       - description: "Filter matches based on the match mode. Valid values: `unranked`,\
@@ -3206,7 +3327,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -3312,16 +3433,22 @@ paths:
       - Analytics
   /v1/analytics/hero-synergy-stats:
     get:
-      description: "\nRetrieves hero pair synergy statistics based on historical match\
-        \ data.\n\nThis endpoint analyzes completed matches to calculate how often\
-        \ a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together\
-        \ on the same team*, and the total number of times they have played together\
-        \ under the specified filter conditions.\n\nResults are cached for **1 hour**\
-        \ based on the combination of query parameters provided. Subsequent identical\
-        \ requests within this timeframe will receive the cached response.\n\n###\
-        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves hero pair synergy statistics based on historical match data.
+
+        This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_synergies_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -3357,7 +3484,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -3550,33 +3677,40 @@ paths:
       - Analytics
   /v1/analytics/item-flow-stats:
     get:
-      description: "\nRetrieves item build-flow statistics: per-phase item win/pick\
-        \ rates and the transitions between them.\n\nItems are grouped into columns\
-        \ by the in-match phase they were bought in: fixed time phases (0-9m,\n9-20m,\
-        \ 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The\
-        \ response contains\n`nodes` (items aggregated within a phase) and `edges`\
-        \ (transitions between an item and items in the\nnext phase). A locked build\
-        \ path can be supplied via `locked_item_ids` / `locked_columns` to\nrestrict\
-        \ the population to players who bought those items in the given stage columns.\n\
-        \nEach node also carries `adjusted_win_rate`: the item's win rate standardized\
-        \ to the stage's\nnet-worth-at-buy distribution. Because players who are already\
-        \ ahead have more souls and buy items\nsooner, raw win rate is heavily confounded\
-        \ by wealth; the adjusted figure re-weights each item's win\nrate across net-worth\
-        \ buckets to the stage-wide distribution, isolating the item's contribution\
-        \ from\nthe buyer's lead. It is still observational, not a controlled/causal\
-        \ estimate. `reached_per_column`\ngives the distinct baseline games that bought\
-        \ any upgrade in each column, so consumers can show how\nsurvivorship-selected\
-        \ (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts\
-        \ the won\nones among them, the win rate a build ending in that stage should\
-        \ be compared with.\n`summary_reached_per_column` and `summary_reached_wins_per_column`\
-        \ count the same over the locked\nbuild path's games, the win rate an item\
-        \ bought in that stage should be compared with.\n\nCorrupted items (build\
-        \ 6712+, same item id as the normal item) are not counted as purchases; the\n\
-        normal item they replaced still is.\n\nResults are cached for **1 hour** based\
-        \ on the unique combination of query parameters provided.\n\n### Rate Limits:\n\
-        > The rate limits below are **shared across all analytics endpoints**.\n\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.
+
+        Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m,
+        9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains
+        `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the
+        next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to
+        restrict the population to players who bought those items in the given stage columns.
+
+        Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's
+        net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items
+        sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win
+        rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from
+        the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column`
+        gives the distinct baseline games that bought any upgrade in each column, so consumers can show how
+        survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won
+        ones among them, the win rate a build ending in that stage should be compared with.
+        `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked
+        build path's games, the win rate an item bought in that stage should be compared with.
+
+        Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the
+        normal item they replaced still is.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: item_flow_stats
       parameters:
       - description: |-
@@ -3650,7 +3784,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -3900,13 +4034,20 @@ paths:
       - Analytics
   /v1/analytics/item-permutation-stats:
     get:
-      description: "\nRetrieves item permutation statistics based on historical match\
-        \ data.\n\nResults are cached for **1 hour** based on the unique combination\
-        \ of query parameters provided. Subsequent identical requests within this\
-        \ timeframe will receive the cached response.\n\n### Rate Limits:\n> The rate\
-        \ limits below are **shared across all analytics endpoints**.\n\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n|\
-        \ Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves item permutation statistics based on historical match data.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: item_permutation_stats
       parameters:
       - description: "Comma separated list of item ids. See more: <https://api.deadlock-api.com/v1/assets/items>"
@@ -4015,7 +4156,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -4216,13 +4357,20 @@ paths:
       - Analytics
   /v1/analytics/item-stats:
     get:
-      description: "\nRetrieves item statistics based on historical match data.\n\n\
-        Results are cached for **1 hour** based on the unique combination of query\
-        \ parameters provided. Subsequent identical requests within this timeframe\
-        \ will receive the cached response.\n\n### Rate Limits:\n> The rate limits\
-        \ below are **shared across all analytics endpoints**.\n\n| Type | Limit |\n\
-        | ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min\
-        \ |\n    "
+      description: |2
+
+        Retrieves item statistics based on historical match data.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: item_stats
       parameters:
       - description: Bucket allows you to group the stats by a specific field.
@@ -4360,7 +4508,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -4714,10 +4862,18 @@ paths:
       - Analytics
   /v1/analytics/kill-death-stats:
     get:
-      description: "\nThis endpoint returns the kill-death statistics across a 128x128\
-        \ pixel raster.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        This endpoint returns the kill-death statistics across a 128x128 pixel raster.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: kill_death_stats
       parameters:
       - description: Filter by team number.
@@ -4765,7 +4921,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -5013,32 +5169,30 @@ paths:
       - Analytics
   /v1/analytics/lane-matchup-stats:
     get:
-      description: "\n> **⚠️ Subject to change:** This endpoint is newly added and\
-        \ not yet stable. Its parameters, response fields and semantics may change\
-        \ or be removed without notice.\n\nRetrieves duo-versus-duo lane statistics:\
-        \ how a pair of heroes sharing a lane performed against the pair of heroes\
-        \ they laned against.\n\nWin rate covers the whole match. Everything else\
-        \ is read at `sample_time_s` (900 by default, the last sample before the game's\
-        \ recording cadence coarsens) off the matchups that lasted that long, counted\
-        \ by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass\
-        \ `stats` for any other per-tick stat the game records — kills, denies, player\
-        \ damage, healing, level and so on — each as the duo's own combined value\
-        \ *and* as its lead over the enemy duo.\n\nOnly lanes where *both* sides fielded\
-        \ exactly two players are counted, and each lane contributes one row per side,\
-        \ so every matchup appears twice with the two sides swapped.\n\n`group_by`\
-        \ chooses what a row stands for. The default groups all three dimensions,\
-        \ giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids`\
-        \ gives a duo's record across every opponent, dropping `hero_ids` gives what\
-        \ a duo is up against, and dropping `assigned_lane` merges the lanes. Folded\
-        \ dimensions come back as `0` / an empty array.\n\nPass `hero_ids` and `enemy_hero_ids`\
-        \ to scope the response to the duos you care about. Without them the full\
-        \ duo-versus-duo matrix is computed, which is a considerably more expensive\
-        \ query.\n\nResults are cached for **1 hour**. The cache key is determined\
-        \ by the specific combination of filter parameters used in the query. Subsequent\
-        \ requests using the exact same filters within this timeframe will receive\
-        \ the cached response.\n\n### Rate Limits:\n> The rate limits below are **shared\
-        \ across all analytics endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 200req/min |\n| Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
+
+        Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.
+
+        Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.
+
+        Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+
+        `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.
+
+        Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.
+
+        Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: lane_matchup_stats
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -5074,7 +5228,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -5298,34 +5452,32 @@ paths:
       - Analytics
   /v1/analytics/lane-soul-curve:
     get:
-      description: "\n> **⚠️ Subject to change:** This endpoint is newly added and\
-        \ not yet stable. Its parameters, response fields and semantics may change\
-        \ or be removed without notice.\n\nRetrieves how a duo's lead over the duo\
-        \ they laned against develops over the course of the match.\n\nThe curve is\
-        \ not interpolated: it carries exactly the samples the game records, which\
-        \ are every 180 seconds up to the 15 minute mark and every 300 seconds after\
-        \ that. It runs from `min_time_s` (180 by default) to `max_time_s`, which\
-        \ is open by default, so a matchup is followed until its matches end. `sample_matches`\
-        \ reports how many matchups were still running at each point, and thins out\
-        \ towards the end of the curve.\n\nOnly lanes where *both* sides fielded exactly\
-        \ two players are counted, and each lane contributes one row per side, so\
-        \ every matchup appears twice with the two sides swapped.\n\nSouls are always\
-        \ reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick\
-        \ stat the game records — kills, denies, player damage, healing, level and\
-        \ so on — each as the duo's own combined value *and* as its lead over the\
-        \ enemy duo.\n\n`group_by` chooses what a row stands for. The default groups\
-        \ all three dimensions, giving one row per duo-versus-duo matchup per lane.\
-        \ Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping\
-        \ `hero_ids` gives what a duo is up against, and dropping `assigned_lane`\
-        \ merges the lanes. Folded dimensions come back as `0` / an empty array.\n\
-        \nPass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you\
-        \ care about. Without them the full duo-versus-duo matrix is computed, which\
-        \ is a considerably more expensive query.\n\nResults are cached for **1 hour**\
-        \ based on the combination of query parameters provided. Subsequent identical\
-        \ requests within this timeframe will receive the cached response.\n\n###\
-        \ Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.
+
+        Retrieves how a duo's lead over the duo they laned against develops over the course of the match.
+
+        The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.
+
+        Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.
+
+        Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.
+
+        `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.
+
+        Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.
+
+        Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: lane_soul_curve
       parameters:
       - description: "Filter matches based on their game mode. Valid values: `normal`,\
@@ -5361,7 +5513,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -5596,13 +5748,20 @@ paths:
       - Analytics
   /v1/analytics/player-performance-curve:
     get:
-      description: "\nRetrieves player performance statistics (net worth, kills, deaths,\
-        \ assists, souls per source, damage and kills per target, healing, barriers\
-        \ and self damage) over time throughout matches.\n\nResults are cached for\
-        \ **1 hour** based on the unique combination of query parameters provided.\n\
-        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: player_performance_curve
       parameters:
       - description: |-
@@ -5654,7 +5813,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -5883,21 +6042,28 @@ paths:
       - Analytics
   /v1/analytics/player-stats/metrics:
     get:
-      description: "\nReturns comprehensive statistical analysis of player performance.\n\
-        \n`avg`, `std` and the percentiles describe the distribution over single matches:\
-        \ each player's\nrow in each matching match is one value, so players with\
-        \ more matches weigh more. With\n`account_ids` it is the distribution of those\
-        \ players' matches. The percentiles rank a single\nmatch, not a player: a\
-        \ player's average over many matches spreads much narrower than single\nmatches\
-        \ do, so read against these percentiles it looks less extreme than it is among\
-        \ players.\n\nResults are cached for **1 hour** based on the unique combination\
-        \ of query parameters provided. Subsequent identical requests within this\
-        \ timeframe will receive the cached response.\n\n> Note: Quantiles are calculated\
-        \ using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf)\
-        \ algorithm, so they are not exact but have a maximum relative error of 0.01.\n\
-        \n### Rate Limits:\n> The rate limits below are **shared across all analytics\
-        \ endpoints**.\n\n| Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n\
-        | Key | 400req/min |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        Returns comprehensive statistical analysis of player performance.
+
+        `avg`, `std` and the percentiles describe the distribution over single matches: each player's
+        row in each matching match is one value, so players with more matches weigh more. With
+        `account_ids` it is the distribution of those players' matches. The percentiles rank a single
+        match, not a player: a player's average over many matches spreads much narrower than single
+        matches do, so read against these percentiles it looks less extreme than it is among players.
+
+        Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
+
+        > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: player_stats_metrics
       parameters:
       - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -5942,7 +6108,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -6172,10 +6338,18 @@ paths:
       - Analytics
   /v1/analytics/scoreboards/heroes:
     get:
-      description: "\nThis endpoint returns the hero scoreboard.\n\n### Rate Limits:\n\
-        > The rate limits below are **shared across all analytics endpoints**.\n\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        This endpoint returns the hero scoreboard.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: hero_scoreboard
       parameters:
       - description: The field to sort by.
@@ -6308,7 +6482,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -6464,10 +6638,18 @@ paths:
       - Analytics
   /v1/analytics/scoreboards/players:
     get:
-      description: "\nThis endpoint returns the player scoreboard.\n\n### Rate Limits:\n\
-        > The rate limits below are **shared across all analytics endpoints**.\n\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 200req/min |\n| Key | 400req/min\
-        \ |\n| Global | 2000req/min |\n    "
+      description: |2
+
+        This endpoint returns the player scoreboard.
+
+        ### Rate Limits:
+        > The rate limits below are **shared across all analytics endpoints**.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 200req/min |
+        | Key | 400req/min |
+        | Global | 2000req/min |
       operationId: player_scoreboard
       parameters:
       - description: The field to sort by.
@@ -9031,9 +9213,16 @@ paths:
       - Steam Info
   /v1/builds:
     get:
-      description: "\nSearch for builds based on various criteria.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: |2
+
+        Search for builds based on various criteria.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: search_builds
       parameters:
       - description: Filter builds based on their `last_updated` time (Unix timestamp).
@@ -9265,15 +9454,25 @@ paths:
       - Builds
   /v1/builds/by-author/{account_id}:
     get:
-      description: "\nFetches all builds of an author directly from the Deadlock Game\
-        \ Coordinator and stores them in the database.\n\nUnlike the search endpoint,\
-        \ this does not rely on builds already being in our database, so it can be\
-        \ used to\nlook up builds that have not been crawled yet. Every fetched build\
-        \ is upserted into the database.\n\nProtobuf definitions can be found here:\
-        \ [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgClientToGCFindHeroBuilds\n- CMsgClientToGCFindHeroBuildsResponse\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n\
-        | Key | 100req/min |\n| Global | 500req/min |\n    "
+      description: |2
+
+        Fetches all builds of an author directly from the Deadlock Game Coordinator and stores them in the database.
+
+        Unlike the search endpoint, this does not rely on builds already being in our database, so it can be used to
+        look up builds that have not been crawled yet. Every fetched build is upserted into the database.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Messages:
+        - CMsgClientToGCFindHeroBuilds
+        - CMsgClientToGCFindHeroBuildsResponse
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 20req/min |
+        | Key | 100req/min |
+        | Global | 500req/min |
       operationId: fetch_builds_by_author_live
       parameters:
       - description: The players `SteamID3`
@@ -9307,15 +9506,27 @@ paths:
       - Builds
   /v1/builds/{hero_id}/{build_id}:
     get:
-      description: "\nReturns a single build. If the build is already in our database\
-        \ it is served from there, otherwise it is\nfetched live from the Deadlock\
-        \ Game Coordinator and stored in the database.\n\nSet `force_refetch=true`\
-        \ to always fetch from the Game Coordinator, e.g. to pick up a newer version.\n\
-        \nRate limits only apply when the build is fetched from the Game Coordinator.\n\
-        \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgClientToGCFindHeroBuilds\n- CMsgClientToGCFindHeroBuildsResponse\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 20req/min |\n\
-        | Key | 100req/min |\n| Global | 500req/min |\n    "
+      description: |2
+
+        Returns a single build. If the build is already in our database it is served from there, otherwise it is
+        fetched live from the Deadlock Game Coordinator and stored in the database.
+
+        Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.
+
+        Rate limits only apply when the build is fetched from the Game Coordinator.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Messages:
+        - CMsgClientToGCFindHeroBuilds
+        - CMsgClientToGCFindHeroBuildsResponse
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 20req/min |
+        | Key | 100req/min |
+        | Global | 500req/min |
       operationId: fetch_build_live
       parameters:
       - description: "The hero ID of the build. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
@@ -9367,9 +9578,16 @@ paths:
       - Builds
   /v1/commands/resolve:
     get:
-      description: "\n    Resolves a command and returns the resolved command.\n\n\
-        ### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 60req/60s |\n\
-        | Key | - |\n| Global | 300req/60s |\n    "
+      description: |2
+
+            Resolves a command and returns the resolved command.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 60req/min |
+        | Key | - |
+        | Global | 300req/min |
       operationId: command_resolve
       parameters:
       - description: The players region
@@ -9427,9 +9645,16 @@ paths:
       - Commands
   /v1/commands/variables/available:
     get:
-      description: "\nReturns a list of available variables that can be used in the\
-        \ command endpoint.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
-        \ |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns a list of available variables that can be used in the command endpoint.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: available_variables
       responses:
         "200":
@@ -9448,9 +9673,16 @@ paths:
       - Commands
   /v1/commands/variables/resolve:
     get:
-      description: "\nResolves variables and returns a map of variable name to resolved\
-        \ value.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 60req/min\
-        \ |\n| Key | - |\n| Global | 300req/min |\n    "
+      description: |2
+
+        Resolves variables and returns a map of variable name to resolved value.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 60req/min |
+        | Key | - |
+        | Global | 300req/min |
       operationId: variables_resolve
       parameters:
       - explode: true
@@ -10081,10 +10313,16 @@ paths:
       - Crosshair
   /v1/feedback:
     post:
-      description: "\nStores a component annotation or general feedback submitted\
-        \ from deadlock-api.com.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | -----\
-        \ |\n| IP | 10req/min, 100req/h |\n| Key | - |\n| Global | 2000req/h |\n \
-        \   "
+      description: |2
+
+        Stores a component annotation or general feedback submitted from deadlock-api.com.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 10req/min, 100req/h |
+        | Key | - |
+        | Global | 2000req/h |
       operationId: submit_feedback
       requestBody:
         content:
@@ -10106,12 +10344,20 @@ paths:
       - Internal
   /v1/graphql:
     get:
-      description: "\nInteractive GraphiQL playground for exploring the GraphQL API.\n\
-        \nOpen this endpoint in a browser to access the playground. Send GraphQL queries\
-        \ via `POST /v1/graphql` with a JSON body of the form `{ \"query\": \"...\"\
-        , \"variables\": {...} }`.\n\n### Rate Limits (POST):\n| Type | Limit |\n\
-        | ---- | ----- |\n| IP | 300req/min |\n| Key | 500req/10s |\n| Global | 5000req/min\
-        \ |\n    "
+      description: |2
+
+        Interactive GraphiQL playground for exploring the GraphQL API.
+
+        Open this endpoint in a browser to access the playground. Send GraphQL queries via `POST /v1/graphql` with a JSON body of the form `{ "query": "...", "variables": {...} }`.
+
+        ### Rate Limits:
+        > They apply to `POST /v1/graphql`.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 300req/min |
+        | Key | 500req/10s |
+        | Global | 5000req/min |
       operationId: playground
       responses:
         "200":
@@ -10123,9 +10369,16 @@ paths:
       - GraphQL
   /v1/info:
     get:
-      description: "\nReturns information about the API.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global |\
-        \ - |\n    "
+      description: |2
+
+        Returns information about the API.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: info
       responses:
         "200":
@@ -10145,9 +10398,16 @@ paths:
       - Info
   /v1/info/health:
     get:
-      description: "\nChecks the health of the services.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global |\
-        \ - |\n    "
+      description: |2
+
+        Checks the health of the services.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: health_check
       responses:
         "200":
@@ -10167,9 +10427,20 @@ paths:
       - Info
   /v1/leaderboard/{region}:
     get:
-      description: "\nReturns the leaderboard.\n\n### Note:\n\nValve updates the leaderboard\
-        \ once per hour.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns the leaderboard.
+
+        ### Note:
+
+        Valve updates the leaderboard once per hour.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: leaderboard
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -10214,13 +10485,27 @@ paths:
       - Leaderboard
   /v1/leaderboard/{region}/raw:
     get:
-      description: "\nReturns the leaderboard, serialized as protobuf message.\n\n\
-        You have to decode the protobuf message.\n\nProtobuf definitions can be found\
-        \ here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Message:\n- CMsgClientToGcGetLeaderboardResponse\n\n###\
-        \ Note:\n\nValve updates the leaderboard once per hour.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: |2
+
+        Returns the leaderboard, serialized as protobuf message.
+
+        You have to decode the protobuf message.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Message:
+        - CMsgClientToGcGetLeaderboardResponse
+
+        ### Note:
+
+        Valve updates the leaderboard once per hour.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: leaderboard_raw
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -10270,10 +10555,20 @@ paths:
       - Leaderboard
   /v1/leaderboard/{region}/{hero_id}:
     get:
-      description: "\nReturns the leaderboard for a specific hero.\n\n### Note:\n\n\
-        Valve updates the leaderboard once per hour.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+      description: |2
+
+        Returns the leaderboard for a specific hero.
+
+        ### Note:
+
+        Valve updates the leaderboard once per hour.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: leaderboard_hero
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -10328,13 +10623,27 @@ paths:
       - Leaderboard
   /v1/leaderboard/{region}/{hero_id}/raw:
     get:
-      description: "\nReturns the leaderboard for a specific hero, serialized as protobuf\
-        \ message.\n\nYou have to decode the protobuf message.\n\nProtobuf definitions\
-        \ can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Message:\n- CMsgClientToGcGetLeaderboardResponse\n\n###\
-        \ Note:\n\nValve updates the leaderboard once per hour.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: |2
+
+        Returns the leaderboard for a specific hero, serialized as protobuf message.
+
+        You have to decode the protobuf message.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Message:
+        - CMsgClientToGcGetLeaderboardResponse
+
+        ### Note:
+
+        Valve updates the leaderboard once per hour.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: leaderboard_hero_raw
       parameters:
       - description: The region to fetch the leaderboard for.
@@ -10394,10 +10703,18 @@ paths:
       - Leaderboard
   /v1/matches/active:
     get:
-      description: "\nReturns active matches that are currently being played.\n\n\
-        Fetched from the watch tab in game, which is limited to the **top 200 matches**.\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns active matches that are currently being played.
+
+        Fetched from the watch tab in game, which is limited to the **top 200 matches**.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: active_matches
       parameters:
       - deprecated: true
@@ -10447,13 +10764,25 @@ paths:
       - Matches
   /v1/matches/active/raw:
     get:
-      description: "\nReturns active matches that are currently being played, serialized\
-        \ as protobuf message.\n\nFetched from the watch tab in game, which is limited\
-        \ to the **top 200 matches**.\n\nYou have to decode the protobuf message.\n\
-        \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Message:\n- CMsgClientToGcGetActiveMatchesResponse\n\n\
-        ### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns active matches that are currently being played, serialized as protobuf message.
+
+        Fetched from the watch tab in game, which is limited to the **top 200 matches**.
+
+        You have to decode the protobuf message.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Message:
+        - CMsgClientToGcGetActiveMatchesResponse
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: active_matches_raw
       responses:
         "200":
@@ -10714,15 +11043,6 @@ paths:
         at a `CCitadelObserverPawn`, not the hero's `CCitadelPlayerPawn`. Join controllers to hero pawns by
         hero id or pawn entity index rather than through `m_hPawn`.
 
-        ### Rate Limits:
-        | Type | Limit |
-        | ---- | ----- |
-        | IP | With broadcast_url: 20req/m<br>With match_id: 6req/h |
-        | Key | With broadcast_url: -<br>With match_id: 10req/10m, 50req/h |
-        | Global | With broadcast_url: 100req/m<br>With match_id, without API key: 60req/10m, 300req/h<br>With match_id, with API key: 20req/10m, 100req/h |
-
-        With `match_id`, only spectating counts against the limits; a match spectated within the last hour is served from cache.
-
         A limited number of live queries per client (API key, or IP without one) stream at once, 16 by
         default. One more ends the client's oldest stream with an `error` event (status 409), so open a new
         stream only when you no longer need an old one. A `429` means the server as a whole is at its live
@@ -10731,6 +11051,15 @@ paths:
         A query whose result rows queue up unread (a client not reading the stream, or a join/aggregation
         that holds rows until the broadcast ends) is stopped with an `error` event once it buffers too much
         (128 MiB by default).
+
+        ### Rate Limits:
+        > A match spectated within the last hour is served from cache and does not count against the spectate limits.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | Every query: 20req/min<br>Spectating a `match_id` without API key: 6req/h<br>Spectating a `match_id` with API key: - |
+        | Key | Every query: -<br>Spectating a `match_id` without API key: -<br>Spectating a `match_id` with API key: 10req/10min, 50req/h |
+        | Global | Every query: 100req/min<br>Spectating a `match_id` without API key: 60req/10min, 300req/h<br>Spectating a `match_id` with API key: 20req/10min, 100req/h |
       operationId: live_query
       parameters:
       - description: SQL query to run over the broadcast's entity/event tables (see
@@ -10921,11 +11250,20 @@ paths:
       - Demo
   /v1/matches/live/urls:
     get:
-      description: "\nReturns a list of all currently available live broadcast URLs.\n\
-        \nThese can be used in any demofile broadcast parser:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
-        - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+      description: |2
+
+        Returns a list of all currently available live broadcast URLs.
+
+        These can be used in any demofile broadcast parser:
+        - [Demofile-Net](https://github.com/saul/demofile-net)
+        - [Haste](https://github.com/blukai/haste/)
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: urls
       responses:
         "200":
@@ -10943,14 +11281,23 @@ paths:
       tags:
       - Matches
     post:
-      description: "\nSubmit one or more live broadcast URLs so they show up in the\
-        \ `GET /live/urls` listing.\n\nEach submitted URL is stored for 1 hour; re-submit\
-        \ periodically to keep a match listed\nwhile it is still live. Existing entries\
-        \ for the same `match_id` are overwritten.\n\nThese URLs can be used in any\
-        \ demofile broadcast parser:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
-        - [Haste](https://github.com/blukai/haste/)\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | -\
-        \ |\n    "
+      description: |2
+
+        Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.
+
+        Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed
+        while it is still live. Existing entries for the same `match_id` are overwritten.
+
+        These URLs can be used in any demofile broadcast parser:
+        - [Demofile-Net](https://github.com/saul/demofile-net)
+        - [Haste](https://github.com/blukai/haste/)
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: ingest_urls
       requestBody:
         content:
@@ -10975,16 +11322,22 @@ paths:
       - Matches
   /v1/matches/metadata:
     get:
-      description: "\nThis endpoints lets you fetch multiple match metadata at once.\
-        \ The response is a JSON array of match metadata.\n\nWhen player info is included,\
-        \ each player object contains `hero_build_id` and `pregame_hero_id` fields\
-        \ (if available) from demo analysis.\n\n> **Note:** The `hero_build_id` represents\
-        \ the first build the player had selected when the game started. It does not\
-        \ reflect any build changes made during the match.\n\n> **Note:** The `pregame_hero_id`\
-        \ is the hero the player had locked before the pre-game swap window (`null`\
-        \ if unknown). A player swapped heroes when it differs from their `hero_id`.\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 30req/min |\n\
-        | Key | 30req/10s |\n| Global | 600req/min |\n    "
+      description: |2
+
+        This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.
+
+        When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.
+
+        > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+        > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 30req/min |
+        | Key | 30req/10s |
+        | Global | 600req/min |
       operationId: bulk_metadata
       parameters:
       - description: Include match info in the response.
@@ -11397,9 +11750,16 @@ paths:
       - Matches
   /v1/matches/recently-fetched:
     get:
-      description: "\nThis endpoint returns a list of match ids that have been fetched\
-        \ within the last 10 minutes.\n\n### Rate Limits:\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        This endpoint returns a list of match ids that have been fetched within the last 10 minutes.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: recently_fetched
       responses:
         "200":
@@ -11418,13 +11778,24 @@ paths:
       - Matches
   /v1/matches/salts:
     post:
-      description: "\nYou can use this endpoint to help us collecting data.\n\nThe\
-        \ endpoint accepts a list of MatchSalts objects, which contain the following\
-        \ fields:\n\n- `match_id`: The match ID\n- `cluster_id`: The cluster ID\n\
-        - `metadata_salt`: The metadata salt\n- `replay_salt`: The replay salt\n-\
-        \ `username`: The username of the person who submitted the match (defaults\
-        \ to the request's `User-Agent`)\n\n### Rate Limits:\n| Type | Limit |\n|\
-        \ ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        You can use this endpoint to help us collecting data.
+
+        The endpoint accepts a list of MatchSalts objects, which contain the following fields:
+
+        - `match_id`: The match ID
+        - `cluster_id`: The cluster ID
+        - `metadata_salt`: The metadata salt
+        - `replay_salt`: The replay salt
+        - `username`: The username of the person who submitted the match (defaults to the request's `User-Agent`)
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: ingest_salts
       requestBody:
         content:
@@ -11449,13 +11820,22 @@ paths:
       - Internal
   /v1/matches/{match_id}/live/url:
     get:
-      description: "\nThis endpoints spectates a match and returns the live URL to\
-        \ be used in any demofile broadcast parser.\n\nExample Parsers:\n- [Demofile-Net](https://github.com/saul/demofile-net)\n\
-        - [Haste](https://github.com/blukai/haste/)\n\nOnly spectating counts against\
-        \ these limits; a match spectated within the last hour is served from cache.\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 6req/h |\n\
-        | Key | 10req/10m, 50req/h |\n| Global (without API key) | 60req/10m, 300req/h\
-        \ |\n| Global (with API key) | 20req/10m, 100req/h |\n    "
+      description: |2
+
+        This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.
+
+        Example Parsers:
+        - [Demofile-Net](https://github.com/saul/demofile-net)
+        - [Haste](https://github.com/blukai/haste/)
+
+        Only spectating counts against these limits; a match spectated within the last hour is served from cache.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | Without API key: 6req/h<br>With API key: - |
+        | Key | Without API key: -<br>With API key: 10req/10min, 50req/h |
+        | Global | Without API key: 60req/10min, 300req/h<br>With API key: 20req/10min, 100req/h |
       operationId: url
       parameters:
       - description: The match ID
@@ -11486,20 +11866,28 @@ paths:
       - Matches
   /v1/matches/{match_id}/metadata:
     get:
-      description: "\nThis endpoint returns the match metadata for the given `match_id`\
-        \ parsed into JSON.\n\nEach player object is enriched with a `hero_build_id`\
-        \ field (if available) from demo analysis.\n\n> **Note:** The `hero_build_id`\
-        \ represents the first build the player had selected when the game started.\
-        \ It does not reflect any build changes made during the match.\n\n`pregame_hero_ids`\
-        \ maps `account_id` to the hero the player had locked before the pre-game\
-        \ swap window (if available from demo analysis). A player swapped heroes when\
-        \ it differs from their `hero_id`.\n\nProtobuf definitions can be found here:\
-        \ [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |\n| Key | From Cache:\
-        \ 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |\n| Global | From\
-        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |\n    "
+      description: |2
+
+        This endpoint returns the match metadata for the given `match_id` parsed into JSON.
+
+        Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.
+
+        > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.
+
+        `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Messages:
+        - CMsgMatchMetaData
+        - CMsgMatchMetaDataContents
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+        | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h |
+        | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
       operationId: metadata
       parameters:
       - description: The match ID
@@ -11551,14 +11939,24 @@ paths:
       - Matches
   /v1/matches/{match_id}/metadata/raw:
     get:
-      description: "\nThis endpoints returns the raw .meta.bz2 file for the given\
-        \ `match_id`.\n\nYou have to decompress it and decode the protobuf message.\n\
-        \nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgMatchMetaData\n- CMsgMatchMetaDataContents\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | From Cache:\
-        \ 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |\n| Key | From Cache:\
-        \ 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |\n| Global | From\
-        \ Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |\n    "
+      description: |2
+
+        This endpoints returns the raw .meta.bz2 file for the given `match_id`.
+
+        You have to decompress it and decode the protobuf message.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Messages:
+        - CMsgMatchMetaData
+        - CMsgMatchMetaDataContents
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+        | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h |
+        | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
       operationId: metadata_raw
       parameters:
       - description: The match ID
@@ -11615,12 +12013,18 @@ paths:
       - Matches
   /v1/matches/{match_id}/salts:
     get:
-      description: "\nThis endpoints returns salts that can be used to fetch metadata\
-        \ and demofile for a match.\n\n**Note:** We currently fetch many matches without\
-        \ salts, so for these matches we do not have salts stored.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | From DB: 100req/s<br>From Steam:\
-        \ 10req/30mins |\n| Key | From DB: -<br>From Steam: 10req/min |\n| Global\
-        \ | From DB: -<br>From Steam: 10req/10s |\n    "
+      description: |2
+
+        This endpoints returns salts that can be used to fetch metadata and demofile for a match.
+
+        **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | From DB: 100req/s<br>From Steam: 3req/h |
+        | Key | From DB: -<br>From Steam: 300req/h |
+        | Global | From DB: -<br>From Steam: 1500req/h |
       operationId: salts
       parameters:
       - description: The match ID
@@ -11663,11 +12067,20 @@ paths:
   /v1/patches:
     get:
       deprecated: true
-      description: "\n**Deprecated:** Use `/v2/patches` instead, which returns a unified\
-        \ feed combining the Forum changelog and the Steam news feed.\n\nReturns the\
-        \ parsed result of the RSS Feed from the official Forum.\n\nRSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: |2
+
+        **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.
+
+        Returns the parsed result of the RSS Feed from the official Forum.
+
+        RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: feed
       responses:
         "200":
@@ -11686,11 +12099,19 @@ paths:
       - Patches
   /v1/patches/big-days:
     get:
-      description: "\nReturns a list of dates where Deadlock's \"big\" patch days\
-        \ were, usually bi-weekly.\nThe exact date is the time when the update was\
-        \ announced.\n\nThis list is manually maintained, and so new patch dates may\
-        \ be delayed by a few hours.\n\n### Rate Limits:\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns a list of dates where Deadlock's "big" patch days were, usually bi-weekly.
+        The exact date is the time when the update was announced.
+
+        This list is manually maintained, and so new patch dates may be delayed by a few hours.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: big_patch_days
       responses:
         "200":
@@ -11930,9 +12351,16 @@ paths:
       - Internal
   /v1/players/hero-stats:
     get:
-      description: "\nThis endpoint returns statistics for each hero played by a given\
-        \ player account.\n\n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n\
-        | IP | 100req/s |\n| Key | - |\n| Global | - |\n    "
+      description: |2
+
+        This endpoint returns statistics for each hero played by a given player account.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: player_hero_stats
       parameters:
       - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
@@ -12190,7 +12618,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -12314,7 +12742,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -12510,7 +12938,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 20req/min |
-        | Key | 100req/min & 2000req/h |
+        | Key | 100req/min, 2000req/h |
         | Global | 200req/min |
       operationId: rank_batch
       parameters:
@@ -12636,7 +13064,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790467200
+          default: 1790553600
           format: int64
           nullable: true
           type: integer
@@ -12807,17 +13235,25 @@ paths:
       - Players
   /v1/players/steam:
     get:
-      description: "\nThis endpoint returns Steam profiles of players.\n\nPass `refresh=true`\
-        \ to force a live refresh of the listed accounts from the\nSteam Web API (`GetPlayerSummaries`\
-        \ + `GetFriendList`) before returning. The\nrefreshed rows are persisted to\
-        \ the `steam_profiles` table and returned in the\nresponse with `last_updated`\
-        \ set to the current time. Refresh requests are\nrate limited and capped at\
-        \ 100 account ids per call to stay inside the\nshared Steam Web API key budget.\n\
-        \nSee: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s (read\
-        \ path), 3req/min + 15req/h (refresh) |\n| Key | - (read path), 10req/min\
-        \ + 60req/h (refresh) |\n| Global | - (read path), 30req/min + 200req/h (refresh)\
-        \ |\n    "
+      description: |2
+
+        This endpoint returns Steam profiles of players.
+
+        Pass `refresh=true` to force a live refresh of the listed accounts from the
+        Steam Web API (`GetPlayerSummaries` + `GetFriendList`) before returning. The
+        refreshed rows are persisted to the `steam_profiles` table and returned in the
+        response with `last_updated` set to the current time. Refresh requests are
+        rate limited and capped at 100 account ids per call to stay inside the
+        shared Steam Web API key budget.
+
+        See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h |
+        | Key | Read: -<br>Refresh: 10req/min, 60req/h |
+        | Global | Read: -<br>Refresh: 30req/min, 200req/h |
       operationId: steam
       parameters:
       - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
@@ -12869,10 +13305,18 @@ paths:
       - Steam
   /v1/players/steam-search:
     get:
-      description: "\nThis endpoint lets you search for Steam profiles by account_id\
-        \ or personaname.\n\nSee: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: |2
+
+        This endpoint lets you search for Steam profiles by account_id or personaname.
+
+        See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(v0002)
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: steam_search
       parameters:
       - description: Search query for Steam profiles.
@@ -12964,9 +13408,16 @@ paths:
       - Steam
   /v1/players/{account_id}/enemy-stats:
     get:
-      description: "\nThis endpoint returns the enemy stats.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: |2
+
+        This endpoint returns the enemy stats.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: enemy_stats
       parameters:
       - description: The players `SteamID3`
@@ -13137,18 +13588,25 @@ paths:
       - Internal
   /v1/players/{account_id}/match-history:
     get:
-      description: "\nThis endpoint returns the player match history for the given\
-        \ `account_id`.\n\nIf the account is friends with one of our bots, the match\
-        \ history is a combination of the data from **Steam** and **ClickHouse**,\
-        \ so you always get the most up-to-date data and full history.\nIf the account\
-        \ is not friends with a bot, only the stored match history from **ClickHouse**\
-        \ is returned.\n\nProtobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)\n\
-        \nRelevant Protobuf Messages:\n- CMsgClientToGcGetMatchHistory\n- CMsgClientToGcGetMatchHistoryResponse\n\
-        \n### Rate Limits (only applies to bot friends):\n| Type | Limit |\n| ----\
-        \ | ----- |\n| IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`:\
-        \ 1req/h |\n| Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`:\
-        \ 5req/h |\n| Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`:\
-        \ 10req/h |\n    "
+      description: |2
+
+        This endpoint returns the player match history for the given `account_id`.
+
+        If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history.
+        If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.
+
+        Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
+
+        Relevant Protobuf Messages:
+        - CMsgClientToGcGetMatchHistory
+        - CMsgClientToGcGetMatchHistoryResponse
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h |
+        | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h |
+        | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h |
       operationId: match_history
       parameters:
       - description: The players `SteamID3`
@@ -13201,9 +13659,16 @@ paths:
       - Players
   /v1/players/{account_id}/mate-stats:
     get:
-      description: "\nThis endpoint returns the mate stats.\n\n### Rate Limits:\n\
-        | Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n| Key | - |\n| Global\
-        \ | - |\n    "
+      description: |2
+
+        This endpoint returns the mate stats.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: mate_stats
       parameters:
       - description: The players `SteamID3`
@@ -13635,16 +14100,23 @@ paths:
   /v1/sql:
     get:
       deprecated: true
-      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
-        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
-        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nExecutes a read-only `DuckDB` SQL query on the public data lake (hourly\
-        \ parquet snapshots of\nthe database), the same one the MCP server at `/v1/mcp`\
-        \ queries. Unqualified table names resolve\nto its views; filter `match_player`\
-        \ on `match_id` or `start_time` to skip files. At most 100,000\nrows are returned\
-        \ (`X-Truncated: true` when cut off), and queries time out after 45 seconds.\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 2req/min, 20req/hr\
-        \ |\n| Key | 10req/min |\n| Global | 30req/min |\n    "
+      description: |2
+
+        **Deprecated.** Direct SQL access will be removed. Use the public data lake at
+        https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+        see https://deadlock-api.com/data-dumps.
+
+        Executes a read-only `DuckDB` SQL query on the public data lake (hourly parquet snapshots of
+        the database), the same one the MCP server at `/v1/mcp` queries. Unqualified table names resolve
+        to its views; filter `match_player` on `match_id` or `start_time` to skip files. At most 100,000
+        rows are returned (`X-Truncated: true` when cut off), and queries time out after 45 seconds.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 2req/min, 20req/h |
+        | Key | 10req/min |
+        | Global | 30req/min |
       operationId: sql
       parameters:
       - description: The SQL query to execute. It must follow the `DuckDB` SQL syntax.
@@ -13687,12 +14159,20 @@ paths:
   /v1/sql/tables:
     get:
       deprecated: true
-      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
-        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
-        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nLists all tables of the public data lake.\n\n### Rate Limits:\n| Type |\
-        \ Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global | 60req/min\
-        \ |\n    "
+      description: |2
+
+        **Deprecated.** Direct SQL access will be removed. Use the public data lake at
+        https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+        see https://deadlock-api.com/data-dumps.
+
+        Lists all tables of the public data lake.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 10req/min |
+        | Key | - |
+        | Global | 60req/min |
       operationId: list_tables
       responses:
         "200":
@@ -13716,13 +14196,21 @@ paths:
   /v1/sql/tables/{table}/schema:
     get:
       deprecated: true
-      description: "\n**Deprecated.** Direct SQL access will be removed. Use the public\
-        \ data lake at\nhttps://data.deadlock-api.com (DuckDB / DuckLake, or the MCP\
-        \ server at `/v1/mcp`) instead;\nsee https://deadlock-api.com/data-dumps.\n\
-        \nReturns the columns of a data lake table with their `DuckDB` types; column\
-        \ comments carry the\noriginal `ClickHouse` type.\n\n### Rate Limits:\n| Type\
-        \ | Limit |\n| ---- | ----- |\n| IP | 10req/min |\n| Key | - |\n| Global |\
-        \ 60req/min |\n    "
+      description: |2
+
+        **Deprecated.** Direct SQL access will be removed. Use the public data lake at
+        https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead;
+        see https://deadlock-api.com/data-dumps.
+
+        Returns the columns of a data lake table with their `DuckDB` types; column comments carry the
+        original `ClickHouse` type.
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 10req/min |
+        | Key | - |
+        | Global | 60req/min |
       operationId: table_schema
       parameters:
       - description: The name of the table to fetch the schema for.
@@ -13753,12 +14241,21 @@ paths:
       - SQL
   /v2/patches:
     get:
-      description: "\nReturns a unified feed combining patch notes from the official\
-        \ Forum changelog and the Steam news feed.\n\nEach entry is tagged with a\
-        \ `source` field (`forum` or `steam`).\n\n- Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss\n\
-        - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/\n\
-        \n### Rate Limits:\n| Type | Limit |\n| ---- | ----- |\n| IP | 100req/s |\n\
-        | Key | - |\n| Global | - |\n    "
+      description: |2
+
+        Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.
+
+        Each entry is tagged with a `source` field (`forum` or `steam`).
+
+        - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss
+        - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/
+
+        ### Rate Limits:
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 100req/s |
+        | Key | - |
+        | Global | - |
       operationId: feed
       responses:
         "200":

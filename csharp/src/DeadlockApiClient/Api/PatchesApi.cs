@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Big Days
         /// </summary>
         /// <remarks>
-        ///  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Api
         /// Big Days
         /// </summary>
         /// <remarks>
-        ///  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBigPatchDaysApiResponse"/>?&gt;</returns>
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// Notes
         /// </summary>
         /// <remarks>
-        ///  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -75,7 +75,7 @@ namespace DeadlockApiClient.Api
         /// Notes
         /// </summary>
         /// <remarks>
-        ///  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFeedApiResponse"/>?&gt;</returns>
@@ -86,7 +86,7 @@ namespace DeadlockApiClient.Api
         /// Notes
         /// </summary>
         /// <remarks>
-        ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -97,7 +97,7 @@ namespace DeadlockApiClient.Api
         /// Notes
         /// </summary>
         /// <remarks>
-        ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>?&gt;</returns>
@@ -302,7 +302,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorBigPatchDays(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// Big Days  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Big Days  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IBigPatchDaysApiResponse"/>&gt;</returns>
@@ -319,7 +319,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Big Days  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Big Days  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -531,7 +531,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorFeed(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// Notes  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Notes  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFeedApiResponse"/>&gt;</returns>
@@ -548,7 +548,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Notes  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Notes  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -766,7 +766,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorFeed_0(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// Notes  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Notes  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>&gt;</returns>
@@ -783,7 +783,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Notes  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Notes  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

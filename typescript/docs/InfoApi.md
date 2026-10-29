@@ -10,7 +10,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 # **healthCheck**
 > Status healthCheck()
 
- Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 
@@ -55,7 +55,7 @@ No authorization required
 # **info**
 > APIInfo info()
 
- Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Example
 

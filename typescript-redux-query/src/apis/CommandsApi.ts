@@ -36,7 +36,7 @@ export interface VariablesResolveRequest {
 
 
 /**
- *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Available Variables
  */
 function availableVariablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<VariableDescription>> = {}): QueryConfig<T> {
@@ -72,7 +72,7 @@ function availableVariablesRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Ar
 }
 
 /**
-*  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Available Variables
 */
 export function availableVariables<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<VariableDescription>>): QueryConfig<T> {
@@ -80,7 +80,7 @@ export function availableVariables<T>( requestConfig?: runtime.TypedQueryConfig<
 }
 
 /**
- *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+ *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
  * Resolve Command
  */
 function commandResolveRaw<T>(requestParameters: CommandResolveRequest, requestConfig: runtime.TypedQueryConfig<T, string> = {}): QueryConfig<T> {
@@ -141,7 +141,7 @@ function commandResolveRaw<T>(requestParameters: CommandResolveRequest, requestC
 }
 
 /**
-*      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+*      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 * Resolve Command
 */
 export function commandResolve<T>(requestParameters: CommandResolveRequest, requestConfig?: runtime.TypedQueryConfig<T, string>): QueryConfig<T> {
@@ -149,7 +149,7 @@ export function commandResolve<T>(requestParameters: CommandResolveRequest, requ
 }
 
 /**
- *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+ *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
  * Resolve Variables
  */
 function variablesResolveRaw<T>(requestParameters: VariablesResolveRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
@@ -209,7 +209,7 @@ function variablesResolveRaw<T>(requestParameters: VariablesResolveRequest, requ
 }
 
 /**
-*  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+*  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 * Resolve Variables
 */
 export function variablesResolve<T>(requestParameters: VariablesResolveRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {

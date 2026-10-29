@@ -48,7 +48,7 @@ Lists all tables of the public data lake.
 | IP | 10req/min |
 | Key | - |
 | Global | 60req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListTablesRequest
@@ -187,10 +187,10 @@ rows are returned (`X-Truncated: true` when cut off), and queries time out after
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 2req/min, 20req/hr |
+| IP | 2req/min, 20req/h |
 | Key | 10req/min |
 | Global | 30req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSqlRequest
@@ -328,7 +328,7 @@ original `ClickHouse` type.
 | IP | 10req/min |
 | Key | - |
 | Global | 60req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param table The name of the table to fetch the schema for.

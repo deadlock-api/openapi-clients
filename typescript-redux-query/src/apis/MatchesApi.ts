@@ -106,7 +106,7 @@ export interface UrlRequest {
 
 
 /**
- *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Active
  */
 function activeMatchesRaw<T>(requestParameters: ActiveMatchesRequest, requestConfig: runtime.TypedQueryConfig<T, Array<ActiveMatch>> = {}): QueryConfig<T> {
@@ -153,7 +153,7 @@ function activeMatchesRaw<T>(requestParameters: ActiveMatchesRequest, requestCon
 }
 
 /**
-*  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns active matches that are currently being played.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Active
 */
 export function activeMatches<T>(requestParameters: ActiveMatchesRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<ActiveMatch>>): QueryConfig<T> {
@@ -161,7 +161,7 @@ export function activeMatches<T>(requestParameters: ActiveMatchesRequest, reques
 }
 
 /**
- *  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Active as Protobuf
  */
 function activeMatchesRawRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -196,7 +196,7 @@ function activeMatchesRawRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Arra
 }
 
 /**
-*  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns active matches that are currently being played, serialized as protobuf message.  Fetched from the watch tab in game, which is limited to the **top 200 matches**.  You have to decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Message: - CMsgClientToGcGetActiveMatchesResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Active as Protobuf
 */
 export function activeMatchesRaw<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -204,7 +204,7 @@ export function activeMatchesRaw<T>( requestConfig?: runtime.TypedQueryConfig<T,
 }
 
 /**
- *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |     
+ *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min | 
  * Bulk Metadata
  */
 function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfig: runtime.TypedQueryConfig<T, Array<object>> = {}): QueryConfig<T> {
@@ -420,7 +420,7 @@ function bulkMetadataRaw<T>(requestParameters: BulkMetadataRequest, requestConfi
 }
 
 /**
-*  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |     
+*  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min | 
 * Bulk Metadata
 */
 export function bulkMetadata<T>(requestParameters: BulkMetadataRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<object>>): QueryConfig<T> {
@@ -428,7 +428,7 @@ export function bulkMetadata<T>(requestParameters: BulkMetadataRequest, requestC
 }
 
 /**
- *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Ingest Live Broadcast URLs
  */
 function ingestUrlsRaw<T>(requestParameters: IngestUrlsRequest, requestConfig: runtime.TypedQueryConfig<T, void> = {}): QueryConfig<T> {
@@ -469,7 +469,7 @@ function ingestUrlsRaw<T>(requestParameters: IngestUrlsRequest, requestConfig: r
 }
 
 /**
-*  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Submit one or more live broadcast URLs so they show up in the `GET /live/urls` listing.  Each submitted URL is stored for 1 hour; re-submit periodically to keep a match listed while it is still live. Existing entries for the same `match_id` are overwritten.  These URLs can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Ingest Live Broadcast URLs
 */
 export function ingestUrls<T>(requestParameters: IngestUrlsRequest, requestConfig?: runtime.TypedQueryConfig<T, void>): QueryConfig<T> {
@@ -477,7 +477,7 @@ export function ingestUrls<T>(requestParameters: IngestUrlsRequest, requestConfi
 }
 
 /**
- *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
+ *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h | 
  * Metadata
  */
 function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runtime.TypedQueryConfig<T, object> = {}): QueryConfig<T> {
@@ -527,7 +527,7 @@ function metadataRaw<T>(requestParameters: MetadataRequest, requestConfig: runti
 }
 
 /**
-*  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
+*  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h | 
 * Metadata
 */
 export function metadata<T>(requestParameters: MetadataRequest, requestConfig?: runtime.TypedQueryConfig<T, object>): QueryConfig<T> {
@@ -535,7 +535,7 @@ export function metadata<T>(requestParameters: MetadataRequest, requestConfig?: 
 }
 
 /**
- *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
+ *  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h | 
  * Metadata as Protobuf
  */
 function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -585,7 +585,7 @@ function metadataRawRaw<T>(requestParameters: MetadataRawRequest, requestConfig:
 }
 
 /**
-*  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |     
+*  This endpoints returns the raw .meta.bz2 file for the given `match_id`.  You have to decompress it and decode the protobuf message.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h | 
 * Metadata as Protobuf
 */
 export function metadataRaw<T>(requestParameters: MetadataRawRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -593,7 +593,7 @@ export function metadataRaw<T>(requestParameters: MetadataRawRequest, requestCon
 }
 
 /**
- *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Recently Fetched
  */
 function recentlyFetchedRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>> = {}): QueryConfig<T> {
@@ -629,7 +629,7 @@ function recentlyFetchedRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array
 }
 
 /**
-*  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Recently Fetched
 */
 export function recentlyFetched<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<ClickhouseMatchInfo>>): QueryConfig<T> {
@@ -637,7 +637,7 @@ export function recentlyFetched<T>( requestConfig?: runtime.TypedQueryConfig<T, 
 }
 
 /**
- *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
+ *  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 3req/h | | Key | From DB: -<br>From Steam: 300req/h | | Global | From DB: -<br>From Steam: 1500req/h | 
  * Salts
  */
 function saltsRaw<T>(requestParameters: SaltsRequest, requestConfig: runtime.TypedQueryConfig<T, MatchSaltsResponse> = {}): QueryConfig<T> {
@@ -683,7 +683,7 @@ function saltsRaw<T>(requestParameters: SaltsRequest, requestConfig: runtime.Typ
 }
 
 /**
-*  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 10req/30mins | | Key | From DB: -<br>From Steam: 10req/min | | Global | From DB: -<br>From Steam: 10req/10s |     
+*  This endpoints returns salts that can be used to fetch metadata and demofile for a match.  **Note:** We currently fetch many matches without salts, so for these matches we do not have salts stored.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From DB: 100req/s<br>From Steam: 3req/h | | Key | From DB: -<br>From Steam: 300req/h | | Global | From DB: -<br>From Steam: 1500req/h | 
 * Salts
 */
 export function salts<T>(requestParameters: SaltsRequest, requestConfig?: runtime.TypedQueryConfig<T, MatchSaltsResponse>): QueryConfig<T> {
@@ -691,7 +691,7 @@ export function salts<T>(requestParameters: SaltsRequest, requestConfig?: runtim
 }
 
 /**
- *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
+ *  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Without API key: 6req/h<br>With API key: - | | Key | Without API key: -<br>With API key: 10req/10min, 50req/h | | Global | Without API key: 60req/10min, 300req/h<br>With API key: 20req/10min, 100req/h | 
  * Live Broadcast URL
  */
 function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQueryConfig<T, MatchSpectateResponse> = {}): QueryConfig<T> {
@@ -731,7 +731,7 @@ function urlRaw<T>(requestParameters: UrlRequest, requestConfig: runtime.TypedQu
 }
 
 /**
-*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 6req/h | | Key | 10req/10m, 50req/h | | Global (without API key) | 60req/10m, 300req/h | | Global (with API key) | 20req/10m, 100req/h |     
+*  This endpoints spectates a match and returns the live URL to be used in any demofile broadcast parser.  Example Parsers: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  Only spectating counts against these limits; a match spectated within the last hour is served from cache.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Without API key: 6req/h<br>With API key: - | | Key | Without API key: -<br>With API key: 10req/10min, 50req/h | | Global | Without API key: 60req/10min, 300req/h<br>With API key: 20req/10min, 100req/h | 
 * Live Broadcast URL
 */
 export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.TypedQueryConfig<T, MatchSpectateResponse>): QueryConfig<T> {
@@ -739,7 +739,7 @@ export function url<T>(requestParameters: UrlRequest, requestConfig?: runtime.Ty
 }
 
 /**
- *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Live Broadcast URLs
  */
 function urlsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<LiveUrl>> = {}): QueryConfig<T> {
@@ -775,7 +775,7 @@ function urlsRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<LiveUrl>> 
 }
 
 /**
-*  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns a list of all currently available live broadcast URLs.  These can be used in any demofile broadcast parser: - [Demofile-Net](https://github.com/saul/demofile-net) - [Haste](https://github.com/blukai/haste/)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Live Broadcast URLs
 */
 export function urls<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<LiveUrl>>): QueryConfig<T> {

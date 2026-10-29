@@ -16,7 +16,7 @@ Method | HTTP request | Description
 > Vec<models::VariableDescription> available_variables()
 Available Variables
 
- Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
 ### Parameters
 
@@ -43,7 +43,7 @@ No authorization required
 > String command_resolve(account_id, region, template, hero_name)
 Resolve Command
 
-     Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+     Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
 ### Parameters
 
@@ -76,7 +76,7 @@ No authorization required
 > std::collections::HashMap<String, String> variables_resolve(account_id, region, variables, hero_name)
 Resolve Variables
 
- Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+ Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
 ### Parameters
 

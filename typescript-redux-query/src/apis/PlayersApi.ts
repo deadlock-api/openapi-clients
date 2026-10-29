@@ -133,7 +133,7 @@ export interface RankPredictImageRequest {
 
 
 /**
- *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Enemy Stats
  */
 function enemyStatsRaw<T>(requestParameters: EnemyStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<EnemyStats>> = {}): QueryConfig<T> {
@@ -219,7 +219,7 @@ function enemyStatsRaw<T>(requestParameters: EnemyStatsRequest, requestConfig: r
 }
 
 /**
-*  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Enemy Stats
 */
 export function enemyStats<T>(requestParameters: EnemyStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<EnemyStats>>): QueryConfig<T> {
@@ -227,7 +227,7 @@ export function enemyStats<T>(requestParameters: EnemyStatsRequest, requestConfi
 }
 
 /**
- *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+ *  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
  * Match History
  */
 function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerMatchHistoryEntry>> = {}): QueryConfig<T> {
@@ -273,7 +273,7 @@ function matchHistoryRaw<T>(requestParameters: MatchHistoryRequest, requestConfi
 }
 
 /**
-*  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+*  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
 * Match History
 */
 export function matchHistory<T>(requestParameters: MatchHistoryRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerMatchHistoryEntry>>): QueryConfig<T> {
@@ -281,7 +281,7 @@ export function matchHistory<T>(requestParameters: MatchHistoryRequest, requestC
 }
 
 /**
- *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Mate Stats
  */
 function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<MateStats>> = {}): QueryConfig<T> {
@@ -372,7 +372,7 @@ function mateStatsRaw<T>(requestParameters: MateStatsRequest, requestConfig: run
 }
 
 /**
-*  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Mate Stats
 */
 export function mateStats<T>(requestParameters: MateStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<MateStats>>): QueryConfig<T> {
@@ -380,7 +380,7 @@ export function mateStats<T>(requestParameters: MateStatsRequest, requestConfig?
 }
 
 /**
- *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Hero Stats
  */
 function playerHeroStatsRaw<T>(requestParameters: PlayerHeroStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroStats>> = {}): QueryConfig<T> {
@@ -491,7 +491,7 @@ function playerHeroStatsRaw<T>(requestParameters: PlayerHeroStatsRequest, reques
 }
 
 /**
-*  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Hero Stats
 */
 export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroStats>>): QueryConfig<T> {
@@ -605,7 +605,7 @@ export function rankAvgImage<T>(requestParameters: RankAvgImageRequest, requestC
 }
 
 /**
- *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+ *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
  * Batch Rank
  */
 function rankBatchRaw<T>(requestParameters: RankBatchRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AccountRank>> = {}): QueryConfig<T> {
@@ -651,7 +651,7 @@ function rankBatchRaw<T>(requestParameters: RankBatchRequest, requestConfig: run
 }
 
 /**
-*  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+*  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
 * Batch Rank
 */
 export function rankBatch<T>(requestParameters: RankBatchRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AccountRank>>): QueryConfig<T> {

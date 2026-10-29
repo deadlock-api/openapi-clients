@@ -43,7 +43,7 @@ Returns a list of available variables that can be used in the command endpoint.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiAvailableVariablesRequest
@@ -176,10 +176,10 @@ CommandResolve Resolve Command
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 60req/60s |
+| IP | 60req/min |
 | Key | - |
-| Global | 300req/60s |
-    
+| Global | 300req/min |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiCommandResolveRequest
@@ -329,7 +329,7 @@ Resolves variables and returns a map of variable name to resolved value.
 | IP | 60req/min |
 | Key | - |
 | Global | 300req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiVariablesResolveRequest

@@ -36,7 +36,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 
 Ability Max First Stats
 
- Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (&#x60;ability_id&#x60; null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero&#39;s players, and &#x60;min_matches&#x60; never drops the null row. Unlike summing &#x60;/ability-order-tree&#x60; nodes, no player is lost to &#x60;min_matches&#x60; on a rare order.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -86,7 +86,7 @@ try {
 | **heroId** | **kotlin.Int**| See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -126,7 +126,7 @@ No authorization required
 
 Ability Order Stats
 
- Retrieves statistics for the ability order of a hero.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves statistics for the ability order of a hero.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -176,7 +176,7 @@ try {
 | **heroId** | **kotlin.Int**| See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -216,7 +216,7 @@ No authorization required
 
 Ability Order Tree
 
- Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. &#x60;min_matches&#x60; applies to each node, so a node counts all its players even when their full orders are rare (which &#x60;/ability-order-stats&#x60;, grouping by full order, leaves out). A node&#39;s parent is always present.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. &#x60;min_matches&#x60; applies to each node, so a node counts all its players even when their full orders are rare (which &#x60;/ability-order-stats&#x60;, grouping by full order, leaves out). A node&#39;s parent is always present.  In &#x60;street_brawl&#x60;, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -266,7 +266,7 @@ try {
 | **heroId** | **kotlin.Int**| See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -306,7 +306,7 @@ No authorization required
 
 Badge Distribution
 
- This endpoint returns the player badge distribution.  &#x60;total_matches&#x60; counts matches by their average badge, while &#x60;unique_players&#x60; counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, &#x60;unique_players&#x60; ignores the &#x60;match_mode&#x60; filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so &#x60;min_unix_timestamp&#x60; is clamped to its start.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the player badge distribution.  &#x60;total_matches&#x60; counts matches by their average badge, while &#x60;unique_players&#x60; counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, &#x60;unique_players&#x60; ignores the &#x60;match_mode&#x60; filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so &#x60;min_unix_timestamp&#x60; is clamped to its start.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -343,7 +343,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -372,7 +372,7 @@ No authorization required
 
 Buff Stats
 
- Retrieves pickup statistics per power-up buff type (e.g. &#x60;hp_permanent_pickup_lv2&#x60;): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so &#x60;timed_matches&#x60;, &#x60;timed_pickups&#x60;, &#x60;total_stat_value&#x60; and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves pickup statistics per power-up buff type (e.g. &#x60;hp_permanent_pickup_lv2&#x60;): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so &#x60;timed_matches&#x60;, &#x60;timed_pickups&#x60;, &#x60;total_stat_value&#x60; and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: &lt;https://api.deadlock-api.com/v1/assets/misc-entities&gt;  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -412,7 +412,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -444,7 +444,7 @@ No authorization required
 
 Build Item Stats
 
- Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -472,7 +472,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **heroId** | **kotlin.Int**| Filter builds based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxLastUpdatedUnixTimestamp** | **kotlin.Long**| Filter builds based on their last updated time (Unix timestamp). | [optional] |
 
 ### Return type
@@ -494,7 +494,7 @@ No authorization required
 
 Game Stats
 
- Retrieves aggregate game-level statistics.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves aggregate game-level statistics.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -540,7 +540,7 @@ try {
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -576,7 +576,7 @@ No authorization required
 
 Hero Ban Stats
 
- Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. &#x60;matches&#x60; counts them per bucket, so a hero&#39;s ban rate is &#x60;bans / matches&#x60;. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. &#x60;matches&#x60; counts them per bucket, so a hero&#39;s ban rate is &#x60;bans / matches&#x60;. Matches where ban extraction failed (empty &#x60;banned_hero_ids&#x60;) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -612,7 +612,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -640,7 +640,7 @@ No authorization required
 
 Hero Build Stats
 
- Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The &#x60;hero_build_id&#x60; is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -685,7 +685,7 @@ try {
 | **heroId** | **kotlin.Int**| The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket. | [optional] [enum: no_bucket, avg_badge, start_time_day, start_time_week, duration] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -720,7 +720,7 @@ No authorization required
 
 Hero Comb Stats
 
- Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -767,7 +767,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -806,7 +806,7 @@ No authorization required
 
 Hero Counter Stats
 
- Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (&#x60;hero_id&#x60;) wins against an enemy hero (&#x60;enemy_hero_id&#x60;) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -852,7 +852,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -890,7 +890,7 @@ No authorization required
 
 Hero Scoreboard
 
- This endpoint returns the hero scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the hero scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -936,7 +936,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **minMatches** | **kotlin.Int**| Filter by min number of matches played. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -968,7 +968,7 @@ No authorization required
 
 Hero Stats
 
- Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1019,7 +1019,7 @@ try {
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1060,7 +1060,7 @@ No authorization required
 
 Hero Swap Stats
 
- Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (&#x60;pregame_hero_id&#x60;) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** &#x60;swapped_in / matches&#x60;, the share of this hero&#39;s players who swapped to it. - **Swap-in win rate:** &#x60;swapped_in_wins / swapped_in&#x60;. - **Swap-away rate:** &#x60;swapped_away / pregame_picks&#x60;, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (&#x60;pregame_hero_id&#x60;) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** &#x60;swapped_in / matches&#x60;, the share of this hero&#39;s players who swapped to it. - **Swap-in win rate:** &#x60;swapped_in_wins / swapped_in&#x60;. - **Swap-away rate:** &#x60;swapped_away / pregame_picks&#x60;, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1096,7 +1096,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, avg_badge, start_time_hour, start_time_day, start_time_week, start_time_month] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1124,7 +1124,7 @@ No authorization required
 
 Hero Synergy Stats
 
- Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (&#x60;hero_id1&#x60; and &#x60;hero_id2&#x60;) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1167,7 +1167,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1202,7 +1202,7 @@ No authorization required
 
 Item Flow Stats
 
- Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for &#x60;normal&#x60;, &#x60;phase_count&#x60; rounds for &#x60;street_brawl&#x60;. The response contains &#x60;nodes&#x60; (items aggregated within a phase) and &#x60;edges&#x60; (transitions between an item and items in the next phase). A locked build path can be supplied via &#x60;locked_item_ids&#x60; / &#x60;locked_columns&#x60; to restrict the population to players who bought those items in the given stage columns.  Each node also carries &#x60;adjusted_win_rate&#x60;: the item&#39;s win rate standardized to the stage&#39;s net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item&#39;s win rate across net-worth buckets to the stage-wide distribution, isolating the item&#39;s contribution from the buyer&#39;s lead. It is still observational, not a controlled/causal estimate. &#x60;reached_per_column&#x60; gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; &#x60;reached_wins_per_column&#x60; counts the won ones among them, the win rate a build ending in that stage should be compared with. &#x60;summary_reached_per_column&#x60; and &#x60;summary_reached_wins_per_column&#x60; count the same over the locked build path&#39;s games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1254,7 +1254,7 @@ try {
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1292,7 +1292,7 @@ No authorization required
 
 Item Permutation Stats
 
- Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1347,7 +1347,7 @@ try {
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **heroId** | **kotlin.Int**| Filter matches based on the hero ID. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1382,7 +1382,7 @@ No authorization required
 
 Item Stats
 
- Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1451,7 +1451,7 @@ try {
 | **minEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **maxEnemyNetworth** | **kotlin.Long**| Filter the specified enemy hero(es) by their final net worth. Ignored when &#x60;enemy_hero_ids&#x60; is unset. | [optional] |
 | **sameLaneFilter** | **kotlin.Boolean**| When &#x60;true&#x60;, only counts buyers in the same &#x60;assigned_lane&#x60; as one of the specified enemy heroes. Ignored when &#x60;enemy_hero_ids&#x60; is unset. **Default:** &#x60;false&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1496,7 +1496,7 @@ No authorization required
 
 Kill Death Stats
 
- This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1547,7 +1547,7 @@ try {
 | **team** | **kotlin.Int**| Filter by team number. | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1588,7 +1588,7 @@ No authorization required
 
 Lane Matchup Stats (Subject to Change)
 
- &gt; **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at &#x60;sample_time_s&#x60; (900 by default, the last sample before the game&#39;s recording cadence coarsens) off the matchups that lasted that long, counted by &#x60;sample_matches&#x60;. Souls are always reported, in &#x60;net_worth_diff&#x60;; pass &#x60;stats&#x60; for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo&#39;s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  &#x60;group_by&#x60; chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping &#x60;enemy_hero_ids&#x60; gives a duo&#39;s record across every opponent, dropping &#x60;hero_ids&#x60; gives what a duo is up against, and dropping &#x60;assigned_lane&#x60; merges the lanes. Folded dimensions come back as &#x60;0&#x60; / an empty array.  Pass &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ &gt; **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at &#x60;sample_time_s&#x60; (900 by default, the last sample before the game&#39;s recording cadence coarsens) off the matchups that lasted that long, counted by &#x60;sample_matches&#x60;. Souls are always reported, in &#x60;net_worth_diff&#x60;; pass &#x60;stats&#x60; for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo&#39;s own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  &#x60;group_by&#x60; chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping &#x60;enemy_hero_ids&#x60; gives a duo&#39;s record across every opponent, dropping &#x60;hero_ids&#x60; gives what a duo is up against, and dropping &#x60;assigned_lane&#x60; merges the lanes. Folded dimensions come back as &#x60;0&#x60; / an empty array.  Pass &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1633,7 +1633,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1670,7 +1670,7 @@ No authorization required
 
 Lane Soul Curve (Subject to Change)
 
- &gt; **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo&#39;s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from &#x60;min_time_s&#x60; (180 by default) to &#x60;max_time_s&#x60;, which is open by default, so a matchup is followed until its matches end. &#x60;sample_matches&#x60; reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in &#x60;net_worth_diff&#x60;. Pass &#x60;stats&#x60; for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo&#39;s own combined value *and* as its lead over the enemy duo.  &#x60;group_by&#x60; chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping &#x60;enemy_hero_ids&#x60; gives a duo&#39;s curve across every opponent, dropping &#x60;hero_ids&#x60; gives what a duo is up against, and dropping &#x60;assigned_lane&#x60; merges the lanes. Folded dimensions come back as &#x60;0&#x60; / an empty array.  Pass &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ &gt; **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo&#39;s lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from &#x60;min_time_s&#x60; (180 by default) to &#x60;max_time_s&#x60;, which is open by default, so a matchup is followed until its matches end. &#x60;sample_matches&#x60; reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in &#x60;net_worth_diff&#x60;. Pass &#x60;stats&#x60; for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo&#39;s own combined value *and* as its lead over the enemy duo.  &#x60;group_by&#x60; chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping &#x60;enemy_hero_ids&#x60; gives a duo&#39;s curve across every opponent, dropping &#x60;hero_ids&#x60; gives what a duo is up against, and dropping &#x60;assigned_lane&#x60; merges the lanes. Folded dimensions come back as &#x60;0&#x60; / an empty array.  Pass &#x60;hero_ids&#x60; and &#x60;enemy_hero_ids&#x60; to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1716,7 +1716,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1754,7 +1754,7 @@ No authorization required
 
 Player Performance Curve
 
- Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1801,7 +1801,7 @@ try {
 | **resolution** | **kotlin.Int**| Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). | [optional] [default to 10] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -1838,7 +1838,7 @@ No authorization required
 
 Player Scoreboard
 
- This endpoint returns the player scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the player scoreboard.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1924,7 +1924,7 @@ No authorization required
 
 Player Stats Metrics
 
- Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1971,7 +1971,7 @@ try {
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |

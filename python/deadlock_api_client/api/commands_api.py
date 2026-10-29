@@ -56,7 +56,7 @@ class CommandsApi:
     ) -> List[VariableDescription]:
         """Available Variables
 
-         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -120,7 +120,7 @@ class CommandsApi:
     ) -> ApiResponse[List[VariableDescription]]:
         """Available Variables
 
-         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -184,7 +184,7 @@ class CommandsApi:
     ) -> RESTResponseType:
         """Available Variables
 
-         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -308,7 +308,7 @@ class CommandsApi:
     ) -> str:
         """Resolve Command
 
-             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -388,7 +388,7 @@ class CommandsApi:
     ) -> ApiResponse[str]:
         """Resolve Command
 
-             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -468,7 +468,7 @@ class CommandsApi:
     ) -> RESTResponseType:
         """Resolve Command
 
-             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+             Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: The players `SteamID3` (required)
         :type account_id: int
@@ -624,7 +624,7 @@ class CommandsApi:
     ) -> Dict[str, str]:
         """Resolve Variables
 
-         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: (required)
         :type account_id: int
@@ -704,7 +704,7 @@ class CommandsApi:
     ) -> ApiResponse[Dict[str, str]]:
         """Resolve Variables
 
-         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: (required)
         :type account_id: int
@@ -784,7 +784,7 @@ class CommandsApi:
     ) -> RESTResponseType:
         """Resolve Variables
 
-         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
 
         :param account_id: (required)
         :type account_id: int

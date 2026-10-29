@@ -309,7 +309,7 @@ pub enum RankPredictImageError {
 }
 
 
-///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn enemy_stats(configuration: &configuration::Configuration, params: EnemyStatsParams) -> Result<Vec<models::EnemyStats>, Error<EnemyStatsError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/enemy-stats", configuration.base_path, account_id=params.account_id);
@@ -371,7 +371,7 @@ pub async fn enemy_stats(configuration: &configuration::Configuration, params: E
     }
 }
 
-///  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |     
+///  This endpoint returns the player match history for the given `account_id`.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h | | Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h | | Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h | 
 pub async fn match_history(configuration: &configuration::Configuration, params: MatchHistoryParams) -> Result<Vec<models::PlayerMatchHistoryEntry>, Error<MatchHistoryError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/match-history", configuration.base_path, account_id=params.account_id);
@@ -409,7 +409,7 @@ pub async fn match_history(configuration: &configuration::Configuration, params:
     }
 }
 
-///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn mate_stats(configuration: &configuration::Configuration, params: MateStatsParams) -> Result<Vec<models::MateStats>, Error<MateStatsError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/mate-stats", configuration.base_path, account_id=params.account_id);
@@ -474,7 +474,7 @@ pub async fn mate_stats(configuration: &configuration::Configuration, params: Ma
     }
 }
 
-///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn player_hero_stats(configuration: &configuration::Configuration, params: PlayerHeroStatsParams) -> Result<Vec<models::HeroStats>, Error<PlayerHeroStatsError>> {
 
     let uri_str = format!("{}/v1/players/hero-stats", configuration.base_path);
@@ -629,7 +629,7 @@ pub async fn rank_avg_image(configuration: &configuration::Configuration, params
     }
 }
 
-///  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min & 2000req/h | | Global | 200req/min | 
+///  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
 pub async fn rank_batch(configuration: &configuration::Configuration, params: RankBatchParams) -> Result<Vec<models::AccountRank>, Error<RankBatchError>> {
 
     let uri_str = format!("{}/v1/players/rank", configuration.base_path);

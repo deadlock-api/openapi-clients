@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Enemy Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// Enemy Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -83,7 +83,7 @@ namespace DeadlockApiClient.Api
         /// Match History
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -96,7 +96,7 @@ namespace DeadlockApiClient.Api
         /// Match History
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        ///  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
@@ -108,7 +108,7 @@ namespace DeadlockApiClient.Api
         /// Mate Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -130,7 +130,7 @@ namespace DeadlockApiClient.Api
         /// Mate Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -151,7 +151,7 @@ namespace DeadlockApiClient.Api
         /// Hero Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -176,7 +176,7 @@ namespace DeadlockApiClient.Api
         /// Hero Stats
         /// </summary>
         /// <remarks>
-        ///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -248,7 +248,7 @@ namespace DeadlockApiClient.Api
         /// Batch Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -260,7 +260,7 @@ namespace DeadlockApiClient.Api
         /// Batch Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -274,7 +274,7 @@ namespace DeadlockApiClient.Api
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -293,7 +293,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -1137,7 +1137,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorEnemyStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed);
 
         /// <summary>
-        /// Enemy Stats  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Enemy Stats  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -1164,7 +1164,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Enemy Stats  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Enemy Stats  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -1442,7 +1442,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMatchHistory(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<bool> forceRefetch);
 
         /// <summary>
-        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="forceRefetch">Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)</param>
@@ -1461,7 +1461,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | - -- - | - -- -- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+        /// Match History  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -1793,7 +1793,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorMateStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string?> gameMode, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minMatchId, Option<long?> maxMatchId, Option<long?> minMatchesPlayed, Option<long?> maxMatchesPlayed, Option<bool> sameParty);
 
         /// <summary>
-        /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -1821,7 +1821,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Mate Stats  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -2162,7 +2162,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorPlayerHeroStats(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string?> gameMode, Option<string?> matchMode, Option<string?> heroIds, Option<long?> minUnixTimestamp, Option<long?> maxUnixTimestamp, Option<long?> minDurationS, Option<long?> maxDurationS, Option<long?> minNetworth, Option<long?> maxNetworth, Option<int?> minAverageBadge, Option<int?> maxAverageBadge, Option<long?> minMatchId, Option<long?> maxMatchId);
 
         /// <summary>
-        /// Hero Stats  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Hero Stats  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="gameMode">Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)</param>
@@ -2193,7 +2193,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Hero Stats  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Hero Stats  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -3051,7 +3051,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds);
 
         /// <summary>
-        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3069,7 +3069,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -3344,7 +3344,7 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3371,7 +3371,7 @@ namespace DeadlockApiClient.Api
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>

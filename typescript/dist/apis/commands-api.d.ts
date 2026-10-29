@@ -25,7 +25,7 @@ export declare const CommandsApiAxiosParamCreator: (configuration?: Configuratio
      */
     availableVariables: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Command
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {CommandResolveRegionEnum} [region] The players region
@@ -66,7 +66,7 @@ export declare const CommandsApiFp: (configuration?: Configuration) => {
      */
     availableVariables(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VariableDescription>>>;
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Command
      * @param {number} accountId The players &#x60;SteamID3&#x60;
      * @param {CommandResolveRegionEnum} [region] The players region
@@ -111,7 +111,7 @@ export declare const CommandsApiFactory: (configuration?: Configuration, basePat
      */
     availableVariables(options?: RawAxiosRequestConfig): AxiosPromise<Array<VariableDescription>>;
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Command
      * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -186,7 +186,7 @@ export declare class CommandsApi extends BaseAPI {
      */
     availableVariables(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<VariableDescription[], any, {}, any>>;
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |
      * @summary Resolve Command
      * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

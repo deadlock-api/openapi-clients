@@ -57,7 +57,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/patches/big-days
      * Big Days
-     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return kotlin.collections.List<kotlin.String>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -88,7 +88,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/patches/big-days
      * Big Days
-     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a list of dates where Deadlock&#39;s \&quot;big\&quot; patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<kotlin.collections.List<kotlin.String>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -127,7 +127,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/patches
      * Notes
-     *  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return kotlin.collections.List<Patch>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -160,7 +160,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/patches
      * Notes
-     *  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  **Deprecated:** Use &#x60;/v2/patches&#x60; instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<kotlin.collections.List<Patch>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -202,7 +202,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v2/patches
      * Notes
-     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return kotlin.collections.List<FeedItem>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -233,7 +233,7 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v2/patches
      * Notes
-     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<kotlin.collections.List<FeedItem>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception

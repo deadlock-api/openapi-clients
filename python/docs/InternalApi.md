@@ -325,7 +325,7 @@ The endpoint accepts a list of MatchSalts objects, which contain the following f
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -764,7 +764,7 @@ Stores a component annotation or general feedback submitted from deadlock-api.co
 | IP | 10req/min, 100req/h |
 | Key | - |
 | Global | 2000req/h |
-    
+
 
 ### Example
 

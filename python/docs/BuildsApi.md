@@ -34,7 +34,7 @@ Relevant Protobuf Messages:
 | IP | 20req/min |
 | Key | 100req/min |
 | Global | 500req/min |
-    
+
 
 ### Example
 
@@ -128,7 +128,7 @@ Relevant Protobuf Messages:
 | IP | 20req/min |
 | Key | 100req/min |
 | Global | 500req/min |
-    
+
 
 ### Example
 
@@ -208,7 +208,7 @@ Search for builds based on various criteria.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 

@@ -25,7 +25,7 @@ import {
 
 
 /**
- *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Big Days
  */
 function bigPatchDaysRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<string>> = {}): QueryConfig<T> {
@@ -60,7 +60,7 @@ function bigPatchDaysRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<st
 }
 
 /**
-*  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns a list of dates where Deadlock\'s \"big\" patch days were, usually bi-weekly. The exact date is the time when the update was announced.  This list is manually maintained, and so new patch dates may be delayed by a few hours.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Big Days
 */
 export function bigPatchDays<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<string>>): QueryConfig<T> {
@@ -68,7 +68,7 @@ export function bigPatchDays<T>( requestConfig?: runtime.TypedQueryConfig<T, Arr
 }
 
 /**
- *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Notes
  */
 function feedRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<Patch>> = {}): QueryConfig<T> {
@@ -104,7 +104,7 @@ function feedRaw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<Patch>> = 
 }
 
 /**
-*  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  **Deprecated:** Use `/v2/patches` instead, which returns a unified feed combining the Forum changelog and the Steam news feed.  Returns the parsed result of the RSS Feed from the official Forum.  RSS-Feed: https://forums.playdeadlock.com/forums/changelog.10/index.rss  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Notes
 */
 export function feed<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<Patch>>): QueryConfig<T> {
@@ -112,7 +112,7 @@ export function feed<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<Patch
 }
 
 /**
- *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+ *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Notes
  */
 function feed_1Raw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<FeedItem>> = {}): QueryConfig<T> {
@@ -148,7 +148,7 @@ function feed_1Raw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<FeedItem
 }
 
 /**
-*  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+*  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Notes
 */
 export function feed_1<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<FeedItem>>): QueryConfig<T> {

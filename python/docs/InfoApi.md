@@ -22,7 +22,7 @@ Checks the health of the services.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -96,7 +96,7 @@ Returns information about the API.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 

@@ -29,7 +29,7 @@ import type { VariableDescription } from '../models/index.js';
 export const CommandsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Available Variables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -59,7 +59,7 @@ export const CommandsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Command
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {CommandResolveRegionEnum} [region] The players region
@@ -111,7 +111,7 @@ export const CommandsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Variables
          * @param {number} accountId 
          * @param {VariablesResolveRegionEnum} [region] 
@@ -202,7 +202,7 @@ export const CommandsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CommandsApiAxiosParamCreator(configuration)
     return {
         /**
-         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Available Variables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -214,7 +214,7 @@ export const CommandsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Command
          * @param {number} accountId The players &#x60;SteamID3&#x60;
          * @param {CommandResolveRegionEnum} [region] The players region
@@ -230,7 +230,7 @@ export const CommandsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Variables
          * @param {number} accountId 
          * @param {VariablesResolveRegionEnum} [region] 
@@ -267,7 +267,7 @@ export const CommandsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = CommandsApiFp(configuration)
     return {
         /**
-         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Available Variables
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -276,7 +276,7 @@ export const CommandsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.availableVariables(options).then((request) => request(axios, basePath));
         },
         /**
-         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+         *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Command
          * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -286,7 +286,7 @@ export const CommandsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.commandResolve(requestParameters.accountId, requestParameters.region, requestParameters.template, requestParameters.heroName, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+         *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
          * @summary Resolve Variables
          * @param {CommandsApiVariablesResolveRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -356,7 +356,7 @@ export interface CommandsApiVariablesResolveRequest {
  */
 export class CommandsApi extends BaseAPI {
     /**
-     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Available Variables
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -366,7 +366,7 @@ export class CommandsApi extends BaseAPI {
     }
 
     /**
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @summary Resolve Command
      * @param {CommandsApiCommandResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -377,7 +377,7 @@ export class CommandsApi extends BaseAPI {
     }
 
     /**
-     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @summary Resolve Variables
      * @param {CommandsApiVariablesResolveRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

@@ -42,7 +42,7 @@ namespace DeadlockApiClient.Api
         /// Available Variables
         /// </summary>
         /// <remarks>
-        ///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -53,7 +53,7 @@ namespace DeadlockApiClient.Api
         /// Available Variables
         /// </summary>
         /// <remarks>
-        ///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        ///  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAvailableVariablesApiResponse"/>?&gt;</returns>
@@ -63,7 +63,7 @@ namespace DeadlockApiClient.Api
         /// Resolve Command
         /// </summary>
         /// <remarks>
-        ///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+        ///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -78,7 +78,7 @@ namespace DeadlockApiClient.Api
         /// Resolve Command
         /// </summary>
         /// <remarks>
-        ///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+        ///      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="region">The players region (optional)</param>
@@ -92,7 +92,7 @@ namespace DeadlockApiClient.Api
         /// Resolve Variables
         /// </summary>
         /// <remarks>
-        ///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+        ///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId"></param>
@@ -107,7 +107,7 @@ namespace DeadlockApiClient.Api
         /// Resolve Variables
         /// </summary>
         /// <remarks>
-        ///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+        ///  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </remarks>
         /// <param name="accountId"></param>
         /// <param name="region"> (optional)</param>
@@ -381,7 +381,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorAvailableVariables(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
-        /// Available Variables  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Available Variables  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="IAvailableVariablesApiResponse"/>&gt;</returns>
@@ -398,7 +398,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Available Variables  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - |     
+        /// Available Variables  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -649,7 +649,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorCommandResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> template, Option<string?> heroName);
 
         /// <summary>
-        /// Resolve Command      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+        /// Resolve Command      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="region">The players region (optional)</param>
@@ -670,7 +670,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Resolve Command      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+        /// Resolve Command      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -944,7 +944,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorVariablesResolve(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> region, Option<string> variables, Option<string?> heroName);
 
         /// <summary>
-        /// Resolve Variables  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+        /// Resolve Variables  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </summary>
         /// <param name="accountId"></param>
         /// <param name="region"> (optional)</param>
@@ -965,7 +965,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Resolve Variables  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+        /// Resolve Variables  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId"></param>

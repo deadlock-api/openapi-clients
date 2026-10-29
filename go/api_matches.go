@@ -62,7 +62,7 @@ Fetched from the watch tab in game, which is limited to the **top 200 matches**.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiActiveMatchesRequest
@@ -193,7 +193,7 @@ Relevant Protobuf Message:
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiActiveMatchesRawRequest
@@ -559,7 +559,7 @@ When player info is included, each player object contains `hero_build_id` and `p
 | IP | 30req/min |
 | Key | 30req/10s |
 | Global | 600req/min |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiBulkMetadataRequest
@@ -816,7 +816,7 @@ These URLs can be used in any demofile broadcast parser:
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiIngestUrlsRequest
@@ -941,10 +941,10 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
-    
+| IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param matchId The match ID
@@ -1083,10 +1083,10 @@ Relevant Protobuf Messages:
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From Cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
-| Key | From Cache: 100req/s<br>From S3: 100req/s<br>From Steam: 300req/h |
-| Global | From Cache: 100req/s<br>From S3: 700req/s<br>From Steam: 1500req/h |
-    
+| IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h |
+| Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h |
+| Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param matchId The match ID
@@ -1206,7 +1206,7 @@ This endpoint returns a list of match ids that have been fetched within the last
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRecentlyFetchedRequest
@@ -1321,10 +1321,10 @@ This endpoints returns salts that can be used to fetch metadata and demofile for
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | From DB: 100req/s<br>From Steam: 10req/30mins |
-| Key | From DB: -<br>From Steam: 10req/min |
-| Global | From DB: -<br>From Steam: 10req/10s |
-    
+| IP | From DB: 100req/s<br>From Steam: 3req/h |
+| Key | From DB: -<br>From Steam: 300req/h |
+| Global | From DB: -<br>From Steam: 1500req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param matchId The match ID
@@ -1445,11 +1445,10 @@ Only spectating counts against these limits; a match spectated within the last h
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 6req/h |
-| Key | 10req/10m, 50req/h |
-| Global (without API key) | 60req/10m, 300req/h |
-| Global (with API key) | 20req/10m, 100req/h |
-    
+| IP | Without API key: 6req/h<br>With API key: - |
+| Key | Without API key: -<br>With API key: 10req/10min, 50req/h |
+| Global | Without API key: 60req/10min, 300req/h<br>With API key: 20req/10min, 100req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param matchId The match ID
@@ -1567,7 +1566,7 @@ These can be used in any demofile broadcast parser:
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiUrlsRequest

@@ -36,7 +36,7 @@ Method | HTTP request | Description
 > Vec<models::AnalyticsAbilityMaxFirstStats> ability_max_first_stats(hero_id, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_ability_upgrades, max_ability_upgrades, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_id, account_ids, hero_build_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix)
 Ability Max First Stats
 
- Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero's players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves which ability the players of a hero max first: one row per ability, with every player whose upgrade order unlocks and upgrades it three times before any other ability, and one row (`ability_id` null) for the players who maxed none. Every player is in exactly one row, so the rows add up to all the hero's players, and `min_matches` never drops the null row. Unlike summing `/ability-order-tree` nodes, no player is lost to `min_matches` on a rare order.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -88,7 +88,7 @@ No authorization required
 > Vec<models::AnalyticsAbilityOrderStats> ability_order_stats(hero_id, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_ability_upgrades, max_ability_upgrades, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_id, account_ids, hero_build_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix)
 Ability Order Stats
 
- Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves statistics for the ability order of a hero.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -140,7 +140,7 @@ No authorization required
 > Vec<models::AnalyticsAbilityOrderTreeNode> ability_order_tree(hero_id, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_ability_upgrades, max_ability_upgrades, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_id, account_ids, hero_build_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix)
 Ability Order Tree
 
- Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves the ability upgrade orders of a hero as a tree: one node per order prefix, with the stats of every player whose order starts with it. `min_matches` applies to each node, so a node counts all its players even when their full orders are rare (which `/ability-order-stats`, grouping by full order, leaves out). A node's parent is always present.  In `street_brawl`, ability points come in blocks, and the upgrades within one block are sorted by ability id.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -192,7 +192,7 @@ No authorization required
 > Vec<models::BadgeDistribution> badge_distribution(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id)
 Badge Distribution
 
- This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the player badge distribution.  `total_matches` counts matches by their average badge, while `unique_players` counts players by the rank Valve reported at the end of their latest ranked match within the filtered range. Since only ranked matches carry a rank, `unique_players` ignores the `match_mode` filter and always looks at ranked matches.  Ranks exist only from the first ranked season on, so `min_unix_timestamp` is clamped to its start.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). Values below the start of the first ranked season (1785430800) are clamped to it. **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -232,7 +232,7 @@ No authorization required
 > Vec<models::AnalyticsBuffStats> buff_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, min_networth, max_networth, hero_ids, account_ids)
 Buff Stats
 
- Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves pickup statistics per power-up buff type (e.g. `hp_permanent_pickup_lv2`): how often players pick each one up and, for matches since build 6712 (2026-09-29), when they pick it up and how much stat it grants.  Pickup counts cover every match. Pickup times and stat values are only recorded since build 6712, so `timed_matches`, `timed_pickups`, `total_stat_value` and the average times only cover those matches. Temporary power-ups have no timings.  Buff display names, value units and graph colors: <https://api.deadlock-api.com/v1/assets/misc-entities>  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -275,7 +275,7 @@ No authorization required
 > Vec<models::BuildItemStats> build_item_stats(hero_id, min_last_updated_unix_timestamp, max_last_updated_unix_timestamp)
 Build Item Stats
 
- Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item statistics from hero builds.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -283,7 +283,7 @@ Build Item Stats
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **hero_id** | Option<**u32**> | Filter builds based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_last_updated_unix_timestamp** | Option<**i64**> | Filter builds based on their last updated time (Unix timestamp). |  |
 
 ### Return type
@@ -307,7 +307,7 @@ No authorization required
 > Vec<models::AnalyticsGameStats> game_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, min_networth, max_networth, hero_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids)
 Game Stats
 
- Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves aggregate game-level statistics.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -355,7 +355,7 @@ No authorization required
 > Vec<models::HeroBanStats> hero_ban_stats(match_mode, bucket, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id)
 Hero Ban Stats
 
- Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves ban statistics for each hero based on historical match data from demo analysis.  Only matches with successfully extracted ban data are included. `matches` counts them per bucket, so a hero's ban rate is `bans / matches`. Matches where ban extraction failed (empty `banned_hero_ids`) are excluded entirely.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -394,7 +394,7 @@ No authorization required
 > Vec<models::HeroBuildStats> hero_build_stats(hero_id, match_mode, bucket, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_build_id, include_performance, min_matches, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix)
 Hero Build Stats
 
- Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -404,7 +404,7 @@ Name | Type | Description  | Required | Notes
 **hero_id** | **u32** | The hero ID to fetch build stats for. See more: <https://api.deadlock-api.com/v1/assets/heroes> | [required] |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. `min_matches` applies to each build and bucket. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -441,7 +441,7 @@ No authorization required
 > Vec<models::HeroCombStats> hero_comb_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_hero_ids, exclude_hero_ids, include_enemy_hero_ids, exclude_enemy_hero_ids, min_matches, max_matches, comb_size, account_id, account_ids)
 Hero Comb Stats
 
- Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -450,7 +450,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -491,7 +491,7 @@ No authorization required
 > Vec<models::HeroCounterStats> hero_counters_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_enemy_networth, max_enemy_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, same_lane_filter, min_matches, max_matches, account_id, account_ids, hero_build_id)
 Hero Counter Stats
 
- Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero-versus-hero matchup statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific hero (`hero_id`) wins against an enemy hero (`enemy_hero_id`) and the total number of times they have faced each other under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -540,7 +540,7 @@ No authorization required
 > Vec<models::HeroEntry> hero_scoreboard(sort_by, sort_direction, game_mode, match_mode, min_matches, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, account_id, account_ids)
 Hero Scoreboard
 
- This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the hero scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -552,7 +552,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **min_matches** | Option<**u32**> | Filter by min number of matches played. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -586,7 +586,7 @@ No authorization required
 > Vec<models::AnalyticsHeroStats> hero_stats(bucket, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_hero_matches, max_hero_matches, min_hero_matches_total, max_hero_matches_total, hero_matches_total_buckets, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_id, account_ids)
 Hero Stats
 
- Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves performance statistics for each hero based on historical match data.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -596,7 +596,7 @@ Name | Type | Description  | Required | Notes
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -639,7 +639,7 @@ No authorization required
 > Vec<models::HeroSwapStats> hero_swap_stats(match_mode, bucket, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id)
 Hero Swap Stats
 
- Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero swap statistics for each hero based on historical match data from demo analysis.  A player swapped when the hero they had locked before the pre-game swap window (`pregame_hero_id`) differs from the hero they played. Only players whose pre-game hero was extracted from the demo are counted, so all fields share the same sample:  - **Swap-in rate:** `swapped_in / matches`, the share of this hero's players who swapped to it. - **Swap-in win rate:** `swapped_in_wins / swapped_in`. - **Swap-away rate:** `swapped_away / pregame_picks`, the share of players who had this hero locked and swapped away from it.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -648,7 +648,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **bucket** | Option<**String**> | Bucket allows you to group the stats by a specific field. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -678,7 +678,7 @@ No authorization required
 > Vec<models::HeroSynergyStats> hero_synergies_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, same_lane_filter, min_matches, max_matches, account_id, account_ids)
 Hero Synergy Stats
 
- Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves hero pair synergy statistics based on historical match data.  This endpoint analyzes completed matches to calculate how often a specific pair of heroes (`hero_id1` and `hero_id2`) won when playing *together on the same team*, and the total number of times they have played together under the specified filter conditions.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -687,7 +687,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -724,7 +724,7 @@ No authorization required
 > models::ItemFlowStats item_flow_stats(phase_interval_s, phase_count, game_mode, match_mode, hero_ids, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, min_matches, account_ids, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, locked_item_ids, locked_columns)
 Item Flow Stats
 
- Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path's games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item build-flow statistics: per-phase item win/pick rates and the transitions between them.  Items are grouped into columns by the in-match phase they were bought in: fixed time phases (0-9m, 9-20m, 20-30m, 30m+) for `normal`, `phase_count` rounds for `street_brawl`. The response contains `nodes` (items aggregated within a phase) and `edges` (transitions between an item and items in the next phase). A locked build path can be supplied via `locked_item_ids` / `locked_columns` to restrict the population to players who bought those items in the given stage columns.  Each node also carries `adjusted_win_rate`: the item's win rate standardized to the stage's net-worth-at-buy distribution. Because players who are already ahead have more souls and buy items sooner, raw win rate is heavily confounded by wealth; the adjusted figure re-weights each item's win rate across net-worth buckets to the stage-wide distribution, isolating the item's contribution from the buyer's lead. It is still observational, not a controlled/causal estimate. `reached_per_column` gives the distinct baseline games that bought any upgrade in each column, so consumers can show how survivorship-selected (e.g. long-game-only) a late stage is; `reached_wins_per_column` counts the won ones among them, the win rate a build ending in that stage should be compared with. `summary_reached_per_column` and `summary_reached_wins_per_column` count the same over the locked build path's games, the win rate an item bought in that stage should be compared with.  Corrupted items (build 6712+, same item id as the normal item) are not counted as purchases; the normal item they replaced still is.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -736,7 +736,7 @@ Name | Type | Description  | Required | Notes
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -776,7 +776,7 @@ No authorization required
 > Vec<models::ItemPermutationStats> item_permutation_stats(item_ids, comb_size, min_matches, max_matches, game_mode, match_mode, hero_ids, hero_id, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, account_id, account_ids, ability_order_prefix, ability_unlock_order_prefix, include_corrupted_items)
 Item Permutation Stats
 
- Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item permutation statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -791,7 +791,7 @@ Name | Type | Description  | Required | Notes
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **hero_id** | Option<**u32**> | Filter matches based on the hero ID. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -828,7 +828,7 @@ No authorization required
 > Vec<models::ItemStats> item_stats(bucket, game_mode, match_mode, hero_ids, hero_id, enemy_hero_ids, enemy_hero_ids_all_match, min_enemy_networth, max_enemy_networth, same_lane_filter, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, hero_build_id, min_matches, max_matches, account_id, account_ids, min_bought_at_s, max_bought_at_s, item_order, corrupted_items, include_corrupted_items, enhanced_items)
 Item Stats
 
- Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves item statistics based on historical match data.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -845,7 +845,7 @@ Name | Type | Description  | Required | Notes
 **min_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **max_enemy_networth** | Option<**u64**> | Filter the specified enemy hero(es) by their final net worth. Ignored when `enemy_hero_ids` is unset. |  |
 **same_lane_filter** | Option<**bool**> | When `true`, only counts buyers in the same `assigned_lane` as one of the specified enemy heroes. Ignored when `enemy_hero_ids` is unset. **Default:** `false`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -892,7 +892,7 @@ No authorization required
 > Vec<models::KillDeathStats> kill_death_stats(team, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, account_ids, hero_ids, min_networth, max_networth, is_high_skill_range_parties, is_low_pri_pool, is_new_player_pool, min_match_id, max_match_id, min_average_badge, max_average_badge, min_kills_per_raster, max_kills_per_raster, min_deaths_per_raster, max_deaths_per_raster, min_game_time_s, max_game_time_s)
 Kill Death Stats
 
- This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the kill-death statistics across a 128x128 pixel raster.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -902,7 +902,7 @@ Name | Type | Description  | Required | Notes
 **team** | Option<**u32**> | Filter by team number. |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -945,7 +945,7 @@ No authorization required
 > Vec<models::LaneMatchupStats> lane_matchup_stats(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, sample_time_s, assigned_lanes, hero_ids, enemy_hero_ids, stats, group_by, min_matches, max_matches, account_ids)
 Lane Matchup Stats (Subject to Change)
 
- > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves duo-versus-duo lane statistics: how a pair of heroes sharing a lane performed against the pair of heroes they laned against.  Win rate covers the whole match. Everything else is read at `sample_time_s` (900 by default, the last sample before the game's recording cadence coarsens) off the matchups that lasted that long, counted by `sample_matches`. Souls are always reported, in `net_worth_diff`; pass `stats` for any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's record across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -954,7 +954,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -993,7 +993,7 @@ No authorization required
 > Vec<models::LaneSoulCurve> lane_soul_curve(game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_average_badge, max_average_badge, min_match_id, max_match_id, min_time_s, max_time_s, assigned_lanes, hero_ids, enemy_hero_ids, stats, group_by, min_matches, max_matches, account_ids)
 Lane Soul Curve (Subject to Change)
 
- > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ > **⚠️ Subject to change:** This endpoint is newly added and not yet stable. Its parameters, response fields and semantics may change or be removed without notice.  Retrieves how a duo's lead over the duo they laned against develops over the course of the match.  The curve is not interpolated: it carries exactly the samples the game records, which are every 180 seconds up to the 15 minute mark and every 300 seconds after that. It runs from `min_time_s` (180 by default) to `max_time_s`, which is open by default, so a matchup is followed until its matches end. `sample_matches` reports how many matchups were still running at each point, and thins out towards the end of the curve.  Only lanes where *both* sides fielded exactly two players are counted, and each lane contributes one row per side, so every matchup appears twice with the two sides swapped.  Souls are always reported, in `net_worth_diff`. Pass `stats` for curves of any other per-tick stat the game records — kills, denies, player damage, healing, level and so on — each as the duo's own combined value *and* as its lead over the enemy duo.  `group_by` chooses what a row stands for. The default groups all three dimensions, giving one row per duo-versus-duo matchup per lane. Dropping `enemy_hero_ids` gives a duo's curve across every opponent, dropping `hero_ids` gives what a duo is up against, and dropping `assigned_lane` merges the lanes. Folded dimensions come back as `0` / an empty array.  Pass `hero_ids` and `enemy_hero_ids` to scope the response to the duos you care about. Without them the full duo-versus-duo matrix is computed, which is a considerably more expensive query.  Results are cached for **1 hour** based on the combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -1002,7 +1002,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -1042,7 +1042,7 @@ No authorization required
 > Vec<models::PlayerPerformanceCurvePoint> player_performance_curve(resolution, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, hero_ids, hero_build_id, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids)
 Player Performance Curve
 
- Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Retrieves player performance statistics (net worth, kills, deaths, assists, souls per source, damage and kills per target, healing, barriers and self damage) over time throughout matches.  Results are cached for **1 hour** based on the unique combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -1052,7 +1052,7 @@ Name | Type | Description  | Required | Notes
 **resolution** | Option<**u32**> | Resolution for relative game times in percent (0-100). **Default:** 10 (buckets of 10%). Set to **0** to use absolute game time (seconds). |  |[default to 10]
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
@@ -1091,7 +1091,7 @@ No authorization required
 > Vec<models::PlayerEntry> player_scoreboard(sort_by, sort_direction, game_mode, match_mode, hero_id, hero_build_id, min_matches, max_matches, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, start, limit, account_ids)
 Player Scoreboard
 
- This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ This endpoint returns the player scoreboard.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -1141,7 +1141,7 @@ No authorization required
 > std::collections::HashMap<String, models::HashMapValue> player_stats_metrics(hero_ids, game_mode, match_mode, min_unix_timestamp, max_unix_timestamp, min_duration_s, max_duration_s, min_networth, max_networth, min_average_badge, max_average_badge, min_match_id, max_match_id, max_matches, include_item_ids, exclude_item_ids, ability_order_prefix, ability_unlock_order_prefix, account_ids, include_buff_metrics)
 Player Stats Metrics
 
- Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min |     
+ Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min | | Global | 2000req/min | 
 
 ### Parameters
 
@@ -1151,7 +1151,7 @@ Name | Type | Description  | Required | Notes
 **hero_ids** | Option<**String**> | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> |  |
 **game_mode** | Option<**String**> | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. |  |
 **match_mode** | Option<**String**> | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. |  |
-**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790467200]
+**min_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. |  |[default to 1790553600]
 **max_unix_timestamp** | Option<**i64**> | Filter matches based on their start time (Unix timestamp). |  |
 **min_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |
 **max_duration_s** | Option<**u64**> | Filter matches based on their duration in seconds (up to 7000s). |  |

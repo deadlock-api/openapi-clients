@@ -56,7 +56,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/variables/available
      * Available Variables
-     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return kotlin.collections.List<VariableDescription>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -87,7 +87,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/variables/available
      * Available Variables
-     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  Returns a list of available variables that can be used in the command endpoint.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @return ApiResponse<kotlin.collections.List<VariableDescription>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
@@ -146,7 +146,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/resolve
      * Resolve Command
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param region The players region (optional)
      * @param template The command template to resolve (optional)
@@ -181,7 +181,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/resolve
      * Resolve Command
-     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/60s | | Key | - | | Global | 300req/60s |     
+     *      Resolves a command and returns the resolved command.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param region The players region (optional)
      * @param template The command template to resolve (optional)
@@ -260,7 +260,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/variables/resolve
      * Resolve Variables
-     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @param accountId 
      * @param region  (optional)
      * @param variables Variables to resolve, separated by commas. (optional)
@@ -295,7 +295,7 @@ open class CommandsApi(basePath: kotlin.String = defaultBasePath, client: Call.F
     /**
      * GET /v1/commands/variables/resolve
      * Resolve Variables
-     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min |     
+     *  Resolves variables and returns a map of variable name to resolved value.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 60req/min | | Key | - | | Global | 300req/min | 
      * @param accountId 
      * @param region  (optional)
      * @param variables Variables to resolve, separated by commas. (optional)

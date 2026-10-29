@@ -32,7 +32,7 @@ This endpoint returns the enemy stats.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -132,13 +132,13 @@ Relevant Protobuf Messages:
 - CMsgClientToGcGetMatchHistory
 - CMsgClientToGcGetMatchHistoryResponse
 
-### Rate Limits (only applies to bot friends):
+### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s<br>Bot-Friend: 10req/h<br>With `force_refetch=true`: 1req/h |
-| Key | -<br>Bot-Friend: 300req/h<br>With `force_refetch=true`: 5req/h |
-| Global | -<br>Bot-Friend: 1500req/h<br>With `force_refetch=true`: 10req/h |
-    
+| IP | Stored history: 100req/s<br>Bot friends: 10req/h<br>With `force_refetch=true`: 1req/h |
+| Key | Stored history: -<br>Bot friends: 300req/h<br>With `force_refetch=true`: 5req/h |
+| Global | Stored history: -<br>Bot friends: 1500req/h<br>With `force_refetch=true`: 10req/h |
+
 
 ### Example
 
@@ -220,7 +220,7 @@ This endpoint returns the mate stats.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -319,7 +319,7 @@ This endpoint returns statistics for each hero played by a given player account.
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
 ### Example
 
@@ -583,7 +583,7 @@ Protected accounts are left out.
 | Type | Limit |
 | ---- | ----- |
 | IP | 20req/min |
-| Key | 100req/min & 2000req/h |
+| Key | 100req/min, 2000req/h |
 | Global | 200req/min |
 
 
@@ -692,7 +692,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.PlayersApi(api_client)
-    min_unix_timestamp = 1790467200 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790467200)
+    min_unix_timestamp = 1790553600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790553600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -718,7 +718,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790467200]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790553600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

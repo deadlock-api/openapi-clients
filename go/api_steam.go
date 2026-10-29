@@ -64,10 +64,10 @@ See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 100req/s (read path), 3req/min + 15req/h (refresh) |
-| Key | - (read path), 10req/min + 60req/h (refresh) |
-| Global | - (read path), 30req/min + 200req/h (refresh) |
-    
+| IP | Read: 100req/s<br>Refresh: 3req/min, 15req/h |
+| Key | Read: -<br>Refresh: 10req/min, 60req/h |
+| Global | Read: -<br>Refresh: 30req/min, 200req/h |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSteamRequest
@@ -235,7 +235,7 @@ See: https://developer.valvesoftware.com/wiki/Steam_Web_API#GetPlayerSummaries_(
 | IP | 100req/s |
 | Key | - |
 | Global | - |
-    
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSteamSearchRequest

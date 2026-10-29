@@ -81,7 +81,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/enemy-stats
      * Enemy Stats
-     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -122,7 +122,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/enemy-stats
      * Enemy Stats
-     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -210,7 +210,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/match-history
      * Match History
-     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
      * @return kotlin.collections.List<PlayerMatchHistoryEntry>
@@ -243,7 +243,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/match-history
      * Match History
-     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits (only applies to bot friends): | Type | Limit | | ---- | ----- | | IP | 100req/s&lt;br&gt;Bot-Friend: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | -&lt;br&gt;Bot-Friend: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | -&lt;br&gt;Bot-Friend: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h |     
+     *  This endpoint returns the player match history for the given &#x60;account_id&#x60;.  If the account is friends with one of our bots, the match history is a combination of the data from **Steam** and **ClickHouse**, so you always get the most up-to-date data and full history. If the account is not friends with a bot, only the stored match history from **ClickHouse** is returned.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgClientToGcGetMatchHistory - CMsgClientToGcGetMatchHistoryResponse  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | Stored history: 100req/s&lt;br&gt;Bot friends: 10req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 1req/h | | Key | Stored history: -&lt;br&gt;Bot friends: 300req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 5req/h | | Global | Stored history: -&lt;br&gt;Bot friends: 1500req/h&lt;br&gt;With &#x60;force_refetch&#x3D;true&#x60;: 10req/h | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param forceRefetch Refetch the match history from Steam, even if it is already cached in &#x60;ClickHouse&#x60;. Only use this if you are sure that the data in &#x60;ClickHouse&#x60; is outdated. Enabling this flag results in a strict rate limit. (optional)
      * @return ApiResponse<kotlin.collections.List<PlayerMatchHistoryEntry>?>
@@ -310,7 +310,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/mate-stats
      * Mate Stats
-     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -352,7 +352,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/{account_id}/mate-stats
      * Mate Stats
-     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns the mate stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountId The players &#x60;SteamID3&#x60;
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
@@ -464,7 +464,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/hero-stats
      * Hero Stats
-     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
@@ -509,7 +509,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/hero-stats
      * Hero Stats
-     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  This endpoint returns statistics for each hero played by a given player account.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @param gameMode Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. (optional)
      * @param matchMode Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. (optional)
@@ -790,7 +790,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/rank
      * Batch Rank
-     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @return kotlin.collections.List<AccountRank>
      * @throws IllegalStateException If the request is not correctly configured
@@ -822,7 +822,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * GET /v1/players/rank
      * Batch Rank
-     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min &amp; 2000req/h | | Global | 200req/min | 
+     *  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
      * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
      * @return ApiResponse<kotlin.collections.List<AccountRank>?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -867,7 +867,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -885,7 +885,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1790467200L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
+    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1790553600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
         val localVarResponse = rankDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -907,7 +907,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -933,7 +933,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation rankDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790467200L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790553600L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)

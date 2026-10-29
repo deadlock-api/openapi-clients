@@ -27,7 +27,7 @@ Lists all tables of the public data lake.
 | IP | 10req/min |
 | Key | - |
 | Global | 60req/min |
-    
+
 
 ### Example
 
@@ -104,10 +104,10 @@ rows are returned (`X-Truncated: true` when cut off), and queries time out after
 ### Rate Limits:
 | Type | Limit |
 | ---- | ----- |
-| IP | 2req/min, 20req/hr |
+| IP | 2req/min, 20req/h |
 | Key | 10req/min |
 | Global | 30req/min |
-    
+
 
 ### Example
 
@@ -191,7 +191,7 @@ original `ClickHouse` type.
 | IP | 10req/min |
 | Key | - |
 | Global | 60req/min |
-    
+
 
 ### Example
 

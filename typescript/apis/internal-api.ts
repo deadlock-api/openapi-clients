@@ -166,7 +166,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Match Salts Ingest
          * @param {Array<ClickhouseSalts>} clickhouseSalts 
          * @param {*} [options] Override http request option.
@@ -355,7 +355,7 @@ export const InternalApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h | 
          * @summary Submit Website Feedback
          * @param {FeedbackSubmission} feedbackSubmission 
          * @param {*} [options] Override http request option.
@@ -437,7 +437,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Match Salts Ingest
          * @param {Array<ClickhouseSalts>} clickhouseSalts 
          * @param {*} [options] Override http request option.
@@ -502,7 +502,7 @@ export const InternalApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h | 
          * @summary Submit Website Feedback
          * @param {FeedbackSubmission} feedbackSubmission 
          * @param {*} [options] Override http request option.
@@ -554,7 +554,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteSteamAccount(requestParameters.accountId, options).then((request) => request(axios, basePath));
         },
         /**
-         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+         *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
          * @summary Match Salts Ingest
          * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -603,7 +603,7 @@ export const InternalApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.replaceSteamAccount(requestParameters.accountId, requestParameters.replaceSteamAccountRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+         *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h | 
          * @summary Submit Website Feedback
          * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -726,7 +726,7 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+     *  You can use this endpoint to help us collecting data.  The endpoint accepts a list of MatchSalts objects, which contain the following fields:  - `match_id`: The match ID - `cluster_id`: The cluster ID - `metadata_salt`: The metadata salt - `replay_salt`: The replay salt - `username`: The username of the person who submitted the match (defaults to the request\'s `User-Agent`)  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
      * @summary Match Salts Ingest
      * @param {InternalApiIngestSaltsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -780,7 +780,7 @@ export class InternalApi extends BaseAPI {
     }
 
     /**
-     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h |     
+     *  Stores a component annotation or general feedback submitted from deadlock-api.com.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min, 100req/h | | Key | - | | Global | 2000req/h | 
      * @summary Submit Website Feedback
      * @param {InternalApiSubmitFeedbackRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

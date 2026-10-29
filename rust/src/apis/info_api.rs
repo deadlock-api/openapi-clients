@@ -32,7 +32,7 @@ pub enum InfoError {
 }
 
 
-///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Checks the health of the services.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn health_check(configuration: &configuration::Configuration) -> Result<models::Status, Error<HealthCheckError>> {
 
     let uri_str = format!("{}/v1/info/health", configuration.base_path);
@@ -67,7 +67,7 @@ pub async fn health_check(configuration: &configuration::Configuration) -> Resul
     }
 }
 
-///  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |     
+///  Returns information about the API.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 pub async fn info(configuration: &configuration::Configuration) -> Result<models::ApiInfo, Error<InfoError>> {
 
     let uri_str = format!("{}/v1/info", configuration.base_path);
