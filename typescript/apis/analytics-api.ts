@@ -6784,6 +6784,7 @@ export const AbilityMaxFirstStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type AbilityMaxFirstStatsGameModeEnum = typeof AbilityMaxFirstStatsGameModeEnum[keyof typeof AbilityMaxFirstStatsGameModeEnum];
 export const AbilityOrderStatsGameModeEnum = {
@@ -6791,6 +6792,7 @@ export const AbilityOrderStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
 export const AbilityOrderTreeGameModeEnum = {
@@ -6798,6 +6800,7 @@ export const AbilityOrderTreeGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type AbilityOrderTreeGameModeEnum = typeof AbilityOrderTreeGameModeEnum[keyof typeof AbilityOrderTreeGameModeEnum];
 export const BadgeDistributionGameModeEnum = {
@@ -6805,6 +6808,7 @@ export const BadgeDistributionGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
 export const BuffStatsGameModeEnum = {
@@ -6812,6 +6816,7 @@ export const BuffStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type BuffStatsGameModeEnum = typeof BuffStatsGameModeEnum[keyof typeof BuffStatsGameModeEnum];
 export const GameStatsBucketEnum = {
@@ -6828,6 +6833,7 @@ export const GameStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export const HeroBanStatsBucketEnum = {
@@ -6852,6 +6858,7 @@ export const HeroCombStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
 export const HeroCountersStatsGameModeEnum = {
@@ -6859,6 +6866,7 @@ export const HeroCountersStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
 export const HeroScoreboardSortByEnum = {
@@ -6940,6 +6948,7 @@ export const HeroScoreboardGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export const HeroStatsBucketEnum = {
@@ -6956,6 +6965,7 @@ export const HeroStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
 export const HeroSwapStatsBucketEnum = {
@@ -6972,6 +6982,7 @@ export const HeroSynergiesStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
 export const ItemFlowStatsGameModeEnum = {
@@ -6979,6 +6990,7 @@ export const ItemFlowStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type ItemFlowStatsGameModeEnum = typeof ItemFlowStatsGameModeEnum[keyof typeof ItemFlowStatsGameModeEnum];
 export const ItemPermutationStatsGameModeEnum = {
@@ -6986,6 +6998,7 @@ export const ItemPermutationStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
 export const ItemStatsBucketEnum = {
@@ -7010,6 +7023,7 @@ export const ItemStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
 export const ItemStatsCorruptedItemsEnum = {
@@ -7029,6 +7043,7 @@ export const KillDeathStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
 export const LaneMatchupStatsGameModeEnum = {
@@ -7036,6 +7051,7 @@ export const LaneMatchupStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type LaneMatchupStatsGameModeEnum = typeof LaneMatchupStatsGameModeEnum[keyof typeof LaneMatchupStatsGameModeEnum];
 export const LaneSoulCurveGameModeEnum = {
@@ -7043,6 +7059,7 @@ export const LaneSoulCurveGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type LaneSoulCurveGameModeEnum = typeof LaneSoulCurveGameModeEnum[keyof typeof LaneSoulCurveGameModeEnum];
 export const PlayerPerformanceCurveGameModeEnum = {
@@ -7050,6 +7067,7 @@ export const PlayerPerformanceCurveGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
 export const PlayerScoreboardSortByEnum = {
@@ -7131,6 +7149,7 @@ export const PlayerScoreboardGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
 export const PlayerStatsMetricsGameModeEnum = {
@@ -7138,5 +7157,6 @@ export const PlayerStatsMetricsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];

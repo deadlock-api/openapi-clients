@@ -48,7 +48,12 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum Internal for value: internal
         /// </summary>
-        Internal = 4
+        Internal = 4,
+
+        /// <summary>
+        /// Enum Internal02 for value: internal02
+        /// </summary>
+        Internal02 = 5
     }
 
     /// <summary>
@@ -75,6 +80,9 @@ namespace DeadlockApiClient.Model
             if (value.Equals("internal"))
                 return GameMode.Internal;
 
+            if (value.Equals("internal02"))
+                return GameMode.Internal02;
+
             throw new NotImplementedException($"Could not convert value to type GameMode: '{value}'");
         }
 
@@ -96,6 +104,9 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("internal"))
                 return GameMode.Internal;
+
+            if (value.Equals("internal02"))
+                return GameMode.Internal02;
 
             return null;
         }
@@ -119,6 +130,9 @@ namespace DeadlockApiClient.Model
 
             if (value == GameMode.Internal)
                 return "internal";
+
+            if (value == GameMode.Internal02)
+                return "internal02";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

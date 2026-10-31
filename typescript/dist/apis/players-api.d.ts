@@ -818,6 +818,7 @@ export declare const EnemyStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
 export declare const MateStatsGameModeEnum: {
@@ -825,6 +826,7 @@ export declare const MateStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
 export declare const PlayerHeroStatsGameModeEnum: {
@@ -832,6 +834,7 @@ export declare const PlayerHeroStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
 export declare const RankAvgImageFormatEnum: {

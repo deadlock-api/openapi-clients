@@ -969,7 +969,8 @@ export enum EnemyStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
+    Internal = 'internal',
+    Internal02 = 'internal02'
 }
 /**
     * @export
@@ -979,7 +980,8 @@ export enum MateStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
+    Internal = 'internal',
+    Internal02 = 'internal02'
 }
 /**
     * @export
@@ -989,7 +991,8 @@ export enum PlayerHeroStatsGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
+    Internal = 'internal',
+    Internal02 = 'internal02'
 }
 /**
     * @export

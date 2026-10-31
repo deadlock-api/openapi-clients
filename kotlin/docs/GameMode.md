@@ -12,5 +12,7 @@
 
     * `&#x60;internal&#x60;` (value: `"internal"`)
 
+    * `internal02` (value: `"internal02"`)
+
 
 

@@ -66,7 +66,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
          @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
-         @Json(name = "internal") `internal`("internal");
+         @Json(name = "internal") `internal`("internal"),
+         @Json(name = "internal02") internal02("internal02");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -295,7 +296,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
          @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
-         @Json(name = "internal") `internal`("internal");
+         @Json(name = "internal") `internal`("internal"),
+         @Json(name = "internal02") internal02("internal02");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -449,7 +451,8 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
          @Json(name = "normal") normal("normal"),
          @Json(name = "street_brawl") street_brawl("street_brawl"),
          @Json(name = "explore_n_y_c") explore_n_y_c("explore_n_y_c"),
-         @Json(name = "internal") `internal`("internal");
+         @Json(name = "internal") `internal`("internal"),
+         @Json(name = "internal02") internal02("internal02");
 
         /**
          * Override [toString()] to avoid using the enum variable name as the value, and instead use
@@ -867,7 +870,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790640000L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790812800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -885,7 +888,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1790640000L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
+    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1790812800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
         val localVarResponse = rankDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -907,7 +910,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790640000L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790812800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -933,7 +936,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation rankDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790640000L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1790812800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)

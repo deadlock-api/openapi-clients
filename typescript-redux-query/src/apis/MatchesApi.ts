@@ -791,7 +791,8 @@ export enum BulkMetadataGameModeEnum {
     Normal = 'normal',
     StreetBrawl = 'street_brawl',
     ExploreNYC = 'explore_n_y_c',
-    Internal = 'internal'
+    Internal = 'internal',
+    Internal02 = 'internal02'
 }
 /**
     * @export

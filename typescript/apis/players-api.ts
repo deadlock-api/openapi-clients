@@ -1527,6 +1527,7 @@ export const EnemyStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type EnemyStatsGameModeEnum = typeof EnemyStatsGameModeEnum[keyof typeof EnemyStatsGameModeEnum];
 export const MateStatsGameModeEnum = {
@@ -1534,6 +1535,7 @@ export const MateStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type MateStatsGameModeEnum = typeof MateStatsGameModeEnum[keyof typeof MateStatsGameModeEnum];
 export const PlayerHeroStatsGameModeEnum = {
@@ -1541,6 +1543,7 @@ export const PlayerHeroStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type PlayerHeroStatsGameModeEnum = typeof PlayerHeroStatsGameModeEnum[keyof typeof PlayerHeroStatsGameModeEnum];
 export const RankAvgImageFormatEnum = {

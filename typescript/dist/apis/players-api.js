@@ -1051,18 +1051,21 @@ export const EnemyStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const MateStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const PlayerHeroStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const RankAvgImageFormatEnum = {
     Png: 'png',

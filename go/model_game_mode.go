@@ -24,6 +24,7 @@ const (
 	GAMEMODE_STREET_BRAWL GameMode = "street_brawl"
 	GAMEMODE_EXPLORE_N_Y_C GameMode = "explore_n_y_c"
 	GAMEMODE_INTERNAL GameMode = "internal"
+	GAMEMODE_INTERNAL02 GameMode = "internal02"
 )
 
 // All allowed values of GameMode enum
@@ -32,6 +33,7 @@ var AllowedGameModeEnumValues = []GameMode{
 	"street_brawl",
 	"explore_n_y_c",
 	"internal",
+	"internal02",
 }
 
 func (v *GameMode) UnmarshalJSON(src []byte) error {

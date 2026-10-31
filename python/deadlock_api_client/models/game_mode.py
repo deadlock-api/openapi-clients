@@ -30,6 +30,7 @@ class GameMode(str, Enum):
     STREET_BRAWL = 'street_brawl'
     EXPLORE_N_Y_C = 'explore_n_y_c'
     INTERNAL = 'internal'
+    INTERNAL02 = 'internal02'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

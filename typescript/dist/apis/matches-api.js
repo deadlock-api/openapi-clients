@@ -864,6 +864,7 @@ export const BulkMetadataGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const BulkMetadataOrderByEnum = {
     MatchId: 'match_id',

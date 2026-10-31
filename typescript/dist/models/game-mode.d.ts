@@ -14,6 +14,7 @@ export declare const GameMode: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type GameMode = typeof GameMode[keyof typeof GameMode];
 //# sourceMappingURL=game-mode.d.ts.map

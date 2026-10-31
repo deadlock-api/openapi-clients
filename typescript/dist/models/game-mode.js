@@ -16,5 +16,6 @@ export const GameMode = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 //# sourceMappingURL=game-mode.js.map

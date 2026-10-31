@@ -183,7 +183,7 @@ try {
 | **includePlayerStats** | **kotlin.Boolean**| Include player stats in the response. | [optional] |
 | **includePlayerFinalStats** | **kotlin.Boolean**| Include only the final per-player stats (last sample of every &#x60;stats.*&#x60; time-series) as a single &#x60;final_stats&#x60; object. Far cheaper than &#x60;include_player_stats&#x60;, which returns the whole array per field. | [optional] |
 | **includePlayerDeathDetails** | **kotlin.Boolean**| Include player death details in the response. | [optional] |
-| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal] |
+| **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. Omit or pass empty string for no filter. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal, internal02] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |
 | **matchIds** | [**kotlin.collections.List&lt;kotlin.Long&gt;**](kotlin.Long.md)| Comma separated list of match ids, limited by &#x60;limit&#x60; | [optional] |
 | **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |

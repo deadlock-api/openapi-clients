@@ -3655,6 +3655,7 @@ export declare const AbilityMaxFirstStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type AbilityMaxFirstStatsGameModeEnum = typeof AbilityMaxFirstStatsGameModeEnum[keyof typeof AbilityMaxFirstStatsGameModeEnum];
 export declare const AbilityOrderStatsGameModeEnum: {
@@ -3662,6 +3663,7 @@ export declare const AbilityOrderStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type AbilityOrderStatsGameModeEnum = typeof AbilityOrderStatsGameModeEnum[keyof typeof AbilityOrderStatsGameModeEnum];
 export declare const AbilityOrderTreeGameModeEnum: {
@@ -3669,6 +3671,7 @@ export declare const AbilityOrderTreeGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type AbilityOrderTreeGameModeEnum = typeof AbilityOrderTreeGameModeEnum[keyof typeof AbilityOrderTreeGameModeEnum];
 export declare const BadgeDistributionGameModeEnum: {
@@ -3676,6 +3679,7 @@ export declare const BadgeDistributionGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type BadgeDistributionGameModeEnum = typeof BadgeDistributionGameModeEnum[keyof typeof BadgeDistributionGameModeEnum];
 export declare const BuffStatsGameModeEnum: {
@@ -3683,6 +3687,7 @@ export declare const BuffStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type BuffStatsGameModeEnum = typeof BuffStatsGameModeEnum[keyof typeof BuffStatsGameModeEnum];
 export declare const GameStatsBucketEnum: {
@@ -3699,6 +3704,7 @@ export declare const GameStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type GameStatsGameModeEnum = typeof GameStatsGameModeEnum[keyof typeof GameStatsGameModeEnum];
 export declare const HeroBanStatsBucketEnum: {
@@ -3723,6 +3729,7 @@ export declare const HeroCombStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type HeroCombStatsGameModeEnum = typeof HeroCombStatsGameModeEnum[keyof typeof HeroCombStatsGameModeEnum];
 export declare const HeroCountersStatsGameModeEnum: {
@@ -3730,6 +3737,7 @@ export declare const HeroCountersStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type HeroCountersStatsGameModeEnum = typeof HeroCountersStatsGameModeEnum[keyof typeof HeroCountersStatsGameModeEnum];
 export declare const HeroScoreboardSortByEnum: {
@@ -3811,6 +3819,7 @@ export declare const HeroScoreboardGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type HeroScoreboardGameModeEnum = typeof HeroScoreboardGameModeEnum[keyof typeof HeroScoreboardGameModeEnum];
 export declare const HeroStatsBucketEnum: {
@@ -3827,6 +3836,7 @@ export declare const HeroStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type HeroStatsGameModeEnum = typeof HeroStatsGameModeEnum[keyof typeof HeroStatsGameModeEnum];
 export declare const HeroSwapStatsBucketEnum: {
@@ -3843,6 +3853,7 @@ export declare const HeroSynergiesStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type HeroSynergiesStatsGameModeEnum = typeof HeroSynergiesStatsGameModeEnum[keyof typeof HeroSynergiesStatsGameModeEnum];
 export declare const ItemFlowStatsGameModeEnum: {
@@ -3850,6 +3861,7 @@ export declare const ItemFlowStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type ItemFlowStatsGameModeEnum = typeof ItemFlowStatsGameModeEnum[keyof typeof ItemFlowStatsGameModeEnum];
 export declare const ItemPermutationStatsGameModeEnum: {
@@ -3857,6 +3869,7 @@ export declare const ItemPermutationStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type ItemPermutationStatsGameModeEnum = typeof ItemPermutationStatsGameModeEnum[keyof typeof ItemPermutationStatsGameModeEnum];
 export declare const ItemStatsBucketEnum: {
@@ -3881,6 +3894,7 @@ export declare const ItemStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type ItemStatsGameModeEnum = typeof ItemStatsGameModeEnum[keyof typeof ItemStatsGameModeEnum];
 export declare const ItemStatsCorruptedItemsEnum: {
@@ -3900,6 +3914,7 @@ export declare const KillDeathStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type KillDeathStatsGameModeEnum = typeof KillDeathStatsGameModeEnum[keyof typeof KillDeathStatsGameModeEnum];
 export declare const LaneMatchupStatsGameModeEnum: {
@@ -3907,6 +3922,7 @@ export declare const LaneMatchupStatsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type LaneMatchupStatsGameModeEnum = typeof LaneMatchupStatsGameModeEnum[keyof typeof LaneMatchupStatsGameModeEnum];
 export declare const LaneSoulCurveGameModeEnum: {
@@ -3914,6 +3930,7 @@ export declare const LaneSoulCurveGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type LaneSoulCurveGameModeEnum = typeof LaneSoulCurveGameModeEnum[keyof typeof LaneSoulCurveGameModeEnum];
 export declare const PlayerPerformanceCurveGameModeEnum: {
@@ -3921,6 +3938,7 @@ export declare const PlayerPerformanceCurveGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type PlayerPerformanceCurveGameModeEnum = typeof PlayerPerformanceCurveGameModeEnum[keyof typeof PlayerPerformanceCurveGameModeEnum];
 export declare const PlayerScoreboardSortByEnum: {
@@ -4002,6 +4020,7 @@ export declare const PlayerScoreboardGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type PlayerScoreboardGameModeEnum = typeof PlayerScoreboardGameModeEnum[keyof typeof PlayerScoreboardGameModeEnum];
 export declare const PlayerStatsMetricsGameModeEnum: {
@@ -4009,6 +4028,7 @@ export declare const PlayerStatsMetricsGameModeEnum: {
     readonly StreetBrawl: "street_brawl";
     readonly ExploreNYC: "explore_n_y_c";
     readonly Internal: "internal";
+    readonly Internal02: "internal02";
 };
 export type PlayerStatsMetricsGameModeEnum = typeof PlayerStatsMetricsGameModeEnum[keyof typeof PlayerStatsMetricsGameModeEnum];
 //# sourceMappingURL=analytics-api.d.ts.map

@@ -3742,30 +3742,35 @@ export const AbilityMaxFirstStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const AbilityOrderStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const AbilityOrderTreeGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const BadgeDistributionGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const BuffStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const GameStatsBucketEnum = {
     NoBucket: 'no_bucket',
@@ -3780,6 +3785,7 @@ export const GameStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const HeroBanStatsBucketEnum = {
     NoBucket: 'no_bucket',
@@ -3801,12 +3807,14 @@ export const HeroCombStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const HeroCountersStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const HeroScoreboardSortByEnum = {
     Matches: 'matches',
@@ -3885,6 +3893,7 @@ export const HeroScoreboardGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const HeroStatsBucketEnum = {
     NoBucket: 'no_bucket',
@@ -3899,6 +3908,7 @@ export const HeroStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const HeroSwapStatsBucketEnum = {
     NoBucket: 'no_bucket',
@@ -3913,18 +3923,21 @@ export const HeroSynergiesStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const ItemFlowStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const ItemPermutationStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const ItemStatsBucketEnum = {
     NoBucket: 'no_bucket',
@@ -3947,6 +3960,7 @@ export const ItemStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const ItemStatsCorruptedItemsEnum = {
     Exclude: 'exclude',
@@ -3963,24 +3977,28 @@ export const KillDeathStatsGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const LaneMatchupStatsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const LaneSoulCurveGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const PlayerPerformanceCurveGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const PlayerScoreboardSortByEnum = {
     Matches: 'matches',
@@ -4059,11 +4077,13 @@ export const PlayerScoreboardGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 export const PlayerStatsMetricsGameModeEnum = {
     Normal: 'normal',
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 };
 //# sourceMappingURL=analytics-api.js.map

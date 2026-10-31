@@ -1242,6 +1242,7 @@ export const BulkMetadataGameModeEnum = {
     StreetBrawl: 'street_brawl',
     ExploreNYC: 'explore_n_y_c',
     Internal: 'internal',
+    Internal02: 'internal02',
 } as const;
 export type BulkMetadataGameModeEnum = typeof BulkMetadataGameModeEnum[keyof typeof BulkMetadataGameModeEnum];
 export const BulkMetadataOrderByEnum = {

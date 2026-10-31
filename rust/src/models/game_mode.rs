@@ -22,6 +22,8 @@ pub enum GameMode {
     ExploreNYC,
     #[serde(rename = "internal")]
     Internal,
+    #[serde(rename = "internal02")]
+    Internal02,
 
 }
 
@@ -32,6 +34,7 @@ impl std::fmt::Display for GameMode {
             Self::StreetBrawl => write!(f, "street_brawl"),
             Self::ExploreNYC => write!(f, "explore_n_y_c"),
             Self::Internal => write!(f, "internal"),
+            Self::Internal02 => write!(f, "internal02"),
         }
     }
 }
