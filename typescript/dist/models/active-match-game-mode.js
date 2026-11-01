@@ -17,5 +17,8 @@ export const ActiveMatchGameMode = {
     KeCitadelGameMode1v1Test: 'KECitadelGameMode1v1Test',
     KeCitadelGameModeSandbox: 'KECitadelGameModeSandbox',
     KeCitadelGameModeStreetBrawl: 'KECitadelGameModeStreetBrawl',
+    KeCitadelGameModeExploreNyc: 'KECitadelGameModeExploreNyc',
+    KeCitadelGameModeInternal: 'KECitadelGameModeInternal',
+    KeCitadelGameModeInternal02: 'KECitadelGameModeInternal02',
 };
 //# sourceMappingURL=active-match-game-mode.js.map

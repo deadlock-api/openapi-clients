@@ -53,7 +53,22 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Enum KECitadelGameModeStreetBrawl for value: KECitadelGameModeStreetBrawl
         /// </summary>
-        KECitadelGameModeStreetBrawl = 5
+        KECitadelGameModeStreetBrawl = 5,
+
+        /// <summary>
+        /// Enum KECitadelGameModeExploreNyc for value: KECitadelGameModeExploreNyc
+        /// </summary>
+        KECitadelGameModeExploreNyc = 6,
+
+        /// <summary>
+        /// Enum KECitadelGameModeInternal for value: KECitadelGameModeInternal
+        /// </summary>
+        KECitadelGameModeInternal = 7,
+
+        /// <summary>
+        /// Enum KECitadelGameModeInternal02 for value: KECitadelGameModeInternal02
+        /// </summary>
+        KECitadelGameModeInternal02 = 8
     }
 
     /// <summary>
@@ -83,6 +98,15 @@ namespace DeadlockApiClient.Model
             if (value.Equals("KECitadelGameModeStreetBrawl"))
                 return ActiveMatchGameMode.KECitadelGameModeStreetBrawl;
 
+            if (value.Equals("KECitadelGameModeExploreNyc"))
+                return ActiveMatchGameMode.KECitadelGameModeExploreNyc;
+
+            if (value.Equals("KECitadelGameModeInternal"))
+                return ActiveMatchGameMode.KECitadelGameModeInternal;
+
+            if (value.Equals("KECitadelGameModeInternal02"))
+                return ActiveMatchGameMode.KECitadelGameModeInternal02;
+
             throw new NotImplementedException($"Could not convert value to type ActiveMatchGameMode: '{value}'");
         }
 
@@ -107,6 +131,15 @@ namespace DeadlockApiClient.Model
 
             if (value.Equals("KECitadelGameModeStreetBrawl"))
                 return ActiveMatchGameMode.KECitadelGameModeStreetBrawl;
+
+            if (value.Equals("KECitadelGameModeExploreNyc"))
+                return ActiveMatchGameMode.KECitadelGameModeExploreNyc;
+
+            if (value.Equals("KECitadelGameModeInternal"))
+                return ActiveMatchGameMode.KECitadelGameModeInternal;
+
+            if (value.Equals("KECitadelGameModeInternal02"))
+                return ActiveMatchGameMode.KECitadelGameModeInternal02;
 
             return null;
         }
@@ -133,6 +166,15 @@ namespace DeadlockApiClient.Model
 
             if (value == ActiveMatchGameMode.KECitadelGameModeStreetBrawl)
                 return "KECitadelGameModeStreetBrawl";
+
+            if (value == ActiveMatchGameMode.KECitadelGameModeExploreNyc)
+                return "KECitadelGameModeExploreNyc";
+
+            if (value == ActiveMatchGameMode.KECitadelGameModeInternal)
+                return "KECitadelGameModeInternal";
+
+            if (value == ActiveMatchGameMode.KECitadelGameModeInternal02)
+                return "KECitadelGameModeInternal02";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

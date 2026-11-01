@@ -14854,6 +14854,9 @@ components:
       - KECitadelGameMode1v1Test
       - KECitadelGameModeSandbox
       - KECitadelGameModeStreetBrawl
+      - KECitadelGameModeExploreNyc
+      - KECitadelGameModeInternal
+      - KECitadelGameModeInternal02
       type: string
     ActiveMatchMode:
       enum:

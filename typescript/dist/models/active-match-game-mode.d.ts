@@ -15,6 +15,9 @@ export declare const ActiveMatchGameMode: {
     readonly KeCitadelGameMode1v1Test: "KECitadelGameMode1v1Test";
     readonly KeCitadelGameModeSandbox: "KECitadelGameModeSandbox";
     readonly KeCitadelGameModeStreetBrawl: "KECitadelGameModeStreetBrawl";
+    readonly KeCitadelGameModeExploreNyc: "KECitadelGameModeExploreNyc";
+    readonly KeCitadelGameModeInternal: "KECitadelGameModeInternal";
+    readonly KeCitadelGameModeInternal02: "KECitadelGameModeInternal02";
 };
 export type ActiveMatchGameMode = typeof ActiveMatchGameMode[keyof typeof ActiveMatchGameMode];
 //# sourceMappingURL=active-match-game-mode.d.ts.map

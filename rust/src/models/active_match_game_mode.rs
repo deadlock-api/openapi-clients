@@ -24,6 +24,12 @@ pub enum ActiveMatchGameMode {
     KeCitadelGameModeSandbox,
     #[serde(rename = "KECitadelGameModeStreetBrawl")]
     KeCitadelGameModeStreetBrawl,
+    #[serde(rename = "KECitadelGameModeExploreNyc")]
+    KeCitadelGameModeExploreNyc,
+    #[serde(rename = "KECitadelGameModeInternal")]
+    KeCitadelGameModeInternal,
+    #[serde(rename = "KECitadelGameModeInternal02")]
+    KeCitadelGameModeInternal02,
 
 }
 
@@ -35,6 +41,9 @@ impl std::fmt::Display for ActiveMatchGameMode {
             Self::KeCitadelGameMode1v1Test => write!(f, "KECitadelGameMode1v1Test"),
             Self::KeCitadelGameModeSandbox => write!(f, "KECitadelGameModeSandbox"),
             Self::KeCitadelGameModeStreetBrawl => write!(f, "KECitadelGameModeStreetBrawl"),
+            Self::KeCitadelGameModeExploreNyc => write!(f, "KECitadelGameModeExploreNyc"),
+            Self::KeCitadelGameModeInternal => write!(f, "KECitadelGameModeInternal"),
+            Self::KeCitadelGameModeInternal02 => write!(f, "KECitadelGameModeInternal02"),
         }
     }
 }

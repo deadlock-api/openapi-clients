@@ -14,5 +14,11 @@
 
     * `KECitadelGameModeStreetBrawl` (value: `"KECitadelGameModeStreetBrawl"`)
 
+    * `KECitadelGameModeExploreNyc` (value: `"KECitadelGameModeExploreNyc"`)
+
+    * `KECitadelGameModeInternal` (value: `"KECitadelGameModeInternal"`)
+
+    * `KECitadelGameModeInternal02` (value: `"KECitadelGameModeInternal02"`)
+
 
 

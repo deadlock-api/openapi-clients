@@ -21,7 +21,10 @@ export enum ActiveMatchGameMode {
     KeCitadelGameModeNormal = 'KECitadelGameModeNormal',
     KeCitadelGameMode1v1Test = 'KECitadelGameMode1v1Test',
     KeCitadelGameModeSandbox = 'KECitadelGameModeSandbox',
-    KeCitadelGameModeStreetBrawl = 'KECitadelGameModeStreetBrawl'
+    KeCitadelGameModeStreetBrawl = 'KECitadelGameModeStreetBrawl',
+    KeCitadelGameModeExploreNyc = 'KECitadelGameModeExploreNyc',
+    KeCitadelGameModeInternal = 'KECitadelGameModeInternal',
+    KeCitadelGameModeInternal02 = 'KECitadelGameModeInternal02'
 }
 
 export function ActiveMatchGameModeFromJSON(json: any): ActiveMatchGameMode {

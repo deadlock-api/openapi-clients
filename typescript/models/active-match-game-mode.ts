@@ -21,6 +21,9 @@ export const ActiveMatchGameMode = {
     KeCitadelGameMode1v1Test: 'KECitadelGameMode1v1Test',
     KeCitadelGameModeSandbox: 'KECitadelGameModeSandbox',
     KeCitadelGameModeStreetBrawl: 'KECitadelGameModeStreetBrawl',
+    KeCitadelGameModeExploreNyc: 'KECitadelGameModeExploreNyc',
+    KeCitadelGameModeInternal: 'KECitadelGameModeInternal',
+    KeCitadelGameModeInternal02: 'KECitadelGameModeInternal02',
 } as const;
 
 export type ActiveMatchGameMode = typeof ActiveMatchGameMode[keyof typeof ActiveMatchGameMode];
