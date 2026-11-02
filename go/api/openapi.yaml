@@ -121,7 +121,7 @@ tags:
 - description: |2
 
     System status and info endpoints.
-    Provides health checks for monitoring service availability (Clickhouse, Postgres, Redis) and API statistics including database table sizes, match fetching rates, and missed matches.
+    Provides health checks for monitoring service availability (Clickhouse, Postgres, Redis) and API statistics including database table sizes and match fetching rates.
   name: Info
 - description: |2
 
@@ -163,7 +163,7 @@ tags:
   name: NPC Units
 - description: "File-tree indexes of static assets (images, icons, sounds, fonts,\
     \ models) hosted on the CDN, mapping each asset's name to its public URL."
-  name: Assets
+  name: Assets Bucket
 - description: Ranked season definitions derived from per-version game data files.
   name: Ranked Seasons
 - description: "Per-rank metadata (name, tier color, badge image URLs) derived from\
@@ -196,7 +196,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: ability_max_first_stats
       parameters:
@@ -244,7 +244,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -526,7 +526,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: ability_order_stats
       parameters:
@@ -574,7 +574,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -860,7 +860,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: ability_order_tree
       parameters:
@@ -908,7 +908,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -1197,7 +1197,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: badge_distribution
       parameters:
@@ -1236,7 +1236,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -1364,7 +1364,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: buff_stats
       parameters:
@@ -1402,7 +1402,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -1564,15 +1564,13 @@ paths:
 
         Retrieves item statistics from hero builds.
 
-        Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
-
         ### Rate Limits:
         > The rate limits below are **shared across all analytics endpoints**.
 
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: build_item_stats
       parameters:
@@ -1594,7 +1592,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -1638,7 +1636,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: game_stats
       parameters:
@@ -1693,7 +1691,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -1931,7 +1929,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_ban_stats
       parameters:
@@ -1970,7 +1968,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -2092,7 +2090,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_build_stats
       parameters:
@@ -2139,7 +2137,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -2353,7 +2351,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_comb_stats
       parameters:
@@ -2391,7 +2389,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -2657,7 +2655,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_counters_stats
       parameters:
@@ -2695,7 +2693,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -2933,7 +2931,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_stats
       parameters:
@@ -2988,7 +2986,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -3297,7 +3295,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_swap_stats
       parameters:
@@ -3336,7 +3334,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -3456,7 +3454,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_synergies_stats
       parameters:
@@ -3494,7 +3492,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -3719,7 +3717,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: item_flow_stats
       parameters:
@@ -3795,7 +3793,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -4057,7 +4055,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: item_permutation_stats
       parameters:
@@ -4168,7 +4166,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -4359,11 +4357,11 @@ paths:
                   $ref: "#/components/schemas/ItemPermutationStats"
                 type: array
                 default: null
-          description: Item Stats
+          description: Item Permutation Stats
         "400":
           description: Provided parameters are invalid.
         "500":
-          description: Failed to fetch item stats
+          description: Failed to fetch item permutation stats
       summary: Item Permutation Stats
       tags:
       - Analytics
@@ -4381,7 +4379,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: item_stats
       parameters:
@@ -4395,6 +4393,7 @@ paths:
           - no_bucket
           - hero
           - team
+          - enemy_hero
           - start_time_hour
           - start_time_day
           - start_time_week
@@ -4521,7 +4520,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -4717,8 +4716,8 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: The maximum number of matches played for a hero combination to
-          be included in the response.
+      - description: The maximum number of matches played for an item to be included
+          in the response.
         explode: true
         in: query
         name: max_matches
@@ -4885,7 +4884,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: kill_death_stats
       parameters:
@@ -4935,7 +4934,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -5205,7 +5204,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: lane_matchup_stats
       parameters:
@@ -5243,7 +5242,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -5491,7 +5490,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: lane_soul_curve
       parameters:
@@ -5529,7 +5528,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -5776,7 +5775,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: player_performance_curve
       parameters:
@@ -5830,7 +5829,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -6079,7 +6078,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: player_stats_metrics
       parameters:
@@ -6126,7 +6125,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -6346,7 +6345,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HashMap"
-          description: Hero Stats
+          description: Player Stats Metrics
         "400":
           description: Provided parameters are invalid.
         "500":
@@ -6366,7 +6365,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: hero_scoreboard
       parameters:
@@ -6501,7 +6500,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -6667,7 +6666,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 200req/min |
-        | Key | 400req/min |
+        | Key | 400req/min, 2500req/h |
         | Global | 2000req/min |
       operationId: player_scoreboard
       parameters:
@@ -6821,8 +6820,8 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: The maximum number of matches played for a hero combination to
-          be included in the response.
+      - description: The maximum number of matches played for a player to be included
+          in the scoreboard.
         explode: true
         in: query
         name: max_matches
@@ -10407,12 +10406,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIInfo"
           description: OK
-        "500":
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: Internal Server Error
       summary: API Info
       tags:
       - Info
@@ -10864,7 +10857,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/CreateCustomResponse"
-          description: Successfully fetched custom match id.
+          description: Successfully created the custom match.
         "400":
           description: Provided parameters are invalid.
         "429":
@@ -11141,7 +11134,7 @@ paths:
       description: |2
 
         Submit a SQL query against a match's demo file. The work (download + decompress + parse +
-        query) takes ~55s, so this is asynchronous: the endpoint returns a `job_id` you poll via
+        query) takes ~20s on average and up to about a minute, so this is asynchronous: the endpoint returns a `job_id` you poll via
         `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result
         artifact (Parquet or NDJSON).
 
@@ -11356,7 +11349,7 @@ paths:
         | Type | Limit |
         | ---- | ----- |
         | IP | 30req/min |
-        | Key | 30req/10s |
+        | Key | 30req/10s, 2000req/h |
         | Global | 600req/min |
       operationId: bulk_metadata
       parameters:
@@ -11773,7 +11766,7 @@ paths:
     get:
       description: |2
 
-        This endpoint returns a list of match ids that have been fetched within the last 10 minutes.
+        This endpoint returns the matches (match info with player account ids) that have been fetched within the last 10 minutes.
 
         ### Rate Limits:
         | Type | Limit |
@@ -11891,11 +11884,15 @@ paths:
 
         This endpoint returns the match metadata for the given `match_id` parsed into JSON.
 
-        Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.
+        The response adds three top-level fields from demo analysis (empty when not available):
+
+        `hero_build_ids` maps `account_id` to the player's `hero_build_id`.
 
         > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.
 
         `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.
+
+        `banned_hero_ids` lists the hero IDs that were banned in the match.
 
         Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)
 
@@ -12640,7 +12637,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -12764,7 +12761,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -13086,7 +13083,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790812800
+          default: 1790985600
           format: int64
           nullable: true
           type: integer
@@ -13930,8 +13927,8 @@ paths:
       description: |2
 
         Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that
-        match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single
-        match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
+        match with plus the progress the match awarded. A subrank spans 1000 progress points (the sixth
+        subrank of a tier spans 2000), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
         within Eternus the badge is the one the player entered the match with.
 
         Only ranked matches carry a rank, and it stays unset while the player is in placement games.
@@ -14250,9 +14247,10 @@ paths:
           content:
             application/json:
               schema:
-                additionalProperties:
-                  type: string
-                type: object
+                items:
+                  $ref: "#/components/schemas/TableSchemaRow"
+                type: array
+                default: null
           description: OK
         "500":
           content:
@@ -16510,7 +16508,7 @@ components:
         duplicate_heroes_enabled: true
         game_mode: ""
         is_publicly_visible: true
-        min_roster_size: 0
+        min_roster_size: 7
         randomize_lanes: true
         server_region: ""
       properties:
@@ -16547,7 +16545,8 @@ components:
           type: boolean
         min_roster_size:
           format: int32
-          minimum: 0
+          maximum: 12
+          minimum: 1
           nullable: true
           type: integer
         randomize_lanes:
@@ -20472,6 +20471,9 @@ components:
             type: integer
           type: array
           default: null
+      required:
+      - possible_account_ids
+      - top_hero_ids
     ListSteamAccountsResponse:
       description: Response for listing Steam accounts
       example:
@@ -24193,7 +24195,9 @@ components:
           description: Whether Clickhouse is reachable.
           type: boolean
         postgres:
-          description: Whether Postgres is reachable.
+          description: |-
+            Whether the Postgres connection pool is open. No query is run, so this does not prove
+            the server is reachable.
           type: boolean
         redis:
           description: Whether Redis is reachable.
@@ -24700,6 +24704,22 @@ components:
       - columns
       - kind
       - name
+    TableSchemaRow:
+      example:
+        comment: comment
+        name: name
+        type: type
+      properties:
+        comment:
+          nullable: true
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      required:
+      - name
+      - type
     TableSize:
       example:
         data_compressed_bytes: 0

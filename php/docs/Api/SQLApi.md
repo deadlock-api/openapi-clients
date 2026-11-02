@@ -125,7 +125,7 @@ No authorization required
 ## `tableSchema()`
 
 ```php
-tableSchema($table): array<string,string>
+tableSchema($table): \OpenAPI\Client\Model\TableSchemaRow[]
 ```
 
 Table Schema
@@ -163,7 +163,7 @@ try {
 
 ### Return type
 
-**array<string,string>**
+[**\OpenAPI\Client\Model\TableSchemaRow[]**](../Model/TableSchemaRow.md)
 
 ### Authorization
 

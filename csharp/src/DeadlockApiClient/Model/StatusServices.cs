@@ -34,7 +34,7 @@ namespace DeadlockApiClient.Model
         /// Initializes a new instance of the <see cref="StatusServices" /> class.
         /// </summary>
         /// <param name="clickhouse">Whether Clickhouse is reachable.</param>
-        /// <param name="postgres">Whether Postgres is reachable.</param>
+        /// <param name="postgres">Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.</param>
         /// <param name="redis">Whether Redis is reachable.</param>
         [JsonConstructor]
         public StatusServices(bool clickhouse, bool postgres, bool redis)
@@ -55,9 +55,9 @@ namespace DeadlockApiClient.Model
         public bool Clickhouse { get; set; }
 
         /// <summary>
-        /// Whether Postgres is reachable.
+        /// Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
         /// </summary>
-        /// <value>Whether Postgres is reachable.</value>
+        /// <value>Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.</value>
         [JsonPropertyName("postgres")]
         public bool Postgres { get; set; }
 

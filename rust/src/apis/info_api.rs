@@ -27,7 +27,6 @@ pub enum HealthCheckError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum InfoError {
-    Status500(String),
     UnknownValue(serde_json::Value),
 }
 

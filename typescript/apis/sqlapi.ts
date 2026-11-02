@@ -21,6 +21,8 @@ import globalAxios from 'axios';
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common.js';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base.js';
+// @ts-ignore
+import type { TableSchemaRow } from '../models/index.js';
 /**
  * SQLApi - axios parameter creator
  */
@@ -180,7 +182,7 @@ export const SQLApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async tableSchema(table: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: string; }>> {
+        async tableSchema(table: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TableSchemaRow>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tableSchema(table, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SQLApi.tableSchema']?.[localVarOperationServerIndex]?.url;
@@ -224,7 +226,7 @@ export const SQLApiFactory = function (configuration?: Configuration, basePath?:
          * @deprecated
          * @throws {RequiredError}
          */
-        tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: string; }> {
+        tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TableSchemaRow>> {
             return localVarFp.tableSchema(requestParameters.table, options).then((request) => request(axios, basePath));
         },
     };

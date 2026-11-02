@@ -28,7 +28,7 @@ class StatusServices(BaseModel):
     StatusServices
     """ # noqa: E501
     clickhouse: StrictBool = Field(description="Whether Clickhouse is reachable.")
-    postgres: StrictBool = Field(description="Whether Postgres is reachable.")
+    postgres: StrictBool = Field(description="Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.")
     redis: StrictBool = Field(description="Whether Redis is reachable.")
     __properties: ClassVar[List[str]] = ["clickhouse", "postgres", "redis"]
 

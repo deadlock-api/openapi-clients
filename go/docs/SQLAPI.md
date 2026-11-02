@@ -141,7 +141,7 @@ No authorization required
 
 ## TableSchema
 
-> map[string]string TableSchema(ctx, table).Execute()
+> []TableSchemaRow TableSchema(ctx, table).Execute()
 
 Table Schema
 
@@ -169,7 +169,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `SQLAPI.TableSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `TableSchema`: map[string]string
+	// response from `TableSchema`: []TableSchemaRow
 	fmt.Fprintf(os.Stdout, "Response from `SQLAPI.TableSchema`: %v\n", resp)
 }
 ```
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**map[string]string**
+[**[]TableSchemaRow**](TableSchemaRow.md)
 
 ### Authorization
 

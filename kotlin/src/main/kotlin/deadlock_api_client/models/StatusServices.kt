@@ -32,7 +32,7 @@ import java.io.Serializable
  * 
  *
  * @param clickhouse Whether Clickhouse is reachable.
- * @param postgres Whether Postgres is reachable.
+ * @param postgres Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
  * @param redis Whether Redis is reachable.
  */
 
@@ -43,7 +43,7 @@ data class StatusServices (
     @Json(name = "clickhouse")
     val clickhouse: kotlin.Boolean,
 
-    /* Whether Postgres is reachable. */
+    /* Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable. */
     @Json(name = "postgres")
     val postgres: kotlin.Boolean,
 

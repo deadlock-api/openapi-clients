@@ -267,6 +267,7 @@ api/Model/SubclassRangedArmorModifierSubclass.php
 api/Model/SubclassTrooperDamageReduction.php
 api/Model/SubclassTrooperDamageReductionSubclass.php
 api/Model/TableSchemaResponse.php
+api/Model/TableSchemaRow.php
 api/Model/TableSize.php
 api/Model/TeamModels.php
 api/Model/TooltipDetailsBlock.php
@@ -546,6 +547,7 @@ docs/Model/SubclassRangedArmorModifierSubclass.md
 docs/Model/SubclassTrooperDamageReduction.md
 docs/Model/SubclassTrooperDamageReductionSubclass.md
 docs/Model/TableSchemaResponse.md
+docs/Model/TableSchemaRow.md
 docs/Model/TableSize.md
 docs/Model/TeamModels.md
 docs/Model/TooltipDetailsBlock.md
@@ -825,6 +827,7 @@ test/Model/SubclassRangedArmorModifierTest.php
 test/Model/SubclassTrooperDamageReductionSubclassTest.php
 test/Model/SubclassTrooperDamageReductionTest.php
 test/Model/TableSchemaResponseTest.php
+test/Model/TableSchemaRowTest.php
 test/Model/TableSizeTest.php
 test/Model/TeamModelsTest.php
 test/Model/TooltipDetailsBlockPropertyTest.php

@@ -102,7 +102,7 @@ No authorization required
 
 <a id="tableSchema"></a>
 # **tableSchema**
-> kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt; tableSchema(table)
+> kotlin.collections.List&lt;TableSchemaRow&gt; tableSchema(table)
 
 Table Schema
 
@@ -117,7 +117,7 @@ Table Schema
 val apiInstance = SQLApi()
 val table : kotlin.String = table_example // kotlin.String | The name of the table to fetch the schema for.
 try {
-    val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.tableSchema(table)
+    val result : kotlin.collections.List<TableSchemaRow> = apiInstance.tableSchema(table)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling SQLApi#tableSchema")
@@ -135,7 +135,7 @@ try {
 
 ### Return type
 
-**kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;**
+[**kotlin.collections.List&lt;TableSchemaRow&gt;**](TableSchemaRow.md)
 
 ### Authorization
 

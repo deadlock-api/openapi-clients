@@ -12,6 +12,7 @@
 import type { Configuration } from '../configuration.js';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import { type RequestArgs, BaseAPI } from '../base.js';
+import type { TableSchemaRow } from '../models/index.js';
 /**
  * SQLApi - axios parameter creator
  */
@@ -74,9 +75,7 @@ export declare const SQLApiFp: (configuration?: Configuration) => {
      * @deprecated
      * @throws {RequiredError}
      */
-    tableSchema(table: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: string;
-    }>>;
+    tableSchema(table: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TableSchemaRow>>>;
 };
 /**
  * SQLApi - factory interface
@@ -107,9 +106,7 @@ export declare const SQLApiFactory: (configuration?: Configuration, basePath?: s
      * @deprecated
      * @throws {RequiredError}
      */
-    tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<{
-        [key: string]: string;
-    }>;
+    tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TableSchemaRow>>;
 };
 /**
  * Request parameters for sql operation in SQLApi.
@@ -162,9 +159,7 @@ export declare class SQLApi extends BaseAPI {
      * @deprecated
      * @throws {RequiredError}
      */
-    tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
-        [key: string]: string;
-    }, any, {}, any>>;
+    tableSchema(requestParameters: SQLApiTableSchemaRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TableSchemaRow[], any, {}, any>>;
 }
 export declare const SqlFormatEnum: {
     readonly Json: "json";

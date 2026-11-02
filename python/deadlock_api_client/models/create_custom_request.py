@@ -37,7 +37,7 @@ class CreateCustomRequest(BaseModel):
     duplicate_heroes_enabled: Optional[StrictBool] = None
     game_mode: Optional[GameMode] = None
     is_publicly_visible: Optional[StrictBool] = None
-    min_roster_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    min_roster_size: Optional[Annotated[int, Field(le=12, strict=True, ge=1)]] = None
     randomize_lanes: Optional[StrictBool] = None
     server_region: Optional[ServerRegion] = None
     __properties: ClassVar[List[str]] = ["callback_url", "cheats_enabled", "corrupted_item_shop_spawn_minutes", "disable_auto_ready", "duplicate_heroes_enabled", "game_mode", "is_publicly_visible", "min_roster_size", "randomize_lanes", "server_region"]

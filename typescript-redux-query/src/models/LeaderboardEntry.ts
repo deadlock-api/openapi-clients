@@ -29,7 +29,7 @@ export interface LeaderboardEntry  {
      * @type {Array<number>}
      * @memberof LeaderboardEntry
      */
-    possibleAccountIds?: Array<number>;
+    possibleAccountIds: Array<number>;
     /**
      * The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
      * @type {number}
@@ -41,15 +41,15 @@ export interface LeaderboardEntry  {
      * @type {Array<number>}
      * @memberof LeaderboardEntry
      */
-    topHeroIds?: Array<number>;
+    topHeroIds: Array<number>;
 }
 
 export function LeaderboardEntryFromJSON(json: any): LeaderboardEntry {
     return {
         'accountName': !exists(json, 'account_name') ? undefined : json['account_name'],
-        'possibleAccountIds': !exists(json, 'possible_account_ids') ? undefined : json['possible_account_ids'],
+        'possibleAccountIds': json['possible_account_ids'],
         'rank': !exists(json, 'rank') ? undefined : json['rank'],
-        'topHeroIds': !exists(json, 'top_hero_ids') ? undefined : json['top_hero_ids'],
+        'topHeroIds': json['top_hero_ids'],
     };
 }
 

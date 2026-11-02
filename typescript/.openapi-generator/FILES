@@ -298,6 +298,7 @@ docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
 docs/TableSchemaResponse.md
+docs/TableSchemaRow.md
 docs/TableSize.md
 docs/TeamModels.md
 docs/TooltipDetailsBlock.md
@@ -545,6 +546,7 @@ models/subclass-ranged-armor-modifier.ts
 models/subclass-trooper-damage-reduction-subclass.ts
 models/subclass-trooper-damage-reduction.ts
 models/table-schema-response.ts
+models/table-schema-row.ts
 models/table-size.ts
 models/team-models.ts
 models/tooltip-details-block-property.ts

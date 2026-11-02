@@ -450,6 +450,8 @@ pub mod subclass_trooper_damage_reduction_subclass;
 pub use self::subclass_trooper_damage_reduction_subclass::SubclassTrooperDamageReductionSubclass;
 pub mod table_schema_response;
 pub use self::table_schema_response::TableSchemaResponse;
+pub mod table_schema_row;
+pub use self::table_schema_row::TableSchemaRow;
 pub mod table_size;
 pub use self::table_size::TableSize;
 pub mod team_models;

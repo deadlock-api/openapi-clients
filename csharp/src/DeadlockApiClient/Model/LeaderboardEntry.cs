@@ -33,21 +33,35 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LeaderboardEntry" /> class.
         /// </summary>
-        /// <param name="accountName">The account name of the player.</param>
         /// <param name="possibleAccountIds">The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</param>
-        /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         /// <param name="topHeroIds">The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
+        /// <param name="accountName">The account name of the player.</param>
+        /// <param name="rank">The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
         [JsonConstructor]
-        public LeaderboardEntry(Option<string?> accountName = default, Option<List<int>?> possibleAccountIds = default, Option<int?> rank = default, Option<List<int>?> topHeroIds = default)
+        public LeaderboardEntry(List<int> possibleAccountIds, List<int> topHeroIds, Option<string?> accountName = default, Option<int?> rank = default)
         {
+            PossibleAccountIds = possibleAccountIds;
+            TopHeroIds = topHeroIds;
             AccountNameOption = accountName;
-            PossibleAccountIdsOption = possibleAccountIds;
             RankOption = rank;
-            TopHeroIdsOption = topHeroIds;
             OnCreated();
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
+        /// </summary>
+        /// <value>The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</value>
+        [JsonPropertyName("possible_account_ids")]
+        public List<int> PossibleAccountIds { get; set; }
+
+        /// <summary>
+        /// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+        /// </summary>
+        /// <value>The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
+        [JsonPropertyName("top_hero_ids")]
+        public List<int> TopHeroIds { get; set; }
 
         /// <summary>
         /// Used to track the state of AccountName
@@ -64,20 +78,6 @@ namespace DeadlockApiClient.Model
         public string? AccountName { get { return this.AccountNameOption.Value; } set { this.AccountNameOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of PossibleAccountIds
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> PossibleAccountIdsOption { get; private set; }
-
-        /// <summary>
-        /// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
-        /// </summary>
-        /// <value>The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**</value>
-        [JsonPropertyName("possible_account_ids")]
-        public List<int>? PossibleAccountIds { get { return this.PossibleAccountIdsOption.Value; } set { this.PossibleAccountIdsOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of Rank
         /// </summary>
         [JsonIgnore]
@@ -92,20 +92,6 @@ namespace DeadlockApiClient.Model
         public int? Rank { get { return this.RankOption.Value; } set { this.RankOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of TopHeroIds
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<int>?> TopHeroIdsOption { get; private set; }
-
-        /// <summary>
-        /// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
-        /// </summary>
-        /// <value>The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</value>
-        [JsonPropertyName("top_hero_ids")]
-        public List<int>? TopHeroIds { get { return this.TopHeroIdsOption.Value; } set { this.TopHeroIdsOption = new(value); } }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,10 +99,10 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class LeaderboardEntry {\n");
-            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
             sb.Append("  PossibleAccountIds: ").Append(PossibleAccountIds).Append("\n");
-            sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  TopHeroIds: ").Append(TopHeroIds).Append("\n");
+            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,10 +156,10 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<string?> accountName = default;
             Option<List<int>?> possibleAccountIds = default;
-            Option<int?> rank = default;
             Option<List<int>?> topHeroIds = default;
+            Option<string?> accountName = default;
+            Option<int?> rank = default;
 
             while (utf8JsonReader.Read())
             {
@@ -190,17 +176,17 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "account_name":
-                            accountName = new Option<string?>(utf8JsonReader.GetString());
-                            break;
                         case "possible_account_ids":
                             possibleAccountIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "rank":
-                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
-                            break;
                         case "top_hero_ids":
                             topHeroIds = new Option<List<int>?>(JsonSerializer.Deserialize<List<int>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "account_name":
+                            accountName = new Option<string?>(utf8JsonReader.GetString());
+                            break;
+                        case "rank":
+                            rank = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;
@@ -208,13 +194,19 @@ namespace DeadlockApiClient.Model
                 }
             }
 
+            if (!possibleAccountIds.IsSet)
+                throw new JsonException("Property is required for class LeaderboardEntry: possible_account_ids.");
+
+            if (!topHeroIds.IsSet)
+                throw new JsonException("Property is required for class LeaderboardEntry: top_hero_ids.");
+
             if (possibleAccountIds.IsSet && possibleAccountIds.Value == null)
                 throw new JsonException("Property is not nullable for class LeaderboardEntry: possible_account_ids.");
 
             if (topHeroIds.IsSet && topHeroIds.Value == null)
                 throw new JsonException("Property is not nullable for class LeaderboardEntry: top_hero_ids.");
 
-            return new LeaderboardEntry(accountName, possibleAccountIds, rank, topHeroIds);
+            return new LeaderboardEntry(possibleAccountIds.Value!, topHeroIds.Value!, accountName, rank);
         }
 
         /// <summary>
@@ -239,34 +231,21 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, LeaderboardEntry leaderboardEntry, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (leaderboardEntry.PossibleAccountIdsOption.IsSet && leaderboardEntry.PossibleAccountIds == null)
-                throw new JsonException("Cannot write null property LeaderboardEntry.PossibleAccountIds to non-nullable JSON property 'possible_account_ids'.");
-
-            if (leaderboardEntry.TopHeroIdsOption.IsSet && leaderboardEntry.TopHeroIds == null)
-                throw new JsonException("Cannot write null property LeaderboardEntry.TopHeroIds to non-nullable JSON property 'top_hero_ids'.");
-
+            writer.WritePropertyName("possible_account_ids");
+            JsonSerializer.Serialize(writer, leaderboardEntry.PossibleAccountIds, jsonSerializerOptions);
+            writer.WritePropertyName("top_hero_ids");
+            JsonSerializer.Serialize(writer, leaderboardEntry.TopHeroIds, jsonSerializerOptions);
             if (leaderboardEntry.AccountNameOption.IsSet)
                 if (leaderboardEntry.AccountNameOption.Value != null)
                     writer.WriteString("account_name", leaderboardEntry.AccountName);
                 else
                     writer.WriteNull("account_name");
 
-            if (leaderboardEntry.PossibleAccountIdsOption.IsSet)
-            {
-                writer.WritePropertyName("possible_account_ids");
-                JsonSerializer.Serialize(writer, leaderboardEntry.PossibleAccountIds, jsonSerializerOptions);
-            }
             if (leaderboardEntry.RankOption.IsSet)
                 if (leaderboardEntry.RankOption.Value != null)
                     writer.WriteNumber("rank", leaderboardEntry.RankOption.Value!.Value);
                 else
                     writer.WriteNull("rank");
-
-            if (leaderboardEntry.TopHeroIdsOption.IsSet)
-            {
-                writer.WritePropertyName("top_hero_ids");
-                JsonSerializer.Serialize(writer, leaderboardEntry.TopHeroIds, jsonSerializerOptions);
-            }
         }
     }
 }

@@ -54,15 +54,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'AccountName'
-        /// </summary>
-        [Fact]
-        public void AccountNameTest()
-        {
-            // TODO unit test for the property 'AccountName'
-        }
-
-        /// <summary>
         /// Test the property 'PossibleAccountIds'
         /// </summary>
         [Fact]
@@ -72,21 +63,30 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Rank'
-        /// </summary>
-        [Fact]
-        public void RankTest()
-        {
-            // TODO unit test for the property 'Rank'
-        }
-
-        /// <summary>
         /// Test the property 'TopHeroIds'
         /// </summary>
         [Fact]
         public void TopHeroIdsTest()
         {
             // TODO unit test for the property 'TopHeroIds'
+        }
+
+        /// <summary>
+        /// Test the property 'AccountName'
+        /// </summary>
+        [Fact]
+        public void AccountNameTest()
+        {
+            // TODO unit test for the property 'AccountName'
+        }
+
+        /// <summary>
+        /// Test the property 'Rank'
+        /// </summary>
+        [Fact]
+        public void RankTest()
+        {
+            // TODO unit test for the property 'Rank'
         }
     }
 }

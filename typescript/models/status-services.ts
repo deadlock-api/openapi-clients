@@ -20,7 +20,7 @@ export interface StatusServices {
      */
     'clickhouse': boolean;
     /**
-     * Whether Postgres is reachable.
+     * Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
      */
     'postgres': boolean;
     /**

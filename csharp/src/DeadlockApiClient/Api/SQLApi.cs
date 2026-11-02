@@ -22,6 +22,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using DeadlockApiClient.Client;
 using DeadlockApiClient.Logging;
+using DeadlockApiClient.Model;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DeadlockApiClient.Api
@@ -152,7 +153,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="ITableSchemaApiResponse"/>
     /// </summary>
-    public interface ITableSchemaApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, string>?>, IInternalServerError<string?>
+    public interface ITableSchemaApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<TableSchemaRow>?>, IInternalServerError<string?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -1078,32 +1079,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public Dictionary<string, string>? Ok()
+            public List<TableSchemaRow>? Ok()
             {
                 bool suppressDefault = false;
-                Dictionary<string, string>? result = null;
+                List<TableSchemaRow>? result = null;
                 OnOk(ref suppressDefault, ref result);
                 if (!suppressDefault)
                     result = DefaultOk();
                 return result;
             }
 
-            private Dictionary<string, string>? DefaultOk()
+            private List<TableSchemaRow>? DefaultOk()
             {
                 // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<List<TableSchemaRow>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
-            partial void OnOk(ref bool suppressDefault, ref Dictionary<string, string>? result);
+            partial void OnOk(ref bool suppressDefault, ref List<TableSchemaRow>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out Dictionary<string, string>? result)
+            public bool TryOk([NotNullWhen(true)]out List<TableSchemaRow>? result)
             {
                 result = null;
 

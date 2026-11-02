@@ -295,10 +295,16 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['possible_account_ids'] === null) {
+            $invalidProperties[] = "'possible_account_ids' can't be null";
+        }
         if (!is_null($this->container['rank']) && ($this->container['rank'] < 0)) {
             $invalidProperties[] = "invalid value for 'rank', must be bigger than or equal to 0.";
         }
 
+        if ($this->container['top_hero_ids'] === null) {
+            $invalidProperties[] = "'top_hero_ids' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -351,7 +357,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets possible_account_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getPossibleAccountIds()
     {
@@ -361,7 +367,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets possible_account_ids
      *
-     * @param int[]|null $possible_account_ids The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
+     * @param int[] $possible_account_ids The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
      *
      * @return self
      */
@@ -416,7 +422,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets top_hero_ids
      *
-     * @return int[]|null
+     * @return int[]
      */
     public function getTopHeroIds()
     {
@@ -426,7 +432,7 @@ class LeaderboardEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets top_hero_ids
      *
-     * @param int[]|null $top_hero_ids The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
+     * @param int[] $top_hero_ids The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
      *
      * @return self
      */

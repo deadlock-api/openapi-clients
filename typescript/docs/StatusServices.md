@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **clickhouse** | **boolean** | Whether Clickhouse is reachable. | [default to undefined]
-**postgres** | **boolean** | Whether Postgres is reachable. | [default to undefined]
+**postgres** | **boolean** | Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable. | [default to undefined]
 **redis** | **boolean** | Whether Redis is reachable. | [default to undefined]
 
 ## Example

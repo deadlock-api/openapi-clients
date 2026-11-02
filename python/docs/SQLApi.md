@@ -173,7 +173,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **table_schema**
-> Dict[str, str] table_schema(table)
+> List[TableSchemaRow] table_schema(table)
 
 Table Schema
 
@@ -198,6 +198,7 @@ original `ClickHouse` type.
 
 ```python
 import deadlock_api_client
+from deadlock_api_client.models.table_schema_row import TableSchemaRow
 from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -234,7 +235,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Dict[str, str]**
+[**List[TableSchemaRow]**](TableSchemaRow.md)
 
 ### Authorization
 

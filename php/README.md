@@ -461,6 +461,7 @@ Class | Method | HTTP request | Description
 - [SubclassTrooperDamageReduction](docs/Model/SubclassTrooperDamageReduction.md)
 - [SubclassTrooperDamageReductionSubclass](docs/Model/SubclassTrooperDamageReductionSubclass.md)
 - [TableSchemaResponse](docs/Model/TableSchemaResponse.md)
+- [TableSchemaRow](docs/Model/TableSchemaRow.md)
 - [TableSize](docs/Model/TableSize.md)
 - [TeamModels](docs/Model/TeamModels.md)
 - [TooltipDetailsBlock](docs/Model/TooltipDetailsBlock.md)

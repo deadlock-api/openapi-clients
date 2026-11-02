@@ -81,7 +81,7 @@ No authorization required
 
 <a id="tableschema"></a>
 # **TableSchema**
-> Dictionary&lt;string, string&gt; TableSchema (string table)
+> List&lt;TableSchemaRow&gt; TableSchema (string table)
 
 Table Schema
 
@@ -96,7 +96,7 @@ Table Schema
 
 ### Return type
 
-**Dictionary<string, string>**
+[**List&lt;TableSchemaRow&gt;**](TableSchemaRow.md)
 
 ### Authorization
 

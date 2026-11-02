@@ -23,7 +23,7 @@ var _ MappedNullable = &StatusServices{}
 type StatusServices struct {
 	// Whether Clickhouse is reachable.
 	Clickhouse bool `json:"clickhouse"`
-	// Whether Postgres is reachable.
+	// Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
 	Postgres bool `json:"postgres"`
 	// Whether Redis is reachable.
 	Redis bool `json:"redis"`

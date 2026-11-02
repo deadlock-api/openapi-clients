@@ -39,7 +39,7 @@ class StatusServicesTest : ShouldSpec() {
             //modelInstance.clickhouse shouldBe ("TODO")
         }
 
-        // to test the property `postgres` - Whether Postgres is reachable.
+        // to test the property `postgres` - Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
         should("test postgres") {
             // uncomment below to test the property
             //modelInstance.postgres shouldBe ("TODO")

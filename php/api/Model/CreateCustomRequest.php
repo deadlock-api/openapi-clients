@@ -341,8 +341,12 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'corrupted_item_shop_spawn_minutes', must be bigger than or equal to 0.";
         }
 
-        if (!is_null($this->container['min_roster_size']) && ($this->container['min_roster_size'] < 0)) {
-            $invalidProperties[] = "invalid value for 'min_roster_size', must be bigger than or equal to 0.";
+        if (!is_null($this->container['min_roster_size']) && ($this->container['min_roster_size'] > 12)) {
+            $invalidProperties[] = "invalid value for 'min_roster_size', must be smaller than or equal to 12.";
+        }
+
+        if (!is_null($this->container['min_roster_size']) && ($this->container['min_roster_size'] < 1)) {
+            $invalidProperties[] = "invalid value for 'min_roster_size', must be bigger than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -631,8 +635,11 @@ class CreateCustomRequest implements ModelInterface, ArrayAccess, \JsonSerializa
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        if (!is_null($min_roster_size) && ($min_roster_size < 0)) {
-            throw new \InvalidArgumentException('invalid value for $min_roster_size when calling CreateCustomRequest., must be bigger than or equal to 0.');
+        if (!is_null($min_roster_size) && ($min_roster_size > 12)) {
+            throw new \InvalidArgumentException('invalid value for $min_roster_size when calling CreateCustomRequest., must be smaller than or equal to 12.');
+        }
+        if (!is_null($min_roster_size) && ($min_roster_size < 1)) {
+            throw new \InvalidArgumentException('invalid value for $min_roster_size when calling CreateCustomRequest., must be bigger than or equal to 1.');
         }
 
         $this->container['min_roster_size'] = $min_roster_size;

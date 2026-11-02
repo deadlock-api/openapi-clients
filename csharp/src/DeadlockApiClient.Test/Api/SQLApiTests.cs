@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Microsoft.Extensions.DependencyInjection;
 using DeadlockApiClient.Api;
+using DeadlockApiClient.Model;
 
 
 /* *********************************************************************************
@@ -82,7 +83,7 @@ namespace DeadlockApiClient.Test.Api
             string table = default!;
             var response = await _instance.TableSchemaAsync(table);
             var model = response.Ok();
-            Assert.IsType<Dictionary<string, string>>(model);
+            Assert.IsType<List<TableSchemaRow>>(model);
         }
     }
 }

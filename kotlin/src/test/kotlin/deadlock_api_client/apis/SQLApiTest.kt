@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.apis.SQLApi
+import deadlock_api_client.models.TableSchemaRow
 
 class SQLApiTest : ShouldSpec() {
     init {
@@ -53,7 +54,7 @@ class SQLApiTest : ShouldSpec() {
         should("test tableSchema") {
             // uncomment below to test tableSchema
             //val table : kotlin.String = table_example // kotlin.String | The name of the table to fetch the schema for.
-            //val result : kotlin.collections.Map<kotlin.String, kotlin.String> = apiInstance.tableSchema(table)
+            //val result : kotlin.collections.List<TableSchemaRow> = apiInstance.tableSchema(table)
             //result shouldBe ("TODO")
         }
 

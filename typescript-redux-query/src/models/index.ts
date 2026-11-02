@@ -224,6 +224,7 @@ export * from './SubclassRangedArmorModifierSubclass';
 export * from './SubclassTrooperDamageReduction';
 export * from './SubclassTrooperDamageReductionSubclass';
 export * from './TableSchemaResponse';
+export * from './TableSchemaRow';
 export * from './TableSize';
 export * from './TeamModels';
 export * from './TooltipDetailsBlock';

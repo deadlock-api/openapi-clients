@@ -27,6 +27,7 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
+import deadlock_api_client.models.TableSchemaRow
 
 import com.squareup.moshi.Json
 
@@ -236,7 +237,7 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Table Schema
      *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their &#x60;DuckDB&#x60; types; column comments carry the original &#x60;ClickHouse&#x60; type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
      * @param table The name of the table to fetch the schema for.
-     * @return kotlin.collections.Map<kotlin.String, kotlin.String>
+     * @return kotlin.collections.List<TableSchemaRow>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -246,12 +247,12 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
     @Deprecated(message = "This operation is deprecated.")
-    fun tableSchema(table: kotlin.String) : kotlin.collections.Map<kotlin.String, kotlin.String> {
+    fun tableSchema(table: kotlin.String) : kotlin.collections.List<TableSchemaRow> {
         @Suppress("DEPRECATION")
         val localVarResponse = tableSchemaWithHttpInfo(table = table)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, kotlin.String>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<TableSchemaRow>
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -270,18 +271,18 @@ open class SQLApi(basePath: kotlin.String = defaultBasePath, client: Call.Factor
      * Table Schema
      *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at &#x60;/v1/mcp&#x60;) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their &#x60;DuckDB&#x60; types; column comments carry the original &#x60;ClickHouse&#x60; type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
      * @param table The name of the table to fetch the schema for.
-     * @return ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?>
+     * @return ApiResponse<kotlin.collections.List<TableSchemaRow>?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
     @Deprecated(message = "This operation is deprecated.")
-    fun tableSchemaWithHttpInfo(table: kotlin.String) : ApiResponse<kotlin.collections.Map<kotlin.String, kotlin.String>?> {
+    fun tableSchemaWithHttpInfo(table: kotlin.String) : ApiResponse<kotlin.collections.List<TableSchemaRow>?> {
         @Suppress("DEPRECATION")
         val localVariableConfig = tableSchemaRequestConfig(table = table)
 
-        return request<Unit, kotlin.collections.Map<kotlin.String, kotlin.String>>(
+        return request<Unit, kotlin.collections.List<TableSchemaRow>>(
             localVariableConfig
         )
     }

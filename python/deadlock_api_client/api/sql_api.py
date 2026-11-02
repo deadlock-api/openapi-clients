@@ -16,8 +16,9 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr, field_validator
-from typing import Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.table_schema_row import TableSchemaRow
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
 from deadlock_api_client.api_response import ApiResponse
@@ -590,7 +591,7 @@ class SQLApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, str]:
+    ) -> List[TableSchemaRow]:
         """(Deprecated) Table Schema
 
          **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
@@ -629,7 +630,7 @@ class SQLApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, str]",
+            '200': "List[TableSchemaRow]",
             '500': "str",
         }
         response_data = self.api_client.call_api(
@@ -659,7 +660,7 @@ class SQLApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, str]]:
+    ) -> ApiResponse[List[TableSchemaRow]]:
         """(Deprecated) Table Schema
 
          **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
@@ -698,7 +699,7 @@ class SQLApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, str]",
+            '200': "List[TableSchemaRow]",
             '500': "str",
         }
         response_data = self.api_client.call_api(
@@ -767,7 +768,7 @@ class SQLApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, str]",
+            '200': "List[TableSchemaRow]",
             '500': "str",
         }
         response_data = self.api_client.call_api(

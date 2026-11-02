@@ -873,8 +873,8 @@ Rank Rank
 
 
 Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that
-match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single
-match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
+match with plus the progress the match awarded. A subrank spans 1000 progress points (the sixth
+subrank of a tier spans 2000), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
 within Eternus the badge is the one the player entered the match with.
 
 Only ranked matches carry a rank, and it stays unset while the player is in placement games.
@@ -1372,7 +1372,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1790812800
+		var defaultValue int64 = 1790985600
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}

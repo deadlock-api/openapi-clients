@@ -1,6 +1,6 @@
 # OpenAPI\Client\InfoApi
 
-System status and info endpoints. Provides health checks for monitoring service availability (Clickhouse, Postgres, Redis) and API statistics including database table sizes, match fetching rates, and missed matches.
+System status and info endpoints. Provides health checks for monitoring service availability (Clickhouse, Postgres, Redis) and API statistics including database table sizes and match fetching rates.
 
 All URIs are relative to https://api.deadlock-api.com, except if the operation defines another base path.
 
@@ -110,7 +110,7 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `text/plain`
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

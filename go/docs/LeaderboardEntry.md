@@ -5,15 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountName** | Pointer to **NullableString** | The account name of the player. | [optional] 
-**PossibleAccountIds** | Pointer to **[]int32** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | [optional] 
+**PossibleAccountIds** | **[]int32** | The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.** | 
 **Rank** | Pointer to **NullableInt32** | The rank of the player (tier &#x3D; first digits, subtier &#x3D; last digit). See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**TopHeroIds** | Pointer to **[]int32** | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
+**TopHeroIds** | **[]int32** | The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
 
 ## Methods
 
 ### NewLeaderboardEntry
 
-`func NewLeaderboardEntry() *LeaderboardEntry`
+`func NewLeaderboardEntry(possibleAccountIds []int32, topHeroIds []int32, ) *LeaderboardEntry`
 
 NewLeaderboardEntry instantiates a new LeaderboardEntry object
 This constructor will assign default values to properties that have it defined,
@@ -82,11 +82,6 @@ and a boolean to check if the value has been set.
 
 SetPossibleAccountIds sets PossibleAccountIds field to given value.
 
-### HasPossibleAccountIds
-
-`func (o *LeaderboardEntry) HasPossibleAccountIds() bool`
-
-HasPossibleAccountIds returns a boolean if a field has been set.
 
 ### GetRank
 
@@ -142,11 +137,6 @@ and a boolean to check if the value has been set.
 
 SetTopHeroIds sets TopHeroIds field to given value.
 
-### HasTopHeroIds
-
-`func (o *LeaderboardEntry) HasTopHeroIds() bool`
-
-HasTopHeroIds returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

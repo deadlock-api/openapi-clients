@@ -224,6 +224,7 @@ export * from './subclass-ranged-armor-modifier-subclass.js';
 export * from './subclass-trooper-damage-reduction.js';
 export * from './subclass-trooper-damage-reduction-subclass.js';
 export * from './table-schema-response.js';
+export * from './table-schema-row.js';
 export * from './table-size.js';
 export * from './team-models.js';
 export * from './tooltip-details-block.js';

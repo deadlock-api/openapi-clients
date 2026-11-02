@@ -46,6 +46,12 @@ class TestLeaderboardEntry(unittest.TestCase):
             )
         else:
             return LeaderboardEntry(
+                possible_account_ids = [
+                    0
+                    ],
+                top_hero_ids = [
+                    0
+                    ],
         )
         """
 

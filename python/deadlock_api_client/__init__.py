@@ -286,6 +286,7 @@ __all__ = [
     "SubclassTrooperDamageReduction",
     "SubclassTrooperDamageReductionSubclass",
     "TableSchemaResponse",
+    "TableSchemaRow",
     "TableSize",
     "TeamModels",
     "TooltipDetailsBlock",
@@ -579,6 +580,7 @@ from deadlock_api_client.models.subclass_ranged_armor_modifier_subclass import S
 from deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction as SubclassTrooperDamageReduction
 from deadlock_api_client.models.subclass_trooper_damage_reduction_subclass import SubclassTrooperDamageReductionSubclass as SubclassTrooperDamageReductionSubclass
 from deadlock_api_client.models.table_schema_response import TableSchemaResponse as TableSchemaResponse
+from deadlock_api_client.models.table_schema_row import TableSchemaRow as TableSchemaRow
 from deadlock_api_client.models.table_size import TableSize as TableSize
 from deadlock_api_client.models.team_models import TeamModels as TeamModels
 from deadlock_api_client.models.tooltip_details_block import TooltipDetailsBlock as TooltipDetailsBlock

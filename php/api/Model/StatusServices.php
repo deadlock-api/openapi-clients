@@ -352,7 +352,7 @@ class StatusServices implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postgres
      *
-     * @param bool $postgres Whether Postgres is reachable.
+     * @param bool $postgres Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
      *
      * @return self
      */

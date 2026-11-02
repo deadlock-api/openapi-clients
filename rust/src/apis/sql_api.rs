@@ -134,7 +134,7 @@ pub async fn sql(configuration: &configuration::Configuration, params: SqlParams
 
 ///  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
 #[deprecated]
-pub async fn table_schema(configuration: &configuration::Configuration, params: TableSchemaParams) -> Result<std::collections::HashMap<String, String>, Error<TableSchemaError>> {
+pub async fn table_schema(configuration: &configuration::Configuration, params: TableSchemaParams) -> Result<Vec<models::TableSchemaRow>, Error<TableSchemaError>> {
 
     let uri_str = format!("{}/v1/sql/tables/{table}/schema", configuration.base_path, table=crate::apis::urlencode(params.table));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -158,8 +158,8 @@ pub async fn table_schema(configuration: &configuration::Configuration, params: 
         let content = resp.text().await?;
         match content_type {
             ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `std::collections::HashMap&lt;String, String&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `std::collections::HashMap&lt;String, String&gt;`")))),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::TableSchemaRow&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::TableSchemaRow&gt;`")))),
         }
     } else {
         let content = resp.text().await?;

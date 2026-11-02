@@ -83,7 +83,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |
+         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s, 2000req/h | | Global | 600req/min |
          * @summary Bulk Metadata
          * @param {boolean} [includeInfo] Include match info in the response.
          * @param {boolean} [includeMoreInfo] Include more match info in the response.
@@ -283,7 +283,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  The response adds three top-level fields from demo analysis (empty when not available):  `hero_build_ids` maps `account_id` to the player\'s `hero_build_id`.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  `banned_hero_ids` lists the hero IDs that were banned in the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom]
@@ -359,7 +359,7 @@ export const MatchesApiAxiosParamCreator = function (configuration) {
             };
         },
         /**
-         *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  This endpoint returns the matches (match info with player account ids) that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Recently Fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -509,7 +509,7 @@ export const MatchesApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |
+         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s, 2000req/h | | Global | 600req/min |
          * @summary Bulk Metadata
          * @param {boolean} [includeInfo] Include match info in the response.
          * @param {boolean} [includeMoreInfo] Include more match info in the response.
@@ -570,7 +570,7 @@ export const MatchesApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  The response adds three top-level fields from demo analysis (empty when not available):  `hero_build_ids` maps `account_id` to the player\'s `hero_build_id`.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  `banned_hero_ids` lists the hero IDs that were banned in the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
          * @summary Metadata
          * @param {number} matchId The match ID
          * @param {boolean | null} [isCustom]
@@ -600,7 +600,7 @@ export const MatchesApiFp = function (configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  This endpoint returns the matches (match info with player account ids) that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Recently Fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -678,7 +678,7 @@ export const MatchesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.activeMatchesRaw(options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |
+         *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s, 2000req/h | | Global | 600req/min |
          * @summary Bulk Metadata
          * @param {MatchesApiBulkMetadataRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -698,7 +698,7 @@ export const MatchesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+         *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  The response adds three top-level fields from demo analysis (empty when not available):  `hero_build_ids` maps `account_id` to the player\'s `hero_build_id`.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  `banned_hero_ids` lists the hero IDs that were banned in the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
          * @summary Metadata
          * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
@@ -718,7 +718,7 @@ export const MatchesApiFactory = function (configuration, basePath, axios) {
             return localVarFp.metadataRaw(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(axios, basePath));
         },
         /**
-         *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+         *  This endpoint returns the matches (match info with player account ids) that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
          * @summary Recently Fetched
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -781,7 +781,7 @@ export class MatchesApi extends BaseAPI {
         return MatchesApiFp(this.configuration).activeMatchesRaw(options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s | | Global | 600req/min |
+     *  This endpoints lets you fetch multiple match metadata at once. The response is a JSON array of match metadata.  When player info is included, each player object contains `hero_build_id` and `pregame_hero_id` fields (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  > **Note:** The `pregame_hero_id` is the hero the player had locked before the pre-game swap window (`null` if unknown). A player swapped heroes when it differs from their `hero_id`.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 30req/min | | Key | 30req/10s, 2000req/h | | Global | 600req/min |
      * @summary Bulk Metadata
      * @param {MatchesApiBulkMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -801,7 +801,7 @@ export class MatchesApi extends BaseAPI {
         return MatchesApiFp(this.configuration).ingestUrls(requestParameters.ingestLiveUrl, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  Each player object is enriched with a `hero_build_id` field (if available) from demo analysis.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
+     *  This endpoint returns the match metadata for the given `match_id` parsed into JSON.  The response adds three top-level fields from demo analysis (empty when not available):  `hero_build_ids` maps `account_id` to the player\'s `hero_build_id`.  > **Note:** The `hero_build_id` represents the first build the player had selected when the game started. It does not reflect any build changes made during the match.  `pregame_hero_ids` maps `account_id` to the hero the player had locked before the pre-game swap window (if available from demo analysis). A player swapped heroes when it differs from their `hero_id`.  `banned_hero_ids` lists the hero IDs that were banned in the match.  Protobuf definitions can be found here: [https://github.com/SteamDatabase/Protobufs](https://github.com/SteamDatabase/Protobufs)  Relevant Protobuf Messages: - CMsgMatchMetaData - CMsgMatchMetaDataContents  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | From cache: 100req/s<br>From S3: 100req/10s<br>From Steam: 3req/h | | Key | From cache: -<br>From S3: 100req/s<br>From Steam: 300req/h | | Global | From cache: -<br>From S3: 700req/s<br>From Steam: 1500req/h |
      * @summary Metadata
      * @param {MatchesApiMetadataRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -821,7 +821,7 @@ export class MatchesApi extends BaseAPI {
         return MatchesApiFp(this.configuration).metadataRaw(requestParameters.matchId, requestParameters.isCustom, requestParameters.disableSteam, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     *  This endpoint returns a list of match ids that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
+     *  This endpoint returns the matches (match info with player account ids) that have been fetched within the last 10 minutes.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - |
      * @summary Recently Fetched
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

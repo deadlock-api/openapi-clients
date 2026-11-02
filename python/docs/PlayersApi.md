@@ -417,8 +417,8 @@ Rank
 
 
 Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that
-match with plus the progress the match awarded. A subrank spans 1000 progress points, so a single
-match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
+match with plus the progress the match awarded. A subrank spans 1000 progress points (the sixth
+subrank of a tier spans 2000), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so
 within Eternus the badge is the one the player entered the match with.
 
 Only ranked matches carry a rank, and it stays unset while the player is in placement games.
@@ -692,7 +692,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.PlayersApi(api_client)
-    min_unix_timestamp = 1790812800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790812800)
+    min_unix_timestamp = 1790985600 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790985600)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -718,7 +718,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790812800]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790985600]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 

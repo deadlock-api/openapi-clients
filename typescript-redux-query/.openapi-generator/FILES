@@ -264,6 +264,7 @@ src/models/SubclassRangedArmorModifierSubclass.ts
 src/models/SubclassTrooperDamageReduction.ts
 src/models/SubclassTrooperDamageReductionSubclass.ts
 src/models/TableSchemaResponse.ts
+src/models/TableSchemaRow.ts
 src/models/TableSize.ts
 src/models/TeamModels.ts
 src/models/TooltipDetailsBlock.ts

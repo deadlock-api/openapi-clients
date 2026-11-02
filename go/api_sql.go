@@ -307,7 +307,7 @@ type ApiTableSchemaRequest struct {
 	table string
 }
 
-func (r ApiTableSchemaRequest) Execute() (map[string]string, *http.Response, error) {
+func (r ApiTableSchemaRequest) Execute() ([]TableSchemaRow, *http.Response, error) {
 	return r.ApiService.TableSchemaExecute(r)
 }
 
@@ -345,14 +345,14 @@ func (a *SQLAPIService) TableSchema(ctx context.Context, table string) ApiTableS
 }
 
 // Execute executes the request
-//  @return map[string]string
+//  @return []TableSchemaRow
 // Deprecated
-func (a *SQLAPIService) TableSchemaExecute(r ApiTableSchemaRequest) (map[string]string, *http.Response, error) {
+func (a *SQLAPIService) TableSchemaExecute(r ApiTableSchemaRequest) ([]TableSchemaRow, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  map[string]string
+		localVarReturnValue  []TableSchemaRow
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SQLAPIService.TableSchema")

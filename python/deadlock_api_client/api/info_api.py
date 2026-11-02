@@ -336,7 +336,6 @@ class InfoApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "APIInfo",
-            '500': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -400,7 +399,6 @@ class InfoApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "APIInfo",
-            '500': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -464,7 +462,6 @@ class InfoApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "APIInfo",
-            '500': "str",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -506,8 +503,7 @@ class InfoApi:
         if 'Accept' not in _header_params:
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
-                    'application/json', 
-                    'text/plain'
+                    'application/json'
                 ]
             )
 

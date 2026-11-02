@@ -403,7 +403,7 @@ class InfoApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\APIInfo|string
+     * @return \OpenAPI\Client\Model\APIInfo
      */
     public function info(string $contentType = self::contentTypes['info'][0])
     {
@@ -420,7 +420,7 @@ class InfoApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\APIInfo|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\APIInfo, HTTP status code, HTTP response headers (array of strings)
      */
     public function infoWithHttpInfo(string $contentType = self::contentTypes['info'][0])
     {
@@ -456,12 +456,6 @@ class InfoApi
                         $request,
                         $response,
                     );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        'string',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -490,14 +484,6 @@ class InfoApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\OpenAPI\Client\Model\APIInfo',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -604,7 +590,7 @@ class InfoApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'text/plain', ],
+            ['application/json', ],
             $contentType,
             $multipart
         );

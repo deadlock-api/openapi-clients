@@ -16,7 +16,7 @@ pub struct StatusServices {
     /// Whether Clickhouse is reachable.
     #[serde(rename = "clickhouse")]
     pub clickhouse: bool,
-    /// Whether Postgres is reachable.
+    /// Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
     #[serde(rename = "postgres")]
     pub postgres: bool,
     /// Whether Redis is reachable.

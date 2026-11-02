@@ -70,7 +70,7 @@ No authorization required
 
 ## table_schema
 
-> std::collections::HashMap<String, String> table_schema(table)
+> Vec<models::TableSchemaRow> table_schema(table)
 Table Schema
 
  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
@@ -84,7 +84,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-**std::collections::HashMap<String, String>**
+[**Vec<models::TableSchemaRow>**](TableSchemaRow.md)
 
 ### Authorization
 

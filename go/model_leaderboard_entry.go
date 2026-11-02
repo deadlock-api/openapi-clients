@@ -12,6 +12,8 @@ package deadlock_api_client
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the LeaderboardEntry type satisfies the MappedNullable interface at compile time
@@ -22,19 +24,23 @@ type LeaderboardEntry struct {
 	// The account name of the player.
 	AccountName NullableString `json:"account_name,omitempty"`
 	// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
-	PossibleAccountIds []int32 `json:"possible_account_ids,omitempty"`
+	PossibleAccountIds []int32 `json:"possible_account_ids"`
 	// The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Rank NullableInt32 `json:"rank,omitempty"`
 	// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-	TopHeroIds []int32 `json:"top_hero_ids,omitempty"`
+	TopHeroIds []int32 `json:"top_hero_ids"`
 }
+
+type _LeaderboardEntry LeaderboardEntry
 
 // NewLeaderboardEntry instantiates a new LeaderboardEntry object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewLeaderboardEntry() *LeaderboardEntry {
+func NewLeaderboardEntry(possibleAccountIds []int32, topHeroIds []int32) *LeaderboardEntry {
 	this := LeaderboardEntry{}
+	this.PossibleAccountIds = possibleAccountIds
+	this.TopHeroIds = topHeroIds
 	return &this
 }
 
@@ -88,34 +94,26 @@ func (o *LeaderboardEntry) UnsetAccountName() {
 	o.AccountName.Unset()
 }
 
-// GetPossibleAccountIds returns the PossibleAccountIds field value if set, zero value otherwise.
+// GetPossibleAccountIds returns the PossibleAccountIds field value
 func (o *LeaderboardEntry) GetPossibleAccountIds() []int32 {
-	if o == nil || IsNil(o.PossibleAccountIds) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
+
 	return o.PossibleAccountIds
 }
 
-// GetPossibleAccountIdsOk returns a tuple with the PossibleAccountIds field value if set, nil otherwise
+// GetPossibleAccountIdsOk returns a tuple with the PossibleAccountIds field value
 // and a boolean to check if the value has been set.
 func (o *LeaderboardEntry) GetPossibleAccountIdsOk() ([]int32, bool) {
-	if o == nil || IsNil(o.PossibleAccountIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.PossibleAccountIds, true
 }
 
-// HasPossibleAccountIds returns a boolean if a field has been set.
-func (o *LeaderboardEntry) HasPossibleAccountIds() bool {
-	if o != nil && !IsNil(o.PossibleAccountIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetPossibleAccountIds gets a reference to the given []int32 and assigns it to the PossibleAccountIds field.
+// SetPossibleAccountIds sets field value
 func (o *LeaderboardEntry) SetPossibleAccountIds(v []int32) {
 	o.PossibleAccountIds = v
 }
@@ -162,34 +160,26 @@ func (o *LeaderboardEntry) UnsetRank() {
 	o.Rank.Unset()
 }
 
-// GetTopHeroIds returns the TopHeroIds field value if set, zero value otherwise.
+// GetTopHeroIds returns the TopHeroIds field value
 func (o *LeaderboardEntry) GetTopHeroIds() []int32 {
-	if o == nil || IsNil(o.TopHeroIds) {
+	if o == nil {
 		var ret []int32
 		return ret
 	}
+
 	return o.TopHeroIds
 }
 
-// GetTopHeroIdsOk returns a tuple with the TopHeroIds field value if set, nil otherwise
+// GetTopHeroIdsOk returns a tuple with the TopHeroIds field value
 // and a boolean to check if the value has been set.
 func (o *LeaderboardEntry) GetTopHeroIdsOk() ([]int32, bool) {
-	if o == nil || IsNil(o.TopHeroIds) {
+	if o == nil {
 		return nil, false
 	}
 	return o.TopHeroIds, true
 }
 
-// HasTopHeroIds returns a boolean if a field has been set.
-func (o *LeaderboardEntry) HasTopHeroIds() bool {
-	if o != nil && !IsNil(o.TopHeroIds) {
-		return true
-	}
-
-	return false
-}
-
-// SetTopHeroIds gets a reference to the given []int32 and assigns it to the TopHeroIds field.
+// SetTopHeroIds sets field value
 func (o *LeaderboardEntry) SetTopHeroIds(v []int32) {
 	o.TopHeroIds = v
 }
@@ -207,16 +197,50 @@ func (o LeaderboardEntry) ToMap() (map[string]interface{}, error) {
 	if o.AccountName.IsSet() {
 		toSerialize["account_name"] = o.AccountName.Get()
 	}
-	if !IsNil(o.PossibleAccountIds) {
-		toSerialize["possible_account_ids"] = o.PossibleAccountIds
-	}
+	toSerialize["possible_account_ids"] = o.PossibleAccountIds
 	if o.Rank.IsSet() {
 		toSerialize["rank"] = o.Rank.Get()
 	}
-	if !IsNil(o.TopHeroIds) {
-		toSerialize["top_hero_ids"] = o.TopHeroIds
-	}
+	toSerialize["top_hero_ids"] = o.TopHeroIds
 	return toSerialize, nil
+}
+
+func (o *LeaderboardEntry) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"possible_account_ids",
+		"top_hero_ids",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varLeaderboardEntry := _LeaderboardEntry{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varLeaderboardEntry)
+
+	if err != nil {
+		return err
+	}
+
+	*o = LeaderboardEntry(varLeaderboardEntry)
+
+	return err
 }
 
 type NullableLeaderboardEntry struct {

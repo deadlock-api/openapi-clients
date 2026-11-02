@@ -102,19 +102,13 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IInfoApiResponse"/>
     /// </summary>
-    public interface IInfoApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.APIInfo?>, IInternalServerError<string?>
+    public interface IInfoApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.APIInfo?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
         /// </summary>
         /// <returns></returns>
         bool IsOk { get; }
-
-        /// <summary>
-        /// Returns true if the response is 500 InternalServerError
-        /// </summary>
-        /// <returns></returns>
-        bool IsInternalServerError { get; }
     }
 
     /// <summary>
@@ -567,8 +561,7 @@ namespace DeadlockApiClient.Api
                     httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
 
                     string[] acceptLocalVars = new string[] {
-                        "application/json",
-                        "text/plain"
+                        "application/json"
                     };
 
                     IEnumerable<MediaTypeWithQualityHeaderValue> acceptHeaderValuesLocalVar = ClientUtils.SelectHeaderAcceptArray(acceptLocalVars);
@@ -698,56 +691,6 @@ namespace DeadlockApiClient.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
-                }
-
-                return result != null;
-            }
-
-            /// <summary>
-            /// Returns true if the response is 500 InternalServerError
-            /// </summary>
-            /// <returns></returns>
-            public bool IsInternalServerError => 500 == (int)StatusCode;
-
-            /// <summary>
-            /// Deserializes the response if the response is 500 InternalServerError
-            /// </summary>
-            /// <returns></returns>
-            public string? InternalServerError()
-            {
-                bool suppressDefault = false;
-                string? result = null;
-                OnInternalServerError(ref suppressDefault, ref result);
-                if (!suppressDefault)
-                    result = DefaultInternalServerError();
-                return result;
-            }
-
-            private string? DefaultInternalServerError()
-            {
-                // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
-                return IsInternalServerError
-                    ? System.Text.Json.JsonSerializer.Deserialize<string>(RawContent, _jsonSerializerOptions)
-                    : null;
-            }
-
-            partial void OnInternalServerError(ref bool suppressDefault, ref string? result);
-
-            /// <summary>
-            /// Returns true if the response is 500 InternalServerError and the deserialized response is not null
-            /// </summary>
-            /// <param name="result"></param>
-            /// <returns></returns>
-            public bool TryInternalServerError([NotNullWhen(true)]out string? result)
-            {
-                result = null;
-
-                try
-                {
-                    result = InternalServerError();
-                } catch (Exception e)
-                {
-                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)500);
                 }
 
                 return result != null;

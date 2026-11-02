@@ -14,6 +14,11 @@
 
 import { HttpMethods, QueryConfig, ResponseBody, ResponseText } from 'redux-query';
 import * as runtime from '../runtime';
+import {
+    TableSchemaRow,
+    TableSchemaRowFromJSON,
+    TableSchemaRowToJSON,
+} from '../models';
 
 export interface SqlRequest {
     query: string;
@@ -131,7 +136,7 @@ export function sql<T>(requestParameters: SqlRequest, requestConfig?: runtime.Ty
  *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
  * Table Schema
  */
-function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig: runtime.TypedQueryConfig<T, { [key: string]: string; }> = {}): QueryConfig<T> {
+function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig: runtime.TypedQueryConfig<T, Array<TableSchemaRow>> = {}): QueryConfig<T> {
     if (requestParameters.table === null || requestParameters.table === undefined) {
         throw new runtime.RequiredError('table','Required parameter requestParameters.table was null or undefined when calling tableSchema.');
     }
@@ -161,6 +166,7 @@ function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig:
 
     const { transform: requestTransform } = requestConfig;
     if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(TableSchemaRowFromJSON), text);
     }
 
     return config;
@@ -170,7 +176,7 @@ function tableSchemaRaw<T>(requestParameters: TableSchemaRequest, requestConfig:
 *  **Deprecated.** Direct SQL access will be removed. Use the public data lake at https://data.deadlock-api.com (DuckDB / DuckLake, or the MCP server at `/v1/mcp`) instead; see https://deadlock-api.com/data-dumps.  Returns the columns of a data lake table with their `DuckDB` types; column comments carry the original `ClickHouse` type.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 10req/min | | Key | - | | Global | 60req/min | 
 * Table Schema
 */
-export function tableSchema<T>(requestParameters: TableSchemaRequest, requestConfig?: runtime.TypedQueryConfig<T, { [key: string]: string; }>): QueryConfig<T> {
+export function tableSchema<T>(requestParameters: TableSchemaRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<TableSchemaRow>>): QueryConfig<T> {
     return tableSchemaRaw(requestParameters, requestConfig);
 }
 

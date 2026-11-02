@@ -104,7 +104,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully fetched custom match id. |  -  |
+**200** | Successfully created the custom match. |  -  |
 **400** | Provided parameters are invalid. |  -  |
 **429** | Rate limit exceeded |  -  |
 **500** | Creating custom match failed |  -  |

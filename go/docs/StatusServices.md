@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Clickhouse** | **bool** | Whether Clickhouse is reachable. | 
-**Postgres** | **bool** | Whether Postgres is reachable. | 
+**Postgres** | **bool** | Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable. | 
 **Redis** | **bool** | Whether Redis is reachable. | 
 
 ## Methods

@@ -719,7 +719,7 @@ class SQLApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,string>|string
+     * @return \OpenAPI\Client\Model\TableSchemaRow[]|string
      * @deprecated
      */
     public function tableSchema($table, string $contentType = self::contentTypes['tableSchema'][0])
@@ -738,7 +738,7 @@ class SQLApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,string>|string, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\TableSchemaRow[]|string, HTTP status code, HTTP response headers (array of strings)
      * @deprecated
      */
     public function tableSchemaWithHttpInfo($table, string $contentType = self::contentTypes['tableSchema'][0])
@@ -771,7 +771,7 @@ class SQLApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'array<string,string>',
+                        '\OpenAPI\Client\Model\TableSchemaRow[]',
                         $request,
                         $response,
                     );
@@ -799,7 +799,7 @@ class SQLApi
             }
 
             return $this->handleResponseWithDataType(
-                'array<string,string>',
+                '\OpenAPI\Client\Model\TableSchemaRow[]',
                 $request,
                 $response,
             );
@@ -808,7 +808,7 @@ class SQLApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,string>',
+                        '\OpenAPI\Client\Model\TableSchemaRow[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -864,7 +864,7 @@ class SQLApi
      */
     public function tableSchemaAsyncWithHttpInfo($table, string $contentType = self::contentTypes['tableSchema'][0])
     {
-        $returnType = 'array<string,string>';
+        $returnType = '\OpenAPI\Client\Model\TableSchemaRow[]';
         $request = $this->tableSchemaRequest($table, $contentType);
 
         return $this->client

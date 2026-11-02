@@ -270,6 +270,7 @@ deadlock_api_client/models/subclass_ranged_armor_modifier_subclass.py
 deadlock_api_client/models/subclass_trooper_damage_reduction.py
 deadlock_api_client/models/subclass_trooper_damage_reduction_subclass.py
 deadlock_api_client/models/table_schema_response.py
+deadlock_api_client/models/table_schema_row.py
 deadlock_api_client/models/table_size.py
 deadlock_api_client/models/team_models.py
 deadlock_api_client/models/tooltip_details_block.py
@@ -549,6 +550,7 @@ docs/SubclassRangedArmorModifierSubclass.md
 docs/SubclassTrooperDamageReduction.md
 docs/SubclassTrooperDamageReductionSubclass.md
 docs/TableSchemaResponse.md
+docs/TableSchemaRow.md
 docs/TableSize.md
 docs/TeamModels.md
 docs/TooltipDetailsBlock.md
@@ -833,6 +835,7 @@ test/test_subclass_ranged_armor_modifier_subclass.py
 test/test_subclass_trooper_damage_reduction.py
 test/test_subclass_trooper_damage_reduction_subclass.py
 test/test_table_schema_response.py
+test/test_table_schema_row.py
 test/test_table_size.py
 test/test_team_models.py
 test/test_tooltip_details_block.py

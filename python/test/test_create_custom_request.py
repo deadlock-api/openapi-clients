@@ -42,7 +42,7 @@ class TestCreateCustomRequest(unittest.TestCase):
                 duplicate_heroes_enabled = True,
                 game_mode = 'normal',
                 is_publicly_visible = True,
-                min_roster_size = 0,
+                min_roster_size = 1,
                 randomize_lanes = True,
                 server_region = 'europe'
             )

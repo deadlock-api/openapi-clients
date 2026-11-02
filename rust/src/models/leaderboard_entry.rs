@@ -17,23 +17,23 @@ pub struct LeaderboardEntry {
     #[serde(rename = "account_name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub account_name: Option<Option<String>>,
     /// The possible account IDs of the player. **CAVEAT: This is not always correct, as Steam account names are not unique.**
-    #[serde(rename = "possible_account_ids", skip_serializing_if = "Option::is_none")]
-    pub possible_account_ids: Option<Vec<u32>>,
+    #[serde(rename = "possible_account_ids")]
+    pub possible_account_ids: Vec<u32>,
     /// The rank of the player (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
     #[serde(rename = "rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub rank: Option<Option<u32>>,
     /// The top hero IDs of the player, as the game sends them. Since 2026-07-31 the game leaves them empty for about half of the entries. See more: <https://api.deadlock-api.com/v1/assets/heroes>
-    #[serde(rename = "top_hero_ids", skip_serializing_if = "Option::is_none")]
-    pub top_hero_ids: Option<Vec<u32>>,
+    #[serde(rename = "top_hero_ids")]
+    pub top_hero_ids: Vec<u32>,
 }
 
 impl LeaderboardEntry {
-    pub fn new() -> LeaderboardEntry {
+    pub fn new(possible_account_ids: Vec<u32>, top_hero_ids: Vec<u32>) -> LeaderboardEntry {
         LeaderboardEntry {
             account_name: None,
-            possible_account_ids: None,
+            possible_account_ids,
             rank: None,
-            top_hero_ids: None,
+            top_hero_ids,
         }
     }
 }
