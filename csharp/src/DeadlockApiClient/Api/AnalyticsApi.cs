@@ -2016,7 +2016,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IPlayerStatsMetricsApiResponse"/>
     /// </summary>
-    public interface IPlayerStatsMetricsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Dictionary<string, HashMapValue>?>
+    public interface IPlayerStatsMetricsApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.PlayerStatsMetricsResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -12730,32 +12730,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public DeadlockApiClient.Model.Dictionary<string, HashMapValue>? Ok()
+            public DeadlockApiClient.Model.PlayerStatsMetricsResponse? Ok()
             {
                 bool suppressDefault = false;
-                DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result = null;
+                DeadlockApiClient.Model.PlayerStatsMetricsResponse? result = null;
                 OnOk(ref suppressDefault, ref result);
                 if (!suppressDefault)
                     result = DefaultOk();
                 return result;
             }
 
-            private DeadlockApiClient.Model.Dictionary<string, HashMapValue>? DefaultOk()
+            private DeadlockApiClient.Model.PlayerStatsMetricsResponse? DefaultOk()
             {
                 // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.PlayerStatsMetricsResponse>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
-            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result);
+            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.PlayerStatsMetricsResponse? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Dictionary<string, HashMapValue>? result)
+            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.PlayerStatsMetricsResponse? result)
             {
                 result = null;
 

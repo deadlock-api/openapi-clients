@@ -7792,7 +7792,7 @@ func (r ApiPlayerStatsMetricsRequest) IncludeBuffMetrics(includeBuffMetrics bool
 	return r
 }
 
-func (r ApiPlayerStatsMetricsRequest) Execute() (*map[string]HashMapValue, *http.Response, error) {
+func (r ApiPlayerStatsMetricsRequest) Execute() (*PlayerStatsMetricsResponse, *http.Response, error) {
 	return r.ApiService.PlayerStatsMetricsExecute(r)
 }
 
@@ -7837,13 +7837,13 @@ func (a *AnalyticsAPIService) PlayerStatsMetrics(ctx context.Context) ApiPlayerS
 }
 
 // Execute executes the request
-//  @return map[string]HashMapValue
-func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsRequest) (*map[string]HashMapValue, *http.Response, error) {
+//  @return PlayerStatsMetricsResponse
+func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsRequest) (*PlayerStatsMetricsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *map[string]HashMapValue
+		localVarReturnValue  *PlayerStatsMetricsResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AnalyticsAPIService.PlayerStatsMetrics")

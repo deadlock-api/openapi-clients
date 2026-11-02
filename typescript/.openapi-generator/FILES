@@ -135,7 +135,6 @@ docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
 docs/HashMapStringScalingStatValue.md
-docs/HashMapValue.md
 docs/Hero.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -208,6 +207,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/MetricValues.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
@@ -231,6 +231,8 @@ docs/Pickup.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerStatsMetricsBucket.md
+docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
@@ -401,7 +403,6 @@ models/hash-map-item-slot-type-vec-purchase-bonus-value-inner.ts
 models/hash-map-string-level-info-value.ts
 models/hash-map-string-option-draft-bucketing-value.ts
 models/hash-map-string-scaling-stat-value.ts
-models/hash-map-value.ts
 models/hero-ban-stats.ts
 models/hero-build-stats.ts
 models/hero-colors.ts
@@ -465,6 +466,7 @@ models/match-player.ts
 models/match-salts-response.ts
 models/match-spectate-response.ts
 models/mate-stats.ts
+models/metric-values.ts
 models/mini-map-offsets.ts
 models/misc-entity.ts
 models/mmrhistory.ts
@@ -485,6 +487,8 @@ models/pickup.ts
 models/player-entry.ts
 models/player-match-history-entry.ts
 models/player-performance-curve-point.ts
+models/player-stats-metrics-bucket.ts
+models/player-stats-metrics-response.ts
 models/rank-distribution-entry.ts
 models/rank-images.ts
 models/rank-response.ts

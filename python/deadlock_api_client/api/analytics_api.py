@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Dict, List, Optional
+from typing import List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.analytics_ability_max_first_stats import AnalyticsAbilityMaxFirstStats
 from deadlock_api_client.models.analytics_ability_order_stats import AnalyticsAbilityOrderStats
@@ -26,7 +26,6 @@ from deadlock_api_client.models.analytics_game_stats import AnalyticsGameStats
 from deadlock_api_client.models.analytics_hero_stats import AnalyticsHeroStats
 from deadlock_api_client.models.badge_distribution import BadgeDistribution
 from deadlock_api_client.models.build_item_stats import BuildItemStats
-from deadlock_api_client.models.hash_map_value import HashMapValue
 from deadlock_api_client.models.hero_ban_stats import HeroBanStats
 from deadlock_api_client.models.hero_build_stats import HeroBuildStats
 from deadlock_api_client.models.hero_comb_stats import HeroCombStats
@@ -42,6 +41,7 @@ from deadlock_api_client.models.lane_matchup_stats import LaneMatchupStats
 from deadlock_api_client.models.lane_soul_curve import LaneSoulCurve
 from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
+from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse
 
 from deadlock_api_client.api_client import ApiClient, RequestSerialized
 from deadlock_api_client.api_response import ApiResponse
@@ -13384,7 +13384,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Dict[str, HashMapValue]:
+    ) -> PlayerStatsMetricsResponse:
         """Player Stats Metrics
 
          Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
@@ -13482,7 +13482,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, HashMapValue]",
+            '200': "PlayerStatsMetricsResponse",
             '400': None,
             '500': None,
         }
@@ -13533,7 +13533,7 @@ class AnalyticsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Dict[str, HashMapValue]]:
+    ) -> ApiResponse[PlayerStatsMetricsResponse]:
         """Player Stats Metrics
 
          Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
@@ -13631,7 +13631,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, HashMapValue]",
+            '200': "PlayerStatsMetricsResponse",
             '400': None,
             '500': None,
         }
@@ -13780,7 +13780,7 @@ class AnalyticsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Dict[str, HashMapValue]",
+            '200': "PlayerStatsMetricsResponse",
             '400': None,
             '500': None,
         }

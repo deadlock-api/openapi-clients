@@ -122,7 +122,6 @@ api/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.php
 api/Model/HashMapStringLevelInfoValue.php
 api/Model/HashMapStringOptionDraftBucketingValue.php
 api/Model/HashMapStringScalingStatValue.php
-api/Model/HashMapValue.php
 api/Model/Hero.php
 api/Model/HeroBanStats.php
 api/Model/HeroBuildStats.php
@@ -186,6 +185,7 @@ api/Model/MatchPlayer.php
 api/Model/MatchSaltsResponse.php
 api/Model/MatchSpectateResponse.php
 api/Model/MateStats.php
+api/Model/MetricValues.php
 api/Model/MiniMapOffsets.php
 api/Model/MiscEntity.php
 api/Model/ModelInterface.php
@@ -206,6 +206,8 @@ api/Model/Pickup.php
 api/Model/PlayerEntry.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
+api/Model/PlayerStatsMetricsBucket.php
+api/Model/PlayerStatsMetricsResponse.php
 api/Model/Rank.php
 api/Model/RankDistributionEntry.php
 api/Model/RankImages.php
@@ -403,7 +405,6 @@ docs/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/Model/HashMapStringLevelInfoValue.md
 docs/Model/HashMapStringOptionDraftBucketingValue.md
 docs/Model/HashMapStringScalingStatValue.md
-docs/Model/HashMapValue.md
 docs/Model/Hero.md
 docs/Model/HeroBanStats.md
 docs/Model/HeroBuildStats.md
@@ -467,6 +468,7 @@ docs/Model/MatchPlayer.md
 docs/Model/MatchSaltsResponse.md
 docs/Model/MatchSpectateResponse.md
 docs/Model/MateStats.md
+docs/Model/MetricValues.md
 docs/Model/MiniMapOffsets.md
 docs/Model/MiscEntity.md
 docs/Model/Modifier.md
@@ -486,6 +488,8 @@ docs/Model/Pickup.md
 docs/Model/PlayerEntry.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
+docs/Model/PlayerStatsMetricsBucket.md
+docs/Model/PlayerStatsMetricsResponse.md
 docs/Model/Rank.md
 docs/Model/RankDistributionEntry.md
 docs/Model/RankImages.md
@@ -683,7 +687,6 @@ test/Model/HashMapItemSlotTypeVecPurchaseBonusValueInnerTest.php
 test/Model/HashMapStringLevelInfoValueTest.php
 test/Model/HashMapStringOptionDraftBucketingValueTest.php
 test/Model/HashMapStringScalingStatValueTest.php
-test/Model/HashMapValueTest.php
 test/Model/HeroBanStatsTest.php
 test/Model/HeroBuildStatsTest.php
 test/Model/HeroColorsTest.php
@@ -747,6 +750,7 @@ test/Model/MatchPlayerTest.php
 test/Model/MatchSaltsResponseTest.php
 test/Model/MatchSpectateResponseTest.php
 test/Model/MateStatsTest.php
+test/Model/MetricValuesTest.php
 test/Model/MiniMapOffsetsTest.php
 test/Model/MiscEntityTest.php
 test/Model/ModifierTest.php
@@ -766,6 +770,8 @@ test/Model/PickupTest.php
 test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
+test/Model/PlayerStatsMetricsBucketTest.php
+test/Model/PlayerStatsMetricsResponseTest.php
 test/Model/RankDistributionEntryTest.php
 test/Model/RankImagesTest.php
 test/Model/RankResponseTest.php

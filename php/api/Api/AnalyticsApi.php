@@ -13972,7 +13972,7 @@ class AnalyticsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array<string,\OpenAPI\Client\Model\HashMapValue>
+     * @return \OpenAPI\Client\Model\PlayerStatsMetricsResponse
      */
     public function playerStatsMetrics($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790985600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
@@ -14010,7 +14010,7 @@ class AnalyticsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of array<string,\OpenAPI\Client\Model\HashMapValue>, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\PlayerStatsMetricsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function playerStatsMetricsWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790985600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
@@ -14043,7 +14043,7 @@ class AnalyticsApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        'array<string,\OpenAPI\Client\Model\HashMapValue>',
+                        '\OpenAPI\Client\Model\PlayerStatsMetricsResponse',
                         $request,
                         $response,
                     );
@@ -14065,7 +14065,7 @@ class AnalyticsApi
             }
 
             return $this->handleResponseWithDataType(
-                'array<string,\OpenAPI\Client\Model\HashMapValue>',
+                '\OpenAPI\Client\Model\PlayerStatsMetricsResponse',
                 $request,
                 $response,
             );
@@ -14074,7 +14074,7 @@ class AnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'array<string,\OpenAPI\Client\Model\HashMapValue>',
+                        '\OpenAPI\Client\Model\PlayerStatsMetricsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -14160,7 +14160,7 @@ class AnalyticsApi
      */
     public function playerStatsMetricsAsyncWithHttpInfo($bucket = null, $hero_ids = null, $game_mode = null, $match_mode = null, $min_unix_timestamp = 1790985600, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $min_networth = null, $max_networth = null, $min_average_badge = null, $max_average_badge = null, $min_match_id = null, $max_match_id = null, $max_matches = null, $include_item_ids = null, $exclude_item_ids = null, $ability_order_prefix = null, $ability_unlock_order_prefix = null, $account_ids = null, $include_buff_metrics = false, string $contentType = self::contentTypes['playerStatsMetrics'][0])
     {
-        $returnType = 'array<string,\OpenAPI\Client\Model\HashMapValue>';
+        $returnType = '\OpenAPI\Client\Model\PlayerStatsMetricsResponse';
         $request = $this->playerStatsMetricsRequest($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics, $contentType);
 
         return $this->client

@@ -142,7 +142,6 @@ __all__ = [
     "HashMapStringLevelInfoValue",
     "HashMapStringOptionDraftBucketingValue",
     "HashMapStringScalingStatValue",
-    "HashMapValue",
     "Hero",
     "HeroBanStats",
     "HeroBuildStats",
@@ -206,6 +205,7 @@ __all__ = [
     "MatchSaltsResponse",
     "MatchSpectateResponse",
     "MateStats",
+    "MetricValues",
     "MiniMapOffsets",
     "MiscEntity",
     "Modifier",
@@ -225,6 +225,8 @@ __all__ = [
     "PlayerEntry",
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
+    "PlayerStatsMetricsBucket",
+    "PlayerStatsMetricsResponse",
     "Rank",
     "RankDistributionEntry",
     "RankImages",
@@ -436,7 +438,6 @@ from deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value
 from deadlock_api_client.models.hash_map_string_level_info_value import HashMapStringLevelInfoValue as HashMapStringLevelInfoValue
 from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value import HashMapStringOptionDraftBucketingValue as HashMapStringOptionDraftBucketingValue
 from deadlock_api_client.models.hash_map_string_scaling_stat_value import HashMapStringScalingStatValue as HashMapStringScalingStatValue
-from deadlock_api_client.models.hash_map_value import HashMapValue as HashMapValue
 from deadlock_api_client.models.hero import Hero as Hero
 from deadlock_api_client.models.hero_ban_stats import HeroBanStats as HeroBanStats
 from deadlock_api_client.models.hero_build_stats import HeroBuildStats as HeroBuildStats
@@ -500,6 +501,7 @@ from deadlock_api_client.models.match_player import MatchPlayer as MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse as MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse as MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats as MateStats
+from deadlock_api_client.models.metric_values import MetricValues as MetricValues
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets as MiniMapOffsets
 from deadlock_api_client.models.misc_entity import MiscEntity as MiscEntity
 from deadlock_api_client.models.modifier import Modifier as Modifier
@@ -519,6 +521,8 @@ from deadlock_api_client.models.pickup import Pickup as Pickup
 from deadlock_api_client.models.player_entry import PlayerEntry as PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
+from deadlock_api_client.models.player_stats_metrics_bucket import PlayerStatsMetricsBucket as PlayerStatsMetricsBucket
+from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse as PlayerStatsMetricsResponse
 from deadlock_api_client.models.rank import Rank as Rank
 from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry as RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages as RankImages

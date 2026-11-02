@@ -35,7 +35,6 @@ import deadlock_api_client.models.AnalyticsGameStats
 import deadlock_api_client.models.AnalyticsHeroStats
 import deadlock_api_client.models.BadgeDistribution
 import deadlock_api_client.models.BuildItemStats
-import deadlock_api_client.models.HashMapValue
 import deadlock_api_client.models.HeroBanStats
 import deadlock_api_client.models.HeroBuildStats
 import deadlock_api_client.models.HeroCombStats
@@ -51,6 +50,7 @@ import deadlock_api_client.models.LaneMatchupStats
 import deadlock_api_client.models.LaneSoulCurve
 import deadlock_api_client.models.PlayerEntry
 import deadlock_api_client.models.PlayerPerformanceCurvePoint
+import deadlock_api_client.models.PlayerStatsMetricsResponse
 
 class AnalyticsApiTest : ShouldSpec() {
     init {
@@ -680,7 +680,7 @@ class AnalyticsApiTest : ShouldSpec() {
             //val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. `a,b` for players who unlocked `a` first and `b` second. See more: <https://api.deadlock-api.com/v1/assets/heroes>
             //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
             //val includeBuffMetrics : kotlin.Boolean = true // kotlin.Boolean | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
-            //val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
+            //val result : PlayerStatsMetricsResponse = apiInstance.playerStatsMetrics(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
             //result shouldBe ("TODO")
         }
 

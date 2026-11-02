@@ -35,7 +35,6 @@ import deadlock_api_client.models.AnalyticsGameStats
 import deadlock_api_client.models.AnalyticsHeroStats
 import deadlock_api_client.models.BadgeDistribution
 import deadlock_api_client.models.BuildItemStats
-import deadlock_api_client.models.HashMapValue
 import deadlock_api_client.models.HeroBanStats
 import deadlock_api_client.models.HeroBuildStats
 import deadlock_api_client.models.HeroCombStats
@@ -51,6 +50,7 @@ import deadlock_api_client.models.LaneMatchupStats
 import deadlock_api_client.models.LaneSoulCurve
 import deadlock_api_client.models.PlayerEntry
 import deadlock_api_client.models.PlayerPerformanceCurvePoint
+import deadlock_api_client.models.PlayerStatsMetricsResponse
 
 import com.squareup.moshi.Json
 
@@ -5155,7 +5155,7 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param includeBuffMetrics Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)
-     * @return kotlin.collections.Map<kotlin.String, HashMapValue>
+     * @return PlayerStatsMetricsResponse
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      * @throws UnsupportedOperationException If the API returns an informational or redirection response
@@ -5164,11 +5164,11 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun playerStatsMetrics(bucket: BucketPlayerStatsMetrics? = null, heroIds: kotlin.String? = null, gameMode: GameModePlayerStatsMetrics? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1790985600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, includeBuffMetrics: kotlin.Boolean? = false) : kotlin.collections.Map<kotlin.String, HashMapValue> {
+    fun playerStatsMetrics(bucket: BucketPlayerStatsMetrics? = null, heroIds: kotlin.String? = null, gameMode: GameModePlayerStatsMetrics? = null, matchMode: kotlin.String? = null, minUnixTimestamp: kotlin.Long? = 1790985600L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, minNetworth: kotlin.Long? = null, maxNetworth: kotlin.Long? = null, minAverageBadge: kotlin.Int? = null, maxAverageBadge: kotlin.Int? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null, maxMatches: kotlin.Int? = null, includeItemIds: kotlin.collections.List<kotlin.Int>? = null, excludeItemIds: kotlin.collections.List<kotlin.Int>? = null, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>? = null, accountIds: kotlin.collections.List<kotlin.Int>? = null, includeBuffMetrics: kotlin.Boolean? = false) : PlayerStatsMetricsResponse {
         val localVarResponse = playerStatsMetricsWithHttpInfo(bucket = bucket, heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
 
         return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.Map<kotlin.String, HashMapValue>
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PlayerStatsMetricsResponse
             ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
@@ -5207,16 +5207,16 @@ open class AnalyticsApi(basePath: kotlin.String = defaultBasePath, client: Call.
      * @param abilityUnlockOrderPrefix Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; (optional)
      * @param accountIds Comma separated list of account ids to include (optional)
      * @param includeBuffMetrics Also return the permanent buff (power-up) pickup metrics &#x60;permanent_buffs&#x60;, &#x60;permanent_buffs_per_min&#x60; and &#x60;first_permanent_buff_time_s&#x60;. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. &#x60;first_permanent_buff_time_s&#x60; only covers matches since build 6712 (2026-09-29), which record pickup times; its values are &#x60;null&#x60; when the filter matches none of them. (optional, default to false)
-     * @return ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?>
+     * @return ApiResponse<PlayerStatsMetricsResponse?>
      * @throws IllegalStateException If the request is not correctly configured
      * @throws IOException Rethrows the OkHttp execute method exception
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun playerStatsMetricsWithHttpInfo(bucket: BucketPlayerStatsMetrics?, heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : ApiResponse<kotlin.collections.Map<kotlin.String, HashMapValue>?> {
+    fun playerStatsMetricsWithHttpInfo(bucket: BucketPlayerStatsMetrics?, heroIds: kotlin.String?, gameMode: GameModePlayerStatsMetrics?, matchMode: kotlin.String?, minUnixTimestamp: kotlin.Long?, maxUnixTimestamp: kotlin.Long?, minDurationS: kotlin.Long?, maxDurationS: kotlin.Long?, minNetworth: kotlin.Long?, maxNetworth: kotlin.Long?, minAverageBadge: kotlin.Int?, maxAverageBadge: kotlin.Int?, minMatchId: kotlin.Long?, maxMatchId: kotlin.Long?, maxMatches: kotlin.Int?, includeItemIds: kotlin.collections.List<kotlin.Int>?, excludeItemIds: kotlin.collections.List<kotlin.Int>?, abilityOrderPrefix: kotlin.collections.List<kotlin.Int>?, abilityUnlockOrderPrefix: kotlin.collections.List<kotlin.Int>?, accountIds: kotlin.collections.List<kotlin.Int>?, includeBuffMetrics: kotlin.Boolean?) : ApiResponse<PlayerStatsMetricsResponse?> {
         val localVariableConfig = playerStatsMetricsRequestConfig(bucket = bucket, heroIds = heroIds, gameMode = gameMode, matchMode = matchMode, minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, minNetworth = minNetworth, maxNetworth = maxNetworth, minAverageBadge = minAverageBadge, maxAverageBadge = maxAverageBadge, minMatchId = minMatchId, maxMatchId = maxMatchId, maxMatches = maxMatches, includeItemIds = includeItemIds, excludeItemIds = excludeItemIds, abilityOrderPrefix = abilityOrderPrefix, abilityUnlockOrderPrefix = abilityUnlockOrderPrefix, accountIds = accountIds, includeBuffMetrics = includeBuffMetrics)
 
-        return request<Unit, kotlin.collections.Map<kotlin.String, HashMapValue>>(
+        return request<Unit, PlayerStatsMetricsResponse>(
             localVariableConfig
         )
     }

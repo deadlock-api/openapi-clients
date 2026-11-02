@@ -770,7 +770,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<bool> includeBuffMetrics = default!;
             var response = await _instance.PlayerStatsMetricsAsync(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
             var model = response.Ok();
-            Assert.IsType<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(model);
+            Assert.IsType<DeadlockApiClient.Model.PlayerStatsMetricsResponse>(model);
         }
     }
 }

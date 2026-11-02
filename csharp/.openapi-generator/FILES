@@ -119,7 +119,6 @@ docs/models/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/models/HashMapStringLevelInfoValue.md
 docs/models/HashMapStringOptionDraftBucketingValue.md
 docs/models/HashMapStringScalingStatValue.md
-docs/models/HashMapValue.md
 docs/models/Hero.md
 docs/models/HeroBanStats.md
 docs/models/HeroBuildStats.md
@@ -183,6 +182,7 @@ docs/models/MatchPlayer.md
 docs/models/MatchSaltsResponse.md
 docs/models/MatchSpectateResponse.md
 docs/models/MateStats.md
+docs/models/MetricValues.md
 docs/models/MiniMapOffsets.md
 docs/models/MiscEntity.md
 docs/models/Modifier.md
@@ -202,6 +202,8 @@ docs/models/Pickup.md
 docs/models/PlayerEntry.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
+docs/models/PlayerStatsMetricsBucket.md
+docs/models/PlayerStatsMetricsResponse.md
 docs/models/Rank.md
 docs/models/RankDistributionEntry.md
 docs/models/RankImages.md
@@ -402,7 +404,6 @@ src/DeadlockApiClient.Test/Model/HashMapItemSlotTypeVecPurchaseBonusValueInnerTe
 src/DeadlockApiClient.Test/Model/HashMapStringLevelInfoValueTests.cs
 src/DeadlockApiClient.Test/Model/HashMapStringOptionDraftBucketingValueTests.cs
 src/DeadlockApiClient.Test/Model/HashMapStringScalingStatValueTests.cs
-src/DeadlockApiClient.Test/Model/HashMapValueTests.cs
 src/DeadlockApiClient.Test/Model/HeroBanStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroBuildStatsTests.cs
 src/DeadlockApiClient.Test/Model/HeroColorsTests.cs
@@ -466,6 +467,7 @@ src/DeadlockApiClient.Test/Model/MatchPlayerTests.cs
 src/DeadlockApiClient.Test/Model/MatchSaltsResponseTests.cs
 src/DeadlockApiClient.Test/Model/MatchSpectateResponseTests.cs
 src/DeadlockApiClient.Test/Model/MateStatsTests.cs
+src/DeadlockApiClient.Test/Model/MetricValuesTests.cs
 src/DeadlockApiClient.Test/Model/MiniMapOffsetsTests.cs
 src/DeadlockApiClient.Test/Model/MiscEntityTests.cs
 src/DeadlockApiClient.Test/Model/ModifierTests.cs
@@ -485,6 +487,8 @@ src/DeadlockApiClient.Test/Model/PickupTests.cs
 src/DeadlockApiClient.Test/Model/PlayerEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
+src/DeadlockApiClient.Test/Model/PlayerStatsMetricsBucketTests.cs
+src/DeadlockApiClient.Test/Model/PlayerStatsMetricsResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankDistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/RankImagesTests.cs
 src/DeadlockApiClient.Test/Model/RankResponseTests.cs
@@ -705,7 +709,6 @@ src/DeadlockApiClient/Model/HashMapItemSlotTypeVecPurchaseBonusValueInner.cs
 src/DeadlockApiClient/Model/HashMapStringLevelInfoValue.cs
 src/DeadlockApiClient/Model/HashMapStringOptionDraftBucketingValue.cs
 src/DeadlockApiClient/Model/HashMapStringScalingStatValue.cs
-src/DeadlockApiClient/Model/HashMapValue.cs
 src/DeadlockApiClient/Model/Hero.cs
 src/DeadlockApiClient/Model/HeroBanStats.cs
 src/DeadlockApiClient/Model/HeroBuildStats.cs
@@ -769,6 +772,7 @@ src/DeadlockApiClient/Model/MatchPlayer.cs
 src/DeadlockApiClient/Model/MatchSaltsResponse.cs
 src/DeadlockApiClient/Model/MatchSpectateResponse.cs
 src/DeadlockApiClient/Model/MateStats.cs
+src/DeadlockApiClient/Model/MetricValues.cs
 src/DeadlockApiClient/Model/MiniMapOffsets.cs
 src/DeadlockApiClient/Model/MiscEntity.cs
 src/DeadlockApiClient/Model/Modifier.cs
@@ -788,6 +792,8 @@ src/DeadlockApiClient/Model/Pickup.cs
 src/DeadlockApiClient/Model/PlayerEntry.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
+src/DeadlockApiClient/Model/PlayerStatsMetricsBucket.cs
+src/DeadlockApiClient/Model/PlayerStatsMetricsResponse.cs
 src/DeadlockApiClient/Model/Rank.cs
 src/DeadlockApiClient/Model/RankDistributionEntry.cs
 src/DeadlockApiClient/Model/RankImages.cs

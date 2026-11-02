@@ -38,8 +38,6 @@ import type { BadgeDistribution } from '../models/index.js';
 // @ts-ignore
 import type { BuildItemStats } from '../models/index.js';
 // @ts-ignore
-import type { HashMapValue } from '../models/index.js';
-// @ts-ignore
 import type { HeroBanStats } from '../models/index.js';
 // @ts-ignore
 import type { HeroBuildStats } from '../models/index.js';
@@ -69,6 +67,8 @@ import type { LaneSoulCurve } from '../models/index.js';
 import type { PlayerEntry } from '../models/index.js';
 // @ts-ignore
 import type { PlayerPerformanceCurvePoint } from '../models/index.js';
+// @ts-ignore
+import type { PlayerStatsMetricsResponse } from '../models/index.js';
 /**
  * AnalyticsApi - axios parameter creator
  */
@@ -3848,7 +3848,7 @@ export const AnalyticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async playerStatsMetrics(bucket?: PlayerStatsMetricsBucketEnum, heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: HashMapValue; }>> {
+        async playerStatsMetrics(bucket?: PlayerStatsMetricsBucketEnum, heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerStatsMetricsResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.playerStatsMetrics(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['AnalyticsApi.playerStatsMetrics']?.[localVarOperationServerIndex]?.url;
@@ -4100,7 +4100,7 @@ export const AnalyticsApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<{ [key: string]: HashMapValue; }> {
+        playerStatsMetrics(requestParameters: AnalyticsApiPlayerStatsMetricsRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<PlayerStatsMetricsResponse> {
             return localVarFp.playerStatsMetrics(requestParameters.bucket, requestParameters.heroIds, requestParameters.gameMode, requestParameters.matchMode, requestParameters.minUnixTimestamp, requestParameters.maxUnixTimestamp, requestParameters.minDurationS, requestParameters.maxDurationS, requestParameters.minNetworth, requestParameters.maxNetworth, requestParameters.minAverageBadge, requestParameters.maxAverageBadge, requestParameters.minMatchId, requestParameters.maxMatchId, requestParameters.maxMatches, requestParameters.includeItemIds, requestParameters.excludeItemIds, requestParameters.abilityOrderPrefix, requestParameters.abilityUnlockOrderPrefix, requestParameters.accountIds, requestParameters.includeBuffMetrics, options).then((request) => request(axios, basePath));
         },
     };

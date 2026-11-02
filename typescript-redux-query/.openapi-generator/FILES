@@ -120,7 +120,6 @@ src/models/HashMapItemSlotTypeVecPurchaseBonusValueInner.ts
 src/models/HashMapStringLevelInfoValue.ts
 src/models/HashMapStringOptionDraftBucketingValue.ts
 src/models/HashMapStringScalingStatValue.ts
-src/models/HashMapValue.ts
 src/models/Hero.ts
 src/models/HeroBanStats.ts
 src/models/HeroBuildStats.ts
@@ -184,6 +183,7 @@ src/models/MatchPlayer.ts
 src/models/MatchSaltsResponse.ts
 src/models/MatchSpectateResponse.ts
 src/models/MateStats.ts
+src/models/MetricValues.ts
 src/models/MiniMapOffsets.ts
 src/models/MiscEntity.ts
 src/models/Modifier.ts
@@ -203,6 +203,8 @@ src/models/Pickup.ts
 src/models/PlayerEntry.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
+src/models/PlayerStatsMetricsBucket.ts
+src/models/PlayerStatsMetricsResponse.ts
 src/models/Rank.ts
 src/models/RankDistributionEntry.ts
 src/models/RankImages.ts

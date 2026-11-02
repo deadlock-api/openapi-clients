@@ -2833,7 +2833,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **player_stats_metrics**
-> Dict[str, HashMapValue] player_stats_metrics(bucket=bucket, hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
+> PlayerStatsMetricsResponse player_stats_metrics(bucket=bucket, hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
 
 Player Stats Metrics
 
@@ -2869,7 +2869,7 @@ Results are cached for **1 hour** based on the unique combination of query param
 
 ```python
 import deadlock_api_client
-from deadlock_api_client.models.hash_map_value import HashMapValue
+from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse
 from deadlock_api_client.rest import ApiException
 from pprint import pprint
 
@@ -2946,7 +2946,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Dict[str, HashMapValue]**](HashMapValue.md)
+[**PlayerStatsMetricsResponse**](PlayerStatsMetricsResponse.md)
 
 ### Authorization
 

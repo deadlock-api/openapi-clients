@@ -2385,7 +2385,7 @@ No authorization required
 
 ## PlayerStatsMetrics
 
-> map[string]HashMapValue PlayerStatsMetrics(ctx).Bucket(bucket).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
+> PlayerStatsMetricsResponse PlayerStatsMetrics(ctx).Bucket(bucket).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
 
 Player Stats Metrics
 
@@ -2433,7 +2433,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerStatsMetrics``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `PlayerStatsMetrics`: map[string]HashMapValue
+	// response from `PlayerStatsMetrics`: PlayerStatsMetricsResponse
 	fmt.Fprintf(os.Stdout, "Response from `AnalyticsAPI.PlayerStatsMetrics`: %v\n", resp)
 }
 ```
@@ -2473,7 +2473,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]HashMapValue**](HashMapValue.md)
+[**PlayerStatsMetricsResponse**](PlayerStatsMetricsResponse.md)
 
 ### Authorization
 

@@ -2153,7 +2153,7 @@ No authorization required
 ## `playerStatsMetrics()`
 
 ```php
-playerStatsMetrics($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics): array<string,\OpenAPI\Client\Model\HashMapValue>
+playerStatsMetrics($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics): \OpenAPI\Client\Model\PlayerStatsMetricsResponse
 ```
 
 Player Stats Metrics
@@ -2231,7 +2231,7 @@ try {
 
 ### Return type
 
-[**array<string,\OpenAPI\Client\Model\HashMapValue>**](../Model/HashMapValue.md)
+[**\OpenAPI\Client\Model\PlayerStatsMetricsResponse**](../Model/PlayerStatsMetricsResponse.md)
 
 ### Authorization
 

@@ -126,7 +126,6 @@ deadlock_api_client/models/hash_map_item_slot_type_vec_purchase_bonus_value_inne
 deadlock_api_client/models/hash_map_string_level_info_value.py
 deadlock_api_client/models/hash_map_string_option_draft_bucketing_value.py
 deadlock_api_client/models/hash_map_string_scaling_stat_value.py
-deadlock_api_client/models/hash_map_value.py
 deadlock_api_client/models/hero.py
 deadlock_api_client/models/hero_ban_stats.py
 deadlock_api_client/models/hero_build_stats.py
@@ -189,6 +188,7 @@ deadlock_api_client/models/match_player.py
 deadlock_api_client/models/match_salts_response.py
 deadlock_api_client/models/match_spectate_response.py
 deadlock_api_client/models/mate_stats.py
+deadlock_api_client/models/metric_values.py
 deadlock_api_client/models/mini_map_offsets.py
 deadlock_api_client/models/misc_entity.py
 deadlock_api_client/models/mmr_history.py
@@ -209,6 +209,8 @@ deadlock_api_client/models/pickup.py
 deadlock_api_client/models/player_entry.py
 deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
+deadlock_api_client/models/player_stats_metrics_bucket.py
+deadlock_api_client/models/player_stats_metrics_response.py
 deadlock_api_client/models/rank.py
 deadlock_api_client/models/rank_distribution_entry.py
 deadlock_api_client/models/rank_images.py
@@ -387,7 +389,6 @@ docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
 docs/HashMapStringScalingStatValue.md
-docs/HashMapValue.md
 docs/Hero.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -460,6 +461,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/MetricValues.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
@@ -483,6 +485,8 @@ docs/Pickup.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerStatsMetricsBucket.md
+docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
@@ -672,7 +676,6 @@ test/test_hash_map_item_slot_type_vec_purchase_bonus_value_inner.py
 test/test_hash_map_string_level_info_value.py
 test/test_hash_map_string_option_draft_bucketing_value.py
 test/test_hash_map_string_scaling_stat_value.py
-test/test_hash_map_value.py
 test/test_hero.py
 test/test_hero_ban_stats.py
 test/test_hero_build_stats.py
@@ -743,6 +746,7 @@ test/test_match_salts_response.py
 test/test_match_spectate_response.py
 test/test_matches_api.py
 test/test_mate_stats.py
+test/test_metric_values.py
 test/test_mini_map_offsets.py
 test/test_misc_entities_api.py
 test/test_misc_entity.py
@@ -768,6 +772,8 @@ test/test_pickup.py
 test/test_player_entry.py
 test/test_player_match_history_entry.py
 test/test_player_performance_curve_point.py
+test/test_player_stats_metrics_bucket.py
+test/test_player_stats_metrics_response.py
 test/test_players_api.py
 test/test_rank.py
 test/test_rank_distribution_entry.py

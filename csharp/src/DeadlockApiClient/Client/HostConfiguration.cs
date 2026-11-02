@@ -131,7 +131,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new HashMapStringLevelInfoValueJsonConverter());
             _jsonOptions.Converters.Add(new HashMapStringOptionDraftBucketingValueJsonConverter());
             _jsonOptions.Converters.Add(new HashMapStringScalingStatValueJsonConverter());
-            _jsonOptions.Converters.Add(new HashMapValueJsonConverter());
             _jsonOptions.Converters.Add(new HeroJsonConverter());
             _jsonOptions.Converters.Add(new HeroBanStatsJsonConverter());
             _jsonOptions.Converters.Add(new HeroBuildStatsJsonConverter());
@@ -200,6 +199,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new MatchSaltsResponseJsonConverter());
             _jsonOptions.Converters.Add(new MatchSpectateResponseJsonConverter());
             _jsonOptions.Converters.Add(new MateStatsJsonConverter());
+            _jsonOptions.Converters.Add(new MetricValuesJsonConverter());
             _jsonOptions.Converters.Add(new MiniMapOffsetsJsonConverter());
             _jsonOptions.Converters.Add(new MiscEntityJsonConverter());
             _jsonOptions.Converters.Add(new ModifierJsonConverter());
@@ -221,6 +221,8 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PlayerEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerMatchHistoryEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
+            _jsonOptions.Converters.Add(new PlayerStatsMetricsBucketJsonConverter());
+            _jsonOptions.Converters.Add(new PlayerStatsMetricsResponseJsonConverter());
             _jsonOptions.Converters.Add(new RankJsonConverter());
             _jsonOptions.Converters.Add(new RankDistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new RankImagesJsonConverter());

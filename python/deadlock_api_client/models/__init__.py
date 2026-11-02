@@ -95,7 +95,6 @@ from deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value
 from deadlock_api_client.models.hash_map_string_level_info_value import HashMapStringLevelInfoValue
 from deadlock_api_client.models.hash_map_string_option_draft_bucketing_value import HashMapStringOptionDraftBucketingValue
 from deadlock_api_client.models.hash_map_string_scaling_stat_value import HashMapStringScalingStatValue
-from deadlock_api_client.models.hash_map_value import HashMapValue
 from deadlock_api_client.models.hero import Hero
 from deadlock_api_client.models.hero_ban_stats import HeroBanStats
 from deadlock_api_client.models.hero_build_stats import HeroBuildStats
@@ -159,6 +158,7 @@ from deadlock_api_client.models.match_player import MatchPlayer
 from deadlock_api_client.models.match_salts_response import MatchSaltsResponse
 from deadlock_api_client.models.match_spectate_response import MatchSpectateResponse
 from deadlock_api_client.models.mate_stats import MateStats
+from deadlock_api_client.models.metric_values import MetricValues
 from deadlock_api_client.models.mini_map_offsets import MiniMapOffsets
 from deadlock_api_client.models.misc_entity import MiscEntity
 from deadlock_api_client.models.modifier import Modifier
@@ -178,6 +178,8 @@ from deadlock_api_client.models.pickup import Pickup
 from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
+from deadlock_api_client.models.player_stats_metrics_bucket import PlayerStatsMetricsBucket
+from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse
 from deadlock_api_client.models.rank import Rank
 from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages

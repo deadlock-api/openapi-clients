@@ -20,7 +20,6 @@ import type { AnalyticsGameStats } from '../models/index.js';
 import type { AnalyticsHeroStats } from '../models/index.js';
 import type { BadgeDistribution } from '../models/index.js';
 import type { BuildItemStats } from '../models/index.js';
-import type { HashMapValue } from '../models/index.js';
 import type { HeroBanStats } from '../models/index.js';
 import type { HeroBuildStats } from '../models/index.js';
 import type { HeroCombStats } from '../models/index.js';
@@ -36,6 +35,7 @@ import type { LaneMatchupStats } from '../models/index.js';
 import type { LaneSoulCurve } from '../models/index.js';
 import type { PlayerEntry } from '../models/index.js';
 import type { PlayerPerformanceCurvePoint } from '../models/index.js';
+import type { PlayerStatsMetricsResponse } from '../models/index.js';
 /**
  * AnalyticsApi - axios parameter creator
  */
@@ -1298,9 +1298,7 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics(bucket?: PlayerStatsMetricsBucketEnum, heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: HashMapValue;
-    }>>;
+    playerStatsMetrics(bucket?: PlayerStatsMetricsBucketEnum, heroIds?: string | null, gameMode?: PlayerStatsMetricsGameModeEnum, matchMode?: string | null, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minNetworth?: number | null, maxNetworth?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, maxMatches?: number | null, includeItemIds?: Array<number> | null, excludeItemIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, accountIds?: Array<number> | null, includeBuffMetrics?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerStatsMetricsResponse>>;
 };
 /**
  * AnalyticsApi - factory interface
@@ -1497,9 +1495,7 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics(requestParameters?: AnalyticsApiPlayerStatsMetricsRequest, options?: RawAxiosRequestConfig): AxiosPromise<{
-        [key: string]: HashMapValue;
-    }>;
+    playerStatsMetrics(requestParameters?: AnalyticsApiPlayerStatsMetricsRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerStatsMetricsResponse>;
 };
 /**
  * Request parameters for abilityMaxFirstStats operation in AnalyticsApi.
@@ -3652,9 +3648,7 @@ export declare class AnalyticsApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    playerStatsMetrics(requestParameters?: AnalyticsApiPlayerStatsMetricsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<{
-        [key: string]: HashMapValue;
-    }, any, {}, any>>;
+    playerStatsMetrics(requestParameters?: AnalyticsApiPlayerStatsMetricsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerStatsMetricsResponse, any, {}, any>>;
 }
 export declare const AbilityMaxFirstStatsGameModeEnum: {
     readonly Normal: "normal";

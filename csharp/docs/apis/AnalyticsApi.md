@@ -1320,7 +1320,7 @@ No authorization required
 
 <a id="playerstatsmetrics"></a>
 # **PlayerStatsMetrics**
-> Dictionary&lt;string, HashMapValue&gt; PlayerStatsMetrics (string bucket = null, string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null, bool includeBuffMetrics = null)
+> PlayerStatsMetricsResponse PlayerStatsMetrics (string bucket = null, string heroIds = null, string gameMode = null, string matchMode = null, long minUnixTimestamp = null, long maxUnixTimestamp = null, long minDurationS = null, long maxDurationS = null, long minNetworth = null, long maxNetworth = null, int minAverageBadge = null, int maxAverageBadge = null, long minMatchId = null, long maxMatchId = null, int maxMatches = null, List<int> includeItemIds = null, List<int> excludeItemIds = null, List<int> abilityOrderPrefix = null, List<int> abilityUnlockOrderPrefix = null, List<int> accountIds = null, bool includeBuffMetrics = null)
 
 Player Stats Metrics
 
@@ -1355,7 +1355,7 @@ Player Stats Metrics
 
 ### Return type
 
-[**Dictionary&lt;string, HashMapValue&gt;**](HashMapValue.md)
+[**PlayerStatsMetricsResponse**](PlayerStatsMetricsResponse.md)
 
 ### Authorization
 

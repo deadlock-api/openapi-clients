@@ -134,7 +134,6 @@ docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
 docs/HashMapStringScalingStatValue.md
-docs/HashMapValue.md
 docs/Hero.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -207,6 +206,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesAPI.md
 docs/MateStats.md
+docs/MetricValues.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesAPI.md
 docs/MiscEntity.md
@@ -230,6 +230,8 @@ docs/Pickup.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerStatsMetricsBucket.md
+docs/PlayerStatsMetricsResponse.md
 docs/PlayersAPI.md
 docs/Rank.md
 docs/RankDistributionEntry.md
@@ -401,7 +403,6 @@ model_hash_map_item_slot_type_vec_purchase_bonus_value_inner.go
 model_hash_map_string_level_info_value.go
 model_hash_map_string_option_draft_bucketing_value.go
 model_hash_map_string_scaling_stat_value.go
-model_hash_map_value.go
 model_hero.go
 model_hero_ban_stats.go
 model_hero_build_stats.go
@@ -464,6 +465,7 @@ model_match_player.go
 model_match_salts_response.go
 model_match_spectate_response.go
 model_mate_stats.go
+model_metric_values.go
 model_mini_map_offsets.go
 model_misc_entity.go
 model_mmr_history.go
@@ -484,6 +486,8 @@ model_pickup.go
 model_player_entry.go
 model_player_match_history_entry.go
 model_player_performance_curve_point.go
+model_player_stats_metrics_bucket.go
+model_player_stats_metrics_response.go
 model_rank.go
 model_rank_distribution_entry.go
 model_rank_images.go

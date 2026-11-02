@@ -97,7 +97,6 @@ docs/HashMapItemSlotTypeVecPurchaseBonusValueInner.md
 docs/HashMapStringLevelInfoValue.md
 docs/HashMapStringOptionDraftBucketingValue.md
 docs/HashMapStringScalingStatValue.md
-docs/HashMapValue.md
 docs/Hero.md
 docs/HeroBanStats.md
 docs/HeroBuildStats.md
@@ -170,6 +169,7 @@ docs/MatchSaltsResponse.md
 docs/MatchSpectateResponse.md
 docs/MatchesApi.md
 docs/MateStats.md
+docs/MetricValues.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
@@ -193,6 +193,8 @@ docs/Pickup.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerStatsMetricsBucket.md
+docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
@@ -412,7 +414,6 @@ src/main/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecPurchaseBonusVa
 src/main/kotlin/deadlock_api_client/models/HashMapStringLevelInfoValue.kt
 src/main/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValue.kt
 src/main/kotlin/deadlock_api_client/models/HashMapStringScalingStatValue.kt
-src/main/kotlin/deadlock_api_client/models/HashMapValue.kt
 src/main/kotlin/deadlock_api_client/models/Hero.kt
 src/main/kotlin/deadlock_api_client/models/HeroBanStats.kt
 src/main/kotlin/deadlock_api_client/models/HeroBuildStats.kt
@@ -476,6 +477,7 @@ src/main/kotlin/deadlock_api_client/models/MatchPlayer.kt
 src/main/kotlin/deadlock_api_client/models/MatchSaltsResponse.kt
 src/main/kotlin/deadlock_api_client/models/MatchSpectateResponse.kt
 src/main/kotlin/deadlock_api_client/models/MateStats.kt
+src/main/kotlin/deadlock_api_client/models/MetricValues.kt
 src/main/kotlin/deadlock_api_client/models/MiniMapOffsets.kt
 src/main/kotlin/deadlock_api_client/models/MiscEntity.kt
 src/main/kotlin/deadlock_api_client/models/Modifier.kt
@@ -495,6 +497,8 @@ src/main/kotlin/deadlock_api_client/models/Pickup.kt
 src/main/kotlin/deadlock_api_client/models/PlayerEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
+src/main/kotlin/deadlock_api_client/models/PlayerStatsMetricsBucket.kt
+src/main/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponse.kt
 src/main/kotlin/deadlock_api_client/models/Rank.kt
 src/main/kotlin/deadlock_api_client/models/RankDistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/RankImages.kt
@@ -690,7 +694,6 @@ src/test/kotlin/deadlock_api_client/models/HashMapItemSlotTypeVecPurchaseBonusVa
 src/test/kotlin/deadlock_api_client/models/HashMapStringLevelInfoValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapStringOptionDraftBucketingValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HashMapStringScalingStatValueTest.kt
-src/test/kotlin/deadlock_api_client/models/HashMapValueTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroBanStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroBuildStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/HeroColorsTest.kt
@@ -754,6 +757,7 @@ src/test/kotlin/deadlock_api_client/models/MatchPlayerTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSaltsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MatchSpectateResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/MateStatsTest.kt
+src/test/kotlin/deadlock_api_client/models/MetricValuesTest.kt
 src/test/kotlin/deadlock_api_client/models/MiniMapOffsetsTest.kt
 src/test/kotlin/deadlock_api_client/models/MiscEntityTest.kt
 src/test/kotlin/deadlock_api_client/models/ModifierTest.kt
@@ -773,6 +777,8 @@ src/test/kotlin/deadlock_api_client/models/PickupTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsBucketTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankDistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/RankImagesTest.kt
 src/test/kotlin/deadlock_api_client/models/RankResponseTest.kt

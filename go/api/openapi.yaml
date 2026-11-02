@@ -6360,7 +6360,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HashMap"
+                $ref: "#/components/schemas/PlayerStatsMetricsResponse"
           description: Player Stats Metrics
         "400":
           description: Provided parameters are invalid.
@@ -17673,10 +17673,6 @@ components:
       - strength
       - uantize_type
       - white_noise_strength
-    HashMap:
-      additionalProperties:
-        $ref: "#/components/schemas/HashMap_value"
-      type: object
     HashMap_HeroItemType_String:
       additionalProperties:
         type: string
@@ -21048,6 +21044,79 @@ components:
       - matches_played
       - mate_id
       - wins
+    MetricValues:
+      description: |-
+        One metric's distribution over single matches. Every value is `null` (NaN) when no matching
+        match has the metric, e.g. `first_permanent_buff_time_s` for matches before build 6712.
+      example:
+        avg: 0.8008281904610115
+        percentile1: 6.027456183070403
+        percentile10: 1.4658129805029452
+        percentile25: 5.962133916683182
+        percentile5: 5.637376656633329
+        percentile50: 2.3021358869347655
+        percentile75: 7.061401241503109
+        percentile90: 9.301444243932576
+        percentile95: 3.616076749251911
+        percentile99: 2.027123023002322
+        std: 4.145608029883936
+      properties:
+        avg:
+          format: double
+          nullable: true
+          type: number
+        percentile1:
+          format: double
+          nullable: true
+          type: number
+        percentile10:
+          format: double
+          nullable: true
+          type: number
+        percentile25:
+          format: double
+          nullable: true
+          type: number
+        percentile5:
+          format: double
+          nullable: true
+          type: number
+        percentile50:
+          format: double
+          nullable: true
+          type: number
+        percentile75:
+          format: double
+          nullable: true
+          type: number
+        percentile90:
+          format: double
+          nullable: true
+          type: number
+        percentile95:
+          format: double
+          nullable: true
+          type: number
+        percentile99:
+          format: double
+          nullable: true
+          type: number
+        std:
+          format: double
+          nullable: true
+          type: number
+      required:
+      - avg
+      - percentile1
+      - percentile10
+      - percentile25
+      - percentile5
+      - percentile50
+      - percentile75
+      - percentile90
+      - percentile95
+      - percentile99
+      - std
     MiniMapOffsets:
       example:
         entity_class: entity_class
@@ -22884,6 +22953,48 @@ components:
       - samples
       - self_damage_avg
       - self_damage_std
+    PlayerStatsMetrics:
+      additionalProperties:
+        $ref: "#/components/schemas/MetricValues"
+      description: |-
+        The metrics object: per metric, its distribution over single matches. The buff metrics
+        (`permanent_buffs`, `permanent_buffs_per_min`, `first_permanent_buff_time_s`) are only present
+        with `include_buff_metrics=true`.
+      example:
+        key:
+          avg: 0.8008281904610115
+          percentile1: 6.027456183070403
+          percentile10: 1.4658129805029452
+          percentile25: 5.962133916683182
+          percentile5: 5.637376656633329
+          percentile50: 2.3021358869347655
+          percentile75: 7.061401241503109
+          percentile90: 9.301444243932576
+          percentile95: 3.616076749251911
+          percentile99: 2.027123023002322
+          std: 4.145608029883936
+      type: object
+    PlayerStatsMetricsBucket:
+      additionalProperties:
+        $ref: "#/components/schemas/MetricValues"
+      description: "One bucket's metrics: `bucket`, and per metric the same values\
+        \ as an unbucketed response."
+      properties:
+        bucket:
+          description: "The bucket's value: the hero id for `bucket=hero`."
+          format: int32
+          minimum: 0
+          type: integer
+      required:
+      - bucket
+    PlayerStatsMetricsResponse:
+      description: "One metrics object without `bucket`, one per bucket with it."
+      oneOf:
+      - $ref: "#/components/schemas/PlayerStatsMetrics"
+      - items:
+          $ref: "#/components/schemas/PlayerStatsMetricsBucket"
+        type: array
+        default: null
     Rank:
       example:
         color: color
@@ -25583,53 +25694,6 @@ components:
             type: string
         required:
         - source
-    HashMap_value:
-      properties:
-        avg:
-          format: double
-          type: number
-        percentile1:
-          format: double
-          type: number
-        percentile10:
-          format: double
-          type: number
-        percentile25:
-          format: double
-          type: number
-        percentile5:
-          format: double
-          type: number
-        percentile50:
-          format: double
-          type: number
-        percentile75:
-          format: double
-          type: number
-        percentile90:
-          format: double
-          type: number
-        percentile95:
-          format: double
-          type: number
-        percentile99:
-          format: double
-          type: number
-        std:
-          format: double
-          type: number
-      required:
-      - avg
-      - percentile1
-      - percentile10
-      - percentile25
-      - percentile5
-      - percentile50
-      - percentile75
-      - percentile90
-      - percentile95
-      - percentile99
-      - std
     HashMap_ItemSlotType_ItemSlotInfo_value:
       example:
         max_purchases_for_tier:
