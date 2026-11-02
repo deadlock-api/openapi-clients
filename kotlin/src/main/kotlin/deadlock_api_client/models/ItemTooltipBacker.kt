@@ -32,9 +32,9 @@ import java.io.Serializable
 /**
  * Item tooltip background of one slot type: the backer, its alpha mask and the color layer.
  *
- * @param backer 
- * @param color 
- * @param mask 
+ * @param backer
+ * @param color
+ * @param mask
  */
 
 

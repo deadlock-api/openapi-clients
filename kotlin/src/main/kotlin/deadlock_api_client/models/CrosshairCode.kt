@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param code Crosshair share code that can be imported in the game's crosshair settings.
  */
 

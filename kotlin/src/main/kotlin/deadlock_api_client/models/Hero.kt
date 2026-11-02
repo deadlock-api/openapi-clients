@@ -46,43 +46,41 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param assignedPlayersOnly `m_bAssignedPlayersOnly` was removed in build 6711; always `false` since.
- * @param className 
- * @param colors 
- * @param complexity 
- * @param description 
- * @param disabled 
- * @param heroStatsUi 
- * @param id 
- * @param images 
- * @param inDevelopment 
- * @param itemSlotInfo 
- * @param items 
- * @param levelInfo 
- * @param limitedTesting 
+ * @param className
+ * @param colors
+ * @param complexity
+ * @param description
+ * @param disabled
+ * @param heroStatsUi
+ * @param id
+ * @param images
+ * @param inDevelopment
+ * @param itemSlotInfo
+ * @param items
+ * @param levelInfo
+ * @param limitedTesting
  * @param models 3D model of the hero as a self-contained glTF binary (`.glb`), keyed by pose (e.g. `hero_select`, the hero select screen pose). Each file holds the skinned mesh, its skeleton and that pose's animation clip; weapons and props only sit in the hero's hands once the clip is applied. Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Empty when the game files don't ship the hero's model.
- * @param name 
- * @param needsTesting 
- * @param physics 
+ * @param name
+ * @param needsTesting
+ * @param physics
  * @param playerSelectable Read from `m_bPlayerSelectable` on older builds; since build 6711 it is derived as `development_state == release`.
  * @param purchaseBonuses Deprecated: `m_mapPurchaseBonuses` was removed in build 6711, so this is always empty for newer builds.
- * @param scalingStats 
- * @param shopStatDisplay 
- * @param skin 
- * @param standardLevelUpUpgrades 
- * @param startingStats 
- * @param statsDisplay 
+ * @param scalingStats
+ * @param shopStatDisplay
+ * @param skin
+ * @param standardLevelUpUpgrades
+ * @param startingStats
+ * @param statsDisplay
  * @param tags Always emitted (empty if the hero declares no `m_vecHeroTags`).
- * @param costBonuses 
+ * @param costBonuses
  * @param developmentState Hero development state (`m_eHeroDevelopmentState`, build 6711+). `null` on older builds and on heroes that don't declare one.
  * @param gender Hero gender (`m_strHeroGender`, build 6711+), e.g. `male` / `female`.
- * @param gunTag 
- * @param heroType 
- * @param hideoutRichPresence 
- * @param itemDraftBucketing 
- * @param itemDraftWeights 
+ * @param gunTag
+ * @param heroType
+ * @param hideoutRichPresence
+ * @param itemDraftBucketing
+ * @param itemDraftWeights
  * @param popularItems Valve's generated item pick / win rates per game phase (`m_PopularItems`, build 6711+). `null` when the hero has no data.
  * @param prereleaseOnly Read from `m_bPrereleaseOnly` on older builds; since build 6711 it is derived as `development_state == pre_release`.
  * @param searchName Localized search name (`m_strHeroSearchName`, build 6711+).
@@ -198,7 +196,7 @@ data class Hero (
     val hideoutRichPresence: kotlin.String? = null,
 
     @Json(name = "item_draft_bucketing")
-    val itemDraftBucketing: kotlin.collections.Map<kotlin.String, HashMapStringOptionDraftBucketingValue>? = null,
+    val itemDraftBucketing: kotlin.collections.Map<kotlin.String, HashMapStringOptionDraftBucketingValue?>? = null,
 
     @Json(name = "item_draft_weights")
     val itemDraftWeights: kotlin.collections.Map<kotlin.String, kotlin.Double>? = null,

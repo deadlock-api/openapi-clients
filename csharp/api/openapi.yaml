@@ -6068,6 +6068,10 @@ paths:
         match, not a player: a player's average over many matches spreads much narrower than single
         matches do, so read against these percentiles it looks less extreme than it is among players.
 
+        With `bucket=hero` the response is instead a list with one such object per hero, each with an
+        extra `bucket` field holding the hero id: `[{"bucket": 15, "kills": {...}, ...}, ...]`.
+        Combined with `hero_ids` it returns every listed hero's metrics from one request.
+
         Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
         > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.
@@ -6082,6 +6086,18 @@ paths:
         | Global | 2000req/min |
       operationId: player_stats_metrics
       parameters:
+      - description: Bucket allows you to group the stats by a specific field.
+        explode: true
+        in: query
+        name: bucket
+        required: false
+        schema:
+          description: How to split the metrics.
+          enum:
+          - no_bucket
+          - hero
+          type: string
+        style: form
       - description: "Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
         explode: true
         in: query
@@ -16310,7 +16326,7 @@ components:
       - nullable
     Convar:
       example:
-        default: "{}"
+        default: {}
         description: description
         flags: 0
         type: bool

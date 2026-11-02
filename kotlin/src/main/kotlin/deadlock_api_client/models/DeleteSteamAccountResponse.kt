@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * Response for deleting a Steam account
  *
- * @param message 
+ * @param message
  */
 
 

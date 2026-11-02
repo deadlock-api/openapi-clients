@@ -30,14 +30,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param heroBuild 
- * @param numFavorites 
- * @param numIgnores 
- * @param numReports 
- * @param numWeeklyFavorites 
- * @param rollupCategory 
+ * @param heroBuild
+ * @param numFavorites
+ * @param numIgnores
+ * @param numReports
+ * @param numWeeklyFavorites
+ * @param rollupCategory
  */
 
 

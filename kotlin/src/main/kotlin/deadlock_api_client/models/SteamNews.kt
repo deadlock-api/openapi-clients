@@ -30,13 +30,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param content 
- * @param guid 
- * @param link 
- * @param pubDate 
- * @param title 
+ * @param content
+ * @param guid
+ * @param link
+ * @param pubDate
+ * @param title
  */
 
 

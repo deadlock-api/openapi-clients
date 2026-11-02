@@ -31,16 +31,16 @@ import java.io.Serializable
 /**
  * Per-patch Steam manifest as served by the public assets API.  Field order is load-bearing — it sets the JSON key order.
  *
- * @param appId 
- * @param clientVersion 
- * @param productName 
- * @param serverAppId 
- * @param serverVersion 
- * @param sourceRevision 
- * @param toolsAppId 
- * @param versionDate 
+ * @param appId
+ * @param clientVersion
+ * @param productName
+ * @param serverAppId
+ * @param serverVersion
+ * @param sourceRevision
+ * @param toolsAppId
+ * @param versionDate
  * @param versionDatetime `version_date` + `version_time` combined into a naive ISO-8601 string (`YYYY-MM-DDTHH:MM:SS`, no timezone).
- * @param versionTime 
+ * @param versionTime
  */
 
 

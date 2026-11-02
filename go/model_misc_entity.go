@@ -1763,11 +1763,11 @@ func (o *MiscEntity) GetPickupChances() map[string]float64 {
 // GetPickupChancesOk returns a tuple with the PickupChances field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *MiscEntity) GetPickupChancesOk() (map[string]float64, bool) {
+func (o *MiscEntity) GetPickupChancesOk() (*map[string]float64, bool) {
 	if o == nil || IsNil(o.PickupChances) {
-		return map[string]float64{}, false
+		return nil, false
 	}
-	return o.PickupChances, true
+	return &o.PickupChances, true
 }
 
 // HasPickupChances returns a boolean if a field has been set.

@@ -29,27 +29,25 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param backgroundImage 
- * @param backgroundImageWebp 
- * @param heroCardCritical 
- * @param heroCardCriticalWebp 
- * @param heroCardGloat 
- * @param heroCardGloatWebp 
- * @param iconHeroCard 
- * @param iconHeroCardWebp 
- * @param iconImageSmall 
- * @param iconImageSmallWebp 
- * @param minimapImage 
- * @param minimapImageWebp 
- * @param nameImage 
- * @param topBarVerticalImage 
- * @param topBarVerticalImageWebp 
+ * @param backgroundImage
+ * @param backgroundImageWebp
+ * @param heroCardCritical
+ * @param heroCardCriticalWebp
+ * @param heroCardGloat
+ * @param heroCardGloatWebp
+ * @param iconHeroCard
+ * @param iconHeroCardWebp
+ * @param iconImageSmall
+ * @param iconImageSmallWebp
+ * @param minimapImage
+ * @param minimapImageWebp
+ * @param nameImage
+ * @param topBarVerticalImage
+ * @param topBarVerticalImageWebp
  * @param voteSticker Hero release vote sticker (`m_strVoteSticker`, build 6711+).
- * @param voteStickerWebp 
- * @param weaponImage 
- * @param weaponImageWebp 
+ * @param voteStickerWebp
+ * @param weaponImage
+ * @param weaponImageWebp
  */
 
 

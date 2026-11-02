@@ -65,7 +65,7 @@ type NpcUnit struct {
 	MeleeDuration NullableFloat64 `json:"melee_duration,omitempty"`
 	MeleeHitRange NullableFloat64 `json:"melee_hit_range,omitempty"`
 	// 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
-	Models map[string]string `json:"models,omitempty"`
+	Models *map[string]string `json:"models,omitempty"`
 	// Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
 	Name NullableString `json:"name,omitempty"`
 	NearDeathDuration NullableFloat64 `json:"near_death_duration,omitempty"`
@@ -525,11 +525,11 @@ func (o *NpcUnit) GetBoundAbilities() map[string]string {
 // GetBoundAbilitiesOk returns a tuple with the BoundAbilities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NpcUnit) GetBoundAbilitiesOk() (map[string]string, bool) {
+func (o *NpcUnit) GetBoundAbilitiesOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.BoundAbilities) {
-		return map[string]string{}, false
+		return nil, false
 	}
-	return o.BoundAbilities, true
+	return &o.BoundAbilities, true
 }
 
 // HasBoundAbilities returns a boolean if a field has been set.
@@ -1683,14 +1683,14 @@ func (o *NpcUnit) GetModels() map[string]string {
 		var ret map[string]string
 		return ret
 	}
-	return o.Models
+	return *o.Models
 }
 
 // GetModelsOk returns a tuple with the Models field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *NpcUnit) GetModelsOk() (map[string]string, bool) {
+func (o *NpcUnit) GetModelsOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Models) {
-		return map[string]string{}, false
+		return nil, false
 	}
 	return o.Models, true
 }
@@ -1706,7 +1706,7 @@ func (o *NpcUnit) HasModels() bool {
 
 // SetModels gets a reference to the given map[string]string and assigns it to the Models field.
 func (o *NpcUnit) SetModels(v map[string]string) {
-	o.Models = v
+	o.Models = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -3266,11 +3266,11 @@ func (o *NpcUnit) GetViewerSoulsClass() map[string]string {
 // GetViewerSoulsClassOk returns a tuple with the ViewerSoulsClass field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NpcUnit) GetViewerSoulsClassOk() (map[string]string, bool) {
+func (o *NpcUnit) GetViewerSoulsClassOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.ViewerSoulsClass) {
-		return map[string]string{}, false
+		return nil, false
 	}
-	return o.ViewerSoulsClass, true
+	return &o.ViewerSoulsClass, true
 }
 
 // HasViewerSoulsClass returns a boolean if a field has been set.

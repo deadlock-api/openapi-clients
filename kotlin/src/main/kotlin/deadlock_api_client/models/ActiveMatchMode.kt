@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: Invalid,Unranked,PrivateLobby,CoopBot,Ranked,ServerTest,Tutorial,HeroLabs,NewPlayerPlacement
  */
 

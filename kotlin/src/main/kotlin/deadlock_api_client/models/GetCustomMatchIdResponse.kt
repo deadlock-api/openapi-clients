@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param matchId 
+ * @param matchId
  */
 
 

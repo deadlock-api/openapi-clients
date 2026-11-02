@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param base 
- * @param perMinuteAfterStart 
+ * @param base
+ * @param perMinuteAfterStart
  */
 
 

@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param category The category of the variable.
  * @param description The description of the variable.
  * @param extraArgs Extra arguments that can be passed to the variable.

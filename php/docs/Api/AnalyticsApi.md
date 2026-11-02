@@ -2153,12 +2153,12 @@ No authorization required
 ## `playerStatsMetrics()`
 
 ```php
-playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics): array<string,\OpenAPI\Client\Model\HashMapValue>
+playerStatsMetrics($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics): array<string,\OpenAPI\Client\Model\HashMapValue>
 ```
 
 Player Stats Metrics
 
-Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
 
 ### Example
 
@@ -2173,6 +2173,7 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$bucket = 'bucket_example'; // string | Bucket allows you to group the stats by a specific field.
 $hero_ids = 'hero_ids_example'; // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 $game_mode = 'game_mode_example'; // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 $match_mode = 'match_mode_example'; // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
@@ -2195,7 +2196,7 @@ $account_ids = array(56); // int[] | Comma separated list of account ids to incl
 $include_buff_metrics = false; // bool | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
 
 try {
-    $result = $apiInstance->playerStatsMetrics($hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics);
+    $result = $apiInstance->playerStatsMetrics($bucket, $hero_ids, $game_mode, $match_mode, $min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $min_networth, $max_networth, $min_average_badge, $max_average_badge, $min_match_id, $max_match_id, $max_matches, $include_item_ids, $exclude_item_ids, $ability_order_prefix, $ability_unlock_order_prefix, $account_ids, $include_buff_metrics);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->playerStatsMetrics: ', $e->getMessage(), PHP_EOL;
@@ -2206,6 +2207,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **bucket** | **string**| Bucket allows you to group the stats by a specific field. | [optional] |
 | **hero_ids** | **string**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **game_mode** | **string**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] |
 | **match_mode** | **string**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |

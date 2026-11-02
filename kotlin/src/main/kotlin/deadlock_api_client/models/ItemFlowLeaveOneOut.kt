@@ -33,8 +33,8 @@ import java.io.Serializable
  *
  * @param column Its locked stage column.
  * @param itemId The locked item left out. See more: <https://api.deadlock-api.com/v1/assets/items>
- * @param matches 
- * @param wins 
+ * @param matches
+ * @param wins
  */
 
 

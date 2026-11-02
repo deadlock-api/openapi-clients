@@ -346,11 +346,11 @@ func (o *StreetBrawl) GetItemDrafts() map[string]DraftBuckets {
 
 // GetItemDraftsOk returns a tuple with the ItemDrafts field value
 // and a boolean to check if the value has been set.
-func (o *StreetBrawl) GetItemDraftsOk() (map[string]DraftBuckets, bool) {
+func (o *StreetBrawl) GetItemDraftsOk() (*map[string]DraftBuckets, bool) {
 	if o == nil {
-		return map[string]DraftBuckets{}, false
+		return nil, false
 	}
-	return o.ItemDrafts, true
+	return &o.ItemDrafts, true
 }
 
 // SetItemDrafts sets field value

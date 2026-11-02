@@ -32,9 +32,9 @@ import java.io.Serializable
 /**
  * One annotated element. A submission carries several when the visitor picked more than one.
  *
- * @param elementText 
- * @param selector 
- * @param source 
+ * @param elementText
+ * @param selector
+ * @param source
  */
 
 

@@ -103,7 +103,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -123,11 +123,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize PubDate
-        /// </summary>
-        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamNews" />
@@ -249,7 +244,10 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, steamNews.Guid, jsonSerializerOptions);
             writer.WriteString("link", steamNews.Link);
 
-            writer.WriteString("pub_date", steamNews.PubDate.ToString(PubDateFormat));
+            {
+                        writer.WritePropertyName("pub_date");
+                            JsonSerializer.Serialize(writer, steamNews.PubDate, jsonSerializerOptions);
+                        }
 
             writer.WriteString("title", steamNews.Title);
         }

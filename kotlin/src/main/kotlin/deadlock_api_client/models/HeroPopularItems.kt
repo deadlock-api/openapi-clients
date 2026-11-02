@@ -30,11 +30,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param earlyGame 
- * @param lateGame 
- * @param midGame 
+ * @param earlyGame
+ * @param lateGame
+ * @param midGame
  * @param timestamp Unix timestamp (seconds) at which Valve generated the data.
  */
 

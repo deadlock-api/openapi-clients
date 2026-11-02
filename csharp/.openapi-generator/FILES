@@ -607,10 +607,7 @@ src/DeadlockApiClient/Client/ApiResponseEventArgs.cs
 src/DeadlockApiClient/Client/ApiResponse`1.cs
 src/DeadlockApiClient/Client/ClientUtils.cs
 src/DeadlockApiClient/Client/CookieContainer.cs
-src/DeadlockApiClient/Client/DateOnlyJsonConverter.cs
-src/DeadlockApiClient/Client/DateOnlyNullableJsonConverter.cs
-src/DeadlockApiClient/Client/DateTimeJsonConverter.cs
-src/DeadlockApiClient/Client/DateTimeNullableJsonConverter.cs
+src/DeadlockApiClient/Client/DateTimeFormatHelper.cs
 src/DeadlockApiClient/Client/ExceptionEventArgs.cs
 src/DeadlockApiClient/Client/FileParameter.cs
 src/DeadlockApiClient/Client/HostConfiguration.cs

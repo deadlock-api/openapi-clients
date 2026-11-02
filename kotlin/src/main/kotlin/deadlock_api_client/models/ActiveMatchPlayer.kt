@@ -30,13 +30,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abandoned 
- * @param accountId 
+ * @param abandoned
+ * @param accountId
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param team 
- * @param teamParsed 
+ * @param team
+ * @param teamParsed
  */
 
 

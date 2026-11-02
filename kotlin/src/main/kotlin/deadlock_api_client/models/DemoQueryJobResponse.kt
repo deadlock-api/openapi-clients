@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param jobId Stable id of the job; poll `/demo/query/{job_id}` for status and the result URL.
- * @param status 
+ * @param status
  */
 
 

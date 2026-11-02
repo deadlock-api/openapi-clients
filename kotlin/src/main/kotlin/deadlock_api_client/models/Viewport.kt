@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param devicePixelRatio 
- * @param height 
- * @param width 
+ * @param devicePixelRatio
+ * @param height
+ * @param width
  */
 
 

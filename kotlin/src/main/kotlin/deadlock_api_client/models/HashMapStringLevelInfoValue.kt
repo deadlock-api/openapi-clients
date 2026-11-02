@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param requiredGold 
- * @param bonusCurrencies 
- * @param useStandardUpgrade 
+ * @param requiredGold
+ * @param bonusCurrencies
+ * @param useStandardUpgrade
  */
 
 

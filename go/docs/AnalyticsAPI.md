@@ -2385,7 +2385,7 @@ No authorization required
 
 ## PlayerStatsMetrics
 
-> map[string]HashMapValue PlayerStatsMetrics(ctx).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
+> map[string]HashMapValue PlayerStatsMetrics(ctx).Bucket(bucket).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
 
 Player Stats Metrics
 
@@ -2404,6 +2404,7 @@ import (
 )
 
 func main() {
+	bucket := "bucket_example" // string | Bucket allows you to group the stats by a specific field. (optional)
 	heroIds := "heroIds_example" // string | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
 	gameMode := "gameMode_example" // string | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
 	matchMode := "matchMode_example" // string | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
@@ -2427,7 +2428,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.AnalyticsAPI.PlayerStatsMetrics(context.Background()).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
+	resp, r, err := apiClient.AnalyticsAPI.PlayerStatsMetrics(context.Background()).Bucket(bucket).HeroIds(heroIds).GameMode(gameMode).MatchMode(matchMode).MinUnixTimestamp(minUnixTimestamp).MaxUnixTimestamp(maxUnixTimestamp).MinDurationS(minDurationS).MaxDurationS(maxDurationS).MinNetworth(minNetworth).MaxNetworth(maxNetworth).MinAverageBadge(minAverageBadge).MaxAverageBadge(maxAverageBadge).MinMatchId(minMatchId).MaxMatchId(maxMatchId).MaxMatches(maxMatches).IncludeItemIds(includeItemIds).ExcludeItemIds(excludeItemIds).AbilityOrderPrefix(abilityOrderPrefix).AbilityUnlockOrderPrefix(abilityUnlockOrderPrefix).AccountIds(accountIds).IncludeBuffMetrics(includeBuffMetrics).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AnalyticsAPI.PlayerStatsMetrics``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2448,6 +2449,7 @@ Other parameters are passed through a pointer to a apiPlayerStatsMetricsRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **bucket** | **string** | Bucket allows you to group the stats by a specific field. | 
  **heroIds** | **string** | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
  **gameMode** | **string** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | 
  **matchMode** | **string** | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | 

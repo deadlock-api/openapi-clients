@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: europe,eu_amsterdam,eu_poland,eu_stockholm,eu_helsinki,eu_falkenstein,eu_spain,eu_east,eu_london,south_africa,us_west,us_east,us_north_central,us_south_central,us_south_east,us_south_west,australia,singapore,japan,hong_kong,mp_hong_kong,seoul,chile,peru,argentina,south_america
  */
 

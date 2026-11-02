@@ -156,36 +156,36 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CalibrationMatches (int) minimum
             if (this.CalibrationMatches < (int)0)
             {
-                yield return new ValidationResult("Invalid value for CalibrationMatches, must be a value greater than or equal to 0.", new [] { "CalibrationMatches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CalibrationMatches, must be a value greater than or equal to 0.", new [] { "CalibrationMatches" });
             }
 
             // MinHeroUnlocks (int) minimum
             if (this.MinHeroUnlocks < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MinHeroUnlocks, must be a value greater than or equal to 0.", new [] { "MinHeroUnlocks" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroUnlocks, must be a value greater than or equal to 0.", new [] { "MinHeroUnlocks" });
             }
 
             // MinHeroWins (int) minimum
             if (this.MinHeroWins < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MinHeroWins, must be a value greater than or equal to 0.", new [] { "MinHeroWins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinHeroWins, must be a value greater than or equal to 0.", new [] { "MinHeroWins" });
             }
 
             // MinWins (int) minimum
             if (this.MinWins < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MinWins, must be a value greater than or equal to 0.", new [] { "MinWins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinWins, must be a value greater than or equal to 0.", new [] { "MinWins" });
             }
 
             // BaseWinLossPointGrant (int) minimum
             if (this.BaseWinLossPointGrantOption.IsSet && this.BaseWinLossPointGrantOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for BaseWinLossPointGrant, must be a value greater than or equal to 0.", new [] { "BaseWinLossPointGrant" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BaseWinLossPointGrant, must be a value greater than or equal to 0.", new [] { "BaseWinLossPointGrant" });
             }
 
             yield break;

@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param locString 
- * @param properties 
+ * @param locString
+ * @param properties
  */
 
 

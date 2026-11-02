@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param bucket The bucket value (depends on the bucket query parameter, 0 without one).
  * @param heroBuildId The ID of the hero build. The `hero_build_id` is the first build the player had selected when the game started.
  * @param heroId The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
@@ -39,30 +37,30 @@ import java.io.Serializable
  * @param players The number of unique players who used this build.
  * @param wins The number of wins with this build.
  * @param avgAverageBadge Average badge (tier = first digits, subtier = last digit) of the matches with this build that have one; 0 without any. See more: <https://api.deadlock-api.com/v1/assets/ranks>
- * @param totalAssists 
- * @param totalBossDamage 
- * @param totalCreepDamage 
- * @param totalCreepKills 
- * @param totalDamageMitigated 
- * @param totalDeaths 
- * @param totalDenies 
+ * @param totalAssists
+ * @param totalBossDamage
+ * @param totalCreepDamage
+ * @param totalCreepKills
+ * @param totalDamageMitigated
+ * @param totalDeaths
+ * @param totalDenies
  * @param totalDurationS Sum of the match durations (seconds), for per-minute rates.
  * @param totalHeroBulletsHit Bullets that hit an enemy hero.
  * @param totalHeroBulletsHitCrit Hero hits that were crits (headshots).
  * @param totalKills Sum of the kills of every match with this build. Average per match: `total_kills / matches`. This and the other totals are only present with `include_performance=true`.
- * @param totalLastHits 
+ * @param totalLastHits
  * @param totalLevel Sum of the final hero levels.
- * @param totalMaxHealth 
+ * @param totalMaxHealth
  * @param totalNetWorth Sum of the final net worth (souls).
- * @param totalNeutralDamage 
- * @param totalNeutralKills 
- * @param totalPlayerDamage 
- * @param totalPlayerDamageTaken 
- * @param totalPlayerHealing 
- * @param totalSelfHealing 
- * @param totalShotsHit 
- * @param totalShotsMissed 
- * @param totalTeammateHealing 
+ * @param totalNeutralDamage
+ * @param totalNeutralKills
+ * @param totalPlayerDamage
+ * @param totalPlayerDamageTaken
+ * @param totalPlayerHealing
+ * @param totalSelfHealing
+ * @param totalShotsHit
+ * @param totalShotsMissed
+ * @param totalTeammateHealing
  */
 
 

@@ -164,7 +164,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -184,11 +184,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize PubDate
-        /// </summary>
-        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="FeedItemOneOf1" />
@@ -327,7 +322,10 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, feedItemOneOf1.Guid, jsonSerializerOptions);
             writer.WriteString("link", feedItemOneOf1.Link);
 
-            writer.WriteString("pub_date", feedItemOneOf1.PubDate.ToString(PubDateFormat));
+            {
+                        writer.WritePropertyName("pub_date");
+                            JsonSerializer.Serialize(writer, feedItemOneOf1.PubDate, jsonSerializerOptions);
+                        }
 
             writer.WriteString("title", feedItemOneOf1.Title);
 

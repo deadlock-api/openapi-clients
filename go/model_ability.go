@@ -255,11 +255,11 @@ func (o *Ability) GetDependentAbilities() map[string]DependantAbilities {
 // GetDependentAbilitiesOk returns a tuple with the DependentAbilities field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Ability) GetDependentAbilitiesOk() (map[string]DependantAbilities, bool) {
+func (o *Ability) GetDependentAbilitiesOk() (*map[string]DependantAbilities, bool) {
 	if o == nil || IsNil(o.DependentAbilities) {
-		return map[string]DependantAbilities{}, false
+		return nil, false
 	}
-	return o.DependentAbilities, true
+	return &o.DependentAbilities, true
 }
 
 // HasDependentAbilities returns a boolean if a field has been set.
@@ -561,11 +561,11 @@ func (o *Ability) GetProperties() map[string]ItemProperty {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Ability) GetPropertiesOk() (map[string]ItemProperty, bool) {
+func (o *Ability) GetPropertiesOk() (*map[string]ItemProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
-		return map[string]ItemProperty{}, false
+		return nil, false
 	}
-	return o.Properties, true
+	return &o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.

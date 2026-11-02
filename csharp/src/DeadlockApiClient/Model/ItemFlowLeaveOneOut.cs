@@ -96,30 +96,30 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Column (int) minimum
             if (this.Column < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Column, must be a value greater than or equal to 0.", new [] { "Column" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Column, must be a value greater than or equal to 0.", new [] { "Column" });
             }
 
             // ItemId (int) minimum
             if (this.ItemId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ItemId, must be a value greater than or equal to 0.", new [] { "ItemId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ItemId, must be a value greater than or equal to 0.", new [] { "ItemId" });
             }
 
             // Matches (long) minimum
             if (this.Matches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             // Wins (long) minimum
             if (this.Wins < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
             }
 
             yield break;

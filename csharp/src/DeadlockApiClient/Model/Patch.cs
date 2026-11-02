@@ -139,7 +139,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -159,11 +159,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize PubDate
-        /// </summary>
-        public string PubDateFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="Patch" />
@@ -331,7 +326,10 @@ namespace DeadlockApiClient.Model
             JsonSerializer.Serialize(writer, patch.Guid, jsonSerializerOptions);
             writer.WriteString("link", patch.Link);
 
-            writer.WriteString("pub_date", patch.PubDate.ToString(PubDateFormat));
+            {
+                        writer.WritePropertyName("pub_date");
+                            JsonSerializer.Serialize(writer, patch.PubDate, jsonSerializerOptions);
+                        }
 
             writer.WriteString("slash_comments", patch.SlashComments);
 

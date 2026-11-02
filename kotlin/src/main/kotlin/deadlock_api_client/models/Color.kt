@@ -31,10 +31,10 @@ import java.io.Serializable
 /**
  * RGBA color emitted by KV3 as a 3- or 4-element integer array. Alpha defaults to 255 when omitted.
  *
- * @param alpha 
- * @param blue 
- * @param green 
- * @param red 
+ * @param alpha
+ * @param blue
+ * @param green
+ * @param red
  */
 
 

@@ -1226,24 +1226,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bullets (int) minimum
             if (this.BulletsOption.IsSet && this.BulletsOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Bullets, must be a value greater than or equal to 0.", new [] { "Bullets" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bullets, must be a value greater than or equal to 0.", new [] { "Bullets" });
             }
 
             // BurstShotCount (int) minimum
             if (this.BurstShotCountOption.IsSet && this.BurstShotCountOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for BurstShotCount, must be a value greater than or equal to 0.", new [] { "BurstShotCount" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BurstShotCount, must be a value greater than or equal to 0.", new [] { "BurstShotCount" });
             }
 
             // ClipSize (int) minimum
             if (this.ClipSizeOption.IsSet && this.ClipSizeOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ClipSize, must be a value greater than or equal to 0.", new [] { "ClipSize" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClipSize, must be a value greater than or equal to 0.", new [] { "ClipSize" });
             }
 
             yield break;

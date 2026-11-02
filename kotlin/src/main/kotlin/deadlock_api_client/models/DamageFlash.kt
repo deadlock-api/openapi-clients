@@ -30,13 +30,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bulletDamage 
- * @param critDamage 
- * @param healingDamage 
- * @param meleeDamage 
- * @param techDamage 
+ * @param bulletDamage
+ * @param critDamage
+ * @param healingDamage
+ * @param meleeDamage
+ * @param techDamage
  * @param genericDamage Build 6711+.
  */
 

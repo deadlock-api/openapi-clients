@@ -56,11 +56,11 @@ func (o *OutcomeToWeights) GetOutcomesToWeights() map[string]float64 {
 
 // GetOutcomesToWeightsOk returns a tuple with the OutcomesToWeights field value
 // and a boolean to check if the value has been set.
-func (o *OutcomeToWeights) GetOutcomesToWeightsOk() (map[string]float64, bool) {
+func (o *OutcomeToWeights) GetOutcomesToWeightsOk() (*map[string]float64, bool) {
 	if o == nil {
-		return map[string]float64{}, false
+		return nil, false
 	}
-	return o.OutcomesToWeights, true
+	return &o.OutcomesToWeights, true
 }
 
 // SetOutcomesToWeights sets field value

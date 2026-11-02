@@ -165,11 +165,11 @@ func (o *MapData) GetObjectivePositions() map[string]ObjectivePosition {
 
 // GetObjectivePositionsOk returns a tuple with the ObjectivePositions field value
 // and a boolean to check if the value has been set.
-func (o *MapData) GetObjectivePositionsOk() (map[string]ObjectivePosition, bool) {
+func (o *MapData) GetObjectivePositionsOk() (*map[string]ObjectivePosition, bool) {
 	if o == nil {
-		return map[string]ObjectivePosition{}, false
+		return nil, false
 	}
-	return o.ObjectivePositions, true
+	return &o.ObjectivePositions, true
 }
 
 // SetObjectivePositions sets field value

@@ -48,7 +48,7 @@ class TestHero(unittest.TestCase):
                 complexity = 56,
                 cost_bonuses = {
                     'key' : [
-                        deadlock_api_client.models.hash_map_item_slot_type_vec_map_mod_cost_bonus_value_inner.HashMap_ItemSlotType_Vec_MapModCostBonus_value_inner(
+                        deadlock_api_client.models.hash_map_item_slot_type_vec_map_mod_cost_bonus_value_inner.HashMapItemSlotTypeVecMapModCostBonusValueInner(
                             bonus = 1.337, 
                             gold_threshold = 56, 
                             percent_on_graph = 1.337, )
@@ -94,7 +94,7 @@ class TestHero(unittest.TestCase):
                     weapon_image_webp = '', ),
                 in_development = True,
                 item_draft_bucketing = {
-                    'key' : deadlock_api_client.models.hash_map_string_option_draft_bucketing_value.HashMap_String_Option_DraftBucketing_value(
+                    'key' : deadlock_api_client.models.hash_map_string_option_draft_bucketing_value.HashMapStringOptionDraftBucketingValue(
                         bucket = '', 
                         weight = 1.337, )
                     },
@@ -102,7 +102,7 @@ class TestHero(unittest.TestCase):
                     'key' : 1.337
                     },
                 item_slot_info = {
-                    'key' : deadlock_api_client.models.hash_map_item_slot_type_item_slot_info_value.HashMap_ItemSlotType_ItemSlotInfo_value(
+                    'key' : deadlock_api_client.models.hash_map_item_slot_type_item_slot_info_value.HashMapItemSlotTypeItemSlotInfoValue(
                         max_purchases_for_tier = [
                             56
                             ], )
@@ -111,7 +111,7 @@ class TestHero(unittest.TestCase):
                     'key' : ''
                     },
                 level_info = {
-                    'key' : deadlock_api_client.models.hash_map_string_level_info_value.HashMap_String_LevelInfo_value(
+                    'key' : deadlock_api_client.models.hash_map_string_level_info_value.HashMapStringLevelInfoValue(
                         bonus_currencies = [
                             ''
                             ], 
@@ -159,14 +159,14 @@ class TestHero(unittest.TestCase):
                 prerelease_only = True,
                 purchase_bonuses = {
                     'key' : [
-                        deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner.HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner(
+                        deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner.HashMapItemSlotTypeVecPurchaseBonusValueInner(
                             tier = 56, 
                             value = '', 
                             value_type = '', )
                         ]
                     },
                 scaling_stats = {
-                    'key' : deadlock_api_client.models.hash_map_string_scaling_stat_value.HashMap_String_ScalingStat_value(
+                    'key' : deadlock_api_client.models.hash_map_string_scaling_stat_value.HashMapStringScalingStatValue(
                         scale = 1.337, 
                         scaling_stat = '', )
                     },
@@ -335,7 +335,7 @@ class TestHero(unittest.TestCase):
                     weapon_image_webp = '', ),
                 in_development = True,
                 item_slot_info = {
-                    'key' : deadlock_api_client.models.hash_map_item_slot_type_item_slot_info_value.HashMap_ItemSlotType_ItemSlotInfo_value(
+                    'key' : deadlock_api_client.models.hash_map_item_slot_type_item_slot_info_value.HashMapItemSlotTypeItemSlotInfoValue(
                         max_purchases_for_tier = [
                             56
                             ], )
@@ -344,7 +344,7 @@ class TestHero(unittest.TestCase):
                     'key' : ''
                     },
                 level_info = {
-                    'key' : deadlock_api_client.models.hash_map_string_level_info_value.HashMap_String_LevelInfo_value(
+                    'key' : deadlock_api_client.models.hash_map_string_level_info_value.HashMapStringLevelInfoValue(
                         bonus_currencies = [
                             ''
                             ], 
@@ -368,14 +368,14 @@ class TestHero(unittest.TestCase):
                 player_selectable = True,
                 purchase_bonuses = {
                     'key' : [
-                        deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner.HashMap_ItemSlotType_Vec_PurchaseBonus_value_inner(
+                        deadlock_api_client.models.hash_map_item_slot_type_vec_purchase_bonus_value_inner.HashMapItemSlotTypeVecPurchaseBonusValueInner(
                             tier = 56, 
                             value = '', 
                             value_type = '', )
                         ]
                     },
                 scaling_stats = {
-                    'key' : deadlock_api_client.models.hash_map_string_scaling_stat_value.HashMap_String_ScalingStat_value(
+                    'key' : deadlock_api_client.models.hash_map_string_scaling_stat_value.HashMapStringScalingStatValue(
                         scale = 1.337, 
                         scaling_stat = '', )
                     },

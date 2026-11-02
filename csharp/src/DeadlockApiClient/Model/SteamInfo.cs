@@ -149,42 +149,42 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AppId (int) minimum
             if (this.AppId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AppId, must be a value greater than or equal to 0.", new [] { "AppId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AppId, must be a value greater than or equal to 0.", new [] { "AppId" });
             }
 
             // ClientVersion (int) minimum
             if (this.ClientVersion < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ClientVersion, must be a value greater than or equal to 0.", new [] { "ClientVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClientVersion, must be a value greater than or equal to 0.", new [] { "ClientVersion" });
             }
 
             // ServerAppId (int) minimum
             if (this.ServerAppId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ServerAppId, must be a value greater than or equal to 0.", new [] { "ServerAppId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerAppId, must be a value greater than or equal to 0.", new [] { "ServerAppId" });
             }
 
             // ServerVersion (int) minimum
             if (this.ServerVersion < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ServerVersion, must be a value greater than or equal to 0.", new [] { "ServerVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ServerVersion, must be a value greater than or equal to 0.", new [] { "ServerVersion" });
             }
 
             // SourceRevision (long) minimum
             if (this.SourceRevision < (long)0)
             {
-                yield return new ValidationResult("Invalid value for SourceRevision, must be a value greater than or equal to 0.", new [] { "SourceRevision" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SourceRevision, must be a value greater than or equal to 0.", new [] { "SourceRevision" });
             }
 
             // ToolsAppId (int) minimum
             if (this.ToolsAppId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ToolsAppId, must be a value greater than or equal to 0.", new [] { "ToolsAppId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ToolsAppId, must be a value greater than or equal to 0.", new [] { "ToolsAppId" });
             }
 
             yield break;

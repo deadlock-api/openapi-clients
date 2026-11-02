@@ -94,30 +94,30 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Alpha (int) minimum
             if (this.Alpha < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Alpha, must be a value greater than or equal to 0.", new [] { "Alpha" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Alpha, must be a value greater than or equal to 0.", new [] { "Alpha" });
             }
 
             // Blue (int) minimum
             if (this.Blue < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Blue, must be a value greater than or equal to 0.", new [] { "Blue" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Blue, must be a value greater than or equal to 0.", new [] { "Blue" });
             }
 
             // Green (int) minimum
             if (this.Green < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Green, must be a value greater than or equal to 0.", new [] { "Green" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Green, must be a value greater than or equal to 0.", new [] { "Green" });
             }
 
             // Red (int) minimum
             if (this.Red < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Red, must be a value greater than or equal to 0.", new [] { "Red" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Red, must be a value greater than or equal to 0.", new [] { "Red" });
             }
 
             yield break;

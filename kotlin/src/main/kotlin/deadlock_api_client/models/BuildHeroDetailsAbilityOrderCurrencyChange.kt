@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abilityId 
- * @param currencyType 
- * @param delta 
- * @param `annotation` 
+ * @param abilityId
+ * @param currencyType
+ * @param delta
+ * @param `annotation`
  */
 
 

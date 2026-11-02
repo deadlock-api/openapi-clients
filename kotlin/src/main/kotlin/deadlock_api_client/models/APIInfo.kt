@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param fetchedMatchesPerDay The number of matches fetched in the last 24 hours.
  * @param tableSizes The sizes of all tables in the database.
  * @param userIngestedMatchesLast24h The number of matches ingested in the last 24 hours.

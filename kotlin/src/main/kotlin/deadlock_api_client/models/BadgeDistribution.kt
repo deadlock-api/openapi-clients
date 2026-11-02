@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param badgeLevel The badge level (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param totalMatches The total number of matches.
  * @param uniquePlayers The number of unique players whose rank on their latest ranked match in the filtered range is this badge level.

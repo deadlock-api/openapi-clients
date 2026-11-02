@@ -39,41 +39,39 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param activation 
- * @param className 
- * @param id 
- * @param isActiveItem 
- * @param itemSlotType 
- * @param itemTier 
- * @param name 
- * @param shopable 
- * @param type 
- * @param componentItems 
+ * @param activation
+ * @param className
+ * @param id
+ * @param isActiveItem
+ * @param itemSlotType
+ * @param itemTier
+ * @param name
+ * @param shopable
+ * @param type
+ * @param componentItems
  * @param corruptedInfo Present on upgrades the Broker can corrupt (build 6711+).
- * @param cost 
- * @param description 
- * @param disableItemTarget 
- * @param disabled 
+ * @param cost
+ * @param description
+ * @param disableItemTarget
+ * @param disabled
  * @param disabledShopFilters Shop filters (`snake_case` `EShopFilter*` names) this item is hidden from even though its stats would match them.
- * @param hero 
- * @param heroes 
- * @param image 
- * @param imageWebp 
- * @param imbue 
- * @param properties 
+ * @param hero
+ * @param heroes
+ * @param image
+ * @param imageWebp
+ * @param imbue
+ * @param properties
  * @param shopFilters Extra shop filters (`snake_case` `EShopFilter*` names, e.g. `status_grounded`) this item shows up under, beyond those derived from its stats.
- * @param shopImage 
- * @param shopImageSmall 
- * @param shopImageSmallWebp 
- * @param shopImageWebp 
- * @param shopVersion 
- * @param startTrained 
- * @param tooltipSections 
- * @param updateTime 
- * @param upgrades 
- * @param weaponInfo 
+ * @param shopImage
+ * @param shopImageSmall
+ * @param shopImageSmallWebp
+ * @param shopImageWebp
+ * @param shopVersion
+ * @param startTrained
+ * @param tooltipSections
+ * @param updateTime
+ * @param upgrades
+ * @param weaponInfo
  */
 
 

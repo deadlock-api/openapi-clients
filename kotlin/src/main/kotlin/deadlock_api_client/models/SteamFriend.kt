@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
- * @param friendSince 
+ * @param accountId
+ * @param friendSince
  */
 
 

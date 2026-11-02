@@ -64,8 +64,8 @@ class TestMiscEntity(unittest.TestCase):
                 heavy_melee_only = True,
                 hits_required = 56,
                 id = 0,
-                in_shop_modifier = deadlock_api_client.models.subclass_modifier_definition.Subclass_ModifierDefinition(
-                    subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
+                in_shop_modifier = deadlock_api_client.models.subclass_modifier_definition.SubclassModifierDefinition(
+                    subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.SubclassModifierDefinitionSubclass(
                         always_show_in_ui = [
                             ''
                             ], 
@@ -109,8 +109,8 @@ class TestMiscEntity(unittest.TestCase):
                 match_time_mins_for_level2_pickups = 56,
                 match_time_mins_for_level3_pickups = 56,
                 minimap_class = '',
-                modifier = deadlock_api_client.models.subclass_modifier_definition.Subclass_ModifierDefinition(
-                    subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
+                modifier = deadlock_api_client.models.subclass_modifier_definition.SubclassModifierDefinition(
+                    subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.SubclassModifierDefinitionSubclass(
                         always_show_in_ui = [
                             ''
                             ], 

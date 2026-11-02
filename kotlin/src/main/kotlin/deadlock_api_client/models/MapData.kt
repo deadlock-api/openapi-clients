@@ -36,10 +36,10 @@ import java.io.Serializable
 /**
  * The `/v1/assets/map` response.
  *
- * @param images 
- * @param objectivePositions 
- * @param radius 
- * @param ziplinePaths 
+ * @param images
+ * @param objectivePositions
+ * @param radius
+ * @param ziplinePaths
  * @param entities Interactable map entities; only for builds whose assets were built with the map entity extraction.
  * @param neutralCamps Neutral camps (build 6711+).
  */

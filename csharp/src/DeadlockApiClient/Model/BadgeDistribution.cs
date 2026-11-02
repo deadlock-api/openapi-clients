@@ -88,24 +88,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // BadgeLevel (int) minimum
             if (this.BadgeLevel < (int)0)
             {
-                yield return new ValidationResult("Invalid value for BadgeLevel, must be a value greater than or equal to 0.", new [] { "BadgeLevel" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeLevel, must be a value greater than or equal to 0.", new [] { "BadgeLevel" });
             }
 
             // TotalMatches (long) minimum
             if (this.TotalMatches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
             }
 
             // UniquePlayers (long) minimum
             if (this.UniquePlayers < (long)0)
             {
-                yield return new ValidationResult("Invalid value for UniquePlayers, must be a value greater than or equal to 0.", new [] { "UniquePlayers" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UniquePlayers, must be a value greater than or equal to 0.", new [] { "UniquePlayers" });
             }
 
             yield break;

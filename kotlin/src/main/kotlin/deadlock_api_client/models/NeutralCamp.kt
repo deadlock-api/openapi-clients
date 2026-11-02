@@ -33,11 +33,11 @@ import java.io.Serializable
  * A neutral camp (\"Haunt\") marker (build 6711+).
  *
  * @param icon Minimap icon URL.
- * @param kind 
+ * @param kind
  * @param leftRelative Position on the minimap, as fractions of its width/height.
  * @param name Camp entity name from the map (e.g. `theater_lobby_camp`).
  * @param position World position `[x, y, z]`, same space as the zip-line splines.
- * @param topRelative 
+ * @param topRelative
  */
 
 

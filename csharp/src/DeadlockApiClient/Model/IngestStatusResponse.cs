@@ -104,24 +104,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AccountId (int) minimum
             if (this.AccountId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
             // WindowDays (int) minimum
             if (this.WindowDays < (int)0)
             {
-                yield return new ValidationResult("Invalid value for WindowDays, must be a value greater than or equal to 0.", new [] { "WindowDays" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WindowDays, must be a value greater than or equal to 0.", new [] { "WindowDays" });
             }
 
             // LastUploadAt (int) minimum
             if (this.LastUploadAtOption.IsSet && this.LastUploadAtOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for LastUploadAt, must be a value greater than or equal to 0.", new [] { "LastUploadAt" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastUploadAt, must be a value greater than or equal to 0.", new [] { "LastUploadAt" });
             }
 
             yield break;

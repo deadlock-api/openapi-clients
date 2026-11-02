@@ -101,7 +101,7 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
         }
@@ -121,16 +121,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize CreatedAt
-        /// </summary>
-        public string CreatedAtFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
-
-        /// <summary>
-        /// The format to use to serialize DeletedAt
-        /// </summary>
-        public string DeletedAtFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamAccountResponse" />
@@ -230,7 +220,10 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, SteamAccountResponse steamAccountResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WriteString("created_at", steamAccountResponse.CreatedAt.ToString(CreatedAtFormat));
+            {
+                        writer.WritePropertyName("created_at");
+                            JsonSerializer.Serialize(writer, steamAccountResponse.CreatedAt, jsonSerializerOptions);
+                        }
 
             writer.WriteString("id", steamAccountResponse.Id);
 
@@ -238,7 +231,10 @@ namespace DeadlockApiClient.Model
 
             if (steamAccountResponse.DeletedAtOption.IsSet)
                 if (steamAccountResponse.DeletedAtOption.Value != null)
-                    writer.WriteString("deleted_at", steamAccountResponse.DeletedAtOption.Value!.Value.ToString(DeletedAtFormat));
+                    {
+                            writer.WritePropertyName("deleted_at");
+                                JsonSerializer.Serialize(writer, steamAccountResponse.DeletedAtOption.Value!.Value, jsonSerializerOptions);
+                            }
                 else
                     writer.WriteNull("deleted_at");
         }

@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param endTimestamp Unix timestamp (seconds) at which the interval ends.
- * @param interval 
+ * @param interval
  * @param startTimestamp Unix timestamp (seconds) at which the interval starts.
  * @param leaderboardId Leaderboard backing this interval (build 6701+).
  */

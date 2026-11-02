@@ -30,21 +30,19 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param authorAccountId 
- * @param details 
- * @param heroBuildId 
+ * @param authorAccountId
+ * @param details
+ * @param heroBuildId
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param language 
- * @param name 
- * @param originBuildId 
- * @param version 
- * @param description 
- * @param developmentBuild 
- * @param lastUpdatedTimestamp 
- * @param publishTimestamp 
- * @param tags 
+ * @param language
+ * @param name
+ * @param originBuildId
+ * @param version
+ * @param description
+ * @param developmentBuild
+ * @param lastUpdatedTimestamp
+ * @param publishTimestamp
+ * @param tags
  */
 
 

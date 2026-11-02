@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param isView Whether the table is a view.
  * @param dataCompressedBytes Compressed size of the table in bytes.
  * @param dataUncompressedBytes Uncompressed size of the table in bytes.

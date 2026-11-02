@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param mp4 
- * @param webm 
+ * @param mp4
+ * @param webm
  */
 
 

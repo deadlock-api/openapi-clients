@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param ui 
- * @param style 
- * @param styleHex 
+ * @param ui
+ * @param style
+ * @param styleHex
  */
 
 

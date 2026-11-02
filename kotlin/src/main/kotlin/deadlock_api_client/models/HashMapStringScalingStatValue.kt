@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param scale 
- * @param scalingStat 
+ * @param scale
+ * @param scalingStat
  */
 
 

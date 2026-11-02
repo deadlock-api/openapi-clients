@@ -30,12 +30,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param color 
- * @param images 
- * @param name 
- * @param tier 
+ * @param color
+ * @param images
+ * @param name
+ * @param tier
  */
 
 

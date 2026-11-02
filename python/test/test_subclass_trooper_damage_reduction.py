@@ -35,12 +35,12 @@ class TestSubclassTrooperDamageReduction(unittest.TestCase):
         model = SubclassTrooperDamageReduction()
         if include_optional:
             return SubclassTrooperDamageReduction(
-                subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.Subclass_TrooperDamageReduction_subclass(
+                subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.SubclassTrooperDamageReductionSubclass(
                     damage_reduction_for_troopers = 1.337, )
             )
         else:
             return SubclassTrooperDamageReduction(
-                subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.Subclass_TrooperDamageReduction_subclass(
+                subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.SubclassTrooperDamageReductionSubclass(
                     damage_reduction_for_troopers = 1.337, ),
         )
         """

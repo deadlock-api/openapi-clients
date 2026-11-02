@@ -31,12 +31,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param color Flat flash color. From build 6711 on it is derived from the first `color_gradient` stop.
- * @param duration 
- * @param brightness 
- * @param brightnessInLightSensitivityMode 
+ * @param duration
+ * @param brightness
+ * @param brightnessInLightSensitivityMode
  * @param colorGradient Color gradient over the flash's lifetime (build 6711+).
  * @param coverage Only present up to build 6701.
  * @param hardness Only present up to build 6701.

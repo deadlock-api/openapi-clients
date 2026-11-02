@@ -32,11 +32,11 @@ import java.io.Serializable
  * A transition between an item in one column and an item in the next column, counted across players who purchased both.
  *
  * @param fromColumn The column of the source item.
- * @param fromItemId 
- * @param losses 
- * @param matches 
- * @param toItemId 
- * @param wins 
+ * @param fromItemId
+ * @param losses
+ * @param matches
+ * @param toItemId
+ * @param wins
  */
 
 

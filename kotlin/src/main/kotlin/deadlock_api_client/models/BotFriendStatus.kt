@@ -32,7 +32,7 @@ import java.io.Serializable
  * Whether a prioritized account is friends with one of the bots
  *
  * @param invites Friend invite links of bots to add, empty once `is_friend` is true
- * @param isFriend 
+ * @param isFriend
  */
 
 

@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param enemyId 
- * @param matches 
- * @param matchesPlayed 
+ * @param enemyId
+ * @param matches
+ * @param matchesPlayed
  * @param wins The amount of matches won against the enemy.
  */
 

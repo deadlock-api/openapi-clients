@@ -33,13 +33,13 @@ import java.io.Serializable
  *
  * @param abilities The order prefix: one entry per ability point spent, unlocks included. Its parent node is the prefix one entry shorter. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param avgUpgradeTimeS Average game time (in seconds) at which the last upgrade in `abilities` was bought.
- * @param losses 
- * @param matches 
+ * @param losses
+ * @param matches
  * @param players Distinct players, counted exactly.
- * @param totalAssists 
- * @param totalDeaths 
- * @param totalKills 
- * @param wins 
+ * @param totalAssists
+ * @param totalDeaths
+ * @param totalKills
+ * @param wins
  */
 
 

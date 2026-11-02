@@ -33,13 +33,13 @@ import java.io.Serializable
  *
  * @param avgDurationS Average match duration (seconds) of the population.
  * @param avgNetWorth Average final net worth of the population.
- * @param losses 
- * @param matches 
- * @param players 
- * @param totalAssists 
- * @param totalDeaths 
- * @param totalKills 
- * @param wins 
+ * @param losses
+ * @param matches
+ * @param players
+ * @param totalAssists
+ * @param totalDeaths
+ * @param totalKills
+ * @param wins
  */
 
 

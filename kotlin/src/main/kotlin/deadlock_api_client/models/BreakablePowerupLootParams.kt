@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param pickupsByMatchTimeMins Match time in minutes (string key) from which a loot table applies, mapped to `{pickup_name: relative weight}`.
- * @param lootListDeckSize 
+ * @param lootListDeckSize
  */
 
 

@@ -31,10 +31,10 @@ import java.io.Serializable
 /**
  * Response for a Steam account
  *
- * @param createdAt 
- * @param id 
- * @param steamId3 
- * @param deletedAt 
+ * @param createdAt
+ * @param id
+ * @param steamId3
+ * @param deletedAt
  */
 
 

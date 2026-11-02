@@ -29,45 +29,43 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
- * @param accuracy 
- * @param assists 
- * @param assistsPerMin 
- * @param creepsPerMin 
- * @param critShotRate 
- * @param damageMitigatedPerMin 
- * @param damagePerMin 
- * @param damagePerSoul 
- * @param damageTakenPerMin 
- * @param damageTakenPerSoul 
- * @param deaths 
- * @param deathsPerMin 
- * @param deniesPerMatch 
- * @param deniesPerMin 
- * @param endingLevel 
+ * @param accountId
+ * @param accuracy
+ * @param assists
+ * @param assistsPerMin
+ * @param creepsPerMin
+ * @param critShotRate
+ * @param damageMitigatedPerMin
+ * @param damagePerMin
+ * @param damagePerSoul
+ * @param damageTakenPerMin
+ * @param damageTakenPerSoul
+ * @param deaths
+ * @param deathsPerMin
+ * @param deniesPerMatch
+ * @param deniesPerMin
+ * @param endingLevel
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param kills 
- * @param killsPerMin 
- * @param lastHitsPerMin 
- * @param lastPlayed 
- * @param matches 
- * @param matchesPlayed 
+ * @param kills
+ * @param killsPerMin
+ * @param lastHitsPerMin
+ * @param lastPlayed
+ * @param matches
+ * @param matchesPlayed
  * @param mvpRankCounts Matches by the MVP rank Valve awarded the player: index 0 is rank 1 (MVP), index 1 is rank 2, index 2 is rank 3. Only the top three players of a match get a rank.
  * @param mvpRatedMatches Matches played since Valve started reporting MVP ranks (2026-01-06). Divide `mvp_rank_counts` by this, not by `matches_played`, when the time range reaches further back.
- * @param networthPerMin 
- * @param objDamagePerMin 
- * @param objDamagePerSoul 
+ * @param networthPerMin
+ * @param objDamagePerMin
+ * @param objDamagePerSoul
  * @param permanentBuffMatches Matches that carry buff pickup counts. Only matches ingested since build 6712 (late September 2026) have them here, so divide by this rather than `matches_played`.
  * @param permanentBuffs Permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
- * @param timePlayed 
- * @param totalBossDamage 
- * @param totalCreepDamage 
- * @param totalNeutralDamage 
- * @param totalPlayerDamage 
- * @param totalPlayerDamageTaken 
- * @param wins 
+ * @param timePlayed
+ * @param totalBossDamage
+ * @param totalCreepDamage
+ * @param totalNeutralDamage
+ * @param totalPlayerDamage
+ * @param totalPlayerDamageTaken
+ * @param wins
  * @param avgFirstPermanentBuffTimeS Average game time (seconds) of the first permanent buff pickup, over matches with pickup timings (build 6712+, at least one permanent pickup), `null` without any.
  * @param permanentBuffsPerMin Permanent buff pickups per minute over the `permanent_buff_matches` matches, `null` without any.
  */

@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param matchId 
+ * @param matchId
  * @param playerRankInitialDisplayRank Rank badge the player entered the match with, `tier * 10 + subrank`.
  * @param startTime Match start time as a unix timestamp.
  * @param playerRankConsumedDemotionProtection Whether the match used up one of the player's demotion protection games.

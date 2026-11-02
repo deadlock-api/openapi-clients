@@ -747,6 +747,7 @@ namespace DeadlockApiClient.Test.Api
         [Fact (Skip = "not implemented")]
         public async Task PlayerStatsMetricsAsyncTest()
         {
+            Client.Option<string> bucket = default!;
             Client.Option<string?> heroIds = default!;
             Client.Option<string?> gameMode = default!;
             Client.Option<string?> matchMode = default!;
@@ -767,7 +768,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
             Client.Option<List<int>?> accountIds = default!;
             Client.Option<bool> includeBuffMetrics = default!;
-            var response = await _instance.PlayerStatsMetricsAsync(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
+            var response = await _instance.PlayerStatsMetricsAsync(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics);
             var model = response.Ok();
             Assert.IsType<DeadlockApiClient.Model.Dictionary<string, HashMapValue>>(model);
         }

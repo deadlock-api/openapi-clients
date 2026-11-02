@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param assists1 The number of assists by `hero_id1` when playing with `hero_id2`.
  * @param assists2 The number of assists by `hero_id2` when playing with `hero_id1`.
  * @param creeps1 The number of creeps killed by `hero_id1` when playing with `hero_id2`.

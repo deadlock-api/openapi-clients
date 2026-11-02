@@ -206,54 +206,54 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MatchId (long) minimum
             if (this.MatchId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // PlayerRankInitialDisplayRank (int) minimum
             if (this.PlayerRankInitialDisplayRank < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankInitialDisplayRank, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDisplayRank" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDisplayRank, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDisplayRank" });
             }
 
             // StartTime (int) minimum
             if (this.StartTime < (int)0)
             {
-                yield return new ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
             // PlayerRankFinalFlatProgress (int) minimum
             if (this.PlayerRankFinalFlatProgressOption.IsSet && this.PlayerRankFinalFlatProgressOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankFinalFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankFinalFlatProgress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankFinalFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankFinalFlatProgress" });
             }
 
             // PlayerRankInitialCalibrationGames (int) minimum
             if (this.PlayerRankInitialCalibrationGamesOption.IsSet && this.PlayerRankInitialCalibrationGamesOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankInitialCalibrationGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialCalibrationGames" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialCalibrationGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialCalibrationGames" });
             }
 
             // PlayerRankInitialDemotionProtectionGames (int) minimum
             if (this.PlayerRankInitialDemotionProtectionGamesOption.IsSet && this.PlayerRankInitialDemotionProtectionGamesOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankInitialDemotionProtectionGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDemotionProtectionGames" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialDemotionProtectionGames, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialDemotionProtectionGames" });
             }
 
             // PlayerRankInitialFlatProgress (int) minimum
             if (this.PlayerRankInitialFlatProgressOption.IsSet && this.PlayerRankInitialFlatProgressOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankInitialFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialFlatProgress" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialFlatProgress, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialFlatProgress" });
             }
 
             // PlayerRankInitialWinStreak (int) minimum
             if (this.PlayerRankInitialWinStreakOption.IsSet && this.PlayerRankInitialWinStreakOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for PlayerRankInitialWinStreak, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialWinStreak" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialWinStreak, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialWinStreak" });
             }
 
             yield break;

@@ -388,11 +388,11 @@ func (o *Weapon) GetProperties() map[string]ItemProperty {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Weapon) GetPropertiesOk() (map[string]ItemProperty, bool) {
+func (o *Weapon) GetPropertiesOk() (*map[string]ItemProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
-		return map[string]ItemProperty{}, false
+		return nil, false
 	}
-	return o.Properties, true
+	return &o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.

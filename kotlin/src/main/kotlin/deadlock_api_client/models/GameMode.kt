@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: normal,street_brawl,explore_n_y_c,`internal`,internal02
  */
 

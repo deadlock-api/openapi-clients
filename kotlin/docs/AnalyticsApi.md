@@ -1920,11 +1920,11 @@ No authorization required
 
 <a id="playerStatsMetrics"></a>
 # **playerStatsMetrics**
-> kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt; playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
+> kotlin.collections.Map&lt;kotlin.String, HashMapValue&gt; playerStatsMetrics(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
 
 Player Stats Metrics
 
- Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+ Returns comprehensive statistical analysis of player performance.  &#x60;avg&#x60;, &#x60;std&#x60; and the percentiles describe the distribution over single matches: each player&#39;s row in each matching match is one value, so players with more matches weigh more. With &#x60;account_ids&#x60; it is the distribution of those players&#39; matches. The percentiles rank a single match, not a player: a player&#39;s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With &#x60;bucket&#x3D;hero&#x60; the response is instead a list with one such object per hero, each with an extra &#x60;bucket&#x60; field holding the hero id: &#x60;[{\&quot;bucket\&quot;: 15, \&quot;kills\&quot;: {...}, ...}, ...]&#x60;. Combined with &#x60;hero_ids&#x60; it returns every listed hero&#39;s metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  &gt; Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: &gt; The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
 
 ### Example
 ```kotlin
@@ -1933,6 +1933,7 @@ Player Stats Metrics
 //import deadlock_api_client.models.*
 
 val apiInstance = AnalyticsApi()
+val bucket : kotlin.String = bucket_example // kotlin.String | Bucket allows you to group the stats by a specific field.
 val heroIds : kotlin.String = heroIds_example // kotlin.String | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
 val gameMode : kotlin.String = gameMode_example // kotlin.String | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
 val matchMode : kotlin.String = matchMode_example // kotlin.String | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.
@@ -1954,7 +1955,7 @@ val abilityUnlockOrderPrefix : kotlin.collections.List<kotlin.Int> =  // kotlin.
 val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids to include
 val includeBuffMetrics : kotlin.Boolean = true // kotlin.Boolean | Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them.
 try {
-    val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
+    val result : kotlin.collections.Map<kotlin.String, HashMapValue> = apiInstance.playerStatsMetrics(bucket, heroIds, gameMode, matchMode, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minNetworth, maxNetworth, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, maxMatches, includeItemIds, excludeItemIds, abilityOrderPrefix, abilityUnlockOrderPrefix, accountIds, includeBuffMetrics)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling AnalyticsApi#playerStatsMetrics")
@@ -1968,6 +1969,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **bucket** | **kotlin.String**| Bucket allows you to group the stats by a specific field. | [optional] [enum: no_bucket, hero] |
 | **heroIds** | **kotlin.String**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] |
 | **gameMode** | **kotlin.String**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] [enum: normal, street_brawl, explore_n_y_c, internal, internal02] |
 | **matchMode** | **kotlin.String**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] |

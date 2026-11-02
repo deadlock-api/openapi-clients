@@ -30,17 +30,15 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param calibrationMatches 
- * @param className 
- * @param intervals 
- * @param minHeroUnlocks 
- * @param minHeroWins 
- * @param minWins 
- * @param name 
- * @param rankedType 
- * @param validPartySizes 
+ * @param calibrationMatches
+ * @param className
+ * @param intervals
+ * @param minHeroUnlocks
+ * @param minHeroWins
+ * @param minWins
+ * @param name
+ * @param rankedType
+ * @param validPartySizes
  * @param baseWinLossPointGrant Base rank points granted per win / taken per loss (build 6701+).
  */
 

@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param dataType Arrow data type, rendered as its canonical textual form (e.g. `Int32`, `Utf8`).
- * @param name 
- * @param nullable 
+ * @param name
+ * @param nullable
  */
 
 

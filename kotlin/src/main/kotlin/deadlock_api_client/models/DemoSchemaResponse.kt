@@ -30,11 +30,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param demoUrl 
- * @param matchId 
- * @param tables 
+ * @param demoUrl
+ * @param matchId
+ * @param tables
  */
 
 

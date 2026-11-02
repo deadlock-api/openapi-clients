@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
- * @param matches 
- * @param rank 
- * @param `value` 
+ * @param accountId
+ * @param matches
+ * @param rank
+ * @param `value`
  * @param badge `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param badgeProgress `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
  */

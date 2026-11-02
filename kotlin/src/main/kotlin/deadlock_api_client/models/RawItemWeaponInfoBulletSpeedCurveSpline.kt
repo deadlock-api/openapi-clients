@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param slopeIncoming 
- * @param slopeOutgoing 
- * @param x 
- * @param y 
+ * @param slopeIncoming
+ * @param slopeOutgoing
+ * @param x
+ * @param y
  */
 
 

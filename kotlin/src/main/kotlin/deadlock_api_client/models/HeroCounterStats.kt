@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param assists The number of assists by `hero_id` when facing `enemy_hero_id`.
  * @param creeps The number of creeps killed by `hero_id` when facing `enemy_hero_id`.
  * @param deaths The number of deaths by `hero_id` when facing `enemy_hero_id`.

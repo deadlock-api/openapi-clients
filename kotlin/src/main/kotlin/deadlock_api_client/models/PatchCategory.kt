@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param domain 
- * @param text 
+ * @param domain
+ * @param text
  */
 
 

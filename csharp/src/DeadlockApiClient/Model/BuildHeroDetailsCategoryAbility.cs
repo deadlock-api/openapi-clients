@@ -131,30 +131,30 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AbilityId (int) minimum
             if (this.AbilityId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AbilityId, must be a value greater than or equal to 0.", new [] { "AbilityId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AbilityId, must be a value greater than or equal to 0.", new [] { "AbilityId" });
             }
 
             // ImbueTargetAbilityId (int) minimum
             if (this.ImbueTargetAbilityIdOption.IsSet && this.ImbueTargetAbilityIdOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ImbueTargetAbilityId, must be a value greater than or equal to 0.", new [] { "ImbueTargetAbilityId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ImbueTargetAbilityId, must be a value greater than or equal to 0.", new [] { "ImbueTargetAbilityId" });
             }
 
             // RequiredFlexSlots (int) minimum
             if (this.RequiredFlexSlotsOption.IsSet && this.RequiredFlexSlotsOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for RequiredFlexSlots, must be a value greater than or equal to 0.", new [] { "RequiredFlexSlots" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RequiredFlexSlots, must be a value greater than or equal to 0.", new [] { "RequiredFlexSlots" });
             }
 
             // SellPriority (int) minimum
             if (this.SellPriorityOption.IsSet && this.SellPriorityOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for SellPriority, must be a value greater than or equal to 0.", new [] { "SellPriority" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SellPriority, must be a value greater than or equal to 0.", new [] { "SellPriority" });
             }
 
             yield break;

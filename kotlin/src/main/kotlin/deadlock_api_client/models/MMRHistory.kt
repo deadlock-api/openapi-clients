@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
+ * @param accountId
  * @param division Extracted from the rank the division (rank // 10)
  * @param divisionTier Extracted from the rank the division tier (rank % 10)
- * @param matchId 
+ * @param matchId
  * @param playerScore Contiguous index of the rank (1-66), derived from `rank`
  * @param rank The Player Rank (tier = first digits, subtier = last digit). See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param startTime Start time of the match

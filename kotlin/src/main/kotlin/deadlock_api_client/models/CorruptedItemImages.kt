@@ -33,9 +33,9 @@ import java.io.Serializable
 /**
  * Shop art for corrupted items (build 6711+). The game has no per-item corrupted icon: a corrupted item is its normal image drawn inside `frame`, with the tooltip backer of its `item_slot_type`.
  *
- * @param frame 
+ * @param frame
  * @param frameActive Frame for an active (usable) corrupted item.
- * @param tooltipBackers 
+ * @param tooltipBackers
  */
 
 

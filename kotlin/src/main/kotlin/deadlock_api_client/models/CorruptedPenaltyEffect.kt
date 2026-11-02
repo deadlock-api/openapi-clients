@@ -29,15 +29,13 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param bonusPerTier Penalty value indexed by item tier (same indexing as `item_price_per_tier`; tiers that can't be corrupted are `0`), in display units: distances are meters (source suffix `m` stripped), matching `postfix`.
  * @param display `false` for effects the game applies but doesn't list in tooltips.
  * @param modifierValue Modifier the penalty applies, e.g. `MODIFIER_VALUE_COOLDOWN_REDUCTION_PERCENTAGE`.
- * @param cssClass 
- * @param displayType 
+ * @param cssClass
+ * @param displayType
  * @param label Localized stat label (from `loc_token_override`).
- * @param locTokenOverride 
+ * @param locTokenOverride
  * @param postfix Localized unit suffix, e.g. `%` or ` m`.
  */
 

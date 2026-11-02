@@ -124,18 +124,18 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MatchId (long) minimum
             if (this.MatchId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // LobbyId (long) minimum
             if (this.LobbyIdOption.IsSet && this.LobbyIdOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for LobbyId, must be a value greater than or equal to 0.", new [] { "LobbyId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LobbyId, must be a value greater than or equal to 0.", new [] { "LobbyId" });
             }
 
             yield break;

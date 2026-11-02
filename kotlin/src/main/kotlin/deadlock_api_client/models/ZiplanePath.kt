@@ -32,12 +32,12 @@ import java.io.Serializable
 /**
  * A single lane's zip-line cubic spline.
  *
- * @param p0Points 
- * @param p1Points 
- * @param p2Points 
- * @param color 
- * @param colorParsed 
- * @param origin 
+ * @param p0Points
+ * @param p1Points
+ * @param p2Points
+ * @param color
+ * @param colorParsed
+ * @param origin
  */
 
 

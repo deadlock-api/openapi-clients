@@ -30,17 +30,15 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param alwaysShowInUi 
- * @param className 
- * @param duration 
+ * @param alwaysShowInUi
+ * @param className
+ * @param duration
  * @param enabledStateMask Modifier states the modifier enables, e.g. `MODIFIER_STATE_IN_CORRUPTED_ITEM_SHOP`.
- * @param modifierValues 
- * @param scriptValues 
- * @param subclassName 
- * @param timeMax 
- * @param timeMin 
+ * @param modifierValues
+ * @param scriptValues
+ * @param subclassName
+ * @param timeMax
+ * @param timeMin
  */
 
 

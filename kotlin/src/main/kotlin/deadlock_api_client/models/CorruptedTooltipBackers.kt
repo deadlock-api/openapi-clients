@@ -32,9 +32,9 @@ import java.io.Serializable
 /**
  * Corrupted item tooltip backers, one per item slot type.
  *
- * @param spirit 
- * @param vitality 
- * @param weapon 
+ * @param spirit
+ * @param vitality
+ * @param weapon
  */
 
 

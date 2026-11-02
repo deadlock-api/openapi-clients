@@ -33,23 +33,21 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param id 
- * @param name 
- * @param type 
- * @param crosshairCssClass 
- * @param customCrosshairSettings 
- * @param hero 
- * @param heroes 
- * @param image 
- * @param imageWebp 
- * @param properties 
- * @param startTrained 
- * @param updateTime 
- * @param useCustomCrosshairSettings 
- * @param weaponInfo 
+ * @param className
+ * @param id
+ * @param name
+ * @param type
+ * @param crosshairCssClass
+ * @param customCrosshairSettings
+ * @param hero
+ * @param heroes
+ * @param image
+ * @param imageWebp
+ * @param properties
+ * @param startTrained
+ * @param updateTime
+ * @param useCustomCrosshairSettings
+ * @param weaponInfo
  */
 
 

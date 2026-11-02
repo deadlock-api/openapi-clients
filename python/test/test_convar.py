@@ -35,14 +35,14 @@ class TestConvar(unittest.TestCase):
         model = Convar()
         if include_optional:
             return Convar(
-                default = None,
+                default = { },
                 description = '',
                 flags = 0,
                 type = 'bool'
             )
         else:
             return Convar(
-                default = None,
+                default = { },
                 flags = 0,
                 type = 'bool',
         )

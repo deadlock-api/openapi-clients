@@ -44,24 +44,22 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param aimSpringStrength 
- * @param armorGroups 
- * @param damageFlash 
- * @param glitchSettings 
- * @param heroKillGoldShareFrac 
- * @param itemPricePerTier 
+ * @param aimSpringStrength
+ * @param armorGroups
+ * @param damageFlash
+ * @param glitchSettings
+ * @param heroKillGoldShareFrac
+ * @param itemPricePerTier
  * @param itemTooltipBackers Item tooltip backgrounds per slot type (the corrupted variants are in `corrupted_item_images`).
- * @param laneInfo 
- * @param miniMapOffsets 
- * @param newPlayerMetrics 
- * @param objectiveParams 
- * @param rejuvParams 
- * @param spiritGroups 
- * @param targetingSpringStrength 
- * @param trooperKillGoldShareFrac 
- * @param weaponGroups 
+ * @param laneInfo
+ * @param miniMapOffsets
+ * @param newPlayerMetrics
+ * @param objectiveParams
+ * @param rejuvParams
+ * @param spiritGroups
+ * @param targetingSpringStrength
+ * @param trooperKillGoldShareFrac
+ * @param weaponGroups
  * @param breakablePowerupLootParams Loot tables for breakable powerup props (build 6711+).
  * @param colorEnemy Build 6711+.
  * @param colorFriend Build 6711+.
@@ -69,15 +67,15 @@ import java.io.Serializable
  * @param colorTeam2 Build 6711+.
  * @param corruptedItemImages Shop art for corrupted items (build 6711+).
  * @param corruptedPenalties Penalties that can be rolled onto corrupted items (build 6711+).
- * @param enemyObjectivesAndZiplineColor 
- * @param enemyObjectivesColor 
- * @param enemyZiplineColor 
+ * @param enemyObjectivesAndZiplineColor
+ * @param enemyObjectivesColor
+ * @param enemyZiplineColor
  * @param itemCorruptionPricePerTier Extra cost of corrupting an item, by item tier (build 6711+).
  * @param mapDistricts District / building labels shown on the map (build 6711+).
- * @param minimapTeamCombineColor 
- * @param minimapTeamRebelsColor 
+ * @param minimapTeamCombineColor
+ * @param minimapTeamRebelsColor
  * @param neutralCampRespawnTimerShowDistance Distance within which a neutral camp's respawn timer is shown (build 6711+).
- * @param streetBrawl 
+ * @param streetBrawl
  */
 
 

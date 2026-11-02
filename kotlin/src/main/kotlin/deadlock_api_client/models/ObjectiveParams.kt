@@ -29,20 +29,18 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param baseGuardiansGoldKill 
- * @param baseGuardiansGoldOrbs 
- * @param goldPerOrb 
- * @param nearPlayerSplitPct 
- * @param patronPhase1GoldKill 
- * @param patronPhase1GoldOrbs 
- * @param shrinesGoldKill 
- * @param shrinesGoldOrbs 
- * @param tier1GoldKill 
- * @param tier1GoldOrbs 
- * @param tier2GoldKill 
- * @param tier2GoldOrbs 
+ * @param baseGuardiansGoldKill
+ * @param baseGuardiansGoldOrbs
+ * @param goldPerOrb
+ * @param nearPlayerSplitPct
+ * @param patronPhase1GoldKill
+ * @param patronPhase1GoldOrbs
+ * @param shrinesGoldKill
+ * @param shrinesGoldOrbs
+ * @param tier1GoldKill
+ * @param tier1GoldOrbs
+ * @param tier2GoldKill
+ * @param tier2GoldOrbs
  */
 
 

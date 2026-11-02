@@ -119,24 +119,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // DataCompressedBytes (long) minimum
             if (this.DataCompressedBytesOption.IsSet && this.DataCompressedBytesOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for DataCompressedBytes, must be a value greater than or equal to 0.", new [] { "DataCompressedBytes" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DataCompressedBytes, must be a value greater than or equal to 0.", new [] { "DataCompressedBytes" });
             }
 
             // DataUncompressedBytes (long) minimum
             if (this.DataUncompressedBytesOption.IsSet && this.DataUncompressedBytesOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for DataUncompressedBytes, must be a value greater than or equal to 0.", new [] { "DataUncompressedBytes" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DataUncompressedBytes, must be a value greater than or equal to 0.", new [] { "DataUncompressedBytes" });
             }
 
             // Rows (long) minimum
             if (this.RowsOption.IsSet && this.RowsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Rows, must be a value greater than or equal to 0.", new [] { "Rows" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rows, must be a value greater than or equal to 0.", new [] { "Rows" });
             }
 
             yield break;

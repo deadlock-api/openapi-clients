@@ -33,8 +33,8 @@ import java.io.Serializable
 /**
  * Response for listing Steam accounts
  *
- * @param accounts 
- * @param summary 
+ * @param accounts
+ * @param summary
  */
 
 

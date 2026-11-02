@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param bans The number of matches in which this hero was banned.
  * @param bucket The bucket value (depends on the bucket query parameter).
  * @param heroId The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>

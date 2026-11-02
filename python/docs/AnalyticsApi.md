@@ -2833,7 +2833,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **player_stats_metrics**
-> Dict[str, HashMapValue] player_stats_metrics(hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
+> Dict[str, HashMapValue] player_stats_metrics(bucket=bucket, hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
 
 Player Stats Metrics
 
@@ -2845,6 +2845,10 @@ row in each matching match is one value, so players with more matches weigh more
 `account_ids` it is the distribution of those players' matches. The percentiles rank a single
 match, not a player: a player's average over many matches spreads much narrower than single
 matches do, so read against these percentiles it looks less extreme than it is among players.
+
+With `bucket=hero` the response is instead a list with one such object per hero, each with an
+extra `bucket` field holding the hero id: `[{"bucket": 15, "kills": {...}, ...}, ...]`.
+Combined with `hero_ids` it returns every listed hero's metrics from one request.
 
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
@@ -2880,6 +2884,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.AnalyticsApi(api_client)
+    bucket = 'bucket_example' # str | Bucket allows you to group the stats by a specific field. (optional)
     hero_ids = 'hero_ids_example' # str | Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional)
     game_mode = 'game_mode_example' # str | Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional)
     match_mode = 'match_mode_example' # str | Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional)
@@ -2903,7 +2908,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Player Stats Metrics
-        api_response = api_instance.player_stats_metrics(hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
+        api_response = api_instance.player_stats_metrics(bucket=bucket, hero_ids=hero_ids, game_mode=game_mode, match_mode=match_mode, min_unix_timestamp=min_unix_timestamp, max_unix_timestamp=max_unix_timestamp, min_duration_s=min_duration_s, max_duration_s=max_duration_s, min_networth=min_networth, max_networth=max_networth, min_average_badge=min_average_badge, max_average_badge=max_average_badge, min_match_id=min_match_id, max_match_id=max_match_id, max_matches=max_matches, include_item_ids=include_item_ids, exclude_item_ids=exclude_item_ids, ability_order_prefix=ability_order_prefix, ability_unlock_order_prefix=ability_unlock_order_prefix, account_ids=account_ids, include_buff_metrics=include_buff_metrics)
         print("The response of AnalyticsApi->player_stats_metrics:\n")
         pprint(api_response)
     except Exception as e:
@@ -2917,6 +2922,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **bucket** | **str**| Bucket allows you to group the stats by a specific field. | [optional] 
  **hero_ids** | **str**| Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | [optional] 
  **game_mode** | **str**| Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | [optional] 
  **match_mode** | **str**| Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | [optional] 

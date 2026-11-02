@@ -29,14 +29,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param scalingStats 
- * @param specificStatScaleType 
- * @param statScale 
- * @param streetBrawlStatScale 
- * @param subclassName 
+ * @param className
+ * @param scalingStats
+ * @param specificStatScaleType
+ * @param statScale
+ * @param streetBrawlStatScale
+ * @param subclassName
  */
 
 

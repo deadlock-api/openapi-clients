@@ -30,34 +30,32 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abilityResourceMax 
- * @param abilityResourceRegenPerSecond 
- * @param baseHealthRegen 
- * @param critDamageReceivedScale 
- * @param crouchSpeed 
- * @param heavyMeleeDamage 
- * @param lightMeleeDamage 
- * @param maxHealth 
- * @param maxMoveSpeed 
- * @param moveAcceleration 
- * @param procBuildUpRateScale 
- * @param reloadSpeed 
- * @param sprintSpeed 
- * @param stamina 
- * @param staminaRegenPerSecond 
- * @param techDuration 
- * @param techRange 
- * @param weaponPower 
- * @param weaponPowerScale 
- * @param airDashDistanceInMeters 
- * @param airDashDuration 
- * @param bulletArmorDamageReduction 
- * @param groundDashDistanceInMeters 
- * @param groundDashDuration 
+ * @param abilityResourceMax
+ * @param abilityResourceRegenPerSecond
+ * @param baseHealthRegen
+ * @param critDamageReceivedScale
+ * @param crouchSpeed
+ * @param heavyMeleeDamage
+ * @param lightMeleeDamage
+ * @param maxHealth
+ * @param maxMoveSpeed
+ * @param moveAcceleration
+ * @param procBuildUpRateScale
+ * @param reloadSpeed
+ * @param sprintSpeed
+ * @param stamina
+ * @param staminaRegenPerSecond
+ * @param techDuration
+ * @param techRange
+ * @param weaponPower
+ * @param weaponPowerScale
+ * @param airDashDistanceInMeters
+ * @param airDashDuration
+ * @param bulletArmorDamageReduction
+ * @param groundDashDistanceInMeters
+ * @param groundDashDuration
  * @param oocHealthRegen Out-of-combat health regen (build 6711+).
- * @param techArmorDamageReduction 
+ * @param techArmorDamageReduction
  */
 
 

@@ -29,13 +29,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param displayStats 
- * @param otherDisplayStats 
- * @param weaponAttributes 
- * @param weaponImage 
- * @param weaponImageWebp 
+ * @param displayStats
+ * @param otherDisplayStats
+ * @param weaponAttributes
+ * @param weaponImage
+ * @param weaponImageWebp
  */
 
 

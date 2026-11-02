@@ -10,57 +10,57 @@
 using System;
 using System.Globalization;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace DeadlockApiClient.Client
 {
     /// <summary>
-    /// Formatter for 'date' openapi formats ss defined by full-date - RFC3339
-    /// see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#data-types
+    /// Parses date and date-time values with property-specific formats.
     /// </summary>
-    public class DateOnlyNullableJsonConverter : JsonConverter<DateOnly?>
+    public static class DateTimeFormatHelper
     {
         /// <summary>
-        /// The formats used to deserialize the date
+        /// Deserializes a DateTime using an exact format.
         /// </summary>
-        public static string[] Formats { get; } = {
-            "yyyy'-'MM'-'dd",
-            "yyyyMMdd"
-
-        };
-
-        /// <summary>
-        /// Returns a DateOnly from the Json object
-        /// </summary>
-        /// <param name="reader"></param>
-        /// <param name="typeToConvert"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public override DateOnly? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) {
-            if (reader.TokenType == JsonTokenType.Null)
-                return null;
+        public static DateTime ReadDateTime(ref Utf8JsonReader reader, string format)
+        {
+            if (reader.TokenType != JsonTokenType.String)
+                throw new JsonException($"Expected a JSON string for date-time, but found {reader.TokenType}.");
 
             string value = reader.GetString()!;
+            if (DateTime.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal, out DateTime result))
+                return result;
 
-            foreach(string format in Formats)
-                if (DateOnly.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateOnly result))
-                    return result;
-
-            throw new NotSupportedException();
+            throw new JsonException($"The JSON string is not a valid date-time in the expected format '{format}'.");
         }
 
         /// <summary>
-        /// Writes the DateOnly to the json writer
+        /// Deserializes a DateTimeOffset using an exact format.
         /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="dateOnlyValue"></param>
-        /// <param name="options"></param>
-        public override void Write(Utf8JsonWriter writer, DateOnly? dateOnlyValue, JsonSerializerOptions options)
+        public static DateTimeOffset ReadDateTimeOffset(ref Utf8JsonReader reader, string format)
         {
-            if (dateOnlyValue == null)
-                writer.WriteNullValue();
-            else
-                writer.WriteStringValue(dateOnlyValue.Value.ToString("yyyy'-'MM'-'dd", CultureInfo.InvariantCulture));
+            if (reader.TokenType != JsonTokenType.String)
+                throw new JsonException($"Expected a JSON string for date-time, but found {reader.TokenType}.");
+
+            string value = reader.GetString()!;
+            if (DateTimeOffset.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out DateTimeOffset result))
+                return result;
+
+            throw new JsonException($"The JSON string is not a valid date-time in the expected format '{format}'.");
+        }
+
+        /// <summary>
+        /// Deserializes a DateOnly using an exact format.
+        /// </summary>
+        public static DateOnly ReadDateOnly(ref Utf8JsonReader reader, string format)
+        {
+            if (reader.TokenType != JsonTokenType.String)
+                throw new JsonException($"Expected a JSON string for date, but found {reader.TokenType}.");
+
+            string value = reader.GetString()!;
+            if (DateOnly.TryParseExact(value, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateOnly result))
+                return result;
+
+            throw new JsonException($"The JSON string is not a valid date in the expected format '{format}'.");
         }
     }
 }

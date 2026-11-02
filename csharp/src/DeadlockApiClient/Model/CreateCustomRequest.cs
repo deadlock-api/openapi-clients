@@ -221,24 +221,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CorruptedItemShopSpawnMinutes (int) minimum
             if (this.CorruptedItemShopSpawnMinutesOption.IsSet && this.CorruptedItemShopSpawnMinutesOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for CorruptedItemShopSpawnMinutes, must be a value greater than or equal to 0.", new [] { "CorruptedItemShopSpawnMinutes" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CorruptedItemShopSpawnMinutes, must be a value greater than or equal to 0.", new [] { "CorruptedItemShopSpawnMinutes" });
             }
 
             // MinRosterSize (int) maximum
             if (this.MinRosterSizeOption.IsSet && this.MinRosterSizeOption.Value > (int)12)
             {
-                yield return new ValidationResult("Invalid value for MinRosterSize, must be a value less than or equal to 12.", new [] { "MinRosterSize" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinRosterSize, must be a value less than or equal to 12.", new [] { "MinRosterSize" });
             }
 
             // MinRosterSize (int) minimum
             if (this.MinRosterSizeOption.IsSet && this.MinRosterSizeOption.Value < (int)1)
             {
-                yield return new ValidationResult("Invalid value for MinRosterSize, must be a value greater than or equal to 1.", new [] { "MinRosterSize" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MinRosterSize, must be a value greater than or equal to 1.", new [] { "MinRosterSize" });
             }
 
             yield break;

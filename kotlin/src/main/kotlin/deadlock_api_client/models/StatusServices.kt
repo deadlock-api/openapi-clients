@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param clickhouse Whether Clickhouse is reachable.
  * @param postgres Whether the Postgres connection pool is open. No query is run, so this does not prove the server is reachable.
  * @param redis Whether Redis is reachable.

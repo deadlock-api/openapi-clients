@@ -35,14 +35,14 @@ class TestSubclassRangedArmorModifier(unittest.TestCase):
         model = SubclassRangedArmorModifier()
         if include_optional:
             return SubclassRangedArmorModifier(
-                subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.Subclass_RangedArmorModifier_subclass(
+                subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.SubclassRangedArmorModifierSubclass(
                     invuln_range = 1.337, 
                     range_max = 1.337, 
                     range_min = 1.337, )
             )
         else:
             return SubclassRangedArmorModifier(
-                subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.Subclass_RangedArmorModifier_subclass(
+                subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.SubclassRangedArmorModifierSubclass(
                     invuln_range = 1.337, 
                     range_max = 1.337, 
                     range_min = 1.337, ),

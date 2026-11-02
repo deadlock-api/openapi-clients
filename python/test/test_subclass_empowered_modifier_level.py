@@ -35,14 +35,14 @@ class TestSubclassEmpoweredModifierLevel(unittest.TestCase):
         model = SubclassEmpoweredModifierLevel()
         if include_optional:
             return SubclassEmpoweredModifierLevel(
-                subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.Subclass_EmpoweredModifierLevel_subclass(
+                subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.SubclassEmpoweredModifierLevelSubclass(
                     max_health = 56, 
                     model_scale = 1.337, 
                     transition_duration = 1.337, )
             )
         else:
             return SubclassEmpoweredModifierLevel(
-                subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.Subclass_EmpoweredModifierLevel_subclass(
+                subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.SubclassEmpoweredModifierLevelSubclass(
                     max_health = 56, 
                     model_scale = 1.337, 
                     transition_duration = 1.337, ),

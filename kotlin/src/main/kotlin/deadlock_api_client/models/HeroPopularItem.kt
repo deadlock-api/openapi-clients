@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
+ * @param className
  * @param itemId Item id, derived from `class_name` like `/v2/items` ids.
  * @param pickPct Pick rate in percent (0-100).
  * @param winratePct Win rate in percent (0-100).

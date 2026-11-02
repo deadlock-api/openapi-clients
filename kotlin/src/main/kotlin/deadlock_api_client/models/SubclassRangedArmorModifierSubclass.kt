@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param invulnRange 
- * @param rangeMax 
- * @param rangeMin 
+ * @param invulnRange
+ * @param rangeMax
+ * @param rangeMin
  */
 
 

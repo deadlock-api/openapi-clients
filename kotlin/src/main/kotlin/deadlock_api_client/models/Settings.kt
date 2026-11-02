@@ -31,25 +31,25 @@ import java.io.Serializable
 /**
  * Crosshair convars. Anything not given keeps the game's default.
  *
- * @param colorB 
- * @param colorG 
- * @param colorR 
+ * @param colorB
+ * @param colorG
+ * @param colorR
  * @param dotOpacity 0 to 1.
- * @param dotOutlineBorder 
- * @param dotOutlineGap 
+ * @param dotOutlineBorder
+ * @param dotOutlineGap
  * @param dotOutlineOpacity 0 to 1.
- * @param dotSize 
- * @param outlineColorB 
- * @param outlineColorG 
- * @param outlineColorR 
- * @param pipGap 
+ * @param dotSize
+ * @param outlineColorB
+ * @param outlineColorG
+ * @param outlineColorR
+ * @param pipGap
  * @param pipGapStatic Keep the pips at a fixed distance instead of spreading them with weapon spread.
- * @param pipHeight 
+ * @param pipHeight
  * @param pipOpacity 0 to 1.
- * @param pipOutlineBorder 
- * @param pipOutlineGap 
+ * @param pipOutlineBorder
+ * @param pipOutlineGap
  * @param pipOutlineOpacity 0 to 1.
- * @param pipWidth 
+ * @param pipWidth
  * @param themed Use the hero's own crosshair instead of these settings.
  */
 

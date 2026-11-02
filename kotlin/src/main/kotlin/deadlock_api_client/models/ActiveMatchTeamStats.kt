@@ -30,13 +30,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param brawlScore 
- * @param netWorth 
- * @param objectivesMask 
- * @param team 
- * @param teamParsed 
+ * @param brawlScore
+ * @param netWorth
+ * @param objectivesMask
+ * @param team
+ * @param teamParsed
  */
 
 

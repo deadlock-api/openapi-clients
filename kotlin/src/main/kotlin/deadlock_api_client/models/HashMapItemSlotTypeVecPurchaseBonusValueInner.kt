@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param tier 
- * @param `value` 
- * @param valueType 
+ * @param tier
+ * @param `value`
+ * @param valueType
  */
 
 

@@ -31,10 +31,10 @@ import java.io.Serializable
 /**
  * Summary of the patron's Steam account slots
  *
- * @param availableSlots 
- * @param slotsInCooldown 
- * @param totalSlots 
- * @param usedSlots 
+ * @param availableSlots
+ * @param slotsInCooldown
+ * @param totalSlots
+ * @param usedSlots
  */
 
 

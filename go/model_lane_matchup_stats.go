@@ -249,11 +249,11 @@ func (o *LaneMatchupStats) GetStats() map[string]LaneMatchupStat {
 
 // GetStatsOk returns a tuple with the Stats field value
 // and a boolean to check if the value has been set.
-func (o *LaneMatchupStats) GetStatsOk() (map[string]LaneMatchupStat, bool) {
+func (o *LaneMatchupStats) GetStatsOk() (*map[string]LaneMatchupStat, bool) {
 	if o == nil {
-		return map[string]LaneMatchupStat{}, false
+		return nil, false
 	}
-	return o.Stats, true
+	return &o.Stats, true
 }
 
 // SetStats sets field value

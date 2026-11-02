@@ -29,15 +29,13 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param playerRespawnMult 
- * @param rejuvinatorBuffDuration 
- * @param rejuvinatorDropDuration 
- * @param rejuvinatorDropHeight 
- * @param rejuvinatorExpirationWarningTiming 
- * @param rejuvinatorRebirthDuration 
- * @param trooperHealthMult 
+ * @param playerRespawnMult
+ * @param rejuvinatorBuffDuration
+ * @param rejuvinatorDropDuration
+ * @param rejuvinatorDropHeight
+ * @param rejuvinatorExpirationWarningTiming
+ * @param rejuvinatorRebirthDuration
+ * @param trooperHealthMult
  */
 
 

@@ -35,13 +35,13 @@ class TestSubclassBulletResistModifier(unittest.TestCase):
         model = SubclassBulletResistModifier()
         if include_optional:
             return SubclassBulletResistModifier(
-                subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.Subclass_BulletResistModifier_subclass(
+                subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.SubclassBulletResistModifierSubclass(
                     bullet_resist = 56, 
                     bullet_resist_reduction_per_hero = 56, )
             )
         else:
             return SubclassBulletResistModifier(
-                subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.Subclass_BulletResistModifier_subclass(
+                subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.SubclassBulletResistModifierSubclass(
                     bullet_resist = 56, 
                     bullet_resist_reduction_per_hero = 56, ),
         )

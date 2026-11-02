@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param shopGroup 
- * @param upgrades 
+ * @param shopGroup
+ * @param upgrades
  */
 
 

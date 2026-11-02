@@ -535,192 +535,192 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bucket (int) minimum
             if (this.Bucket < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
             // HeroBuildId (long) minimum
             if (this.HeroBuildId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
             }
 
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
             // Losses (long) minimum
             if (this.Losses < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Losses, must be a value greater than or equal to 0.", new [] { "Losses" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Losses, must be a value greater than or equal to 0.", new [] { "Losses" });
             }
 
             // Matches (long) minimum
             if (this.Matches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             // Players (long) minimum
             if (this.Players < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Players, must be a value greater than or equal to 0.", new [] { "Players" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Players, must be a value greater than or equal to 0.", new [] { "Players" });
             }
 
             // Wins (long) minimum
             if (this.Wins < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
             }
 
             // TotalAssists (long) minimum
             if (this.TotalAssistsOption.IsSet && this.TotalAssistsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalAssists, must be a value greater than or equal to 0.", new [] { "TotalAssists" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalAssists, must be a value greater than or equal to 0.", new [] { "TotalAssists" });
             }
 
             // TotalBossDamage (long) minimum
             if (this.TotalBossDamageOption.IsSet && this.TotalBossDamageOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalBossDamage, must be a value greater than or equal to 0.", new [] { "TotalBossDamage" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalBossDamage, must be a value greater than or equal to 0.", new [] { "TotalBossDamage" });
             }
 
             // TotalCreepDamage (long) minimum
             if (this.TotalCreepDamageOption.IsSet && this.TotalCreepDamageOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalCreepDamage, must be a value greater than or equal to 0.", new [] { "TotalCreepDamage" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCreepDamage, must be a value greater than or equal to 0.", new [] { "TotalCreepDamage" });
             }
 
             // TotalCreepKills (long) minimum
             if (this.TotalCreepKillsOption.IsSet && this.TotalCreepKillsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalCreepKills, must be a value greater than or equal to 0.", new [] { "TotalCreepKills" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalCreepKills, must be a value greater than or equal to 0.", new [] { "TotalCreepKills" });
             }
 
             // TotalDamageMitigated (long) minimum
             if (this.TotalDamageMitigatedOption.IsSet && this.TotalDamageMitigatedOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalDamageMitigated, must be a value greater than or equal to 0.", new [] { "TotalDamageMitigated" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDamageMitigated, must be a value greater than or equal to 0.", new [] { "TotalDamageMitigated" });
             }
 
             // TotalDeaths (long) minimum
             if (this.TotalDeathsOption.IsSet && this.TotalDeathsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalDeaths, must be a value greater than or equal to 0.", new [] { "TotalDeaths" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDeaths, must be a value greater than or equal to 0.", new [] { "TotalDeaths" });
             }
 
             // TotalDenies (long) minimum
             if (this.TotalDeniesOption.IsSet && this.TotalDeniesOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalDenies, must be a value greater than or equal to 0.", new [] { "TotalDenies" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDenies, must be a value greater than or equal to 0.", new [] { "TotalDenies" });
             }
 
             // TotalDurationS (long) minimum
             if (this.TotalDurationSOption.IsSet && this.TotalDurationSOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalDurationS, must be a value greater than or equal to 0.", new [] { "TotalDurationS" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalDurationS, must be a value greater than or equal to 0.", new [] { "TotalDurationS" });
             }
 
             // TotalHeroBulletsHit (long) minimum
             if (this.TotalHeroBulletsHitOption.IsSet && this.TotalHeroBulletsHitOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalHeroBulletsHit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalHeroBulletsHit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHit" });
             }
 
             // TotalHeroBulletsHitCrit (long) minimum
             if (this.TotalHeroBulletsHitCritOption.IsSet && this.TotalHeroBulletsHitCritOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalHeroBulletsHitCrit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHitCrit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalHeroBulletsHitCrit, must be a value greater than or equal to 0.", new [] { "TotalHeroBulletsHitCrit" });
             }
 
             // TotalKills (long) minimum
             if (this.TotalKillsOption.IsSet && this.TotalKillsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalKills, must be a value greater than or equal to 0.", new [] { "TotalKills" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalKills, must be a value greater than or equal to 0.", new [] { "TotalKills" });
             }
 
             // TotalLastHits (long) minimum
             if (this.TotalLastHitsOption.IsSet && this.TotalLastHitsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalLastHits, must be a value greater than or equal to 0.", new [] { "TotalLastHits" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalLastHits, must be a value greater than or equal to 0.", new [] { "TotalLastHits" });
             }
 
             // TotalLevel (long) minimum
             if (this.TotalLevelOption.IsSet && this.TotalLevelOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalLevel, must be a value greater than or equal to 0.", new [] { "TotalLevel" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalLevel, must be a value greater than or equal to 0.", new [] { "TotalLevel" });
             }
 
             // TotalMaxHealth (long) minimum
             if (this.TotalMaxHealthOption.IsSet && this.TotalMaxHealthOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalMaxHealth, must be a value greater than or equal to 0.", new [] { "TotalMaxHealth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalMaxHealth, must be a value greater than or equal to 0.", new [] { "TotalMaxHealth" });
             }
 
             // TotalNetWorth (long) minimum
             if (this.TotalNetWorthOption.IsSet && this.TotalNetWorthOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalNetWorth, must be a value greater than or equal to 0.", new [] { "TotalNetWorth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalNetWorth, must be a value greater than or equal to 0.", new [] { "TotalNetWorth" });
             }
 
             // TotalNeutralDamage (long) minimum
             if (this.TotalNeutralDamageOption.IsSet && this.TotalNeutralDamageOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalNeutralDamage, must be a value greater than or equal to 0.", new [] { "TotalNeutralDamage" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalNeutralDamage, must be a value greater than or equal to 0.", new [] { "TotalNeutralDamage" });
             }
 
             // TotalNeutralKills (long) minimum
             if (this.TotalNeutralKillsOption.IsSet && this.TotalNeutralKillsOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalNeutralKills, must be a value greater than or equal to 0.", new [] { "TotalNeutralKills" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalNeutralKills, must be a value greater than or equal to 0.", new [] { "TotalNeutralKills" });
             }
 
             // TotalPlayerDamage (long) minimum
             if (this.TotalPlayerDamageOption.IsSet && this.TotalPlayerDamageOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalPlayerDamage, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamage" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPlayerDamage, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamage" });
             }
 
             // TotalPlayerDamageTaken (long) minimum
             if (this.TotalPlayerDamageTakenOption.IsSet && this.TotalPlayerDamageTakenOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalPlayerDamageTaken, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamageTaken" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPlayerDamageTaken, must be a value greater than or equal to 0.", new [] { "TotalPlayerDamageTaken" });
             }
 
             // TotalPlayerHealing (long) minimum
             if (this.TotalPlayerHealingOption.IsSet && this.TotalPlayerHealingOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalPlayerHealing, must be a value greater than or equal to 0.", new [] { "TotalPlayerHealing" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPlayerHealing, must be a value greater than or equal to 0.", new [] { "TotalPlayerHealing" });
             }
 
             // TotalSelfHealing (long) minimum
             if (this.TotalSelfHealingOption.IsSet && this.TotalSelfHealingOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalSelfHealing, must be a value greater than or equal to 0.", new [] { "TotalSelfHealing" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalSelfHealing, must be a value greater than or equal to 0.", new [] { "TotalSelfHealing" });
             }
 
             // TotalShotsHit (long) minimum
             if (this.TotalShotsHitOption.IsSet && this.TotalShotsHitOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalShotsHit, must be a value greater than or equal to 0.", new [] { "TotalShotsHit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalShotsHit, must be a value greater than or equal to 0.", new [] { "TotalShotsHit" });
             }
 
             // TotalShotsMissed (long) minimum
             if (this.TotalShotsMissedOption.IsSet && this.TotalShotsMissedOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalShotsMissed, must be a value greater than or equal to 0.", new [] { "TotalShotsMissed" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalShotsMissed, must be a value greater than or equal to 0.", new [] { "TotalShotsMissed" });
             }
 
             // TotalTeammateHealing (long) minimum
             if (this.TotalTeammateHealingOption.IsSet && this.TotalTeammateHealingOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalTeammateHealing, must be a value greater than or equal to 0.", new [] { "TotalTeammateHealing" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalTeammateHealing, must be a value greater than or equal to 0.", new [] { "TotalTeammateHealing" });
             }
 
             yield break;

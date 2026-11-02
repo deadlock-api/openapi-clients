@@ -36,7 +36,7 @@ import java.io.Serializable
  * @param leftRelative Position on the minimap, as fractions of its width/height.
  * @param target World position `[x, y, z]` the entity sends you to: the teleporter exit or the bounce pad landing spot.
  * @param team Owning team (0 or 1); absent for neutral entities.
- * @param topRelative 
+ * @param topRelative
  */
 
 

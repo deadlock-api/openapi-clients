@@ -30,13 +30,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param elevatedProperties 
- * @param importantProperties 
- * @param importantPropertiesWithIcon 
- * @param locString 
- * @param properties 
+ * @param elevatedProperties
+ * @param importantProperties
+ * @param importantPropertiesWithIcon
+ * @param locString
+ * @param properties
  */
 
 

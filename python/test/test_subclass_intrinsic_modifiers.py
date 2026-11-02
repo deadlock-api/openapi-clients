@@ -35,7 +35,7 @@ class TestSubclassIntrinsicModifiers(unittest.TestCase):
         model = SubclassIntrinsicModifiers()
         if include_optional:
             return SubclassIntrinsicModifiers(
-                subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.Subclass_IntrinsicModifiers_subclass(
+                subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.SubclassIntrinsicModifiersSubclass(
                     script_values = [
                         deadlock_api_client.models.script_values.ScriptValues(
                             modifier_value = '', 
@@ -44,7 +44,7 @@ class TestSubclassIntrinsicModifiers(unittest.TestCase):
             )
         else:
             return SubclassIntrinsicModifiers(
-                subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.Subclass_IntrinsicModifiers_subclass(
+                subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.SubclassIntrinsicModifiersSubclass(
                     script_values = [
                         deadlock_api_client.models.script_values.ScriptValues(
                             modifier_value = '', 

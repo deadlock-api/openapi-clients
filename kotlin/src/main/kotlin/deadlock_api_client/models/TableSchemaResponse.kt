@@ -30,11 +30,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param columns 
+ * @param columns
  * @param kind `entity` for tables discovered from the demo's send-tables, `event` for the event tables common to every demo.
- * @param name 
+ * @param name
  */
 
 

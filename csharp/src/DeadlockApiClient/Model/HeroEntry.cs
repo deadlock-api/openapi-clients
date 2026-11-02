@@ -95,24 +95,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
             // Matches (long) minimum
             if (this.Matches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             // Rank (long) minimum
             if (this.Rank < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
 
             yield break;

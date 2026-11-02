@@ -32,9 +32,9 @@ import java.io.Serializable
 /**
  * Item tooltip backgrounds, one per item slot type.
  *
- * @param spirit 
- * @param vitality 
- * @param weapon 
+ * @param spirit
+ * @param vitality
+ * @param weapon
  */
 
 

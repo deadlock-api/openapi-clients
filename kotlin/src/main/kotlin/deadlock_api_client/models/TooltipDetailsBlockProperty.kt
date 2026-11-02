@@ -29,14 +29,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param importantProperty 
- * @param importantPropertyIcon 
- * @param requiresAbilityUpgrade 
- * @param showPropertyValue 
- * @param statusEffectName 
- * @param statusEffectValue 
+ * @param importantProperty
+ * @param importantPropertyIcon
+ * @param requiresAbilityUpgrade
+ * @param showPropertyValue
+ * @param statusEffectName
+ * @param statusEffectValue
  */
 
 

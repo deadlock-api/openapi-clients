@@ -110,18 +110,18 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // FetchedMatchesPerDay (long) minimum
             if (this.FetchedMatchesPerDayOption.IsSet && this.FetchedMatchesPerDayOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for FetchedMatchesPerDay, must be a value greater than or equal to 0.", new [] { "FetchedMatchesPerDay" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FetchedMatchesPerDay, must be a value greater than or equal to 0.", new [] { "FetchedMatchesPerDay" });
             }
 
             // UserIngestedMatchesLast24h (long) minimum
             if (this.UserIngestedMatchesLast24hOption.IsSet && this.UserIngestedMatchesLast24hOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for UserIngestedMatchesLast24h, must be a value greater than or equal to 0.", new [] { "UserIngestedMatchesLast24h" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserIngestedMatchesLast24h, must be a value greater than or equal to 0.", new [] { "UserIngestedMatchesLast24h" });
             }
 
             yield break;

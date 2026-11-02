@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param badge Rank badge, `tier * 10 + subrank`. See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param players Number of players whose rank at the end of their latest ranked match in the filtered range is this badge.
  * @param rank Rank tier.

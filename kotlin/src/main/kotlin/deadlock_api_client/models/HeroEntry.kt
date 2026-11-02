@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param matches 
- * @param rank 
- * @param `value` 
+ * @param matches
+ * @param rank
+ * @param `value`
  */
 
 

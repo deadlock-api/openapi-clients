@@ -571,7 +571,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -678,7 +678,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -1218,7 +1218,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -1325,7 +1325,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -1865,7 +1865,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -1972,7 +1972,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -2351,7 +2351,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -2410,7 +2410,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -2830,7 +2830,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -2901,7 +2901,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -3176,7 +3176,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -3203,7 +3203,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -3692,7 +3692,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -3783,7 +3783,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -4149,7 +4149,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -4204,7 +4204,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -4677,7 +4677,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -4762,7 +4762,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -5276,7 +5276,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -5375,7 +5375,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -5872,7 +5872,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -5967,7 +5967,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -6425,7 +6425,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -6508,7 +6508,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -7062,7 +7062,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -7173,7 +7173,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -7539,7 +7539,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -7594,7 +7594,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -8052,7 +8052,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -8135,7 +8135,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -8677,7 +8677,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -8784,7 +8784,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -9323,7 +9323,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -9430,7 +9430,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -10127,7 +10127,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -10282,7 +10282,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -10831,7 +10831,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -10942,7 +10942,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -11428,7 +11428,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -11519,7 +11519,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -12018,7 +12018,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -12113,7 +12113,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -12614,7 +12614,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -12709,7 +12709,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -13219,7 +13219,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -13318,7 +13318,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'
@@ -13351,6 +13351,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -13386,8 +13387,10 @@ class AnalyticsApi:
     ) -> Dict[str, HashMapValue]:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
@@ -13451,6 +13454,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_stats_metrics_serialize(
+            bucket=bucket,
             hero_ids=hero_ids,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -13496,6 +13500,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics_with_http_info(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -13531,8 +13536,10 @@ class AnalyticsApi:
     ) -> ApiResponse[Dict[str, HashMapValue]]:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
@@ -13596,6 +13603,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_stats_metrics_serialize(
+            bucket=bucket,
             hero_ids=hero_ids,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -13641,6 +13649,7 @@ class AnalyticsApi:
     @validate_call
     def player_stats_metrics_without_preload_content(
         self,
+        bucket: Annotated[Optional[StrictStr], Field(description="Bucket allows you to group the stats by a specific field.")] = None,
         hero_ids: Annotated[Optional[StrictStr], Field(description="Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>")] = None,
         game_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.")] = None,
         match_mode: Annotated[Optional[StrictStr], Field(description="Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`.")] = None,
@@ -13676,8 +13685,10 @@ class AnalyticsApi:
     ) -> RESTResponseType:
         """Player Stats Metrics
 
-         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+         Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player's row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players' matches. The percentiles rank a single match, not a player: a player's average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero's metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
 
+        :param bucket: Bucket allows you to group the stats by a specific field.
+        :type bucket: str
         :param hero_ids: Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes>
         :type hero_ids: str
         :param game_mode: Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`.
@@ -13741,6 +13752,7 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._player_stats_metrics_serialize(
+            bucket=bucket,
             hero_ids=hero_ids,
             game_mode=game_mode,
             match_mode=match_mode,
@@ -13781,6 +13793,7 @@ class AnalyticsApi:
 
     def _player_stats_metrics_serialize(
         self,
+        bucket,
         hero_ids,
         game_mode,
         match_mode,
@@ -13819,7 +13832,7 @@ class AnalyticsApi:
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
         _form_params: List[Tuple[str, str]] = []
         _files: Dict[
             str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
@@ -13828,6 +13841,10 @@ class AnalyticsApi:
 
         # process the path parameters
         # process the query parameters
+        if bucket is not None:
+            
+            _query_params.append(('bucket', bucket))
+            
         if hero_ids is not None:
             
             _query_params.append(('hero_ids', hero_ids))
@@ -13914,7 +13931,7 @@ class AnalyticsApi:
 
 
         # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
+        if not any(key.lower() == 'accept' for key in _header_params):
             _header_params['Accept'] = self.api_client.select_header_accept(
                 [
                     'application/json'

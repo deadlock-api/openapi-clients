@@ -163,42 +163,42 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // DurationS (int) minimum
             if (this.DurationS < (int)0)
             {
-                yield return new ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
             }
 
             // MatchId (long) minimum
             if (this.MatchId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // StartTime (int) minimum
             if (this.StartTime < (int)0)
             {
-                yield return new ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
             // AverageBadge (int) minimum
             if (this.AverageBadgeOption.IsSet && this.AverageBadgeOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AverageBadge, must be a value greater than or equal to 0.", new [] { "AverageBadge" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadge, must be a value greater than or equal to 0.", new [] { "AverageBadge" });
             }
 
             // AverageBadgeTeam0 (int) minimum
             if (this.AverageBadgeTeam0Option.IsSet && this.AverageBadgeTeam0Option.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AverageBadgeTeam0, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam0" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam0, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam0" });
             }
 
             // AverageBadgeTeam1 (int) minimum
             if (this.AverageBadgeTeam1Option.IsSet && this.AverageBadgeTeam1Option.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AverageBadgeTeam1, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AverageBadgeTeam1, must be a value greater than or equal to 0.", new [] { "AverageBadgeTeam1" });
             }
 
             yield break;

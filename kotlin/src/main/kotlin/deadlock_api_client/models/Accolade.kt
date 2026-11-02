@@ -29,15 +29,13 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param description 
- * @param flavorName 
- * @param id 
- * @param thresholdType 
- * @param trackedStatName 
- * @param enabledGameModes 
+ * @param className
+ * @param description
+ * @param flavorName
+ * @param id
+ * @param thresholdType
+ * @param trackedStatName
+ * @param enabledGameModes
  */
 
 

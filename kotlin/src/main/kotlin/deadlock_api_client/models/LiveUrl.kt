@@ -29,13 +29,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param broadcastUrl 
- * @param matchId 
- * @param lobbyId 
- * @param startedAt 
- * @param updatedAt 
+ * @param broadcastUrl
+ * @param matchId
+ * @param lobbyId
+ * @param startedAt
+ * @param updatedAt
  */
 
 

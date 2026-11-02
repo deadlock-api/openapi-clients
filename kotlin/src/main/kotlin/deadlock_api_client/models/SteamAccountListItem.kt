@@ -31,11 +31,11 @@ import java.io.Serializable
 /**
  * Response for a Steam account in the list endpoint (includes `is_in_cooldown`)
  *
- * @param createdAt 
- * @param id 
- * @param isInCooldown 
- * @param steamId3 
- * @param deletedAt 
+ * @param createdAt
+ * @param id
+ * @param isInCooldown
+ * @param steamId3
+ * @param deletedAt
  */
 
 

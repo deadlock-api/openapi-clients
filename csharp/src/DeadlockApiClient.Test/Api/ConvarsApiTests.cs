@@ -72,7 +72,7 @@ namespace DeadlockApiClient.Test.Api
             Client.Option<int?> clientVersion = default!;
             var response = await _instance.ListConvarsAsync(clientVersion);
             var model = response.Ok();
-            Assert.IsType<DeadlockApiClient.Model.Dictionary<string, Convar>>(model);
+            Assert.IsType<Dictionary<string, Convar>>(model);
         }
     }
 }

@@ -31,11 +31,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param chanceEnhanced 
- * @param chanceRare 
- * @param itemDraftRounds 
+ * @param chanceEnhanced
+ * @param chanceRare
+ * @param itemDraftRounds
  */
 
 

@@ -241,11 +241,11 @@ func (o *Modifier) GetProperties() map[string]float64 {
 
 // GetPropertiesOk returns a tuple with the Properties field value
 // and a boolean to check if the value has been set.
-func (o *Modifier) GetPropertiesOk() (map[string]float64, bool) {
+func (o *Modifier) GetPropertiesOk() (*map[string]float64, bool) {
 	if o == nil {
-		return map[string]float64{}, false
+		return nil, false
 	}
-	return o.Properties, true
+	return &o.Properties, true
 }
 
 // SetProperties sets field value

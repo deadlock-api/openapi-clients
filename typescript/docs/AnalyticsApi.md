@@ -2496,7 +2496,7 @@ No authorization required
 # **playerStatsMetrics**
 > { [key: string]: HashMapValue; } playerStatsMetrics()
 
- Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+ Returns comprehensive statistical analysis of player performance.  `avg`, `std` and the percentiles describe the distribution over single matches: each player\'s row in each matching match is one value, so players with more matches weigh more. With `account_ids` it is the distribution of those players\' matches. The percentiles rank a single match, not a player: a player\'s average over many matches spreads much narrower than single matches do, so read against these percentiles it looks less extreme than it is among players.  With `bucket=hero` the response is instead a list with one such object per hero, each with an extra `bucket` field holding the hero id: `[{\"bucket\": 15, \"kills\": {...}, ...}, ...]`. Combined with `hero_ids` it returns every listed hero\'s metrics from one request.  Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.  > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
 
 ### Example
 
@@ -2509,6 +2509,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new AnalyticsApi(configuration);
 
+let bucket: 'no_bucket' | 'hero'; //Bucket allows you to group the stats by a specific field. (optional) (default to undefined)
 let heroIds: string; //Filter matches based on the hero IDs. See more: <https://api.deadlock-api.com/v1/assets/heroes> (optional) (default to undefined)
 let gameMode: 'normal' | 'street_brawl' | 'explore_n_y_c' | 'internal' | 'internal02'; //Filter matches based on their game mode. Valid values: `normal`, `street_brawl`. **Default:** `normal`. (optional) (default to undefined)
 let matchMode: string; //Filter matches based on the match mode. Valid values: `unranked`, `private_lobby`, `coop_bot`, `ranked`, `server_test`, `tutorial`, `hero_labs`. **Default:** `ranked,unranked`. (optional) (default to undefined)
@@ -2531,6 +2532,7 @@ let accountIds: Array<number>; //Comma separated list of account ids to include 
 let includeBuffMetrics: boolean; //Also return the permanent buff (power-up) pickup metrics `permanent_buffs`, `permanent_buffs_per_min` and `first_permanent_buff_time_s`. Off by default because the buff columns are not in the per-hero projection, which roughly doubles the cost of hero-filtered requests. `first_permanent_buff_time_s` only covers matches since build 6712 (2026-09-29), which record pickup times; its values are `null` when the filter matches none of them. (optional) (default to false)
 
 const { status, data } = await apiInstance.playerStatsMetrics(
+    bucket,
     heroIds,
     gameMode,
     matchMode,
@@ -2558,6 +2560,7 @@ const { status, data } = await apiInstance.playerStatsMetrics(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
+| **bucket** | [**&#39;no_bucket&#39; | &#39;hero&#39;**]**Array<&#39;no_bucket&#39; &#124; &#39;hero&#39;>** | Bucket allows you to group the stats by a specific field. | (optional) defaults to undefined|
 | **heroIds** | [**string**] | Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | (optional) defaults to undefined|
 | **gameMode** | [**&#39;normal&#39; | &#39;street_brawl&#39; | &#39;explore_n_y_c&#39; | &#39;internal&#39; | &#39;internal02&#39;**]**Array<&#39;normal&#39; &#124; &#39;street_brawl&#39; &#124; &#39;explore_n_y_c&#39; &#124; &#39;internal&#39; &#124; &#39;internal02&#39;>** | Filter matches based on their game mode. Valid values: &#x60;normal&#x60;, &#x60;street_brawl&#x60;. **Default:** &#x60;normal&#x60;. | (optional) defaults to undefined|
 | **matchMode** | [**string**] | Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;. | (optional) defaults to undefined|

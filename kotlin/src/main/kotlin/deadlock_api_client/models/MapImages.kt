@@ -31,7 +31,7 @@ import java.io.Serializable
 /**
  * CDN URLs for the minimap image layers.
  *
- * @param frame 
+ * @param frame
  * @param mid Midtown base layer.
  * @param minimap Full minimap. From build 6711 on the game ships no composed minimap, so this is the same image as `mid`: the midtown street layer as a black mask on transparency, meant to be drawn over a base colour rather than shown on its own.
  * @param plain Minimap without overlays. From build 6711 on this is the same street mask as `mid` (see `minimap`).

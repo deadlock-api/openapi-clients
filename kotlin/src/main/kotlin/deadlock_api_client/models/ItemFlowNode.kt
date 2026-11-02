@@ -35,13 +35,13 @@ import java.io.Serializable
  * @param avgNetWorthAtBuy Average net worth of buyers at the moment they bought this item (confound visibility).
  * @param column The phase column (0-based) the item was bought in.
  * @param itemId See more: <https://api.deadlock-api.com/v1/assets/items>
- * @param losses 
- * @param matches 
- * @param players 
- * @param totalAssists 
- * @param totalDeaths 
- * @param totalKills 
- * @param wins 
+ * @param losses
+ * @param matches
+ * @param players
+ * @param totalAssists
+ * @param totalDeaths
+ * @param totalKills
+ * @param wins
  */
 
 

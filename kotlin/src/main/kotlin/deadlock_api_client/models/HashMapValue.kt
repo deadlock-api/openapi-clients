@@ -29,19 +29,17 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param avg 
- * @param percentile1 
- * @param percentile10 
- * @param percentile25 
- * @param percentile5 
- * @param percentile50 
- * @param percentile75 
- * @param percentile90 
- * @param percentile95 
- * @param percentile99 
- * @param std 
+ * @param avg
+ * @param percentile1
+ * @param percentile10
+ * @param percentile25
+ * @param percentile5
+ * @param percentile50
+ * @param percentile75
+ * @param percentile90
+ * @param percentile95
+ * @param percentile99
+ * @param std
  */
 
 

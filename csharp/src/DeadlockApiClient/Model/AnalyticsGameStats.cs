@@ -588,36 +588,36 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bucket (int) minimum
             if (this.Bucket < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
             // Team0Wins (long) minimum
             if (this.Team0Wins < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Team0Wins, must be a value greater than or equal to 0.", new [] { "Team0Wins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Team0Wins, must be a value greater than or equal to 0.", new [] { "Team0Wins" });
             }
 
             // Team1Wins (long) minimum
             if (this.Team1Wins < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Team1Wins, must be a value greater than or equal to 0.", new [] { "Team1Wins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Team1Wins, must be a value greater than or equal to 0.", new [] { "Team1Wins" });
             }
 
             // TotalMatches (long) minimum
             if (this.TotalMatches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalMatches, must be a value greater than or equal to 0.", new [] { "TotalMatches" });
             }
 
             // TotalPlayers (long) minimum
             if (this.TotalPlayers < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TotalPlayers, must be a value greater than or equal to 0.", new [] { "TotalPlayers" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TotalPlayers, must be a value greater than or equal to 0.", new [] { "TotalPlayers" });
             }
 
             yield break;

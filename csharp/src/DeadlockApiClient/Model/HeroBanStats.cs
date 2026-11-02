@@ -98,30 +98,30 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Bans (long) minimum
             if (this.Bans < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Bans, must be a value greater than or equal to 0.", new [] { "Bans" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bans, must be a value greater than or equal to 0.", new [] { "Bans" });
             }
 
             // Bucket (int) minimum
             if (this.Bucket < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Bucket, must be a value greater than or equal to 0.", new [] { "Bucket" });
             }
 
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
             // Matches (long) minimum
             if (this.Matches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             yield break;

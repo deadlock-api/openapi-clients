@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param buffType Buff type, e.g. `hp_permanent_pickup_lv2`. Display names, units and colors: <https://api.deadlock-api.com/v1/assets/misc-entities> (`buff_type_name`).
  * @param isPermanent Whether the buff is permanent. Temporary power-ups never carry pickup timings.
  * @param matches Player-matches matching the filters (the same for every buff type). Average pickups per match: `pickups / matches`.

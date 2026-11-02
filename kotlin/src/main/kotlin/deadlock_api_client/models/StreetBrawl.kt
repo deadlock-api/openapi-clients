@@ -31,36 +31,34 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param apperRound 
- * @param buyTime 
- * @param buyTimeGracePeriod 
- * @param comebackBonusHealth 
- * @param comebackBonusHealthCritical 
- * @param goldPerRound 
- * @param itemDraftRerollsPerRound 
- * @param itemDraftRoundsPerGameRound 
- * @param itemDrafts 
- * @param laneNumber 
- * @param objectiveMaxHealth 
- * @param overtimeRespawnTimeIncrease 
- * @param overtimeRespawnTimeIncreaseUrgent 
- * @param overtimeTrooperDamageScale 
- * @param overtimeTrooperHealthScale 
- * @param preBuyTime 
- * @param respawnTimes 
- * @param roundLengthMinutes 
- * @param roundLengthMinutesUrgent 
- * @param scoreToWin 
- * @param scoringTime 
- * @param tier1MaxResistTime 
- * @param tier2BonusHealth 
- * @param tier2MaxResistTime 
- * @param trooperSpawnBeforeRoundStartTimer 
- * @param trooperSpawnTimer 
- * @param ultimateUnlockRound 
- * @param zipBoostCooldownOnStart 
+ * @param apperRound
+ * @param buyTime
+ * @param buyTimeGracePeriod
+ * @param comebackBonusHealth
+ * @param comebackBonusHealthCritical
+ * @param goldPerRound
+ * @param itemDraftRerollsPerRound
+ * @param itemDraftRoundsPerGameRound
+ * @param itemDrafts
+ * @param laneNumber
+ * @param objectiveMaxHealth
+ * @param overtimeRespawnTimeIncrease
+ * @param overtimeRespawnTimeIncreaseUrgent
+ * @param overtimeTrooperDamageScale
+ * @param overtimeTrooperHealthScale
+ * @param preBuyTime
+ * @param respawnTimes
+ * @param roundLengthMinutes
+ * @param roundLengthMinutesUrgent
+ * @param scoreToWin
+ * @param scoringTime
+ * @param tier1MaxResistTime
+ * @param tier2BonusHealth
+ * @param tier2MaxResistTime
+ * @param trooperSpawnBeforeRoundStartTimer
+ * @param trooperSpawnTimer
+ * @param ultimateUnlockRound
+ * @param zipBoostCooldownOnStart
  * @param corruptItemRound Round in which players may corrupt an item (build 6711+).
  */
 

@@ -29,18 +29,16 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abilitiesUpgraded 
- * @param bossDamage 
- * @param damageTaken 
- * @param lastHits 
- * @param modsPurchased 
- * @param netWorth 
- * @param orbsDenied 
- * @param orbsSecured 
- * @param playerDamage 
- * @param skillTierName 
+ * @param abilitiesUpgraded
+ * @param bossDamage
+ * @param damageTaken
+ * @param lastHits
+ * @param modsPurchased
+ * @param netWorth
+ * @param orbsDenied
+ * @param orbsSecured
+ * @param playerDamage
+ * @param skillTierName
  */
 
 

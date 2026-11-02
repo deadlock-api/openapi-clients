@@ -126,42 +126,42 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AccountId (int) minimum
             if (this.AccountId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
             // Division (int) minimum
             if (this.Division < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Division, must be a value greater than or equal to 0.", new [] { "Division" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Division, must be a value greater than or equal to 0.", new [] { "Division" });
             }
 
             // DivisionTier (int) minimum
             if (this.DivisionTier < (int)0)
             {
-                yield return new ValidationResult("Invalid value for DivisionTier, must be a value greater than or equal to 0.", new [] { "DivisionTier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DivisionTier, must be a value greater than or equal to 0.", new [] { "DivisionTier" });
             }
 
             // MatchId (long) minimum
             if (this.MatchId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // Rank (int) minimum
             if (this.Rank < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Rank, must be a value greater than or equal to 0.", new [] { "Rank" });
             }
 
             // StartTime (int) minimum
             if (this.StartTime < (int)0)
             {
-                yield return new ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
             yield break;

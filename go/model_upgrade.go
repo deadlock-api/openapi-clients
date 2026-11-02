@@ -744,11 +744,11 @@ func (o *Upgrade) GetProperties() map[string]UpgradeProperty {
 // GetPropertiesOk returns a tuple with the Properties field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Upgrade) GetPropertiesOk() (map[string]UpgradeProperty, bool) {
+func (o *Upgrade) GetPropertiesOk() (*map[string]UpgradeProperty, bool) {
 	if o == nil || IsNil(o.Properties) {
-		return map[string]UpgradeProperty{}, false
+		return nil, false
 	}
-	return o.Properties, true
+	return &o.Properties, true
 }
 
 // HasProperties returns a boolean if a field has been set.

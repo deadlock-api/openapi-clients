@@ -19,8 +19,8 @@ var _ MappedNullable = &TeamModels{}
 
 // TeamModels Published pose GLBs (see `NpcUnit::models`) of a per-team model pair.
 type TeamModels struct {
-	Amber map[string]string `json:"amber,omitempty"`
-	Sapphire map[string]string `json:"sapphire,omitempty"`
+	Amber *map[string]string `json:"amber,omitempty"`
+	Sapphire *map[string]string `json:"sapphire,omitempty"`
 }
 
 // NewTeamModels instantiates a new TeamModels object
@@ -46,14 +46,14 @@ func (o *TeamModels) GetAmber() map[string]string {
 		var ret map[string]string
 		return ret
 	}
-	return o.Amber
+	return *o.Amber
 }
 
 // GetAmberOk returns a tuple with the Amber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TeamModels) GetAmberOk() (map[string]string, bool) {
+func (o *TeamModels) GetAmberOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Amber) {
-		return map[string]string{}, false
+		return nil, false
 	}
 	return o.Amber, true
 }
@@ -69,7 +69,7 @@ func (o *TeamModels) HasAmber() bool {
 
 // SetAmber gets a reference to the given map[string]string and assigns it to the Amber field.
 func (o *TeamModels) SetAmber(v map[string]string) {
-	o.Amber = v
+	o.Amber = &v
 }
 
 // GetSapphire returns the Sapphire field value if set, zero value otherwise.
@@ -78,14 +78,14 @@ func (o *TeamModels) GetSapphire() map[string]string {
 		var ret map[string]string
 		return ret
 	}
-	return o.Sapphire
+	return *o.Sapphire
 }
 
 // GetSapphireOk returns a tuple with the Sapphire field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TeamModels) GetSapphireOk() (map[string]string, bool) {
+func (o *TeamModels) GetSapphireOk() (*map[string]string, bool) {
 	if o == nil || IsNil(o.Sapphire) {
-		return map[string]string{}, false
+		return nil, false
 	}
 	return o.Sapphire, true
 }
@@ -101,7 +101,7 @@ func (o *TeamModels) HasSapphire() bool {
 
 // SetSapphire gets a reference to the given map[string]string and assigns it to the Sapphire field.
 func (o *TeamModels) SetSapphire(v map[string]string) {
-	o.Sapphire = v
+	o.Sapphire = &v
 }
 
 func (o TeamModels) MarshalJSON() ([]byte, error) {

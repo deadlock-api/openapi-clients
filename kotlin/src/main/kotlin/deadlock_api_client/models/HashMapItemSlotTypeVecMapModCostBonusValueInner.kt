@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bonus 
- * @param goldThreshold 
- * @param percentOnGraph 
+ * @param bonus
+ * @param goldThreshold
+ * @param percentOnGraph
  */
 
 

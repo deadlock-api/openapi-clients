@@ -29,19 +29,17 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param breakupStrength 
- * @param distortStrength 
- * @param frameRate 
- * @param jumpStrength 
- * @param quantizeScale 
- * @param quantizeStrength 
- * @param scanlineStrength 
- * @param speed 
- * @param strength 
+ * @param breakupStrength
+ * @param distortStrength
+ * @param frameRate
+ * @param jumpStrength
+ * @param quantizeScale
+ * @param quantizeStrength
+ * @param scanlineStrength
+ * @param speed
+ * @param strength
  * @param uantizeType Field name preserved as-is for `/v2/generic-data` compatibility.
- * @param whiteNoiseStrength 
+ * @param whiteNoiseStrength
  */
 
 

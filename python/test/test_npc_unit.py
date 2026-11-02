@@ -40,8 +40,8 @@ class TestNpcUnit(unittest.TestCase):
                 attack_t3_boss_max_range = 1.337,
                 attack_t3_boss_phase2_max_range = 1.337,
                 attack_trooper_max_range = 1.337,
-                backdoor_bullet_resist_modifier = deadlock_api_client.models.subclass_bullet_resist_modifier.Subclass_BulletResistModifier(
-                    subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.Subclass_BulletResistModifier_subclass(
+                backdoor_bullet_resist_modifier = deadlock_api_client.models.subclass_bullet_resist_modifier.SubclassBulletResistModifier(
+                    subclass = deadlock_api_client.models.subclass_bullet_resist_modifier_subclass.SubclassBulletResistModifierSubclass(
                         bullet_resist = 56, 
                         bullet_resist_reduction_per_hero = 56, ), ),
                 barrack_boss_dps = 1.337,
@@ -138,18 +138,18 @@ class TestNpcUnit(unittest.TestCase):
                     sapphire = {
                         'key' : ''
                         }, ),
-                empowered_modifier_level1 = deadlock_api_client.models.subclass_empowered_modifier_level.Subclass_EmpoweredModifierLevel(
-                    subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.Subclass_EmpoweredModifierLevel_subclass(
+                empowered_modifier_level1 = deadlock_api_client.models.subclass_empowered_modifier_level.SubclassEmpoweredModifierLevel(
+                    subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.SubclassEmpoweredModifierLevelSubclass(
                         max_health = 56, 
                         model_scale = 1.337, 
                         transition_duration = 1.337, ), ),
-                empowered_modifier_level2 = deadlock_api_client.models.subclass_empowered_modifier_level.Subclass_EmpoweredModifierLevel(
-                    subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.Subclass_EmpoweredModifierLevel_subclass(
+                empowered_modifier_level2 = deadlock_api_client.models.subclass_empowered_modifier_level.SubclassEmpoweredModifierLevel(
+                    subclass = deadlock_api_client.models.subclass_empowered_modifier_level_subclass.SubclassEmpoweredModifierLevelSubclass(
                         max_health = 56, 
                         model_scale = 1.337, 
                         transition_duration = 1.337, ), ),
-                enemy_trooper_damage_reduction = deadlock_api_client.models.subclass_trooper_damage_reduction.Subclass_TrooperDamageReduction(
-                    subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.Subclass_TrooperDamageReduction_subclass(
+                enemy_trooper_damage_reduction = deadlock_api_client.models.subclass_trooper_damage_reduction.SubclassTrooperDamageReduction(
+                    subclass = deadlock_api_client.models.subclass_trooper_damage_reduction_subclass.SubclassTrooperDamageReductionSubclass(
                         damage_reduction_for_troopers = 1.337, ), ),
                 enemy_trooper_protection_range = 1.337,
                 generator_boss_dps = 1.337,
@@ -184,8 +184,8 @@ class TestNpcUnit(unittest.TestCase):
                 image = '',
                 image_webp = '',
                 intrinsic_modifiers = [
-                    deadlock_api_client.models.subclass_intrinsic_modifiers.Subclass_IntrinsicModifiers(
-                        subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.Subclass_IntrinsicModifiers_subclass(
+                    deadlock_api_client.models.subclass_intrinsic_modifiers.SubclassIntrinsicModifiers(
+                        subclass = deadlock_api_client.models.subclass_intrinsic_modifiers_subclass.SubclassIntrinsicModifiersSubclass(
                             script_values = [
                                 deadlock_api_client.models.script_values.ScriptValues(
                                     modifier_value = '', 
@@ -209,31 +209,31 @@ class TestNpcUnit(unittest.TestCase):
                 neutral_abilities = [
                     ''
                     ],
-                neutral_damage_growth = deadlock_api_client.models.subclass_neutral_damage_growth.Subclass_NeutralDamageGrowth(
-                    subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.Subclass_NeutralDamageGrowth_subclass(
+                neutral_damage_growth = deadlock_api_client.models.subclass_neutral_damage_growth.SubclassNeutralDamageGrowth(
+                    subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.SubclassNeutralDamageGrowthSubclass(
                         damage_growth_pct_per_min = 1.337, ), ),
                 neutral_melee = '',
                 neutral_type = '',
                 no_shield_laser_dps_to_players = 1.337,
-                objective_health_growth_phase1 = deadlock_api_client.models.subclass_objective_health_growth_phase.Subclass_ObjectiveHealthGrowthPhase(
-                    subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.Subclass_ObjectiveHealthGrowthPhase_subclass(
+                objective_health_growth_phase1 = deadlock_api_client.models.subclass_objective_health_growth_phase.SubclassObjectiveHealthGrowthPhase(
+                    subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.SubclassObjectiveHealthGrowthPhaseSubclass(
                         growth_per_minute = 56, 
                         growth_start_time_in_minutes = 56, 
                         tick_rate = 1.337, ), ),
-                objective_health_growth_phase2 = deadlock_api_client.models.subclass_objective_health_growth_phase.Subclass_ObjectiveHealthGrowthPhase(
-                    subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.Subclass_ObjectiveHealthGrowthPhase_subclass(
+                objective_health_growth_phase2 = deadlock_api_client.models.subclass_objective_health_growth_phase.SubclassObjectiveHealthGrowthPhase(
+                    subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.SubclassObjectiveHealthGrowthPhaseSubclass(
                         growth_per_minute = 56, 
                         growth_start_time_in_minutes = 56, 
                         tick_rate = 1.337, ), ),
-                objective_regen = deadlock_api_client.models.subclass_objective_regen.Subclass_ObjectiveRegen(
-                    subclass = deadlock_api_client.models.subclass_objective_regen_subclass.Subclass_ObjectiveRegen_subclass(
+                objective_regen = deadlock_api_client.models.subclass_objective_regen.SubclassObjectiveRegen(
+                    subclass = deadlock_api_client.models.subclass_objective_regen_subclass.SubclassObjectiveRegenSubclass(
                         out_of_combat_health_regen = 1.337, 
                         out_of_combat_regen_delay = 1.337, ), ),
                 phase2_health = 56,
                 player_damage_resist_pct = 1.337,
                 player_dps = 1.337,
-                ranged_armor_modifier = deadlock_api_client.models.subclass_ranged_armor_modifier.Subclass_RangedArmorModifier(
-                    subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.Subclass_RangedArmorModifier_subclass(
+                ranged_armor_modifier = deadlock_api_client.models.subclass_ranged_armor_modifier.SubclassRangedArmorModifier(
+                    subclass = deadlock_api_client.models.subclass_ranged_armor_modifier_subclass.SubclassRangedArmorModifierSubclass(
                         invuln_range = 1.337, 
                         range_max = 1.337, 
                         range_min = 1.337, ), ),

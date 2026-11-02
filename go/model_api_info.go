@@ -99,11 +99,11 @@ func (o *APIInfo) GetTableSizes() map[string]TableSize {
 // GetTableSizesOk returns a tuple with the TableSizes field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *APIInfo) GetTableSizesOk() (map[string]TableSize, bool) {
+func (o *APIInfo) GetTableSizesOk() (*map[string]TableSize, bool) {
 	if o == nil || IsNil(o.TableSizes) {
-		return map[string]TableSize{}, false
+		return nil, false
 	}
-	return o.TableSizes, true
+	return &o.TableSizes, true
 }
 
 // HasTableSizes returns a boolean if a field has been set.

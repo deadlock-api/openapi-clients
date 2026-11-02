@@ -29,17 +29,15 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param abilities See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param avgUpgradeTimesS Average game time (in seconds) at which each upgrade in `abilities` was bought, index-aligned with `abilities`.
- * @param losses 
- * @param matches 
- * @param players 
- * @param totalAssists 
- * @param totalDeaths 
- * @param totalKills 
- * @param wins 
+ * @param losses
+ * @param matches
+ * @param players
+ * @param totalAssists
+ * @param totalDeaths
+ * @param totalKills
+ * @param wins
  */
 
 

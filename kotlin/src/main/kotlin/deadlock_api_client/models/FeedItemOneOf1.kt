@@ -30,14 +30,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param content 
- * @param guid 
- * @param link 
- * @param pubDate 
- * @param title 
- * @param source 
+ * @param content
+ * @param guid
+ * @param link
+ * @param pubDate
+ * @param title
+ * @param source
  */
 
 
@@ -67,8 +65,6 @@ data class FeedItemOneOf1 (
     }
 
     /**
-     * 
-     *
      * Values: steam
      */
     @JsonClass(generateAdapter = false)

@@ -31,15 +31,13 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param category 
- * @param content 
- * @param guid 
- * @param link 
- * @param pubDate 
- * @param title 
- * @param source 
+ * @param category
+ * @param content
+ * @param guid
+ * @param link
+ * @param pubDate
+ * @param title
+ * @param source
  */
 
 
@@ -72,8 +70,6 @@ data class FeedItemOneOf (
     }
 
     /**
-     * 
-     *
      * Values: forum
      */
     @JsonClass(generateAdapter = false)

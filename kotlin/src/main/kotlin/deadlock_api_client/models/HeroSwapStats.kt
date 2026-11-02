@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param bucket The bucket value (depends on the bucket query parameter).
  * @param heroId The ID of the hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
  * @param matches The number of players who played this hero, counting only players whose pre-game hero is known.

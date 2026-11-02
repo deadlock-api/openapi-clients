@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param growthPerMinute 
- * @param growthStartTimeInMinutes 
- * @param tickRate 
+ * @param growthPerMinute
+ * @param growthStartTimeInMinutes
+ * @param tickRate
  */
 
 

@@ -35,32 +35,30 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param players 
- * @param teamStats 
- * @param compatVersion 
- * @param durationS 
- * @param gameMode 
- * @param gameModeParsed 
- * @param gameModeVersion 
- * @param lobbyId 
- * @param lowPriPool 
- * @param matchId 
- * @param matchMode 
- * @param matchModeParsed 
- * @param matchScore 
- * @param netWorthTeam0 
- * @param netWorthTeam1 
- * @param objectivesMaskTeam0 
- * @param objectivesMaskTeam1 
- * @param openSpectatorSlots 
- * @param regionMode 
- * @param regionModeParsed 
- * @param spectators 
- * @param startTime 
- * @param winningTeam 
- * @param winningTeamParsed 
+ * @param players
+ * @param teamStats
+ * @param compatVersion
+ * @param durationS
+ * @param gameMode
+ * @param gameModeParsed
+ * @param gameModeVersion
+ * @param lobbyId
+ * @param lowPriPool
+ * @param matchId
+ * @param matchMode
+ * @param matchModeParsed
+ * @param matchScore
+ * @param netWorthTeam0
+ * @param netWorthTeam1
+ * @param objectivesMaskTeam0
+ * @param objectivesMaskTeam1
+ * @param openSpectatorSlots
+ * @param regionMode
+ * @param regionModeParsed
+ * @param spectators
+ * @param startTime
+ * @param winningTeam
+ * @param winningTeamParsed
  */
 
 

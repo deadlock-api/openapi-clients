@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param normalModTier 
- * @param rareModTier 
+ * @param normalModTier
+ * @param rareModTier
  */
 
 

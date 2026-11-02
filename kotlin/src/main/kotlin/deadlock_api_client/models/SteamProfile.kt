@@ -30,20 +30,18 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
- * @param avatar 
- * @param avatarfull 
- * @param avatarmedium 
- * @param friends 
- * @param lastUpdated 
- * @param matchesPlayedLast30d 
- * @param personaname 
- * @param profileurl 
- * @param countrycode 
- * @param lastTeamAvgBadge 
- * @param realname 
+ * @param accountId
+ * @param avatar
+ * @param avatarfull
+ * @param avatarmedium
+ * @param friends
+ * @param lastUpdated
+ * @param matchesPlayedLast30d
+ * @param personaname
+ * @param profileurl
+ * @param countrycode
+ * @param lastTeamAvgBadge
+ * @param realname
  */
 
 

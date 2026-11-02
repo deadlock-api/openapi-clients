@@ -38,30 +38,28 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param description 
- * @param id 
- * @param name 
- * @param type 
- * @param abilityType 
- * @param behaviours 
- * @param bossDamageScale 
- * @param dependantAbilities 
- * @param dependentAbilities 
- * @param grantAmmoOnCast 
- * @param hero 
- * @param heroes 
- * @param image 
- * @param imageWebp 
- * @param properties 
- * @param startTrained 
- * @param tooltipDetails 
- * @param updateTime 
- * @param upgrades 
- * @param videos 
- * @param weaponInfo 
+ * @param className
+ * @param description
+ * @param id
+ * @param name
+ * @param type
+ * @param abilityType
+ * @param behaviours
+ * @param bossDamageScale
+ * @param dependantAbilities
+ * @param dependentAbilities
+ * @param grantAmmoOnCast
+ * @param hero
+ * @param heroes
+ * @param image
+ * @param imageWebp
+ * @param properties
+ * @param startTrained
+ * @param tooltipDetails
+ * @param updateTime
+ * @param upgrades
+ * @param videos
+ * @param weaponInfo
  */
 
 

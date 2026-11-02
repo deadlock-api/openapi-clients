@@ -29,14 +29,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param matchId 
- * @param clusterId 
- * @param demoUrl 
- * @param metadataSalt 
- * @param metadataUrl 
- * @param replaySalt 
+ * @param matchId
+ * @param clusterId
+ * @param demoUrl
+ * @param metadataSalt
+ * @param metadataUrl
+ * @param replaySalt
  */
 
 

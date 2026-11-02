@@ -31,8 +31,8 @@ import java.io.Serializable
 /**
  * A png image and its webp variant.
  *
- * @param png 
- * @param webp 
+ * @param png
+ * @param webp
  */
 
 

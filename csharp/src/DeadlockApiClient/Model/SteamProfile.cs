@@ -187,24 +187,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AccountId (int) minimum
             if (this.AccountId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
             // MatchesPlayedLast30d (long) minimum
             if (this.MatchesPlayedLast30d < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchesPlayedLast30d, must be a value greater than or equal to 0.", new [] { "MatchesPlayedLast30d" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchesPlayedLast30d, must be a value greater than or equal to 0.", new [] { "MatchesPlayedLast30d" });
             }
 
             // LastTeamAvgBadge (int) minimum
             if (this.LastTeamAvgBadgeOption.IsSet && this.LastTeamAvgBadgeOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for LastTeamAvgBadge, must be a value greater than or equal to 0.", new [] { "LastTeamAvgBadge" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastTeamAvgBadge, must be a value greater than or equal to 0.", new [] { "LastTeamAvgBadge" });
             }
 
             yield break;
@@ -225,11 +225,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize LastUpdated
-        /// </summary>
-        public string LastUpdatedFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamProfile" />
@@ -407,7 +402,10 @@ namespace DeadlockApiClient.Model
 
             writer.WritePropertyName("friends");
             JsonSerializer.Serialize(writer, steamProfile.Friends, jsonSerializerOptions);
-            writer.WriteString("last_updated", steamProfile.LastUpdated.ToString(LastUpdatedFormat));
+            {
+                        writer.WritePropertyName("last_updated");
+                            JsonSerializer.Serialize(writer, steamProfile.LastUpdated, jsonSerializerOptions);
+                        }
 
             writer.WriteNumber("matches_played_last_30d", steamProfile.MatchesPlayedLast30d);
 

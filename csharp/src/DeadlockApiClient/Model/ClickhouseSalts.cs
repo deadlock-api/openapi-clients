@@ -131,30 +131,30 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // MatchId (long) minimum
             if (this.MatchId < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // ClusterId (int) minimum
             if (this.ClusterIdOption.IsSet && this.ClusterIdOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ClusterId, must be a value greater than or equal to 0.", new [] { "ClusterId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ClusterId, must be a value greater than or equal to 0.", new [] { "ClusterId" });
             }
 
             // MetadataSalt (int) minimum
             if (this.MetadataSaltOption.IsSet && this.MetadataSaltOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MetadataSalt, must be a value greater than or equal to 0.", new [] { "MetadataSalt" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MetadataSalt, must be a value greater than or equal to 0.", new [] { "MetadataSalt" });
             }
 
             // ReplaySalt (int) minimum
             if (this.ReplaySaltOption.IsSet && this.ReplaySaltOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for ReplaySalt, must be a value greater than or equal to 0.", new [] { "ReplaySalt" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReplaySalt, must be a value greater than or equal to 0.", new [] { "ReplaySalt" });
             }
 
             yield break;

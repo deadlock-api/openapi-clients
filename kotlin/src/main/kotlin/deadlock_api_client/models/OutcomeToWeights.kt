@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param outcomesToWeights 
+ * @param outcomesToWeights
  */
 
 

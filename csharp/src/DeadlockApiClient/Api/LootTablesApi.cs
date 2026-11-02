@@ -67,7 +67,7 @@ namespace DeadlockApiClient.Api
     /// <summary>
     /// The <see cref="IListLootTablesApiResponse"/>
     /// </summary>
-    public interface IListLootTablesApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<DeadlockApiClient.Model.Dictionary<string, LootTable>?>
+    public interface IListLootTablesApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<Dictionary<string, LootTable>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -350,32 +350,32 @@ namespace DeadlockApiClient.Api
             /// Deserializes the response if the response is 200 Ok
             /// </summary>
             /// <returns></returns>
-            public DeadlockApiClient.Model.Dictionary<string, LootTable>? Ok()
+            public Dictionary<string, LootTable>? Ok()
             {
                 bool suppressDefault = false;
-                DeadlockApiClient.Model.Dictionary<string, LootTable>? result = null;
+                Dictionary<string, LootTable>? result = null;
                 OnOk(ref suppressDefault, ref result);
                 if (!suppressDefault)
                     result = DefaultOk();
                 return result;
             }
 
-            private DeadlockApiClient.Model.Dictionary<string, LootTable>? DefaultOk()
+            private Dictionary<string, LootTable>? DefaultOk()
             {
                 // NOTICE: Consider this AsModel template deprecated. Implement the appropriate partial method instead
                 return IsOk
-                    ? System.Text.Json.JsonSerializer.Deserialize<DeadlockApiClient.Model.Dictionary<string, LootTable>>(RawContent, _jsonSerializerOptions)
+                    ? System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, LootTable>>(RawContent, _jsonSerializerOptions)
                     : null;
             }
 
-            partial void OnOk(ref bool suppressDefault, ref DeadlockApiClient.Model.Dictionary<string, LootTable>? result);
+            partial void OnOk(ref bool suppressDefault, ref Dictionary<string, LootTable>? result);
 
             /// <summary>
             /// Returns true if the response is 200 Ok and the deserialized response is not null
             /// </summary>
             /// <param name="result"></param>
             /// <returns></returns>
-            public bool TryOk([NotNullWhen(true)]out DeadlockApiClient.Model.Dictionary<string, LootTable>? result)
+            public bool TryOk([NotNullWhen(true)]out Dictionary<string, LootTable>? result)
             {
                 result = null;
 

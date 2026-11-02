@@ -29,31 +29,29 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
- * @param denies 
- * @param gameMode 
+ * @param accountId
+ * @param denies
+ * @param gameMode
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param heroLevel 
- * @param lastHits 
- * @param matchDurationS 
- * @param matchId 
- * @param matchMode 
- * @param matchResult 
- * @param netWorth 
- * @param objectivesMaskTeam0 
- * @param objectivesMaskTeam1 
- * @param playerAssists 
- * @param playerDeaths 
- * @param playerKills 
+ * @param heroLevel
+ * @param lastHits
+ * @param matchDurationS
+ * @param matchId
+ * @param matchMode
+ * @param matchResult
+ * @param netWorth
+ * @param objectivesMaskTeam0
+ * @param objectivesMaskTeam1
+ * @param playerAssists
+ * @param playerDeaths
+ * @param playerKills
  * @param playerMatchOutcome How the match was scored for the player: 0 = invalid, 1 = win, 2 = loss, 3 = penalized, 4 = penalized party, 5 = not scored.
- * @param playerTeam 
- * @param startTime 
- * @param abandonedTimeS 
- * @param brawlAvgRoundTimeS 
- * @param brawlScoreTeam0 
- * @param brawlScoreTeam1 
+ * @param playerTeam
+ * @param startTime
+ * @param abandonedTimeS
+ * @param brawlAvgRoundTimeS
+ * @param brawlScoreTeam0
+ * @param brawlScoreTeam1
  * @param lowPriPool Whether the match was played in the low priority pool. `None` for entries stored before this was recorded.
  * @param rankedCalibrationMatch Non-zero if this match counted towards the player's ranked calibration.
  * @param rankedDelta The ranked progress change the player got from this match.

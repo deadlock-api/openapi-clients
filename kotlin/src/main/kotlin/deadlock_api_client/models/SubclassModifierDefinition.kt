@@ -32,7 +32,7 @@ import java.io.Serializable
 /**
  * Serializes back as `{\"subclass\": ...}` to preserve the KV3 wrapper shape in JSON output.
  *
- * @param subclass 
+ * @param subclass
  */
 
 

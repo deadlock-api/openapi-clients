@@ -32,9 +32,9 @@ import java.io.Serializable
 /**
  * A penalty that can be rolled onto a corrupted item (build 6711+).
  *
- * @param effects 
- * @param name 
- * @param rollWeight 
+ * @param effects
+ * @param name
+ * @param rollWeight
  */
 
 

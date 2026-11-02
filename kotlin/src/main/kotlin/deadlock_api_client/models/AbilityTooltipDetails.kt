@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param additionalHeaderProperties 
- * @param infoSections 
+ * @param additionalHeaderProperties
+ * @param infoSections
  */
 
 

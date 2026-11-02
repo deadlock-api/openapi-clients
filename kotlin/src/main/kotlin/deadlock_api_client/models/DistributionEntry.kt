@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param players 
- * @param rank 
+ * @param players
+ * @param rank
  */
 
 

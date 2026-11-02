@@ -40,87 +40,85 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param id 
- * @param acceleration 
- * @param attackT1BossMaxRange 
- * @param attackT3BossMaxRange 
- * @param attackT3BossPhase2MaxRange 
- * @param attackTrooperMaxRange 
- * @param backdoorBulletResistModifier 
- * @param barrackBossDps 
- * @param barrackGuardianDamageResistPct 
+ * @param className
+ * @param id
+ * @param acceleration
+ * @param attackT1BossMaxRange
+ * @param attackT3BossMaxRange
+ * @param attackT3BossPhase2MaxRange
+ * @param attackTrooperMaxRange
+ * @param backdoorBulletResistModifier
+ * @param barrackBossDps
+ * @param barrackGuardianDamageResistPct
  * @param bossWeaponInfo Secondary weapon the unit uses against bosses (builds 6711+).
- * @param boundAbilities 
+ * @param boundAbilities
  * @param coreModels The Patron's core models, per team.
  * @param effigyModels The Patron's effigy models, per team.
- * @param empoweredModifierLevel1 
- * @param empoweredModifierLevel2 
- * @param enemyTrooperDamageReduction 
- * @param enemyTrooperProtectionRange 
- * @param generatorBossDps 
- * @param goldReward 
- * @param goldRewardBonusPercentPerMinute 
- * @param healthBarColorEnemy 
- * @param healthBarColorFriend 
- * @param healthBarColorTeam1 
- * @param healthBarColorTeam2 
- * @param healthBarColorTeamNeutral 
+ * @param empoweredModifierLevel1
+ * @param empoweredModifierLevel2
+ * @param enemyTrooperDamageReduction
+ * @param enemyTrooperProtectionRange
+ * @param generatorBossDps
+ * @param goldReward
+ * @param goldRewardBonusPercentPerMinute
+ * @param healthBarColorEnemy
+ * @param healthBarColorFriend
+ * @param healthBarColorTeam1
+ * @param healthBarColorTeam2
+ * @param healthBarColorTeamNeutral
  * @param image Unit icon (`m_strCustomUnitIcon`) as png.
  * @param imageWebp Unit icon (`m_strCustomUnitIcon`) as webp.
- * @param intrinsicModifiers 
- * @param laserDpsMaxHealth 
- * @param laserDpsToPlayers 
- * @param maxHealth 
- * @param maxHealthFinal 
- * @param maxHealthGenerator 
- * @param meleeAttemptRange 
- * @param meleeDamage 
- * @param meleeDuration 
- * @param meleeHitRange 
+ * @param intrinsicModifiers
+ * @param laserDpsMaxHealth
+ * @param laserDpsToPlayers
+ * @param maxHealth
+ * @param maxHealthFinal
+ * @param maxHealthGenerator
+ * @param meleeAttemptRange
+ * @param meleeDamage
+ * @param meleeDuration
+ * @param meleeHitRange
  * @param models 3D model of the unit as a self-contained glTF binary (`.glb`), keyed by pose: `idle` (the model's idle clip baked in) or `default` (no animation, for models without an idle clip). Uses `EXT_meshopt_compression` and `EXT_texture_webp`. Omitted when the unit has no published model.
  * @param name Localized unit name (`m_sLocUnitName`), e.g. `Gutter Ghoul I`.
- * @param nearDeathDuration 
+ * @param nearDeathDuration
  * @param neutralAbilities Neutral ability class names; see `/v1/assets/modifiers` (builds 6711+).
- * @param neutralDamageGrowth 
+ * @param neutralDamageGrowth
  * @param neutralMelee Neutral melee ability class name; see `/v1/assets/modifiers` (builds 6711+).
  * @param neutralType Neutral tier, e.g. `NEUTRAL_NPC_WEAK` (builds 6711+).
- * @param noShieldLaserDpsToPlayers 
- * @param objectiveHealthGrowthPhase1 
- * @param objectiveHealthGrowthPhase2 
- * @param objectiveRegen 
- * @param phase2Health 
- * @param playerDamageResistPct 
- * @param playerDps 
- * @param rangedArmorModifier 
- * @param runSpeed 
- * @param sightRangeNpcs 
- * @param sightRangePlayers 
- * @param spawnBreakablesOnDeath 
- * @param stompDamage 
- * @param stompDamageMaxHealthPercent 
- * @param stompImpactRadius 
- * @param stunDuration 
- * @param t1BossDamageResistPct 
- * @param t1BossDps 
- * @param t1BossDpsbaseResist 
- * @param t1BossDpsmaxResist 
- * @param t1BossDpsmaxResistTimeInSeconds 
- * @param t2BossDamageResistPct 
- * @param t2BossDps 
- * @param t2BossDpsbaseResist 
- * @param t2BossDpsmaxResist 
- * @param t2BossDpsmaxResistTimeInSeconds 
- * @param t3BossDamageResistPct 
- * @param t3BossDps 
+ * @param noShieldLaserDpsToPlayers
+ * @param objectiveHealthGrowthPhase1
+ * @param objectiveHealthGrowthPhase2
+ * @param objectiveRegen
+ * @param phase2Health
+ * @param playerDamageResistPct
+ * @param playerDps
+ * @param rangedArmorModifier
+ * @param runSpeed
+ * @param sightRangeNpcs
+ * @param sightRangePlayers
+ * @param spawnBreakablesOnDeath
+ * @param stompDamage
+ * @param stompDamageMaxHealthPercent
+ * @param stompImpactRadius
+ * @param stunDuration
+ * @param t1BossDamageResistPct
+ * @param t1BossDps
+ * @param t1BossDpsbaseResist
+ * @param t1BossDpsmaxResist
+ * @param t1BossDpsmaxResistTimeInSeconds
+ * @param t2BossDamageResistPct
+ * @param t2BossDps
+ * @param t2BossDpsbaseResist
+ * @param t2BossDpsmaxResist
+ * @param t2BossDpsmaxResistTimeInSeconds
+ * @param t3BossDamageResistPct
+ * @param t3BossDps
  * @param teamModels Per-team variants of the unit's model, same shape as `models` (troopers, shrines, zipline containers).
- * @param trooperDamageResistPct 
- * @param trooperDps 
+ * @param trooperDamageResistPct
+ * @param trooperDps
  * @param viewerSoulsClass Distance threshold (as string key) → soul orb class shown to the viewer.
- * @param walkSpeed 
- * @param weaponInfo 
+ * @param walkSpeed
+ * @param weaponInfo
  */
 
 

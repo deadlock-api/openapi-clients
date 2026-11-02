@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: hold_toggle,instant_cast,on_button_is_down,passive,press,press_toggle,instant_cast_toggle
  */
 

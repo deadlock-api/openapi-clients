@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param accountId 
+ * @param accountId
  * @param active Whether the ingest tool uploaded a salt for this account within the window that was then verified.
  * @param windowDays The window, in days, an upload must fall in to count.
  * @param lastUploadAt Unix timestamp of the most recent verified upload within the window.

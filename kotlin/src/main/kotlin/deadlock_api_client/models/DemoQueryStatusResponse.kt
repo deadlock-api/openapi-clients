@@ -31,12 +31,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param format 
- * @param jobId 
- * @param matchId 
- * @param status 
+ * @param format
+ * @param jobId
+ * @param matchId
+ * @param status
  * @param error Failure reason, once `failed`.
  * @param estimatedWaitSeconds Rough seconds until the result is ready, while `queued` or `running`.
  * @param resultUrl Public URL of the result artifact, once `done`. NDJSON results are zstd-compressed (`.ndjson.zst`); Parquet results are served as-is.

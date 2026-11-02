@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param displayStats 
- * @param weaponStatDisplay 
+ * @param displayStats
+ * @param weaponStatDisplay
  */
 
 

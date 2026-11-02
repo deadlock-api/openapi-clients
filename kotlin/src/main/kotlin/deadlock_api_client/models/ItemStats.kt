@@ -29,18 +29,16 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param avgBuyTimeRelative Average buy time as percentage of match duration
  * @param avgBuyTimeS Average buy time in seconds (absolute)
  * @param avgSellTimeRelative Average sell time as percentage of match duration (for items that were sold)
  * @param avgSellTimeS Average sell time in seconds (absolute, for items that were sold)
- * @param bucket 
+ * @param bucket
  * @param itemId See more: <https://api.deadlock-api.com/v1/assets/items>
- * @param losses 
- * @param matches 
- * @param players 
- * @param wins 
+ * @param losses
+ * @param matches
+ * @param players
+ * @param wins
  * @param sold How many of the `matches` purchases were sold again. `sold / matches` is the sell rate.
  */
 

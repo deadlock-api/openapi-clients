@@ -30,11 +30,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param domainMaxs 
- * @param domainMins 
- * @param spline 
+ * @param domainMaxs
+ * @param domainMins
+ * @param spline
  */
 
 

@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: KECitadelGameModeInvalid,KECitadelGameModeNormal,KECitadelGameMode1v1Test,KECitadelGameModeSandbox,KECitadelGameModeStreetBrawl,KECitadelGameModeExploreNyc,KECitadelGameModeInternal,KECitadelGameModeInternal02
  */
 

@@ -29,13 +29,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param deaths 
- * @param killerTeam 
- * @param kills 
- * @param positionX 
- * @param positionY 
+ * @param deaths
+ * @param killerTeam
+ * @param kills
+ * @param positionX
+ * @param positionY
  */
 
 

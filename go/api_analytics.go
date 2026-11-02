@@ -7643,6 +7643,7 @@ func (a *AnalyticsAPIService) PlayerScoreboardExecute(r ApiPlayerScoreboardReque
 type ApiPlayerStatsMetricsRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
+	bucket *string
 	heroIds *string
 	gameMode *string
 	matchMode *string
@@ -7663,6 +7664,12 @@ type ApiPlayerStatsMetricsRequest struct {
 	abilityUnlockOrderPrefix *[]int32
 	accountIds *[]int32
 	includeBuffMetrics *bool
+}
+
+// Bucket allows you to group the stats by a specific field.
+func (r ApiPlayerStatsMetricsRequest) Bucket(bucket string) ApiPlayerStatsMetricsRequest {
+	r.bucket = &bucket
+	return r
 }
 
 // Filter matches based on the hero IDs. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
@@ -7801,6 +7808,10 @@ row in each matching match is one value, so players with more matches weigh more
 match, not a player: a player's average over many matches spreads much narrower than single
 matches do, so read against these percentiles it looks less extreme than it is among players.
 
+With `bucket=hero` the response is instead a list with one such object per hero, each with an
+extra `bucket` field holding the hero id: `[{"bucket": 15, "kills": {...}, ...}, ...]`.
+Combined with `hero_ids` it returns every listed hero's metrics from one request.
+
 Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
 > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.
@@ -7846,6 +7857,9 @@ func (a *AnalyticsAPIService) PlayerStatsMetricsExecute(r ApiPlayerStatsMetricsR
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if r.bucket != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "bucket", r.bucket, "form", "")
+	}
 	if r.heroIds != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "hero_ids", r.heroIds, "form", "")
 	}

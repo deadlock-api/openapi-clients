@@ -29,14 +29,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param healthHeaderStats 
- * @param healthStats 
- * @param magicHeaderStats 
- * @param magicStats 
- * @param weaponHeaderStats 
- * @param weaponStats 
+ * @param healthHeaderStats
+ * @param healthStats
+ * @param magicHeaderStats
+ * @param magicStats
+ * @param weaponHeaderStats
+ * @param weaponStats
  */
 
 

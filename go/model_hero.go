@@ -645,11 +645,11 @@ func (o *Hero) GetItemDraftWeights() map[string]float64 {
 // GetItemDraftWeightsOk returns a tuple with the ItemDraftWeights field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *Hero) GetItemDraftWeightsOk() (map[string]float64, bool) {
+func (o *Hero) GetItemDraftWeightsOk() (*map[string]float64, bool) {
 	if o == nil || IsNil(o.ItemDraftWeights) {
-		return map[string]float64{}, false
+		return nil, false
 	}
-	return o.ItemDraftWeights, true
+	return &o.ItemDraftWeights, true
 }
 
 // HasItemDraftWeights returns a boolean if a field has been set.
@@ -702,11 +702,11 @@ func (o *Hero) GetItems() map[string]string {
 
 // GetItemsOk returns a tuple with the Items field value
 // and a boolean to check if the value has been set.
-func (o *Hero) GetItemsOk() (map[string]string, bool) {
+func (o *Hero) GetItemsOk() (*map[string]string, bool) {
 	if o == nil {
-		return map[string]string{}, false
+		return nil, false
 	}
-	return o.Items, true
+	return &o.Items, true
 }
 
 // SetItems sets field value
@@ -774,11 +774,11 @@ func (o *Hero) GetModels() map[string]string {
 
 // GetModelsOk returns a tuple with the Models field value
 // and a boolean to check if the value has been set.
-func (o *Hero) GetModelsOk() (map[string]string, bool) {
+func (o *Hero) GetModelsOk() (*map[string]string, bool) {
 	if o == nil {
-		return map[string]string{}, false
+		return nil, false
 	}
-	return o.Models, true
+	return &o.Models, true
 }
 
 // SetModels sets field value
@@ -1116,11 +1116,11 @@ func (o *Hero) GetStandardLevelUpUpgrades() map[string]float64 {
 
 // GetStandardLevelUpUpgradesOk returns a tuple with the StandardLevelUpUpgrades field value
 // and a boolean to check if the value has been set.
-func (o *Hero) GetStandardLevelUpUpgradesOk() (map[string]float64, bool) {
+func (o *Hero) GetStandardLevelUpUpgradesOk() (*map[string]float64, bool) {
 	if o == nil {
-		return map[string]float64{}, false
+		return nil, false
 	}
-	return o.StandardLevelUpUpgrades, true
+	return &o.StandardLevelUpUpgrades, true
 }
 
 // SetStandardLevelUpUpgrades sets field value

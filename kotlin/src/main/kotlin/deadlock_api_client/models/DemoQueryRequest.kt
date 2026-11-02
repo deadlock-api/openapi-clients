@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param matchId Match whose demo to query.
  * @param query SQL query to run over the demo's entity/event tables (see `/demo/schema`).
  * @param format Output format of the result artifact.

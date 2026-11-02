@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bucket 
- * @param weight 
+ * @param bucket
+ * @param weight
  */
 
 

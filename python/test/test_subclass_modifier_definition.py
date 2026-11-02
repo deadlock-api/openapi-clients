@@ -35,7 +35,7 @@ class TestSubclassModifierDefinition(unittest.TestCase):
         model = SubclassModifierDefinition()
         if include_optional:
             return SubclassModifierDefinition(
-                subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
+                subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.SubclassModifierDefinitionSubclass(
                     always_show_in_ui = [
                         ''
                         ], 
@@ -62,7 +62,7 @@ class TestSubclassModifierDefinition(unittest.TestCase):
             )
         else:
             return SubclassModifierDefinition(
-                subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.Subclass_ModifierDefinition_subclass(
+                subclass = deadlock_api_client.models.subclass_modifier_definition_subclass.SubclassModifierDefinitionSubclass(
                     always_show_in_ui = [
                         ''
                         ], 

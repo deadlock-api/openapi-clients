@@ -428,84 +428,84 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // CompatVersion (int) minimum
             if (this.CompatVersionOption.IsSet && this.CompatVersionOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for CompatVersion, must be a value greater than or equal to 0.", new [] { "CompatVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompatVersion, must be a value greater than or equal to 0.", new [] { "CompatVersion" });
             }
 
             // DurationS (int) minimum
             if (this.DurationSOption.IsSet && this.DurationSOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DurationS, must be a value greater than or equal to 0.", new [] { "DurationS" });
             }
 
             // GameModeVersion (int) minimum
             if (this.GameModeVersionOption.IsSet && this.GameModeVersionOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for GameModeVersion, must be a value greater than or equal to 0.", new [] { "GameModeVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GameModeVersion, must be a value greater than or equal to 0.", new [] { "GameModeVersion" });
             }
 
             // LobbyId (long) minimum
             if (this.LobbyIdOption.IsSet && this.LobbyIdOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for LobbyId, must be a value greater than or equal to 0.", new [] { "LobbyId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LobbyId, must be a value greater than or equal to 0.", new [] { "LobbyId" });
             }
 
             // MatchId (long) minimum
             if (this.MatchIdOption.IsSet && this.MatchIdOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchId, must be a value greater than or equal to 0.", new [] { "MatchId" });
             }
 
             // MatchScore (int) minimum
             if (this.MatchScoreOption.IsSet && this.MatchScoreOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for MatchScore, must be a value greater than or equal to 0.", new [] { "MatchScore" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchScore, must be a value greater than or equal to 0.", new [] { "MatchScore" });
             }
 
             // NetWorthTeam0 (int) minimum
             if (this.NetWorthTeam0Option.IsSet && this.NetWorthTeam0Option.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NetWorthTeam0, must be a value greater than or equal to 0.", new [] { "NetWorthTeam0" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam0, must be a value greater than or equal to 0.", new [] { "NetWorthTeam0" });
             }
 
             // NetWorthTeam1 (int) minimum
             if (this.NetWorthTeam1Option.IsSet && this.NetWorthTeam1Option.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NetWorthTeam1, must be a value greater than or equal to 0.", new [] { "NetWorthTeam1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorthTeam1, must be a value greater than or equal to 0.", new [] { "NetWorthTeam1" });
             }
 
             // ObjectivesMaskTeam0 (long) minimum
             if (this.ObjectivesMaskTeam0Option.IsSet && this.ObjectivesMaskTeam0Option.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for ObjectivesMaskTeam0, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam0" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam0, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam0" });
             }
 
             // ObjectivesMaskTeam1 (long) minimum
             if (this.ObjectivesMaskTeam1Option.IsSet && this.ObjectivesMaskTeam1Option.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for ObjectivesMaskTeam1, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMaskTeam1, must be a value greater than or equal to 0.", new [] { "ObjectivesMaskTeam1" });
             }
 
             // OpenSpectatorSlots (int) minimum
             if (this.OpenSpectatorSlotsOption.IsSet && this.OpenSpectatorSlotsOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for OpenSpectatorSlots, must be a value greater than or equal to 0.", new [] { "OpenSpectatorSlots" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OpenSpectatorSlots, must be a value greater than or equal to 0.", new [] { "OpenSpectatorSlots" });
             }
 
             // Spectators (int) minimum
             if (this.SpectatorsOption.IsSet && this.SpectatorsOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Spectators, must be a value greater than or equal to 0.", new [] { "Spectators" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Spectators, must be a value greater than or equal to 0.", new [] { "Spectators" });
             }
 
             // StartTime (int) minimum
             if (this.StartTimeOption.IsSet && this.StartTimeOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StartTime, must be a value greater than or equal to 0.", new [] { "StartTime" });
             }
 
             yield break;

@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param good 
- * @param normal 
+ * @param good
+ * @param normal
  */
 
 

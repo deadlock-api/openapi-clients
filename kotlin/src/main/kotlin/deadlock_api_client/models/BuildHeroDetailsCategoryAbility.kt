@@ -29,13 +29,11 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abilityId 
- * @param `annotation` 
- * @param imbueTargetAbilityId 
- * @param requiredFlexSlots 
- * @param sellPriority 
+ * @param abilityId
+ * @param `annotation`
+ * @param imbueTargetAbilityId
+ * @param requiredFlexSlots
+ * @param sellPriority
  */
 
 

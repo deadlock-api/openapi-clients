@@ -147,36 +147,36 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // NumFavorites (int) minimum
             if (this.NumFavoritesOption.IsSet && this.NumFavoritesOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NumFavorites, must be a value greater than or equal to 0.", new [] { "NumFavorites" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumFavorites, must be a value greater than or equal to 0.", new [] { "NumFavorites" });
             }
 
             // NumIgnores (int) minimum
             if (this.NumIgnoresOption.IsSet && this.NumIgnoresOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NumIgnores, must be a value greater than or equal to 0.", new [] { "NumIgnores" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumIgnores, must be a value greater than or equal to 0.", new [] { "NumIgnores" });
             }
 
             // NumReports (int) minimum
             if (this.NumReportsOption.IsSet && this.NumReportsOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NumReports, must be a value greater than or equal to 0.", new [] { "NumReports" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumReports, must be a value greater than or equal to 0.", new [] { "NumReports" });
             }
 
             // NumWeeklyFavorites (int) minimum
             if (this.NumWeeklyFavoritesOption.IsSet && this.NumWeeklyFavoritesOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NumWeeklyFavorites, must be a value greater than or equal to 0.", new [] { "NumWeeklyFavorites" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumWeeklyFavorites, must be a value greater than or equal to 0.", new [] { "NumWeeklyFavorites" });
             }
 
             // RollupCategory (int) minimum
             if (this.RollupCategoryOption.IsSet && this.RollupCategoryOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for RollupCategory, must be a value greater than or equal to 0.", new [] { "RollupCategory" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RollupCategory, must be a value greater than or equal to 0.", new [] { "RollupCategory" });
             }
 
             yield break;

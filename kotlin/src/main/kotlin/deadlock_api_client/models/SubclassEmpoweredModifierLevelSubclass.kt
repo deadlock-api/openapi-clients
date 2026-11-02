@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param maxHealth 
- * @param modelScale 
- * @param transitionDuration 
+ * @param maxHealth
+ * @param modelScale
+ * @param transitionDuration
  */
 
 

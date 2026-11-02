@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param lore 
- * @param playstyle 
- * @param role 
+ * @param lore
+ * @param playstyle
+ * @param role
  */
 
 

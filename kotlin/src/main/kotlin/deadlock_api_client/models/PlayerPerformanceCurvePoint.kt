@@ -29,8 +29,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param assistsAvg Average assists at this time point
  * @param assistsStd Standard deviation of assists at this time point
  * @param bossDamageAvg Average damage dealt to objectives at this time point

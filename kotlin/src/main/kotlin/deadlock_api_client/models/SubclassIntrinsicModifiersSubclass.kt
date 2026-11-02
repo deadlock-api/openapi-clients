@@ -30,9 +30,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param scriptValues 
+ * @param scriptValues
  */
 
 

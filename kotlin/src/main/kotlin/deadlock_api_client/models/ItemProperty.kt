@@ -31,25 +31,23 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param canSetTokenOverride 
- * @param conditional 
- * @param cssClass 
- * @param disableValue 
- * @param displayUnits 
- * @param icon 
- * @param label 
- * @param locTokenOverride 
- * @param negativeAttribute 
- * @param postfix 
- * @param postvalueLabel 
- * @param prefix 
- * @param providedPropertyType 
+ * @param canSetTokenOverride
+ * @param conditional
+ * @param cssClass
+ * @param disableValue
+ * @param displayUnits
+ * @param icon
+ * @param label
+ * @param locTokenOverride
+ * @param negativeAttribute
+ * @param postfix
+ * @param postvalueLabel
+ * @param prefix
+ * @param providedPropertyType
  * @param requiredUpgradeBits Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
- * @param scaleFunction 
- * @param streetBrawlValue 
- * @param usageFlags 
+ * @param scaleFunction
+ * @param streetBrawlValue
+ * @param usageFlags
  * @param `value` Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
  */
 

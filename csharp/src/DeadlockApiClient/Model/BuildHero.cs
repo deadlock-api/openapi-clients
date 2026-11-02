@@ -211,42 +211,42 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AuthorAccountId (int) minimum
             if (this.AuthorAccountId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AuthorAccountId, must be a value greater than or equal to 0.", new [] { "AuthorAccountId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AuthorAccountId, must be a value greater than or equal to 0.", new [] { "AuthorAccountId" });
             }
 
             // HeroBuildId (int) minimum
             if (this.HeroBuildId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroBuildId, must be a value greater than or equal to 0.", new [] { "HeroBuildId" });
             }
 
             // HeroId (int) minimum
             if (this.HeroId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId, must be a value greater than or equal to 0.", new [] { "HeroId" });
             }
 
             // Language (int) minimum
             if (this.Language < (int)0)
             {
-                yield return new ValidationResult("Invalid value for Language, must be a value greater than or equal to 0.", new [] { "Language" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Language, must be a value greater than or equal to 0.", new [] { "Language" });
             }
 
             // OriginBuildId (int) minimum
             if (this.OriginBuildId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for OriginBuildId, must be a value greater than or equal to 0.", new [] { "OriginBuildId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OriginBuildId, must be a value greater than or equal to 0.", new [] { "OriginBuildId" });
             }
 
             // VarVersion (int) minimum
             if (this.VarVersion < (int)0)
             {
-                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 0.", new [] { "VarVersion" });
             }
 
             yield break;

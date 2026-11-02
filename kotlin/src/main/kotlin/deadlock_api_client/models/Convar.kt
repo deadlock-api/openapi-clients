@@ -30,11 +30,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param default Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
  * @param flags Raw `FCVAR_*` flag bits.
- * @param type 
+ * @param type
  * @param description Help text shown by the in-game console.
  */
 

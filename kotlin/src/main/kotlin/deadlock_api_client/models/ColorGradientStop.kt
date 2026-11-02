@@ -30,9 +30,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param color 
+ * @param color
  * @param position Position of the stop along the flash's lifetime, `0.0..=1.0`.
  */
 

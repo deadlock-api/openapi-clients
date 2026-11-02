@@ -29,64 +29,62 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param abandonRate 
- * @param avgAccuracy 
- * @param avgAssists 
- * @param avgBossDamage 
- * @param avgCreepDamage 
- * @param avgCreepKills 
- * @param avgCritRate 
- * @param avgDamageAbsorbed 
- * @param avgDamageMitigated 
- * @param avgDeaths 
- * @param avgDenies 
- * @param avgDurationS 
- * @param avgEndingLevel 
- * @param avgFirstMidBossTimeS 
- * @param avgFirstObjectiveDestroyedTimeS 
+ * @param abandonRate
+ * @param avgAccuracy
+ * @param avgAssists
+ * @param avgBossDamage
+ * @param avgCreepDamage
+ * @param avgCreepKills
+ * @param avgCritRate
+ * @param avgDamageAbsorbed
+ * @param avgDamageMitigated
+ * @param avgDeaths
+ * @param avgDenies
+ * @param avgDurationS
+ * @param avgEndingLevel
+ * @param avgFirstMidBossTimeS
+ * @param avgFirstObjectiveDestroyedTimeS
  * @param avgGoldAbilityAssassinate Average souls per player per match from the Assassinate ability
  * @param avgGoldAssists Average souls per player per match from assists (part of the hero kill souls)
- * @param avgGoldBoss 
- * @param avgGoldBossOrb 
+ * @param avgGoldBoss
+ * @param avgGoldBossOrb
  * @param avgGoldBreakable Average souls per player per match from breakables (crates, statues)
- * @param avgGoldDeathLoss 
- * @param avgGoldDenied 
+ * @param avgGoldDeathLoss
+ * @param avgGoldDenied
  * @param avgGoldItemCultistSacrifice Average souls per player per match from the Cultist Sacrifice item
  * @param avgGoldItemGooseEgg Average souls per player per match from the Golden Goose Egg item
  * @param avgGoldItemTrophyCollector Average souls per player per match from the Trophy Collector item
- * @param avgGoldLaneCreep 
- * @param avgGoldLaneCreepOrbs 
- * @param avgGoldNeutralCreep 
- * @param avgGoldNeutralCreepOrbs 
- * @param avgGoldPlayer 
- * @param avgGoldPlayerOrbs 
+ * @param avgGoldLaneCreep
+ * @param avgGoldLaneCreepOrbs
+ * @param avgGoldNeutralCreep
+ * @param avgGoldNeutralCreepOrbs
+ * @param avgGoldPlayer
+ * @param avgGoldPlayerOrbs
  * @param avgGoldTeamBonus Average souls per player per match from the team bonus
- * @param avgGoldTreasure 
- * @param avgHealPrevented 
- * @param avgKdRatio 
- * @param avgKills 
- * @param avgLastHits 
- * @param avgMaxHealth 
- * @param avgNetWorth 
- * @param avgNeutralDamage 
- * @param avgNeutralKills 
+ * @param avgGoldTreasure
+ * @param avgHealPrevented
+ * @param avgKdRatio
+ * @param avgKills
+ * @param avgLastHits
+ * @param avgMaxHealth
+ * @param avgNetWorth
+ * @param avgNeutralDamage
+ * @param avgNeutralKills
  * @param avgPermanentBuffs Average permanent buff (power-up) pickups per player per match. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
  * @param avgPermanentBuffsPerMin Average permanent buff pickups per player per minute of match time.
- * @param avgPlayerDamage 
- * @param avgPlayerDamageTaken 
- * @param avgPlayerHealing 
- * @param avgPossibleCreeps 
- * @param avgSelfHealing 
- * @param avgTechPower 
- * @param avgWeaponPower 
- * @param bucket 
- * @param midBossKillRate 
- * @param team0Wins 
- * @param team1Wins 
- * @param totalMatches 
- * @param totalPlayers 
+ * @param avgPlayerDamage
+ * @param avgPlayerDamageTaken
+ * @param avgPlayerHealing
+ * @param avgPossibleCreeps
+ * @param avgSelfHealing
+ * @param avgTechPower
+ * @param avgWeaponPower
+ * @param bucket
+ * @param midBossKillRate
+ * @param team0Wins
+ * @param team1Wins
+ * @param totalMatches
+ * @param totalPlayers
  * @param avgFirstPermanentBuffTimeS Average game time (seconds) of a player's first permanent buff pickup. Only matches since build 6712 (2026-09-29) record pickup times; `null` when the bucket has none.
  */
 

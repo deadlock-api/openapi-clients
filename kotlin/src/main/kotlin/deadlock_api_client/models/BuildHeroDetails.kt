@@ -31,10 +31,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param modCategories 
- * @param abilityOrder 
+ * @param modCategories
+ * @param abilityOrder
  */
 
 

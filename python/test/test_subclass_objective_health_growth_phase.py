@@ -35,14 +35,14 @@ class TestSubclassObjectiveHealthGrowthPhase(unittest.TestCase):
         model = SubclassObjectiveHealthGrowthPhase()
         if include_optional:
             return SubclassObjectiveHealthGrowthPhase(
-                subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.Subclass_ObjectiveHealthGrowthPhase_subclass(
+                subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.SubclassObjectiveHealthGrowthPhaseSubclass(
                     growth_per_minute = 56, 
                     growth_start_time_in_minutes = 56, 
                     tick_rate = 1.337, )
             )
         else:
             return SubclassObjectiveHealthGrowthPhase(
-                subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.Subclass_ObjectiveHealthGrowthPhase_subclass(
+                subclass = deadlock_api_client.models.subclass_objective_health_growth_phase_subclass.SubclassObjectiveHealthGrowthPhaseSubclass(
                     growth_per_minute = 56, 
                     growth_start_time_in_minutes = 56, 
                     tick_rate = 1.337, ),

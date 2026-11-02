@@ -37,7 +37,7 @@
 | **gunTag** | **kotlin.String** |  |  [optional] |
 | **heroType** | [**HeroType**](HeroType.md) |  |  [optional] |
 | **hideoutRichPresence** | **kotlin.String** |  |  [optional] |
-| **itemDraftBucketing** | [**kotlin.collections.Map&lt;kotlin.String, HashMapStringOptionDraftBucketingValue&gt;**](HashMapStringOptionDraftBucketingValue.md) |  |  [optional] |
+| **itemDraftBucketing** | [**kotlin.collections.Map&lt;kotlin.String, HashMapStringOptionDraftBucketingValue?&gt;**](HashMapStringOptionDraftBucketingValue.md) |  |  [optional] |
 | **itemDraftWeights** | **kotlin.collections.Map&lt;kotlin.String, kotlin.Double&gt;** |  |  [optional] |
 | **popularItems** | [**HeroPopularItems**](HeroPopularItems.md) | Valve&#39;s generated item pick / win rates per game phase (&#x60;m_PopularItems&#x60;, build 6711+). &#x60;null&#x60; when the hero has no data. |  [optional] |
 | **prereleaseOnly** | **kotlin.Boolean** | Read from &#x60;m_bPrereleaseOnly&#x60; on older builds; since build 6711 it is derived as &#x60;development_state &#x3D;&#x3D; pre_release&#x60;. |  [optional] |

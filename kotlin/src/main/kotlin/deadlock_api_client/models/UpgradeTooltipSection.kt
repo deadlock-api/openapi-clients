@@ -31,10 +31,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param sectionAttributes 
- * @param sectionType 
+ * @param sectionAttributes
+ * @param sectionType
  */
 
 

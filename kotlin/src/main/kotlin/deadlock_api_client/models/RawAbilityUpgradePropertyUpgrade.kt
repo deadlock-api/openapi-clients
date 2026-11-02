@@ -29,14 +29,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bonus 
- * @param name 
+ * @param bonus
+ * @param name
  * @param fixedCorruptedBonus Corrupted item bonuses only (build 6711+).
  * @param roundCorruptedBonus Corrupted item bonuses only (build 6711+).
- * @param scaleStatFilter 
- * @param upgradeType 
+ * @param scaleStatFilter
+ * @param upgradeType
  */
 
 

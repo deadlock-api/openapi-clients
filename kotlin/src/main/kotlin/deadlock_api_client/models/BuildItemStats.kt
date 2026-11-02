@@ -29,9 +29,7 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param builds 
+ * @param builds
  * @param itemId See more: <https://api.deadlock-api.com/v1/assets/items>
  */
 

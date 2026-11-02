@@ -172,36 +172,36 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Matches (long) minimum
             if (this.Matches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Matches, must be a value greater than or equal to 0.", new [] { "Matches" });
             }
 
             // MatchesWithPickup (long) minimum
             if (this.MatchesWithPickup < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchesWithPickup, must be a value greater than or equal to 0.", new [] { "MatchesWithPickup" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchesWithPickup, must be a value greater than or equal to 0.", new [] { "MatchesWithPickup" });
             }
 
             // Pickups (long) minimum
             if (this.Pickups < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Pickups, must be a value greater than or equal to 0.", new [] { "Pickups" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Pickups, must be a value greater than or equal to 0.", new [] { "Pickups" });
             }
 
             // TimedMatches (long) minimum
             if (this.TimedMatches < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TimedMatches, must be a value greater than or equal to 0.", new [] { "TimedMatches" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimedMatches, must be a value greater than or equal to 0.", new [] { "TimedMatches" });
             }
 
             // TimedPickups (long) minimum
             if (this.TimedPickups < (long)0)
             {
-                yield return new ValidationResult("Invalid value for TimedPickups, must be a value greater than or equal to 0.", new [] { "TimedPickups" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TimedPickups, must be a value greater than or equal to 0.", new [] { "TimedPickups" });
             }
 
             yield break;

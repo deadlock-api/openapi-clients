@@ -35,12 +35,12 @@ class TestSubclassNeutralDamageGrowth(unittest.TestCase):
         model = SubclassNeutralDamageGrowth()
         if include_optional:
             return SubclassNeutralDamageGrowth(
-                subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.Subclass_NeutralDamageGrowth_subclass(
+                subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.SubclassNeutralDamageGrowthSubclass(
                     damage_growth_pct_per_min = 1.337, )
             )
         else:
             return SubclassNeutralDamageGrowth(
-                subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.Subclass_NeutralDamageGrowth_subclass(
+                subclass = deadlock_api_client.models.subclass_neutral_damage_growth_subclass.SubclassNeutralDamageGrowthSubclass(
                     damage_growth_pct_per_min = 1.337, ),
         )
         """

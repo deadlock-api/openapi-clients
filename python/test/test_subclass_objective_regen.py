@@ -35,13 +35,13 @@ class TestSubclassObjectiveRegen(unittest.TestCase):
         model = SubclassObjectiveRegen()
         if include_optional:
             return SubclassObjectiveRegen(
-                subclass = deadlock_api_client.models.subclass_objective_regen_subclass.Subclass_ObjectiveRegen_subclass(
+                subclass = deadlock_api_client.models.subclass_objective_regen_subclass.SubclassObjectiveRegenSubclass(
                     out_of_combat_health_regen = 1.337, 
                     out_of_combat_regen_delay = 1.337, )
             )
         else:
             return SubclassObjectiveRegen(
-                subclass = deadlock_api_client.models.subclass_objective_regen_subclass.Subclass_ObjectiveRegen_subclass(
+                subclass = deadlock_api_client.models.subclass_objective_regen_subclass.SubclassObjectiveRegenSubclass(
                     out_of_combat_health_regen = 1.337, 
                     out_of_combat_regen_delay = 1.337, ),
         )

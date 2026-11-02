@@ -30,14 +30,12 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param durationS 
- * @param gameMode 
- * @param matchId 
- * @param matchMode 
- * @param players 
- * @param startTime 
+ * @param durationS
+ * @param gameMode
+ * @param matchId
+ * @param matchMode
+ * @param players
+ * @param startTime
  * @param averageBadge See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param averageBadgeTeam0 See more: <https://api.deadlock-api.com/v1/assets/ranks>
  * @param averageBadgeTeam1 See more: <https://api.deadlock-api.com/v1/assets/ranks>

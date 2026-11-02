@@ -31,8 +31,8 @@ import java.io.Serializable
 /**
  * Published pose GLBs (see `NpcUnit::models`) of a per-team model pair.
  *
- * @param amber 
- * @param sapphire 
+ * @param amber
+ * @param sapphire
  */
 
 

@@ -33,18 +33,16 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param comment 
- * @param kind 
- * @param pageUrl 
- * @param buildId 
- * @param elementText 
- * @param nickname 
- * @param selector 
+ * @param comment
+ * @param kind
+ * @param pageUrl
+ * @param buildId
+ * @param elementText
+ * @param nickname
+ * @param selector
  * @param source Superseded by `targets`; still accepted so pages cached from an older build keep submitting successfully.
  * @param targets The annotated elements. Left empty for general feedback.
- * @param viewport 
+ * @param viewport
  */
 
 

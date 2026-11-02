@@ -29,15 +29,13 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param stealthSpeedMetersPerSecond 
- * @param collisionHeight 
- * @param collisionRadius 
- * @param footstepSoundTravelDistanceMeters 
- * @param stepHeight 
- * @param stepSoundTime 
- * @param stepSoundTimeSprinting 
+ * @param stealthSpeedMetersPerSecond
+ * @param collisionHeight
+ * @param collisionRadius
+ * @param footstepSoundTravelDistanceMeters
+ * @param stepHeight
+ * @param stepSoundTime
+ * @param stepSoundTimeSprinting
  */
 
 

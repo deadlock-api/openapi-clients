@@ -29,25 +29,23 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param mDotColor 
- * @param mDotOutlineColor 
- * @param mPipColor 
- * @param mPipOutlineColor 
- * @param mSpreadIndicatingElement 
- * @param mFlBaseSpread 
- * @param mFlDotOpacity 
- * @param mFlDotOutlineOpacity 
- * @param mFlPipOpacity 
- * @param mFlPipOutlineOpacity 
- * @param mNDotOutlineGap 
- * @param mNDotOutlineWidth 
- * @param mNDotRadius 
- * @param mNPipHeight 
- * @param mNPipOutlineGap 
- * @param mNPipOutlineWidth 
- * @param mNPipWidth 
+ * @param mDotColor
+ * @param mDotOutlineColor
+ * @param mPipColor
+ * @param mPipOutlineColor
+ * @param mSpreadIndicatingElement
+ * @param mFlBaseSpread
+ * @param mFlDotOpacity
+ * @param mFlDotOutlineOpacity
+ * @param mFlPipOpacity
+ * @param mFlPipOutlineOpacity
+ * @param mNDotOutlineGap
+ * @param mNDotOutlineWidth
+ * @param mNDotRadius
+ * @param mNPipHeight
+ * @param mNPipOutlineGap
+ * @param mNPipOutlineWidth
+ * @param mNPipWidth
  */
 
 

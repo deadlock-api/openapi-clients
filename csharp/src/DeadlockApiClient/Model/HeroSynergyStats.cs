@@ -258,126 +258,126 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Assists1 (long) minimum
             if (this.Assists1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Assists1, must be a value greater than or equal to 0.", new [] { "Assists1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Assists1, must be a value greater than or equal to 0.", new [] { "Assists1" });
             }
 
             // Assists2 (long) minimum
             if (this.Assists2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Assists2, must be a value greater than or equal to 0.", new [] { "Assists2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Assists2, must be a value greater than or equal to 0.", new [] { "Assists2" });
             }
 
             // Creeps1 (long) minimum
             if (this.Creeps1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Creeps1, must be a value greater than or equal to 0.", new [] { "Creeps1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Creeps1, must be a value greater than or equal to 0.", new [] { "Creeps1" });
             }
 
             // Creeps2 (long) minimum
             if (this.Creeps2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Creeps2, must be a value greater than or equal to 0.", new [] { "Creeps2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Creeps2, must be a value greater than or equal to 0.", new [] { "Creeps2" });
             }
 
             // Deaths1 (long) minimum
             if (this.Deaths1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Deaths1, must be a value greater than or equal to 0.", new [] { "Deaths1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Deaths1, must be a value greater than or equal to 0.", new [] { "Deaths1" });
             }
 
             // Deaths2 (long) minimum
             if (this.Deaths2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Deaths2, must be a value greater than or equal to 0.", new [] { "Deaths2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Deaths2, must be a value greater than or equal to 0.", new [] { "Deaths2" });
             }
 
             // Denies1 (long) minimum
             if (this.Denies1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Denies1, must be a value greater than or equal to 0.", new [] { "Denies1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Denies1, must be a value greater than or equal to 0.", new [] { "Denies1" });
             }
 
             // Denies2 (long) minimum
             if (this.Denies2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Denies2, must be a value greater than or equal to 0.", new [] { "Denies2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Denies2, must be a value greater than or equal to 0.", new [] { "Denies2" });
             }
 
             // HeroId1 (int) minimum
             if (this.HeroId1 < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId1, must be a value greater than or equal to 0.", new [] { "HeroId1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId1, must be a value greater than or equal to 0.", new [] { "HeroId1" });
             }
 
             // HeroId2 (int) minimum
             if (this.HeroId2 < (int)0)
             {
-                yield return new ValidationResult("Invalid value for HeroId2, must be a value greater than or equal to 0.", new [] { "HeroId2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for HeroId2, must be a value greater than or equal to 0.", new [] { "HeroId2" });
             }
 
             // Kills1 (long) minimum
             if (this.Kills1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Kills1, must be a value greater than or equal to 0.", new [] { "Kills1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Kills1, must be a value greater than or equal to 0.", new [] { "Kills1" });
             }
 
             // Kills2 (long) minimum
             if (this.Kills2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Kills2, must be a value greater than or equal to 0.", new [] { "Kills2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Kills2, must be a value greater than or equal to 0.", new [] { "Kills2" });
             }
 
             // LastHits1 (long) minimum
             if (this.LastHits1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for LastHits1, must be a value greater than or equal to 0.", new [] { "LastHits1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastHits1, must be a value greater than or equal to 0.", new [] { "LastHits1" });
             }
 
             // LastHits2 (long) minimum
             if (this.LastHits2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for LastHits2, must be a value greater than or equal to 0.", new [] { "LastHits2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastHits2, must be a value greater than or equal to 0.", new [] { "LastHits2" });
             }
 
             // MatchesPlayed (long) minimum
             if (this.MatchesPlayed < (long)0)
             {
-                yield return new ValidationResult("Invalid value for MatchesPlayed, must be a value greater than or equal to 0.", new [] { "MatchesPlayed" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchesPlayed, must be a value greater than or equal to 0.", new [] { "MatchesPlayed" });
             }
 
             // Networth1 (long) minimum
             if (this.Networth1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Networth1, must be a value greater than or equal to 0.", new [] { "Networth1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Networth1, must be a value greater than or equal to 0.", new [] { "Networth1" });
             }
 
             // Networth2 (long) minimum
             if (this.Networth2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Networth2, must be a value greater than or equal to 0.", new [] { "Networth2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Networth2, must be a value greater than or equal to 0.", new [] { "Networth2" });
             }
 
             // ObjDamage1 (long) minimum
             if (this.ObjDamage1 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for ObjDamage1, must be a value greater than or equal to 0.", new [] { "ObjDamage1" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjDamage1, must be a value greater than or equal to 0.", new [] { "ObjDamage1" });
             }
 
             // ObjDamage2 (long) minimum
             if (this.ObjDamage2 < (long)0)
             {
-                yield return new ValidationResult("Invalid value for ObjDamage2, must be a value greater than or equal to 0.", new [] { "ObjDamage2" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjDamage2, must be a value greater than or equal to 0.", new [] { "ObjDamage2" });
             }
 
             // Wins (long) minimum
             if (this.Wins < (long)0)
             {
-                yield return new ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Wins, must be a value greater than or equal to 0.", new [] { "Wins" });
             }
 
             yield break;

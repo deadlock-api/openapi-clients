@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param burstConstant 
- * @param burstExponent 
- * @param burstSlope 
- * @param range 
+ * @param burstConstant
+ * @param burstExponent
+ * @param burstSlope
+ * @param range
  */
 
 

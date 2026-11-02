@@ -76,12 +76,12 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // AccountId (int) minimum
             if (this.AccountId < (int)0)
             {
-                yield return new ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AccountId, must be a value greater than or equal to 0.", new [] { "AccountId" });
             }
 
             yield break;
@@ -102,11 +102,6 @@ namespace DeadlockApiClient.Model
         {
             OnCreated();
         }
-
-        /// <summary>
-        /// The format to use to serialize FriendSince
-        /// </summary>
-        public string FriendSinceFormat { get; private set; } = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffK";
 
         /// <summary>
         /// Deserializes json to <see cref="SteamFriend" />
@@ -194,7 +189,10 @@ namespace DeadlockApiClient.Model
         {
             writer.WriteNumber("account_id", steamFriend.AccountId);
 
-            writer.WriteString("friend_since", steamFriend.FriendSince.ToString(FriendSinceFormat));
+            {
+                        writer.WritePropertyName("friend_since");
+                            JsonSerializer.Serialize(writer, steamFriend.FriendSince, jsonSerializerOptions);
+                        }
         }
     }
 }

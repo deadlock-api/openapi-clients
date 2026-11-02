@@ -33,66 +33,64 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param id 
- * @param breakOnDodgeTouch 
+ * @param className
+ * @param id
+ * @param breakOnDodgeTouch
  * @param buffTypeGraphColor Permanent pickups: color used for the buff in the stat graph.
  * @param buffTypeLocString Permanent pickups: localization token of the stat the buff raises.
  * @param buffTypeName Permanent pickups: `buff_type_loc_string` localized into the requested language (e.g. `Fire Rate`).
  * @param buffTypeValueUnit Permanent pickups: unit of the buff value (e.g. `Percent`, `Meters`). The modifier value itself is in game units (`Meters` values are inches, 39.37 per meter).
  * @param collectionMethod How the pickup is collected, e.g. `Punch` or `VacuumTrigger`.
- * @param collisionRadius 
- * @param color 
- * @param damagedByAbilities 
- * @param damagedByBullets 
- * @param damagedByMelee 
- * @param damagedBySlide 
- * @param expirationDuration 
- * @param goldAmount 
- * @param goldPerMinuteAmount 
- * @param health 
- * @param heavyMeleeHitCount 
- * @param heavyMeleeOnly 
+ * @param collisionRadius
+ * @param color
+ * @param damagedByAbilities
+ * @param damagedByBullets
+ * @param damagedByMelee
+ * @param damagedBySlide
+ * @param expirationDuration
+ * @param goldAmount
+ * @param goldPerMinuteAmount
+ * @param health
+ * @param heavyMeleeHitCount
+ * @param heavyMeleeOnly
  * @param hitsRequired Punchable pickups: hits needed to collect.
  * @param inShopModifier Corrupted item shop (Broker) trigger: modifier applied while inside.
- * @param initialSpawnDelayInSeconds 
+ * @param initialSpawnDelayInSeconds
  * @param initialSpawnDelaySeconds Duplicate of `initial_spawn_delay_in_seconds` for shape parity.
- * @param initialSpawnTime 
- * @param isMantleable 
- * @param isPermanentPickup 
- * @param lifetime 
- * @param lootListDeckSize 
- * @param mVecPickupsLv2 
- * @param mVecPickupsLv3 
- * @param matchTimeMinsForLevel2Pickups 
- * @param matchTimeMinsForLevel3Pickups 
- * @param minimapClass 
- * @param modifier 
+ * @param initialSpawnTime
+ * @param isMantleable
+ * @param isPermanentPickup
+ * @param lifetime
+ * @param lootListDeckSize
+ * @param mVecPickupsLv2
+ * @param mVecPickupsLv3
+ * @param matchTimeMinsForLevel2Pickups
+ * @param matchTimeMinsForLevel3Pickups
+ * @param minimapClass
+ * @param modifier
  * @param name `name_loc_string` localized into the requested language (e.g. `+1.5% Fire Rate`). Gold pickups use an ICU plural pattern (`{amount, plural, one{Soul} other{Souls}}`).
  * @param nameLocString Localization token of the pickup's world label.
- * @param orbSpawnDelayMax 
- * @param orbSpawnDelayMin 
+ * @param orbSpawnDelayMax
+ * @param orbSpawnDelayMin
  * @param pickup Pickup spawners: class name of the spawned pickup.
  * @param pickupChances Pickup name to relative weight (build 6711+); replaces the `primary_pickups` / `m_vecPickups_lv*` lists.
- * @param pickupRadius 
+ * @param pickupRadius
  * @param powerupDropChance Drop chance (percent) for build 6711+; replaces `primary_drop_chance`.
  * @param primaryDropChance Pre-6711 builds only; see `powerup_drop_chance`.
- * @param primaryPickups 
+ * @param primaryPickups
  * @param regenDuration Health pickups: seconds over which the healing is applied to heroes.
  * @param regenDurationTroopers Health pickups: seconds over which the healing is applied to troopers.
  * @param regenMaxHealthPercent Health pickups: healing as percent of max health.
  * @param regenTrooperMulti Health pickups: healing multiplier for troopers.
- * @param renderAfterDeath 
- * @param respawnTime 
+ * @param renderAfterDeath
+ * @param respawnTime
  * @param rollType Known values for `m_eRollType`. Unknown values pass through unchanged so a newly-introduced roll type doesn't 500. Known values: `ECitadelRandomRoll_BreakablePowerupPickup`, `ECitadelRandomRoll_BreakableGoldPickup`.
- * @param showOnMinimap 
+ * @param showOnMinimap
  * @param singlePickupOverride Powerup spawners: class name of the only pickup spawned, overriding `pickup_chances`.
- * @param solidAfterDeath 
+ * @param solidAfterDeath
  * @param spawnDelay Pickup spawners: delay (seconds) before the first spawn.
- * @param spawnInterval 
- * @param spawnIntervalInSeconds 
+ * @param spawnInterval
+ * @param spawnIntervalInSeconds
  * @param spawnMusicState Corrupted item shop (Broker) trigger: music cue played on spawn.
  */
 

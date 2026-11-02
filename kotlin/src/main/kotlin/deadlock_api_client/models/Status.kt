@@ -30,8 +30,6 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
  * @param services Status of the services.
  */
 

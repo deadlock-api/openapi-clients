@@ -28,8 +28,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
- *
  * Values: imbue_active,imbue_active_non_ult,imbue_modifier_value
  */
 

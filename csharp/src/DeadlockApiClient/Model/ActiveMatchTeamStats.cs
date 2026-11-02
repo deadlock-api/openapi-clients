@@ -138,24 +138,24 @@ namespace DeadlockApiClient.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // BrawlScore (int) minimum
             if (this.BrawlScoreOption.IsSet && this.BrawlScoreOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for BrawlScore, must be a value greater than or equal to 0.", new [] { "BrawlScore" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BrawlScore, must be a value greater than or equal to 0.", new [] { "BrawlScore" });
             }
 
             // NetWorth (int) minimum
             if (this.NetWorthOption.IsSet && this.NetWorthOption.Value < (int)0)
             {
-                yield return new ValidationResult("Invalid value for NetWorth, must be a value greater than or equal to 0.", new [] { "NetWorth" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NetWorth, must be a value greater than or equal to 0.", new [] { "NetWorth" });
             }
 
             // ObjectivesMask (long) minimum
             if (this.ObjectivesMaskOption.IsSet && this.ObjectivesMaskOption.Value < (long)0)
             {
-                yield return new ValidationResult("Invalid value for ObjectivesMask, must be a value greater than or equal to 0.", new [] { "ObjectivesMask" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ObjectivesMask, must be a value greater than or equal to 0.", new [] { "ObjectivesMask" });
             }
 
             yield break;

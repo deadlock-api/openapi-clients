@@ -30,10 +30,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bucket 
- * @param name 
+ * @param bucket
+ * @param name
  */
 
 

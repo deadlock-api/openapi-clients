@@ -29,12 +29,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param `value` 
- * @param valueMax 
- * @param valueMin 
- * @param valueType 
+ * @param `value`
+ * @param valueMax
+ * @param valueMin
+ * @param valueType
  */
 
 

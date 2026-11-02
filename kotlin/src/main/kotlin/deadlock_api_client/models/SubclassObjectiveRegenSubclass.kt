@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param outOfCombatHealthRegen 
- * @param outOfCombatRegenDelay 
+ * @param outOfCombatHealthRegen
+ * @param outOfCombatRegenDelay
  */
 
 

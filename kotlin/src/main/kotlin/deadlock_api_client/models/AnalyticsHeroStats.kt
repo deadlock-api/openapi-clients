@@ -29,33 +29,31 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param bucket 
+ * @param bucket
  * @param bucketMatchesSinceFirstDay Sum of `matches` over all heroes in this bucket, counting only the UTC days from this hero's first match in the response on. A pick rate that leaves out the part of the range before the hero's release: `matches / bucket_matches_since_first_day` times the players per match. The hero's first day counts whole, so it still includes the hours before its first match.
  * @param heroId See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param losses 
- * @param matches 
- * @param matchesPerBucket 
+ * @param losses
+ * @param matches
+ * @param matchesPerBucket
  * @param permanentBuffMatches Matches that carry buff pickup counts. Equals `matches`, except on account-scoped queries (`account_ids` without item or ability filters): those read a per-account table that only has buff counts for matches ingested since build 6712 (late September 2026).
  * @param permanentBuffTimingMatches Matches with pickup timings. Only matches since build 6712 (2026-09-29) record pickup times, and only players with at least one permanent pickup count here.
- * @param totalAssists 
- * @param totalBossDamage 
- * @param totalCreepDamage 
- * @param totalDeaths 
- * @param totalDenies 
+ * @param totalAssists
+ * @param totalBossDamage
+ * @param totalCreepDamage
+ * @param totalDeaths
+ * @param totalDenies
  * @param totalFirstPermanentBuffTimeS Sum of the game time (seconds) of each player's first permanent buff pickup, over the `permanent_buff_timing_matches` matches. Average: `total_first_permanent_buff_time_s / permanent_buff_timing_matches`.
- * @param totalKills 
- * @param totalLastHits 
- * @param totalMaxHealth 
- * @param totalNetWorth 
- * @param totalNeutralDamage 
+ * @param totalKills
+ * @param totalLastHits
+ * @param totalMaxHealth
+ * @param totalNetWorth
+ * @param totalNeutralDamage
  * @param totalPermanentBuffs Sum of permanent buff (power-up) pickups over the `permanent_buff_matches` matches. Average per match: `total_permanent_buffs / permanent_buff_matches`. Buff types: <https://api.deadlock-api.com/v1/assets/misc-entities>
- * @param totalPlayerDamage 
- * @param totalPlayerDamageTaken 
- * @param totalShotsHit 
- * @param totalShotsMissed 
- * @param wins 
+ * @param totalPlayerDamage
+ * @param totalPlayerDamageTaken
+ * @param totalShotsHit
+ * @param totalShotsMissed
+ * @param wins
  */
 
 

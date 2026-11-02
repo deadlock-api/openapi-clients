@@ -29,11 +29,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param entityClass 
- * @param offset2d 
- * @param laneIndex 
+ * @param entityClass
+ * @param offset2d
+ * @param laneIndex
  */
 
 

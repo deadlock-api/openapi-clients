@@ -32,11 +32,9 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param spiritStatsDisplay 
- * @param vitalityStatsDisplay 
- * @param weaponStatsDisplay 
+ * @param spiritStatsDisplay
+ * @param vitalityStatsDisplay
+ * @param weaponStatsDisplay
  */
 
 

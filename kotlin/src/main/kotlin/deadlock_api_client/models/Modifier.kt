@@ -29,10 +29,8 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param className 
- * @param id 
+ * @param className
+ * @param id
  * @param properties Numeric properties keyed by their source name. Nested properties use a dotted path (`m_GroundAuraModifier.m_modifierProvidedByAura.m_flDPS`, `subclass:` wrappers are skipped); `m_vecScriptValues` entries are keyed by their `m_eModifierValue` (`MODIFIER_VALUE_GRAVITY_SCALE`).
  * @param base Entry this one inherits from (`_base`).
  * @param propertyClass Engine class (`_class`), e.g. `citadel_neutral_laser_beam`.

@@ -30,12 +30,10 @@ import com.squareup.moshi.JsonClass
 import java.io.Serializable
 
 /**
- * 
- *
- * @param isEnemyLane 
+ * @param isEnemyLane
  * @param laneName Localized lane name. Unused lane slots are named `Unused`.
  * @param color Absent for unused lane slots (build 6711+).
- * @param cssClass 
+ * @param cssClass
  * @param minimapColor Build 6711+.
  * @param minimapZiplineColorOverride Only present up to build 6701.
  * @param objectiveColor Only present up to build 6701.
