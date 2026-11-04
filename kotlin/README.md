@@ -154,13 +154,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *LeaderboardApi* | [**leaderboardHero**](docs/LeaderboardApi.md#leaderboardhero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard |
 | *LeaderboardApi* | [**leaderboardHeroRaw**](docs/LeaderboardApi.md#leaderboardheroraw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf |
 | *LeaderboardApi* | [**leaderboardRaw**](docs/LeaderboardApi.md#leaderboardraw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf |
-| *LootTablesApi* | [**listLootTables**](docs/LootTablesApi.md#listloottables) | **GET** /v1/assets/loot-tables | List Loot Tables |
-| *MMRApi* | [**heroMmr**](docs/MMRApi.md#herommr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated) |
-| *MMRApi* | [**heroMmrDistribution**](docs/MMRApi.md#herommrdistribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated) |
-| *MMRApi* | [**heroMmrHistory**](docs/MMRApi.md#herommrhistory) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated) |
-| *MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR (Deprecated) |
-| *MMRApi* | [**mmrDistribution**](docs/MMRApi.md#mmrdistribution) | **GET** /v1/players/mmr/distribution | MMR Distribution (Deprecated) |
-| *MMRApi* | [**mmrHistory**](docs/MMRApi.md#mmrhistory) | **GET** /v1/players/{account_id}/mmr-history | MMR History (Deprecated) |
 | *MapApi* | [**getMap**](docs/MapApi.md#getmap) | **GET** /v1/assets/map | Map |
 | *MatchesApi* | [**activeMatches**](docs/MatchesApi.md#activematches) | **GET** /v1/matches/active | Active |
 | *MatchesApi* | [**activeMatchesRaw**](docs/MatchesApi.md#activematchesraw) | **GET** /v1/matches/active/raw | Active as Protobuf |
@@ -190,9 +183,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**rankBatch**](docs/PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
 | *PlayersApi* | [**rankDistribution**](docs/PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | *PlayersApi* | [**rankImage**](docs/PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
-| *PlayersApi* | [**rankPredict**](docs/PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
-| *PlayersApi* | [**rankPredictAvgImage**](docs/PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
-| *PlayersApi* | [**rankPredictImage**](docs/PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
 | *RankedSeasonsApi* | [**listRankedSeasons**](docs/RankedSeasonsApi.md#listrankedseasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons |
 | *RanksApi* | [**getRank**](docs/RanksApi.md#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
 | *RanksApi* | [**listRanks**](docs/RanksApi.md#listranks) | **GET** /v1/assets/ranks | List Ranks |
@@ -269,7 +259,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.DemoQueryStatusResponse](docs/DemoQueryStatusResponse.md)
  - [deadlock_api_client.models.DemoSchemaResponse](docs/DemoSchemaResponse.md)
  - [deadlock_api_client.models.DependantAbilities](docs/DependantAbilities.md)
- - [deadlock_api_client.models.DistributionEntry](docs/DistributionEntry.md)
  - [deadlock_api_client.models.DraftBucket](docs/DraftBucket.md)
  - [deadlock_api_client.models.DraftBuckets](docs/DraftBuckets.md)
  - [deadlock_api_client.models.EnemyStats](docs/EnemyStats.md)
@@ -342,9 +331,6 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.LeaderboardEntry](docs/LeaderboardEntry.md)
  - [deadlock_api_client.models.ListSteamAccountsResponse](docs/ListSteamAccountsResponse.md)
  - [deadlock_api_client.models.LiveUrl](docs/LiveUrl.md)
- - [deadlock_api_client.models.LootEntry](docs/LootEntry.md)
- - [deadlock_api_client.models.LootTable](docs/LootTable.md)
- - [deadlock_api_client.models.MMRHistory](docs/MMRHistory.md)
  - [deadlock_api_client.models.MapData](docs/MapData.md)
  - [deadlock_api_client.models.MapDistrict](docs/MapDistrict.md)
  - [deadlock_api_client.models.MapEntities](docs/MapEntities.md)

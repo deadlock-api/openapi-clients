@@ -130,8 +130,6 @@ pub mod info_api;
 pub mod internal_api;
 pub mod items_api;
 pub mod leaderboard_api;
-pub mod loot_tables_api;
-pub mod mmr_api;
 pub mod map_api;
 pub mod matches_api;
 pub mod misc_entities_api;

@@ -22,8 +22,6 @@ src/apis/InfoApi.ts
 src/apis/InternalApi.ts
 src/apis/ItemsApi.ts
 src/apis/LeaderboardApi.ts
-src/apis/LootTablesApi.ts
-src/apis/MMRApi.ts
 src/apis/MapApi.ts
 src/apis/MatchesApi.ts
 src/apis/MiscEntitiesApi.ts
@@ -98,7 +96,6 @@ src/models/DemoQueryRequest.ts
 src/models/DemoQueryStatusResponse.ts
 src/models/DemoSchemaResponse.ts
 src/models/DependantAbilities.ts
-src/models/DistributionEntry.ts
 src/models/DraftBucket.ts
 src/models/DraftBuckets.ts
 src/models/EnemyStats.ts
@@ -171,9 +168,6 @@ src/models/Leaderboard.ts
 src/models/LeaderboardEntry.ts
 src/models/ListSteamAccountsResponse.ts
 src/models/LiveUrl.ts
-src/models/LootEntry.ts
-src/models/LootTable.ts
-src/models/MMRHistory.ts
 src/models/MapData.ts
 src/models/MapDistrict.ts
 src/models/MapEntities.ts

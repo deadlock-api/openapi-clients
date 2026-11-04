@@ -107,7 +107,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new DemoQueryStatusResponseJsonConverter());
             _jsonOptions.Converters.Add(new DemoSchemaResponseJsonConverter());
             _jsonOptions.Converters.Add(new DependantAbilitiesJsonConverter());
-            _jsonOptions.Converters.Add(new DistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new DraftBucketJsonConverter());
             _jsonOptions.Converters.Add(new DraftBucketsJsonConverter());
             _jsonOptions.Converters.Add(new EnemyStatsJsonConverter());
@@ -187,9 +186,6 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new LeaderboardEntryJsonConverter());
             _jsonOptions.Converters.Add(new ListSteamAccountsResponseJsonConverter());
             _jsonOptions.Converters.Add(new LiveUrlJsonConverter());
-            _jsonOptions.Converters.Add(new LootEntryJsonConverter());
-            _jsonOptions.Converters.Add(new LootTableJsonConverter());
-            _jsonOptions.Converters.Add(new MMRHistoryJsonConverter());
             _jsonOptions.Converters.Add(new MapDataJsonConverter());
             _jsonOptions.Converters.Add(new MapDistrictJsonConverter());
             _jsonOptions.Converters.Add(new MapEntitiesJsonConverter());
@@ -329,8 +325,6 @@ namespace DeadlockApiClient.Client
             _services.AddSingleton<InternalApiEvents>();
             _services.AddSingleton<ItemsApiEvents>();
             _services.AddSingleton<LeaderboardApiEvents>();
-            _services.AddSingleton<LootTablesApiEvents>();
-            _services.AddSingleton<MMRApiEvents>();
             _services.AddSingleton<MapApiEvents>();
             _services.AddSingleton<MatchesApiEvents>();
             _services.AddSingleton<MiscEntitiesApiEvents>();
@@ -407,8 +401,6 @@ namespace DeadlockApiClient.Client
             builders.Add(_services.AddHttpClient<IInternalApi, InternalApi>("DeadlockApiClient.Api.IInternalApi", client));
             builders.Add(_services.AddHttpClient<IItemsApi, ItemsApi>("DeadlockApiClient.Api.IItemsApi", client));
             builders.Add(_services.AddHttpClient<ILeaderboardApi, LeaderboardApi>("DeadlockApiClient.Api.ILeaderboardApi", client));
-            builders.Add(_services.AddHttpClient<ILootTablesApi, LootTablesApi>("DeadlockApiClient.Api.ILootTablesApi", client));
-            builders.Add(_services.AddHttpClient<IMMRApi, MMRApi>("DeadlockApiClient.Api.IMMRApi", client));
             builders.Add(_services.AddHttpClient<IMapApi, MapApi>("DeadlockApiClient.Api.IMapApi", client));
             builders.Add(_services.AddHttpClient<IMatchesApi, MatchesApi>("DeadlockApiClient.Api.IMatchesApi", client));
             builders.Add(_services.AddHttpClient<IMiscEntitiesApi, MiscEntitiesApi>("DeadlockApiClient.Api.IMiscEntitiesApi", client));

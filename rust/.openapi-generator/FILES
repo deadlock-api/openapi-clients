@@ -75,7 +75,6 @@ docs/DemoQueryRequest.md
 docs/DemoQueryStatusResponse.md
 docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
-docs/DistributionEntry.md
 docs/DraftBucket.md
 docs/DraftBuckets.md
 docs/EnemyStats.md
@@ -155,9 +154,6 @@ docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
 docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
-docs/LootEntry.md
-docs/LootTable.md
-docs/LootTablesApi.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
@@ -173,8 +169,6 @@ docs/MetricValues.md
 docs/MiniMapOffsets.md
 docs/MiscEntitiesApi.md
 docs/MiscEntity.md
-docs/MmrApi.md
-docs/MmrHistory.md
 docs/Modifier.md
 docs/ModifierValue.md
 docs/ModifiersApi.md
@@ -304,11 +298,9 @@ src/apis/info_api.rs
 src/apis/internal_api.rs
 src/apis/items_api.rs
 src/apis/leaderboard_api.rs
-src/apis/loot_tables_api.rs
 src/apis/map_api.rs
 src/apis/matches_api.rs
 src/apis/misc_entities_api.rs
-src/apis/mmr_api.rs
 src/apis/mod.rs
 src/apis/modifiers_api.rs
 src/apis/npc_units_api.rs
@@ -380,7 +372,6 @@ src/models/demo_query_request.rs
 src/models/demo_query_status_response.rs
 src/models/demo_schema_response.rs
 src/models/dependant_abilities.rs
-src/models/distribution_entry.rs
 src/models/draft_bucket.rs
 src/models/draft_buckets.rs
 src/models/enemy_stats.rs
@@ -453,8 +444,6 @@ src/models/leaderboard.rs
 src/models/leaderboard_entry.rs
 src/models/list_steam_accounts_response.rs
 src/models/live_url.rs
-src/models/loot_entry.rs
-src/models/loot_table.rs
 src/models/map_data.rs
 src/models/map_district.rs
 src/models/map_entities.rs
@@ -467,7 +456,6 @@ src/models/mate_stats.rs
 src/models/metric_values.rs
 src/models/mini_map_offsets.rs
 src/models/misc_entity.rs
-src/models/mmr_history.rs
 src/models/mod.rs
 src/models/modifier.rs
 src/models/modifier_value.rs

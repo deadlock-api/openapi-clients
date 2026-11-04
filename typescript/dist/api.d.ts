@@ -28,8 +28,6 @@ export * from './apis/info-api.js';
 export * from './apis/internal-api.js';
 export * from './apis/items-api.js';
 export * from './apis/leaderboard-api.js';
-export * from './apis/loot-tables-api.js';
-export * from './apis/mmrapi.js';
 export * from './apis/map-api.js';
 export * from './apis/matches-api.js';
 export * from './apis/misc-entities-api.js';

@@ -13,9 +13,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**rankBatch**](PlayersApi.md#rankBatch) | **GET** /v1/players/rank | Batch Rank |
 | [**rankDistribution**](PlayersApi.md#rankDistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**rankImage**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
-| [**rankPredict**](PlayersApi.md#rankPredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
-| [**rankPredictAvgImage**](PlayersApi.md#rankPredictAvgImage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
-| [**rankPredictImage**](PlayersApi.md#rankPredictImage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
 
 
 <a id="enemyStats"></a>
@@ -447,7 +444,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790985600L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791072000L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -495,148 +492,6 @@ try {
     e.printStackTrace()
 } catch (e: ServerException) {
     println("5xx response calling PlayersApi#rankImage")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
-
-### Return type
-
-**kotlin.collections.List&lt;kotlin.Int&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-<a id="rankPredict"></a>
-# **rankPredict**
-> RankResponse rankPredict(accountId)
-
-Rank Predict (Deprecated)
-
-Deprecated alias of &#x60;/v1/players/{account_id}/rank&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock_api_client.infrastructure.*
-//import deadlock_api_client.models.*
-
-val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-try {
-    val result : RankResponse = apiInstance.rankPredict(accountId)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PlayersApi#rankPredict")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PlayersApi#rankPredict")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
-
-### Return type
-
-[**RankResponse**](RankResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-<a id="rankPredictAvgImage"></a>
-# **rankPredictAvgImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictAvgImage(accountIds, format)
-
-Rank Predict Avg Image (Deprecated)
-
-Deprecated alias of &#x60;/v1/players/rank/image&#x60;. The rank is no longer predicted, it is read from each player&#39;s latest ranked match.
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock_api_client.infrastructure.*
-//import deadlock_api_client.models.*
-
-val apiInstance = PlayersApi()
-val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
-val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PlayersApi#rankPredictAvgImage")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PlayersApi#rankPredictAvgImage")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma-separated list of account IDs (max 12). | |
-| **format** | **kotlin.String**| Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional] [enum: png, webp] |
-
-### Return type
-
-**kotlin.collections.List&lt;kotlin.Int&gt;**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-<a id="rankPredictImage"></a>
-# **rankPredictImage**
-> kotlin.collections.List&lt;kotlin.Int&gt; rankPredictImage(accountId, format)
-
-Rank Predict Image (Deprecated)
-
-Deprecated alias of &#x60;/v1/players/{account_id}/rank/image&#x60;. The rank is no longer predicted, it is read from the player&#39;s latest ranked match.
-
-### Example
-```kotlin
-// Import classes:
-//import deadlock_api_client.infrastructure.*
-//import deadlock_api_client.models.*
-
-val apiInstance = PlayersApi()
-val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-try {
-    val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling PlayersApi#rankPredictImage")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling PlayersApi#rankPredictImage")
     e.printStackTrace()
 }
 ```

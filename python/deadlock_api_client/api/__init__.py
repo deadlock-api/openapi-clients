@@ -20,8 +20,6 @@ from deadlock_api_client.api.info_api import InfoApi
 from deadlock_api_client.api.internal_api import InternalApi
 from deadlock_api_client.api.items_api import ItemsApi
 from deadlock_api_client.api.leaderboard_api import LeaderboardApi
-from deadlock_api_client.api.loot_tables_api import LootTablesApi
-from deadlock_api_client.api.mmr_api import MMRApi
 from deadlock_api_client.api.map_api import MapApi
 from deadlock_api_client.api.matches_api import MatchesApi
 from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi

@@ -89,27 +89,6 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
-    def test_rank_predict(self) -> None:
-        """Test case for rank_predict
-
-        Rank Predict (Deprecated)
-        """
-        pass
-
-    def test_rank_predict_avg_image(self) -> None:
-        """Test case for rank_predict_avg_image
-
-        Rank Predict Avg Image (Deprecated)
-        """
-        pass
-
-    def test_rank_predict_image(self) -> None:
-        """Test case for rank_predict_image
-
-        Rank Predict Image (Deprecated)
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()

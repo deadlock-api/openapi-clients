@@ -22,11 +22,9 @@ apis/info-api.ts
 apis/internal-api.ts
 apis/items-api.ts
 apis/leaderboard-api.ts
-apis/loot-tables-api.ts
 apis/map-api.ts
 apis/matches-api.ts
 apis/misc-entities-api.ts
-apis/mmrapi.ts
 apis/modifiers-api.ts
 apis/npcunits-api.ts
 apis/patches-api.ts
@@ -111,7 +109,6 @@ docs/DemoQueryRequest.md
 docs/DemoQueryStatusResponse.md
 docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
-docs/DistributionEntry.md
 docs/DraftBucket.md
 docs/DraftBuckets.md
 docs/EnemyStats.md
@@ -191,11 +188,6 @@ docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
 docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
-docs/LootEntry.md
-docs/LootTable.md
-docs/LootTablesApi.md
-docs/MMRApi.md
-docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
@@ -381,7 +373,6 @@ models/demo-query-request.ts
 models/demo-query-status-response.ts
 models/demo-schema-response.ts
 models/dependant-abilities.ts
-models/distribution-entry.ts
 models/draft-bucket.ts
 models/draft-buckets.ts
 models/enemy-stats.ts
@@ -455,8 +446,6 @@ models/leaderboard-entry.ts
 models/leaderboard.ts
 models/list-steam-accounts-response.ts
 models/live-url.ts
-models/loot-entry.ts
-models/loot-table.ts
 models/map-data.ts
 models/map-district.ts
 models/map-entities.ts
@@ -469,7 +458,6 @@ models/mate-stats.ts
 models/metric-values.ts
 models/mini-map-offsets.ts
 models/misc-entity.ts
-models/mmrhistory.ts
 models/modifier-value.ts
 models/modifier.ts
 models/neutral-camp-kind.ts

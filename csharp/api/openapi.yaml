@@ -53,45 +53,6 @@ tags:
   name: Demo
 - description: Player related endpoints
   name: Players
-- description: |2
-
-    # DEPRECATED! READ THIS FIRST!
-
-    All MMR endpoints are deprecated and will be removed. We no longer estimate a MMR: Valve reports the
-    actual rank on ranked matches, and these endpoints now serve that rank instead of the old exponential
-    moving average over team average badges.
-
-    Migrate to:
-
-    | Deprecated | Replacement |
-    | ---------- | ----------- |
-    | `/v1/players/mmr`, `/v1/players/mmr/{hero_id}` | `/v1/players/rank?account_ids=...` or `/v1/players/{account_id}/rank` |
-    | `/v1/players/mmr/distribution`, `/v1/players/mmr/distribution/{hero_id}` | `/v1/players/rank/distribution` |
-    | `/v1/players/{account_id}/mmr-history`, `/v1/players/{account_id}/mmr-history/{hero_id}` | `ranked_display_badge` / `ranked_delta` in `/v1/players/{account_id}/match-history` |
-
-    Since ranks only exist on ranked matches, players without one are missing from the responses, and the
-    hero-scoped variants no longer differ per hero: they report the account-wide rank restricted to
-    matches played on that hero.
-
-    ### Rate Limits:
-
-    The rank and rank-history endpoints share one bucket:
-
-    | Type | Limit |
-    | ---- | ----- |
-    | IP | 20req/min |
-    | Key | 100req/min, 2000req/h |
-    | Global | 200req/min |
-
-    The distribution endpoints aggregate over every ranked match and are far more expensive, so they
-    have their own, tighter bucket:
-
-    | Type | Limit |
-    | ---- | ----- |
-    | IP | 5req/min |
-    | Key | 25req/min |
-    | Global | 50req/min |
-  name: MMR
 - description: Steam related endpoints
   name: Steam
 - description: |2
@@ -145,11 +106,6 @@ tags:
 - description: "Item, ability, and weapon definitions parsed from the patch's KV3\
     \ source files."
   name: Items
-- description: |-
-    Loot table definitions derived from per-version game data files.
-
-    **Deprecated.** The game no longer ships `loot_tables.vdata` from build 6711 on.
-  name: Loot Tables
 - description: "Map metadata: minimap radius, image-layer URLs, objective marker positions\
     \ (from per-version `objectives_map.css`), and the zip-line lane splines."
   name: Map
@@ -244,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -574,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -908,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -1236,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -1402,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -1592,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -1691,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -1968,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -2137,7 +2093,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -2389,7 +2345,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -2693,7 +2649,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -2986,7 +2942,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -3334,7 +3290,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -3492,7 +3448,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -3793,7 +3749,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -4166,7 +4122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -4520,7 +4476,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -4934,7 +4890,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -5242,7 +5198,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -5528,7 +5484,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -5829,7 +5785,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -6074,7 +6030,7 @@ paths:
 
         Results are cached for **1 hour** based on the unique combination of query parameters provided. Subsequent identical requests within this timeframe will receive the cached response.
 
-        > Note: Quantiles are calculated using the [DDSketch](https://www.vldb.org/pvldb/vol12/p2195-masson.pdf) algorithm, so they are not exact but have a maximum relative error of 0.01.
+        > Note: Quantiles are estimated from a [bfloat16](https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/quantilebfloat16) histogram, which rounds each value down to 8 significant bits, so they are not exact but have a relative error below 0.01.
 
         ### Rate Limits:
         > The rate limits below are **shared across all analytics endpoints**.
@@ -6141,7 +6097,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -6516,7 +6472,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -8392,44 +8348,6 @@ paths:
       summary: Get Item
       tags:
       - Items
-  /v1/assets/loot-tables:
-    get:
-      deprecated: true
-      description: |-
-        Returns the per-table loot definitions used by the game client, parsed from the patch's KV3 source files. Keyed by table `class_name`.
-
-        **Deprecated:** the game dropped `loot_tables.vdata` in build 6711 ("City Never Sleeps"); for those and later versions this endpoint returns 404.
-      operationId: list_loot_tables
-      parameters:
-      - description: Client/game version (e.g. `6518`). Defaults to the latest known
-          version.
-        explode: true
-        in: query
-        name: client_version
-        required: false
-        schema:
-          format: int32
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                additionalProperties:
-                  $ref: "#/components/schemas/LootTable"
-                type: object
-          description: OK
-        "404":
-          description: "Requested client_version is not available, or it has no loot\
-            \ tables (build 6711+)"
-        "500":
-          description: Failed to load source assets
-      summary: List Loot Tables
-      tags:
-      - Loot Tables
   /v1/assets/map:
     get:
       description: "Map metadata for a client version: the minimap radius, image-layer\
@@ -11150,7 +11068,7 @@ paths:
       description: |2
 
         Submit a SQL query against a match's demo file. The work (download + decompress + parse +
-        query) takes ~20s on average and up to about a minute, so this is asynchronous: the endpoint returns a `job_id` you poll via
+        query) takes ~10s on average and up to about a minute, so this is asynchronous: the endpoint returns a `job_id` you poll via
         `/demo/query/{job_id}`. Once done, the status response carries a public URL to the result
         artifact (Parquet or NDJSON).
 
@@ -12580,384 +12498,6 @@ paths:
       summary: Hero Stats
       tags:
       - Players
-  /v1/players/mmr:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. The MMR estimate is gone, this now returns the rank Valve reported for each player at
-        the end of their latest ranked match. Players without a ranked match carrying a rank are left out.
-
-        Use `/v1/players/rank?account_ids=...` instead.
-      operationId: mmr
-      parameters:
-      - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
-          \ format."
-        explode: true
-        in: query
-        name: account_ids
-        required: true
-        schema:
-          items:
-            format: int32
-            minimum: 0
-            type: integer
-          maxItems: 1000
-          minItems: 1
-          type: array
-          default: null
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/MMRHistory"
-                type: array
-                default: null
-          description: MMR
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch mmr
-      summary: Batch MMR (Deprecated)
-      tags:
-      - MMR
-  /v1/players/mmr/distribution:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. The MMR estimate is gone, this now counts players by the rank Valve reported at the end
-        of their latest ranked match within the filtered range.
-
-        Use `/v1/players/rank/distribution` instead.
-      operationId: mmr_distribution
-      parameters:
-      - description: Filter matches based on their start time (Unix timestamp). **Default:**
-          30 days ago.
-        explode: true
-        in: query
-        name: min_unix_timestamp
-        required: false
-        schema:
-          default: 1790985600
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: max_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: min_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: max_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on whether they are in the high skill range.
-        explode: true
-        in: query
-        name: is_high_skill_range_parties
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on whether they are in the low priority
-          pool.
-        explode: true
-        in: query
-        name: is_low_pri_pool
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on whether they are in the new player pool.
-        explode: true
-        in: query
-        name: is_new_player_pool
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: min_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/DistributionEntry"
-                type: array
-                default: null
-          description: MMR
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch mmr
-      summary: MMR Distribution (Deprecated)
-      tags:
-      - MMR
-  /v1/players/mmr/distribution/{hero_id}:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this counts players by
-        the rank they had on their latest ranked match played on that hero.
-
-        Use `/v1/players/rank/distribution` instead.
-      operationId: hero_mmr_distribution
-      parameters:
-      - description: Filter matches based on their start time (Unix timestamp). **Default:**
-          30 days ago.
-        explode: true
-        in: query
-        name: min_unix_timestamp
-        required: false
-        schema:
-          default: 1790985600
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their start time (Unix timestamp).
-        explode: true
-        in: query
-        name: max_unix_timestamp
-        required: false
-        schema:
-          format: int64
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: min_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their duration in seconds (up to 7000s).
-        explode: true
-        in: query
-        name: max_duration_s
-        required: false
-        schema:
-          format: int64
-          maximum: 7000
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on whether they are in the high skill range.
-        explode: true
-        in: query
-        name: is_high_skill_range_parties
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on whether they are in the low priority
-          pool.
-        explode: true
-        in: query
-        name: is_low_pri_pool
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on whether they are in the new player pool.
-        explode: true
-        in: query
-        name: is_new_player_pool
-        required: false
-        schema:
-          nullable: true
-          type: boolean
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: min_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-        explode: false
-        in: path
-        name: hero_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/DistributionEntry"
-                type: array
-                default: null
-          description: Hero MMR
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch hero mmr
-      summary: Hero MMR Distribution (Deprecated)
-      tags:
-      - MMR
-  /v1/players/mmr/{hero_id}:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns each
-        player's rank on their latest ranked match played on that hero.
-
-        Use `/v1/players/rank?account_ids=...` instead.
-      operationId: hero_mmr
-      parameters:
-      - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
-          \ format."
-        explode: true
-        in: query
-        name: account_ids
-        required: true
-        schema:
-          items:
-            format: int32
-            minimum: 0
-            type: integer
-          maxItems: 1000
-          minItems: 1
-          type: array
-          default: null
-        style: form
-      - description: Filter matches based on their ID.
-        explode: true
-        in: query
-        name: max_match_id
-        required: false
-        schema:
-          format: int64
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-        explode: false
-        in: path
-        name: hero_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/MMRHistory"
-                type: array
-                default: null
-          description: Hero MMR
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch hero mmr
-      summary: Batch Hero MMR (Deprecated)
-      tags:
-      - MMR
   /v1/players/rank:
     get:
       description: |2
@@ -13010,68 +12550,6 @@ paths:
       summary: Batch Rank
       tags:
       - Players
-  /v1/players/rank-predict/image:
-    get:
-      deprecated: true
-      description: "Deprecated alias of `/v1/players/rank/image`. The rank is no longer\
-        \ predicted, it is read from each player's latest ranked match."
-      operationId: rank_predict_avg_image
-      parameters:
-      - description: Comma-separated list of account IDs (max 12).
-        explode: true
-        in: query
-        name: account_ids
-        required: true
-        schema:
-          items:
-            format: int32
-            minimum: 0
-            type: integer
-          type: array
-          default: null
-        style: form
-      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
-        explode: true
-        in: query
-        name: format
-        required: false
-        schema:
-          enum:
-          - png
-          - webp
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            image/png:
-              schema:
-                items:
-                  format: int32
-                  minimum: 0
-                  type: integer
-                type: array
-                default: null
-            image/webp:
-              schema:
-                items:
-                  format: int32
-                  minimum: 0
-                  type: integer
-                type: array
-                default: null
-          description: Average rank badge image
-        "400":
-          description: Invalid or missing account IDs
-        "403":
-          description: One of the users is protected
-        "404":
-          description: No image available for the rank
-        "500":
-          description: Rank lookup failed
-      summary: Rank Predict Avg Image (Deprecated)
-      tags:
-      - Players
   /v1/players/rank/distribution:
     get:
       description: |2
@@ -13099,7 +12577,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1790985600
+          default: 1791072000
           format: int64
           nullable: true
           type: integer
@@ -13850,94 +13328,6 @@ paths:
       summary: Mate Stats
       tags:
       - Players
-  /v1/players/{account_id}/mmr-history:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. The MMR estimate is gone, this now returns one entry per ranked match with the rank
-        Valve reported for the player at the end of that match.
-
-        Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
-        instead.
-      operationId: mmr_history
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/MMRHistory"
-                type: array
-                default: null
-          description: MMR History
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch mmr history
-      summary: MMR History (Deprecated)
-      tags:
-      - MMR
-  /v1/players/{account_id}/mmr-history/{hero_id}:
-    get:
-      deprecated: true
-      description: |2
-
-        Deprecated. Valve reports a single account-wide rank, not a per-hero one, so this returns the
-        player's rank at the end of each ranked match they played on that hero.
-
-        Use the `ranked_display_badge` and `ranked_delta` fields of `/v1/players/{account_id}/match-history`
-        instead.
-      operationId: hero_mmr_history
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      - description: "The hero ID to fetch the MMR history for. See more: <https://api.deadlock-api.com/v1/assets/heroes>"
-        explode: false
-        in: path
-        name: hero_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: "#/components/schemas/MMRHistory"
-                type: array
-                default: null
-          description: Hero MMR History
-        "400":
-          description: Provided parameters are invalid.
-        "500":
-          description: Failed to fetch hero mmr history
-      summary: Hero MMR History (Deprecated)
-      tags:
-      - MMR
   /v1/players/{account_id}/rank:
     get:
       description: |2
@@ -13979,99 +13369,6 @@ paths:
         "500":
           description: Rank lookup failed
       summary: Rank
-      tags:
-      - Players
-  /v1/players/{account_id}/rank-predict:
-    get:
-      deprecated: true
-      description: "Deprecated alias of `/v1/players/{account_id}/rank`. The rank\
-        \ is no longer predicted, it is read from the player's latest ranked match."
-      operationId: rank_predict
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RankResponse"
-          description: OK
-        "400":
-          description: Invalid account ID
-        "403":
-          description: User is protected or endpoint unavailable
-        "500":
-          description: Rank lookup failed
-      summary: Rank Predict (Deprecated)
-      tags:
-      - Players
-  /v1/players/{account_id}/rank-predict/image:
-    get:
-      deprecated: true
-      description: "Deprecated alias of `/v1/players/{account_id}/rank/image`. The\
-        \ rank is no longer predicted, it is read from the player's latest ranked\
-        \ match."
-      operationId: rank_predict_image
-      parameters:
-      - description: The players `SteamID3`
-        explode: false
-        in: path
-        name: account_id
-        required: true
-        schema:
-          format: int32
-          minimum: 0
-          type: integer
-        style: simple
-      - description: "Image format. Defaults to `png`. Supported: `png`, `webp`."
-        explode: true
-        in: query
-        name: format
-        required: false
-        schema:
-          enum:
-          - png
-          - webp
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            image/png:
-              schema:
-                items:
-                  format: int32
-                  minimum: 0
-                  type: integer
-                type: array
-                default: null
-            image/webp:
-              schema:
-                items:
-                  format: int32
-                  minimum: 0
-                  type: integer
-                type: array
-                default: null
-          description: Rank badge image
-        "400":
-          description: Invalid account ID
-        "403":
-          description: User is protected or endpoint unavailable
-        "404":
-          description: No image available for the rank
-        "500":
-          description: Rank lookup failed
-      summary: Rank Predict Image (Deprecated)
       tags:
       - Players
   /v1/players/{account_id}/rank/image:
@@ -16879,22 +16176,6 @@ components:
           nullable: true
           type: array
           default: null
-    DistributionEntry:
-      example:
-        players: 0
-        rank: 0
-      properties:
-        players:
-          format: int64
-          minimum: 0
-          type: integer
-        rank:
-          format: int32
-          minimum: 0
-          type: integer
-      required:
-      - players
-      - rank
     DraftBucket:
       properties:
         good:
@@ -20546,72 +19827,6 @@ components:
       required:
       - broadcast_url
       - match_id
-    LootEntry:
-      properties:
-        item:
-          type: string
-      required:
-      - item
-    LootTable:
-      properties:
-        entries:
-          items:
-            $ref: "#/components/schemas/LootEntry"
-          type: array
-          default: null
-      required:
-      - entries
-    MMRHistory:
-      example:
-        account_id: 0
-        division: 0
-        division_tier: 0
-        match_id: 0
-        player_score: 5.637376656633329
-        rank: 0
-        start_time: 0
-      properties:
-        account_id:
-          format: int32
-          minimum: 0
-          type: integer
-        division:
-          description: Extracted from the rank the division (rank // 10)
-          format: int32
-          minimum: 0
-          type: integer
-        division_tier:
-          description: Extracted from the rank the division tier (rank % 10)
-          format: int32
-          minimum: 0
-          type: integer
-        match_id:
-          format: int64
-          minimum: 0
-          type: integer
-        player_score:
-          description: "Contiguous index of the rank (1-66), derived from `rank`"
-          format: double
-          type: number
-        rank:
-          description: "The Player Rank (tier = first digits, subtier = last digit).\
-            \ See more: <https://api.deadlock-api.com/v1/assets/ranks>"
-          format: int32
-          minimum: 0
-          type: integer
-        start_time:
-          description: Start time of the match
-          format: int32
-          minimum: 0
-          type: integer
-      required:
-      - account_id
-      - division
-      - division_tier
-      - match_id
-      - player_score
-      - rank
-      - start_time
     MapData:
       description: The `/v1/assets/map` response.
       example:
@@ -25928,7 +25143,6 @@ x-tagGroups:
   - Players
   - Matches
   - Steam
-  - MMR
   - Analytics
   - Builds
   - Leaderboard
@@ -25947,7 +25161,6 @@ x-tagGroups:
   - Assets Bucket
   - Misc Entities
   - Generic Data
-  - Loot Tables
   - Accolades
   - Steam Info
   - Colors

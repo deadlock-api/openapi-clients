@@ -200,43 +200,5 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }
-
-        /// <summary>
-        /// Test RankPredict
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task RankPredictAsyncTest()
-        {
-            int accountId = default!;
-            var response = await _instance.RankPredictAsync(accountId);
-            var model = response.Ok();
-            Assert.IsType<DeadlockApiClient.Model.RankResponse>(model);
-        }
-
-        /// <summary>
-        /// Test RankPredictAvgImage
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task RankPredictAvgImageAsyncTest()
-        {
-            List<int> accountIds = default!;
-            Client.Option<string> format = default!;
-            var response = await _instance.RankPredictAvgImageAsync(accountIds, format);
-            var model = response.Ok();
-            Assert.IsType<List<int>>(model);
-        }
-
-        /// <summary>
-        /// Test RankPredictImage
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task RankPredictImageAsyncTest()
-        {
-            int accountId = default!;
-            Client.Option<string> format = default!;
-            var response = await _instance.RankPredictImageAsync(accountId, format);
-            var model = response.Ok();
-            Assert.IsType<List<int>>(model);
-        }
     }
 }

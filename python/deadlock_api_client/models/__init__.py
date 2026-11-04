@@ -73,7 +73,6 @@ from deadlock_api_client.models.demo_query_request import DemoQueryRequest
 from deadlock_api_client.models.demo_query_status_response import DemoQueryStatusResponse
 from deadlock_api_client.models.demo_schema_response import DemoSchemaResponse
 from deadlock_api_client.models.dependant_abilities import DependantAbilities
-from deadlock_api_client.models.distribution_entry import DistributionEntry
 from deadlock_api_client.models.draft_bucket import DraftBucket
 from deadlock_api_client.models.draft_buckets import DraftBuckets
 from deadlock_api_client.models.enemy_stats import EnemyStats
@@ -146,9 +145,6 @@ from deadlock_api_client.models.leaderboard import Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry
 from deadlock_api_client.models.list_steam_accounts_response import ListSteamAccountsResponse
 from deadlock_api_client.models.live_url import LiveUrl
-from deadlock_api_client.models.loot_entry import LootEntry
-from deadlock_api_client.models.loot_table import LootTable
-from deadlock_api_client.models.mmr_history import MMRHistory
 from deadlock_api_client.models.map_data import MapData
 from deadlock_api_client.models.map_district import MapDistrict
 from deadlock_api_client.models.map_entities import MapEntities

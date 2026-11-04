@@ -138,35 +138,6 @@ export declare const PlayersApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     rankImage: (accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict (Deprecated)
-     * @param {number} accountId The players &#x60;SteamID3&#x60;
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredict: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-     * @summary Rank Predict Avg Image (Deprecated)
-     * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictAvgImage: (accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict Image (Deprecated)
-     * @param {number} accountId The players &#x60;SteamID3&#x60;
-     * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictImage: (accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * PlayersApi - functional programming interface
@@ -287,35 +258,6 @@ export declare const PlayersApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     rankImage(accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict (Deprecated)
-     * @param {number} accountId The players &#x60;SteamID3&#x60;
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredict(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RankResponse>>;
-    /**
-     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-     * @summary Rank Predict Avg Image (Deprecated)
-     * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-     * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictAvgImage(accountIds: Array<number>, format?: RankPredictAvgImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict Image (Deprecated)
-     * @param {number} accountId The players &#x60;SteamID3&#x60;
-     * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictImage(accountId: number, format?: RankPredictImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
 };
 /**
  * PlayersApi - factory interface
@@ -393,33 +335,6 @@ export declare const PlayersApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict (Deprecated)
-     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): AxiosPromise<RankResponse>;
-    /**
-     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-     * @summary Rank Predict Avg Image (Deprecated)
-     * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict Image (Deprecated)
-     * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
 };
 /**
  * Request parameters for enemyStats operation in PlayersApi.
@@ -675,41 +590,6 @@ export interface PlayersApiRankImageRequest {
     readonly format?: RankImageFormatEnum;
 }
 /**
- * Request parameters for rankPredict operation in PlayersApi.
- */
-export interface PlayersApiRankPredictRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number;
-}
-/**
- * Request parameters for rankPredictAvgImage operation in PlayersApi.
- */
-export interface PlayersApiRankPredictAvgImageRequest {
-    /**
-     * Comma-separated list of account IDs (max 12).
-     */
-    readonly accountIds: Array<number>;
-    /**
-     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     */
-    readonly format?: RankPredictAvgImageFormatEnum;
-}
-/**
- * Request parameters for rankPredictImage operation in PlayersApi.
- */
-export interface PlayersApiRankPredictImageRequest {
-    /**
-     * The players &#x60;SteamID3&#x60;
-     */
-    readonly accountId: number;
-    /**
-     * Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-     */
-    readonly format?: RankPredictImageFormatEnum;
-}
-/**
  * PlayersApi - object-oriented interface
  */
 export declare class PlayersApi extends BaseAPI {
@@ -785,33 +665,6 @@ export declare class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict (Deprecated)
-     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredict(requestParameters: PlayersApiRankPredictRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<RankResponse, any, {}, any>>;
-    /**
-     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-     * @summary Rank Predict Avg Image (Deprecated)
-     * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictAvgImage(requestParameters: PlayersApiRankPredictAvgImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict Image (Deprecated)
-     * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictImage(requestParameters: PlayersApiRankPredictImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
 }
 export declare const EnemyStatsGameModeEnum: {
     readonly Normal: "normal";
@@ -847,14 +700,4 @@ export declare const RankImageFormatEnum: {
     readonly Webp: "webp";
 };
 export type RankImageFormatEnum = typeof RankImageFormatEnum[keyof typeof RankImageFormatEnum];
-export declare const RankPredictAvgImageFormatEnum: {
-    readonly Png: "png";
-    readonly Webp: "webp";
-};
-export type RankPredictAvgImageFormatEnum = typeof RankPredictAvgImageFormatEnum[keyof typeof RankPredictAvgImageFormatEnum];
-export declare const RankPredictImageFormatEnum: {
-    readonly Png: "png";
-    readonly Webp: "webp";
-};
-export type RankPredictImageFormatEnum = typeof RankPredictImageFormatEnum[keyof typeof RankPredictImageFormatEnum];
 //# sourceMappingURL=players-api.d.ts.map

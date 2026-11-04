@@ -22,8 +22,6 @@ api/Api/InfoApi.php
 api/Api/InternalApi.php
 api/Api/ItemsApi.php
 api/Api/LeaderboardApi.php
-api/Api/LootTablesApi.php
-api/Api/MMRApi.php
 api/Api/MapApi.php
 api/Api/MatchesApi.php
 api/Api/MiscEntitiesApi.php
@@ -100,7 +98,6 @@ api/Model/DemoQueryRequest.php
 api/Model/DemoQueryStatusResponse.php
 api/Model/DemoSchemaResponse.php
 api/Model/DependantAbilities.php
-api/Model/DistributionEntry.php
 api/Model/DraftBucket.php
 api/Model/DraftBuckets.php
 api/Model/EnemyStats.php
@@ -173,9 +170,6 @@ api/Model/Leaderboard.php
 api/Model/LeaderboardEntry.php
 api/Model/ListSteamAccountsResponse.php
 api/Model/LiveUrl.php
-api/Model/LootEntry.php
-api/Model/LootTable.php
-api/Model/MMRHistory.php
 api/Model/MapData.php
 api/Model/MapDistrict.php
 api/Model/MapEntities.php
@@ -309,8 +303,6 @@ docs/Api/InfoApi.md
 docs/Api/InternalApi.md
 docs/Api/ItemsApi.md
 docs/Api/LeaderboardApi.md
-docs/Api/LootTablesApi.md
-docs/Api/MMRApi.md
 docs/Api/MapApi.md
 docs/Api/MatchesApi.md
 docs/Api/MiscEntitiesApi.md
@@ -383,7 +375,6 @@ docs/Model/DemoQueryRequest.md
 docs/Model/DemoQueryStatusResponse.md
 docs/Model/DemoSchemaResponse.md
 docs/Model/DependantAbilities.md
-docs/Model/DistributionEntry.md
 docs/Model/DraftBucket.md
 docs/Model/DraftBuckets.md
 docs/Model/EnemyStats.md
@@ -456,9 +447,6 @@ docs/Model/Leaderboard.md
 docs/Model/LeaderboardEntry.md
 docs/Model/ListSteamAccountsResponse.md
 docs/Model/LiveUrl.md
-docs/Model/LootEntry.md
-docs/Model/LootTable.md
-docs/Model/MMRHistory.md
 docs/Model/MapData.md
 docs/Model/MapDistrict.md
 docs/Model/MapEntities.md
@@ -591,8 +579,6 @@ test/Api/InfoApiTest.php
 test/Api/InternalApiTest.php
 test/Api/ItemsApiTest.php
 test/Api/LeaderboardApiTest.php
-test/Api/LootTablesApiTest.php
-test/Api/MMRApiTest.php
 test/Api/MapApiTest.php
 test/Api/MatchesApiTest.php
 test/Api/MiscEntitiesApiTest.php
@@ -665,7 +651,6 @@ test/Model/DemoQueryRequestTest.php
 test/Model/DemoQueryStatusResponseTest.php
 test/Model/DemoSchemaResponseTest.php
 test/Model/DependantAbilitiesTest.php
-test/Model/DistributionEntryTest.php
 test/Model/DraftBucketTest.php
 test/Model/DraftBucketsTest.php
 test/Model/EnemyStatsTest.php
@@ -738,9 +723,6 @@ test/Model/LeaderboardEntryTest.php
 test/Model/LeaderboardTest.php
 test/Model/ListSteamAccountsResponseTest.php
 test/Model/LiveUrlTest.php
-test/Model/LootEntryTest.php
-test/Model/LootTableTest.php
-test/Model/MMRHistoryTest.php
 test/Model/MapDataTest.php
 test/Model/MapDistrictTest.php
 test/Model/MapEntitiesTest.php

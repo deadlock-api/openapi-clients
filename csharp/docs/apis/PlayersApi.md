@@ -13,9 +13,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**RankBatch**](PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
 | [**RankDistribution**](PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**RankImage**](PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
-| [**RankPredict**](PlayersApi.md#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated) |
-| [**RankPredictAvgImage**](PlayersApi.md#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated) |
-| [**RankPredictImage**](PlayersApi.md#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated) |
 
 <a id="enemystats"></a>
 # **EnemyStats**
@@ -334,7 +331,7 @@ Rank Distribution
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1790985600] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791072000] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -374,127 +371,6 @@ No authorization required
 Rank Image
 
 Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
-| **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
-
-### Return type
-
-**List<int>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png, image/webp
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Rank badge image |  -  |
-| **400** | Invalid account ID |  -  |
-| **403** | User is protected or endpoint unavailable |  -  |
-| **404** | No image available for the rank |  -  |
-| **500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="rankpredict"></a>
-# **RankPredict**
-> RankResponse RankPredict (int accountId)
-
-Rank Predict (Deprecated)
-
-Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
-
-### Return type
-
-[**RankResponse**](RankResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Invalid account ID |  -  |
-| **403** | User is protected or endpoint unavailable |  -  |
-| **500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="rankpredictavgimage"></a>
-# **RankPredictAvgImage**
-> List&lt;int&gt; RankPredictAvgImage (List<int> accountIds, string format = null)
-
-Rank Predict Avg Image (Deprecated)
-
-Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma-separated list of account IDs (max 12). |  |
-| **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | [optional]  |
-
-### Return type
-
-**List<int>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png, image/webp
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Average rank badge image |  -  |
-| **400** | Invalid or missing account IDs |  -  |
-| **403** | One of the users is protected |  -  |
-| **404** | No image available for the rank |  -  |
-| **500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="rankpredictimage"></a>
-# **RankPredictImage**
-> List&lt;int&gt; RankPredictImage (int accountId, string format = null)
-
-Rank Predict Image (Deprecated)
-
-Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
 
 
 ### Parameters

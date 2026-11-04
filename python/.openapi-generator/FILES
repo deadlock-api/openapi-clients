@@ -25,11 +25,9 @@ deadlock_api_client/api/info_api.py
 deadlock_api_client/api/internal_api.py
 deadlock_api_client/api/items_api.py
 deadlock_api_client/api/leaderboard_api.py
-deadlock_api_client/api/loot_tables_api.py
 deadlock_api_client/api/map_api.py
 deadlock_api_client/api/matches_api.py
 deadlock_api_client/api/misc_entities_api.py
-deadlock_api_client/api/mmr_api.py
 deadlock_api_client/api/modifiers_api.py
 deadlock_api_client/api/npc_units_api.py
 deadlock_api_client/api/patches_api.py
@@ -104,7 +102,6 @@ deadlock_api_client/models/demo_query_request.py
 deadlock_api_client/models/demo_query_status_response.py
 deadlock_api_client/models/demo_schema_response.py
 deadlock_api_client/models/dependant_abilities.py
-deadlock_api_client/models/distribution_entry.py
 deadlock_api_client/models/draft_bucket.py
 deadlock_api_client/models/draft_buckets.py
 deadlock_api_client/models/enemy_stats.py
@@ -177,8 +174,6 @@ deadlock_api_client/models/leaderboard.py
 deadlock_api_client/models/leaderboard_entry.py
 deadlock_api_client/models/list_steam_accounts_response.py
 deadlock_api_client/models/live_url.py
-deadlock_api_client/models/loot_entry.py
-deadlock_api_client/models/loot_table.py
 deadlock_api_client/models/map_data.py
 deadlock_api_client/models/map_district.py
 deadlock_api_client/models/map_entities.py
@@ -191,7 +186,6 @@ deadlock_api_client/models/mate_stats.py
 deadlock_api_client/models/metric_values.py
 deadlock_api_client/models/mini_map_offsets.py
 deadlock_api_client/models/misc_entity.py
-deadlock_api_client/models/mmr_history.py
 deadlock_api_client/models/modifier.py
 deadlock_api_client/models/modifier_value.py
 deadlock_api_client/models/neutral_camp.py
@@ -365,7 +359,6 @@ docs/DemoQueryRequest.md
 docs/DemoQueryStatusResponse.md
 docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
-docs/DistributionEntry.md
 docs/DraftBucket.md
 docs/DraftBuckets.md
 docs/EnemyStats.md
@@ -445,11 +438,6 @@ docs/LeaderboardApi.md
 docs/LeaderboardEntry.md
 docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
-docs/LootEntry.md
-docs/LootTable.md
-docs/LootTablesApi.md
-docs/MMRApi.md
-docs/MMRHistory.md
 docs/MapApi.md
 docs/MapData.md
 docs/MapDistrict.md
@@ -652,7 +640,6 @@ test/test_demo_query_request.py
 test/test_demo_query_status_response.py
 test/test_demo_schema_response.py
 test/test_dependant_abilities.py
-test/test_distribution_entry.py
 test/test_draft_bucket.py
 test/test_draft_buckets.py
 test/test_enemy_stats.py
@@ -732,9 +719,6 @@ test/test_leaderboard_api.py
 test/test_leaderboard_entry.py
 test/test_list_steam_accounts_response.py
 test/test_live_url.py
-test/test_loot_entry.py
-test/test_loot_table.py
-test/test_loot_tables_api.py
 test/test_map_api.py
 test/test_map_data.py
 test/test_map_district.py
@@ -750,8 +734,6 @@ test/test_metric_values.py
 test/test_mini_map_offsets.py
 test/test_misc_entities_api.py
 test/test_misc_entity.py
-test/test_mmr_api.py
-test/test_mmr_history.py
 test/test_modifier.py
 test/test_modifier_value.py
 test/test_modifiers_api.py

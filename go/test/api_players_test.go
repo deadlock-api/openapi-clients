@@ -140,44 +140,4 @@ func Test_deadlock_api_client_PlayersAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test PlayersAPIService RankPredict", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var accountId int32
-
-		resp, httpRes, err := apiClient.PlayersAPI.RankPredict(context.Background(), accountId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PlayersAPIService RankPredictAvgImage", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		resp, httpRes, err := apiClient.PlayersAPI.RankPredictAvgImage(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test PlayersAPIService RankPredictImage", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var accountId int32
-
-		resp, httpRes, err := apiClient.PlayersAPI.RankPredictImage(context.Background(), accountId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 }

@@ -87,10 +87,6 @@ type APIClient struct {
 
 	LeaderboardAPI *LeaderboardAPIService
 
-	LootTablesAPI *LootTablesAPIService
-
-	MMRAPI *MMRAPIService
-
 	MapAPI *MapAPIService
 
 	MatchesAPI *MatchesAPIService
@@ -151,8 +147,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.InternalAPI = (*InternalAPIService)(&c.common)
 	c.ItemsAPI = (*ItemsAPIService)(&c.common)
 	c.LeaderboardAPI = (*LeaderboardAPIService)(&c.common)
-	c.LootTablesAPI = (*LootTablesAPIService)(&c.common)
-	c.MMRAPI = (*MMRAPIService)(&c.common)
 	c.MapAPI = (*MapAPIService)(&c.common)
 	c.MatchesAPI = (*MatchesAPIService)(&c.common)
 	c.MiscEntitiesAPI = (*MiscEntitiesAPIService)(&c.common)

@@ -155,31 +155,5 @@ class PlayersApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
-        // to test rankPredict
-        should("test rankPredict") {
-            // uncomment below to test rankPredict
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val result : RankResponse = apiInstance.rankPredict(accountId)
-            //result shouldBe ("TODO")
-        }
-
-        // to test rankPredictAvgImage
-        should("test rankPredictAvgImage") {
-            // uncomment below to test rankPredictAvgImage
-            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma-separated list of account IDs (max 12).
-            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictAvgImage(accountIds, format)
-            //result shouldBe ("TODO")
-        }
-
-        // to test rankPredictImage
-        should("test rankPredictImage") {
-            // uncomment below to test rankPredictImage
-            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
-            //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
-            //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankPredictImage(accountId, format)
-            //result shouldBe ("TODO")
-        }
-
     }
 }

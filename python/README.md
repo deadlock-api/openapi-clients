@@ -201,13 +201,6 @@ Class | Method | HTTP request | Description
 *LeaderboardApi* | [**leaderboard_hero**](docs/LeaderboardApi.md#leaderboard_hero) | **GET** /v1/leaderboard/{region}/{hero_id} | Hero Leaderboard
 *LeaderboardApi* | [**leaderboard_hero_raw**](docs/LeaderboardApi.md#leaderboard_hero_raw) | **GET** /v1/leaderboard/{region}/{hero_id}/raw | Hero Leaderboard as Protobuf
 *LeaderboardApi* | [**leaderboard_raw**](docs/LeaderboardApi.md#leaderboard_raw) | **GET** /v1/leaderboard/{region}/raw | Leaderboard as Protobuf
-*LootTablesApi* | [**list_loot_tables**](docs/LootTablesApi.md#list_loot_tables) | **GET** /v1/assets/loot-tables | List Loot Tables
-*MMRApi* | [**hero_mmr**](docs/MMRApi.md#hero_mmr) | **GET** /v1/players/mmr/{hero_id} | Batch Hero MMR (Deprecated)
-*MMRApi* | [**hero_mmr_distribution**](docs/MMRApi.md#hero_mmr_distribution) | **GET** /v1/players/mmr/distribution/{hero_id} | Hero MMR Distribution (Deprecated)
-*MMRApi* | [**hero_mmr_history**](docs/MMRApi.md#hero_mmr_history) | **GET** /v1/players/{account_id}/mmr-history/{hero_id} | Hero MMR History (Deprecated)
-*MMRApi* | [**mmr**](docs/MMRApi.md#mmr) | **GET** /v1/players/mmr | Batch MMR (Deprecated)
-*MMRApi* | [**mmr_distribution**](docs/MMRApi.md#mmr_distribution) | **GET** /v1/players/mmr/distribution | MMR Distribution (Deprecated)
-*MMRApi* | [**mmr_history**](docs/MMRApi.md#mmr_history) | **GET** /v1/players/{account_id}/mmr-history | MMR History (Deprecated)
 *MapApi* | [**get_map**](docs/MapApi.md#get_map) | **GET** /v1/assets/map | Map
 *MatchesApi* | [**active_matches**](docs/MatchesApi.md#active_matches) | **GET** /v1/matches/active | Active
 *MatchesApi* | [**active_matches_raw**](docs/MatchesApi.md#active_matches_raw) | **GET** /v1/matches/active/raw | Active as Protobuf
@@ -237,9 +230,6 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**rank_batch**](docs/PlayersApi.md#rank_batch) | **GET** /v1/players/rank | Batch Rank
 *PlayersApi* | [**rank_distribution**](docs/PlayersApi.md#rank_distribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 *PlayersApi* | [**rank_image**](docs/PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
-*PlayersApi* | [**rank_predict**](docs/PlayersApi.md#rank_predict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
-*PlayersApi* | [**rank_predict_avg_image**](docs/PlayersApi.md#rank_predict_avg_image) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
-*PlayersApi* | [**rank_predict_image**](docs/PlayersApi.md#rank_predict_image) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
 *RankedSeasonsApi* | [**list_ranked_seasons**](docs/RankedSeasonsApi.md#list_ranked_seasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksApi* | [**get_rank**](docs/RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**list_ranks**](docs/RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
@@ -315,7 +305,6 @@ Class | Method | HTTP request | Description
  - [DemoQueryStatusResponse](docs/DemoQueryStatusResponse.md)
  - [DemoSchemaResponse](docs/DemoSchemaResponse.md)
  - [DependantAbilities](docs/DependantAbilities.md)
- - [DistributionEntry](docs/DistributionEntry.md)
  - [DraftBucket](docs/DraftBucket.md)
  - [DraftBuckets](docs/DraftBuckets.md)
  - [EnemyStats](docs/EnemyStats.md)
@@ -388,9 +377,6 @@ Class | Method | HTTP request | Description
  - [LeaderboardEntry](docs/LeaderboardEntry.md)
  - [ListSteamAccountsResponse](docs/ListSteamAccountsResponse.md)
  - [LiveUrl](docs/LiveUrl.md)
- - [LootEntry](docs/LootEntry.md)
- - [LootTable](docs/LootTable.md)
- - [MMRHistory](docs/MMRHistory.md)
  - [MapData](docs/MapData.md)
  - [MapDistrict](docs/MapDistrict.md)
  - [MapEntities](docs/MapEntities.md)

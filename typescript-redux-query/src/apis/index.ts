@@ -17,8 +17,6 @@ export * from './InfoApi';
 export * from './InternalApi';
 export * from './ItemsApi';
 export * from './LeaderboardApi';
-export * from './LootTablesApi';
-export * from './MMRApi';
 export * from './MapApi';
 export * from './MatchesApi';
 export * from './MiscEntitiesApi';

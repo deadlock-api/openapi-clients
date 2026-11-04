@@ -178,40 +178,4 @@ class PlayersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test case for rankPredict
-     *
-     * Rank Predict (Deprecated).
-     *
-     */
-    public function testRankPredict()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for rankPredictAvgImage
-     *
-     * Rank Predict Avg Image (Deprecated).
-     *
-     */
-    public function testRankPredictAvgImage()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for rankPredictImage
-     *
-     * Rank Predict Image (Deprecated).
-     *
-     */
-    public function testRankPredictImage()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

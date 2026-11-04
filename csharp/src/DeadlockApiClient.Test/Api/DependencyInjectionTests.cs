@@ -139,12 +139,6 @@ namespace DeadlockApiClient.Test.Api
             var leaderboardApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
 
-            var lootTablesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ILootTablesApi>();
-            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
-
-            var mMRApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMMRApi>();
-            Assert.True(mMRApi.HttpClient.BaseAddress != null);
-
             var mapApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMapApi>();
             Assert.True(mapApi.HttpClient.BaseAddress != null);
 
@@ -244,12 +238,6 @@ namespace DeadlockApiClient.Test.Api
 
             var leaderboardApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
-
-            var lootTablesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ILootTablesApi>();
-            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
-
-            var mMRApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMMRApi>();
-            Assert.True(mMRApi.HttpClient.BaseAddress != null);
 
             var mapApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMapApi>();
             Assert.True(mapApi.HttpClient.BaseAddress != null);
@@ -351,12 +339,6 @@ namespace DeadlockApiClient.Test.Api
             var leaderboardApi = _hostUsingAddWithAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
             
-            var lootTablesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ILootTablesApi>();
-            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
-            
-            var mMRApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMMRApi>();
-            Assert.True(mMRApi.HttpClient.BaseAddress != null);
-            
             var mapApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMapApi>();
             Assert.True(mapApi.HttpClient.BaseAddress != null);
             
@@ -456,12 +438,6 @@ namespace DeadlockApiClient.Test.Api
 
             var leaderboardApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ILeaderboardApi>();
             Assert.True(leaderboardApi.HttpClient.BaseAddress != null);
-
-            var lootTablesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ILootTablesApi>();
-            Assert.True(lootTablesApi.HttpClient.BaseAddress != null);
-
-            var mMRApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMMRApi>();
-            Assert.True(mMRApi.HttpClient.BaseAddress != null);
 
             var mapApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMapApi>();
             Assert.True(mapApi.HttpClient.BaseAddress != null);

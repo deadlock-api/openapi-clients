@@ -117,20 +117,6 @@ export interface RankImageRequest {
     format?: RankImageFormatEnum;
 }
 
-export interface RankPredictRequest {
-    accountId: number;
-}
-
-export interface RankPredictAvgImageRequest {
-    accountIds: Array<number>;
-    format?: RankPredictAvgImageFormatEnum;
-}
-
-export interface RankPredictImageRequest {
-    accountId: number;
-    format?: RankPredictImageFormatEnum;
-}
-
 
 /**
  *  This endpoint returns the enemy stats.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
@@ -801,165 +787,6 @@ export function rankImage<T>(requestParameters: RankImageRequest, requestConfig?
     return rankImageRaw(requestParameters, requestConfig);
 }
 
-/**
- * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
- * Rank Predict (Deprecated)
- */
-function rankPredictRaw<T>(requestParameters: RankPredictRequest, requestConfig: runtime.TypedQueryConfig<T, RankResponse> = {}): QueryConfig<T> {
-    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
-        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankPredict.');
-    }
-
-    let queryParameters = null;
-
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(RankResponseFromJSON(body), text);
-    }
-
-    return config;
-}
-
-/**
-* Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-* Rank Predict (Deprecated)
-*/
-export function rankPredict<T>(requestParameters: RankPredictRequest, requestConfig?: runtime.TypedQueryConfig<T, RankResponse>): QueryConfig<T> {
-    return rankPredictRaw(requestParameters, requestConfig);
-}
-
-/**
- * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
- * Rank Predict Avg Image (Deprecated)
- */
-function rankPredictAvgImageRaw<T>(requestParameters: RankPredictAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
-    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
-        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling rankPredictAvgImage.');
-    }
-
-    let queryParameters = null;
-
-    queryParameters = {};
-
-
-    if (requestParameters.accountIds) {
-        queryParameters['account_ids'] = requestParameters.accountIds;
-    }
-
-
-    if (requestParameters.format !== undefined) {
-        queryParameters['format'] = requestParameters.format;
-    }
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/rank-predict/image`,
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-    }
-
-    return config;
-}
-
-/**
-* Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-* Rank Predict Avg Image (Deprecated)
-*/
-export function rankPredictAvgImage<T>(requestParameters: RankPredictAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
-    return rankPredictAvgImageRaw(requestParameters, requestConfig);
-}
-
-/**
- * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
- * Rank Predict Image (Deprecated)
- */
-function rankPredictImageRaw<T>(requestParameters: RankPredictImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
-    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
-        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling rankPredictImage.');
-    }
-
-    let queryParameters = null;
-
-    queryParameters = {};
-
-
-    if (requestParameters.format !== undefined) {
-        queryParameters['format'] = requestParameters.format;
-    }
-
-    const headerParameters : runtime.HttpHeaders = {};
-
-
-    const { meta = {} } = requestConfig;
-
-    const config: QueryConfig<T> = {
-        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/rank-predict/image`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
-        meta,
-        update: requestConfig.update,
-        queryKey: requestConfig.queryKey,
-        optimisticUpdate: requestConfig.optimisticUpdate,
-        force: requestConfig.force,
-        rollback: requestConfig.rollback,
-        options: {
-            method: 'GET',
-            headers: headerParameters,
-        },
-        body: queryParameters,
-    };
-
-    const { transform: requestTransform } = requestConfig;
-    if (requestTransform) {
-    }
-
-    return config;
-}
-
-/**
-* Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-* Rank Predict Image (Deprecated)
-*/
-export function rankPredictImage<T>(requestParameters: RankPredictImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
-    return rankPredictImageRaw(requestParameters, requestConfig);
-}
-
 
 /**
     * @export
@@ -1007,22 +834,6 @@ export enum RankAvgImageFormatEnum {
     * @enum {string}
     */
 export enum RankImageFormatEnum {
-    Png = 'png',
-    Webp = 'webp'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum RankPredictAvgImageFormatEnum {
-    Png = 'png',
-    Webp = 'webp'
-}
-/**
-    * @export
-    * @enum {string}
-    */
-export enum RankPredictImageFormatEnum {
     Png = 'png',
     Webp = 'webp'
 }

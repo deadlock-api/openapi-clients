@@ -13,9 +13,6 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**rankBatch**](#rankbatch) | **GET** /v1/players/rank | Batch Rank|
 |[**rankDistribution**](#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution|
 |[**rankImage**](#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image|
-|[**rankPredict**](#rankpredict) | **GET** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)|
-|[**rankPredictAvgImage**](#rankpredictavgimage) | **GET** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)|
-|[**rankPredictImage**](#rankpredictimage) | **GET** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)|
 
 # **enemyStats**
 > Array<EnemyStats> enemyStats()
@@ -510,7 +507,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790985600)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791072000)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -537,7 +534,7 @@ const { status, data } = await apiInstance.rankDistribution(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1790985600|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1791072000|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -591,176 +588,6 @@ let accountId: number; //The players `SteamID3` (default to undefined)
 let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.rankImage(
-    accountId,
-    format
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
-| **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
-
-
-### Return type
-
-**Array<number>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png, image/webp
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Rank badge image |  -  |
-|**400** | Invalid account ID |  -  |
-|**403** | User is protected or endpoint unavailable |  -  |
-|**404** | No image available for the rank |  -  |
-|**500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rankPredict**
-> RankResponse rankPredict()
-
-Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-
-### Example
-
-```typescript
-import {
-    PlayersApi,
-    Configuration
-} from 'deadlock_api_client';
-
-const configuration = new Configuration();
-const apiInstance = new PlayersApi(configuration);
-
-let accountId: number; //The players `SteamID3` (default to undefined)
-
-const { status, data } = await apiInstance.rankPredict(
-    accountId
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
-
-
-### Return type
-
-**RankResponse**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | OK |  -  |
-|**400** | Invalid account ID |  -  |
-|**403** | User is protected or endpoint unavailable |  -  |
-|**500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rankPredictAvgImage**
-> Array<number> rankPredictAvgImage()
-
-Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-
-### Example
-
-```typescript
-import {
-    PlayersApi,
-    Configuration
-} from 'deadlock_api_client';
-
-const configuration = new Configuration();
-const apiInstance = new PlayersApi(configuration);
-
-let accountIds: Array<number>; //Comma-separated list of account IDs (max 12). (default to undefined)
-let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
-
-const { status, data } = await apiInstance.rankPredictAvgImage(
-    accountIds,
-    format
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **accountIds** | **Array&lt;number&gt;** | Comma-separated list of account IDs (max 12). | defaults to undefined|
-| **format** | [**&#39;png&#39; | &#39;webp&#39;**]**Array<&#39;png&#39; &#124; &#39;webp&#39;>** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | (optional) defaults to undefined|
-
-
-### Return type
-
-**Array<number>**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/png, image/webp
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Average rank badge image |  -  |
-|**400** | Invalid or missing account IDs |  -  |
-|**403** | One of the users is protected |  -  |
-|**404** | No image available for the rank |  -  |
-|**500** | Rank lookup failed |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **rankPredictImage**
-> Array<number> rankPredictImage()
-
-Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-
-### Example
-
-```typescript
-import {
-    PlayersApi,
-    Configuration
-} from 'deadlock_api_client';
-
-const configuration = new Configuration();
-const apiInstance = new PlayersApi(configuration);
-
-let accountId: number; //The players `SteamID3` (default to undefined)
-let format: 'png' | 'webp'; //Image format. Defaults to `png`. Supported: `png`, `webp`. (optional) (default to undefined)
-
-const { status, data } = await apiInstance.rankPredictImage(
     accountId,
     format
 );

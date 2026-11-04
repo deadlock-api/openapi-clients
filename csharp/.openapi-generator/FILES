@@ -23,8 +23,6 @@ docs/apis/InfoApi.md
 docs/apis/InternalApi.md
 docs/apis/ItemsApi.md
 docs/apis/LeaderboardApi.md
-docs/apis/LootTablesApi.md
-docs/apis/MMRApi.md
 docs/apis/MapApi.md
 docs/apis/MatchesApi.md
 docs/apis/MiscEntitiesApi.md
@@ -97,7 +95,6 @@ docs/models/DemoQueryRequest.md
 docs/models/DemoQueryStatusResponse.md
 docs/models/DemoSchemaResponse.md
 docs/models/DependantAbilities.md
-docs/models/DistributionEntry.md
 docs/models/DraftBucket.md
 docs/models/DraftBuckets.md
 docs/models/EnemyStats.md
@@ -170,9 +167,6 @@ docs/models/Leaderboard.md
 docs/models/LeaderboardEntry.md
 docs/models/ListSteamAccountsResponse.md
 docs/models/LiveUrl.md
-docs/models/LootEntry.md
-docs/models/LootTable.md
-docs/models/MMRHistory.md
 docs/models/MapData.md
 docs/models/MapDistrict.md
 docs/models/MapEntities.md
@@ -307,8 +301,6 @@ src/DeadlockApiClient.Test/Api/InfoApiTests.cs
 src/DeadlockApiClient.Test/Api/InternalApiTests.cs
 src/DeadlockApiClient.Test/Api/ItemsApiTests.cs
 src/DeadlockApiClient.Test/Api/LeaderboardApiTests.cs
-src/DeadlockApiClient.Test/Api/LootTablesApiTests.cs
-src/DeadlockApiClient.Test/Api/MMRApiTests.cs
 src/DeadlockApiClient.Test/Api/MapApiTests.cs
 src/DeadlockApiClient.Test/Api/MatchesApiTests.cs
 src/DeadlockApiClient.Test/Api/MiscEntitiesApiTests.cs
@@ -382,7 +374,6 @@ src/DeadlockApiClient.Test/Model/DemoQueryRequestTests.cs
 src/DeadlockApiClient.Test/Model/DemoQueryStatusResponseTests.cs
 src/DeadlockApiClient.Test/Model/DemoSchemaResponseTests.cs
 src/DeadlockApiClient.Test/Model/DependantAbilitiesTests.cs
-src/DeadlockApiClient.Test/Model/DistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/DraftBucketTests.cs
 src/DeadlockApiClient.Test/Model/DraftBucketsTests.cs
 src/DeadlockApiClient.Test/Model/EnemyStatsTests.cs
@@ -455,9 +446,6 @@ src/DeadlockApiClient.Test/Model/LeaderboardEntryTests.cs
 src/DeadlockApiClient.Test/Model/LeaderboardTests.cs
 src/DeadlockApiClient.Test/Model/ListSteamAccountsResponseTests.cs
 src/DeadlockApiClient.Test/Model/LiveUrlTests.cs
-src/DeadlockApiClient.Test/Model/LootEntryTests.cs
-src/DeadlockApiClient.Test/Model/LootTableTests.cs
-src/DeadlockApiClient.Test/Model/MMRHistoryTests.cs
 src/DeadlockApiClient.Test/Model/MapDataTests.cs
 src/DeadlockApiClient.Test/Model/MapDistrictTests.cs
 src/DeadlockApiClient.Test/Model/MapEntitiesTests.cs
@@ -590,8 +578,6 @@ src/DeadlockApiClient/Api/InfoApi.cs
 src/DeadlockApiClient/Api/InternalApi.cs
 src/DeadlockApiClient/Api/ItemsApi.cs
 src/DeadlockApiClient/Api/LeaderboardApi.cs
-src/DeadlockApiClient/Api/LootTablesApi.cs
-src/DeadlockApiClient/Api/MMRApi.cs
 src/DeadlockApiClient/Api/MapApi.cs
 src/DeadlockApiClient/Api/MatchesApi.cs
 src/DeadlockApiClient/Api/MiscEntitiesApi.cs
@@ -687,7 +673,6 @@ src/DeadlockApiClient/Model/DemoQueryRequest.cs
 src/DeadlockApiClient/Model/DemoQueryStatusResponse.cs
 src/DeadlockApiClient/Model/DemoSchemaResponse.cs
 src/DeadlockApiClient/Model/DependantAbilities.cs
-src/DeadlockApiClient/Model/DistributionEntry.cs
 src/DeadlockApiClient/Model/DraftBucket.cs
 src/DeadlockApiClient/Model/DraftBuckets.cs
 src/DeadlockApiClient/Model/EnemyStats.cs
@@ -760,9 +745,6 @@ src/DeadlockApiClient/Model/Leaderboard.cs
 src/DeadlockApiClient/Model/LeaderboardEntry.cs
 src/DeadlockApiClient/Model/ListSteamAccountsResponse.cs
 src/DeadlockApiClient/Model/LiveUrl.cs
-src/DeadlockApiClient/Model/LootEntry.cs
-src/DeadlockApiClient/Model/LootTable.cs
-src/DeadlockApiClient/Model/MMRHistory.cs
 src/DeadlockApiClient/Model/MapData.cs
 src/DeadlockApiClient/Model/MapDistrict.cs
 src/DeadlockApiClient/Model/MapEntities.cs

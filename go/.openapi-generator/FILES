@@ -22,11 +22,9 @@ api_info.go
 api_internal.go
 api_items.go
 api_leaderboard.go
-api_loot_tables.go
 api_map.go
 api_matches.go
 api_misc_entities.go
-api_mmr.go
 api_modifiers.go
 api_npc_units.go
 api_patches.go
@@ -110,7 +108,6 @@ docs/DemoQueryRequest.md
 docs/DemoQueryStatusResponse.md
 docs/DemoSchemaResponse.md
 docs/DependantAbilities.md
-docs/DistributionEntry.md
 docs/DraftBucket.md
 docs/DraftBuckets.md
 docs/EnemyStats.md
@@ -190,11 +187,6 @@ docs/LeaderboardAPI.md
 docs/LeaderboardEntry.md
 docs/ListSteamAccountsResponse.md
 docs/LiveUrl.md
-docs/LootEntry.md
-docs/LootTable.md
-docs/LootTablesAPI.md
-docs/MMRAPI.md
-docs/MMRHistory.md
 docs/MapAPI.md
 docs/MapData.md
 docs/MapDistrict.md
@@ -381,7 +373,6 @@ model_demo_query_request.go
 model_demo_query_status_response.go
 model_demo_schema_response.go
 model_dependant_abilities.go
-model_distribution_entry.go
 model_draft_bucket.go
 model_draft_buckets.go
 model_enemy_stats.go
@@ -454,8 +445,6 @@ model_leaderboard.go
 model_leaderboard_entry.go
 model_list_steam_accounts_response.go
 model_live_url.go
-model_loot_entry.go
-model_loot_table.go
 model_map_data.go
 model_map_district.go
 model_map_entities.go
@@ -468,7 +457,6 @@ model_mate_stats.go
 model_metric_values.go
 model_mini_map_offsets.go
 model_misc_entity.go
-model_mmr_history.go
 model_modifier.go
 model_modifier_value.go
 model_neutral_camp.go
@@ -588,11 +576,9 @@ test/api_info_test.go
 test/api_internal_test.go
 test/api_items_test.go
 test/api_leaderboard_test.go
-test/api_loot_tables_test.go
 test/api_map_test.go
 test/api_matches_test.go
 test/api_misc_entities_test.go
-test/api_mmr_test.go
 test/api_modifiers_test.go
 test/api_npc_units_test.go
 test/api_patches_test.go

@@ -470,109 +470,6 @@ export const PlayersApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict (Deprecated)
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredict: async (accountId, options = {}) => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('rankPredict', 'accountId', accountId);
-            const localVarPath = `/v1/players/{account_id}/rank-predict`
-                .replace('{account_id}', encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            localVarHeaderParameter['Accept'] = 'application/json';
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-         * @summary Rank Predict Avg Image (Deprecated)
-         * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-         * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredictAvgImage: async (accountIds, format, options = {}) => {
-            // verify required parameter 'accountIds' is not null or undefined
-            assertParamExists('rankPredictAvgImage', 'accountIds', accountIds);
-            const localVarPath = `/v1/players/rank-predict/image`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            if (accountIds) {
-                localVarQueryParameter['account_ids'] = accountIds;
-            }
-            if (format !== undefined) {
-                localVarQueryParameter['format'] = format;
-            }
-            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict Image (Deprecated)
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredictImage: async (accountId, format, options = {}) => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('rankPredictImage', 'accountId', accountId);
-            const localVarPath = `/v1/players/{account_id}/rank-predict/image`
-                .replace('{account_id}', encodeURIComponent(String(accountId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            if (format !== undefined) {
-                localVarQueryParameter['format'] = format;
-            }
-            localVarHeaderParameter['Accept'] = 'image/png,image/webp';
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     };
 };
 /**
@@ -741,50 +638,6 @@ export const PlayersApiFp = function (configuration) {
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict (Deprecated)
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async rankPredict(accountId, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredict(accountId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredict']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-         * @summary Rank Predict Avg Image (Deprecated)
-         * @param {Array<number>} accountIds Comma-separated list of account IDs (max 12).
-         * @param {RankPredictAvgImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async rankPredictAvgImage(accountIds, format, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictAvgImage(accountIds, format, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictAvgImage']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict Image (Deprecated)
-         * @param {number} accountId The players &#x60;SteamID3&#x60;
-         * @param {RankPredictImageFormatEnum} [format] Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        async rankPredictImage(accountId, format, options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rankPredictImage(accountId, format, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankPredictImage']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
     };
 };
 /**
@@ -883,39 +736,6 @@ export const PlayersApiFactory = function (configuration, basePath, axios) {
         rankImage(requestParameters, options) {
             return localVarFp.rankImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
         },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict (Deprecated)
-         * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredict(requestParameters, options) {
-            return localVarFp.rankPredict(requestParameters.accountId, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-         * @summary Rank Predict Avg Image (Deprecated)
-         * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredictAvgImage(requestParameters, options) {
-            return localVarFp.rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-         * @summary Rank Predict Image (Deprecated)
-         * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
-         * @param {*} [options] Override http request option.
-         * @deprecated
-         * @throws {RequiredError}
-         */
-        rankPredictImage(requestParameters, options) {
-            return localVarFp.rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
-        },
     };
 };
 /**
@@ -1012,39 +832,6 @@ export class PlayersApi extends BaseAPI {
     rankImage(requestParameters, options) {
         return PlayersApiFp(this.configuration).rankImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
     }
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict (Deprecated)
-     * @param {PlayersApiRankPredictRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredict(requestParameters, options) {
-        return PlayersApiFp(this.configuration).rankPredict(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player\'s latest ranked match.
-     * @summary Rank Predict Avg Image (Deprecated)
-     * @param {PlayersApiRankPredictAvgImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictAvgImage(requestParameters, options) {
-        return PlayersApiFp(this.configuration).rankPredictAvgImage(requestParameters.accountIds, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player\'s latest ranked match.
-     * @summary Rank Predict Image (Deprecated)
-     * @param {PlayersApiRankPredictImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @deprecated
-     * @throws {RequiredError}
-     */
-    rankPredictImage(requestParameters, options) {
-        return PlayersApiFp(this.configuration).rankPredictImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
-    }
 }
 export const EnemyStatsGameModeEnum = {
     Normal: 'normal',
@@ -1072,14 +859,6 @@ export const RankAvgImageFormatEnum = {
     Webp: 'webp',
 };
 export const RankImageFormatEnum = {
-    Png: 'png',
-    Webp: 'webp',
-};
-export const RankPredictAvgImageFormatEnum = {
-    Png: 'png',
-    Webp: 'webp',
-};
-export const RankPredictImageFormatEnum = {
     Png: 'png',
     Webp: 'webp',
 };

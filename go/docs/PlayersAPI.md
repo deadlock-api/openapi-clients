@@ -13,9 +13,6 @@ Method | HTTP request | Description
 [**RankBatch**](PlayersAPI.md#RankBatch) | **Get** /v1/players/rank | Batch Rank
 [**RankDistribution**](PlayersAPI.md#RankDistribution) | **Get** /v1/players/rank/distribution | Rank Distribution
 [**RankImage**](PlayersAPI.md#RankImage) | **Get** /v1/players/{account_id}/rank/image | Rank Image
-[**RankPredict**](PlayersAPI.md#RankPredict) | **Get** /v1/players/{account_id}/rank-predict | Rank Predict (Deprecated)
-[**RankPredictAvgImage**](PlayersAPI.md#RankPredictAvgImage) | **Get** /v1/players/rank-predict/image | Rank Predict Avg Image (Deprecated)
-[**RankPredictImage**](PlayersAPI.md#RankPredictImage) | **Get** /v1/players/{account_id}/rank-predict/image | Rank Predict Image (Deprecated)
 
 
 
@@ -586,7 +583,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1790985600)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791072000)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -619,7 +616,7 @@ Other parameters are passed through a pointer to a apiRankDistributionRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1790985600]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1791072000]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -694,216 +691,6 @@ Name | Type | Description  | Notes
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiRankImageRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
-
-### Return type
-
-**[]int32**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png, image/webp
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RankPredict
-
-> RankResponse RankPredict(ctx, accountId).Execute()
-
-Rank Predict (Deprecated)
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/deadlock-api/openapi-clients"
-)
-
-func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.RankPredict(context.Background(), accountId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredict``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `RankPredict`: RankResponse
-	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredict`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRankPredictRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**RankResponse**](RankResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RankPredictAvgImage
-
-> []int32 RankPredictAvgImage(ctx).AccountIds(accountIds).Format(format).Execute()
-
-Rank Predict Avg Image (Deprecated)
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/deadlock-api/openapi-clients"
-)
-
-func main() {
-	accountIds := []int32{int32(123)} // []int32 | Comma-separated list of account IDs (max 12).
-	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.RankPredictAvgImage(context.Background()).AccountIds(accountIds).Format(format).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredictAvgImage``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `RankPredictAvgImage`: []int32
-	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredictAvgImage`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRankPredictAvgImageRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountIds** | **[]int32** | Comma-separated list of account IDs (max 12). | 
- **format** | **string** | Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. | 
-
-### Return type
-
-**[]int32**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: image/png, image/webp
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## RankPredictImage
-
-> []int32 RankPredictImage(ctx, accountId).Format(format).Execute()
-
-Rank Predict Image (Deprecated)
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/deadlock-api/openapi-clients"
-)
-
-func main() {
-	accountId := int32(56) // int32 | The players `SteamID3`
-	format := "format_example" // string | Image format. Defaults to `png`. Supported: `png`, `webp`. (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PlayersAPI.RankPredictImage(context.Background(), accountId).Format(format).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RankPredictImage``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `RankPredictImage`: []int32
-	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RankPredictImage`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRankPredictImageRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

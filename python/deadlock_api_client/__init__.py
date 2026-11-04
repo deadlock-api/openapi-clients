@@ -37,8 +37,6 @@ __all__ = [
     "InternalApi",
     "ItemsApi",
     "LeaderboardApi",
-    "LootTablesApi",
-    "MMRApi",
     "MapApi",
     "MatchesApi",
     "MiscEntitiesApi",
@@ -120,7 +118,6 @@ __all__ = [
     "DemoQueryStatusResponse",
     "DemoSchemaResponse",
     "DependantAbilities",
-    "DistributionEntry",
     "DraftBucket",
     "DraftBuckets",
     "EnemyStats",
@@ -193,9 +190,6 @@ __all__ = [
     "LeaderboardEntry",
     "ListSteamAccountsResponse",
     "LiveUrl",
-    "LootEntry",
-    "LootTable",
-    "MMRHistory",
     "MapData",
     "MapDistrict",
     "MapEntities",
@@ -329,8 +323,6 @@ from deadlock_api_client.api.info_api import InfoApi as InfoApi
 from deadlock_api_client.api.internal_api import InternalApi as InternalApi
 from deadlock_api_client.api.items_api import ItemsApi as ItemsApi
 from deadlock_api_client.api.leaderboard_api import LeaderboardApi as LeaderboardApi
-from deadlock_api_client.api.loot_tables_api import LootTablesApi as LootTablesApi
-from deadlock_api_client.api.mmr_api import MMRApi as MMRApi
 from deadlock_api_client.api.map_api import MapApi as MapApi
 from deadlock_api_client.api.matches_api import MatchesApi as MatchesApi
 from deadlock_api_client.api.misc_entities_api import MiscEntitiesApi as MiscEntitiesApi
@@ -416,7 +408,6 @@ from deadlock_api_client.models.demo_query_request import DemoQueryRequest as De
 from deadlock_api_client.models.demo_query_status_response import DemoQueryStatusResponse as DemoQueryStatusResponse
 from deadlock_api_client.models.demo_schema_response import DemoSchemaResponse as DemoSchemaResponse
 from deadlock_api_client.models.dependant_abilities import DependantAbilities as DependantAbilities
-from deadlock_api_client.models.distribution_entry import DistributionEntry as DistributionEntry
 from deadlock_api_client.models.draft_bucket import DraftBucket as DraftBucket
 from deadlock_api_client.models.draft_buckets import DraftBuckets as DraftBuckets
 from deadlock_api_client.models.enemy_stats import EnemyStats as EnemyStats
@@ -489,9 +480,6 @@ from deadlock_api_client.models.leaderboard import Leaderboard as Leaderboard
 from deadlock_api_client.models.leaderboard_entry import LeaderboardEntry as LeaderboardEntry
 from deadlock_api_client.models.list_steam_accounts_response import ListSteamAccountsResponse as ListSteamAccountsResponse
 from deadlock_api_client.models.live_url import LiveUrl as LiveUrl
-from deadlock_api_client.models.loot_entry import LootEntry as LootEntry
-from deadlock_api_client.models.loot_table import LootTable as LootTable
-from deadlock_api_client.models.mmr_history import MMRHistory as MMRHistory
 from deadlock_api_client.models.map_data import MapData as MapData
 from deadlock_api_client.models.map_district import MapDistrict as MapDistrict
 from deadlock_api_client.models.map_entities import MapEntities as MapEntities

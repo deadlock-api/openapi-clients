@@ -163,31 +163,6 @@ pub struct RankImageParams {
     pub format: Option<String>
 }
 
-/// struct for passing parameters to the method [`rank_predict`]
-#[derive(Clone, Debug)]
-pub struct RankPredictParams {
-    /// The players `SteamID3`
-    pub account_id: u32
-}
-
-/// struct for passing parameters to the method [`rank_predict_avg_image`]
-#[derive(Clone, Debug)]
-pub struct RankPredictAvgImageParams {
-    /// Comma-separated list of account IDs (max 12).
-    pub account_ids: Vec<u32>,
-    /// Image format. Defaults to `png`. Supported: `png`, `webp`.
-    pub format: Option<String>
-}
-
-/// struct for passing parameters to the method [`rank_predict_image`]
-#[derive(Clone, Debug)]
-pub struct RankPredictImageParams {
-    /// The players `SteamID3`
-    pub account_id: u32,
-    /// Image format. Defaults to `png`. Supported: `png`, `webp`.
-    pub format: Option<String>
-}
-
 
 /// struct for typed errors of method [`enemy_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -269,38 +244,6 @@ pub enum RankDistributionError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RankImageError {
-    Status400(),
-    Status403(),
-    Status404(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`rank_predict`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum RankPredictError {
-    Status400(),
-    Status403(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`rank_predict_avg_image`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum RankPredictAvgImageError {
-    Status400(),
-    Status403(),
-    Status404(),
-    Status500(),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`rank_predict_image`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum RankPredictImageError {
     Status400(),
     Status403(),
     Status404(),
@@ -764,124 +707,6 @@ pub async fn rank_image(configuration: &configuration::Configuration, params: Ra
     } else {
         let content = resp.text().await?;
         let entity: Option<RankImageError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Deprecated alias of `/v1/players/{account_id}/rank`. The rank is no longer predicted, it is read from the player's latest ranked match.
-#[deprecated]
-pub async fn rank_predict(configuration: &configuration::Configuration, params: RankPredictParams) -> Result<models::RankResponse, Error<RankPredictError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/rank-predict", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::RankResponse`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::RankResponse`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<RankPredictError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Deprecated alias of `/v1/players/rank/image`. The rank is no longer predicted, it is read from each player's latest ranked match.
-#[deprecated]
-pub async fn rank_predict_avg_image(configuration: &configuration::Configuration, params: RankPredictAvgImageParams) -> Result<Vec<u32>, Error<RankPredictAvgImageError>> {
-
-    let uri_str = format!("{}/v1/players/rank-predict/image", configuration.base_path);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    req_builder = match "multi" {
-        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
-        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
-    };
-    if let Some(ref param_value) = params.format {
-        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<RankPredictAvgImageError> = serde_json::from_str(&content).ok();
-        Err(Error::ResponseError(ResponseContent { status, content, entity }))
-    }
-}
-
-/// Deprecated alias of `/v1/players/{account_id}/rank/image`. The rank is no longer predicted, it is read from the player's latest ranked match.
-#[deprecated]
-pub async fn rank_predict_image(configuration: &configuration::Configuration, params: RankPredictImageParams) -> Result<Vec<u32>, Error<RankPredictImageError>> {
-
-    let uri_str = format!("{}/v1/players/{account_id}/rank-predict/image", configuration.base_path, account_id=params.account_id);
-    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
-
-    if let Some(ref param_value) = params.format {
-        req_builder = req_builder.query(&[("format", &param_value.to_string())]);
-    }
-    if let Some(ref user_agent) = configuration.user_agent {
-        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
-    }
-
-    let req = req_builder.build()?;
-    let resp = configuration.client.execute(req).await?;
-
-    let status = resp.status();
-    let content_type = resp
-        .headers()
-        .get("content-type")
-        .and_then(|v| v.to_str().ok())
-        .unwrap_or("application/octet-stream");
-    let content_type = super::ContentType::from(content_type);
-
-    if !status.is_client_error() && !status.is_server_error() {
-        let content = resp.text().await?;
-        match content_type {
-            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
-            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;u32&gt;`"))),
-            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;u32&gt;`")))),
-        }
-    } else {
-        let content = resp.text().await?;
-        let entity: Option<RankPredictImageError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
