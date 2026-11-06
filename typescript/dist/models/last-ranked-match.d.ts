@@ -44,6 +44,10 @@ export interface LastRankedMatch {
      */
     'player_rank_initial_win_streak'?: number | null;
     /**
+     * Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+     */
+    'rank_interval'?: number | null;
+    /**
      * Match start time as a unix timestamp.
      */
     'start_time': number;

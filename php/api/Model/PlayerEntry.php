@@ -60,6 +60,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => 'int',
         'badge' => 'int',
         'badge_progress' => 'int',
+        'badge_progress_max' => 'int',
         'matches' => 'int',
         'rank' => 'int',
         'value' => 'float'
@@ -76,6 +77,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => 'int32',
         'badge' => 'int32',
         'badge_progress' => 'int32',
+        'badge_progress_max' => 'int32',
         'matches' => 'int64',
         'rank' => 'int64',
         'value' => 'double'
@@ -90,6 +92,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => false,
         'badge' => true,
         'badge_progress' => true,
+        'badge_progress_max' => true,
         'matches' => false,
         'rank' => false,
         'value' => false
@@ -184,6 +187,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => 'account_id',
         'badge' => 'badge',
         'badge_progress' => 'badge_progress',
+        'badge_progress_max' => 'badge_progress_max',
         'matches' => 'matches',
         'rank' => 'rank',
         'value' => 'value'
@@ -198,6 +202,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => 'setAccountId',
         'badge' => 'setBadge',
         'badge_progress' => 'setBadgeProgress',
+        'badge_progress_max' => 'setBadgeProgressMax',
         'matches' => 'setMatches',
         'rank' => 'setRank',
         'value' => 'setValue'
@@ -212,6 +217,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         'account_id' => 'getAccountId',
         'badge' => 'getBadge',
         'badge_progress' => 'getBadgeProgress',
+        'badge_progress_max' => 'getBadgeProgressMax',
         'matches' => 'getMatches',
         'rank' => 'getRank',
         'value' => 'getValue'
@@ -277,6 +283,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('account_id', $data ?? [], null);
         $this->setIfExists('badge', $data ?? [], null);
         $this->setIfExists('badge_progress', $data ?? [], null);
+        $this->setIfExists('badge_progress_max', $data ?? [], null);
         $this->setIfExists('matches', $data ?? [], null);
         $this->setIfExists('rank', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
@@ -322,6 +329,10 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['badge_progress']) && ($this->container['badge_progress'] < 0)) {
             $invalidProperties[] = "invalid value for 'badge_progress', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['badge_progress_max']) && ($this->container['badge_progress_max'] < 0)) {
+            $invalidProperties[] = "invalid value for 'badge_progress_max', must be bigger than or equal to 0.";
         }
 
         if ($this->container['matches'] === null) {
@@ -438,7 +449,7 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets badge_progress
      *
-     * @param int|null $badge_progress `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+     * @param int|null $badge_progress `rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range.
      *
      * @return self
      */
@@ -459,6 +470,44 @@ class PlayerEntry implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['badge_progress'] = $badge_progress;
+
+        return $this;
+    }
+
+    /**
+     * Gets badge_progress_max
+     *
+     * @return int|null
+     */
+    public function getBadgeProgressMax()
+    {
+        return $this->container['badge_progress_max'];
+    }
+
+    /**
+     * Sets badge_progress_max
+     *
+     * @param int|null $badge_progress_max `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range.
+     *
+     * @return self
+     */
+    public function setBadgeProgressMax($badge_progress_max)
+    {
+        if (is_null($badge_progress_max)) {
+            array_push($this->openAPINullablesSetToNull, 'badge_progress_max');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('badge_progress_max', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($badge_progress_max) && ($badge_progress_max < 0)) {
+            throw new \InvalidArgumentException('invalid value for $badge_progress_max when calling PlayerEntry., must be bigger than or equal to 0.');
+        }
+
+        $this->container['badge_progress_max'] = $badge_progress_max;
 
         return $this;
     }

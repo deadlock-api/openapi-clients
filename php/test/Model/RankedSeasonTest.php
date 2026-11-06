@@ -98,6 +98,15 @@ class RankedSeasonTest extends TestCase
     }
 
     /**
+     * Test attribute "calibration_max_rank"
+     */
+    public function testPropertyCalibrationMaxRank()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "class_name"
      */
     public function testPropertyClassName()
@@ -110,6 +119,15 @@ class RankedSeasonTest extends TestCase
      * Test attribute "intervals"
      */
     public function testPropertyIntervals()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "min_hero_unlock_points"
+     */
+    public function testPropertyMinHeroUnlockPoints()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -146,6 +164,15 @@ class RankedSeasonTest extends TestCase
      * Test attribute "name"
      */
     public function testPropertyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "rank_info"
+     */
+    public function testPropertyRankInfo()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

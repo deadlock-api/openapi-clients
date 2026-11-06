@@ -90,15 +90,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'MinHeroWins'
-        /// </summary>
-        [Fact]
-        public void MinHeroWinsTest()
-        {
-            // TODO unit test for the property 'MinHeroWins'
-        }
-
-        /// <summary>
         /// Test the property 'MinWins'
         /// </summary>
         [Fact]
@@ -141,6 +132,42 @@ namespace DeadlockApiClient.Test.Model
         public void BaseWinLossPointGrantTest()
         {
             // TODO unit test for the property 'BaseWinLossPointGrant'
+        }
+
+        /// <summary>
+        /// Test the property 'CalibrationMaxRank'
+        /// </summary>
+        [Fact]
+        public void CalibrationMaxRankTest()
+        {
+            // TODO unit test for the property 'CalibrationMaxRank'
+        }
+
+        /// <summary>
+        /// Test the property 'MinHeroUnlockPoints'
+        /// </summary>
+        [Fact]
+        public void MinHeroUnlockPointsTest()
+        {
+            // TODO unit test for the property 'MinHeroUnlockPoints'
+        }
+
+        /// <summary>
+        /// Test the property 'MinHeroWins'
+        /// </summary>
+        [Fact]
+        public void MinHeroWinsTest()
+        {
+            // TODO unit test for the property 'MinHeroWins'
+        }
+
+        /// <summary>
+        /// Test the property 'RankInfo'
+        /// </summary>
+        [Fact]
+        public void RankInfoTest()
+        {
+            // TODO unit test for the property 'RankInfo'
         }
     }
 }

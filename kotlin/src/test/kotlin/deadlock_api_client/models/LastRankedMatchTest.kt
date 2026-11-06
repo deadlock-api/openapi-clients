@@ -93,5 +93,11 @@ class LastRankedMatchTest : ShouldSpec() {
             //modelInstance.playerRankInitialWinStreak shouldBe ("TODO")
         }
 
+        // to test the property `rankInterval` - Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+        should("test rankInterval") {
+            // uncomment below to test the property
+            //modelInstance.rankInterval shouldBe ("TODO")
+        }
+
     }
 }

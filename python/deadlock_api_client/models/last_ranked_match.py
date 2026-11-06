@@ -37,8 +37,9 @@ class LastRankedMatch(BaseModel):
     player_rank_initial_display_rank: Annotated[int, Field(strict=True, ge=0)] = Field(description="Rank badge the player entered the match with, `tier * 10 + subrank`.")
     player_rank_initial_flat_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Rank progress the player entered the match with.")
     player_rank_initial_win_streak: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Win streak the player entered the match with.")
+    rank_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.")
     start_time: Annotated[int, Field(strict=True, ge=0)] = Field(description="Match start time as a unix timestamp.")
-    __properties: ClassVar[List[str]] = ["match_id", "player_rank_consumed_demotion_protection", "player_rank_desired_progress_change", "player_rank_final_flat_progress", "player_rank_initial_calibration_games", "player_rank_initial_demotion_protection_games", "player_rank_initial_display_rank", "player_rank_initial_flat_progress", "player_rank_initial_win_streak", "start_time"]
+    __properties: ClassVar[List[str]] = ["match_id", "player_rank_consumed_demotion_protection", "player_rank_desired_progress_change", "player_rank_final_flat_progress", "player_rank_initial_calibration_games", "player_rank_initial_demotion_protection_games", "player_rank_initial_display_rank", "player_rank_initial_flat_progress", "player_rank_initial_win_streak", "rank_interval", "start_time"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -114,6 +115,11 @@ class LastRankedMatch(BaseModel):
         if self.player_rank_initial_win_streak is None and "player_rank_initial_win_streak" in self.model_fields_set:
             _dict['player_rank_initial_win_streak'] = None
 
+        # set to None if rank_interval (nullable) is None
+        # and model_fields_set contains the field
+        if self.rank_interval is None and "rank_interval" in self.model_fields_set:
+            _dict['rank_interval'] = None
+
         return _dict
 
     @classmethod
@@ -135,6 +141,7 @@ class LastRankedMatch(BaseModel):
             "player_rank_initial_display_rank": obj.get("player_rank_initial_display_rank"),
             "player_rank_initial_flat_progress": obj.get("player_rank_initial_flat_progress"),
             "player_rank_initial_win_streak": obj.get("player_rank_initial_win_streak"),
+            "rank_interval": obj.get("rank_interval"),
             "start_time": obj.get("start_time")
         })
         return _obj

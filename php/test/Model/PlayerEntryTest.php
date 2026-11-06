@@ -107,6 +107,15 @@ class PlayerEntryTest extends TestCase
     }
 
     /**
+     * Test attribute "badge_progress_max"
+     */
+    public function testPropertyBadgeProgressMax()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "matches"
      */
     public function testPropertyMatches()

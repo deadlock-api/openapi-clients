@@ -43,8 +43,9 @@ namespace DeadlockApiClient.Model
         /// <param name="playerRankInitialDemotionProtectionGames">Remaining demotion protection games at the start of the match.</param>
         /// <param name="playerRankInitialFlatProgress">Rank progress the player entered the match with.</param>
         /// <param name="playerRankInitialWinStreak">Win streak the player entered the match with.</param>
+        /// <param name="rankInterval">Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.</param>
         [JsonConstructor]
-        public LastRankedMatch(long matchId, int playerRankInitialDisplayRank, int startTime, Option<bool?> playerRankConsumedDemotionProtection = default, Option<int?> playerRankDesiredProgressChange = default, Option<int?> playerRankFinalFlatProgress = default, Option<int?> playerRankInitialCalibrationGames = default, Option<int?> playerRankInitialDemotionProtectionGames = default, Option<int?> playerRankInitialFlatProgress = default, Option<int?> playerRankInitialWinStreak = default)
+        public LastRankedMatch(long matchId, int playerRankInitialDisplayRank, int startTime, Option<bool?> playerRankConsumedDemotionProtection = default, Option<int?> playerRankDesiredProgressChange = default, Option<int?> playerRankFinalFlatProgress = default, Option<int?> playerRankInitialCalibrationGames = default, Option<int?> playerRankInitialDemotionProtectionGames = default, Option<int?> playerRankInitialFlatProgress = default, Option<int?> playerRankInitialWinStreak = default, Option<int?> rankInterval = default)
         {
             MatchId = matchId;
             PlayerRankInitialDisplayRank = playerRankInitialDisplayRank;
@@ -56,6 +57,7 @@ namespace DeadlockApiClient.Model
             PlayerRankInitialDemotionProtectionGamesOption = playerRankInitialDemotionProtectionGames;
             PlayerRankInitialFlatProgressOption = playerRankInitialFlatProgress;
             PlayerRankInitialWinStreakOption = playerRankInitialWinStreak;
+            RankIntervalOption = rankInterval;
             OnCreated();
         }
 
@@ -180,6 +182,20 @@ namespace DeadlockApiClient.Model
         public int? PlayerRankInitialWinStreak { get { return this.PlayerRankInitialWinStreakOption.Value; } set { this.PlayerRankInitialWinStreakOption = new(value); } }
 
         /// <summary>
+        /// Used to track the state of RankInterval
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> RankIntervalOption { get; private set; }
+
+        /// <summary>
+        /// Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+        /// </summary>
+        /// <value>Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1.</value>
+        [JsonPropertyName("rank_interval")]
+        public int? RankInterval { get { return this.RankIntervalOption.Value; } set { this.RankIntervalOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -197,6 +213,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  PlayerRankInitialDemotionProtectionGames: ").Append(PlayerRankInitialDemotionProtectionGames).Append("\n");
             sb.Append("  PlayerRankInitialFlatProgress: ").Append(PlayerRankInitialFlatProgress).Append("\n");
             sb.Append("  PlayerRankInitialWinStreak: ").Append(PlayerRankInitialWinStreak).Append("\n");
+            sb.Append("  RankInterval: ").Append(RankInterval).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +273,12 @@ namespace DeadlockApiClient.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PlayerRankInitialWinStreak, must be a value greater than or equal to 0.", new [] { "PlayerRankInitialWinStreak" });
             }
 
+            // RankInterval (int) minimum
+            if (this.RankIntervalOption.IsSet && this.RankIntervalOption.Value < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for RankInterval, must be a value greater than or equal to 0.", new [] { "RankInterval" });
+            }
+
             yield break;
         }
     }
@@ -302,6 +325,7 @@ namespace DeadlockApiClient.Model
             Option<int?> playerRankInitialDemotionProtectionGames = default;
             Option<int?> playerRankInitialFlatProgress = default;
             Option<int?> playerRankInitialWinStreak = default;
+            Option<int?> rankInterval = default;
 
             while (utf8JsonReader.Read())
             {
@@ -348,6 +372,9 @@ namespace DeadlockApiClient.Model
                         case "player_rank_initial_win_streak":
                             playerRankInitialWinStreak = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "rank_interval":
+                            rankInterval = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         default:
                             break;
                     }
@@ -372,7 +399,7 @@ namespace DeadlockApiClient.Model
             if (startTime.IsSet && startTime.Value == null)
                 throw new JsonException("Property is not nullable for class LastRankedMatch: start_time.");
 
-            return new LastRankedMatch(matchId.Value!.Value!, playerRankInitialDisplayRank.Value!.Value!, startTime.Value!.Value!, playerRankConsumedDemotionProtection, playerRankDesiredProgressChange, playerRankFinalFlatProgress, playerRankInitialCalibrationGames, playerRankInitialDemotionProtectionGames, playerRankInitialFlatProgress, playerRankInitialWinStreak);
+            return new LastRankedMatch(matchId.Value!.Value!, playerRankInitialDisplayRank.Value!.Value!, startTime.Value!.Value!, playerRankConsumedDemotionProtection, playerRankDesiredProgressChange, playerRankFinalFlatProgress, playerRankInitialCalibrationGames, playerRankInitialDemotionProtectionGames, playerRankInitialFlatProgress, playerRankInitialWinStreak, rankInterval);
         }
 
         /// <summary>
@@ -444,6 +471,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("player_rank_initial_win_streak", lastRankedMatch.PlayerRankInitialWinStreakOption.Value!.Value);
                 else
                     writer.WriteNull("player_rank_initial_win_streak");
+
+            if (lastRankedMatch.RankIntervalOption.IsSet)
+                if (lastRankedMatch.RankIntervalOption.Value != null)
+                    writer.WriteNumber("rank_interval", lastRankedMatch.RankIntervalOption.Value!.Value);
+                else
+                    writer.WriteNull("rank_interval");
         }
     }
 }

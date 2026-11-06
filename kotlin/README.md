@@ -365,6 +365,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.Rank](docs/Rank.md)
  - [deadlock_api_client.models.RankDistributionEntry](docs/RankDistributionEntry.md)
  - [deadlock_api_client.models.RankImages](docs/RankImages.md)
+ - [deadlock_api_client.models.RankInfo](docs/RankInfo.md)
  - [deadlock_api_client.models.RankResponse](docs/RankResponse.md)
  - [deadlock_api_client.models.RankedSeason](docs/RankedSeason.md)
  - [deadlock_api_client.models.RawAbilityUpgrade](docs/RawAbilityUpgrade.md)

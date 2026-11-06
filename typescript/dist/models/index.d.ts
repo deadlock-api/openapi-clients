@@ -164,6 +164,7 @@ export * from './player-stats-metrics-response.js';
 export * from './rank.js';
 export * from './rank-distribution-entry.js';
 export * from './rank-images.js';
+export * from './rank-info.js';
 export * from './rank-response.js';
 export * from './ranked-season.js';
 export * from './raw-ability-upgrade.js';

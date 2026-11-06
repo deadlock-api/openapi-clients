@@ -39,6 +39,9 @@ pub struct LastRankedMatch {
     /// Win streak the player entered the match with.
     #[serde(rename = "player_rank_initial_win_streak", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub player_rank_initial_win_streak: Option<Option<u32>>,
+    /// Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+    #[serde(rename = "rank_interval", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub rank_interval: Option<Option<u32>>,
     /// Match start time as a unix timestamp.
     #[serde(rename = "start_time")]
     pub start_time: u32,
@@ -56,6 +59,7 @@ impl LastRankedMatch {
             player_rank_initial_display_rank,
             player_rank_initial_flat_progress: None,
             player_rank_initial_win_streak: None,
+            rank_interval: None,
             start_time,
         }
     }

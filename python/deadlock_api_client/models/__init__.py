@@ -179,6 +179,7 @@ from deadlock_api_client.models.player_stats_metrics_response import PlayerStats
 from deadlock_api_client.models.rank import Rank
 from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages
+from deadlock_api_client.models.rank_info import RankInfo
 from deadlock_api_client.models.rank_response import RankResponse
 from deadlock_api_client.models.ranked_season import RankedSeason
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade

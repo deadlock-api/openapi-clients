@@ -66,6 +66,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => 'int',
         'player_rank_initial_flat_progress' => 'int',
         'player_rank_initial_win_streak' => 'int',
+        'rank_interval' => 'int',
         'start_time' => 'int'
     ];
 
@@ -86,6 +87,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => 'int32',
         'player_rank_initial_flat_progress' => 'int32',
         'player_rank_initial_win_streak' => 'int32',
+        'rank_interval' => 'int32',
         'start_time' => 'int32'
     ];
 
@@ -104,6 +106,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => false,
         'player_rank_initial_flat_progress' => true,
         'player_rank_initial_win_streak' => true,
+        'rank_interval' => true,
         'start_time' => false
     ];
 
@@ -202,6 +205,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => 'player_rank_initial_display_rank',
         'player_rank_initial_flat_progress' => 'player_rank_initial_flat_progress',
         'player_rank_initial_win_streak' => 'player_rank_initial_win_streak',
+        'rank_interval' => 'rank_interval',
         'start_time' => 'start_time'
     ];
 
@@ -220,6 +224,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => 'setPlayerRankInitialDisplayRank',
         'player_rank_initial_flat_progress' => 'setPlayerRankInitialFlatProgress',
         'player_rank_initial_win_streak' => 'setPlayerRankInitialWinStreak',
+        'rank_interval' => 'setRankInterval',
         'start_time' => 'setStartTime'
     ];
 
@@ -238,6 +243,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         'player_rank_initial_display_rank' => 'getPlayerRankInitialDisplayRank',
         'player_rank_initial_flat_progress' => 'getPlayerRankInitialFlatProgress',
         'player_rank_initial_win_streak' => 'getPlayerRankInitialWinStreak',
+        'rank_interval' => 'getRankInterval',
         'start_time' => 'getStartTime'
     ];
 
@@ -307,6 +313,7 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('player_rank_initial_display_rank', $data ?? [], null);
         $this->setIfExists('player_rank_initial_flat_progress', $data ?? [], null);
         $this->setIfExists('player_rank_initial_win_streak', $data ?? [], null);
+        $this->setIfExists('rank_interval', $data ?? [], null);
         $this->setIfExists('start_time', $data ?? [], null);
     }
 
@@ -369,6 +376,10 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if (!is_null($this->container['player_rank_initial_win_streak']) && ($this->container['player_rank_initial_win_streak'] < 0)) {
             $invalidProperties[] = "invalid value for 'player_rank_initial_win_streak', must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['rank_interval']) && ($this->container['rank_interval'] < 0)) {
+            $invalidProperties[] = "invalid value for 'rank_interval', must be bigger than or equal to 0.";
         }
 
         if ($this->container['start_time'] === null) {
@@ -709,6 +720,44 @@ class LastRankedMatch implements ModelInterface, ArrayAccess, \JsonSerializable
         }
 
         $this->container['player_rank_initial_win_streak'] = $player_rank_initial_win_streak;
+
+        return $this;
+    }
+
+    /**
+     * Gets rank_interval
+     *
+     * @return int|null
+     */
+    public function getRankInterval()
+    {
+        return $this->container['rank_interval'];
+    }
+
+    /**
+     * Sets rank_interval
+     *
+     * @param int|null $rank_interval Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+     *
+     * @return self
+     */
+    public function setRankInterval($rank_interval)
+    {
+        if (is_null($rank_interval)) {
+            array_push($this->openAPINullablesSetToNull, 'rank_interval');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('rank_interval', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($rank_interval) && ($rank_interval < 0)) {
+            throw new \InvalidArgumentException('invalid value for $rank_interval when calling LastRankedMatch., must be bigger than or equal to 0.');
+        }
+
+        $this->container['rank_interval'] = $rank_interval;
 
         return $this;
     }

@@ -201,6 +201,7 @@ docs/models/PlayerStatsMetricsResponse.md
 docs/models/Rank.md
 docs/models/RankDistributionEntry.md
 docs/models/RankImages.md
+docs/models/RankInfo.md
 docs/models/RankResponse.md
 docs/models/RankedSeason.md
 docs/models/RawAbilityUpgrade.md
@@ -479,6 +480,7 @@ src/DeadlockApiClient.Test/Model/PlayerStatsMetricsBucketTests.cs
 src/DeadlockApiClient.Test/Model/PlayerStatsMetricsResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankDistributionEntryTests.cs
 src/DeadlockApiClient.Test/Model/RankImagesTests.cs
+src/DeadlockApiClient.Test/Model/RankInfoTests.cs
 src/DeadlockApiClient.Test/Model/RankResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankTests.cs
 src/DeadlockApiClient.Test/Model/RankedSeasonTests.cs
@@ -779,6 +781,7 @@ src/DeadlockApiClient/Model/PlayerStatsMetricsResponse.cs
 src/DeadlockApiClient/Model/Rank.cs
 src/DeadlockApiClient/Model/RankDistributionEntry.cs
 src/DeadlockApiClient/Model/RankImages.cs
+src/DeadlockApiClient/Model/RankInfo.cs
 src/DeadlockApiClient/Model/RankResponse.cs
 src/DeadlockApiClient/Model/RankedSeason.cs
 src/DeadlockApiClient/Model/RawAbilityUpgrade.cs

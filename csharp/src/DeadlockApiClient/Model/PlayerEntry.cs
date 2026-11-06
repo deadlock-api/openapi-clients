@@ -38,9 +38,10 @@ namespace DeadlockApiClient.Model
         /// <param name="rank">rank</param>
         /// <param name="value">value</param>
         /// <param name="badge">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;</param>
-        /// <param name="badgeProgress">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.</param>
+        /// <param name="badgeProgress">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.</param>
+        /// <param name="badgeProgressMax">&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.</param>
         [JsonConstructor]
-        public PlayerEntry(int accountId, long matches, long rank, double value, Option<int?> badge = default, Option<int?> badgeProgress = default)
+        public PlayerEntry(int accountId, long matches, long rank, double value, Option<int?> badge = default, Option<int?> badgeProgress = default, Option<int?> badgeProgressMax = default)
         {
             AccountId = accountId;
             Matches = matches;
@@ -48,6 +49,7 @@ namespace DeadlockApiClient.Model
             Value = value;
             BadgeOption = badge;
             BadgeProgressOption = badgeProgress;
+            BadgeProgressMaxOption = badgeProgressMax;
             OnCreated();
         }
 
@@ -99,11 +101,25 @@ namespace DeadlockApiClient.Model
         public Option<int?> BadgeProgressOption { get; private set; }
 
         /// <summary>
-        /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+        /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.
         /// </summary>
-        /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.</value>
+        /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range.</value>
         [JsonPropertyName("badge_progress")]
         public int? BadgeProgress { get { return this.BadgeProgressOption.Value; } set { this.BadgeProgressOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of BadgeProgressMax
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<int?> BadgeProgressMaxOption { get; private set; }
+
+        /// <summary>
+        /// &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.
+        /// </summary>
+        /// <value>&#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range.</value>
+        [JsonPropertyName("badge_progress_max")]
+        public int? BadgeProgressMax { get { return this.BadgeProgressMaxOption.Value; } set { this.BadgeProgressMaxOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,6 +135,7 @@ namespace DeadlockApiClient.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Badge: ").Append(Badge).Append("\n");
             sb.Append("  BadgeProgress: ").Append(BadgeProgress).Append("\n");
+            sb.Append("  BadgeProgressMax: ").Append(BadgeProgressMax).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,6 +175,12 @@ namespace DeadlockApiClient.Model
             if (this.BadgeProgressOption.IsSet && this.BadgeProgressOption.Value < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgress, must be a value greater than or equal to 0.", new [] { "BadgeProgress" });
+            }
+
+            // BadgeProgressMax (int) minimum
+            if (this.BadgeProgressMaxOption.IsSet && this.BadgeProgressMaxOption.Value < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BadgeProgressMax, must be a value greater than or equal to 0.", new [] { "BadgeProgressMax" });
             }
 
             yield break;
@@ -202,6 +225,7 @@ namespace DeadlockApiClient.Model
             Option<double?> value = default;
             Option<int?> badge = default;
             Option<int?> badgeProgress = default;
+            Option<int?> badgeProgressMax = default;
 
             while (utf8JsonReader.Read())
             {
@@ -236,6 +260,9 @@ namespace DeadlockApiClient.Model
                         case "badge_progress":
                             badgeProgress = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
+                        case "badge_progress_max":
+                            badgeProgressMax = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            break;
                         default:
                             break;
                     }
@@ -266,7 +293,7 @@ namespace DeadlockApiClient.Model
             if (value.IsSet && value.Value == null)
                 throw new JsonException("Property is not nullable for class PlayerEntry: value.");
 
-            return new PlayerEntry(accountId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!, badge, badgeProgress);
+            return new PlayerEntry(accountId.Value!.Value!, matches.Value!.Value!, rank.Value!.Value!, value.Value!.Value!, badge, badgeProgress, badgeProgressMax);
         }
 
         /// <summary>
@@ -310,6 +337,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNumber("badge_progress", playerEntry.BadgeProgressOption.Value!.Value);
                 else
                     writer.WriteNull("badge_progress");
+
+            if (playerEntry.BadgeProgressMaxOption.IsSet)
+                if (playerEntry.BadgeProgressMaxOption.Value != null)
+                    writer.WriteNumber("badge_progress_max", playerEntry.BadgeProgressMaxOption.Value!.Value);
+                else
+                    writer.WriteNull("badge_progress_max");
         }
     }
 }

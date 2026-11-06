@@ -63,10 +63,16 @@ class PlayerEntryTest : ShouldSpec() {
             //modelInstance.badge shouldBe ("TODO")
         }
 
-        // to test the property `badgeProgress` - `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+        // to test the property `badgeProgress` - `rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range.
         should("test badgeProgress") {
             // uncomment below to test the property
             //modelInstance.badgeProgress shouldBe ("TODO")
+        }
+
+        // to test the property `badgeProgressMax` - `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range.
+        should("test badgeProgressMax") {
+            // uncomment below to test the property
+            //modelInstance.badgeProgressMax shouldBe ("TODO")
         }
 
     }

@@ -24,8 +24,10 @@ type PlayerEntry struct {
 	AccountId int32 `json:"account_id"`
 	// `rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>
 	Badge NullableInt32 `json:"badge,omitempty"`
-	// `rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.
+	// `rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range.
 	BadgeProgress NullableInt32 `json:"badge_progress,omitempty"`
+	// `rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range.
+	BadgeProgressMax NullableInt32 `json:"badge_progress_max,omitempty"`
 	Matches int64 `json:"matches"`
 	Rank int64 `json:"rank"`
 	Value float64 `json:"value"`
@@ -162,6 +164,48 @@ func (o *PlayerEntry) UnsetBadgeProgress() {
 	o.BadgeProgress.Unset()
 }
 
+// GetBadgeProgressMax returns the BadgeProgressMax field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *PlayerEntry) GetBadgeProgressMax() int32 {
+	if o == nil || IsNil(o.BadgeProgressMax.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.BadgeProgressMax.Get()
+}
+
+// GetBadgeProgressMaxOk returns a tuple with the BadgeProgressMax field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.BadgeProgressMax.Get(), o.BadgeProgressMax.IsSet()
+}
+
+// HasBadgeProgressMax returns a boolean if a field has been set.
+func (o *PlayerEntry) HasBadgeProgressMax() bool {
+	if o != nil && o.BadgeProgressMax.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetBadgeProgressMax gets a reference to the given NullableInt32 and assigns it to the BadgeProgressMax field.
+func (o *PlayerEntry) SetBadgeProgressMax(v int32) {
+	o.BadgeProgressMax.Set(&v)
+}
+// SetBadgeProgressMaxNil sets the value for BadgeProgressMax to be an explicit nil
+func (o *PlayerEntry) SetBadgeProgressMaxNil() {
+	o.BadgeProgressMax.Set(nil)
+}
+
+// UnsetBadgeProgressMax ensures that no value is present for BadgeProgressMax, not even an explicit nil
+func (o *PlayerEntry) UnsetBadgeProgressMax() {
+	o.BadgeProgressMax.Unset()
+}
+
 // GetMatches returns the Matches field value
 func (o *PlayerEntry) GetMatches() int64 {
 	if o == nil {
@@ -250,6 +294,9 @@ func (o PlayerEntry) ToMap() (map[string]interface{}, error) {
 	}
 	if o.BadgeProgress.IsSet() {
 		toSerialize["badge_progress"] = o.BadgeProgress.Get()
+	}
+	if o.BadgeProgressMax.IsSet() {
+		toSerialize["badge_progress_max"] = o.BadgeProgressMax.Get()
 	}
 	toSerialize["matches"] = o.Matches
 	toSerialize["rank"] = o.Rank

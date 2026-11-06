@@ -161,6 +161,15 @@ class LastRankedMatchTest extends TestCase
     }
 
     /**
+     * Test attribute "rank_interval"
+     */
+    public function testPropertyRankInterval()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "start_time"
      */
     public function testPropertyStartTime()

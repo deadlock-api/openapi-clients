@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Bans** | **int64** | The number of matches in which this hero was banned. | 
 **Bucket** | **int32** | The bucket value (depends on the bucket query parameter). | 
 **HeroId** | **int32** | The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt; | 
-**Matches** | **int64** | The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count. | 
+**Matches** | **int64** | The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count. | 
 
 ## Methods
 

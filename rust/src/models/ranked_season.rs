@@ -18,18 +18,28 @@ pub struct RankedSeason {
     pub base_win_loss_point_grant: Option<Option<u32>>,
     #[serde(rename = "calibration_matches")]
     pub calibration_matches: u32,
+    /// Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+    #[serde(rename = "calibration_max_rank", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub calibration_max_rank: Option<Option<u32>>,
     #[serde(rename = "class_name")]
     pub class_name: String,
     #[serde(rename = "intervals")]
     pub intervals: Vec<models::SeasonInterval>,
+    /// Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+    #[serde(rename = "min_hero_unlock_points", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub min_hero_unlock_points: Option<Option<u32>>,
     #[serde(rename = "min_hero_unlocks")]
     pub min_hero_unlocks: u32,
-    #[serde(rename = "min_hero_wins")]
-    pub min_hero_wins: u32,
+    /// Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
+    #[serde(rename = "min_hero_wins", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub min_hero_wins: Option<Option<u32>>,
     #[serde(rename = "min_wins")]
     pub min_wins: u32,
     #[serde(rename = "name")]
     pub name: String,
+    /// Rank progression settings (build 6857+).
+    #[serde(rename = "rank_info", skip_serializing_if = "Option::is_none")]
+    pub rank_info: Option<Vec<models::RankInfo>>,
     #[serde(rename = "ranked_type")]
     pub ranked_type: String,
     #[serde(rename = "valid_party_sizes")]
@@ -37,16 +47,19 @@ pub struct RankedSeason {
 }
 
 impl RankedSeason {
-    pub fn new(calibration_matches: u32, class_name: String, intervals: Vec<models::SeasonInterval>, min_hero_unlocks: u32, min_hero_wins: u32, min_wins: u32, name: String, ranked_type: String, valid_party_sizes: Vec<u32>) -> RankedSeason {
+    pub fn new(calibration_matches: u32, class_name: String, intervals: Vec<models::SeasonInterval>, min_hero_unlocks: u32, min_wins: u32, name: String, ranked_type: String, valid_party_sizes: Vec<u32>) -> RankedSeason {
         RankedSeason {
             base_win_loss_point_grant: None,
             calibration_matches,
+            calibration_max_rank: None,
             class_name,
             intervals,
+            min_hero_unlock_points: None,
             min_hero_unlocks,
-            min_hero_wins,
+            min_hero_wins: None,
             min_wins,
             name,
+            rank_info: None,
             ranked_type,
             valid_party_sizes,
         }

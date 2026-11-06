@@ -37,6 +37,7 @@ class TestRankedSeason(unittest.TestCase):
             return RankedSeason(
                 base_win_loss_point_grant = 0,
                 calibration_matches = 0,
+                calibration_max_rank = 0,
                 class_name = '',
                 intervals = [
                     deadlock_api_client.models.season_interval.SeasonInterval(
@@ -45,10 +46,20 @@ class TestRankedSeason(unittest.TestCase):
                         leaderboard_id = 0, 
                         start_timestamp = 56, )
                     ],
+                min_hero_unlock_points = 0,
                 min_hero_unlocks = 0,
                 min_hero_wins = 0,
                 min_wins = 0,
                 name = '',
+                rank_info = [
+                    deadlock_api_client.models.rank_info.RankInfo(
+                        badge_shields = 56, 
+                        rank_end = 0, 
+                        sub_rank_shields = 56, 
+                        sub_rank_xp = [
+                            0
+                            ], )
+                    ],
                 ranked_type = '',
                 valid_party_sizes = [
                     0
@@ -66,7 +77,6 @@ class TestRankedSeason(unittest.TestCase):
                         start_timestamp = 56, )
                     ],
                 min_hero_unlocks = 0,
-                min_hero_wins = 0,
                 min_wins = 0,
                 name = '',
                 ranked_type = '',

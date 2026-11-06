@@ -13,6 +13,9 @@
 
 import { exists, mapValues } from '../runtime';
 import {
+    RankInfo,
+    RankInfoFromJSON,
+    RankInfoToJSON,
     SeasonInterval,
     SeasonIntervalFromJSON,
     SeasonIntervalToJSON,
@@ -37,6 +40,12 @@ export interface RankedSeason  {
      */
     calibrationMatches: number;
     /**
+     * Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve\'s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+     * @type {number}
+     * @memberof RankedSeason
+     */
+    calibrationMaxRank?: number;
+    /**
      * 
      * @type {string}
      * @memberof RankedSeason
@@ -49,17 +58,23 @@ export interface RankedSeason  {
      */
     intervals: Array<SeasonInterval>;
     /**
+     * Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+     * @type {number}
+     * @memberof RankedSeason
+     */
+    minHeroUnlockPoints?: number;
+    /**
      * 
      * @type {number}
      * @memberof RankedSeason
      */
     minHeroUnlocks: number;
     /**
-     * 
+     * Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
      * @type {number}
      * @memberof RankedSeason
      */
-    minHeroWins: number;
+    minHeroWins?: number;
     /**
      * 
      * @type {number}
@@ -72,6 +87,12 @@ export interface RankedSeason  {
      * @memberof RankedSeason
      */
     name: string;
+    /**
+     * Rank progression settings (build 6857+).
+     * @type {Array<RankInfo>}
+     * @memberof RankedSeason
+     */
+    rankInfo?: Array<RankInfo>;
     /**
      * 
      * @type {string}
@@ -90,12 +111,15 @@ export function RankedSeasonFromJSON(json: any): RankedSeason {
     return {
         'baseWinLossPointGrant': !exists(json, 'base_win_loss_point_grant') ? undefined : json['base_win_loss_point_grant'],
         'calibrationMatches': json['calibration_matches'],
+        'calibrationMaxRank': !exists(json, 'calibration_max_rank') ? undefined : json['calibration_max_rank'],
         'className': json['class_name'],
         'intervals': (json['intervals'] as Array<any>).map(SeasonIntervalFromJSON),
+        'minHeroUnlockPoints': !exists(json, 'min_hero_unlock_points') ? undefined : json['min_hero_unlock_points'],
         'minHeroUnlocks': json['min_hero_unlocks'],
-        'minHeroWins': json['min_hero_wins'],
+        'minHeroWins': !exists(json, 'min_hero_wins') ? undefined : json['min_hero_wins'],
         'minWins': json['min_wins'],
         'name': json['name'],
+        'rankInfo': !exists(json, 'rank_info') ? undefined : (json['rank_info'] as Array<any>).map(RankInfoFromJSON),
         'rankedType': json['ranked_type'],
         'validPartySizes': json['valid_party_sizes'],
     };
@@ -108,12 +132,15 @@ export function RankedSeasonToJSON(value?: RankedSeason): any {
     return {
         'base_win_loss_point_grant': value.baseWinLossPointGrant,
         'calibration_matches': value.calibrationMatches,
+        'calibration_max_rank': value.calibrationMaxRank,
         'class_name': value.className,
         'intervals': (value.intervals as Array<any>).map(SeasonIntervalToJSON),
+        'min_hero_unlock_points': value.minHeroUnlockPoints,
         'min_hero_unlocks': value.minHeroUnlocks,
         'min_hero_wins': value.minHeroWins,
         'min_wins': value.minWins,
         'name': value.name,
+        'rank_info': value.rankInfo === undefined ? undefined : (value.rankInfo as Array<any>).map(RankInfoToJSON),
         'ranked_type': value.rankedType,
         'valid_party_sizes': value.validPartySizes,
     };

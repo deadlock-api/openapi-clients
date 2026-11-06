@@ -14,6 +14,7 @@
 | **playerRankInitialDemotionProtectionGames** | **kotlin.Int** | Remaining demotion protection games at the start of the match. |  [optional] |
 | **playerRankInitialFlatProgress** | **kotlin.Int** | Rank progress the player entered the match with. |  [optional] |
 | **playerRankInitialWinStreak** | **kotlin.Int** | Win streak the player entered the match with. |  [optional] |
+| **rankInterval** | **kotlin.Int** | Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1. |  [optional] |
 
 
 

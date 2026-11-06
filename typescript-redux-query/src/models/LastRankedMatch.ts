@@ -73,6 +73,12 @@ export interface LastRankedMatch  {
      */
     playerRankInitialWinStreak?: number;
     /**
+     * Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+     * @type {number}
+     * @memberof LastRankedMatch
+     */
+    rankInterval?: number;
+    /**
      * Match start time as a unix timestamp.
      * @type {number}
      * @memberof LastRankedMatch
@@ -91,6 +97,7 @@ export function LastRankedMatchFromJSON(json: any): LastRankedMatch {
         'playerRankInitialDisplayRank': json['player_rank_initial_display_rank'],
         'playerRankInitialFlatProgress': !exists(json, 'player_rank_initial_flat_progress') ? undefined : json['player_rank_initial_flat_progress'],
         'playerRankInitialWinStreak': !exists(json, 'player_rank_initial_win_streak') ? undefined : json['player_rank_initial_win_streak'],
+        'rankInterval': !exists(json, 'rank_interval') ? undefined : json['rank_interval'],
         'startTime': json['start_time'],
     };
 }
@@ -109,6 +116,7 @@ export function LastRankedMatchToJSON(value?: LastRankedMatch): any {
         'player_rank_initial_display_rank': value.playerRankInitialDisplayRank,
         'player_rank_initial_flat_progress': value.playerRankInitialFlatProgress,
         'player_rank_initial_win_streak': value.playerRankInitialWinStreak,
+        'rank_interval': value.rankInterval,
         'start_time': value.startTime,
     };
 }

@@ -38,6 +38,8 @@ type LastRankedMatch struct {
 	PlayerRankInitialFlatProgress NullableInt32 `json:"player_rank_initial_flat_progress,omitempty"`
 	// Win streak the player entered the match with.
 	PlayerRankInitialWinStreak NullableInt32 `json:"player_rank_initial_win_streak,omitempty"`
+	// Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
+	RankInterval NullableInt32 `json:"rank_interval,omitempty"`
 	// Match start time as a unix timestamp.
 	StartTime int32 `json:"start_time"`
 }
@@ -406,6 +408,48 @@ func (o *LastRankedMatch) UnsetPlayerRankInitialWinStreak() {
 	o.PlayerRankInitialWinStreak.Unset()
 }
 
+// GetRankInterval returns the RankInterval field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LastRankedMatch) GetRankInterval() int32 {
+	if o == nil || IsNil(o.RankInterval.Get()) {
+		var ret int32
+		return ret
+	}
+	return *o.RankInterval.Get()
+}
+
+// GetRankIntervalOk returns a tuple with the RankInterval field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LastRankedMatch) GetRankIntervalOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.RankInterval.Get(), o.RankInterval.IsSet()
+}
+
+// HasRankInterval returns a boolean if a field has been set.
+func (o *LastRankedMatch) HasRankInterval() bool {
+	if o != nil && o.RankInterval.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetRankInterval gets a reference to the given NullableInt32 and assigns it to the RankInterval field.
+func (o *LastRankedMatch) SetRankInterval(v int32) {
+	o.RankInterval.Set(&v)
+}
+// SetRankIntervalNil sets the value for RankInterval to be an explicit nil
+func (o *LastRankedMatch) SetRankIntervalNil() {
+	o.RankInterval.Set(nil)
+}
+
+// UnsetRankInterval ensures that no value is present for RankInterval, not even an explicit nil
+func (o *LastRankedMatch) UnsetRankInterval() {
+	o.RankInterval.Unset()
+}
+
 // GetStartTime returns the StartTime field value
 func (o *LastRankedMatch) GetStartTime() int32 {
 	if o == nil {
@@ -462,6 +506,9 @@ func (o LastRankedMatch) ToMap() (map[string]interface{}, error) {
 	}
 	if o.PlayerRankInitialWinStreak.IsSet() {
 		toSerialize["player_rank_initial_win_streak"] = o.PlayerRankInitialWinStreak.Get()
+	}
+	if o.RankInterval.IsSet() {
+		toSerialize["rank_interval"] = o.RankInterval.Get()
 	}
 	toSerialize["start_time"] = o.StartTime
 	return toSerialize, nil

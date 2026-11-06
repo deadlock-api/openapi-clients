@@ -31,7 +31,7 @@ class HeroBanStats(BaseModel):
     bans: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches in which this hero was banned.")
     bucket: Annotated[int, Field(strict=True, ge=0)] = Field(description="The bucket value (depends on the bucket query parameter).")
     hero_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>")
-    matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.")
+    matches: Annotated[int, Field(strict=True, ge=0)] = Field(description="The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.")
     __properties: ClassVar[List[str]] = ["bans", "bucket", "hero_id", "matches"]
 
     model_config = ConfigDict(

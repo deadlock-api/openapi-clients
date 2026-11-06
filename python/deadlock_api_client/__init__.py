@@ -224,6 +224,7 @@ __all__ = [
     "Rank",
     "RankDistributionEntry",
     "RankImages",
+    "RankInfo",
     "RankResponse",
     "RankedSeason",
     "RawAbilityUpgrade",
@@ -514,6 +515,7 @@ from deadlock_api_client.models.player_stats_metrics_response import PlayerStats
 from deadlock_api_client.models.rank import Rank as Rank
 from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry as RankDistributionEntry
 from deadlock_api_client.models.rank_images import RankImages as RankImages
+from deadlock_api_client.models.rank_info import RankInfo as RankInfo
 from deadlock_api_client.models.rank_response import RankResponse as RankResponse
 from deadlock_api_client.models.ranked_season import RankedSeason as RankedSeason
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade as RawAbilityUpgrade

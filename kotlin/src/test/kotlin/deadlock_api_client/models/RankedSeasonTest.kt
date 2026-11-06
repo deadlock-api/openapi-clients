@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.RankedSeason
+import deadlock_api_client.models.RankInfo
 import deadlock_api_client.models.SeasonInterval
 
 class RankedSeasonTest : ShouldSpec() {
@@ -58,12 +59,6 @@ class RankedSeasonTest : ShouldSpec() {
             //modelInstance.minHeroUnlocks shouldBe ("TODO")
         }
 
-        // to test the property `minHeroWins`
-        should("test minHeroWins") {
-            // uncomment below to test the property
-            //modelInstance.minHeroWins shouldBe ("TODO")
-        }
-
         // to test the property `minWins`
         should("test minWins") {
             // uncomment below to test the property
@@ -92,6 +87,30 @@ class RankedSeasonTest : ShouldSpec() {
         should("test baseWinLossPointGrant") {
             // uncomment below to test the property
             //modelInstance.baseWinLossPointGrant shouldBe ("TODO")
+        }
+
+        // to test the property `calibrationMaxRank` - Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+        should("test calibrationMaxRank") {
+            // uncomment below to test the property
+            //modelInstance.calibrationMaxRank shouldBe ("TODO")
+        }
+
+        // to test the property `minHeroUnlockPoints` - Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+        should("test minHeroUnlockPoints") {
+            // uncomment below to test the property
+            //modelInstance.minHeroUnlockPoints shouldBe ("TODO")
+        }
+
+        // to test the property `minHeroWins` - Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
+        should("test minHeroWins") {
+            // uncomment below to test the property
+            //modelInstance.minHeroWins shouldBe ("TODO")
+        }
+
+        // to test the property `rankInfo` - Rank progression settings (build 6857+).
+        should("test rankInfo") {
+            // uncomment below to test the property
+            //modelInstance.rankInfo shouldBe ("TODO")
         }
 
     }

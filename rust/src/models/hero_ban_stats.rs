@@ -22,7 +22,7 @@ pub struct HeroBanStats {
     /// The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
     #[serde(rename = "hero_id")]
     pub hero_id: u32,
-    /// The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+    /// The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
     #[serde(rename = "matches")]
     pub matches: u64,
 }

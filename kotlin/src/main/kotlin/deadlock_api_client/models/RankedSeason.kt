@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.RankInfo
 import deadlock_api_client.models.SeasonInterval
 
 import com.squareup.moshi.Json
@@ -34,12 +35,15 @@ import java.io.Serializable
  * @param className
  * @param intervals
  * @param minHeroUnlocks
- * @param minHeroWins
  * @param minWins
  * @param name
  * @param rankedType
  * @param validPartySizes
  * @param baseWinLossPointGrant Base rank points granted per win / taken per loss (build 6701+).
+ * @param calibrationMaxRank Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+ * @param minHeroUnlockPoints Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+ * @param minHeroWins Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
+ * @param rankInfo Rank progression settings (build 6857+).
  */
 
 
@@ -57,9 +61,6 @@ data class RankedSeason (
     @Json(name = "min_hero_unlocks")
     val minHeroUnlocks: kotlin.Int,
 
-    @Json(name = "min_hero_wins")
-    val minHeroWins: kotlin.Int,
-
     @Json(name = "min_wins")
     val minWins: kotlin.Int,
 
@@ -74,7 +75,23 @@ data class RankedSeason (
 
     /* Base rank points granted per win / taken per loss (build 6701+). */
     @Json(name = "base_win_loss_point_grant")
-    val baseWinLossPointGrant: kotlin.Int? = null
+    val baseWinLossPointGrant: kotlin.Int? = null,
+
+    /* Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance. */
+    @Json(name = "calibration_max_rank")
+    val calibrationMaxRank: kotlin.Int? = null,
+
+    /* Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+). */
+    @Json(name = "min_hero_unlock_points")
+    val minHeroUnlockPoints: kotlin.Int? = null,
+
+    /* Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`. */
+    @Json(name = "min_hero_wins")
+    val minHeroWins: kotlin.Int? = null,
+
+    /* Rank progression settings (build 6857+). */
+    @Json(name = "rank_info")
+    val rankInfo: kotlin.collections.List<RankInfo>? = null
 
 ) : Serializable {
     companion object {

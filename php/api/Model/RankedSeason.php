@@ -59,12 +59,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'base_win_loss_point_grant' => 'int',
         'calibration_matches' => 'int',
+        'calibration_max_rank' => 'int',
         'class_name' => 'string',
         'intervals' => '\OpenAPI\Client\Model\SeasonInterval[]',
+        'min_hero_unlock_points' => 'int',
         'min_hero_unlocks' => 'int',
         'min_hero_wins' => 'int',
         'min_wins' => 'int',
         'name' => 'string',
+        'rank_info' => '\OpenAPI\Client\Model\RankInfo[]',
         'ranked_type' => 'string',
         'valid_party_sizes' => 'int[]'
     ];
@@ -79,12 +82,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'base_win_loss_point_grant' => 'int32',
         'calibration_matches' => 'int32',
+        'calibration_max_rank' => 'int32',
         'class_name' => null,
         'intervals' => null,
+        'min_hero_unlock_points' => 'int32',
         'min_hero_unlocks' => 'int32',
         'min_hero_wins' => 'int32',
         'min_wins' => 'int32',
         'name' => null,
+        'rank_info' => null,
         'ranked_type' => null,
         'valid_party_sizes' => 'int32'
     ];
@@ -97,12 +103,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'base_win_loss_point_grant' => true,
         'calibration_matches' => false,
+        'calibration_max_rank' => true,
         'class_name' => false,
         'intervals' => false,
+        'min_hero_unlock_points' => true,
         'min_hero_unlocks' => false,
-        'min_hero_wins' => false,
+        'min_hero_wins' => true,
         'min_wins' => false,
         'name' => false,
+        'rank_info' => false,
         'ranked_type' => false,
         'valid_party_sizes' => false
     ];
@@ -195,12 +204,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'base_win_loss_point_grant' => 'base_win_loss_point_grant',
         'calibration_matches' => 'calibration_matches',
+        'calibration_max_rank' => 'calibration_max_rank',
         'class_name' => 'class_name',
         'intervals' => 'intervals',
+        'min_hero_unlock_points' => 'min_hero_unlock_points',
         'min_hero_unlocks' => 'min_hero_unlocks',
         'min_hero_wins' => 'min_hero_wins',
         'min_wins' => 'min_wins',
         'name' => 'name',
+        'rank_info' => 'rank_info',
         'ranked_type' => 'ranked_type',
         'valid_party_sizes' => 'valid_party_sizes'
     ];
@@ -213,12 +225,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'base_win_loss_point_grant' => 'setBaseWinLossPointGrant',
         'calibration_matches' => 'setCalibrationMatches',
+        'calibration_max_rank' => 'setCalibrationMaxRank',
         'class_name' => 'setClassName',
         'intervals' => 'setIntervals',
+        'min_hero_unlock_points' => 'setMinHeroUnlockPoints',
         'min_hero_unlocks' => 'setMinHeroUnlocks',
         'min_hero_wins' => 'setMinHeroWins',
         'min_wins' => 'setMinWins',
         'name' => 'setName',
+        'rank_info' => 'setRankInfo',
         'ranked_type' => 'setRankedType',
         'valid_party_sizes' => 'setValidPartySizes'
     ];
@@ -231,12 +246,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'base_win_loss_point_grant' => 'getBaseWinLossPointGrant',
         'calibration_matches' => 'getCalibrationMatches',
+        'calibration_max_rank' => 'getCalibrationMaxRank',
         'class_name' => 'getClassName',
         'intervals' => 'getIntervals',
+        'min_hero_unlock_points' => 'getMinHeroUnlockPoints',
         'min_hero_unlocks' => 'getMinHeroUnlocks',
         'min_hero_wins' => 'getMinHeroWins',
         'min_wins' => 'getMinWins',
         'name' => 'getName',
+        'rank_info' => 'getRankInfo',
         'ranked_type' => 'getRankedType',
         'valid_party_sizes' => 'getValidPartySizes'
     ];
@@ -300,12 +318,15 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('base_win_loss_point_grant', $data ?? [], null);
         $this->setIfExists('calibration_matches', $data ?? [], null);
+        $this->setIfExists('calibration_max_rank', $data ?? [], null);
         $this->setIfExists('class_name', $data ?? [], null);
         $this->setIfExists('intervals', $data ?? [], null);
+        $this->setIfExists('min_hero_unlock_points', $data ?? [], null);
         $this->setIfExists('min_hero_unlocks', $data ?? [], null);
         $this->setIfExists('min_hero_wins', $data ?? [], null);
         $this->setIfExists('min_wins', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('rank_info', $data ?? [], null);
         $this->setIfExists('ranked_type', $data ?? [], null);
         $this->setIfExists('valid_party_sizes', $data ?? [], null);
     }
@@ -348,12 +369,20 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'calibration_matches', must be bigger than or equal to 0.";
         }
 
+        if (!is_null($this->container['calibration_max_rank']) && ($this->container['calibration_max_rank'] < 0)) {
+            $invalidProperties[] = "invalid value for 'calibration_max_rank', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['class_name'] === null) {
             $invalidProperties[] = "'class_name' can't be null";
         }
         if ($this->container['intervals'] === null) {
             $invalidProperties[] = "'intervals' can't be null";
         }
+        if (!is_null($this->container['min_hero_unlock_points']) && ($this->container['min_hero_unlock_points'] < 0)) {
+            $invalidProperties[] = "invalid value for 'min_hero_unlock_points', must be bigger than or equal to 0.";
+        }
+
         if ($this->container['min_hero_unlocks'] === null) {
             $invalidProperties[] = "'min_hero_unlocks' can't be null";
         }
@@ -361,10 +390,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'min_hero_unlocks', must be bigger than or equal to 0.";
         }
 
-        if ($this->container['min_hero_wins'] === null) {
-            $invalidProperties[] = "'min_hero_wins' can't be null";
-        }
-        if (($this->container['min_hero_wins'] < 0)) {
+        if (!is_null($this->container['min_hero_wins']) && ($this->container['min_hero_wins'] < 0)) {
             $invalidProperties[] = "invalid value for 'min_hero_wins', must be bigger than or equal to 0.";
         }
 
@@ -469,6 +495,44 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets calibration_max_rank
+     *
+     * @return int|null
+     */
+    public function getCalibrationMaxRank()
+    {
+        return $this->container['calibration_max_rank'];
+    }
+
+    /**
+     * Sets calibration_max_rank
+     *
+     * @param int|null $calibration_max_rank Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+     *
+     * @return self
+     */
+    public function setCalibrationMaxRank($calibration_max_rank)
+    {
+        if (is_null($calibration_max_rank)) {
+            array_push($this->openAPINullablesSetToNull, 'calibration_max_rank');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('calibration_max_rank', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($calibration_max_rank) && ($calibration_max_rank < 0)) {
+            throw new \InvalidArgumentException('invalid value for $calibration_max_rank when calling RankedSeason., must be bigger than or equal to 0.');
+        }
+
+        $this->container['calibration_max_rank'] = $calibration_max_rank;
+
+        return $this;
+    }
+
+    /**
      * Gets class_name
      *
      * @return string
@@ -523,6 +587,44 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets min_hero_unlock_points
+     *
+     * @return int|null
+     */
+    public function getMinHeroUnlockPoints()
+    {
+        return $this->container['min_hero_unlock_points'];
+    }
+
+    /**
+     * Sets min_hero_unlock_points
+     *
+     * @param int|null $min_hero_unlock_points Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+     *
+     * @return self
+     */
+    public function setMinHeroUnlockPoints($min_hero_unlock_points)
+    {
+        if (is_null($min_hero_unlock_points)) {
+            array_push($this->openAPINullablesSetToNull, 'min_hero_unlock_points');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('min_hero_unlock_points', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        if (!is_null($min_hero_unlock_points) && ($min_hero_unlock_points < 0)) {
+            throw new \InvalidArgumentException('invalid value for $min_hero_unlock_points when calling RankedSeason., must be bigger than or equal to 0.');
+        }
+
+        $this->container['min_hero_unlock_points'] = $min_hero_unlock_points;
+
+        return $this;
+    }
+
+    /**
      * Gets min_hero_unlocks
      *
      * @return int
@@ -556,7 +658,7 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets min_hero_wins
      *
-     * @return int
+     * @return int|null
      */
     public function getMinHeroWins()
     {
@@ -566,16 +668,23 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets min_hero_wins
      *
-     * @param int $min_hero_wins min_hero_wins
+     * @param int|null $min_hero_wins Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
      *
      * @return self
      */
     public function setMinHeroWins($min_hero_wins)
     {
         if (is_null($min_hero_wins)) {
-            throw new \InvalidArgumentException('non-nullable min_hero_wins cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'min_hero_wins');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('min_hero_wins', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if (($min_hero_wins < 0)) {
+        if (!is_null($min_hero_wins) && ($min_hero_wins < 0)) {
             throw new \InvalidArgumentException('invalid value for $min_hero_wins when calling RankedSeason., must be bigger than or equal to 0.');
         }
 
@@ -638,6 +747,33 @@ class RankedSeason implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets rank_info
+     *
+     * @return \OpenAPI\Client\Model\RankInfo[]|null
+     */
+    public function getRankInfo()
+    {
+        return $this->container['rank_info'];
+    }
+
+    /**
+     * Sets rank_info
+     *
+     * @param \OpenAPI\Client\Model\RankInfo[]|null $rank_info Rank progression settings (build 6857+).
+     *
+     * @return self
+     */
+    public function setRankInfo($rank_info)
+    {
+        if (is_null($rank_info)) {
+            throw new \InvalidArgumentException('non-nullable rank_info cannot be null');
+        }
+        $this->container['rank_info'] = $rank_info;
 
         return $this;
     }

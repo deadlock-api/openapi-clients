@@ -195,6 +195,7 @@ docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
 docs/RankImages.md
+docs/RankInfo.md
 docs/RankResponse.md
 docs/RankedSeason.md
 docs/RankedSeasonsApi.md
@@ -479,6 +480,7 @@ src/models/player_stats_metrics_response.rs
 src/models/rank.rs
 src/models/rank_distribution_entry.rs
 src/models/rank_images.rs
+src/models/rank_info.rs
 src/models/rank_response.rs
 src/models/ranked_season.rs
 src/models/raw_ability_upgrade.rs

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **PlayerRankInitialDemotionProtectionGames** | **int** | Remaining demotion protection games at the start of the match. | [optional] 
 **PlayerRankInitialFlatProgress** | **int** | Rank progress the player entered the match with. | [optional] 
 **PlayerRankInitialWinStreak** | **int** | Win streak the player entered the match with. | [optional] 
+**RankInterval** | **int** | Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

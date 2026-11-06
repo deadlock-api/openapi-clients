@@ -222,6 +222,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new RankJsonConverter());
             _jsonOptions.Converters.Add(new RankDistributionEntryJsonConverter());
             _jsonOptions.Converters.Add(new RankImagesJsonConverter());
+            _jsonOptions.Converters.Add(new RankInfoJsonConverter());
             _jsonOptions.Converters.Add(new RankResponseJsonConverter());
             _jsonOptions.Converters.Add(new RankedSeasonJsonConverter());
             _jsonOptions.Converters.Add(new RawAbilityUpgradeJsonConverter());

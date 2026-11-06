@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from deadlock_api_client.models.rank_info import RankInfo
 from deadlock_api_client.models.season_interval import SeasonInterval
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,15 +32,18 @@ class RankedSeason(BaseModel):
     """ # noqa: E501
     base_win_loss_point_grant: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Base rank points granted per win / taken per loss (build 6701+).")
     calibration_matches: Annotated[int, Field(strict=True, ge=0)]
+    calibration_max_rank: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve's notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.")
     class_name: StrictStr
     intervals: List[SeasonInterval]
+    min_hero_unlock_points: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).")
     min_hero_unlocks: Annotated[int, Field(strict=True, ge=0)]
-    min_hero_wins: Annotated[int, Field(strict=True, ge=0)]
+    min_hero_wins: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.")
     min_wins: Annotated[int, Field(strict=True, ge=0)]
     name: StrictStr
+    rank_info: Optional[List[RankInfo]] = Field(default=None, description="Rank progression settings (build 6857+).")
     ranked_type: StrictStr
     valid_party_sizes: List[Annotated[int, Field(strict=True, ge=0)]]
-    __properties: ClassVar[List[str]] = ["base_win_loss_point_grant", "calibration_matches", "class_name", "intervals", "min_hero_unlocks", "min_hero_wins", "min_wins", "name", "ranked_type", "valid_party_sizes"]
+    __properties: ClassVar[List[str]] = ["base_win_loss_point_grant", "calibration_matches", "calibration_max_rank", "class_name", "intervals", "min_hero_unlock_points", "min_hero_unlocks", "min_hero_wins", "min_wins", "name", "rank_info", "ranked_type", "valid_party_sizes"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,10 +90,31 @@ class RankedSeason(BaseModel):
             for _item_intervals in self.intervals:
                 _items.append(_item_intervals.to_dict() if _item_intervals is not None else None)
             _dict['intervals'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in rank_info (list)
+        _items = []
+        if self.rank_info:
+            for _item_rank_info in self.rank_info:
+                _items.append(_item_rank_info.to_dict() if _item_rank_info is not None else None)
+            _dict['rank_info'] = _items
         # set to None if base_win_loss_point_grant (nullable) is None
         # and model_fields_set contains the field
         if self.base_win_loss_point_grant is None and "base_win_loss_point_grant" in self.model_fields_set:
             _dict['base_win_loss_point_grant'] = None
+
+        # set to None if calibration_max_rank (nullable) is None
+        # and model_fields_set contains the field
+        if self.calibration_max_rank is None and "calibration_max_rank" in self.model_fields_set:
+            _dict['calibration_max_rank'] = None
+
+        # set to None if min_hero_unlock_points (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_hero_unlock_points is None and "min_hero_unlock_points" in self.model_fields_set:
+            _dict['min_hero_unlock_points'] = None
+
+        # set to None if min_hero_wins (nullable) is None
+        # and model_fields_set contains the field
+        if self.min_hero_wins is None and "min_hero_wins" in self.model_fields_set:
+            _dict['min_hero_wins'] = None
 
         return _dict
 
@@ -105,12 +130,15 @@ class RankedSeason(BaseModel):
         _obj = cls.model_validate({
             "base_win_loss_point_grant": obj.get("base_win_loss_point_grant"),
             "calibration_matches": obj.get("calibration_matches"),
+            "calibration_max_rank": obj.get("calibration_max_rank"),
             "class_name": obj.get("class_name"),
             "intervals": [SeasonInterval.from_dict(_item) for _item in obj["intervals"]] if obj.get("intervals") is not None else None,
+            "min_hero_unlock_points": obj.get("min_hero_unlock_points"),
             "min_hero_unlocks": obj.get("min_hero_unlocks"),
             "min_hero_wins": obj.get("min_hero_wins"),
             "min_wins": obj.get("min_wins"),
             "name": obj.get("name"),
+            "rank_info": [RankInfo.from_dict(_item) for _item in obj["rank_info"]] if obj.get("rank_info") is not None else None,
             "ranked_type": obj.get("ranked_type"),
             "valid_party_sizes": obj.get("valid_party_sizes")
         })

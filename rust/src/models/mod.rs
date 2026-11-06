@@ -330,6 +330,8 @@ pub mod rank_distribution_entry;
 pub use self::rank_distribution_entry::RankDistributionEntry;
 pub mod rank_images;
 pub use self::rank_images::RankImages;
+pub mod rank_info;
+pub use self::rank_info::RankInfo;
 pub mod rank_response;
 pub use self::rank_response::RankResponse;
 pub mod ranked_season;

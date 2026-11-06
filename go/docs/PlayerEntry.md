@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountId** | **int32** |  | 
 **Badge** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the rank badge the progress in &#x60;value&#x60; falls in, &#x60;0&#x60; when the player has no ranked match in range. Omitted for every other sort. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt; | [optional] 
-**BadgeProgress** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;. A subrank spans 1000 points, the sixth of a tier 2000. &#x60;null&#x60; in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range. | [optional] 
+**BadgeProgress** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: progress points into &#x60;badge&#x60;, out of &#x60;badge_progress_max&#x60;. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. &#x60;null&#x60; when the player has no ranked match in range. | [optional] 
+**BadgeProgressMax** | Pointer to **NullableInt32** | &#x60;rank&#x60; and &#x60;peak_rank&#x60; sorts only: the points the subrank of &#x60;badge&#x60; spans in that match&#39;s season (&#x60;sub_rank_xp&#x60; in &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;). &#x60;null&#x60; in Eternus and when the player has no ranked match in range. | [optional] 
 **Matches** | **int64** |  | 
 **Rank** | **int64** |  | 
 **Value** | **float64** |  | 
@@ -120,6 +121,41 @@ HasBadgeProgress returns a boolean if a field has been set.
 `func (o *PlayerEntry) UnsetBadgeProgress()`
 
 UnsetBadgeProgress ensures that no value is present for BadgeProgress, not even an explicit nil
+### GetBadgeProgressMax
+
+`func (o *PlayerEntry) GetBadgeProgressMax() int32`
+
+GetBadgeProgressMax returns the BadgeProgressMax field if non-nil, zero value otherwise.
+
+### GetBadgeProgressMaxOk
+
+`func (o *PlayerEntry) GetBadgeProgressMaxOk() (*int32, bool)`
+
+GetBadgeProgressMaxOk returns a tuple with the BadgeProgressMax field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBadgeProgressMax
+
+`func (o *PlayerEntry) SetBadgeProgressMax(v int32)`
+
+SetBadgeProgressMax sets BadgeProgressMax field to given value.
+
+### HasBadgeProgressMax
+
+`func (o *PlayerEntry) HasBadgeProgressMax() bool`
+
+HasBadgeProgressMax returns a boolean if a field has been set.
+
+### SetBadgeProgressMaxNil
+
+`func (o *PlayerEntry) SetBadgeProgressMaxNil(b bool)`
+
+ SetBadgeProgressMaxNil sets the value for BadgeProgressMax to be an explicit nil
+
+### UnsetBadgeProgressMax
+`func (o *PlayerEntry) UnsetBadgeProgressMax()`
+
+UnsetBadgeProgressMax ensures that no value is present for BadgeProgressMax, not even an explicit nil
 ### GetMatches
 
 `func (o *PlayerEntry) GetMatches() int64`

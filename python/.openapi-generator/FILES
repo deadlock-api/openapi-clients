@@ -208,6 +208,7 @@ deadlock_api_client/models/player_stats_metrics_response.py
 deadlock_api_client/models/rank.py
 deadlock_api_client/models/rank_distribution_entry.py
 deadlock_api_client/models/rank_images.py
+deadlock_api_client/models/rank_info.py
 deadlock_api_client/models/rank_response.py
 deadlock_api_client/models/ranked_season.py
 deadlock_api_client/models/raw_ability_upgrade.py
@@ -479,6 +480,7 @@ docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
 docs/RankImages.md
+docs/RankInfo.md
 docs/RankResponse.md
 docs/RankedSeason.md
 docs/RankedSeasonsApi.md
@@ -760,6 +762,7 @@ test/test_players_api.py
 test/test_rank.py
 test/test_rank_distribution_entry.py
 test/test_rank_images.py
+test/test_rank_info.py
 test/test_rank_response.py
 test/test_ranked_season.py
 test/test_ranked_seasons_api.py

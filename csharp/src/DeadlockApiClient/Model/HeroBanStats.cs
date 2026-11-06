@@ -36,7 +36,7 @@ namespace DeadlockApiClient.Model
         /// <param name="bans">The number of matches in which this hero was banned.</param>
         /// <param name="bucket">The bucket value (depends on the bucket query parameter).</param>
         /// <param name="heroId">The ID of the banned hero. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;</param>
-        /// <param name="matches">The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</param>
+        /// <param name="matches">The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</param>
         [JsonConstructor]
         public HeroBanStats(long bans, int bucket, int heroId, long matches)
         {
@@ -71,9 +71,9 @@ namespace DeadlockApiClient.Model
         public int HeroId { get; set; }
 
         /// <summary>
-        /// The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+        /// The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
         /// </summary>
-        /// <value>The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</value>
+        /// <value>The number of matches with ban data in this bucket. A hero&#39;s ban rate is &#x60;bans / matches&#x60;; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.</value>
         [JsonPropertyName("matches")]
         public long Matches { get; set; }
 

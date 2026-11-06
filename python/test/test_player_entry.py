@@ -38,6 +38,7 @@ class TestPlayerEntry(unittest.TestCase):
                 account_id = 0,
                 badge = 0,
                 badge_progress = 0,
+                badge_progress_max = 0,
                 matches = 0,
                 rank = 0,
                 value = 1.337

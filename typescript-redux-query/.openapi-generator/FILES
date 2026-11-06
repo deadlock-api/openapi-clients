@@ -202,6 +202,7 @@ src/models/PlayerStatsMetricsResponse.ts
 src/models/Rank.ts
 src/models/RankDistributionEntry.ts
 src/models/RankImages.ts
+src/models/RankInfo.ts
 src/models/RankResponse.ts
 src/models/RankedSeason.ts
 src/models/RawAbilityUpgrade.ts

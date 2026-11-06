@@ -32,7 +32,7 @@ import java.io.Serializable
  * @param bans The number of matches in which this hero was banned.
  * @param bucket The bucket value (depends on the bucket query parameter).
  * @param heroId The ID of the banned hero. See more: <https://api.deadlock-api.com/v1/assets/heroes>
- * @param matches The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
+ * @param matches The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count.
  */
 
 
@@ -50,7 +50,7 @@ data class HeroBanStats (
     @Json(name = "hero_id")
     val heroId: kotlin.Int,
 
-    /* The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 3 bans and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count. */
+    /* The number of matches with ban data in this bucket. A hero's ban rate is `bans / matches`; a ranked match has 4 bans (3 before Beta Season 2) and an unranked match 2, so the bans of all heroes do not divide into matches by a fixed count. */
     @Json(name = "matches")
     val matches: kotlin.Long
 

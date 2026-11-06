@@ -193,6 +193,7 @@ docs/PlayersApi.md
 docs/Rank.md
 docs/RankDistributionEntry.md
 docs/RankImages.md
+docs/RankInfo.md
 docs/RankResponse.md
 docs/RankedSeason.md
 docs/RankedSeasonsApi.md
@@ -490,6 +491,7 @@ src/main/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponse.kt
 src/main/kotlin/deadlock_api_client/models/Rank.kt
 src/main/kotlin/deadlock_api_client/models/RankDistributionEntry.kt
 src/main/kotlin/deadlock_api_client/models/RankImages.kt
+src/main/kotlin/deadlock_api_client/models/RankInfo.kt
 src/main/kotlin/deadlock_api_client/models/RankResponse.kt
 src/main/kotlin/deadlock_api_client/models/RankedSeason.kt
 src/main/kotlin/deadlock_api_client/models/RawAbilityUpgrade.kt
@@ -763,6 +765,7 @@ src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsBucketTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankDistributionEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/RankImagesTest.kt
+src/test/kotlin/deadlock_api_client/models/RankInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/RankResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankTest.kt
 src/test/kotlin/deadlock_api_client/models/RankedSeasonTest.kt

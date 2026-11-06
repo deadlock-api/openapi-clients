@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **PlayerRankInitialDisplayRank** | **int32** | Rank badge the player entered the match with, &#x60;tier * 10 + subrank&#x60;. | 
 **PlayerRankInitialFlatProgress** | Pointer to **NullableInt32** | Rank progress the player entered the match with. | [optional] 
 **PlayerRankInitialWinStreak** | Pointer to **NullableInt32** | Win streak the player entered the match with. | [optional] 
+**RankInterval** | Pointer to **NullableInt32** | Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1. | [optional] 
 **StartTime** | **int32** | Match start time as a unix timestamp. | 
 
 ## Methods
@@ -319,6 +320,41 @@ HasPlayerRankInitialWinStreak returns a boolean if a field has been set.
 `func (o *LastRankedMatch) UnsetPlayerRankInitialWinStreak()`
 
 UnsetPlayerRankInitialWinStreak ensures that no value is present for PlayerRankInitialWinStreak, not even an explicit nil
+### GetRankInterval
+
+`func (o *LastRankedMatch) GetRankInterval() int32`
+
+GetRankInterval returns the RankInterval field if non-nil, zero value otherwise.
+
+### GetRankIntervalOk
+
+`func (o *LastRankedMatch) GetRankIntervalOk() (*int32, bool)`
+
+GetRankIntervalOk returns a tuple with the RankInterval field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankInterval
+
+`func (o *LastRankedMatch) SetRankInterval(v int32)`
+
+SetRankInterval sets RankInterval field to given value.
+
+### HasRankInterval
+
+`func (o *LastRankedMatch) HasRankInterval() bool`
+
+HasRankInterval returns a boolean if a field has been set.
+
+### SetRankIntervalNil
+
+`func (o *LastRankedMatch) SetRankIntervalNil(b bool)`
+
+ SetRankIntervalNil sets the value for RankInterval to be an explicit nil
+
+### UnsetRankInterval
+`func (o *LastRankedMatch) UnsetRankInterval()`
+
+UnsetRankInterval ensures that no value is present for RankInterval, not even an explicit nil
 ### GetStartTime
 
 `func (o *LastRankedMatch) GetStartTime() int32`

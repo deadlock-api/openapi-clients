@@ -228,6 +228,7 @@ docs/PlayersAPI.md
 docs/Rank.md
 docs/RankDistributionEntry.md
 docs/RankImages.md
+docs/RankInfo.md
 docs/RankResponse.md
 docs/RankedSeason.md
 docs/RankedSeasonsAPI.md
@@ -479,6 +480,7 @@ model_player_stats_metrics_response.go
 model_rank.go
 model_rank_distribution_entry.go
 model_rank_images.go
+model_rank_info.go
 model_rank_response.go
 model_ranked_season.go
 model_raw_ability_upgrade.go

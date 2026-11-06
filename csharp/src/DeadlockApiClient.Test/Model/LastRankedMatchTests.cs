@@ -142,5 +142,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'PlayerRankInitialWinStreak'
         }
+
+        /// <summary>
+        /// Test the property 'RankInterval'
+        /// </summary>
+        [Fact]
+        public void RankIntervalTest()
+        {
+            // TODO unit test for the property 'RankInterval'
+        }
     }
 }

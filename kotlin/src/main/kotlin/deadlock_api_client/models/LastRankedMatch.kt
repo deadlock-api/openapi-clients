@@ -39,6 +39,7 @@ import java.io.Serializable
  * @param playerRankInitialDemotionProtectionGames Remaining demotion protection games at the start of the match.
  * @param playerRankInitialFlatProgress Rank progress the player entered the match with.
  * @param playerRankInitialWinStreak Win streak the player entered the match with.
+ * @param rankInterval Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1.
  */
 
 
@@ -81,7 +82,11 @@ data class LastRankedMatch (
 
     /* Win streak the player entered the match with. */
     @Json(name = "player_rank_initial_win_streak")
-    val playerRankInitialWinStreak: kotlin.Int? = null
+    val playerRankInitialWinStreak: kotlin.Int? = null,
+
+    /* Ranked interval the match counted for, which sets the scale of the flat progress. See <https://api.deadlock-api.com/v1/assets/ranked-seasons>. `null` for matches before 2026-11-05 19:00 UTC, which are all interval 1. */
+    @Json(name = "rank_interval")
+    val rankInterval: kotlin.Int? = null
 
 ) : Serializable {
     companion object {

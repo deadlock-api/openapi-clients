@@ -30,11 +30,12 @@ class PlayerEntry(BaseModel):
     """ # noqa: E501
     account_id: Annotated[int, Field(strict=True, ge=0)]
     badge: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: the rank badge the progress in `value` falls in, `0` when the player has no ranked match in range. Omitted for every other sort. See more: <https://api.deadlock-api.com/v1/assets/ranks>")
-    badge_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: progress points into `badge`. A subrank spans 1000 points, the sixth of a tier 2000. `null` in Eternus, whose subranks are percentile cuts rather than point spans, and when the player has no ranked match in range.")
+    badge_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: progress points into `badge`, out of `badge_progress_max`. In Eternus, whose subranks are percentile cuts rather than point spans, the points past the start of Eternus. `null` when the player has no ranked match in range.")
+    badge_progress_max: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="`rank` and `peak_rank` sorts only: the points the subrank of `badge` spans in that match's season (`sub_rank_xp` in <https://api.deadlock-api.com/v1/assets/ranked-seasons>). `null` in Eternus and when the player has no ranked match in range.")
     matches: Annotated[int, Field(strict=True, ge=0)]
     rank: Annotated[int, Field(strict=True, ge=0)]
     value: Union[StrictFloat, StrictInt]
-    __properties: ClassVar[List[str]] = ["account_id", "badge", "badge_progress", "matches", "rank", "value"]
+    __properties: ClassVar[List[str]] = ["account_id", "badge", "badge_progress", "badge_progress_max", "matches", "rank", "value"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,6 +86,11 @@ class PlayerEntry(BaseModel):
         if self.badge_progress is None and "badge_progress" in self.model_fields_set:
             _dict['badge_progress'] = None
 
+        # set to None if badge_progress_max (nullable) is None
+        # and model_fields_set contains the field
+        if self.badge_progress_max is None and "badge_progress_max" in self.model_fields_set:
+            _dict['badge_progress_max'] = None
+
         return _dict
 
     @classmethod
@@ -100,6 +106,7 @@ class PlayerEntry(BaseModel):
             "account_id": obj.get("account_id"),
             "badge": obj.get("badge"),
             "badge_progress": obj.get("badge_progress"),
+            "badge_progress_max": obj.get("badge_progress_max"),
             "matches": obj.get("matches"),
             "rank": obj.get("rank"),
             "value": obj.get("value")

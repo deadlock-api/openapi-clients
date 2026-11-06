@@ -164,6 +164,7 @@ export * from './PlayerStatsMetricsResponse';
 export * from './Rank';
 export * from './RankDistributionEntry';
 export * from './RankImages';
+export * from './RankInfo';
 export * from './RankResponse';
 export * from './RankedSeason';
 export * from './RawAbilityUpgrade';

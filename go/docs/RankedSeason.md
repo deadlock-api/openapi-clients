@@ -6,12 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **BaseWinLossPointGrant** | Pointer to **NullableInt32** | Base rank points granted per win / taken per loss (build 6701+). | [optional] 
 **CalibrationMatches** | **int32** |  | 
+**CalibrationMaxRank** | Pointer to **NullableInt32** | Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve&#39;s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance. | [optional] 
 **ClassName** | **string** |  | 
 **Intervals** | [**[]SeasonInterval**](SeasonInterval.md) |  | 
+**MinHeroUnlockPoints** | Pointer to **NullableInt32** | Points a hero needs to count towards &#x60;min_hero_unlocks&#x60;: 2 per win, 1 per loss (build 6857+). | [optional] 
 **MinHeroUnlocks** | **int32** |  | 
-**MinHeroWins** | **int32** |  | 
+**MinHeroWins** | Pointer to **NullableInt32** | Wins a hero needs to count towards &#x60;min_hero_unlocks&#x60;. Absent where the season counts hero points instead, see &#x60;min_hero_unlock_points&#x60;. | [optional] 
 **MinWins** | **int32** |  | 
 **Name** | **string** |  | 
+**RankInfo** | Pointer to [**[]RankInfo**](RankInfo.md) | Rank progression settings (build 6857+). | [optional] 
 **RankedType** | **string** |  | 
 **ValidPartySizes** | **[]int32** |  | 
 
@@ -19,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewRankedSeason
 
-`func NewRankedSeason(calibrationMatches int32, className string, intervals []SeasonInterval, minHeroUnlocks int32, minHeroWins int32, minWins int32, name string, rankedType string, validPartySizes []int32, ) *RankedSeason`
+`func NewRankedSeason(calibrationMatches int32, className string, intervals []SeasonInterval, minHeroUnlocks int32, minWins int32, name string, rankedType string, validPartySizes []int32, ) *RankedSeason`
 
 NewRankedSeason instantiates a new RankedSeason object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +92,41 @@ and a boolean to check if the value has been set.
 SetCalibrationMatches sets CalibrationMatches field to given value.
 
 
+### GetCalibrationMaxRank
+
+`func (o *RankedSeason) GetCalibrationMaxRank() int32`
+
+GetCalibrationMaxRank returns the CalibrationMaxRank field if non-nil, zero value otherwise.
+
+### GetCalibrationMaxRankOk
+
+`func (o *RankedSeason) GetCalibrationMaxRankOk() (*int32, bool)`
+
+GetCalibrationMaxRankOk returns a tuple with the CalibrationMaxRank field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCalibrationMaxRank
+
+`func (o *RankedSeason) SetCalibrationMaxRank(v int32)`
+
+SetCalibrationMaxRank sets CalibrationMaxRank field to given value.
+
+### HasCalibrationMaxRank
+
+`func (o *RankedSeason) HasCalibrationMaxRank() bool`
+
+HasCalibrationMaxRank returns a boolean if a field has been set.
+
+### SetCalibrationMaxRankNil
+
+`func (o *RankedSeason) SetCalibrationMaxRankNil(b bool)`
+
+ SetCalibrationMaxRankNil sets the value for CalibrationMaxRank to be an explicit nil
+
+### UnsetCalibrationMaxRank
+`func (o *RankedSeason) UnsetCalibrationMaxRank()`
+
+UnsetCalibrationMaxRank ensures that no value is present for CalibrationMaxRank, not even an explicit nil
 ### GetClassName
 
 `func (o *RankedSeason) GetClassName() string`
@@ -129,6 +167,41 @@ and a boolean to check if the value has been set.
 SetIntervals sets Intervals field to given value.
 
 
+### GetMinHeroUnlockPoints
+
+`func (o *RankedSeason) GetMinHeroUnlockPoints() int32`
+
+GetMinHeroUnlockPoints returns the MinHeroUnlockPoints field if non-nil, zero value otherwise.
+
+### GetMinHeroUnlockPointsOk
+
+`func (o *RankedSeason) GetMinHeroUnlockPointsOk() (*int32, bool)`
+
+GetMinHeroUnlockPointsOk returns a tuple with the MinHeroUnlockPoints field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMinHeroUnlockPoints
+
+`func (o *RankedSeason) SetMinHeroUnlockPoints(v int32)`
+
+SetMinHeroUnlockPoints sets MinHeroUnlockPoints field to given value.
+
+### HasMinHeroUnlockPoints
+
+`func (o *RankedSeason) HasMinHeroUnlockPoints() bool`
+
+HasMinHeroUnlockPoints returns a boolean if a field has been set.
+
+### SetMinHeroUnlockPointsNil
+
+`func (o *RankedSeason) SetMinHeroUnlockPointsNil(b bool)`
+
+ SetMinHeroUnlockPointsNil sets the value for MinHeroUnlockPoints to be an explicit nil
+
+### UnsetMinHeroUnlockPoints
+`func (o *RankedSeason) UnsetMinHeroUnlockPoints()`
+
+UnsetMinHeroUnlockPoints ensures that no value is present for MinHeroUnlockPoints, not even an explicit nil
 ### GetMinHeroUnlocks
 
 `func (o *RankedSeason) GetMinHeroUnlocks() int32`
@@ -168,7 +241,22 @@ and a boolean to check if the value has been set.
 
 SetMinHeroWins sets MinHeroWins field to given value.
 
+### HasMinHeroWins
 
+`func (o *RankedSeason) HasMinHeroWins() bool`
+
+HasMinHeroWins returns a boolean if a field has been set.
+
+### SetMinHeroWinsNil
+
+`func (o *RankedSeason) SetMinHeroWinsNil(b bool)`
+
+ SetMinHeroWinsNil sets the value for MinHeroWins to be an explicit nil
+
+### UnsetMinHeroWins
+`func (o *RankedSeason) UnsetMinHeroWins()`
+
+UnsetMinHeroWins ensures that no value is present for MinHeroWins, not even an explicit nil
 ### GetMinWins
 
 `func (o *RankedSeason) GetMinWins() int32`
@@ -208,6 +296,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetRankInfo
+
+`func (o *RankedSeason) GetRankInfo() []RankInfo`
+
+GetRankInfo returns the RankInfo field if non-nil, zero value otherwise.
+
+### GetRankInfoOk
+
+`func (o *RankedSeason) GetRankInfoOk() (*[]RankInfo, bool)`
+
+GetRankInfoOk returns a tuple with the RankInfo field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRankInfo
+
+`func (o *RankedSeason) SetRankInfo(v []RankInfo)`
+
+SetRankInfo sets RankInfo field to given value.
+
+### HasRankInfo
+
+`func (o *RankedSeason) HasRankInfo() bool`
+
+HasRankInfo returns a boolean if a field has been set.
 
 ### GetRankedType
 

@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { RankInfo } from './rank-info.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { SeasonInterval } from './season-interval.js';
 
 export interface RankedSeason {
@@ -23,12 +26,27 @@ export interface RankedSeason {
      */
     'base_win_loss_point_grant'?: number | null;
     'calibration_matches': number;
+    /**
+     * Highest rank badge (tier * 10 + subrank) placements put a player at (build 6857+). Valve\'s notes for Beta Season 2 (101, Ascendant I) allow up to Ascendant III for strong previous-season performance.
+     */
+    'calibration_max_rank'?: number | null;
     'class_name': string;
     'intervals': Array<SeasonInterval>;
+    /**
+     * Points a hero needs to count towards `min_hero_unlocks`: 2 per win, 1 per loss (build 6857+).
+     */
+    'min_hero_unlock_points'?: number | null;
     'min_hero_unlocks': number;
-    'min_hero_wins': number;
+    /**
+     * Wins a hero needs to count towards `min_hero_unlocks`. Absent where the season counts hero points instead, see `min_hero_unlock_points`.
+     */
+    'min_hero_wins'?: number | null;
     'min_wins': number;
     'name': string;
+    /**
+     * Rank progression settings (build 6857+).
+     */
+    'rank_info'?: Array<RankInfo>;
     'ranked_type': string;
     'valid_party_sizes': Array<number>;
 }

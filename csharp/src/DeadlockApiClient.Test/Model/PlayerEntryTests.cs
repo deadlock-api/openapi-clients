@@ -106,5 +106,14 @@ namespace DeadlockApiClient.Test.Model
         {
             // TODO unit test for the property 'BadgeProgress'
         }
+
+        /// <summary>
+        /// Test the property 'BadgeProgressMax'
+        /// </summary>
+        [Fact]
+        public void BadgeProgressMaxTest()
+        {
+            // TODO unit test for the property 'BadgeProgressMax'
+        }
     }
 }

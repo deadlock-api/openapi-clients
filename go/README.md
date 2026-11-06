@@ -390,6 +390,7 @@ Class | Method | HTTP request | Description
  - [Rank](docs/Rank.md)
  - [RankDistributionEntry](docs/RankDistributionEntry.md)
  - [RankImages](docs/RankImages.md)
+ - [RankInfo](docs/RankInfo.md)
  - [RankResponse](docs/RankResponse.md)
  - [RankedSeason](docs/RankedSeason.md)
  - [RawAbilityUpgrade](docs/RawAbilityUpgrade.md)

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **player_rank_initial_display_rank** | **int** | Rank badge the player entered the match with, &#x60;tier * 10 + subrank&#x60;. | 
 **player_rank_initial_flat_progress** | **int** | Rank progress the player entered the match with. | [optional] 
 **player_rank_initial_win_streak** | **int** | Win streak the player entered the match with. | [optional] 
+**rank_interval** | **int** | Ranked interval the match counted for, which sets the scale of the flat progress. See &lt;https://api.deadlock-api.com/v1/assets/ranked-seasons&gt;. &#x60;null&#x60; for matches before 2026-11-05 19:00 UTC, which are all interval 1. | [optional] 
 **start_time** | **int** | Match start time as a unix timestamp. | 
 
 ## Example

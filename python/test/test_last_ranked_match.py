@@ -44,6 +44,7 @@ class TestLastRankedMatch(unittest.TestCase):
                 player_rank_initial_display_rank = 0,
                 player_rank_initial_flat_progress = 0,
                 player_rank_initial_win_streak = 0,
+                rank_interval = 0,
                 start_time = 0
             )
         else:
