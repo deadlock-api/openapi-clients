@@ -95,14 +95,16 @@ Use `gradle` or `maven` to install the client:
 ```bash
 # settings.gradle
 sourceControl {
-    gitRepository(url = "https://github.com/deadlock-api/openapi-clients") {
-        producesModule("com.deadlock-api:deadlock-api-client")
+    gitRepository(uri("https://github.com/deadlock-api/openapi-clients")) {
+        producesModule("com.deadlock-api:deadlock_api_client")
         rootDir = "kotlin"
     }
 }
 
 # build.gradle
-implementation 'com.deadlock-api:deadlock-api-client:0.1.0'
+implementation('com.deadlock-api:deadlock_api_client') {
+    version { branch = 'master' }
+}
 ```
 
 ### Go
