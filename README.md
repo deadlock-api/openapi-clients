@@ -102,8 +102,10 @@ sourceControl {
 }
 
 # build.gradle
-implementation('com.deadlock-api:deadlock_api_client') {
-    version { branch = 'master' }
+dependencies {
+    implementation('com.deadlock-api:deadlock_api_client') {
+        version { branch = 'master' }
+    }
 }
 ```
 
