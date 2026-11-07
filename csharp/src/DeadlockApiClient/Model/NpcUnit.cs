@@ -113,7 +113,7 @@ namespace DeadlockApiClient.Model
         /// <param name="walkSpeed">walkSpeed</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<WeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<TeamModels?> coreModels = default, Option<TeamModels?> effigyModels = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<Dictionary<string, string>?> models = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<TeamModels?> teamModels = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<WeaponInfo?> weaponInfo = default)
+        public NpcUnit(string className, int id, Option<double?> acceleration = default, Option<double?> attackT1BossMaxRange = default, Option<double?> attackT3BossMaxRange = default, Option<double?> attackT3BossPhase2MaxRange = default, Option<double?> attackTrooperMaxRange = default, Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default, Option<double?> barrackBossDps = default, Option<double?> barrackGuardianDamageResistPct = default, Option<NpcWeaponInfo?> bossWeaponInfo = default, Option<Dictionary<string, string>?> boundAbilities = default, Option<TeamModels?> coreModels = default, Option<TeamModels?> effigyModels = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel1 = default, Option<SubclassEmpoweredModifierLevel?> empoweredModifierLevel2 = default, Option<SubclassTrooperDamageReduction?> enemyTrooperDamageReduction = default, Option<double?> enemyTrooperProtectionRange = default, Option<double?> generatorBossDps = default, Option<double?> goldReward = default, Option<double?> goldRewardBonusPercentPerMinute = default, Option<Color?> healthBarColorEnemy = default, Option<Color?> healthBarColorFriend = default, Option<Color?> healthBarColorTeam1 = default, Option<Color?> healthBarColorTeam2 = default, Option<Color?> healthBarColorTeamNeutral = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<List<SubclassIntrinsicModifiers>?> intrinsicModifiers = default, Option<double?> laserDpsMaxHealth = default, Option<double?> laserDpsToPlayers = default, Option<long?> maxHealth = default, Option<long?> maxHealthFinal = default, Option<long?> maxHealthGenerator = default, Option<double?> meleeAttemptRange = default, Option<double?> meleeDamage = default, Option<double?> meleeDuration = default, Option<double?> meleeHitRange = default, Option<Dictionary<string, string>?> models = default, Option<string?> name = default, Option<double?> nearDeathDuration = default, Option<List<string>?> neutralAbilities = default, Option<SubclassNeutralDamageGrowth?> neutralDamageGrowth = default, Option<string?> neutralMelee = default, Option<string?> neutralType = default, Option<double?> noShieldLaserDpsToPlayers = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase1 = default, Option<SubclassObjectiveHealthGrowthPhase?> objectiveHealthGrowthPhase2 = default, Option<SubclassObjectiveRegen?> objectiveRegen = default, Option<long?> phase2Health = default, Option<double?> playerDamageResistPct = default, Option<double?> playerDps = default, Option<SubclassRangedArmorModifier?> rangedArmorModifier = default, Option<double?> runSpeed = default, Option<double?> sightRangeNpcs = default, Option<double?> sightRangePlayers = default, Option<bool?> spawnBreakablesOnDeath = default, Option<double?> stompDamage = default, Option<double?> stompDamageMaxHealthPercent = default, Option<double?> stompImpactRadius = default, Option<double?> stunDuration = default, Option<double?> t1BossDamageResistPct = default, Option<double?> t1BossDps = default, Option<double?> t1BossDpsbaseResist = default, Option<double?> t1BossDpsmaxResist = default, Option<double?> t1BossDpsmaxResistTimeInSeconds = default, Option<double?> t2BossDamageResistPct = default, Option<double?> t2BossDps = default, Option<double?> t2BossDpsbaseResist = default, Option<double?> t2BossDpsmaxResist = default, Option<double?> t2BossDpsmaxResistTimeInSeconds = default, Option<double?> t3BossDamageResistPct = default, Option<double?> t3BossDps = default, Option<TeamModels?> teamModels = default, Option<double?> trooperDamageResistPct = default, Option<double?> trooperDps = default, Option<Dictionary<string, string>?> viewerSoulsClass = default, Option<double?> walkSpeed = default, Option<NpcWeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
@@ -320,14 +320,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<WeaponInfo?> BossWeaponInfoOption { get; private set; }
+        public Option<NpcWeaponInfo?> BossWeaponInfoOption { get; private set; }
 
         /// <summary>
         /// Secondary weapon the unit uses against bosses (builds 6711+).
         /// </summary>
         /// <value>Secondary weapon the unit uses against bosses (builds 6711+).</value>
         [JsonPropertyName("boss_weapon_info")]
-        public WeaponInfo? BossWeaponInfo { get { return this.BossWeaponInfoOption.Value; } set { this.BossWeaponInfoOption = new(value); } }
+        public NpcWeaponInfo? BossWeaponInfo { get { return this.BossWeaponInfoOption.Value; } set { this.BossWeaponInfoOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of BoundAbilities
@@ -1216,13 +1216,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<WeaponInfo?> WeaponInfoOption { get; private set; }
+        public Option<NpcWeaponInfo?> WeaponInfoOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets WeaponInfo
         /// </summary>
         [JsonPropertyName("weapon_info")]
-        public WeaponInfo? WeaponInfo { get { return this.WeaponInfoOption.Value; } set { this.WeaponInfoOption = new(value); } }
+        public NpcWeaponInfo? WeaponInfo { get { return this.WeaponInfoOption.Value; } set { this.WeaponInfoOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -1374,7 +1374,7 @@ namespace DeadlockApiClient.Model
             Option<SubclassBulletResistModifier?> backdoorBulletResistModifier = default;
             Option<double?> barrackBossDps = default;
             Option<double?> barrackGuardianDamageResistPct = default;
-            Option<WeaponInfo?> bossWeaponInfo = default;
+            Option<NpcWeaponInfo?> bossWeaponInfo = default;
             Option<Dictionary<string, string>?> boundAbilities = default;
             Option<TeamModels?> coreModels = default;
             Option<TeamModels?> effigyModels = default;
@@ -1442,7 +1442,7 @@ namespace DeadlockApiClient.Model
             Option<double?> trooperDps = default;
             Option<Dictionary<string, string>?> viewerSoulsClass = default;
             Option<double?> walkSpeed = default;
-            Option<WeaponInfo?> weaponInfo = default;
+            Option<NpcWeaponInfo?> weaponInfo = default;
 
             while (utf8JsonReader.Read())
             {
@@ -1490,7 +1490,7 @@ namespace DeadlockApiClient.Model
                             barrackGuardianDamageResistPct = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "boss_weapon_info":
-                            bossWeaponInfo = new Option<WeaponInfo?>(JsonSerializer.Deserialize<WeaponInfo>(ref utf8JsonReader, jsonSerializerOptions));
+                            bossWeaponInfo = new Option<NpcWeaponInfo?>(JsonSerializer.Deserialize<NpcWeaponInfo>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "bound_abilities":
                             boundAbilities = new Option<Dictionary<string, string>?>(JsonSerializer.Deserialize<Dictionary<string, string>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -1694,7 +1694,7 @@ namespace DeadlockApiClient.Model
                             walkSpeed = new Option<double?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (double?)null : utf8JsonReader.GetDouble());
                             break;
                         case "weapon_info":
-                            weaponInfo = new Option<WeaponInfo?>(JsonSerializer.Deserialize<WeaponInfo>(ref utf8JsonReader, jsonSerializerOptions));
+                            weaponInfo = new Option<NpcWeaponInfo?>(JsonSerializer.Deserialize<NpcWeaponInfo>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

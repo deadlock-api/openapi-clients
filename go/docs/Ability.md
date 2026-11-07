@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | Pointer to **NullableFloat64** |  | [optional] 
 **ClassName** | **string** |  | 
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
-**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **Description** | [**AbilityDescription**](AbilityDescription.md) |  | 
 **GrantAmmoOnCast** | Pointer to **NullableBool** |  | [optional] 
 **Hero** | Pointer to **NullableInt32** |  | [optional] 
@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **Properties** | Pointer to [**map[string]ItemProperty**](ItemProperty.md) |  | [optional] 
 **StartTrained** | Pointer to **NullableBool** |  | [optional] 
 **TooltipDetails** | Pointer to [**NullableAbilityTooltipDetails**](AbilityTooltipDetails.md) |  | [optional] 
-**Type** | [**ItemType**](ItemType.md) |  | 
 **UpdateTime** | Pointer to **NullableInt64** |  | [optional] 
 **Upgrades** | Pointer to [**[]RawAbilityUpgrade**](RawAbilityUpgrade.md) |  | [optional] 
 **Videos** | Pointer to [**NullableAbilityVideos**](AbilityVideos.md) |  | [optional] 
@@ -31,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewAbility
 
-`func NewAbility(className string, description AbilityDescription, id int32, name string, type_ ItemType, ) *Ability`
+`func NewAbility(className string, description AbilityDescription, id int32, name string, ) *Ability`
 
 NewAbility instantiates a new Ability object
 This constructor will assign default values to properties that have it defined,
@@ -581,26 +580,6 @@ HasTooltipDetails returns a boolean if a field has been set.
 `func (o *Ability) UnsetTooltipDetails()`
 
 UnsetTooltipDetails ensures that no value is present for TooltipDetails, not even an explicit nil
-### GetType
-
-`func (o *Ability) GetType() ItemType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Ability) GetTypeOk() (*ItemType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Ability) SetType(v ItemType)`
-
-SetType sets Type field to given value.
-
-
 ### GetUpdateTime
 
 `func (o *Ability) GetUpdateTime() int64`

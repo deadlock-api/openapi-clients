@@ -9,11 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Ability } from './ability.js';
-import type { Upgrade } from './upgrade.js';
-import type { Weapon } from './weapon.js';
+import type { ItemOneOf } from './item-one-of.js';
+import type { ItemOneOf1 } from './item-one-of1.js';
+import type { ItemOneOf2 } from './item-one-of2.js';
 /**
  * @type Item
  */
-export type Item = Ability | Upgrade | Weapon;
+export type Item = ItemOneOf | ItemOneOf1 | ItemOneOf2;
 //# sourceMappingURL=item.d.ts.map

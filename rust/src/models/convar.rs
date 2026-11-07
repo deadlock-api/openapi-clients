@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Convar {
     /// Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
-    #[serde(rename = "default")]
-    pub default: serde_json::Value,
+    #[serde(rename = "default", deserialize_with = "Option::deserialize")]
+    pub default: Option<serde_json::Value>,
     /// Help text shown by the in-game console.
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
@@ -27,7 +27,7 @@ pub struct Convar {
 }
 
 impl Convar {
-    pub fn new(default: serde_json::Value, flags: u64, r#type: models::ConvarType) -> Convar {
+    pub fn new(default: Option<serde_json::Value>, flags: u64, r#type: models::ConvarType) -> Convar {
         Convar {
             default,
             description: None,

@@ -131,6 +131,9 @@ docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
 docs/ItemGroup.md
+docs/ItemOneOf.md
+docs/ItemOneOf1.md
+docs/ItemOneOf2.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
@@ -175,6 +178,7 @@ docs/NeutralCamp.md
 docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
+docs/NpcWeaponInfo.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
@@ -238,6 +242,7 @@ docs/SteamInfoApi.md
 docs/SteamNews.md
 docs/SteamProfile.md
 docs/StreetBrawl.md
+docs/StringOrNumber.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
 docs/SubclassEmpoweredModifierLevel.md
@@ -438,6 +443,9 @@ src/main/kotlin/deadlock_api_client/models/ItemFlowNode.kt
 src/main/kotlin/deadlock_api_client/models/ItemFlowStats.kt
 src/main/kotlin/deadlock_api_client/models/ItemFlowSummary.kt
 src/main/kotlin/deadlock_api_client/models/ItemGroup.kt
+src/main/kotlin/deadlock_api_client/models/ItemOneOf.kt
+src/main/kotlin/deadlock_api_client/models/ItemOneOf1.kt
+src/main/kotlin/deadlock_api_client/models/ItemOneOf2.kt
 src/main/kotlin/deadlock_api_client/models/ItemPermutationStats.kt
 src/main/kotlin/deadlock_api_client/models/ItemProperty.kt
 src/main/kotlin/deadlock_api_client/models/ItemSlotType.kt
@@ -475,6 +483,7 @@ src/main/kotlin/deadlock_api_client/models/NeutralCamp.kt
 src/main/kotlin/deadlock_api_client/models/NeutralCampKind.kt
 src/main/kotlin/deadlock_api_client/models/NewPlayerMetrics.kt
 src/main/kotlin/deadlock_api_client/models/NpcUnit.kt
+src/main/kotlin/deadlock_api_client/models/NpcWeaponInfo.kt
 src/main/kotlin/deadlock_api_client/models/ObjectiveParams.kt
 src/main/kotlin/deadlock_api_client/models/ObjectivePosition.kt
 src/main/kotlin/deadlock_api_client/models/OutcomeToWeights.kt
@@ -531,6 +540,7 @@ src/main/kotlin/deadlock_api_client/models/SteamInfo.kt
 src/main/kotlin/deadlock_api_client/models/SteamNews.kt
 src/main/kotlin/deadlock_api_client/models/SteamProfile.kt
 src/main/kotlin/deadlock_api_client/models/StreetBrawl.kt
+src/main/kotlin/deadlock_api_client/models/StringOrNumber.kt
 src/main/kotlin/deadlock_api_client/models/SubclassBulletResistModifier.kt
 src/main/kotlin/deadlock_api_client/models/SubclassBulletResistModifierSubclass.kt
 src/main/kotlin/deadlock_api_client/models/SubclassEmpoweredModifierLevel.kt
@@ -712,6 +722,9 @@ src/test/kotlin/deadlock_api_client/models/ItemFlowNodeTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemFlowStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemFlowSummaryTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemGroupTest.kt
+src/test/kotlin/deadlock_api_client/models/ItemOneOf1Test.kt
+src/test/kotlin/deadlock_api_client/models/ItemOneOf2Test.kt
+src/test/kotlin/deadlock_api_client/models/ItemOneOfTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemPermutationStatsTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemPropertyTest.kt
 src/test/kotlin/deadlock_api_client/models/ItemSlotTypeTest.kt
@@ -750,6 +763,7 @@ src/test/kotlin/deadlock_api_client/models/NeutralCampKindTest.kt
 src/test/kotlin/deadlock_api_client/models/NeutralCampTest.kt
 src/test/kotlin/deadlock_api_client/models/NewPlayerMetricsTest.kt
 src/test/kotlin/deadlock_api_client/models/NpcUnitTest.kt
+src/test/kotlin/deadlock_api_client/models/NpcWeaponInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/ObjectiveParamsTest.kt
 src/test/kotlin/deadlock_api_client/models/ObjectivePositionTest.kt
 src/test/kotlin/deadlock_api_client/models/OutcomeToWeightsTest.kt
@@ -806,6 +820,7 @@ src/test/kotlin/deadlock_api_client/models/SteamInfoTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamNewsTest.kt
 src/test/kotlin/deadlock_api_client/models/SteamProfileTest.kt
 src/test/kotlin/deadlock_api_client/models/StreetBrawlTest.kt
+src/test/kotlin/deadlock_api_client/models/StringOrNumberTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassBulletResistModifierSubclassTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassBulletResistModifierTest.kt
 src/test/kotlin/deadlock_api_client/models/SubclassEmpoweredModifierLevelSubclassTest.kt

@@ -81,7 +81,7 @@ export const PatchesApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        feed_1: async (options = {}) => {
+        feedV2: async (options = {}) => {
             const localVarPath = `/v2/patches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -140,10 +140,10 @@ export const PatchesApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async feed_1(options) {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.feed_1(options);
+        async feedV2(options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.feedV2(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PatchesApi.feed_1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PatchesApi.feedV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     };
@@ -179,8 +179,8 @@ export const PatchesApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        feed_1(options) {
-            return localVarFp.feed_1(options).then((request) => request(axios, basePath));
+        feedV2(options) {
+            return localVarFp.feedV2(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -213,8 +213,8 @@ export class PatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1(options) {
-        return PatchesApiFp(this.configuration).feed_1(options).then((request) => request(this.axios, this.basePath));
+    feedV2(options) {
+        return PatchesApiFp(this.configuration).feedV2(options).then((request) => request(this.axios, this.basePath));
     }
 }
 //# sourceMappingURL=patches-api.js.map

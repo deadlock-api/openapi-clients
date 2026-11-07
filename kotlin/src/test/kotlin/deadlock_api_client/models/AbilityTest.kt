@@ -33,7 +33,6 @@ import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
 import deadlock_api_client.models.DependantAbilities
 import deadlock_api_client.models.ItemProperty
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawItemWeaponInfoInner
 
@@ -66,12 +65,6 @@ class AbilityTest : ShouldSpec() {
             //modelInstance.name shouldBe ("TODO")
         }
 
-        // to test the property `type`
-        should("test type") {
-            // uncomment below to test the property
-            //modelInstance.type shouldBe ("TODO")
-        }
-
         // to test the property `abilityType`
         should("test abilityType") {
             // uncomment below to test the property
@@ -96,7 +89,7 @@ class AbilityTest : ShouldSpec() {
             //modelInstance.dependantAbilities shouldBe ("TODO")
         }
 
-        // to test the property `dependentAbilities`
+        // to test the property `dependentAbilities` - Abilities this one depends on. Entries whose ability has no data are left out.
         should("test dependentAbilities") {
             // uncomment below to test the property
             //modelInstance.dependentAbilities shouldBe ("TODO")

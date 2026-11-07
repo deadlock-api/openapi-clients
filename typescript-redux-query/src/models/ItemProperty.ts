@@ -19,6 +19,9 @@ import {
     StatsUsageFlag,
     StatsUsageFlagFromJSON,
     StatsUsageFlagToJSON,
+    StringOrNumber,
+    StringOrNumberFromJSON,
+    StringOrNumberToJSON,
 } from './';
 
 /**
@@ -119,10 +122,10 @@ export interface ItemProperty  {
     scaleFunction?: RawItemPropertyScaleFunctionSubclass;
     /**
      * 
-     * @type {string}
+     * @type {StringOrNumber}
      * @memberof ItemProperty
      */
-    streetBrawlValue?: string;
+    streetBrawlValue?: StringOrNumber;
     /**
      * 
      * @type {Array<StatsUsageFlag>}
@@ -131,10 +134,10 @@ export interface ItemProperty  {
     usageFlags?: Array<StatsUsageFlag>;
     /**
      * Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
-     * @type {string}
+     * @type {StringOrNumber}
      * @memberof ItemProperty
      */
-    value?: string;
+    value?: StringOrNumber;
 }
 
 export function ItemPropertyFromJSON(json: any): ItemProperty {
@@ -154,9 +157,9 @@ export function ItemPropertyFromJSON(json: any): ItemProperty {
         'providedPropertyType': !exists(json, 'provided_property_type') ? undefined : json['provided_property_type'],
         'requiredUpgradeBits': !exists(json, 'required_upgrade_bits') ? undefined : json['required_upgrade_bits'],
         'scaleFunction': !exists(json, 'scale_function') ? undefined : RawItemPropertyScaleFunctionSubclassFromJSON(json['scale_function']),
-        'streetBrawlValue': !exists(json, 'street_brawl_value') ? undefined : json['street_brawl_value'],
+        'streetBrawlValue': !exists(json, 'street_brawl_value') ? undefined : StringOrNumberFromJSON(json['street_brawl_value']),
         'usageFlags': !exists(json, 'usage_flags') ? undefined : (json['usage_flags'] as Array<any>).map(StatsUsageFlagFromJSON),
-        'value': !exists(json, 'value') ? undefined : json['value'],
+        'value': !exists(json, 'value') ? undefined : StringOrNumberFromJSON(json['value']),
     };
 }
 
@@ -180,9 +183,9 @@ export function ItemPropertyToJSON(value?: ItemProperty): any {
         'provided_property_type': value.providedPropertyType,
         'required_upgrade_bits': value.requiredUpgradeBits,
         'scale_function': RawItemPropertyScaleFunctionSubclassToJSON(value.scaleFunction),
-        'street_brawl_value': value.streetBrawlValue,
+        'street_brawl_value': StringOrNumberToJSON(value.streetBrawlValue),
         'usage_flags': value.usageFlags === undefined ? undefined : (value.usageFlags as Array<any>).map(StatsUsageFlagToJSON),
-        'value': value.value,
+        'value': StringOrNumberToJSON(value.value),
     };
 }
 

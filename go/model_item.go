@@ -18,29 +18,29 @@ import (
 
 // Item - struct for Item
 type Item struct {
-	Ability *Ability
-	Upgrade *Upgrade
-	Weapon *Weapon
+	ItemOneOf *ItemOneOf
+	ItemOneOf1 *ItemOneOf1
+	ItemOneOf2 *ItemOneOf2
 }
 
-// AbilityAsItem is a convenience function that returns Ability wrapped in Item
-func AbilityAsItem(v *Ability) Item {
+// ItemOneOfAsItem is a convenience function that returns ItemOneOf wrapped in Item
+func ItemOneOfAsItem(v *ItemOneOf) Item {
 	return Item{
-		Ability: v,
+		ItemOneOf: v,
 	}
 }
 
-// UpgradeAsItem is a convenience function that returns Upgrade wrapped in Item
-func UpgradeAsItem(v *Upgrade) Item {
+// ItemOneOf1AsItem is a convenience function that returns ItemOneOf1 wrapped in Item
+func ItemOneOf1AsItem(v *ItemOneOf1) Item {
 	return Item{
-		Upgrade: v,
+		ItemOneOf1: v,
 	}
 }
 
-// WeaponAsItem is a convenience function that returns Weapon wrapped in Item
-func WeaponAsItem(v *Weapon) Item {
+// ItemOneOf2AsItem is a convenience function that returns ItemOneOf2 wrapped in Item
+func ItemOneOf2AsItem(v *ItemOneOf2) Item {
 	return Item{
-		Weapon: v,
+		ItemOneOf2: v,
 	}
 }
 
@@ -49,62 +49,62 @@ func WeaponAsItem(v *Weapon) Item {
 func (dst *Item) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into Ability
-	err = newStrictDecoder(data).Decode(&dst.Ability)
+	// try to unmarshal data into ItemOneOf
+	err = newStrictDecoder(data).Decode(&dst.ItemOneOf)
 	if err == nil {
-		jsonAbility, _ := json.Marshal(dst.Ability)
-		if string(jsonAbility) == "{}" { // empty struct
-			dst.Ability = nil
+		jsonItemOneOf, _ := json.Marshal(dst.ItemOneOf)
+		if string(jsonItemOneOf) == "{}" { // empty struct
+			dst.ItemOneOf = nil
 		} else {
-			if err = validator.Validate(dst.Ability); err != nil {
-				dst.Ability = nil
+			if err = validator.Validate(dst.ItemOneOf); err != nil {
+				dst.ItemOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Ability = nil
+		dst.ItemOneOf = nil
 	}
 
-	// try to unmarshal data into Upgrade
-	err = newStrictDecoder(data).Decode(&dst.Upgrade)
+	// try to unmarshal data into ItemOneOf1
+	err = newStrictDecoder(data).Decode(&dst.ItemOneOf1)
 	if err == nil {
-		jsonUpgrade, _ := json.Marshal(dst.Upgrade)
-		if string(jsonUpgrade) == "{}" { // empty struct
-			dst.Upgrade = nil
+		jsonItemOneOf1, _ := json.Marshal(dst.ItemOneOf1)
+		if string(jsonItemOneOf1) == "{}" { // empty struct
+			dst.ItemOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.Upgrade); err != nil {
-				dst.Upgrade = nil
+			if err = validator.Validate(dst.ItemOneOf1); err != nil {
+				dst.ItemOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Upgrade = nil
+		dst.ItemOneOf1 = nil
 	}
 
-	// try to unmarshal data into Weapon
-	err = newStrictDecoder(data).Decode(&dst.Weapon)
+	// try to unmarshal data into ItemOneOf2
+	err = newStrictDecoder(data).Decode(&dst.ItemOneOf2)
 	if err == nil {
-		jsonWeapon, _ := json.Marshal(dst.Weapon)
-		if string(jsonWeapon) == "{}" { // empty struct
-			dst.Weapon = nil
+		jsonItemOneOf2, _ := json.Marshal(dst.ItemOneOf2)
+		if string(jsonItemOneOf2) == "{}" { // empty struct
+			dst.ItemOneOf2 = nil
 		} else {
-			if err = validator.Validate(dst.Weapon); err != nil {
-				dst.Weapon = nil
+			if err = validator.Validate(dst.ItemOneOf2); err != nil {
+				dst.ItemOneOf2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Weapon = nil
+		dst.ItemOneOf2 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.Ability = nil
-		dst.Upgrade = nil
-		dst.Weapon = nil
+		dst.ItemOneOf = nil
+		dst.ItemOneOf1 = nil
+		dst.ItemOneOf2 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(Item)")
 	} else if match == 1 {
@@ -120,16 +120,16 @@ func (dst *Item) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src Item) MarshalJSON() ([]byte, error) {
-	if src.Ability != nil {
-		return json.Marshal(&src.Ability)
+	if src.ItemOneOf != nil {
+		return json.Marshal(&src.ItemOneOf)
 	}
 
-	if src.Upgrade != nil {
-		return json.Marshal(&src.Upgrade)
+	if src.ItemOneOf1 != nil {
+		return json.Marshal(&src.ItemOneOf1)
 	}
 
-	if src.Weapon != nil {
-		return json.Marshal(&src.Weapon)
+	if src.ItemOneOf2 != nil {
+		return json.Marshal(&src.ItemOneOf2)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -140,16 +140,16 @@ func (obj *Item) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.Ability != nil {
-		return obj.Ability
+	if obj.ItemOneOf != nil {
+		return obj.ItemOneOf
 	}
 
-	if obj.Upgrade != nil {
-		return obj.Upgrade
+	if obj.ItemOneOf1 != nil {
+		return obj.ItemOneOf1
 	}
 
-	if obj.Weapon != nil {
-		return obj.Weapon
+	if obj.ItemOneOf2 != nil {
+		return obj.ItemOneOf2
 	}
 
 	// all schemas are nil
@@ -158,16 +158,16 @@ func (obj *Item) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj Item) GetActualInstanceValue() (interface{}) {
-	if obj.Ability != nil {
-		return *obj.Ability
+	if obj.ItemOneOf != nil {
+		return *obj.ItemOneOf
 	}
 
-	if obj.Upgrade != nil {
-		return *obj.Upgrade
+	if obj.ItemOneOf1 != nil {
+		return *obj.ItemOneOf1
 	}
 
-	if obj.Weapon != nil {
-		return *obj.Weapon
+	if obj.ItemOneOf2 != nil {
+		return *obj.ItemOneOf2
 	}
 
 	// all schemas are nil

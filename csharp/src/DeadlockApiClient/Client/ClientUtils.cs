@@ -171,6 +171,12 @@ namespace DeadlockApiClient.Client
                 return HeroDevelopmentStateValueConverter.ToJsonValue(heroDevelopmentState);
             if (obj is HeroType heroType)
                 return HeroTypeValueConverter.ToJsonValue(heroType);
+            if (obj is ItemOneOf.TypeEnum itemOneOfTypeEnum)
+                return ItemOneOf.TypeEnumToJsonValue(itemOneOfTypeEnum);
+            if (obj is ItemOneOf1.TypeEnum itemOneOf1TypeEnum)
+                return ItemOneOf1.TypeEnumToJsonValue(itemOneOf1TypeEnum);
+            if (obj is ItemOneOf2.TypeEnum itemOneOf2TypeEnum)
+                return ItemOneOf2.TypeEnumToJsonValue(itemOneOf2TypeEnum);
             if (obj is ItemSlotType itemSlotType)
                 return ItemSlotTypeValueConverter.ToJsonValue(itemSlotType);
             if (obj is ItemType itemType)

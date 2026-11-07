@@ -13,9 +13,12 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { StringOrNumber } from './string-or-number.js';
 
 export interface RawAbilityUpgradePropertyUpgrade {
-    'bonus': string;
+    'bonus': StringOrNumber;
     /**
      * Corrupted item bonuses only (build 6711+).
      */

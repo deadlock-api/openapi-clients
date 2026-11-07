@@ -18,6 +18,9 @@
 import type { Color } from './color.js';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { NpcWeaponInfo } from './npc-weapon-info.js';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { SubclassBulletResistModifier } from './subclass-bullet-resist-modifier.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -43,9 +46,6 @@ import type { SubclassTrooperDamageReduction } from './subclass-trooper-damage-r
 // May contain unused imports in some cases
 // @ts-ignore
 import type { TeamModels } from './team-models.js';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { WeaponInfo } from './weapon-info.js';
 
 export interface NpcUnit {
     'acceleration'?: number | null;
@@ -59,7 +59,7 @@ export interface NpcUnit {
     /**
      * Secondary weapon the unit uses against bosses (builds 6711+).
      */
-    'boss_weapon_info'?: WeaponInfo | null;
+    'boss_weapon_info'?: NpcWeaponInfo | null;
     'bound_abilities'?: { [key: string]: string; } | null;
     'class_name': string;
     /**
@@ -162,6 +162,6 @@ export interface NpcUnit {
      */
     'viewer_souls_class'?: { [key: string]: string; } | null;
     'walk_speed'?: number | null;
-    'weapon_info'?: WeaponInfo | null;
+    'weapon_info'?: NpcWeaponInfo | null;
 }
 

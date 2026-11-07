@@ -57,7 +57,7 @@ class Convar implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'default' => 'object',
+        'default' => 'mixed',
         'description' => 'string',
         'flags' => 'int',
         'type' => '\OpenAPI\Client\Model\ConvarType'
@@ -83,7 +83,7 @@ class Convar implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'default' => false,
+        'default' => true,
         'description' => true,
         'flags' => false,
         'type' => false
@@ -295,8 +295,8 @@ class Convar implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['default'] === null) {
-            $invalidProperties[] = "'default' can't be null";
+        if ($this->container['default'] === null && !$this->isNullableSetToNull('default')) {
+            $invalidProperties[] = "'default' is required";
         }
         if ($this->container['flags'] === null) {
             $invalidProperties[] = "'flags' can't be null";
@@ -326,7 +326,7 @@ class Convar implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets default
      *
-     * @return object
+     * @return mixed|null
      */
     public function getDefault()
     {
@@ -336,14 +336,21 @@ class Convar implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets default
      *
-     * @param object $default Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
+     * @param mixed|null $default Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
      *
      * @return self
      */
     public function setDefault($default)
     {
         if (is_null($default)) {
-            throw new \InvalidArgumentException('non-nullable default cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'default');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('default', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['default'] = $default;
 

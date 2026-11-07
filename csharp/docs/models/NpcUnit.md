@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **BackdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **BarrackBossDps** | **double** |  | [optional] 
 **BarrackGuardianDamageResistPct** | **double** |  | [optional] 
-**BossWeaponInfo** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
+**BossWeaponInfo** | [**NpcWeaponInfo**](NpcWeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **BoundAbilities** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 **CoreModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. | [optional] 
 **EffigyModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s effigy models, per team. | [optional] 
@@ -82,7 +82,7 @@ Name | Type | Description | Notes
 **TrooperDps** | **double** |  | [optional] 
 **ViewerSoulsClass** | **Dictionary&lt;string, string&gt;** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] 
 **WalkSpeed** | **double** |  | [optional] 
-**WeaponInfo** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] 
+**WeaponInfo** | [**NpcWeaponInfo**](NpcWeaponInfo.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

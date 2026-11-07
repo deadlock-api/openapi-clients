@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RawAbilityUpgradePropertyUpgrade {
     #[serde(rename = "bonus")]
-    pub bonus: String,
+    pub bonus: Box<models::StringOrNumber>,
     /// Corrupted item bonuses only (build 6711+).
     #[serde(rename = "fixed_corrupted_bonus", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fixed_corrupted_bonus: Option<Option<bool>>,
@@ -30,9 +30,9 @@ pub struct RawAbilityUpgradePropertyUpgrade {
 }
 
 impl RawAbilityUpgradePropertyUpgrade {
-    pub fn new(bonus: String, name: String) -> RawAbilityUpgradePropertyUpgrade {
+    pub fn new(bonus: models::StringOrNumber, name: String) -> RawAbilityUpgradePropertyUpgrade {
         RawAbilityUpgradePropertyUpgrade {
-            bonus,
+            bonus: Box::new(bonus),
             fixed_corrupted_bonus: None,
             name,
             round_corrupted_bonus: None,

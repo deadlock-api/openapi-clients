@@ -39,7 +39,7 @@ export declare const PatchesApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    feedV2: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * PatchesApi - functional programming interface
@@ -66,7 +66,7 @@ export declare const PatchesApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeedItem>>>;
+    feedV2(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeedItem>>>;
 };
 /**
  * PatchesApi - factory interface
@@ -93,7 +93,7 @@ export declare const PatchesApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1(options?: RawAxiosRequestConfig): AxiosPromise<Array<FeedItem>>;
+    feedV2(options?: RawAxiosRequestConfig): AxiosPromise<Array<FeedItem>>;
 };
 /**
  * PatchesApi - object-oriented interface
@@ -120,6 +120,6 @@ export declare class PatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    feed_1(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FeedItem[], any, {}, any>>;
+    feedV2(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FeedItem[], any, {}, any>>;
 }
 //# sourceMappingURL=patches-api.d.ts.map

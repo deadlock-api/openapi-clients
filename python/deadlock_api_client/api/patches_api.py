@@ -535,7 +535,7 @@ class PatchesApi:
 
 
     @validate_call
-    def feed_0(
+    def feed_v2(
         self,
         _request_timeout: Union[
             None,
@@ -576,7 +576,7 @@ class PatchesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._feed_0_serialize(
+        _param = self._feed_v2_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -599,7 +599,7 @@ class PatchesApi:
 
 
     @validate_call
-    def feed_0_with_http_info(
+    def feed_v2_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -640,7 +640,7 @@ class PatchesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._feed_0_serialize(
+        _param = self._feed_v2_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -663,7 +663,7 @@ class PatchesApi:
 
 
     @validate_call
-    def feed_0_without_preload_content(
+    def feed_v2_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -704,7 +704,7 @@ class PatchesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._feed_0_serialize(
+        _param = self._feed_v2_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -722,7 +722,7 @@ class PatchesApi:
         return response_data.response
 
 
-    def _feed_0_serialize(
+    def _feed_v2_serialize(
         self,
         _request_auth,
         _content_type,

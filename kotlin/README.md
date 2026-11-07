@@ -173,7 +173,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *NPCUnitsApi* | [**listNpcUnits**](docs/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units |
 | *PatchesApi* | [**bigPatchDays**](docs/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | *PatchesApi* | [**feed**](docs/PatchesApi.md#feed) | **GET** /v1/patches | Notes |
-| *PatchesApi* | [**feed_0**](docs/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
+| *PatchesApi* | [**feedV2**](docs/PatchesApi.md#feedv2) | **GET** /v2/patches | Notes |
 | *PlayersApi* | [**enemyStats**](docs/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats |
 | *PlayersApi* | [**matchHistory**](docs/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History |
 | *PlayersApi* | [**mateStats**](docs/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats |
@@ -312,6 +312,9 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.ItemFlowStats](docs/ItemFlowStats.md)
  - [deadlock_api_client.models.ItemFlowSummary](docs/ItemFlowSummary.md)
  - [deadlock_api_client.models.ItemGroup](docs/ItemGroup.md)
+ - [deadlock_api_client.models.ItemOneOf](docs/ItemOneOf.md)
+ - [deadlock_api_client.models.ItemOneOf1](docs/ItemOneOf1.md)
+ - [deadlock_api_client.models.ItemOneOf2](docs/ItemOneOf2.md)
  - [deadlock_api_client.models.ItemPermutationStats](docs/ItemPermutationStats.md)
  - [deadlock_api_client.models.ItemProperty](docs/ItemProperty.md)
  - [deadlock_api_client.models.ItemSlotType](docs/ItemSlotType.md)
@@ -349,6 +352,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.NeutralCampKind](docs/NeutralCampKind.md)
  - [deadlock_api_client.models.NewPlayerMetrics](docs/NewPlayerMetrics.md)
  - [deadlock_api_client.models.NpcUnit](docs/NpcUnit.md)
+ - [deadlock_api_client.models.NpcWeaponInfo](docs/NpcWeaponInfo.md)
  - [deadlock_api_client.models.ObjectiveParams](docs/ObjectiveParams.md)
  - [deadlock_api_client.models.ObjectivePosition](docs/ObjectivePosition.md)
  - [deadlock_api_client.models.OutcomeToWeights](docs/OutcomeToWeights.md)
@@ -405,6 +409,7 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.SteamNews](docs/SteamNews.md)
  - [deadlock_api_client.models.SteamProfile](docs/SteamProfile.md)
  - [deadlock_api_client.models.StreetBrawl](docs/StreetBrawl.md)
+ - [deadlock_api_client.models.StringOrNumber](docs/StringOrNumber.md)
  - [deadlock_api_client.models.SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [deadlock_api_client.models.SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)
  - [deadlock_api_client.models.SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)

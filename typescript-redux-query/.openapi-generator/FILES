@@ -149,6 +149,9 @@ src/models/ItemFlowNode.ts
 src/models/ItemFlowStats.ts
 src/models/ItemFlowSummary.ts
 src/models/ItemGroup.ts
+src/models/ItemOneOf.ts
+src/models/ItemOneOf1.ts
+src/models/ItemOneOf2.ts
 src/models/ItemPermutationStats.ts
 src/models/ItemProperty.ts
 src/models/ItemSlotType.ts
@@ -186,6 +189,7 @@ src/models/NeutralCamp.ts
 src/models/NeutralCampKind.ts
 src/models/NewPlayerMetrics.ts
 src/models/NpcUnit.ts
+src/models/NpcWeaponInfo.ts
 src/models/ObjectiveParams.ts
 src/models/ObjectivePosition.ts
 src/models/OutcomeToWeights.ts
@@ -242,6 +246,7 @@ src/models/SteamInfo.ts
 src/models/SteamNews.ts
 src/models/SteamProfile.ts
 src/models/StreetBrawl.ts
+src/models/StringOrNumber.ts
 src/models/SubclassBulletResistModifier.ts
 src/models/SubclassBulletResistModifierSubclass.ts
 src/models/SubclassEmpoweredModifierLevel.ts

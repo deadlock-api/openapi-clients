@@ -12,7 +12,6 @@
 | **itemTier** | **kotlin.Int** |  |  |
 | **name** | **kotlin.String** |  |  |
 | **shopable** | **kotlin.Boolean** |  |  |
-| **type** | [**ItemType**](ItemType.md) |  |  |
 | **componentItems** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **corruptedInfo** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). |  [optional] |
 | **cost** | **kotlin.Int** |  |  [optional] |

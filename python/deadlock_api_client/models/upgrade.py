@@ -24,7 +24,6 @@ from deadlock_api_client.models.ability_activation import AbilityActivation
 from deadlock_api_client.models.ability_imbue import AbilityImbue
 from deadlock_api_client.models.corrupted_item_info import CorruptedItemInfo
 from deadlock_api_client.models.item_slot_type import ItemSlotType
-from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade
 from deadlock_api_client.models.raw_item_weapon_info_inner import RawItemWeaponInfoInner
 from deadlock_api_client.models.upgrade_description import UpgradeDescription
@@ -67,11 +66,10 @@ class Upgrade(BaseModel):
     shopable: StrictBool
     start_trained: Optional[StrictBool] = None
     tooltip_sections: Optional[List[UpgradeTooltipSection]] = None
-    type: ItemType
     update_time: Optional[StrictInt] = None
     upgrades: Optional[List[RawAbilityUpgrade]] = None
     weapon_info: Optional[RawItemWeaponInfoInner] = None
-    __properties: ClassVar[List[str]] = ["activation", "class_name", "component_items", "corrupted_info", "cost", "description", "disable_item_target", "disabled", "disabled_shop_filters", "hero", "heroes", "id", "image", "image_webp", "imbue", "is_active_item", "item_slot_type", "item_tier", "name", "properties", "shop_filters", "shop_image", "shop_image_small", "shop_image_small_webp", "shop_image_webp", "shop_version", "shopable", "start_trained", "tooltip_sections", "type", "update_time", "upgrades", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["activation", "class_name", "component_items", "corrupted_info", "cost", "description", "disable_item_target", "disabled", "disabled_shop_filters", "hero", "heroes", "id", "image", "image_webp", "imbue", "is_active_item", "item_slot_type", "item_tier", "name", "properties", "shop_filters", "shop_image", "shop_image_small", "shop_image_small_webp", "shop_image_webp", "shop_version", "shopable", "start_trained", "tooltip_sections", "update_time", "upgrades", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -305,7 +303,6 @@ class Upgrade(BaseModel):
             "shopable": obj.get("shopable"),
             "start_trained": obj.get("start_trained"),
             "tooltip_sections": [UpgradeTooltipSection.from_dict(_item) for _item in obj["tooltip_sections"]] if obj.get("tooltip_sections") is not None else None,
-            "type": obj.get("type"),
             "update_time": obj.get("update_time"),
             "upgrades": [RawAbilityUpgrade.from_dict(_item) for _item in obj["upgrades"]] if obj.get("upgrades") is not None else None,
             "weapon_info": RawItemWeaponInfoInner.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None

@@ -86,11 +86,11 @@ class TestAbility(unittest.TestCase):
                             ''
                             ], 
                         scale_function = null, 
-                        street_brawl_value = '', 
+                        street_brawl_value = null, 
                         usage_flags = [
                             'ConditionallyApplied'
                             ], 
-                        value = '', )
+                        value = null, )
                     },
                 start_trained = True,
                 tooltip_details = deadlock_api_client.models.ability_tooltip_details.AbilityTooltipDetails(
@@ -118,13 +118,12 @@ class TestAbility(unittest.TestCase):
                                 ], 
                             property_upgrade_required = '', )
                         ], ),
-                type = 'ability',
                 update_time = 56,
                 upgrades = [
                     deadlock_api_client.models.raw_ability_upgrade.RawAbilityUpgrade(
                         property_upgrades = [
                             deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                                bonus = '', 
+                                bonus = null, 
                                 fixed_corrupted_bonus = True, 
                                 name = '', 
                                 round_corrupted_bonus = True, 
@@ -151,7 +150,6 @@ class TestAbility(unittest.TestCase):
                     t3_desc = '', ),
                 id = 0,
                 name = '',
-                type = 'ability',
         )
         """
 

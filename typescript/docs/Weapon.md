@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **name** | **string** |  | [default to undefined]
 **properties** | [**{ [key: string]: ItemProperty; }**](ItemProperty.md) |  | [optional] [default to undefined]
 **start_trained** | **boolean** |  | [optional] [default to undefined]
-**type** | [**ItemType**](ItemType.md) |  | [default to undefined]
 **update_time** | **number** |  | [optional] [default to undefined]
 **use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
 **weapon_info** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] [default to undefined]
@@ -38,7 +37,6 @@ const instance: Weapon = {
     name,
     properties,
     start_trained,
-    type,
     update_time,
     use_custom_crosshair_settings,
     weapon_info,

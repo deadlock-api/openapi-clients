@@ -86,7 +86,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => 'bool',
         'start_trained' => 'bool',
         'tooltip_sections' => '\OpenAPI\Client\Model\UpgradeTooltipSection[]',
-        'type' => '\OpenAPI\Client\Model\ItemType',
         'update_time' => 'int',
         'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgrade[]',
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoInner'
@@ -129,7 +128,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => null,
         'start_trained' => null,
         'tooltip_sections' => null,
-        'type' => null,
         'update_time' => 'int64',
         'upgrades' => null,
         'weapon_info' => null
@@ -170,7 +168,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => false,
         'start_trained' => true,
         'tooltip_sections' => true,
-        'type' => false,
         'update_time' => true,
         'upgrades' => true,
         'weapon_info' => true
@@ -291,7 +288,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => 'shopable',
         'start_trained' => 'start_trained',
         'tooltip_sections' => 'tooltip_sections',
-        'type' => 'type',
         'update_time' => 'update_time',
         'upgrades' => 'upgrades',
         'weapon_info' => 'weapon_info'
@@ -332,7 +328,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => 'setShopable',
         'start_trained' => 'setStartTrained',
         'tooltip_sections' => 'setTooltipSections',
-        'type' => 'setType',
         'update_time' => 'setUpdateTime',
         'upgrades' => 'setUpgrades',
         'weapon_info' => 'setWeaponInfo'
@@ -373,7 +368,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         'shopable' => 'getShopable',
         'start_trained' => 'getStartTrained',
         'tooltip_sections' => 'getTooltipSections',
-        'type' => 'getType',
         'update_time' => 'getUpdateTime',
         'upgrades' => 'getUpgrades',
         'weapon_info' => 'getWeaponInfo'
@@ -465,7 +459,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('shopable', $data ?? [], null);
         $this->setIfExists('start_trained', $data ?? [], null);
         $this->setIfExists('tooltip_sections', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('update_time', $data ?? [], null);
         $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
@@ -537,9 +530,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['shopable'] === null) {
             $invalidProperties[] = "'shopable' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -1498,33 +1488,6 @@ class Upgrade implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['tooltip_sections'] = $tooltip_sections;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\ItemType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\ItemType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

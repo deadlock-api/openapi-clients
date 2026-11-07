@@ -12,21 +12,21 @@
  */
 
 import {
-    Ability,
-    AbilityFromJSON,
-    AbilityToJSON,
-    Upgrade,
-    UpgradeFromJSON,
-    UpgradeToJSON,
-    Weapon,
-    WeaponFromJSON,
-    WeaponToJSON,
+    ItemOneOf,
+    ItemOneOfFromJSON,
+    ItemOneOfToJSON,
+    ItemOneOf1,
+    ItemOneOf1FromJSON,
+    ItemOneOf1ToJSON,
+    ItemOneOf2,
+    ItemOneOf2FromJSON,
+    ItemOneOf2ToJSON,
 } from './';
 
 /**
  * @type Item
  * @export
  */
-export type Item = Ability | Upgrade | Weapon;
+export type Item = ItemOneOf | ItemOneOf1 | ItemOneOf2;
 
 

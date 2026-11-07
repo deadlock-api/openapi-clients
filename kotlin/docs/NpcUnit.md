@@ -14,7 +14,7 @@
 | **backdoorBulletResistModifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  |  [optional] |
 | **barrackBossDps** | **kotlin.Double** |  |  [optional] |
 | **barrackGuardianDamageResistPct** | **kotlin.Double** |  |  [optional] |
-| **bossWeaponInfo** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). |  [optional] |
+| **bossWeaponInfo** | [**NpcWeaponInfo**](NpcWeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). |  [optional] |
 | **boundAbilities** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** |  |  [optional] |
 | **coreModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. |  [optional] |
 | **effigyModels** | [**TeamModels**](TeamModels.md) | The Patron&#39;s effigy models, per team. |  [optional] |
@@ -82,7 +82,7 @@
 | **trooperDps** | **kotlin.Double** |  |  [optional] |
 | **viewerSoulsClass** | **kotlin.collections.Map&lt;kotlin.String, kotlin.String&gt;** | Distance threshold (as string key) → soul orb class shown to the viewer. |  [optional] |
 | **walkSpeed** | **kotlin.Double** |  |  [optional] |
-| **weaponInfo** | [**WeaponInfo**](WeaponInfo.md) |  |  [optional] |
+| **weaponInfo** | [**NpcWeaponInfo**](NpcWeaponInfo.md) |  |  [optional] |
 
 
 

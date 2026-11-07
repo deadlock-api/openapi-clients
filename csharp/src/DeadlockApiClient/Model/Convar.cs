@@ -33,16 +33,16 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Convar" /> class.
         /// </summary>
-        /// <param name="default">Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.</param>
         /// <param name="flags">Raw &#x60;FCVAR_*&#x60; flag bits.</param>
         /// <param name="type">type</param>
+        /// <param name="default">Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.</param>
         /// <param name="description">Help text shown by the in-game console.</param>
         [JsonConstructor]
-        public Convar(Object @default, long flags, ConvarType type, Option<string?> description = default)
+        public Convar(long flags, ConvarType type, Object? @default = default, Option<string?> description = default)
         {
-            Default = @default;
             Flags = flags;
             Type = type;
+            Default = @default;
             DescriptionOption = description;
             OnCreated();
         }
@@ -56,18 +56,18 @@ namespace DeadlockApiClient.Model
         public ConvarType Type { get; set; }
 
         /// <summary>
-        /// Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.
-        /// </summary>
-        /// <value>Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.</value>
-        [JsonPropertyName("default")]
-        public Object Default { get; set; }
-
-        /// <summary>
         /// Raw &#x60;FCVAR_*&#x60; flag bits.
         /// </summary>
         /// <value>Raw &#x60;FCVAR_*&#x60; flag bits.</value>
         [JsonPropertyName("flags")]
         public long Flags { get; set; }
+
+        /// <summary>
+        /// Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.
+        /// </summary>
+        /// <value>Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;.</value>
+        [JsonPropertyName("default")]
+        public Object? Default { get; set; }
 
         /// <summary>
         /// Used to track the state of Description
@@ -91,9 +91,9 @@ namespace DeadlockApiClient.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Convar {\n");
-            sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Default: ").Append(Default).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -148,9 +148,9 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<Object?> varDefault = default;
             Option<long?> flags = default;
             Option<ConvarType?> type = default;
+            Option<Object?> varDefault = default;
             Option<string?> description = default;
 
             while (utf8JsonReader.Read())
@@ -168,14 +168,14 @@ namespace DeadlockApiClient.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "default":
-                            varDefault = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
                         case "flags":
                             flags = new Option<long?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (long?)null : utf8JsonReader.GetInt64());
                             break;
                         case "type":
                             type = new Option<ConvarType?>(JsonSerializer.Deserialize<ConvarType?>(ref utf8JsonReader, jsonSerializerOptions));
+                            break;
+                        case "default":
+                            varDefault = new Option<Object?>(JsonSerializer.Deserialize<Object>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "description":
                             description = new Option<string?>(utf8JsonReader.GetString());
@@ -186,17 +186,14 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (!varDefault.IsSet)
-                throw new JsonException("Property is required for class Convar: default.");
-
             if (!flags.IsSet)
                 throw new JsonException("Property is required for class Convar: flags.");
 
             if (!type.IsSet)
                 throw new JsonException("Property is required for class Convar: type.");
 
-            if (varDefault.IsSet && varDefault.Value == null)
-                throw new JsonException("Property is not nullable for class Convar: default.");
+            if (!varDefault.IsSet)
+                throw new JsonException("Property is required for class Convar: default.");
 
             if (flags.IsSet && flags.Value == null)
                 throw new JsonException("Property is not nullable for class Convar: flags.");
@@ -204,7 +201,7 @@ namespace DeadlockApiClient.Model
             if (type.IsSet && type.Value == null)
                 throw new JsonException("Property is not nullable for class Convar: type.");
 
-            return new Convar(varDefault.Value!, flags.Value!.Value!, type.Value!.Value!, description);
+            return new Convar(flags.Value!.Value!, type.Value!.Value!, varDefault.Value!, description);
         }
 
         /// <summary>
@@ -229,13 +226,18 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, Convar convar, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WritePropertyName("default");
-            JsonSerializer.Serialize(writer, convar.Default, jsonSerializerOptions);
             writer.WriteNumber("flags", convar.Flags);
 
             var typeRawValue = ConvarTypeValueConverter.ToJsonValue(convar.Type);
             writer.WriteString("type", typeRawValue);
 
+            if (convar.Default != null)
+            {
+                writer.WritePropertyName("default");
+                JsonSerializer.Serialize(writer, convar.Default, jsonSerializerOptions);
+            }
+            else
+                writer.WriteNull("default");
             if (convar.DescriptionOption.IsSet)
                 if (convar.DescriptionOption.Value != null)
                     writer.WriteString("description", convar.Description);

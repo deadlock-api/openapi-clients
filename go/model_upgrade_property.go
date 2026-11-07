@@ -35,10 +35,10 @@ type UpgradeProperty struct {
 	// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
 	RequiredUpgradeBits []string `json:"required_upgrade_bits,omitempty"`
 	ScaleFunction NullableRawItemPropertyScaleFunctionSubclass `json:"scale_function,omitempty"`
-	StreetBrawlValue NullableString `json:"street_brawl_value,omitempty"`
+	StreetBrawlValue NullableStringOrNumber `json:"street_brawl_value,omitempty"`
 	UsageFlags []StatsUsageFlag `json:"usage_flags,omitempty"`
 	// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
-	Value NullableString `json:"value,omitempty"`
+	Value NullableStringOrNumber `json:"value,omitempty"`
 	TooltipIsElevated NullableBool `json:"tooltip_is_elevated,omitempty"`
 	TooltipIsImportant NullableBool `json:"tooltip_is_important,omitempty"`
 	TooltipSection NullableAbilitySectionType `json:"tooltip_section,omitempty"`
@@ -683,9 +683,9 @@ func (o *UpgradeProperty) UnsetScaleFunction() {
 }
 
 // GetStreetBrawlValue returns the StreetBrawlValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpgradeProperty) GetStreetBrawlValue() string {
+func (o *UpgradeProperty) GetStreetBrawlValue() StringOrNumber {
 	if o == nil || IsNil(o.StreetBrawlValue.Get()) {
-		var ret string
+		var ret StringOrNumber
 		return ret
 	}
 	return *o.StreetBrawlValue.Get()
@@ -694,7 +694,7 @@ func (o *UpgradeProperty) GetStreetBrawlValue() string {
 // GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpgradeProperty) GetStreetBrawlValueOk() (*string, bool) {
+func (o *UpgradeProperty) GetStreetBrawlValueOk() (*StringOrNumber, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -710,8 +710,8 @@ func (o *UpgradeProperty) HasStreetBrawlValue() bool {
 	return false
 }
 
-// SetStreetBrawlValue gets a reference to the given NullableString and assigns it to the StreetBrawlValue field.
-func (o *UpgradeProperty) SetStreetBrawlValue(v string) {
+// SetStreetBrawlValue gets a reference to the given NullableStringOrNumber and assigns it to the StreetBrawlValue field.
+func (o *UpgradeProperty) SetStreetBrawlValue(v StringOrNumber) {
 	o.StreetBrawlValue.Set(&v)
 }
 // SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
@@ -758,9 +758,9 @@ func (o *UpgradeProperty) SetUsageFlags(v []StatsUsageFlag) {
 }
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *UpgradeProperty) GetValue() string {
+func (o *UpgradeProperty) GetValue() StringOrNumber {
 	if o == nil || IsNil(o.Value.Get()) {
-		var ret string
+		var ret StringOrNumber
 		return ret
 	}
 	return *o.Value.Get()
@@ -769,7 +769,7 @@ func (o *UpgradeProperty) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *UpgradeProperty) GetValueOk() (*string, bool) {
+func (o *UpgradeProperty) GetValueOk() (*StringOrNumber, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -785,8 +785,8 @@ func (o *UpgradeProperty) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
-func (o *UpgradeProperty) SetValue(v string) {
+// SetValue gets a reference to the given NullableStringOrNumber and assigns it to the Value field.
+func (o *UpgradeProperty) SetValue(v StringOrNumber) {
 	o.Value.Set(&v)
 }
 // SetValueNil sets the value for Value to be an explicit nil

@@ -33,49 +33,49 @@ namespace DeadlockApiClient.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
-        /// <param name="ability"></param>
-        internal Item(Ability ability)
+        /// <param name="itemOneOf"></param>
+        internal Item(ItemOneOf itemOneOf)
         {
-            Ability = ability;
+            ItemOneOf = itemOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
-        /// <param name="weapon"></param>
-        internal Item(Weapon weapon)
+        /// <param name="itemOneOf1"></param>
+        internal Item(ItemOneOf1 itemOneOf1)
         {
-            Weapon = weapon;
+            ItemOneOf1 = itemOneOf1;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Item" /> class.
         /// </summary>
-        /// <param name="upgrade"></param>
-        internal Item(Upgrade upgrade)
+        /// <param name="itemOneOf2"></param>
+        internal Item(ItemOneOf2 itemOneOf2)
         {
-            Upgrade = upgrade;
+            ItemOneOf2 = itemOneOf2;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Ability
+        /// Gets or Sets ItemOneOf
         /// </summary>
-        public Ability? Ability { get; set; }
+        public ItemOneOf? ItemOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets Weapon
+        /// Gets or Sets ItemOneOf1
         /// </summary>
-        public Weapon? Weapon { get; set; }
+        public ItemOneOf1? ItemOneOf1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets Upgrade
+        /// Gets or Sets ItemOneOf2
         /// </summary>
-        public Upgrade? Upgrade { get; set; }
+        public ItemOneOf2? ItemOneOf2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -132,9 +132,9 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Ability? ability = default;
-            Weapon? weapon = default;
-            Upgrade? upgrade = default;
+            ItemOneOf? itemOneOf = default;
+            ItemOneOf1? itemOneOf1 = default;
+            ItemOneOf2? itemOneOf2 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -147,14 +147,14 @@ namespace DeadlockApiClient.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderAbility = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Ability?>(ref utf8JsonReaderAbility, jsonSerializerOptions, out ability);
+                    Utf8JsonReader utf8JsonReaderItemOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ItemOneOf?>(ref utf8JsonReaderItemOneOf, jsonSerializerOptions, out itemOneOf);
 
-                    Utf8JsonReader utf8JsonReaderWeapon = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Weapon?>(ref utf8JsonReaderWeapon, jsonSerializerOptions, out weapon);
+                    Utf8JsonReader utf8JsonReaderItemOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ItemOneOf1?>(ref utf8JsonReaderItemOneOf1, jsonSerializerOptions, out itemOneOf1);
 
-                    Utf8JsonReader utf8JsonReaderUpgrade = utf8JsonReader;
-                    ClientUtils.TryDeserialize<Upgrade?>(ref utf8JsonReaderUpgrade, jsonSerializerOptions, out upgrade);
+                    Utf8JsonReader utf8JsonReaderItemOneOf2 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ItemOneOf2?>(ref utf8JsonReaderItemOneOf2, jsonSerializerOptions, out itemOneOf2);
                 }
             }
 
@@ -179,14 +179,14 @@ namespace DeadlockApiClient.Model
                 }
             }
 
-            if (ability != null)
-                return new Item(ability);
+            if (itemOneOf != null)
+                return new Item(itemOneOf);
 
-            if (weapon != null)
-                return new Item(weapon);
+            if (itemOneOf1 != null)
+                return new Item(itemOneOf1);
 
-            if (upgrade != null)
-                return new Item(upgrade);
+            if (itemOneOf2 != null)
+                return new Item(itemOneOf2);
 
             throw new JsonException();
         }

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |--------|--------------|-------------|
 | [**BigPatchDays**](PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days |
 | [**Feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes |
-| [**Feed_0**](PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
+| [**FeedV2**](PatchesApi.md#feedv2) | **GET** /v2/patches | Notes |
 
 <a id="bigpatchdays"></a>
 # **BigPatchDays**
@@ -73,9 +73,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-<a id="feed_0"></a>
-# **Feed_0**
-> List&lt;FeedItem&gt; Feed_0 ()
+<a id="feedv2"></a>
+# **FeedV2**
+> List&lt;FeedItem&gt; FeedV2 ()
 
 Notes
 

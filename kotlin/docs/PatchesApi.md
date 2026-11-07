@@ -6,7 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 | ------------- | ------------- | ------------- |
 | [**bigPatchDays**](PatchesApi.md#bigPatchDays) | **GET** /v1/patches/big-days | Big Days |
 | [**feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes |
-| [**feed_0**](PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
+| [**feedV2**](PatchesApi.md#feedV2) | **GET** /v2/patches | Notes |
 
 
 <a id="bigPatchDays"></a>
@@ -95,9 +95,9 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a id="feed_0"></a>
-# **feed_0**
-> kotlin.collections.List&lt;FeedItem&gt; feed_0()
+<a id="feedV2"></a>
+# **feedV2**
+> kotlin.collections.List&lt;FeedItem&gt; feedV2()
 
 Notes
 
@@ -111,13 +111,13 @@ Notes
 
 val apiInstance = PatchesApi()
 try {
-    val result : kotlin.collections.List<FeedItem> = apiInstance.feed_0()
+    val result : kotlin.collections.List<FeedItem> = apiInstance.feedV2()
     println(result)
 } catch (e: ClientException) {
-    println("4xx response calling PatchesApi#feed_0")
+    println("4xx response calling PatchesApi#feedV2")
     e.printStackTrace()
 } catch (e: ServerException) {
-    println("5xx response calling PatchesApi#feed_0")
+    println("5xx response calling PatchesApi#feedV2")
     e.printStackTrace()
 }
 ```

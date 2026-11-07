@@ -179,15 +179,6 @@ class WeaponTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "update_time"
      */
     public function testPropertyUpdateTime()

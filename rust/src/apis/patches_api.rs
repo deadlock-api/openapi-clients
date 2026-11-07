@@ -30,10 +30,10 @@ pub enum FeedError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`feed_0`]
+/// struct for typed errors of method [`feed_v2`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum Feed0Error {
+pub enum FeedV2Error {
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -111,7 +111,7 @@ pub async fn feed(configuration: &configuration::Configuration) -> Result<Vec<mo
 }
 
 ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
-pub async fn feed_0(configuration: &configuration::Configuration) -> Result<Vec<models::FeedItem>, Error<Feed0Error>> {
+pub async fn feed_v2(configuration: &configuration::Configuration) -> Result<Vec<models::FeedItem>, Error<FeedV2Error>> {
 
     let uri_str = format!("{}/v2/patches", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
@@ -140,7 +140,7 @@ pub async fn feed_0(configuration: &configuration::Configuration) -> Result<Vec<
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<Feed0Error> = serde_json::from_str(&content).ok();
+        let entity: Option<FeedV2Error> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

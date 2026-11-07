@@ -80,7 +80,7 @@ class PatchesApi
         'feed' => [
             'application/json',
         ],
-        'feed_0' => [
+        'feedV2' => [
             'application/json',
         ],
     ];
@@ -659,36 +659,36 @@ class PatchesApi
     }
 
     /**
-     * Operation feed_0
+     * Operation feedV2
      *
      * Notes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feed_0'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feedV2'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\FeedItem[]
      */
-    public function feed_0(string $contentType = self::contentTypes['feed_0'][0])
+    public function feedV2(string $contentType = self::contentTypes['feedV2'][0])
     {
-        list($response) = $this->feed_0WithHttpInfo($contentType);
+        list($response) = $this->feedV2WithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation feed_0WithHttpInfo
+     * Operation feedV2WithHttpInfo
      *
      * Notes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feed_0'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feedV2'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\FeedItem[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function feed_0WithHttpInfo(string $contentType = self::contentTypes['feed_0'][0])
+    public function feedV2WithHttpInfo(string $contentType = self::contentTypes['feedV2'][0])
     {
-        $request = $this->feed_0Request($contentType);
+        $request = $this->feedV2Request($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -761,18 +761,18 @@ class PatchesApi
     }
 
     /**
-     * Operation feed_0Async
+     * Operation feedV2Async
      *
      * Notes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feed_0'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feedV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function feed_0Async(string $contentType = self::contentTypes['feed_0'][0])
+    public function feedV2Async(string $contentType = self::contentTypes['feedV2'][0])
     {
-        return $this->feed_0AsyncWithHttpInfo($contentType)
+        return $this->feedV2AsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -781,19 +781,19 @@ class PatchesApi
     }
 
     /**
-     * Operation feed_0AsyncWithHttpInfo
+     * Operation feedV2AsyncWithHttpInfo
      *
      * Notes
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feed_0'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feedV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function feed_0AsyncWithHttpInfo(string $contentType = self::contentTypes['feed_0'][0])
+    public function feedV2AsyncWithHttpInfo(string $contentType = self::contentTypes['feedV2'][0])
     {
         $returnType = '\OpenAPI\Client\Model\FeedItem[]';
-        $request = $this->feed_0Request($contentType);
+        $request = $this->feedV2Request($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -840,14 +840,14 @@ class PatchesApi
     }
 
     /**
-     * Create request for operation 'feed_0'
+     * Create request for operation 'feedV2'
      *
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feed_0'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['feedV2'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function feed_0Request(string $contentType = self::contentTypes['feed_0'][0])
+    public function feedV2Request(string $contentType = self::contentTypes['feedV2'][0])
     {
 
 

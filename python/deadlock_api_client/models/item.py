@@ -17,27 +17,27 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from deadlock_api_client.models.ability import Ability
-from deadlock_api_client.models.upgrade import Upgrade
-from deadlock_api_client.models.weapon import Weapon
+from deadlock_api_client.models.item_one_of import ItemOneOf
+from deadlock_api_client.models.item_one_of1 import ItemOneOf1
+from deadlock_api_client.models.item_one_of2 import ItemOneOf2
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-ITEM_ONE_OF_SCHEMAS = ["Ability", "Upgrade", "Weapon"]
+ITEM_ONE_OF_SCHEMAS = ["ItemOneOf", "ItemOneOf1", "ItemOneOf2"]
 
 class Item(BaseModel):
     """
     Item
     """
-    # data type: Ability
-    oneof_schema_1_validator: Optional[Ability] = None
-    # data type: Weapon
-    oneof_schema_2_validator: Optional[Weapon] = None
-    # data type: Upgrade
-    oneof_schema_3_validator: Optional[Upgrade] = None
-    actual_instance: Optional[Union[Ability, Upgrade, Weapon]] = None
-    one_of_schemas: Set[str] = { "Ability", "Upgrade", "Weapon" }
+    # data type: ItemOneOf
+    oneof_schema_1_validator: Optional[ItemOneOf] = None
+    # data type: ItemOneOf1
+    oneof_schema_2_validator: Optional[ItemOneOf1] = None
+    # data type: ItemOneOf2
+    oneof_schema_3_validator: Optional[ItemOneOf2] = None
+    actual_instance: Optional[Union[ItemOneOf, ItemOneOf1, ItemOneOf2]] = None
+    one_of_schemas: Set[str] = { "ItemOneOf", "ItemOneOf1", "ItemOneOf2" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -60,27 +60,27 @@ class Item(BaseModel):
         instance = Item.model_construct()
         error_messages = []
         match = 0
-        # validate data type: Ability
-        if not isinstance(v, Ability):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Ability`")
+        # validate data type: ItemOneOf
+        if not isinstance(v, ItemOneOf):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ItemOneOf`")
         else:
             match += 1
-        # validate data type: Weapon
-        if not isinstance(v, Weapon):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Weapon`")
+        # validate data type: ItemOneOf1
+        if not isinstance(v, ItemOneOf1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ItemOneOf1`")
         else:
             match += 1
-        # validate data type: Upgrade
-        if not isinstance(v, Upgrade):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `Upgrade`")
+        # validate data type: ItemOneOf2
+        if not isinstance(v, ItemOneOf2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ItemOneOf2`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in Item with oneOf schemas: Ability, Upgrade, Weapon. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in Item with oneOf schemas: ItemOneOf, ItemOneOf1, ItemOneOf2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in Item with oneOf schemas: Ability, Upgrade, Weapon. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in Item with oneOf schemas: ItemOneOf, ItemOneOf1, ItemOneOf2. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -95,31 +95,31 @@ class Item(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into Ability
+        # deserialize data into ItemOneOf
         try:
-            instance.actual_instance = Ability.from_json(json_str)
+            instance.actual_instance = ItemOneOf.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Weapon
+        # deserialize data into ItemOneOf1
         try:
-            instance.actual_instance = Weapon.from_json(json_str)
+            instance.actual_instance = ItemOneOf1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Upgrade
+        # deserialize data into ItemOneOf2
         try:
-            instance.actual_instance = Upgrade.from_json(json_str)
+            instance.actual_instance = ItemOneOf2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into Item with oneOf schemas: Ability, Upgrade, Weapon. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into Item with oneOf schemas: ItemOneOf, ItemOneOf1, ItemOneOf2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into Item with oneOf schemas: Ability, Upgrade, Weapon. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into Item with oneOf schemas: ItemOneOf, ItemOneOf1, ItemOneOf2. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -133,7 +133,7 @@ class Item(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Ability, Upgrade, Weapon]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ItemOneOf, ItemOneOf1, ItemOneOf2]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

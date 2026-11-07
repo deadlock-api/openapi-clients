@@ -74,7 +74,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'array<string,\OpenAPI\Client\Model\ItemProperty>',
         'start_trained' => 'bool',
         'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetails',
-        'type' => '\OpenAPI\Client\Model\ItemType',
         'update_time' => 'int',
         'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgrade[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideos',
@@ -106,7 +105,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => null,
         'start_trained' => null,
         'tooltip_details' => null,
-        'type' => null,
         'update_time' => 'int64',
         'upgrades' => null,
         'videos' => null,
@@ -136,7 +134,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => true,
         'start_trained' => true,
         'tooltip_details' => true,
-        'type' => false,
         'update_time' => true,
         'upgrades' => true,
         'videos' => true,
@@ -246,7 +243,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'properties',
         'start_trained' => 'start_trained',
         'tooltip_details' => 'tooltip_details',
-        'type' => 'type',
         'update_time' => 'update_time',
         'upgrades' => 'upgrades',
         'videos' => 'videos',
@@ -276,7 +272,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'setProperties',
         'start_trained' => 'setStartTrained',
         'tooltip_details' => 'setTooltipDetails',
-        'type' => 'setType',
         'update_time' => 'setUpdateTime',
         'upgrades' => 'setUpgrades',
         'videos' => 'setVideos',
@@ -306,7 +301,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'getProperties',
         'start_trained' => 'getStartTrained',
         'tooltip_details' => 'getTooltipDetails',
-        'type' => 'getType',
         'update_time' => 'getUpdateTime',
         'upgrades' => 'getUpgrades',
         'videos' => 'getVideos',
@@ -387,7 +381,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('start_trained', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('update_time', $data ?? [], null);
         $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('videos', $data ?? [], null);
@@ -440,9 +433,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -635,7 +625,7 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities Abilities this one depends on. Entries whose ability has no data are left out.
      *
      * @return self
      */
@@ -1013,33 +1003,6 @@ class Ability implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['tooltip_details'] = $tooltip_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\ItemType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\ItemType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

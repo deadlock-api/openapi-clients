@@ -30,6 +30,7 @@ import deadlock_api_client.models.UpgradeProperty
 import deadlock_api_client.models.AbilitySectionType
 import deadlock_api_client.models.RawItemPropertyScaleFunctionSubclass
 import deadlock_api_client.models.StatsUsageFlag
+import deadlock_api_client.models.StringOrNumber
 
 class UpgradePropertyTest : ShouldSpec() {
     init {

@@ -13,7 +13,6 @@ import type { AbilityActivation } from './ability-activation.js';
 import type { AbilityImbue } from './ability-imbue.js';
 import type { CorruptedItemInfo } from './corrupted-item-info.js';
 import type { ItemSlotType } from './item-slot-type.js';
-import type { ItemType } from './item-type.js';
 import type { RawAbilityUpgrade } from './raw-ability-upgrade.js';
 import type { RawItemWeaponInfoInner } from './raw-item-weapon-info-inner.js';
 import type { UpgradeDescription } from './upgrade-description.js';
@@ -60,7 +59,6 @@ export interface Upgrade {
     'shopable': boolean;
     'start_trained'?: boolean | null;
     'tooltip_sections'?: Array<UpgradeTooltipSection> | null;
-    'type': ItemType;
     'update_time'?: number | null;
     'upgrades'?: Array<RawAbilityUpgrade> | null;
     'weapon_info'?: RawItemWeaponInfoInner | null;

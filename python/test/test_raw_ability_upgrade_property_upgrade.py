@@ -35,7 +35,7 @@ class TestRawAbilityUpgradePropertyUpgrade(unittest.TestCase):
         model = RawAbilityUpgradePropertyUpgrade()
         if include_optional:
             return RawAbilityUpgradePropertyUpgrade(
-                bonus = '',
+                bonus = None,
                 fixed_corrupted_bonus = True,
                 name = '',
                 round_corrupted_bonus = True,
@@ -44,7 +44,7 @@ class TestRawAbilityUpgradePropertyUpgrade(unittest.TestCase):
             )
         else:
             return RawAbilityUpgradePropertyUpgrade(
-                bonus = '',
+                bonus = None,
                 name = '',
         )
         """

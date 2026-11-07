@@ -90,14 +90,13 @@ class TestWeapon(unittest.TestCase):
                             ''
                             ], 
                         scale_function = null, 
-                        street_brawl_value = '', 
+                        street_brawl_value = null, 
                         usage_flags = [
                             'ConditionallyApplied'
                             ], 
-                        value = '', )
+                        value = null, )
                     },
                 start_trained = True,
-                type = 'ability',
                 update_time = 56,
                 use_custom_crosshair_settings = True,
                 weapon_info = deadlock_api_client.models.weapon_info.WeaponInfo(
@@ -180,7 +179,6 @@ class TestWeapon(unittest.TestCase):
                 class_name = '',
                 id = 0,
                 name = '',
-                type = 'ability',
         )
         """
 

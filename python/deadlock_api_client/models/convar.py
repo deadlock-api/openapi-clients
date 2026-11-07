@@ -29,7 +29,7 @@ class Convar(BaseModel):
     """
     Convar
     """ # noqa: E501
-    default: Dict[str, Any] = Field(description="Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.")
+    default: Optional[Any] = Field(description="Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.")
     description: Optional[StrictStr] = Field(default=None, description="Help text shown by the in-game console.")
     flags: Annotated[int, Field(strict=True, ge=0)] = Field(description="Raw `FCVAR_*` flag bits.")
     type: ConvarType
@@ -74,6 +74,11 @@ class Convar(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if default (nullable) is None
+        # and model_fields_set contains the field
+        if self.default is None and "default" in self.model_fields_set:
+            _dict['default'] = None
+
         # set to None if description (nullable) is None
         # and model_fields_set contains the field
         if self.description is None and "description" in self.model_fields_set:

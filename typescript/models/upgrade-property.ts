@@ -25,6 +25,9 @@ import type { RawItemPropertyScaleFunctionSubclass } from './raw-item-property-s
 // May contain unused imports in some cases
 // @ts-ignore
 import type { StatsUsageFlag } from './stats-usage-flag.js';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { StringOrNumber } from './string-or-number.js';
 
 /**
  * @type UpgradeProperty

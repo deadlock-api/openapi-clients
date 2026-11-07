@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bonus** | **string** |  |
+**bonus** | [**\OpenAPI\Client\Model\StringOrNumber**](StringOrNumber.md) |  |
 **fixed_corrupted_bonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional]
 **name** | **string** |  |
 **round_corrupted_bonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional]

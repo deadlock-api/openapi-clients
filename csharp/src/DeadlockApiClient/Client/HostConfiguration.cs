@@ -164,6 +164,9 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new ItemFlowStatsJsonConverter());
             _jsonOptions.Converters.Add(new ItemFlowSummaryJsonConverter());
             _jsonOptions.Converters.Add(new ItemGroupJsonConverter());
+            _jsonOptions.Converters.Add(new ItemOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new ItemOneOf1JsonConverter());
+            _jsonOptions.Converters.Add(new ItemOneOf2JsonConverter());
             _jsonOptions.Converters.Add(new ItemPermutationStatsJsonConverter());
             _jsonOptions.Converters.Add(new ItemPropertyJsonConverter());
             _jsonOptions.Converters.Add(new ItemSlotTypeJsonConverter());
@@ -205,6 +208,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new NeutralCampKindNullableJsonConverter());
             _jsonOptions.Converters.Add(new NewPlayerMetricsJsonConverter());
             _jsonOptions.Converters.Add(new NpcUnitJsonConverter());
+            _jsonOptions.Converters.Add(new NpcWeaponInfoJsonConverter());
             _jsonOptions.Converters.Add(new ObjectiveParamsJsonConverter());
             _jsonOptions.Converters.Add(new ObjectivePositionJsonConverter());
             _jsonOptions.Converters.Add(new OutcomeToWeightsJsonConverter());
@@ -265,6 +269,7 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new SteamNewsJsonConverter());
             _jsonOptions.Converters.Add(new SteamProfileJsonConverter());
             _jsonOptions.Converters.Add(new StreetBrawlJsonConverter());
+            _jsonOptions.Converters.Add(new StringOrNumberJsonConverter());
             _jsonOptions.Converters.Add(new SubclassBulletResistModifierJsonConverter());
             _jsonOptions.Converters.Add(new SubclassBulletResistModifierSubclassJsonConverter());
             _jsonOptions.Converters.Add(new SubclassEmpoweredModifierLevelJsonConverter());

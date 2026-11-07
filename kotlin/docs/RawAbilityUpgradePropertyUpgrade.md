@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **bonus** | **kotlin.String** |  |  |
+| **bonus** | [**StringOrNumber**](StringOrNumber.md) |  |  |
 | **name** | **kotlin.String** |  |  |
 | **fixedCorruptedBonus** | **kotlin.Boolean** | Corrupted item bonuses only (build 6711+). |  [optional] |
 | **roundCorruptedBonus** | **kotlin.Boolean** | Corrupted item bonuses only (build 6711+). |  [optional] |

@@ -35,10 +35,10 @@ type ItemProperty struct {
 	// Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).
 	RequiredUpgradeBits []string `json:"required_upgrade_bits,omitempty"`
 	ScaleFunction NullableRawItemPropertyScaleFunctionSubclass `json:"scale_function,omitempty"`
-	StreetBrawlValue NullableString `json:"street_brawl_value,omitempty"`
+	StreetBrawlValue NullableStringOrNumber `json:"street_brawl_value,omitempty"`
 	UsageFlags []StatsUsageFlag `json:"usage_flags,omitempty"`
 	// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
-	Value NullableString `json:"value,omitempty"`
+	Value NullableStringOrNumber `json:"value,omitempty"`
 }
 
 // NewItemProperty instantiates a new ItemProperty object
@@ -680,9 +680,9 @@ func (o *ItemProperty) UnsetScaleFunction() {
 }
 
 // GetStreetBrawlValue returns the StreetBrawlValue field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemProperty) GetStreetBrawlValue() string {
+func (o *ItemProperty) GetStreetBrawlValue() StringOrNumber {
 	if o == nil || IsNil(o.StreetBrawlValue.Get()) {
-		var ret string
+		var ret StringOrNumber
 		return ret
 	}
 	return *o.StreetBrawlValue.Get()
@@ -691,7 +691,7 @@ func (o *ItemProperty) GetStreetBrawlValue() string {
 // GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemProperty) GetStreetBrawlValueOk() (*string, bool) {
+func (o *ItemProperty) GetStreetBrawlValueOk() (*StringOrNumber, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -707,8 +707,8 @@ func (o *ItemProperty) HasStreetBrawlValue() bool {
 	return false
 }
 
-// SetStreetBrawlValue gets a reference to the given NullableString and assigns it to the StreetBrawlValue field.
-func (o *ItemProperty) SetStreetBrawlValue(v string) {
+// SetStreetBrawlValue gets a reference to the given NullableStringOrNumber and assigns it to the StreetBrawlValue field.
+func (o *ItemProperty) SetStreetBrawlValue(v StringOrNumber) {
 	o.StreetBrawlValue.Set(&v)
 }
 // SetStreetBrawlValueNil sets the value for StreetBrawlValue to be an explicit nil
@@ -755,9 +755,9 @@ func (o *ItemProperty) SetUsageFlags(v []StatsUsageFlag) {
 }
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *ItemProperty) GetValue() string {
+func (o *ItemProperty) GetValue() StringOrNumber {
 	if o == nil || IsNil(o.Value.Get()) {
-		var ret string
+		var ret StringOrNumber
 		return ret
 	}
 	return *o.Value.Get()
@@ -766,7 +766,7 @@ func (o *ItemProperty) GetValue() string {
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *ItemProperty) GetValueOk() (*string, bool) {
+func (o *ItemProperty) GetValueOk() (*StringOrNumber, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -782,8 +782,8 @@ func (o *ItemProperty) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given NullableString and assigns it to the Value field.
-func (o *ItemProperty) SetValue(v string) {
+// SetValue gets a reference to the given NullableStringOrNumber and assigns it to the Value field.
+func (o *ItemProperty) SetValue(v StringOrNumber) {
 	o.Value.Set(&v)
 }
 // SetValueNil sets the value for Value to be an explicit nil

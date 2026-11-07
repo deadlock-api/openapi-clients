@@ -21,6 +21,9 @@ import {
     StatsUsageFlag,
     StatsUsageFlagFromJSON,
     StatsUsageFlagToJSON,
+    StringOrNumber,
+    StringOrNumberFromJSON,
+    StringOrNumberToJSON,
 } from './';
 
 /**

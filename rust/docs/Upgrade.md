@@ -33,7 +33,6 @@ Name | Type | Description | Notes
 **shopable** | **bool** |  | 
 **start_trained** | Option<**bool**> |  | [optional]
 **tooltip_sections** | Option<[**Vec<models::UpgradeTooltipSection>**](UpgradeTooltipSection.md)> |  | [optional]
-**r#type** | [**models::ItemType**](ItemType.md) |  | 
 **update_time** | Option<**i64**> |  | [optional]
 **upgrades** | Option<[**Vec<models::RawAbilityUpgrade>**](RawAbilityUpgrade.md)> |  | [optional]
 **weapon_info** | Option<[**models::RawItemWeaponInfoInner**](RawItemWeaponInfoInner.md)> |  | [optional]

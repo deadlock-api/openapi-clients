@@ -26,6 +26,7 @@ type Ability struct {
 	BossDamageScale NullableFloat64 `json:"boss_damage_scale,omitempty"`
 	ClassName string `json:"class_name"`
 	DependantAbilities []string `json:"dependant_abilities,omitempty"`
+	// Abilities this one depends on. Entries whose ability has no data are left out.
 	DependentAbilities map[string]DependantAbilities `json:"dependent_abilities,omitempty"`
 	Description AbilityDescription `json:"description"`
 	GrantAmmoOnCast NullableBool `json:"grant_ammo_on_cast,omitempty"`
@@ -38,7 +39,6 @@ type Ability struct {
 	Properties map[string]ItemProperty `json:"properties,omitempty"`
 	StartTrained NullableBool `json:"start_trained,omitempty"`
 	TooltipDetails NullableAbilityTooltipDetails `json:"tooltip_details,omitempty"`
-	Type ItemType `json:"type"`
 	UpdateTime NullableInt64 `json:"update_time,omitempty"`
 	Upgrades []RawAbilityUpgrade `json:"upgrades,omitempty"`
 	Videos NullableAbilityVideos `json:"videos,omitempty"`
@@ -51,13 +51,12 @@ type _Ability Ability
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAbility(className string, description AbilityDescription, id int32, name string, type_ ItemType) *Ability {
+func NewAbility(className string, description AbilityDescription, id int32, name string) *Ability {
 	this := Ability{}
 	this.ClassName = className
 	this.Description = description
 	this.Id = id
 	this.Name = name
-	this.Type = type_
 	return &this
 }
 
@@ -666,30 +665,6 @@ func (o *Ability) UnsetTooltipDetails() {
 	o.TooltipDetails.Unset()
 }
 
-// GetType returns the Type field value
-func (o *Ability) GetType() ItemType {
-	if o == nil {
-		var ret ItemType
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *Ability) GetTypeOk() (*ItemType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *Ability) SetType(v ItemType) {
-	o.Type = v
-}
-
 // GetUpdateTime returns the UpdateTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Ability) GetUpdateTime() int64 {
 	if o == nil || IsNil(o.UpdateTime.Get()) {
@@ -902,7 +877,6 @@ func (o Ability) ToMap() (map[string]interface{}, error) {
 	if o.TooltipDetails.IsSet() {
 		toSerialize["tooltip_details"] = o.TooltipDetails.Get()
 	}
-	toSerialize["type"] = o.Type
 	if o.UpdateTime.IsSet() {
 		toSerialize["update_time"] = o.UpdateTime.Get()
 	}
@@ -927,7 +901,6 @@ func (o *Ability) UnmarshalJSON(data []byte) (err error) {
 		"description",
 		"id",
 		"name",
-		"type",
 	}
 
 	allProperties := make(map[string]interface{})

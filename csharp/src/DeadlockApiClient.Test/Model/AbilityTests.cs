@@ -90,15 +90,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Type'
-        /// </summary>
-        [Fact]
-        public void TypeTest()
-        {
-            // TODO unit test for the property 'Type'
-        }
-
-        /// <summary>
         /// Test the property 'AbilityType'
         /// </summary>
         [Fact]

@@ -65,7 +65,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'backdoor_bullet_resist_modifier' => '\OpenAPI\Client\Model\SubclassBulletResistModifier',
         'barrack_boss_dps' => 'float',
         'barrack_guardian_damage_resist_pct' => 'float',
-        'boss_weapon_info' => '\OpenAPI\Client\Model\WeaponInfo',
+        'boss_weapon_info' => '\OpenAPI\Client\Model\NpcWeaponInfo',
         'bound_abilities' => 'array<string,string>',
         'class_name' => 'string',
         'core_models' => '\OpenAPI\Client\Model\TeamModels',
@@ -135,7 +135,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
         'trooper_dps' => 'float',
         'viewer_souls_class' => 'array<string,string>',
         'walk_speed' => 'float',
-        'weapon_info' => '\OpenAPI\Client\Model\WeaponInfo'
+        'weapon_info' => '\OpenAPI\Client\Model\NpcWeaponInfo'
     ];
 
     /**
@@ -1120,7 +1120,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets boss_weapon_info
      *
-     * @return \OpenAPI\Client\Model\WeaponInfo|null
+     * @return \OpenAPI\Client\Model\NpcWeaponInfo|null
      */
     public function getBossWeaponInfo()
     {
@@ -1130,7 +1130,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets boss_weapon_info
      *
-     * @param \OpenAPI\Client\Model\WeaponInfo|null $boss_weapon_info Secondary weapon the unit uses against bosses (builds 6711+).
+     * @param \OpenAPI\Client\Model\NpcWeaponInfo|null $boss_weapon_info Secondary weapon the unit uses against bosses (builds 6711+).
      *
      * @return self
      */
@@ -3483,7 +3483,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets weapon_info
      *
-     * @return \OpenAPI\Client\Model\WeaponInfo|null
+     * @return \OpenAPI\Client\Model\NpcWeaponInfo|null
      */
     public function getWeaponInfo()
     {
@@ -3493,7 +3493,7 @@ class NpcUnit implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets weapon_info
      *
-     * @param \OpenAPI\Client\Model\WeaponInfo|null $weapon_info weapon_info
+     * @param \OpenAPI\Client\Model\NpcWeaponInfo|null $weapon_info weapon_info
      *
      * @return self
      */

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **barrack_boss_dps** | **float** |  | [optional] 
 **barrack_guardian_damage_resist_pct** | **float** |  | [optional] 
-**boss_weapon_info** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
+**boss_weapon_info** | [**NpcWeaponInfo**](NpcWeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **bound_abilities** | **Dict[str, str]** |  | [optional] 
 **class_name** | **str** |  | 
 **core_models** | [**TeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. | [optional] 
@@ -83,7 +83,7 @@ Name | Type | Description | Notes
 **trooper_dps** | **float** |  | [optional] 
 **viewer_souls_class** | **Dict[str, str]** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] 
 **walk_speed** | **float** |  | [optional] 
-**weapon_info** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] 
+**weapon_info** | [**NpcWeaponInfo**](NpcWeaponInfo.md) |  | [optional] 
 
 ## Example
 

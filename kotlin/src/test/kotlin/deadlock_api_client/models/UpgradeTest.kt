@@ -31,7 +31,6 @@ import deadlock_api_client.models.AbilityActivation
 import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.ItemSlotType
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawItemWeaponInfoInner
 import deadlock_api_client.models.UpgradeDescription
@@ -89,12 +88,6 @@ class UpgradeTest : ShouldSpec() {
         should("test shopable") {
             // uncomment below to test the property
             //modelInstance.shopable shouldBe ("TODO")
-        }
-
-        // to test the property `type`
-        should("test type") {
-            // uncomment below to test the property
-            //modelInstance.type shouldBe ("TODO")
         }
 
         // to test the property `componentItems`

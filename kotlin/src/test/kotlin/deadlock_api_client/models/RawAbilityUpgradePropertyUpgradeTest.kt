@@ -27,6 +27,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.RawAbilityUpgradePropertyUpgrade
+import deadlock_api_client.models.StringOrNumber
 
 class RawAbilityUpgradePropertyUpgradeTest : ShouldSpec() {
     init {

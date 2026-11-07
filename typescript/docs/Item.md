@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **number** |  | [optional] [default to undefined]
 **class_name** | **string** |  | [default to undefined]
 **dependant_abilities** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
-**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) |  | [optional] [default to undefined]
+**dependent_abilities** | [**{ [key: string]: DependantAbilities; }**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] [default to undefined]
 **description** | [**UpgradeDescription**](UpgradeDescription.md) |  | [default to undefined]
 **grant_ammo_on_cast** | **boolean** |  | [optional] [default to undefined]
 **hero** | **number** |  | [optional] [default to undefined]
@@ -22,11 +22,11 @@ Name | Type | Description | Notes
 **properties** | [**{ [key: string]: UpgradeProperty; }**](UpgradeProperty.md) |  | [optional] [default to undefined]
 **start_trained** | **boolean** |  | [optional] [default to undefined]
 **tooltip_details** | [**AbilityTooltipDetails**](AbilityTooltipDetails.md) |  | [optional] [default to undefined]
-**type** | [**ItemType**](ItemType.md) |  | [default to undefined]
 **update_time** | **number** |  | [optional] [default to undefined]
 **upgrades** | [**Array&lt;RawAbilityUpgrade&gt;**](RawAbilityUpgrade.md) |  | [optional] [default to undefined]
 **videos** | [**AbilityVideos**](AbilityVideos.md) |  | [optional] [default to undefined]
 **weapon_info** | [**RawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional] [default to undefined]
+**type** | **string** |  | [default to undefined]
 **crosshair_css_class** | **string** |  | [optional] [default to undefined]
 **custom_crosshair_settings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] [default to undefined]
 **use_custom_crosshair_settings** | **boolean** |  | [optional] [default to undefined]
@@ -73,11 +73,11 @@ const instance: Item = {
     properties,
     start_trained,
     tooltip_details,
-    type,
     update_time,
     upgrades,
     videos,
     weapon_info,
+    type,
     crosshair_css_class,
     custom_crosshair_settings,
     use_custom_crosshair_settings,

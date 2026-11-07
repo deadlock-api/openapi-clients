@@ -24,6 +24,7 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.NpcWeaponInfo
 import deadlock_api_client.models.SubclassBulletResistModifier
 import deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import deadlock_api_client.models.SubclassIntrinsicModifiers
@@ -33,7 +34,6 @@ import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
 import deadlock_api_client.models.SubclassTrooperDamageReduction
 import deadlock_api_client.models.TeamModels
-import deadlock_api_client.models.WeaponInfo
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -156,7 +156,7 @@ data class NpcUnit (
 
     /* Secondary weapon the unit uses against bosses (builds 6711+). */
     @Json(name = "boss_weapon_info")
-    val bossWeaponInfo: WeaponInfo? = null,
+    val bossWeaponInfo: NpcWeaponInfo? = null,
 
     @Json(name = "bound_abilities")
     val boundAbilities: kotlin.collections.Map<kotlin.String, kotlin.String>? = null,
@@ -371,7 +371,7 @@ data class NpcUnit (
     val walkSpeed: kotlin.Double? = null,
 
     @Json(name = "weapon_info")
-    val weaponInfo: WeaponInfo? = null
+    val weaponInfo: NpcWeaponInfo? = null
 
 ) : Serializable {
     companion object {

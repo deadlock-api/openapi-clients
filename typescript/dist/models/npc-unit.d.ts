@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 import type { Color } from './color.js';
+import type { NpcWeaponInfo } from './npc-weapon-info.js';
 import type { SubclassBulletResistModifier } from './subclass-bullet-resist-modifier.js';
 import type { SubclassEmpoweredModifierLevel } from './subclass-empowered-modifier-level.js';
 import type { SubclassIntrinsicModifiers } from './subclass-intrinsic-modifiers.js';
@@ -19,7 +20,6 @@ import type { SubclassObjectiveRegen } from './subclass-objective-regen.js';
 import type { SubclassRangedArmorModifier } from './subclass-ranged-armor-modifier.js';
 import type { SubclassTrooperDamageReduction } from './subclass-trooper-damage-reduction.js';
 import type { TeamModels } from './team-models.js';
-import type { WeaponInfo } from './weapon-info.js';
 export interface NpcUnit {
     'acceleration'?: number | null;
     'attack_t1_boss_max_range'?: number | null;
@@ -32,7 +32,7 @@ export interface NpcUnit {
     /**
      * Secondary weapon the unit uses against bosses (builds 6711+).
      */
-    'boss_weapon_info'?: WeaponInfo | null;
+    'boss_weapon_info'?: NpcWeaponInfo | null;
     'bound_abilities'?: {
         [key: string]: string;
     } | null;
@@ -141,6 +141,6 @@ export interface NpcUnit {
         [key: string]: string;
     } | null;
     'walk_speed'?: number | null;
-    'weapon_info'?: WeaponInfo | null;
+    'weapon_info'?: NpcWeaponInfo | null;
 }
 //# sourceMappingURL=npc-unit.d.ts.map

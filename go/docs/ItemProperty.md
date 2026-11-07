@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **ProvidedPropertyType** | Pointer to **NullableString** |  | [optional] 
 **RequiredUpgradeBits** | Pointer to **[]string** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **ScaleFunction** | Pointer to [**NullableRawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
-**StreetBrawlValue** | Pointer to **NullableString** |  | [optional] 
+**StreetBrawlValue** | Pointer to [**NullableStringOrNumber**](StringOrNumber.md) |  | [optional] 
 **UsageFlags** | Pointer to [**[]StatsUsageFlag**](StatsUsageFlag.md) |  | [optional] 
-**Value** | Pointer to **NullableString** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
+**Value** | Pointer to [**NullableStringOrNumber**](StringOrNumber.md) | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
 
 ## Methods
 
@@ -569,20 +569,20 @@ HasScaleFunction returns a boolean if a field has been set.
 UnsetScaleFunction ensures that no value is present for ScaleFunction, not even an explicit nil
 ### GetStreetBrawlValue
 
-`func (o *ItemProperty) GetStreetBrawlValue() string`
+`func (o *ItemProperty) GetStreetBrawlValue() StringOrNumber`
 
 GetStreetBrawlValue returns the StreetBrawlValue field if non-nil, zero value otherwise.
 
 ### GetStreetBrawlValueOk
 
-`func (o *ItemProperty) GetStreetBrawlValueOk() (*string, bool)`
+`func (o *ItemProperty) GetStreetBrawlValueOk() (*StringOrNumber, bool)`
 
 GetStreetBrawlValueOk returns a tuple with the StreetBrawlValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStreetBrawlValue
 
-`func (o *ItemProperty) SetStreetBrawlValue(v string)`
+`func (o *ItemProperty) SetStreetBrawlValue(v StringOrNumber)`
 
 SetStreetBrawlValue sets StreetBrawlValue field to given value.
 
@@ -639,20 +639,20 @@ HasUsageFlags returns a boolean if a field has been set.
 UnsetUsageFlags ensures that no value is present for UsageFlags, not even an explicit nil
 ### GetValue
 
-`func (o *ItemProperty) GetValue() string`
+`func (o *ItemProperty) GetValue() StringOrNumber`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ItemProperty) GetValueOk() (*string, bool)`
+`func (o *ItemProperty) GetValueOk() (*StringOrNumber, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ItemProperty) SetValue(v string)`
+`func (o *ItemProperty) SetValue(v StringOrNumber)`
 
 SetValue sets Value field to given value.
 

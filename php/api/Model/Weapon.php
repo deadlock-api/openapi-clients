@@ -68,7 +68,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'properties' => 'array<string,\OpenAPI\Client\Model\ItemProperty>',
         'start_trained' => 'bool',
-        'type' => '\OpenAPI\Client\Model\ItemType',
         'update_time' => 'int',
         'use_custom_crosshair_settings' => 'bool',
         'weapon_info' => '\OpenAPI\Client\Model\WeaponInfo'
@@ -93,7 +92,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'properties' => null,
         'start_trained' => null,
-        'type' => null,
         'update_time' => 'int64',
         'use_custom_crosshair_settings' => null,
         'weapon_info' => null
@@ -116,7 +114,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'properties' => true,
         'start_trained' => true,
-        'type' => false,
         'update_time' => true,
         'use_custom_crosshair_settings' => true,
         'weapon_info' => true
@@ -219,7 +216,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'properties' => 'properties',
         'start_trained' => 'start_trained',
-        'type' => 'type',
         'update_time' => 'update_time',
         'use_custom_crosshair_settings' => 'use_custom_crosshair_settings',
         'weapon_info' => 'weapon_info'
@@ -242,7 +238,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'properties' => 'setProperties',
         'start_trained' => 'setStartTrained',
-        'type' => 'setType',
         'update_time' => 'setUpdateTime',
         'use_custom_crosshair_settings' => 'setUseCustomCrosshairSettings',
         'weapon_info' => 'setWeaponInfo'
@@ -265,7 +260,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'properties' => 'getProperties',
         'start_trained' => 'getStartTrained',
-        'type' => 'getType',
         'update_time' => 'getUpdateTime',
         'use_custom_crosshair_settings' => 'getUseCustomCrosshairSettings',
         'weapon_info' => 'getWeaponInfo'
@@ -339,7 +333,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('start_trained', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('update_time', $data ?? [], null);
         $this->setIfExists('use_custom_crosshair_settings', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
@@ -388,9 +381,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
 
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
         }
         return $invalidProperties;
     }
@@ -764,33 +754,6 @@ class Weapon implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['start_trained'] = $start_trained;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\ItemType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\ItemType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
 
         return $this;
     }

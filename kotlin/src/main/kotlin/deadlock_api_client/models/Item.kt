@@ -23,7 +23,6 @@
 
 package deadlock_api_client.models
 
-import deadlock_api_client.models.Ability
 import deadlock_api_client.models.AbilityActivation
 import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.AbilityTooltipDetails
@@ -31,16 +30,16 @@ import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
 import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.DependantAbilities
+import deadlock_api_client.models.ItemOneOf
+import deadlock_api_client.models.ItemOneOf1
+import deadlock_api_client.models.ItemOneOf2
 import deadlock_api_client.models.ItemSlotType
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawCustomCrosshairSettings
 import deadlock_api_client.models.RawItemWeaponInfoInner
-import deadlock_api_client.models.Upgrade
 import deadlock_api_client.models.UpgradeDescription
 import deadlock_api_client.models.UpgradeProperty
 import deadlock_api_client.models.UpgradeTooltipSection
-import deadlock_api_client.models.Weapon
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -61,7 +60,7 @@ import java.io.Serializable
  * @param behaviours
  * @param bossDamageScale
  * @param dependantAbilities
- * @param dependentAbilities
+ * @param dependentAbilities Abilities this one depends on. Entries whose ability has no data are left out.
  * @param grantAmmoOnCast
  * @param hero
  * @param heroes
@@ -109,7 +108,7 @@ data class Item (
     val name: kotlin.String,
 
     @Json(name = "type")
-    val type: ItemType,
+    val type: Item.Type,
 
     @Json(name = "activation")
     val activation: AbilityActivation,
@@ -138,6 +137,7 @@ data class Item (
     @Json(name = "dependant_abilities")
     val dependantAbilities: kotlin.collections.List<kotlin.String>? = null,
 
+    /* Abilities this one depends on. Entries whose ability has no data are left out. */
     @Json(name = "dependent_abilities")
     val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null,
 
@@ -236,6 +236,15 @@ data class Item (
         private const val serialVersionUID: Long = 123
     }
 
+    /**
+     * Values: ability,weapon,upgrade
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Type(val value: kotlin.String) {
+        @Json(name = "ability") ability("ability"),
+        @Json(name = "weapon") weapon("weapon"),
+        @Json(name = "upgrade") upgrade("upgrade");
+    }
 
 }
 

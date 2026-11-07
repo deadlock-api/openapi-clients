@@ -233,15 +233,6 @@ class ItemTest extends TestCase
     }
 
     /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "update_time"
      */
     public function testPropertyUpdateTime()
@@ -272,6 +263,15 @@ class ItemTest extends TestCase
      * Test attribute "weapon_info"
      */
     public function testPropertyWeaponInfo()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

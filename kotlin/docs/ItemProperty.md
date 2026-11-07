@@ -19,9 +19,9 @@
 | **providedPropertyType** | **kotlin.String** |  |  [optional] |
 | **requiredUpgradeBits** | **kotlin.collections.List&lt;kotlin.String&gt;** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). |  [optional] |
 | **scaleFunction** | [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  |  [optional] |
-| **streetBrawlValue** | **kotlin.String** |  |  [optional] |
+| **streetBrawlValue** | [**StringOrNumber**](StringOrNumber.md) |  |  [optional] |
 | **usageFlags** | [**kotlin.collections.List&lt;StatsUsageFlag&gt;**](StatsUsageFlag.md) |  |  [optional] |
-| **&#x60;value&#x60;** | **kotlin.String** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). |  [optional] |
+| **&#x60;value&#x60;** | [**StringOrNumber**](StringOrNumber.md) | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). |  [optional] |
 
 
 

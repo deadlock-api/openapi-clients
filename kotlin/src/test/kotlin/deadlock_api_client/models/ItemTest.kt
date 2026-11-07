@@ -27,7 +27,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.Item
-import deadlock_api_client.models.Ability
 import deadlock_api_client.models.AbilityActivation
 import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.AbilityTooltipDetails
@@ -35,16 +34,16 @@ import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
 import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.DependantAbilities
+import deadlock_api_client.models.ItemOneOf
+import deadlock_api_client.models.ItemOneOf1
+import deadlock_api_client.models.ItemOneOf2
 import deadlock_api_client.models.ItemSlotType
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawCustomCrosshairSettings
 import deadlock_api_client.models.RawItemWeaponInfoInner
-import deadlock_api_client.models.Upgrade
 import deadlock_api_client.models.UpgradeDescription
 import deadlock_api_client.models.UpgradeProperty
 import deadlock_api_client.models.UpgradeTooltipSection
-import deadlock_api_client.models.Weapon
 
 class ItemTest : ShouldSpec() {
     init {
@@ -135,7 +134,7 @@ class ItemTest : ShouldSpec() {
             //modelInstance.dependantAbilities shouldBe ("TODO")
         }
 
-        // to test the property `dependentAbilities`
+        // to test the property `dependentAbilities` - Abilities this one depends on. Entries whose ability has no data are left out.
         should("test dependentAbilities") {
             // uncomment below to test the property
             //modelInstance.dependentAbilities shouldBe ("TODO")

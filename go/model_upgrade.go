@@ -53,7 +53,6 @@ type Upgrade struct {
 	Shopable bool `json:"shopable"`
 	StartTrained NullableBool `json:"start_trained,omitempty"`
 	TooltipSections []UpgradeTooltipSection `json:"tooltip_sections,omitempty"`
-	Type ItemType `json:"type"`
 	UpdateTime NullableInt64 `json:"update_time,omitempty"`
 	Upgrades []RawAbilityUpgrade `json:"upgrades,omitempty"`
 	WeaponInfo NullableRawItemWeaponInfoInner `json:"weapon_info,omitempty"`
@@ -65,7 +64,7 @@ type _Upgrade Upgrade
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpgrade(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ ItemType) *Upgrade {
+func NewUpgrade(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool) *Upgrade {
 	this := Upgrade{}
 	this.Activation = activation
 	this.ClassName = className
@@ -75,7 +74,6 @@ func NewUpgrade(activation AbilityActivation, className string, id int32, isActi
 	this.ItemTier = itemTier
 	this.Name = name
 	this.Shopable = shopable
-	this.Type = type_
 	return &this
 }
 
@@ -1107,30 +1105,6 @@ func (o *Upgrade) SetTooltipSections(v []UpgradeTooltipSection) {
 	o.TooltipSections = v
 }
 
-// GetType returns the Type field value
-func (o *Upgrade) GetType() ItemType {
-	if o == nil {
-		var ret ItemType
-		return ret
-	}
-
-	return o.Type
-}
-
-// GetTypeOk returns a tuple with the Type field value
-// and a boolean to check if the value has been set.
-func (o *Upgrade) GetTypeOk() (*ItemType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Type, true
-}
-
-// SetType sets field value
-func (o *Upgrade) SetType(v ItemType) {
-	o.Type = v
-}
-
 // GetUpdateTime returns the UpdateTime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Upgrade) GetUpdateTime() int64 {
 	if o == nil || IsNil(o.UpdateTime.Get()) {
@@ -1329,7 +1303,6 @@ func (o Upgrade) ToMap() (map[string]interface{}, error) {
 	if o.TooltipSections != nil {
 		toSerialize["tooltip_sections"] = o.TooltipSections
 	}
-	toSerialize["type"] = o.Type
 	if o.UpdateTime.IsSet() {
 		toSerialize["update_time"] = o.UpdateTime.Get()
 	}
@@ -1355,7 +1328,6 @@ func (o *Upgrade) UnmarshalJSON(data []byte) (err error) {
 		"item_tier",
 		"name",
 		"shopable",
-		"type",
 	}
 
 	allProperties := make(map[string]interface{})

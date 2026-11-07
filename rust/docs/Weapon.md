@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **properties** | Option<[**std::collections::HashMap<String, models::ItemProperty>**](ItemProperty.md)> |  | [optional]
 **start_trained** | Option<**bool**> |  | [optional]
-**r#type** | [**models::ItemType**](ItemType.md) |  | 
 **update_time** | Option<**i64**> |  | [optional]
 **use_custom_crosshair_settings** | Option<**bool**> |  | [optional]
 **weapon_info** | Option<[**models::WeaponInfo**](WeaponInfo.md)> |  | [optional]

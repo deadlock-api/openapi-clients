@@ -28,6 +28,7 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.NpcUnit
 import deadlock_api_client.models.Color
+import deadlock_api_client.models.NpcWeaponInfo
 import deadlock_api_client.models.SubclassBulletResistModifier
 import deadlock_api_client.models.SubclassEmpoweredModifierLevel
 import deadlock_api_client.models.SubclassIntrinsicModifiers
@@ -37,7 +38,6 @@ import deadlock_api_client.models.SubclassObjectiveRegen
 import deadlock_api_client.models.SubclassRangedArmorModifier
 import deadlock_api_client.models.SubclassTrooperDamageReduction
 import deadlock_api_client.models.TeamModels
-import deadlock_api_client.models.WeaponInfo
 
 class NpcUnitTest : ShouldSpec() {
     init {

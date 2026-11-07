@@ -14,14 +14,30 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum Item {
-    Ability(Box<models::Ability>),
-    Weapon(Box<models::Weapon>),
-    Upgrade(Box<models::Upgrade>),
+    ItemOneOf(Box<models::ItemOneOf>),
+    ItemOneOf1(Box<models::ItemOneOf1>),
+    ItemOneOf2(Box<models::ItemOneOf2>),
 }
 
 impl Default for Item {
     fn default() -> Self {
-        Self::Ability(Default::default())
+        Self::ItemOneOf(Default::default())
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    #[serde(rename = "ability")]
+    Ability,
+    #[serde(rename = "weapon")]
+    Weapon,
+    #[serde(rename = "upgrade")]
+    Upgrade,
+}
+
+impl Default for Type {
+    fn default() -> Type {
+        Self::Ability
     }
 }
 

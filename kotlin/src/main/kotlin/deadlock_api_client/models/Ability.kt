@@ -29,7 +29,6 @@ import deadlock_api_client.models.AbilityType
 import deadlock_api_client.models.AbilityVideos
 import deadlock_api_client.models.DependantAbilities
 import deadlock_api_client.models.ItemProperty
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawItemWeaponInfoInner
 
@@ -42,12 +41,11 @@ import java.io.Serializable
  * @param description
  * @param id
  * @param name
- * @param type
  * @param abilityType
  * @param behaviours
  * @param bossDamageScale
  * @param dependantAbilities
- * @param dependentAbilities
+ * @param dependentAbilities Abilities this one depends on. Entries whose ability has no data are left out.
  * @param grantAmmoOnCast
  * @param hero
  * @param heroes
@@ -77,9 +75,6 @@ data class Ability (
     @Json(name = "name")
     val name: kotlin.String,
 
-    @Json(name = "type")
-    val type: ItemType,
-
     @Json(name = "ability_type")
     val abilityType: AbilityType? = null,
 
@@ -92,6 +87,7 @@ data class Ability (
     @Json(name = "dependant_abilities")
     val dependantAbilities: kotlin.collections.List<kotlin.String>? = null,
 
+    /* Abilities this one depends on. Entries whose ability has no data are left out. */
     @Json(name = "dependent_abilities")
     val dependentAbilities: kotlin.collections.Map<kotlin.String, DependantAbilities>? = null,
 

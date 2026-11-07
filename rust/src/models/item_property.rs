@@ -45,12 +45,12 @@ pub struct ItemProperty {
     #[serde(rename = "scale_function", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub scale_function: Option<Option<Box<models::RawItemPropertyScaleFunctionSubclass>>>,
     #[serde(rename = "street_brawl_value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub street_brawl_value: Option<Option<String>>,
+    pub street_brawl_value: Option<Option<Box<models::StringOrNumber>>>,
     #[serde(rename = "usage_flags", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub usage_flags: Option<Option<Vec<models::StatsUsageFlag>>>,
     /// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
     #[serde(rename = "value", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub value: Option<Option<String>>,
+    pub value: Option<Option<Box<models::StringOrNumber>>>,
 }
 
 impl ItemProperty {

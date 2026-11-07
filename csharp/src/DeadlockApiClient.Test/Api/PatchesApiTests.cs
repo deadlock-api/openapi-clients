@@ -73,12 +73,12 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
-        /// Test Feed_0
+        /// Test FeedV2
         /// </summary>
         [Fact (Skip = "not implemented")]
-        public async Task Feed_0AsyncTest()
+        public async Task FeedV2AsyncTest()
         {
-            var response = await _instance.Feed_0Async();
+            var response = await _instance.FeedV2Async();
             var model = response.Ok();
             Assert.IsType<List<FeedItem>>(model);
         }

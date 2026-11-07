@@ -29,6 +29,7 @@ import io.kotlintest.specs.ShouldSpec
 import deadlock_api_client.models.ItemProperty
 import deadlock_api_client.models.RawItemPropertyScaleFunctionSubclass
 import deadlock_api_client.models.StatsUsageFlag
+import deadlock_api_client.models.StringOrNumber
 
 class ItemPropertyTest : ShouldSpec() {
     init {

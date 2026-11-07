@@ -200,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -530,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -864,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -1192,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -1358,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -1548,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -1647,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -1924,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -2093,7 +2093,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -2345,7 +2345,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -2649,7 +2649,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -2942,7 +2942,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -3290,7 +3290,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -3448,7 +3448,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -3749,7 +3749,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -4122,7 +4122,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -4476,7 +4476,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -4890,7 +4890,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -5198,7 +5198,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -5484,7 +5484,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -5785,7 +5785,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -6097,7 +6097,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -6472,7 +6472,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -12577,7 +12577,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791331200
+          default: 1791417600
           format: int64
           nullable: true
           type: integer
@@ -12894,7 +12894,7 @@ paths:
         name: matches_played_weight
         required: false
         schema:
-          default: "0.02"
+          default: 0.02
           format: double
           minimum: 0
           nullable: true
@@ -13592,7 +13592,7 @@ paths:
         | IP | 100req/s |
         | Key | - |
         | Global | - |
-      operationId: feed
+      operationId: feed_v2
       responses:
         "200":
           content:
@@ -13641,95 +13641,6 @@ components:
           nullable: true
           type: integer
     Ability:
-      example:
-        ability_type: ""
-        behaviours:
-        - behaviours
-        - behaviours
-        boss_damage_scale: 0.8008281904610115
-        class_name: class_name
-        dependant_abilities:
-        - dependant_abilities
-        - dependant_abilities
-        dependent_abilities:
-          key:
-            flags:
-            - flags
-            - flags
-        description:
-          active: active
-          desc: desc
-          passive: passive
-          quip: quip
-          t1_desc: t1_desc
-          t2_desc: t2_desc
-          t3_desc: t3_desc
-        grant_ammo_on_cast: true
-        hero: 0
-        heroes:
-        - 0
-        - 0
-        id: 0
-        image: image
-        image_webp: image_webp
-        name: name
-        properties:
-          key:
-            can_set_token_override: true
-            conditional: conditional
-            css_class: css_class
-            disable_value: disable_value
-            display_units: display_units
-            icon: icon
-            label: label
-            loc_token_override: loc_token_override
-            negative_attribute: true
-            postfix: postfix
-            postvalue_label: postvalue_label
-            prefix: prefix
-            provided_property_type: provided_property_type
-            required_upgrade_bits:
-            - required_upgrade_bits
-            - required_upgrade_bits
-            scale_function: ""
-            street_brawl_value: street_brawl_value
-            usage_flags:
-            - ConditionallyApplied
-            - ConditionallyApplied
-            value: value
-        start_trained: true
-        tooltip_details: ""
-        type: ability
-        update_time: 5
-        upgrades:
-        - property_upgrades:
-          - bonus: bonus
-            fixed_corrupted_bonus: true
-            name: name
-            round_corrupted_bonus: true
-            scale_stat_filter: scale_stat_filter
-            upgrade_type: upgrade_type
-          - bonus: bonus
-            fixed_corrupted_bonus: true
-            name: name
-            round_corrupted_bonus: true
-            scale_stat_filter: scale_stat_filter
-            upgrade_type: upgrade_type
-        - property_upgrades:
-          - bonus: bonus
-            fixed_corrupted_bonus: true
-            name: name
-            round_corrupted_bonus: true
-            scale_stat_filter: scale_stat_filter
-            upgrade_type: upgrade_type
-          - bonus: bonus
-            fixed_corrupted_bonus: true
-            name: name
-            round_corrupted_bonus: true
-            scale_stat_filter: scale_stat_filter
-            upgrade_type: upgrade_type
-        videos: ""
-        weapon_info: ""
       properties:
         ability_type:
           allOf:
@@ -13756,6 +13667,8 @@ components:
         dependent_abilities:
           additionalProperties:
             $ref: "#/components/schemas/DependantAbilities"
+          description: Abilities this one depends on. Entries whose ability has no
+            data are left out.
           nullable: true
           type: object
         description:
@@ -13800,8 +13713,6 @@ components:
           allOf:
           - $ref: "#/components/schemas/AbilityTooltipDetails"
           nullable: true
-        type:
-          $ref: "#/components/schemas/ItemType"
         update_time:
           format: int64
           nullable: true
@@ -13825,7 +13736,6 @@ components:
       - description
       - id
       - name
-      - type
     AbilityActivation:
       enum:
       - hold_toggle
@@ -15624,7 +15534,7 @@ components:
       - nullable
     Convar:
       example:
-        default: {}
+        default: ""
         description: description
         flags: 0
         type: bool
@@ -15633,7 +15543,6 @@ components:
           description: |-
             Default value, typed by `type`: a bool, number or string, `[r, g, b, a]`
             for `color`, and an array of floats for vectors / `qangle`.
-          type: object
         description:
           description: Help text shown by the in-game console.
           nullable: true
@@ -18622,9 +18531,9 @@ components:
       - window_days
     Item:
       oneOf:
-      - $ref: "#/components/schemas/Ability"
-      - $ref: "#/components/schemas/Weapon"
-      - $ref: "#/components/schemas/Upgrade"
+      - $ref: "#/components/schemas/Item_oneOf"
+      - $ref: "#/components/schemas/Item_oneOf_1"
+      - $ref: "#/components/schemas/Item_oneOf_2"
     ItemDraftRound:
       properties:
         normal_mod_tier:
@@ -19061,11 +18970,11 @@ components:
         - required_upgrade_bits
         - required_upgrade_bits
         scale_function: ""
-        street_brawl_value: street_brawl_value
+        street_brawl_value: ""
         usage_flags:
         - ConditionallyApplied
         - ConditionallyApplied
-        value: value
+        value: ""
       properties:
         can_set_token_override:
           nullable: true
@@ -19120,8 +19029,9 @@ components:
           - $ref: "#/components/schemas/RawItemPropertyScaleFunctionSubclass"
           nullable: true
         street_brawl_value:
+          allOf:
+          - $ref: "#/components/schemas/StringOrNumber"
           nullable: true
-          type: string
         usage_flags:
           items:
             $ref: "#/components/schemas/StatsUsageFlag"
@@ -19129,11 +19039,12 @@ components:
           type: array
           default: null
         value:
+          allOf:
+          - $ref: "#/components/schemas/StringOrNumber"
           description: |-
             Raw JSON value preserves the source distinction between numeric and
             stringly-typed bonuses (`"14.5"` vs `14.5`).
           nullable: true
-          type: string
     ItemSlotType:
       enum:
       - weapon
@@ -20999,7 +20910,7 @@ components:
           type: number
         boss_weapon_info:
           allOf:
-          - $ref: "#/components/schemas/WeaponInfo"
+          - $ref: "#/components/schemas/NpcWeaponInfo"
           description: Secondary weapon the unit uses against bosses (builds 6711+).
           nullable: true
         bound_abilities:
@@ -21300,11 +21211,296 @@ components:
           type: number
         weapon_info:
           allOf:
-          - $ref: "#/components/schemas/WeaponInfo"
+          - $ref: "#/components/schemas/NpcWeaponInfo"
           nullable: true
       required:
       - class_name
       - id
+    NpcWeaponInfo:
+      properties:
+        aiming_shot_spread_penalty:
+          allOf:
+          - $ref: "#/components/schemas/SpreadPenalty"
+          nullable: true
+        build_up_rate:
+          format: double
+          nullable: true
+          type: number
+        bullet_damage:
+          format: double
+          nullable: true
+          type: number
+        bullet_gravity_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_handler_type:
+          nullable: true
+          type: string
+        bullet_inherit_shooter_velocity_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_lifetime:
+          format: double
+          nullable: true
+          type: number
+        bullet_radius:
+          format: double
+          nullable: true
+          type: number
+        bullet_radius_vs_world:
+          format: double
+          nullable: true
+          type: number
+        bullet_reflect_amount:
+          format: double
+          nullable: true
+          type: number
+        bullet_reflect_scale:
+          format: double
+          nullable: true
+          type: number
+        bullet_speed:
+          format: double
+          nullable: true
+          type: number
+        bullet_speed_curve: {}
+        bullet_whiz_distance:
+          format: double
+          nullable: true
+          type: number
+        bullets:
+          format: int64
+          nullable: true
+          type: integer
+        bullets_per_second:
+          format: double
+          nullable: true
+          type: number
+        bullets_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        burst_shot_cooldown:
+          format: double
+          nullable: true
+          type: number
+        burst_shot_count:
+          format: int64
+          nullable: true
+          type: integer
+        can_zoom:
+          nullable: true
+          type: boolean
+        clip_size:
+          format: int64
+          nullable: true
+          type: integer
+        crit_bonus_against_npcs:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_end:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_end_range:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_start:
+          format: double
+          nullable: true
+          type: number
+        crit_bonus_start_range:
+          format: double
+          nullable: true
+          type: number
+        cycle_time:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_bias:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_end_range:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_end_scale:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_start_range:
+          format: double
+          nullable: true
+          type: number
+        damage_falloff_start_scale:
+          format: double
+          nullable: true
+          type: number
+        damage_per_magazine:
+          format: double
+          nullable: true
+          type: number
+        damage_per_second:
+          format: double
+          nullable: true
+          type: number
+        damage_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        damage_per_shot:
+          format: double
+          nullable: true
+          type: number
+        horizontal_punch:
+          format: double
+          nullable: true
+          type: number
+        horizontal_recoil:
+          allOf:
+          - $ref: "#/components/schemas/HorizontalRecoil"
+          nullable: true
+        intra_burst_cycle_time:
+          format: double
+          nullable: true
+          type: number
+        is_semi_auto:
+          nullable: true
+          type: boolean
+        low_ammo_indicator_threshold:
+          format: double
+          nullable: true
+          type: number
+        max_spin_cycle_time:
+          format: double
+          nullable: true
+          type: number
+        range:
+          format: double
+          nullable: true
+          type: number
+        recoil_recovery_delay_factor:
+          format: double
+          nullable: true
+          type: number
+        recoil_recovery_speed:
+          format: double
+          nullable: true
+          type: number
+        recoil_seed:
+          format: double
+          nullable: true
+          type: number
+        recoil_shot_index_recovery_time_factor:
+          format: double
+          nullable: true
+          type: number
+        recoil_speed:
+          format: double
+          nullable: true
+          type: number
+        recycle_time:
+          format: double
+          nullable: true
+          type: number
+        reload_duration:
+          format: double
+          nullable: true
+          type: number
+        reload_move_speed:
+          format: double
+          nullable: true
+          type: number
+        reload_single_bullets:
+          nullable: true
+          type: boolean
+        reload_single_bullets_allow_cancel:
+          nullable: true
+          type: boolean
+        reload_single_bullets_initial_delay:
+          format: double
+          nullable: true
+          type: number
+        scatter_yaw_scale:
+          format: double
+          nullable: true
+          type: number
+        semi_auto_cycle_rate:
+          format: double
+          nullable: true
+          type: number
+        shoot_move_speed_percent:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_decay_delay:
+          format: double
+          nullable: true
+          type: number
+        shoot_spread_penalty_per_shot:
+          format: double
+          nullable: true
+          type: number
+        shooting_up_spread_penalty:
+          format: double
+          nullable: true
+          type: number
+        shots_per_second:
+          format: double
+          nullable: true
+          type: number
+        shots_per_second_with_reload:
+          format: double
+          nullable: true
+          type: number
+        spin_decay_rate:
+          format: double
+          nullable: true
+          type: number
+        spin_increase_rate:
+          format: double
+          nullable: true
+          type: number
+        spins_up:
+          nullable: true
+          type: boolean
+        spread:
+          format: double
+          nullable: true
+          type: number
+        standing_shot_spread_penalty:
+          allOf:
+          - $ref: "#/components/schemas/SpreadPenalty"
+          nullable: true
+        standing_spread:
+          format: double
+          nullable: true
+          type: number
+        vertical_punch:
+          format: double
+          nullable: true
+          type: number
+        vertical_recoil:
+          allOf:
+          - $ref: "#/components/schemas/VerticalRecoil"
+          nullable: true
+        zoom_fov:
+          format: double
+          nullable: true
+          type: number
+        zoom_move_speed_percent:
+          format: double
+          nullable: true
+          type: number
     ObjectiveParams:
       example:
         base_guardians_gold_kill: 6
@@ -22728,13 +22924,13 @@ components:
     RawAbilityUpgrade:
       example:
         property_upgrades:
-        - bonus: bonus
+        - bonus: StringOrNumber
           fixed_corrupted_bonus: true
           name: name
           round_corrupted_bonus: true
           scale_stat_filter: scale_stat_filter
           upgrade_type: upgrade_type
-        - bonus: bonus
+        - bonus: StringOrNumber
           fixed_corrupted_bonus: true
           name: name
           round_corrupted_bonus: true
@@ -22748,7 +22944,7 @@ components:
           default: null
     RawAbilityUpgradePropertyUpgrade:
       example:
-        bonus: bonus
+        bonus: StringOrNumber
         fixed_corrupted_bonus: true
         name: name
         round_corrupted_bonus: true
@@ -22756,7 +22952,7 @@ components:
         upgrade_type: upgrade_type
       properties:
         bonus:
-          type: string
+          $ref: "#/components/schemas/StringOrNumber"
         fixed_corrupted_bonus:
           description: Corrupted item bonuses only (build 6711+).
           nullable: true
@@ -24035,6 +24231,13 @@ components:
       - trooper_spawn_timer
       - ultimate_unlock_round
       - zip_boost_cooldown_on_start
+    StringOrNumber:
+      description: "A value the game files hold either as a string (`\"14.5\"`, `\"\
+        -1m\"`) or as a number."
+      oneOf:
+      - type: string
+      - format: double
+        type: number
     Subclass_BulletResistModifier:
       description: |-
         Serializes back as `{"subclass": ...}` to preserve the KV3 wrapper shape in
@@ -24379,8 +24582,6 @@ components:
           nullable: true
           type: array
           default: null
-        type:
-          $ref: "#/components/schemas/ItemType"
         update_time:
           format: int64
           nullable: true
@@ -24404,7 +24605,6 @@ components:
       - item_tier
       - name
       - shopable
-      - type
     UpgradeDescription:
       properties:
         active:
@@ -24607,8 +24807,6 @@ components:
         start_trained:
           nullable: true
           type: boolean
-        type:
-          $ref: "#/components/schemas/ItemType"
         update_time:
           format: int64
           nullable: true
@@ -24624,7 +24822,6 @@ components:
       - class_name
       - id
       - name
-      - type
     WeaponInfo:
       properties:
         aiming_shot_spread_penalty: {}
@@ -25101,6 +25298,125 @@ components:
       required:
       - scale
       - scaling_stat
+    Item_oneOf:
+      allOf:
+      - $ref: "#/components/schemas/Ability"
+      - properties:
+          type:
+            enum:
+            - ability
+            type: string
+        required:
+        - type
+      example:
+        ability_type: ""
+        behaviours:
+        - behaviours
+        - behaviours
+        boss_damage_scale: 0.8008281904610115
+        class_name: class_name
+        dependant_abilities:
+        - dependant_abilities
+        - dependant_abilities
+        dependent_abilities:
+          key:
+            flags:
+            - flags
+            - flags
+        description:
+          active: active
+          desc: desc
+          passive: passive
+          quip: quip
+          t1_desc: t1_desc
+          t2_desc: t2_desc
+          t3_desc: t3_desc
+        grant_ammo_on_cast: true
+        hero: 0
+        heroes:
+        - 0
+        - 0
+        id: 0
+        image: image
+        image_webp: image_webp
+        name: name
+        properties:
+          key:
+            can_set_token_override: true
+            conditional: conditional
+            css_class: css_class
+            disable_value: disable_value
+            display_units: display_units
+            icon: icon
+            label: label
+            loc_token_override: loc_token_override
+            negative_attribute: true
+            postfix: postfix
+            postvalue_label: postvalue_label
+            prefix: prefix
+            provided_property_type: provided_property_type
+            required_upgrade_bits:
+            - required_upgrade_bits
+            - required_upgrade_bits
+            scale_function: ""
+            street_brawl_value: ""
+            usage_flags:
+            - ConditionallyApplied
+            - ConditionallyApplied
+            value: ""
+        start_trained: true
+        tooltip_details: ""
+        update_time: 5
+        upgrades:
+        - property_upgrades:
+          - bonus: StringOrNumber
+            fixed_corrupted_bonus: true
+            name: name
+            round_corrupted_bonus: true
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+          - bonus: StringOrNumber
+            fixed_corrupted_bonus: true
+            name: name
+            round_corrupted_bonus: true
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+        - property_upgrades:
+          - bonus: StringOrNumber
+            fixed_corrupted_bonus: true
+            name: name
+            round_corrupted_bonus: true
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+          - bonus: StringOrNumber
+            fixed_corrupted_bonus: true
+            name: name
+            round_corrupted_bonus: true
+            scale_stat_filter: scale_stat_filter
+            upgrade_type: upgrade_type
+        videos: ""
+        weapon_info: ""
+        type: ability
+    Item_oneOf_1:
+      allOf:
+      - $ref: "#/components/schemas/Weapon"
+      - properties:
+          type:
+            enum:
+            - weapon
+            type: string
+        required:
+        - type
+    Item_oneOf_2:
+      allOf:
+      - $ref: "#/components/schemas/Upgrade"
+      - properties:
+          type:
+            enum:
+            - upgrade
+            type: string
+        required:
+        - type
     Subclass_BulletResistModifier_subclass:
       properties:
         bullet_resist:

@@ -199,7 +199,7 @@ Class | Method | HTTP request | Description
 *NPCUnitsAPI* | [**ListNpcUnits**](docs/NPCUnitsAPI.md#listnpcunits) | **Get** /v1/assets/npc-units | List NPC Units
 *PatchesAPI* | [**BigPatchDays**](docs/PatchesAPI.md#bigpatchdays) | **Get** /v1/patches/big-days | Big Days
 *PatchesAPI* | [**Feed**](docs/PatchesAPI.md#feed) | **Get** /v1/patches | Notes
-*PatchesAPI* | [**Feed_0**](docs/PatchesAPI.md#feed_0) | **Get** /v2/patches | Notes
+*PatchesAPI* | [**FeedV2**](docs/PatchesAPI.md#feedv2) | **Get** /v2/patches | Notes
 *PlayersAPI* | [**EnemyStats**](docs/PlayersAPI.md#enemystats) | **Get** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersAPI* | [**MatchHistory**](docs/PlayersAPI.md#matchhistory) | **Get** /v1/players/{account_id}/match-history | Match History
 *PlayersAPI* | [**MateStats**](docs/PlayersAPI.md#matestats) | **Get** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -337,6 +337,9 @@ Class | Method | HTTP request | Description
  - [ItemFlowStats](docs/ItemFlowStats.md)
  - [ItemFlowSummary](docs/ItemFlowSummary.md)
  - [ItemGroup](docs/ItemGroup.md)
+ - [ItemOneOf](docs/ItemOneOf.md)
+ - [ItemOneOf1](docs/ItemOneOf1.md)
+ - [ItemOneOf2](docs/ItemOneOf2.md)
  - [ItemPermutationStats](docs/ItemPermutationStats.md)
  - [ItemProperty](docs/ItemProperty.md)
  - [ItemSlotType](docs/ItemSlotType.md)
@@ -374,6 +377,7 @@ Class | Method | HTTP request | Description
  - [NeutralCampKind](docs/NeutralCampKind.md)
  - [NewPlayerMetrics](docs/NewPlayerMetrics.md)
  - [NpcUnit](docs/NpcUnit.md)
+ - [NpcWeaponInfo](docs/NpcWeaponInfo.md)
  - [ObjectiveParams](docs/ObjectiveParams.md)
  - [ObjectivePosition](docs/ObjectivePosition.md)
  - [OutcomeToWeights](docs/OutcomeToWeights.md)
@@ -430,6 +434,7 @@ Class | Method | HTTP request | Description
  - [SteamNews](docs/SteamNews.md)
  - [SteamProfile](docs/SteamProfile.md)
  - [StreetBrawl](docs/StreetBrawl.md)
+ - [StringOrNumber](docs/StringOrNumber.md)
  - [SubclassBulletResistModifier](docs/SubclassBulletResistModifier.md)
  - [SubclassBulletResistModifierSubclass](docs/SubclassBulletResistModifierSubclass.md)
  - [SubclassEmpoweredModifierLevel](docs/SubclassEmpoweredModifierLevel.md)

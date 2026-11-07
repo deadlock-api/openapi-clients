@@ -35,8 +35,6 @@ pub struct Weapon {
     pub properties: Option<Option<std::collections::HashMap<String, models::ItemProperty>>>,
     #[serde(rename = "start_trained", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub start_trained: Option<Option<bool>>,
-    #[serde(rename = "type")]
-    pub r#type: models::ItemType,
     #[serde(rename = "update_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub update_time: Option<Option<i64>>,
     #[serde(rename = "use_custom_crosshair_settings", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -46,7 +44,7 @@ pub struct Weapon {
 }
 
 impl Weapon {
-    pub fn new(class_name: String, id: u32, name: String, r#type: models::ItemType) -> Weapon {
+    pub fn new(class_name: String, id: u32, name: String) -> Weapon {
         Weapon {
             class_name,
             crosshair_css_class: None,
@@ -59,7 +57,6 @@ impl Weapon {
             name,
             properties: None,
             start_trained: None,
-            r#type,
             update_time: None,
             use_custom_crosshair_settings: None,
             weapon_info: None,

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | **float** |  | [optional] 
 **class_name** | **str** |  | 
 **dependant_abilities** | **List[str]** |  | [optional] 
-**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) |  | [optional] 
+**dependent_abilities** | [**Dict[str, DependantAbilities]**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **description** | [**AbilityDescription**](AbilityDescription.md) |  | 
 **grant_ammo_on_cast** | **bool** |  | [optional] 
 **hero** | **int** |  | [optional] 
@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **properties** | [**Dict[str, ItemProperty]**](ItemProperty.md) |  | [optional] 
 **start_trained** | **bool** |  | [optional] 
 **tooltip_details** | [**AbilityTooltipDetails**](AbilityTooltipDetails.md) |  | [optional] 
-**type** | [**ItemType**](ItemType.md) |  | 
 **update_time** | **int** |  | [optional] 
 **upgrades** | [**List[RawAbilityUpgrade]**](RawAbilityUpgrade.md) |  | [optional] 
 **videos** | [**AbilityVideos**](AbilityVideos.md) |  | [optional] 

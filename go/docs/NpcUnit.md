@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **BackdoorBulletResistModifier** | Pointer to [**NullableSubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] 
 **BarrackBossDps** | Pointer to **NullableFloat64** |  | [optional] 
 **BarrackGuardianDamageResistPct** | Pointer to **NullableFloat64** |  | [optional] 
-**BossWeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
+**BossWeaponInfo** | Pointer to [**NullableNpcWeaponInfo**](NpcWeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] 
 **BoundAbilities** | Pointer to **map[string]string** |  | [optional] 
 **ClassName** | **string** |  | 
 **CoreModels** | Pointer to [**NullableTeamModels**](TeamModels.md) | The Patron&#39;s core models, per team. | [optional] 
@@ -82,7 +82,7 @@ Name | Type | Description | Notes
 **TrooperDps** | Pointer to **NullableFloat64** |  | [optional] 
 **ViewerSoulsClass** | Pointer to **map[string]string** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] 
 **WalkSpeed** | Pointer to **NullableFloat64** |  | [optional] 
-**WeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) |  | [optional] 
+**WeaponInfo** | Pointer to [**NullableNpcWeaponInfo**](NpcWeaponInfo.md) |  | [optional] 
 
 ## Methods
 
@@ -385,20 +385,20 @@ HasBarrackGuardianDamageResistPct returns a boolean if a field has been set.
 UnsetBarrackGuardianDamageResistPct ensures that no value is present for BarrackGuardianDamageResistPct, not even an explicit nil
 ### GetBossWeaponInfo
 
-`func (o *NpcUnit) GetBossWeaponInfo() WeaponInfo`
+`func (o *NpcUnit) GetBossWeaponInfo() NpcWeaponInfo`
 
 GetBossWeaponInfo returns the BossWeaponInfo field if non-nil, zero value otherwise.
 
 ### GetBossWeaponInfoOk
 
-`func (o *NpcUnit) GetBossWeaponInfoOk() (*WeaponInfo, bool)`
+`func (o *NpcUnit) GetBossWeaponInfoOk() (*NpcWeaponInfo, bool)`
 
 GetBossWeaponInfoOk returns a tuple with the BossWeaponInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBossWeaponInfo
 
-`func (o *NpcUnit) SetBossWeaponInfo(v WeaponInfo)`
+`func (o *NpcUnit) SetBossWeaponInfo(v NpcWeaponInfo)`
 
 SetBossWeaponInfo sets BossWeaponInfo field to given value.
 
@@ -2795,20 +2795,20 @@ HasWalkSpeed returns a boolean if a field has been set.
 UnsetWalkSpeed ensures that no value is present for WalkSpeed, not even an explicit nil
 ### GetWeaponInfo
 
-`func (o *NpcUnit) GetWeaponInfo() WeaponInfo`
+`func (o *NpcUnit) GetWeaponInfo() NpcWeaponInfo`
 
 GetWeaponInfo returns the WeaponInfo field if non-nil, zero value otherwise.
 
 ### GetWeaponInfoOk
 
-`func (o *NpcUnit) GetWeaponInfoOk() (*WeaponInfo, bool)`
+`func (o *NpcUnit) GetWeaponInfoOk() (*NpcWeaponInfo, bool)`
 
 GetWeaponInfoOk returns a tuple with the WeaponInfo field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeaponInfo
 
-`func (o *NpcUnit) SetWeaponInfo(v WeaponInfo)`
+`func (o *NpcUnit) SetWeaponInfo(v NpcWeaponInfo)`
 
 SetWeaponInfo sets WeaponInfo field to given value.
 

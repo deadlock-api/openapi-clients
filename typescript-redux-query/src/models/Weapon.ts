@@ -16,9 +16,6 @@ import {
     ItemProperty,
     ItemPropertyFromJSON,
     ItemPropertyToJSON,
-    ItemType,
-    ItemTypeFromJSON,
-    ItemTypeToJSON,
     RawCustomCrosshairSettings,
     RawCustomCrosshairSettingsFromJSON,
     RawCustomCrosshairSettingsToJSON,
@@ -101,12 +98,6 @@ export interface Weapon  {
     startTrained?: boolean;
     /**
      * 
-     * @type {ItemType}
-     * @memberof Weapon
-     */
-    type: ItemType;
-    /**
-     * 
      * @type {number}
      * @memberof Weapon
      */
@@ -138,7 +129,6 @@ export function WeaponFromJSON(json: any): Weapon {
         'name': json['name'],
         'properties': !exists(json, 'properties') ? undefined : mapValues(json['properties'], ItemPropertyFromJSON),
         'startTrained': !exists(json, 'start_trained') ? undefined : json['start_trained'],
-        'type': ItemTypeFromJSON(json['type']),
         'updateTime': !exists(json, 'update_time') ? undefined : json['update_time'],
         'useCustomCrosshairSettings': !exists(json, 'use_custom_crosshair_settings') ? undefined : json['use_custom_crosshair_settings'],
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : WeaponInfoFromJSON(json['weapon_info']),
@@ -161,12 +151,10 @@ export function WeaponToJSON(value?: Weapon): any {
         'name': value.name,
         'properties': value.properties === undefined ? undefined : mapValues(value.properties, ItemPropertyToJSON),
         'start_trained': value.startTrained,
-        'type': ItemTypeToJSON(value.type),
         'update_time': value.updateTime,
         'use_custom_crosshair_settings': value.useCustomCrosshairSettings,
         'weapon_info': WeaponInfoToJSON(value.weaponInfo),
     };
 }
-
 
 

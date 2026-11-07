@@ -93,13 +93,12 @@ class TestItem(unittest.TestCase):
                                 ], 
                             property_upgrade_required = '', )
                         ], ),
-                type = 'ability',
                 update_time = 56,
                 upgrades = [
                     deadlock_api_client.models.raw_ability_upgrade.RawAbilityUpgrade(
                         property_upgrades = [
                             deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                                bonus = '', 
+                                bonus = null, 
                                 fixed_corrupted_bonus = True, 
                                 name = '', 
                                 round_corrupted_bonus = True, 
@@ -112,6 +111,7 @@ class TestItem(unittest.TestCase):
                     webm = '', ),
                 weapon_info = deadlock_api_client.models.raw_item_weapon_info_inner.RawItemWeaponInfoInner(
                     m_bullet_speed_curve = null, ),
+                type = 'ability',
                 crosshair_css_class = '',
                 custom_crosshair_settings = deadlock_api_client.models.raw_custom_crosshair_settings.RawCustomCrosshairSettings(
                     m_dot_color = [
@@ -150,7 +150,7 @@ class TestItem(unittest.TestCase):
                         ], 
                     property_upgrades = [
                         deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                            bonus = '', 
+                            bonus = null, 
                             fixed_corrupted_bonus = True, 
                             name = '', 
                             round_corrupted_bonus = True, 

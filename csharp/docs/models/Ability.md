@@ -8,12 +8,11 @@ Name | Type | Description | Notes
 **Description** | [**AbilityDescription**](AbilityDescription.md) |  | 
 **Id** | **int** |  | 
 **Name** | **string** |  | 
-**Type** | **ItemType** |  | 
 **AbilityType** | **AbilityType** |  | [optional] 
 **Behaviours** | **List&lt;string&gt;** |  | [optional] 
 **BossDamageScale** | **double** |  | [optional] 
 **DependantAbilities** | **List&lt;string&gt;** |  | [optional] 
-**DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | [**Dictionary&lt;string, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **GrantAmmoOnCast** | **bool** |  | [optional] 
 **Hero** | **int** |  | [optional] 
 **Heroes** | **List&lt;int&gt;** |  | [optional] 

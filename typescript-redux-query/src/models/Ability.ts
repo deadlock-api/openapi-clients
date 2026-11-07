@@ -31,9 +31,6 @@ import {
     ItemProperty,
     ItemPropertyFromJSON,
     ItemPropertyToJSON,
-    ItemType,
-    ItemTypeFromJSON,
-    ItemTypeToJSON,
     RawAbilityUpgrade,
     RawAbilityUpgradeFromJSON,
     RawAbilityUpgradeToJSON,
@@ -79,7 +76,7 @@ export interface Ability  {
      */
     dependantAbilities?: Array<string>;
     /**
-     * 
+     * Abilities this one depends on. Entries whose ability has no data are left out.
      * @type {{ [key: string]: DependantAbilities; }}
      * @memberof Ability
      */
@@ -152,12 +149,6 @@ export interface Ability  {
     tooltipDetails?: AbilityTooltipDetails;
     /**
      * 
-     * @type {ItemType}
-     * @memberof Ability
-     */
-    type: ItemType;
-    /**
-     * 
      * @type {number}
      * @memberof Ability
      */
@@ -201,7 +192,6 @@ export function AbilityFromJSON(json: any): Ability {
         'properties': !exists(json, 'properties') ? undefined : mapValues(json['properties'], ItemPropertyFromJSON),
         'startTrained': !exists(json, 'start_trained') ? undefined : json['start_trained'],
         'tooltipDetails': !exists(json, 'tooltip_details') ? undefined : AbilityTooltipDetailsFromJSON(json['tooltip_details']),
-        'type': ItemTypeFromJSON(json['type']),
         'updateTime': !exists(json, 'update_time') ? undefined : json['update_time'],
         'upgrades': !exists(json, 'upgrades') ? undefined : (json['upgrades'] as Array<any>).map(RawAbilityUpgradeFromJSON),
         'videos': !exists(json, 'videos') ? undefined : AbilityVideosFromJSON(json['videos']),
@@ -231,7 +221,6 @@ export function AbilityToJSON(value?: Ability): any {
         'properties': value.properties === undefined ? undefined : mapValues(value.properties, ItemPropertyToJSON),
         'start_trained': value.startTrained,
         'tooltip_details': AbilityTooltipDetailsToJSON(value.tooltipDetails),
-        'type': ItemTypeToJSON(value.type),
         'update_time': value.updateTime,
         'upgrades': value.upgrades === undefined ? undefined : (value.upgrades as Array<any>).map(RawAbilityUpgradeToJSON),
         'videos': AbilityVideosToJSON(value.videos),

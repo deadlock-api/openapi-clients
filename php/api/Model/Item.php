@@ -74,11 +74,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'array<string,\OpenAPI\Client\Model\UpgradeProperty>',
         'start_trained' => 'bool',
         'tooltip_details' => '\OpenAPI\Client\Model\AbilityTooltipDetails',
-        'type' => '\OpenAPI\Client\Model\ItemType',
         'update_time' => 'int',
         'upgrades' => '\OpenAPI\Client\Model\RawAbilityUpgrade[]',
         'videos' => '\OpenAPI\Client\Model\AbilityVideos',
         'weapon_info' => '\OpenAPI\Client\Model\RawItemWeaponInfoInner',
+        'type' => 'string',
         'crosshair_css_class' => 'string',
         'custom_crosshair_settings' => '\OpenAPI\Client\Model\RawCustomCrosshairSettings',
         'use_custom_crosshair_settings' => 'bool',
@@ -128,11 +128,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => null,
         'start_trained' => null,
         'tooltip_details' => null,
-        'type' => null,
         'update_time' => 'int64',
         'upgrades' => null,
         'videos' => null,
         'weapon_info' => null,
+        'type' => null,
         'crosshair_css_class' => null,
         'custom_crosshair_settings' => null,
         'use_custom_crosshair_settings' => null,
@@ -180,11 +180,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => true,
         'start_trained' => true,
         'tooltip_details' => true,
-        'type' => false,
         'update_time' => true,
         'upgrades' => true,
         'videos' => true,
         'weapon_info' => true,
+        'type' => false,
         'crosshair_css_class' => true,
         'custom_crosshair_settings' => true,
         'use_custom_crosshair_settings' => true,
@@ -312,11 +312,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'properties',
         'start_trained' => 'start_trained',
         'tooltip_details' => 'tooltip_details',
-        'type' => 'type',
         'update_time' => 'update_time',
         'upgrades' => 'upgrades',
         'videos' => 'videos',
         'weapon_info' => 'weapon_info',
+        'type' => 'type',
         'crosshair_css_class' => 'crosshair_css_class',
         'custom_crosshair_settings' => 'custom_crosshair_settings',
         'use_custom_crosshair_settings' => 'use_custom_crosshair_settings',
@@ -364,11 +364,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'setProperties',
         'start_trained' => 'setStartTrained',
         'tooltip_details' => 'setTooltipDetails',
-        'type' => 'setType',
         'update_time' => 'setUpdateTime',
         'upgrades' => 'setUpgrades',
         'videos' => 'setVideos',
         'weapon_info' => 'setWeaponInfo',
+        'type' => 'setType',
         'crosshair_css_class' => 'setCrosshairCssClass',
         'custom_crosshair_settings' => 'setCustomCrosshairSettings',
         'use_custom_crosshair_settings' => 'setUseCustomCrosshairSettings',
@@ -416,11 +416,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         'properties' => 'getProperties',
         'start_trained' => 'getStartTrained',
         'tooltip_details' => 'getTooltipDetails',
-        'type' => 'getType',
         'update_time' => 'getUpdateTime',
         'upgrades' => 'getUpgrades',
         'videos' => 'getVideos',
         'weapon_info' => 'getWeaponInfo',
+        'type' => 'getType',
         'crosshair_css_class' => 'getCrosshairCssClass',
         'custom_crosshair_settings' => 'getCustomCrosshairSettings',
         'use_custom_crosshair_settings' => 'getUseCustomCrosshairSettings',
@@ -486,6 +486,23 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const TYPE_ABILITY = 'ability';
+    public const TYPE_WEAPON = 'weapon';
+    public const TYPE_UPGRADE = 'upgrade';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_ABILITY,
+            self::TYPE_WEAPON,
+            self::TYPE_UPGRADE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -519,11 +536,11 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('properties', $data ?? [], null);
         $this->setIfExists('start_trained', $data ?? [], null);
         $this->setIfExists('tooltip_details', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('update_time', $data ?? [], null);
         $this->setIfExists('upgrades', $data ?? [], null);
         $this->setIfExists('videos', $data ?? [], null);
         $this->setIfExists('weapon_info', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('crosshair_css_class', $data ?? [], null);
         $this->setIfExists('custom_crosshair_settings', $data ?? [], null);
         $this->setIfExists('use_custom_crosshair_settings', $data ?? [], null);
@@ -598,6 +615,15 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
         }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['activation'] === null) {
             $invalidProperties[] = "'activation' can't be null";
         }
@@ -812,7 +838,7 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets dependent_abilities
      *
-     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities dependent_abilities
+     * @param array<string,\OpenAPI\Client\Model\DependantAbilities>|null $dependent_abilities Abilities this one depends on. Entries whose ability has no data are left out.
      *
      * @return self
      */
@@ -1202,33 +1228,6 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets type
-     *
-     * @return \OpenAPI\Client\Model\ItemType
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param \OpenAPI\Client\Model\ItemType $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets update_time
      *
      * @return int|null
@@ -1360,6 +1359,43 @@ class Item implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['weapon_info'] = $weapon_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }

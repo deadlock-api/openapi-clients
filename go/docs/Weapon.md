@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Properties** | Pointer to [**map[string]ItemProperty**](ItemProperty.md) |  | [optional] 
 **StartTrained** | Pointer to **NullableBool** |  | [optional] 
-**Type** | [**ItemType**](ItemType.md) |  | 
 **UpdateTime** | Pointer to **NullableInt64** |  | [optional] 
 **UseCustomCrosshairSettings** | Pointer to **NullableBool** |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableWeaponInfo**](WeaponInfo.md) |  | [optional] 
@@ -24,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewWeapon
 
-`func NewWeapon(className string, id int32, name string, type_ ItemType, ) *Weapon`
+`func NewWeapon(className string, id int32, name string, ) *Weapon`
 
 NewWeapon instantiates a new Weapon object
 This constructor will assign default values to properties that have it defined,
@@ -379,26 +378,6 @@ HasStartTrained returns a boolean if a field has been set.
 `func (o *Weapon) UnsetStartTrained()`
 
 UnsetStartTrained ensures that no value is present for StartTrained, not even an explicit nil
-### GetType
-
-`func (o *Weapon) GetType() ItemType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Weapon) GetTypeOk() (*ItemType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Weapon) SetType(v ItemType)`
-
-SetType sets Type field to given value.
-
-
 ### GetUpdateTime
 
 `func (o *Weapon) GetUpdateTime() int64`

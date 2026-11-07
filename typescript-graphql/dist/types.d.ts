@@ -11,7 +11,6 @@ declare const _default: {
             hero: number[];
             heroes: number[];
             update_time: number[];
-            type: number[];
             grant_ammo_on_cast: number[];
             behaviours: number[];
             description: number[];
@@ -19,6 +18,7 @@ declare const _default: {
             boss_damage_scale: number[];
             dependant_abilities: number[];
             videos: number[];
+            type: number[];
             properties: number[];
             weapon_info: number[];
             tooltip_details: number[];
@@ -781,7 +781,6 @@ declare const _default: {
             hero: number[];
             heroes: number[];
             update_time: number[];
-            type: number[];
             shop_image: number[];
             shop_image_webp: number[];
             shop_image_small: number[];
@@ -800,6 +799,7 @@ declare const _default: {
             disabled_shop_filters: number[];
             shop_version: number[];
             disable_item_target: number[];
+            type: number[];
             weapon_info: number[];
             properties: number[];
             tooltip_sections: number[];
@@ -831,9 +831,9 @@ declare const _default: {
             hero: number[];
             heroes: number[];
             update_time: number[];
-            type: number[];
             crosshair_css_class: number[];
             use_custom_crosshair_settings: number[];
+            type: number[];
             properties: number[];
             weapon_info: number[];
             custom_crosshair_settings: number[];

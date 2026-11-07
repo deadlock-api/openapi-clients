@@ -151,6 +151,9 @@ api/Model/ItemFlowNode.php
 api/Model/ItemFlowStats.php
 api/Model/ItemFlowSummary.php
 api/Model/ItemGroup.php
+api/Model/ItemOneOf.php
+api/Model/ItemOneOf1.php
+api/Model/ItemOneOf2.php
 api/Model/ItemPermutationStats.php
 api/Model/ItemProperty.php
 api/Model/ItemSlotType.php
@@ -189,6 +192,7 @@ api/Model/NeutralCamp.php
 api/Model/NeutralCampKind.php
 api/Model/NewPlayerMetrics.php
 api/Model/NpcUnit.php
+api/Model/NpcWeaponInfo.php
 api/Model/ObjectiveParams.php
 api/Model/ObjectivePosition.php
 api/Model/OutcomeToWeights.php
@@ -245,6 +249,7 @@ api/Model/SteamInfo.php
 api/Model/SteamNews.php
 api/Model/SteamProfile.php
 api/Model/StreetBrawl.php
+api/Model/StringOrNumber.php
 api/Model/SubclassBulletResistModifier.php
 api/Model/SubclassBulletResistModifierSubclass.php
 api/Model/SubclassEmpoweredModifierLevel.php
@@ -429,6 +434,9 @@ docs/Model/ItemFlowNode.md
 docs/Model/ItemFlowStats.md
 docs/Model/ItemFlowSummary.md
 docs/Model/ItemGroup.md
+docs/Model/ItemOneOf.md
+docs/Model/ItemOneOf1.md
+docs/Model/ItemOneOf2.md
 docs/Model/ItemPermutationStats.md
 docs/Model/ItemProperty.md
 docs/Model/ItemSlotType.md
@@ -466,6 +474,7 @@ docs/Model/NeutralCamp.md
 docs/Model/NeutralCampKind.md
 docs/Model/NewPlayerMetrics.md
 docs/Model/NpcUnit.md
+docs/Model/NpcWeaponInfo.md
 docs/Model/ObjectiveParams.md
 docs/Model/ObjectivePosition.md
 docs/Model/OutcomeToWeights.md
@@ -522,6 +531,7 @@ docs/Model/SteamInfo.md
 docs/Model/SteamNews.md
 docs/Model/SteamProfile.md
 docs/Model/StreetBrawl.md
+docs/Model/StringOrNumber.md
 docs/Model/SubclassBulletResistModifier.md
 docs/Model/SubclassBulletResistModifierSubclass.md
 docs/Model/SubclassEmpoweredModifierLevel.md
@@ -705,6 +715,9 @@ test/Model/ItemFlowNodeTest.php
 test/Model/ItemFlowStatsTest.php
 test/Model/ItemFlowSummaryTest.php
 test/Model/ItemGroupTest.php
+test/Model/ItemOneOf1Test.php
+test/Model/ItemOneOf2Test.php
+test/Model/ItemOneOfTest.php
 test/Model/ItemPermutationStatsTest.php
 test/Model/ItemPropertyTest.php
 test/Model/ItemSlotTypeTest.php
@@ -743,6 +756,7 @@ test/Model/NeutralCampKindTest.php
 test/Model/NeutralCampTest.php
 test/Model/NewPlayerMetricsTest.php
 test/Model/NpcUnitTest.php
+test/Model/NpcWeaponInfoTest.php
 test/Model/ObjectiveParamsTest.php
 test/Model/ObjectivePositionTest.php
 test/Model/OutcomeToWeightsTest.php
@@ -799,6 +813,7 @@ test/Model/SteamInfoTest.php
 test/Model/SteamNewsTest.php
 test/Model/SteamProfileTest.php
 test/Model/StreetBrawlTest.php
+test/Model/StringOrNumberTest.php
 test/Model/SubclassBulletResistModifierSubclassTest.php
 test/Model/SubclassBulletResistModifierTest.php
 test/Model/SubclassEmpoweredModifierLevelSubclassTest.php

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BigPatchDays**](PatchesAPI.md#BigPatchDays) | **Get** /v1/patches/big-days | Big Days
 [**Feed**](PatchesAPI.md#Feed) | **Get** /v1/patches | Notes
-[**Feed_0**](PatchesAPI.md#Feed_0) | **Get** /v2/patches | Notes
+[**FeedV2**](PatchesAPI.md#FeedV2) | **Get** /v2/patches | Notes
 
 
 
@@ -132,9 +132,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## Feed_0
+## FeedV2
 
-> []FeedItem Feed_0(ctx).Execute()
+> []FeedItem FeedV2(ctx).Execute()
 
 Notes
 
@@ -156,13 +156,13 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.PatchesAPI.Feed_0(context.Background()).Execute()
+	resp, r, err := apiClient.PatchesAPI.FeedV2(context.Background()).Execute()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PatchesAPI.Feed_0``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Error when calling `PatchesAPI.FeedV2``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `Feed_0`: []FeedItem
-	fmt.Fprintf(os.Stdout, "Response from `PatchesAPI.Feed_0`: %v\n", resp)
+	// response from `FeedV2`: []FeedItem
+	fmt.Fprintf(os.Stdout, "Response from `PatchesAPI.FeedV2`: %v\n", resp)
 }
 ```
 
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiFeed_1Request struct via the builder pattern
+Other parameters are passed through a pointer to a apiFeedV2Request struct via the builder pattern
 
 
 ### Return type

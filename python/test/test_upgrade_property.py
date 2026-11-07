@@ -60,11 +60,11 @@ class TestUpgradeProperty(unittest.TestCase):
                     stat_scale = 1.337, 
                     street_brawl_stat_scale = 1.337, 
                     subclass_name = '', ),
-                street_brawl_value = '',
+                street_brawl_value = None,
                 usage_flags = [
                     'ConditionallyApplied'
                     ],
-                value = '',
+                value = None,
                 tooltip_is_elevated = True,
                 tooltip_is_important = True,
                 tooltip_section = 'innate'

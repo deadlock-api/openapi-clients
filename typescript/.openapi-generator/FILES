@@ -167,6 +167,9 @@ docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
 docs/ItemGroup.md
+docs/ItemOneOf.md
+docs/ItemOneOf1.md
+docs/ItemOneOf2.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
@@ -211,6 +214,7 @@ docs/NeutralCamp.md
 docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
+docs/NpcWeaponInfo.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
@@ -274,6 +278,7 @@ docs/SteamInfoApi.md
 docs/SteamNews.md
 docs/SteamProfile.md
 docs/StreetBrawl.md
+docs/StringOrNumber.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
 docs/SubclassEmpoweredModifierLevel.md
@@ -427,6 +432,9 @@ models/item-flow-node.ts
 models/item-flow-stats.ts
 models/item-flow-summary.ts
 models/item-group.ts
+models/item-one-of.ts
+models/item-one-of1.ts
+models/item-one-of2.ts
 models/item-permutation-stats.ts
 models/item-property.ts
 models/item-slot-type.ts
@@ -465,6 +473,7 @@ models/neutral-camp-kind.ts
 models/neutral-camp.ts
 models/new-player-metrics.ts
 models/npc-unit.ts
+models/npc-weapon-info.ts
 models/objective-params.ts
 models/objective-position.ts
 models/outcome-to-weights.ts
@@ -521,6 +530,7 @@ models/steam-info.ts
 models/steam-news.ts
 models/steam-profile.ts
 models/street-brawl.ts
+models/string-or-number.ts
 models/subclass-bullet-resist-modifier-subclass.ts
 models/subclass-bullet-resist-modifier.ts
 models/subclass-empowered-modifier-level-subclass.ts

@@ -54,15 +54,6 @@ namespace DeadlockApiClient.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Default'
-        /// </summary>
-        [Fact]
-        public void DefaultTest()
-        {
-            // TODO unit test for the property 'Default'
-        }
-
-        /// <summary>
         /// Test the property 'Flags'
         /// </summary>
         [Fact]
@@ -78,6 +69,15 @@ namespace DeadlockApiClient.Test.Model
         public void TypeTest()
         {
             // TODO unit test for the property 'Type'
+        }
+
+        /// <summary>
+        /// Test the property 'Default'
+        /// </summary>
+        [Fact]
+        public void DefaultTest()
+        {
+            // TODO unit test for the property 'Default'
         }
 
         /// <summary>

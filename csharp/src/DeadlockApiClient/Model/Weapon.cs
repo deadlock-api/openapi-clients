@@ -36,7 +36,6 @@ namespace DeadlockApiClient.Model
         /// <param name="className">className</param>
         /// <param name="id">id</param>
         /// <param name="name">name</param>
-        /// <param name="type">type</param>
         /// <param name="crosshairCssClass">crosshairCssClass</param>
         /// <param name="customCrosshairSettings">customCrosshairSettings</param>
         /// <param name="hero">hero</param>
@@ -49,12 +48,11 @@ namespace DeadlockApiClient.Model
         /// <param name="useCustomCrosshairSettings">useCustomCrosshairSettings</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Weapon(string className, int id, string name, ItemType type, Option<string?> crosshairCssClass = default, Option<RawCustomCrosshairSettings?> customCrosshairSettings = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<long?> updateTime = default, Option<bool?> useCustomCrosshairSettings = default, Option<WeaponInfo?> weaponInfo = default)
+        public Weapon(string className, int id, string name, Option<string?> crosshairCssClass = default, Option<RawCustomCrosshairSettings?> customCrosshairSettings = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<long?> updateTime = default, Option<bool?> useCustomCrosshairSettings = default, Option<WeaponInfo?> weaponInfo = default)
         {
             ClassName = className;
             Id = id;
             Name = name;
-            Type = type;
             CrosshairCssClassOption = crosshairCssClass;
             CustomCrosshairSettingsOption = customCrosshairSettings;
             HeroOption = hero;
@@ -70,12 +68,6 @@ namespace DeadlockApiClient.Model
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [JsonPropertyName("type")]
-        public ItemType Type { get; set; }
 
         /// <summary>
         /// Gets or Sets ClassName
@@ -249,7 +241,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  ClassName: ").Append(ClassName).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CrosshairCssClass: ").Append(CrosshairCssClass).Append("\n");
             sb.Append("  CustomCrosshairSettings: ").Append(CustomCrosshairSettings).Append("\n");
             sb.Append("  Hero: ").Append(Hero).Append("\n");
@@ -323,7 +314,6 @@ namespace DeadlockApiClient.Model
             Option<string?> className = default;
             Option<int?> id = default;
             Option<string?> name = default;
-            Option<ItemType?> type = default;
             Option<string?> crosshairCssClass = default;
             Option<RawCustomCrosshairSettings?> customCrosshairSettings = default;
             Option<int?> hero = default;
@@ -359,9 +349,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
-                        case "type":
-                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "crosshair_css_class":
                             crosshairCssClass = new Option<string?>(utf8JsonReader.GetString());
@@ -411,9 +398,6 @@ namespace DeadlockApiClient.Model
             if (!name.IsSet)
                 throw new JsonException("Property is required for class Weapon: name.");
 
-            if (!type.IsSet)
-                throw new JsonException("Property is required for class Weapon: type.");
-
             if (className.IsSet && className.Value == null)
                 throw new JsonException("Property is not nullable for class Weapon: class_name.");
 
@@ -423,10 +407,7 @@ namespace DeadlockApiClient.Model
             if (name.IsSet && name.Value == null)
                 throw new JsonException("Property is not nullable for class Weapon: name.");
 
-            if (type.IsSet && type.Value == null)
-                throw new JsonException("Property is not nullable for class Weapon: type.");
-
-            return new Weapon(className.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, crosshairCssClass, customCrosshairSettings, hero, heroes, image, imageWebp, properties, startTrained, updateTime, useCustomCrosshairSettings, weaponInfo);
+            return new Weapon(className.Value!, id.Value!.Value!, name.Value!, crosshairCssClass, customCrosshairSettings, hero, heroes, image, imageWebp, properties, startTrained, updateTime, useCustomCrosshairSettings, weaponInfo);
         }
 
         /// <summary>
@@ -456,9 +437,6 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("id", weapon.Id);
 
             writer.WriteString("name", weapon.Name);
-
-            var typeRawValue = ItemTypeValueConverter.ToJsonValue(weapon.Type);
-            writer.WriteString("type", typeRawValue);
 
             if (weapon.CrosshairCssClassOption.IsSet)
                 if (weapon.CrosshairCssClassOption.Value != null)

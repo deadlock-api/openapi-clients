@@ -40,7 +40,7 @@ class TestCorruptedItemInfo(unittest.TestCase):
                     ],
                 property_upgrades = [
                     deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                        bonus = '', 
+                        bonus = null, 
                         fixed_corrupted_bonus = True, 
                         name = '', 
                         round_corrupted_bonus = True, 
@@ -55,7 +55,7 @@ class TestCorruptedItemInfo(unittest.TestCase):
                     ],
                 property_upgrades = [
                     deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                        bonus = '', 
+                        bonus = null, 
                         fixed_corrupted_bonus = True, 
                         name = '', 
                         round_corrupted_bonus = True, 

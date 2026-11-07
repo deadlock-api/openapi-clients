@@ -74,8 +74,6 @@ pub struct Upgrade {
     pub start_trained: Option<Option<bool>>,
     #[serde(rename = "tooltip_sections", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_sections: Option<Option<Vec<models::UpgradeTooltipSection>>>,
-    #[serde(rename = "type")]
-    pub r#type: models::ItemType,
     #[serde(rename = "update_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub update_time: Option<Option<i64>>,
     #[serde(rename = "upgrades", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -85,7 +83,7 @@ pub struct Upgrade {
 }
 
 impl Upgrade {
-    pub fn new(activation: models::AbilityActivation, class_name: String, id: u32, is_active_item: bool, item_slot_type: models::ItemSlotType, item_tier: u32, name: String, shopable: bool, r#type: models::ItemType) -> Upgrade {
+    pub fn new(activation: models::AbilityActivation, class_name: String, id: u32, is_active_item: bool, item_slot_type: models::ItemSlotType, item_tier: u32, name: String, shopable: bool) -> Upgrade {
         Upgrade {
             activation,
             class_name,
@@ -116,7 +114,6 @@ impl Upgrade {
             shopable,
             start_trained: None,
             tooltip_sections: None,
-            r#type,
             update_time: None,
             upgrades: None,
             weapon_info: None,

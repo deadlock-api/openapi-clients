@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**big_patch_days**](PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 [**feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes
-[**feed_0**](PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
+[**feed_v2**](PatchesApi.md#feed_v2) | **GET** /v2/patches | Notes
 
 
 # **big_patch_days**
@@ -162,8 +162,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **feed_0**
-> List[FeedItem] feed_0()
+# **feed_v2**
+> List[FeedItem] feed_v2()
 
 Notes
 
@@ -206,11 +206,11 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Notes
-        api_response = api_instance.feed_0()
-        print("The response of PatchesApi->feed_0:\n")
+        api_response = api_instance.feed_v2()
+        print("The response of PatchesApi->feed_v2:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PatchesApi->feed_0: %s\n" % e)
+        print("Exception when calling PatchesApi->feed_v2: %s\n" % e)
 ```
 
 

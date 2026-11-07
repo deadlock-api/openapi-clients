@@ -57,7 +57,7 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $openAPITypes = [
-        'bonus' => 'string',
+        'bonus' => '\OpenAPI\Client\Model\StringOrNumber',
         'fixed_corrupted_bonus' => 'bool',
         'name' => 'string',
         'round_corrupted_bonus' => 'bool',
@@ -333,7 +333,7 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
     /**
      * Gets bonus
      *
-     * @return string
+     * @return \OpenAPI\Client\Model\StringOrNumber
      */
     public function getBonus()
     {
@@ -343,7 +343,7 @@ class RawAbilityUpgradePropertyUpgrade implements ModelInterface, ArrayAccess, \
     /**
      * Sets bonus
      *
-     * @param string $bonus bonus
+     * @param \OpenAPI\Client\Model\StringOrNumber $bonus bonus
      *
      * @return self
      */

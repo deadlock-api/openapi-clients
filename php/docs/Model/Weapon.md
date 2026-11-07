@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **name** | **string** |  |
 **properties** | [**array<string,\OpenAPI\Client\Model\ItemProperty>**](ItemProperty.md) |  | [optional]
 **start_trained** | **bool** |  | [optional]
-**type** | [**\OpenAPI\Client\Model\ItemType**](ItemType.md) |  |
 **update_time** | **int** |  | [optional]
 **use_custom_crosshair_settings** | **bool** |  | [optional]
 **weapon_info** | [**\OpenAPI\Client\Model\WeaponInfo**](WeaponInfo.md) |  | [optional]

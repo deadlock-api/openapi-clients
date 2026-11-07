@@ -7,7 +7,6 @@
 | **className** | **kotlin.String** |  |  |
 | **id** | **kotlin.Int** |  |  |
 | **name** | **kotlin.String** |  |  |
-| **type** | [**ItemType**](ItemType.md) |  |  |
 | **crosshairCssClass** | **kotlin.String** |  |  [optional] |
 | **customCrosshairSettings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  |  [optional] |
 | **hero** | **kotlin.Int** |  |  [optional] |

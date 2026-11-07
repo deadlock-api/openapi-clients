@@ -90,8 +90,8 @@ namespace DeadlockApiClient.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>&gt;</returns>
-        Task<IFeed_0ApiResponse> Feed_0Async(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IFeedV2ApiResponse"/>&gt;</returns>
+        Task<IFeedV2ApiResponse> FeedV2Async(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Notes
@@ -100,8 +100,8 @@ namespace DeadlockApiClient.Api
         ///  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>?&gt;</returns>
-        Task<IFeed_0ApiResponse?> Feed_0OrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns><see cref="Task"/>&lt;<see cref="IFeedV2ApiResponse"/>?&gt;</returns>
+        Task<IFeedV2ApiResponse?> FeedV2OrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -135,9 +135,9 @@ namespace DeadlockApiClient.Api
     }
 
     /// <summary>
-    /// The <see cref="IFeed_0ApiResponse"/>
+    /// The <see cref="IFeedV2ApiResponse"/>
     /// </summary>
-    public interface IFeed_0ApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<FeedItem>?>
+    public interface IFeedV2ApiResponse : DeadlockApiClient.Client.IApiResponse, IOk<List<FeedItem>?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -200,21 +200,21 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
-        public event EventHandler<ApiResponseEventArgs>? OnFeed_0;
+        public event EventHandler<ApiResponseEventArgs>? OnFeedV2;
 
         /// <summary>
         /// The event raised after an error querying the server
         /// </summary>
-        public event EventHandler<ExceptionEventArgs>? OnErrorFeed_0;
+        public event EventHandler<ExceptionEventArgs>? OnErrorFeedV2;
 
-        internal void ExecuteOnFeed_0(PatchesApi.Feed_0ApiResponse apiResponse)
+        internal void ExecuteOnFeedV2(PatchesApi.FeedV2ApiResponse apiResponse)
         {
-            OnFeed_0?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+            OnFeedV2?.Invoke(this, new ApiResponseEventArgs(apiResponse));
         }
 
-        internal void ExecuteOnErrorFeed_0(Exception exception)
+        internal void ExecuteOnErrorFeedV2(Exception exception)
         {
-            OnErrorFeed_0?.Invoke(this, new ExceptionEventArgs(exception));
+            OnErrorFeedV2?.Invoke(this, new ExceptionEventArgs(exception));
         }
     }
 
@@ -727,10 +727,10 @@ namespace DeadlockApiClient.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        private void AfterFeed_0DefaultImplementation(IFeed_0ApiResponse apiResponseLocalVar)
+        private void AfterFeedV2DefaultImplementation(IFeedV2ApiResponse apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
-            AfterFeed_0(ref suppressDefaultLog, apiResponseLocalVar);
+            AfterFeedV2(ref suppressDefaultLog, apiResponseLocalVar);
             if (!suppressDefaultLog)
                 Logger.LogInformation(RestLogEvents.ApiRequestCompleted, "{0,-9} | {1} | {2}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
         }
@@ -740,7 +740,7 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        partial void AfterFeed_0(ref bool suppressDefaultLog, IFeed_0ApiResponse apiResponseLocalVar);
+        partial void AfterFeedV2(ref bool suppressDefaultLog, IFeedV2ApiResponse apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -748,10 +748,10 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        private void OnErrorFeed_0DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
+        private void OnErrorFeedV2DefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar)
         {
             bool suppressDefaultLogLocalVar = false;
-            OnErrorFeed_0(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
+            OnErrorFeedV2(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar);
             if (!suppressDefaultLogLocalVar)
                 Logger.LogError(RestLogEvents.ApiRequestFailed, exceptionLocalVar, "An error occurred while sending the request to the server.");
         }
@@ -763,18 +763,18 @@ namespace DeadlockApiClient.Api
         /// <param name="exceptionLocalVar"></param>
         /// <param name="pathFormatLocalVar"></param>
         /// <param name="pathLocalVar"></param>
-        partial void OnErrorFeed_0(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
+        partial void OnErrorFeedV2(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar);
 
         /// <summary>
         /// Notes  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a &#x60;source&#x60; field (&#x60;forum&#x60; or &#x60;steam&#x60;).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 100req/s | | Key | - | | Global | - | 
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>&gt;</returns>
-        public async Task<IFeed_0ApiResponse?> Feed_0OrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IFeedV2ApiResponse"/>&gt;</returns>
+        public async Task<IFeedV2ApiResponse?> FeedV2OrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
-                return await Feed_0Async(cancellationToken).ConfigureAwait(false);
+                return await FeedV2Async(cancellationToken).ConfigureAwait(false);
             }
             catch (Exception)
             {
@@ -787,8 +787,8 @@ namespace DeadlockApiClient.Api
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns><see cref="Task"/>&lt;<see cref="IFeed_0ApiResponse"/>&gt;</returns>
-        public async Task<IFeed_0ApiResponse> Feed_0Async(System.Threading.CancellationToken cancellationToken = default)
+        /// <returns><see cref="Task"/>&lt;<see cref="IFeedV2ApiResponse"/>&gt;</returns>
+        public async Task<IFeedV2ApiResponse> FeedV2Async(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -820,7 +820,7 @@ namespace DeadlockApiClient.Api
 
                     using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
                     {
-                        Feed_0ApiResponse apiResponseLocalVar;
+                        FeedV2ApiResponse apiResponseLocalVar;
 
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
@@ -831,9 +831,9 @@ namespace DeadlockApiClient.Api
                             }
                         }
 
-                        AfterFeed_0DefaultImplementation(apiResponseLocalVar);
+                        AfterFeedV2DefaultImplementation(apiResponseLocalVar);
 
-                        Events.ExecuteOnFeed_0(apiResponseLocalVar);
+                        Events.ExecuteOnFeedV2(apiResponseLocalVar);
 
                         return apiResponseLocalVar;
                     }
@@ -841,16 +841,16 @@ namespace DeadlockApiClient.Api
             }
             catch(Exception e)
             {
-                OnErrorFeed_0DefaultImplementation(e, "/v2/patches", uriBuilderLocalVar.Path);
-                Events.ExecuteOnErrorFeed_0(e);
+                OnErrorFeedV2DefaultImplementation(e, "/v2/patches", uriBuilderLocalVar.Path);
+                Events.ExecuteOnErrorFeedV2(e);
                 throw;
             }
         }
 
         /// <summary>
-        /// The <see cref="Feed_0ApiResponse"/>
+        /// The <see cref="FeedV2ApiResponse"/>
         /// </summary>
-        public partial class Feed_0ApiResponse : DeadlockApiClient.Client.ApiResponse, IFeed_0ApiResponse
+        public partial class FeedV2ApiResponse : DeadlockApiClient.Client.ApiResponse, IFeedV2ApiResponse
         {
             /// <summary>
             /// The logger
@@ -858,7 +858,7 @@ namespace DeadlockApiClient.Api
             public ILogger<PatchesApi> Logger { get; }
 
             /// <summary>
-            /// The <see cref="Feed_0ApiResponse"/>
+            /// The <see cref="FeedV2ApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -867,14 +867,14 @@ namespace DeadlockApiClient.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public Feed_0ApiResponse(ILogger<PatchesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            public FeedV2ApiResponse(ILogger<PatchesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);
             }
 
             /// <summary>
-            /// The <see cref="Feed_0ApiResponse"/>
+            /// The <see cref="FeedV2ApiResponse"/>
             /// </summary>
             /// <param name="logger"></param>
             /// <param name="httpRequestMessage"></param>
@@ -883,7 +883,7 @@ namespace DeadlockApiClient.Api
             /// <param name="path"></param>
             /// <param name="requestedAt"></param>
             /// <param name="jsonSerializerOptions"></param>
-            public Feed_0ApiResponse(ILogger<PatchesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
+            public FeedV2ApiResponse(ILogger<PatchesApi> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, System.IO.Stream contentStream, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, contentStream, path, requestedAt, jsonSerializerOptions)
             {
                 Logger = logger;
                 OnCreated(httpRequestMessage, httpResponseMessage);

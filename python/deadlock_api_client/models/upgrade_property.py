@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from deadlock_api_client.models.ability_section_type import AbilitySectionType
 from deadlock_api_client.models.raw_item_property_scale_function_subclass import RawItemPropertyScaleFunctionSubclass
 from deadlock_api_client.models.stats_usage_flag import StatsUsageFlag
+from deadlock_api_client.models.string_or_number import StringOrNumber
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -45,9 +46,9 @@ class UpgradeProperty(BaseModel):
     provided_property_type: Optional[StrictStr] = None
     required_upgrade_bits: Optional[List[StrictStr]] = Field(default=None, description="Raw `ABILITY_UPGRADE_BIT_*` flags the ability needs for this property to apply (e.g. `ABILITY_UPGRADE_BIT_TRAINED`, `ABILITY_UPGRADE_BIT_4`).")
     scale_function: Optional[RawItemPropertyScaleFunctionSubclass] = None
-    street_brawl_value: Optional[StrictStr] = None
+    street_brawl_value: Optional[StringOrNumber] = None
     usage_flags: Optional[List[StatsUsageFlag]] = None
-    value: Optional[StrictStr] = Field(default=None, description="Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).")
+    value: Optional[StringOrNumber] = Field(default=None, description="Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).")
     tooltip_is_elevated: Optional[StrictBool] = None
     tooltip_is_important: Optional[StrictBool] = None
     tooltip_section: Optional[AbilitySectionType] = None
@@ -95,6 +96,12 @@ class UpgradeProperty(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of scale_function
         if self.scale_function:
             _dict['scale_function'] = self.scale_function.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of street_brawl_value
+        if self.street_brawl_value:
+            _dict['street_brawl_value'] = self.street_brawl_value.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of value
+        if self.value:
+            _dict['value'] = self.value.to_dict()
         # set to None if can_set_token_override (nullable) is None
         # and model_fields_set contains the field
         if self.can_set_token_override is None and "can_set_token_override" in self.model_fields_set:
@@ -227,9 +234,9 @@ class UpgradeProperty(BaseModel):
             "provided_property_type": obj.get("provided_property_type"),
             "required_upgrade_bits": obj.get("required_upgrade_bits"),
             "scale_function": RawItemPropertyScaleFunctionSubclass.from_dict(obj["scale_function"]) if obj.get("scale_function") is not None else None,
-            "street_brawl_value": obj.get("street_brawl_value"),
+            "street_brawl_value": StringOrNumber.from_dict(obj["street_brawl_value"]) if obj.get("street_brawl_value") is not None else None,
             "usage_flags": obj.get("usage_flags"),
-            "value": obj.get("value"),
+            "value": StringOrNumber.from_dict(obj["value"]) if obj.get("value") is not None else None,
             "tooltip_is_elevated": obj.get("tooltip_is_elevated"),
             "tooltip_is_important": obj.get("tooltip_is_important"),
             "tooltip_section": obj.get("tooltip_section")

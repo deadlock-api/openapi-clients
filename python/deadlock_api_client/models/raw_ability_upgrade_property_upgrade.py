@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from deadlock_api_client.models.string_or_number import StringOrNumber
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,7 +28,7 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
     """
     RawAbilityUpgradePropertyUpgrade
     """ # noqa: E501
-    bonus: StrictStr
+    bonus: StringOrNumber
     fixed_corrupted_bonus: Optional[StrictBool] = Field(default=None, description="Corrupted item bonuses only (build 6711+).")
     name: StrictStr
     round_corrupted_bonus: Optional[StrictBool] = Field(default=None, description="Corrupted item bonuses only (build 6711+).")
@@ -74,6 +75,9 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of bonus
+        if self.bonus:
+            _dict['bonus'] = self.bonus.to_dict()
         # set to None if fixed_corrupted_bonus (nullable) is None
         # and model_fields_set contains the field
         if self.fixed_corrupted_bonus is None and "fixed_corrupted_bonus" in self.model_fields_set:
@@ -106,7 +110,7 @@ class RawAbilityUpgradePropertyUpgrade(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "bonus": obj.get("bonus"),
+            "bonus": StringOrNumber.from_dict(obj["bonus"]) if obj.get("bonus") is not None else None,
             "fixed_corrupted_bonus": obj.get("fixed_corrupted_bonus"),
             "name": obj.get("name"),
             "round_corrupted_bonus": obj.get("round_corrupted_bonus"),

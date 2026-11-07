@@ -72,9 +72,9 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
         'provided_property_type' => 'string',
         'required_upgrade_bits' => 'string[]',
         'scale_function' => '\OpenAPI\Client\Model\RawItemPropertyScaleFunctionSubclass',
-        'street_brawl_value' => 'string',
+        'street_brawl_value' => '\OpenAPI\Client\Model\StringOrNumber',
         'usage_flags' => '\OpenAPI\Client\Model\StatsUsageFlag[]',
-        'value' => 'string',
+        'value' => '\OpenAPI\Client\Model\StringOrNumber',
         'tooltip_is_elevated' => 'bool',
         'tooltip_is_important' => 'bool',
         'tooltip_section' => '\OpenAPI\Client\Model\AbilitySectionType'
@@ -942,7 +942,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets street_brawl_value
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\StringOrNumber|null
      */
     public function getStreetBrawlValue()
     {
@@ -952,7 +952,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets street_brawl_value
      *
-     * @param string|null $street_brawl_value street_brawl_value
+     * @param \OpenAPI\Client\Model\StringOrNumber|null $street_brawl_value street_brawl_value
      *
      * @return self
      */
@@ -1010,7 +1010,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets value
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\StringOrNumber|null
      */
     public function getValue()
     {
@@ -1020,7 +1020,7 @@ class UpgradeProperty implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets value
      *
-     * @param string|null $value Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
+     * @param \OpenAPI\Client\Model\StringOrNumber|null $value Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
      *
      * @return self
      */

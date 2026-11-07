@@ -19,9 +19,9 @@ Name | Type | Description | Notes
 **ProvidedPropertyType** | **string** |  | [optional] 
 **RequiredUpgradeBits** | **List&lt;string&gt;** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **ScaleFunction** | [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
-**StreetBrawlValue** | **string** |  | [optional] 
+**StreetBrawlValue** | [**StringOrNumber**](StringOrNumber.md) |  | [optional] 
 **UsageFlags** | [**List&lt;StatsUsageFlag&gt;**](StatsUsageFlag.md) |  | [optional] 
-**Value** | **string** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
+**Value** | [**StringOrNumber**](StringOrNumber.md) | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

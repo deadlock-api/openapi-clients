@@ -115,7 +115,7 @@ export function feed<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<Patch
  *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
  * Notes
  */
-function feed_1Raw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<FeedItem>> = {}): QueryConfig<T> {
+function feedV2Raw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<FeedItem>> = {}): QueryConfig<T> {
     let queryParameters = null;
 
 
@@ -151,7 +151,7 @@ function feed_1Raw<T>( requestConfig: runtime.TypedQueryConfig<T, Array<FeedItem
 *  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 * Notes
 */
-export function feed_1<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<FeedItem>>): QueryConfig<T> {
-    return feed_1Raw( requestConfig);
+export function feedV2<T>( requestConfig?: runtime.TypedQueryConfig<T, Array<FeedItem>>): QueryConfig<T> {
+    return feedV2Raw( requestConfig);
 }
 

@@ -8,7 +8,7 @@
 | **description** | [**UpgradeDescription**](UpgradeDescription.md) |  |  |
 | **id** | **kotlin.Int** |  |  |
 | **name** | **kotlin.String** |  |  |
-| **type** | [**ItemType**](ItemType.md) |  |  |
+| **type** | [**inline**](#Type) |  |  |
 | **activation** | [**AbilityActivation**](AbilityActivation.md) |  |  |
 | **isActiveItem** | **kotlin.Boolean** |  |  |
 | **itemSlotType** | [**ItemSlotType**](ItemSlotType.md) |  |  |
@@ -18,7 +18,7 @@
 | **behaviours** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **bossDamageScale** | **kotlin.Double** |  |  [optional] |
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
-| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) |  |  [optional] |
+| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. |  [optional] |
 | **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
 | **hero** | **kotlin.Int** |  |  [optional] |
 | **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |
@@ -48,6 +48,13 @@
 | **shopImageWebp** | **kotlin.String** |  |  [optional] |
 | **shopVersion** | **kotlin.Long** |  |  [optional] |
 | **tooltipSections** | [**kotlin.collections.List&lt;UpgradeTooltipSection&gt;**](UpgradeTooltipSection.md) |  |  [optional] |
+
+
+<a id="Type"></a>
+## Enum: type
+| Name | Value |
+| ---- | ----- |
+| type | ability, weapon, upgrade |
 
 
 

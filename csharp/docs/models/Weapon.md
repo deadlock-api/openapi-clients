@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **ClassName** | **string** |  | 
 **Id** | **int** |  | 
 **Name** | **string** |  | 
-**Type** | **ItemType** |  | 
 **CrosshairCssClass** | **string** |  | [optional] 
 **CustomCrosshairSettings** | [**RawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] 
 **Hero** | **int** |  | [optional] 

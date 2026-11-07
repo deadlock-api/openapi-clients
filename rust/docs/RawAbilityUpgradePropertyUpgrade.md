@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bonus** | **String** |  | 
+**bonus** | [**models::StringOrNumber**](StringOrNumber.md) |  | 
 **fixed_corrupted_bonus** | Option<**bool**> | Corrupted item bonuses only (build 6711+). | [optional]
 **name** | **String** |  | 
 **round_corrupted_bonus** | Option<**bool**> | Corrupted item bonuses only (build 6711+). | [optional]

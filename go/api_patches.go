@@ -248,17 +248,17 @@ func (a *PatchesAPIService) FeedExecute(r ApiFeedRequest) ([]Patch, *http.Respon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiFeed_0Request struct {
+type ApiFeedV2Request struct {
 	ctx context.Context
 	ApiService *PatchesAPIService
 }
 
-func (r ApiFeed_0Request) Execute() ([]FeedItem, *http.Response, error) {
-	return r.ApiService.Feed_1Execute(r)
+func (r ApiFeedV2Request) Execute() ([]FeedItem, *http.Response, error) {
+	return r.ApiService.FeedV2Execute(r)
 }
 
 /*
-Feed_0 Notes
+FeedV2 Notes
 
 
 Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.
@@ -277,10 +277,10 @@ Each entry is tagged with a `source` field (`forum` or `steam`).
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiFeed_0Request
+ @return ApiFeedV2Request
 */
-func (a *PatchesAPIService) Feed_1(ctx context.Context) ApiFeed_0Request {
-	return ApiFeed_0Request{
+func (a *PatchesAPIService) FeedV2(ctx context.Context) ApiFeedV2Request {
+	return ApiFeedV2Request{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -288,7 +288,7 @@ func (a *PatchesAPIService) Feed_1(ctx context.Context) ApiFeed_0Request {
 
 // Execute executes the request
 //  @return []FeedItem
-func (a *PatchesAPIService) Feed_1Execute(r ApiFeed_0Request) ([]FeedItem, *http.Response, error) {
+func (a *PatchesAPIService) FeedV2Execute(r ApiFeedV2Request) ([]FeedItem, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -296,7 +296,7 @@ func (a *PatchesAPIService) Feed_1Execute(r ApiFeed_0Request) ([]FeedItem, *http
 		localVarReturnValue  []FeedItem
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PatchesAPIService.Feed_1")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PatchesAPIService.FeedV2")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

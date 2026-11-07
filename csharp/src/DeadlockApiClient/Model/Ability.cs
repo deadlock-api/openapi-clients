@@ -37,12 +37,11 @@ namespace DeadlockApiClient.Model
         /// <param name="description">description</param>
         /// <param name="id">id</param>
         /// <param name="name">name</param>
-        /// <param name="type">type</param>
         /// <param name="abilityType">abilityType</param>
         /// <param name="behaviours">behaviours</param>
         /// <param name="bossDamageScale">bossDamageScale</param>
         /// <param name="dependantAbilities">dependantAbilities</param>
-        /// <param name="dependentAbilities">dependentAbilities</param>
+        /// <param name="dependentAbilities">Abilities this one depends on. Entries whose ability has no data are left out.</param>
         /// <param name="grantAmmoOnCast">grantAmmoOnCast</param>
         /// <param name="hero">hero</param>
         /// <param name="heroes">heroes</param>
@@ -56,13 +55,12 @@ namespace DeadlockApiClient.Model
         /// <param name="videos">videos</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Ability(string className, AbilityDescription description, int id, string name, ItemType type, Option<AbilityType?> abilityType = default, Option<List<string>?> behaviours = default, Option<double?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default, Option<bool?> grantAmmoOnCast = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<AbilityTooltipDetails?> tooltipDetails = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<AbilityVideos?> videos = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
+        public Ability(string className, AbilityDescription description, int id, string name, Option<AbilityType?> abilityType = default, Option<List<string>?> behaviours = default, Option<double?> bossDamageScale = default, Option<List<string>?> dependantAbilities = default, Option<Dictionary<string, DependantAbilities>?> dependentAbilities = default, Option<bool?> grantAmmoOnCast = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<Dictionary<string, ItemProperty>?> properties = default, Option<bool?> startTrained = default, Option<AbilityTooltipDetails?> tooltipDetails = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<AbilityVideos?> videos = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
         {
             ClassName = className;
             Description = description;
             Id = id;
             Name = name;
-            Type = type;
             AbilityTypeOption = abilityType;
             BehavioursOption = behaviours;
             BossDamageScaleOption = bossDamageScale;
@@ -84,12 +82,6 @@ namespace DeadlockApiClient.Model
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [JsonPropertyName("type")]
-        public ItemType Type { get; set; }
 
         /// <summary>
         /// Used to track the state of AbilityType
@@ -175,8 +167,9 @@ namespace DeadlockApiClient.Model
         public Option<Dictionary<string, DependantAbilities>?> DependentAbilitiesOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets DependentAbilities
+        /// Abilities this one depends on. Entries whose ability has no data are left out.
         /// </summary>
+        /// <value>Abilities this one depends on. Entries whose ability has no data are left out.</value>
         [JsonPropertyName("dependent_abilities")]
         public Dictionary<string, DependantAbilities>? DependentAbilities { get { return this.DependentAbilitiesOption.Value; } set { this.DependentAbilitiesOption = new(value); } }
 
@@ -348,7 +341,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  AbilityType: ").Append(AbilityType).Append("\n");
             sb.Append("  Behaviours: ").Append(Behaviours).Append("\n");
             sb.Append("  BossDamageScale: ").Append(BossDamageScale).Append("\n");
@@ -429,7 +421,6 @@ namespace DeadlockApiClient.Model
             Option<AbilityDescription?> description = default;
             Option<int?> id = default;
             Option<string?> name = default;
-            Option<ItemType?> type = default;
             Option<AbilityType?> abilityType = default;
             Option<List<string>?> behaviours = default;
             Option<double?> bossDamageScale = default;
@@ -474,9 +465,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
-                        case "type":
-                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "ability_type":
                             abilityType = new Option<AbilityType?>(JsonSerializer.Deserialize<AbilityType?>(ref utf8JsonReader, jsonSerializerOptions));
@@ -547,9 +535,6 @@ namespace DeadlockApiClient.Model
             if (!name.IsSet)
                 throw new JsonException("Property is required for class Ability: name.");
 
-            if (!type.IsSet)
-                throw new JsonException("Property is required for class Ability: type.");
-
             if (className.IsSet && className.Value == null)
                 throw new JsonException("Property is not nullable for class Ability: class_name.");
 
@@ -562,10 +547,7 @@ namespace DeadlockApiClient.Model
             if (name.IsSet && name.Value == null)
                 throw new JsonException("Property is not nullable for class Ability: name.");
 
-            if (type.IsSet && type.Value == null)
-                throw new JsonException("Property is not nullable for class Ability: type.");
-
-            return new Ability(className.Value!, description.Value!, id.Value!.Value!, name.Value!, type.Value!.Value!, abilityType, behaviours, bossDamageScale, dependantAbilities, dependentAbilities, grantAmmoOnCast, hero, heroes, image, imageWebp, properties, startTrained, tooltipDetails, updateTime, upgrades, videos, weaponInfo);
+            return new Ability(className.Value!, description.Value!, id.Value!.Value!, name.Value!, abilityType, behaviours, bossDamageScale, dependantAbilities, dependentAbilities, grantAmmoOnCast, hero, heroes, image, imageWebp, properties, startTrained, tooltipDetails, updateTime, upgrades, videos, weaponInfo);
         }
 
         /// <summary>
@@ -597,9 +579,6 @@ namespace DeadlockApiClient.Model
             writer.WriteNumber("id", ability.Id);
 
             writer.WriteString("name", ability.Name);
-
-            var typeRawValue = ItemTypeValueConverter.ToJsonValue(ability.Type);
-            writer.WriteString("type", typeRawValue);
 
             if (ability.AbilityTypeOption.IsSet)
                 if (ability.AbilityTypeOption!.Value != null)

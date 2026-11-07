@@ -25,9 +25,6 @@ import {
     ItemSlotType,
     ItemSlotTypeFromJSON,
     ItemSlotTypeToJSON,
-    ItemType,
-    ItemTypeFromJSON,
-    ItemTypeToJSON,
     RawAbilityUpgrade,
     RawAbilityUpgradeFromJSON,
     RawAbilityUpgradeToJSON,
@@ -227,12 +224,6 @@ export interface Upgrade  {
     tooltipSections?: Array<UpgradeTooltipSection>;
     /**
      * 
-     * @type {ItemType}
-     * @memberof Upgrade
-     */
-    type: ItemType;
-    /**
-     * 
      * @type {number}
      * @memberof Upgrade
      */
@@ -282,7 +273,6 @@ export function UpgradeFromJSON(json: any): Upgrade {
         'shopable': json['shopable'],
         'startTrained': !exists(json, 'start_trained') ? undefined : json['start_trained'],
         'tooltipSections': !exists(json, 'tooltip_sections') ? undefined : (json['tooltip_sections'] as Array<any>).map(UpgradeTooltipSectionFromJSON),
-        'type': ItemTypeFromJSON(json['type']),
         'updateTime': !exists(json, 'update_time') ? undefined : json['update_time'],
         'upgrades': !exists(json, 'upgrades') ? undefined : (json['upgrades'] as Array<any>).map(RawAbilityUpgradeFromJSON),
         'weaponInfo': !exists(json, 'weapon_info') ? undefined : RawItemWeaponInfoInnerFromJSON(json['weapon_info']),
@@ -323,7 +313,6 @@ export function UpgradeToJSON(value?: Upgrade): any {
         'shopable': value.shopable,
         'start_trained': value.startTrained,
         'tooltip_sections': value.tooltipSections === undefined ? undefined : (value.tooltipSections as Array<any>).map(UpgradeTooltipSectionToJSON),
-        'type': ItemTypeToJSON(value.type),
         'update_time': value.updateTime,
         'upgrades': value.upgrades === undefined ? undefined : (value.upgrades as Array<any>).map(RawAbilityUpgradeToJSON),
         'weapon_info': RawItemWeaponInfoInnerToJSON(value.weaponInfo),

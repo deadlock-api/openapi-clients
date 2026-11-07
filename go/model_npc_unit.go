@@ -30,7 +30,7 @@ type NpcUnit struct {
 	BarrackBossDps NullableFloat64 `json:"barrack_boss_dps,omitempty"`
 	BarrackGuardianDamageResistPct NullableFloat64 `json:"barrack_guardian_damage_resist_pct,omitempty"`
 	// Secondary weapon the unit uses against bosses (builds 6711+).
-	BossWeaponInfo NullableWeaponInfo `json:"boss_weapon_info,omitempty"`
+	BossWeaponInfo NullableNpcWeaponInfo `json:"boss_weapon_info,omitempty"`
 	BoundAbilities map[string]string `json:"bound_abilities,omitempty"`
 	ClassName string `json:"class_name"`
 	// The Patron's core models, per team.
@@ -111,7 +111,7 @@ type NpcUnit struct {
 	// Distance threshold (as string key) → soul orb class shown to the viewer.
 	ViewerSoulsClass map[string]string `json:"viewer_souls_class,omitempty"`
 	WalkSpeed NullableFloat64 `json:"walk_speed,omitempty"`
-	WeaponInfo NullableWeaponInfo `json:"weapon_info,omitempty"`
+	WeaponInfo NullableNpcWeaponInfo `json:"weapon_info,omitempty"`
 }
 
 type _NpcUnit NpcUnit
@@ -472,9 +472,9 @@ func (o *NpcUnit) UnsetBarrackGuardianDamageResistPct() {
 }
 
 // GetBossWeaponInfo returns the BossWeaponInfo field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NpcUnit) GetBossWeaponInfo() WeaponInfo {
+func (o *NpcUnit) GetBossWeaponInfo() NpcWeaponInfo {
 	if o == nil || IsNil(o.BossWeaponInfo.Get()) {
-		var ret WeaponInfo
+		var ret NpcWeaponInfo
 		return ret
 	}
 	return *o.BossWeaponInfo.Get()
@@ -483,7 +483,7 @@ func (o *NpcUnit) GetBossWeaponInfo() WeaponInfo {
 // GetBossWeaponInfoOk returns a tuple with the BossWeaponInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NpcUnit) GetBossWeaponInfoOk() (*WeaponInfo, bool) {
+func (o *NpcUnit) GetBossWeaponInfoOk() (*NpcWeaponInfo, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -499,8 +499,8 @@ func (o *NpcUnit) HasBossWeaponInfo() bool {
 	return false
 }
 
-// SetBossWeaponInfo gets a reference to the given NullableWeaponInfo and assigns it to the BossWeaponInfo field.
-func (o *NpcUnit) SetBossWeaponInfo(v WeaponInfo) {
+// SetBossWeaponInfo gets a reference to the given NullableNpcWeaponInfo and assigns it to the BossWeaponInfo field.
+func (o *NpcUnit) SetBossWeaponInfo(v NpcWeaponInfo) {
 	o.BossWeaponInfo.Set(&v)
 }
 // SetBossWeaponInfoNil sets the value for BossWeaponInfo to be an explicit nil
@@ -3330,9 +3330,9 @@ func (o *NpcUnit) UnsetWalkSpeed() {
 }
 
 // GetWeaponInfo returns the WeaponInfo field value if set, zero value otherwise (both if not set or set to explicit null).
-func (o *NpcUnit) GetWeaponInfo() WeaponInfo {
+func (o *NpcUnit) GetWeaponInfo() NpcWeaponInfo {
 	if o == nil || IsNil(o.WeaponInfo.Get()) {
-		var ret WeaponInfo
+		var ret NpcWeaponInfo
 		return ret
 	}
 	return *o.WeaponInfo.Get()
@@ -3341,7 +3341,7 @@ func (o *NpcUnit) GetWeaponInfo() WeaponInfo {
 // GetWeaponInfoOk returns a tuple with the WeaponInfo field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *NpcUnit) GetWeaponInfoOk() (*WeaponInfo, bool) {
+func (o *NpcUnit) GetWeaponInfoOk() (*NpcWeaponInfo, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -3357,8 +3357,8 @@ func (o *NpcUnit) HasWeaponInfo() bool {
 	return false
 }
 
-// SetWeaponInfo gets a reference to the given NullableWeaponInfo and assigns it to the WeaponInfo field.
-func (o *NpcUnit) SetWeaponInfo(v WeaponInfo) {
+// SetWeaponInfo gets a reference to the given NullableNpcWeaponInfo and assigns it to the WeaponInfo field.
+func (o *NpcUnit) SetWeaponInfo(v NpcWeaponInfo) {
 	o.WeaponInfo.Set(&v)
 }
 // SetWeaponInfoNil sets the value for WeaponInfo to be an explicit nil

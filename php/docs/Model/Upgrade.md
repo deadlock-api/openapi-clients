@@ -33,7 +33,6 @@ Name | Type | Description | Notes
 **shopable** | **bool** |  |
 **start_trained** | **bool** |  | [optional]
 **tooltip_sections** | [**\OpenAPI\Client\Model\UpgradeTooltipSection[]**](UpgradeTooltipSection.md) |  | [optional]
-**type** | [**\OpenAPI\Client\Model\ItemType**](ItemType.md) |  |
 **update_time** | **int** |  | [optional]
 **upgrades** | [**\OpenAPI\Client\Model\RawAbilityUpgrade[]**](RawAbilityUpgrade.md) |  | [optional]
 **weapon_info** | [**\OpenAPI\Client\Model\RawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional]

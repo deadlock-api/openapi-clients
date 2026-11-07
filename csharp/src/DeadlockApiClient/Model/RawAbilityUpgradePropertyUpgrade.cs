@@ -40,7 +40,7 @@ namespace DeadlockApiClient.Model
         /// <param name="scaleStatFilter">scaleStatFilter</param>
         /// <param name="upgradeType">upgradeType</param>
         [JsonConstructor]
-        public RawAbilityUpgradePropertyUpgrade(string bonus, string name, Option<bool?> fixedCorruptedBonus = default, Option<bool?> roundCorruptedBonus = default, Option<string?> scaleStatFilter = default, Option<string?> upgradeType = default)
+        public RawAbilityUpgradePropertyUpgrade(StringOrNumber bonus, string name, Option<bool?> fixedCorruptedBonus = default, Option<bool?> roundCorruptedBonus = default, Option<string?> scaleStatFilter = default, Option<string?> upgradeType = default)
         {
             Bonus = bonus;
             Name = name;
@@ -57,7 +57,7 @@ namespace DeadlockApiClient.Model
         /// Gets or Sets Bonus
         /// </summary>
         [JsonPropertyName("bonus")]
-        public string Bonus { get; set; }
+        public StringOrNumber Bonus { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -180,7 +180,7 @@ namespace DeadlockApiClient.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<string?> bonus = default;
+            Option<StringOrNumber?> bonus = default;
             Option<string?> name = default;
             Option<bool?> fixedCorruptedBonus = default;
             Option<bool?> roundCorruptedBonus = default;
@@ -203,7 +203,7 @@ namespace DeadlockApiClient.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bonus":
-                            bonus = new Option<string?>(utf8JsonReader.GetString()!);
+                            bonus = new Option<StringOrNumber?>(JsonSerializer.Deserialize<StringOrNumber>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -263,8 +263,8 @@ namespace DeadlockApiClient.Model
         /// <param name="jsonSerializerOptions"></param>
         public void WriteProperties(Utf8JsonWriter writer, RawAbilityUpgradePropertyUpgrade rawAbilityUpgradePropertyUpgrade, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WriteString("bonus", rawAbilityUpgradePropertyUpgrade.Bonus);
-
+            writer.WritePropertyName("bonus");
+            JsonSerializer.Serialize(writer, rawAbilityUpgradePropertyUpgrade.Bonus, jsonSerializerOptions);
             writer.WriteString("name", rawAbilityUpgradePropertyUpgrade.Name);
 
             if (rawAbilityUpgradePropertyUpgrade.FixedCorruptedBonusOption.IsSet)

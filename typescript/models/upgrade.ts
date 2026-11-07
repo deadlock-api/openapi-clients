@@ -27,9 +27,6 @@ import type { CorruptedItemInfo } from './corrupted-item-info.js';
 import type { ItemSlotType } from './item-slot-type.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemType } from './item-type.js';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { RawAbilityUpgrade } from './raw-ability-upgrade.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -83,7 +80,6 @@ export interface Upgrade {
     'shopable': boolean;
     'start_trained'?: boolean | null;
     'tooltip_sections'?: Array<UpgradeTooltipSection> | null;
-    'type': ItemType;
     'update_time'?: number | null;
     'upgrades'?: Array<RawAbilityUpgrade> | null;
     'weapon_info'?: RawItemWeaponInfoInner | null;

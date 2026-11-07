@@ -26,6 +26,7 @@ package deadlock_api_client.models
 import deadlock_api_client.models.AbilitySectionType
 import deadlock_api_client.models.RawItemPropertyScaleFunctionSubclass
 import deadlock_api_client.models.StatsUsageFlag
+import deadlock_api_client.models.StringOrNumber
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -105,14 +106,14 @@ data class UpgradeProperty (
     val scaleFunction: RawItemPropertyScaleFunctionSubclass? = null,
 
     @Json(name = "street_brawl_value")
-    val streetBrawlValue: kotlin.String? = null,
+    val streetBrawlValue: StringOrNumber? = null,
 
     @Json(name = "usage_flags")
     val usageFlags: kotlin.collections.List<StatsUsageFlag>? = null,
 
     /* Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`). */
     @Json(name = "value")
-    val `value`: kotlin.String? = null,
+    val `value`: StringOrNumber? = null,
 
     @Json(name = "tooltip_is_elevated")
     val tooltipIsElevated: kotlin.Boolean? = null,

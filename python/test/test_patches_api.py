@@ -40,8 +40,8 @@ class TestPatchesApi(unittest.TestCase):
         """
         pass
 
-    def test_feed_0(self) -> None:
-        """Test case for feed_0
+    def test_feed_v2(self) -> None:
+        """Test case for feed_v2
 
         Notes
         """

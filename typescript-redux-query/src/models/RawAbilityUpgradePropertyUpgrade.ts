@@ -12,6 +12,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
+import {
+    StringOrNumber,
+    StringOrNumberFromJSON,
+    StringOrNumberToJSON,
+} from './';
+
 /**
  * 
  * @export
@@ -20,10 +26,10 @@ import { exists, mapValues } from '../runtime';
 export interface RawAbilityUpgradePropertyUpgrade  {
     /**
      * 
-     * @type {string}
+     * @type {StringOrNumber}
      * @memberof RawAbilityUpgradePropertyUpgrade
      */
-    bonus: string;
+    bonus: StringOrNumber;
     /**
      * Corrupted item bonuses only (build 6711+).
      * @type {boolean}
@@ -58,7 +64,7 @@ export interface RawAbilityUpgradePropertyUpgrade  {
 
 export function RawAbilityUpgradePropertyUpgradeFromJSON(json: any): RawAbilityUpgradePropertyUpgrade {
     return {
-        'bonus': json['bonus'],
+        'bonus': StringOrNumberFromJSON(json['bonus']),
         'fixedCorruptedBonus': !exists(json, 'fixed_corrupted_bonus') ? undefined : json['fixed_corrupted_bonus'],
         'name': json['name'],
         'roundCorruptedBonus': !exists(json, 'round_corrupted_bonus') ? undefined : json['round_corrupted_bonus'],
@@ -72,7 +78,7 @@ export function RawAbilityUpgradePropertyUpgradeToJSON(value?: RawAbilityUpgrade
         return undefined;
     }
     return {
-        'bonus': value.bonus,
+        'bonus': StringOrNumberToJSON(value.bonus),
         'fixed_corrupted_bonus': value.fixedCorruptedBonus,
         'name': value.name,
         'round_corrupted_bonus': value.roundCorruptedBonus,

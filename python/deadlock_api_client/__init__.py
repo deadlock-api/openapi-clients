@@ -171,6 +171,9 @@ __all__ = [
     "ItemFlowStats",
     "ItemFlowSummary",
     "ItemGroup",
+    "ItemOneOf",
+    "ItemOneOf1",
+    "ItemOneOf2",
     "ItemPermutationStats",
     "ItemProperty",
     "ItemSlotType",
@@ -208,6 +211,7 @@ __all__ = [
     "NeutralCampKind",
     "NewPlayerMetrics",
     "NpcUnit",
+    "NpcWeaponInfo",
     "ObjectiveParams",
     "ObjectivePosition",
     "OutcomeToWeights",
@@ -264,6 +268,7 @@ __all__ = [
     "SteamNews",
     "SteamProfile",
     "StreetBrawl",
+    "StringOrNumber",
     "SubclassBulletResistModifier",
     "SubclassBulletResistModifierSubclass",
     "SubclassEmpoweredModifierLevel",
@@ -462,6 +467,9 @@ from deadlock_api_client.models.item_flow_node import ItemFlowNode as ItemFlowNo
 from deadlock_api_client.models.item_flow_stats import ItemFlowStats as ItemFlowStats
 from deadlock_api_client.models.item_flow_summary import ItemFlowSummary as ItemFlowSummary
 from deadlock_api_client.models.item_group import ItemGroup as ItemGroup
+from deadlock_api_client.models.item_one_of import ItemOneOf as ItemOneOf
+from deadlock_api_client.models.item_one_of1 import ItemOneOf1 as ItemOneOf1
+from deadlock_api_client.models.item_one_of2 import ItemOneOf2 as ItemOneOf2
 from deadlock_api_client.models.item_permutation_stats import ItemPermutationStats as ItemPermutationStats
 from deadlock_api_client.models.item_property import ItemProperty as ItemProperty
 from deadlock_api_client.models.item_slot_type import ItemSlotType as ItemSlotType
@@ -499,6 +507,7 @@ from deadlock_api_client.models.neutral_camp import NeutralCamp as NeutralCamp
 from deadlock_api_client.models.neutral_camp_kind import NeutralCampKind as NeutralCampKind
 from deadlock_api_client.models.new_player_metrics import NewPlayerMetrics as NewPlayerMetrics
 from deadlock_api_client.models.npc_unit import NpcUnit as NpcUnit
+from deadlock_api_client.models.npc_weapon_info import NpcWeaponInfo as NpcWeaponInfo
 from deadlock_api_client.models.objective_params import ObjectiveParams as ObjectiveParams
 from deadlock_api_client.models.objective_position import ObjectivePosition as ObjectivePosition
 from deadlock_api_client.models.outcome_to_weights import OutcomeToWeights as OutcomeToWeights
@@ -555,6 +564,7 @@ from deadlock_api_client.models.steam_info import SteamInfo as SteamInfo
 from deadlock_api_client.models.steam_news import SteamNews as SteamNews
 from deadlock_api_client.models.steam_profile import SteamProfile as SteamProfile
 from deadlock_api_client.models.street_brawl import StreetBrawl as StreetBrawl
+from deadlock_api_client.models.string_or_number import StringOrNumber as StringOrNumber
 from deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier as SubclassBulletResistModifier
 from deadlock_api_client.models.subclass_bullet_resist_modifier_subclass import SubclassBulletResistModifierSubclass as SubclassBulletResistModifierSubclass
 from deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel as SubclassEmpoweredModifierLevel

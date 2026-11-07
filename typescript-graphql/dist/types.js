@@ -52,9 +52,6 @@ export default {
             "update_time": [
                 33
             ],
-            "type": [
-                36
-            ],
             "grant_ammo_on_cast": [
                 8
             ],
@@ -75,6 +72,9 @@ export default {
             ],
             "videos": [
                 5
+            ],
+            "type": [
+                36
             ],
             "properties": [
                 37
@@ -2146,9 +2146,6 @@ export default {
             "update_time": [
                 33
             ],
-            "type": [
-                36
-            ],
             "shop_image": [
                 61
             ],
@@ -2202,6 +2199,9 @@ export default {
             ],
             "disable_item_target": [
                 61
+            ],
+            "type": [
+                36
             ],
             "weapon_info": [
                 37
@@ -2284,14 +2284,14 @@ export default {
             "update_time": [
                 33
             ],
-            "type": [
-                36
-            ],
             "crosshair_css_class": [
                 61
             ],
             "use_custom_crosshair_settings": [
                 8
+            ],
+            "type": [
+                36
             ],
             "properties": [
                 37

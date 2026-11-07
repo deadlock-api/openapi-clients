@@ -96,12 +96,12 @@ class PatchesApiTest extends TestCase
     }
 
     /**
-     * Test case for feed_0
+     * Test case for feedV2
      *
      * Notes.
      *
      */
-    public function testFeed0()
+    public function testFeedV2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

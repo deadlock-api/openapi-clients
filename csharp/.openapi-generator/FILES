@@ -148,6 +148,9 @@ docs/models/ItemFlowNode.md
 docs/models/ItemFlowStats.md
 docs/models/ItemFlowSummary.md
 docs/models/ItemGroup.md
+docs/models/ItemOneOf.md
+docs/models/ItemOneOf1.md
+docs/models/ItemOneOf2.md
 docs/models/ItemPermutationStats.md
 docs/models/ItemProperty.md
 docs/models/ItemSlotType.md
@@ -185,6 +188,7 @@ docs/models/NeutralCamp.md
 docs/models/NeutralCampKind.md
 docs/models/NewPlayerMetrics.md
 docs/models/NpcUnit.md
+docs/models/NpcWeaponInfo.md
 docs/models/ObjectiveParams.md
 docs/models/ObjectivePosition.md
 docs/models/OutcomeToWeights.md
@@ -241,6 +245,7 @@ docs/models/SteamInfo.md
 docs/models/SteamNews.md
 docs/models/SteamProfile.md
 docs/models/StreetBrawl.md
+docs/models/StringOrNumber.md
 docs/models/SubclassBulletResistModifier.md
 docs/models/SubclassBulletResistModifierSubclass.md
 docs/models/SubclassEmpoweredModifierLevel.md
@@ -427,6 +432,9 @@ src/DeadlockApiClient.Test/Model/ItemFlowNodeTests.cs
 src/DeadlockApiClient.Test/Model/ItemFlowStatsTests.cs
 src/DeadlockApiClient.Test/Model/ItemFlowSummaryTests.cs
 src/DeadlockApiClient.Test/Model/ItemGroupTests.cs
+src/DeadlockApiClient.Test/Model/ItemOneOf1Tests.cs
+src/DeadlockApiClient.Test/Model/ItemOneOf2Tests.cs
+src/DeadlockApiClient.Test/Model/ItemOneOfTests.cs
 src/DeadlockApiClient.Test/Model/ItemPermutationStatsTests.cs
 src/DeadlockApiClient.Test/Model/ItemPropertyTests.cs
 src/DeadlockApiClient.Test/Model/ItemSlotTypeTests.cs
@@ -465,6 +473,7 @@ src/DeadlockApiClient.Test/Model/NeutralCampKindTests.cs
 src/DeadlockApiClient.Test/Model/NeutralCampTests.cs
 src/DeadlockApiClient.Test/Model/NewPlayerMetricsTests.cs
 src/DeadlockApiClient.Test/Model/NpcUnitTests.cs
+src/DeadlockApiClient.Test/Model/NpcWeaponInfoTests.cs
 src/DeadlockApiClient.Test/Model/ObjectiveParamsTests.cs
 src/DeadlockApiClient.Test/Model/ObjectivePositionTests.cs
 src/DeadlockApiClient.Test/Model/OutcomeToWeightsTests.cs
@@ -521,6 +530,7 @@ src/DeadlockApiClient.Test/Model/SteamInfoTests.cs
 src/DeadlockApiClient.Test/Model/SteamNewsTests.cs
 src/DeadlockApiClient.Test/Model/SteamProfileTests.cs
 src/DeadlockApiClient.Test/Model/StreetBrawlTests.cs
+src/DeadlockApiClient.Test/Model/StringOrNumberTests.cs
 src/DeadlockApiClient.Test/Model/SubclassBulletResistModifierSubclassTests.cs
 src/DeadlockApiClient.Test/Model/SubclassBulletResistModifierTests.cs
 src/DeadlockApiClient.Test/Model/SubclassEmpoweredModifierLevelSubclassTests.cs
@@ -728,6 +738,9 @@ src/DeadlockApiClient/Model/ItemFlowNode.cs
 src/DeadlockApiClient/Model/ItemFlowStats.cs
 src/DeadlockApiClient/Model/ItemFlowSummary.cs
 src/DeadlockApiClient/Model/ItemGroup.cs
+src/DeadlockApiClient/Model/ItemOneOf.cs
+src/DeadlockApiClient/Model/ItemOneOf1.cs
+src/DeadlockApiClient/Model/ItemOneOf2.cs
 src/DeadlockApiClient/Model/ItemPermutationStats.cs
 src/DeadlockApiClient/Model/ItemProperty.cs
 src/DeadlockApiClient/Model/ItemSlotType.cs
@@ -765,6 +778,7 @@ src/DeadlockApiClient/Model/NeutralCamp.cs
 src/DeadlockApiClient/Model/NeutralCampKind.cs
 src/DeadlockApiClient/Model/NewPlayerMetrics.cs
 src/DeadlockApiClient/Model/NpcUnit.cs
+src/DeadlockApiClient/Model/NpcWeaponInfo.cs
 src/DeadlockApiClient/Model/ObjectiveParams.cs
 src/DeadlockApiClient/Model/ObjectivePosition.cs
 src/DeadlockApiClient/Model/OutcomeToWeights.cs
@@ -821,6 +835,7 @@ src/DeadlockApiClient/Model/SteamInfo.cs
 src/DeadlockApiClient/Model/SteamNews.cs
 src/DeadlockApiClient/Model/SteamProfile.cs
 src/DeadlockApiClient/Model/StreetBrawl.cs
+src/DeadlockApiClient/Model/StringOrNumber.cs
 src/DeadlockApiClient/Model/SubclassBulletResistModifier.cs
 src/DeadlockApiClient/Model/SubclassBulletResistModifierSubclass.cs
 src/DeadlockApiClient/Model/SubclassEmpoweredModifierLevel.cs

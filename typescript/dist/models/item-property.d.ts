@@ -11,6 +11,7 @@
  */
 import type { RawItemPropertyScaleFunctionSubclass } from './raw-item-property-scale-function-subclass.js';
 import type { StatsUsageFlag } from './stats-usage-flag.js';
+import type { StringOrNumber } from './string-or-number.js';
 export interface ItemProperty {
     'can_set_token_override'?: boolean | null;
     'conditional'?: string | null;
@@ -30,11 +31,11 @@ export interface ItemProperty {
      */
     'required_upgrade_bits'?: Array<string> | null;
     'scale_function'?: RawItemPropertyScaleFunctionSubclass | null;
-    'street_brawl_value'?: string | null;
+    'street_brawl_value'?: StringOrNumber | null;
     'usage_flags'?: Array<StatsUsageFlag> | null;
     /**
      * Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (`\"14.5\"` vs `14.5`).
      */
-    'value'?: string | null;
+    'value'?: StringOrNumber | null;
 }
 //# sourceMappingURL=item-property.d.ts.map

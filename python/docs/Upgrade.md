@@ -34,7 +34,6 @@ Name | Type | Description | Notes
 **shopable** | **bool** |  | 
 **start_trained** | **bool** |  | [optional] 
 **tooltip_sections** | [**List[UpgradeTooltipSection]**](UpgradeTooltipSection.md) |  | [optional] 
-**type** | [**ItemType**](ItemType.md) |  | 
 **update_time** | **int** |  | [optional] 
 **upgrades** | [**List[RawAbilityUpgrade]**](RawAbilityUpgrade.md) |  | [optional] 
 **weapon_info** | [**RawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional] 

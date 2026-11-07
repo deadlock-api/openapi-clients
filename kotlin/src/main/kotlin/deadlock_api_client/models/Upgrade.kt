@@ -27,7 +27,6 @@ import deadlock_api_client.models.AbilityActivation
 import deadlock_api_client.models.AbilityImbue
 import deadlock_api_client.models.CorruptedItemInfo
 import deadlock_api_client.models.ItemSlotType
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawAbilityUpgrade
 import deadlock_api_client.models.RawItemWeaponInfoInner
 import deadlock_api_client.models.UpgradeDescription
@@ -47,7 +46,6 @@ import java.io.Serializable
  * @param itemTier
  * @param name
  * @param shopable
- * @param type
  * @param componentItems
  * @param corruptedInfo Present on upgrades the Broker can corrupt (build 6711+).
  * @param cost
@@ -100,9 +98,6 @@ data class Upgrade (
 
     @Json(name = "shopable")
     val shopable: kotlin.Boolean,
-
-    @Json(name = "type")
-    val type: ItemType,
 
     @Json(name = "component_items")
     val componentItems: kotlin.collections.List<kotlin.String>? = null,

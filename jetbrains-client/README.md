@@ -118,7 +118,7 @@ Class | Method | HTTP request | Description
 *NPCUnitsApi* | [**listNpcUnits**](Apis/NPCUnitsApi.http#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](Apis/PatchesApi.http#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](Apis/PatchesApi.http#feed) | **GET** /v1/patches | Notes
-*PatchesApi* | [**feed_0**](Apis/PatchesApi.http#feed_0) | **GET** /v2/patches | Notes
+*PatchesApi* | [**feedV2**](Apis/PatchesApi.http#feedv2) | **GET** /v2/patches | Notes
 *PlayersApi* | [**enemyStats**](Apis/PlayersApi.http#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**matchHistory**](Apis/PlayersApi.http#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](Apis/PlayersApi.http#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats

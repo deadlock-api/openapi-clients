@@ -49,10 +49,10 @@ class PatchesApiTest : ShouldSpec() {
             //result shouldBe ("TODO")
         }
 
-        // to test feed_0
-        should("test feed_0") {
-            // uncomment below to test feed_0
-            //val result : kotlin.collections.List<FeedItem> = apiInstance.feed_0()
+        // to test feedV2
+        should("test feedV2") {
+            // uncomment below to test feedV2
+            //val result : kotlin.collections.List<FeedItem> = apiInstance.feedV2()
             //result shouldBe ("TODO")
         }
 

@@ -16,6 +16,9 @@ import {
     Color,
     ColorFromJSON,
     ColorToJSON,
+    NpcWeaponInfo,
+    NpcWeaponInfoFromJSON,
+    NpcWeaponInfoToJSON,
     SubclassBulletResistModifier,
     SubclassBulletResistModifierFromJSON,
     SubclassBulletResistModifierToJSON,
@@ -43,9 +46,6 @@ import {
     TeamModels,
     TeamModelsFromJSON,
     TeamModelsToJSON,
-    WeaponInfo,
-    WeaponInfoFromJSON,
-    WeaponInfoToJSON,
 } from './';
 
 /**
@@ -104,10 +104,10 @@ export interface NpcUnit  {
     barrackGuardianDamageResistPct?: number;
     /**
      * Secondary weapon the unit uses against bosses (builds 6711+).
-     * @type {WeaponInfo}
+     * @type {NpcWeaponInfo}
      * @memberof NpcUnit
      */
-    bossWeaponInfo?: WeaponInfo;
+    bossWeaponInfo?: NpcWeaponInfo;
     /**
      * 
      * @type {{ [key: string]: string; }}
@@ -524,10 +524,10 @@ export interface NpcUnit  {
     walkSpeed?: number;
     /**
      * 
-     * @type {WeaponInfo}
+     * @type {NpcWeaponInfo}
      * @memberof NpcUnit
      */
-    weaponInfo?: WeaponInfo;
+    weaponInfo?: NpcWeaponInfo;
 }
 
 export function NpcUnitFromJSON(json: any): NpcUnit {
@@ -540,7 +540,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'backdoorBulletResistModifier': !exists(json, 'backdoor_bullet_resist_modifier') ? undefined : SubclassBulletResistModifierFromJSON(json['backdoor_bullet_resist_modifier']),
         'barrackBossDps': !exists(json, 'barrack_boss_dps') ? undefined : json['barrack_boss_dps'],
         'barrackGuardianDamageResistPct': !exists(json, 'barrack_guardian_damage_resist_pct') ? undefined : json['barrack_guardian_damage_resist_pct'],
-        'bossWeaponInfo': !exists(json, 'boss_weapon_info') ? undefined : WeaponInfoFromJSON(json['boss_weapon_info']),
+        'bossWeaponInfo': !exists(json, 'boss_weapon_info') ? undefined : NpcWeaponInfoFromJSON(json['boss_weapon_info']),
         'boundAbilities': !exists(json, 'bound_abilities') ? undefined : json['bound_abilities'],
         'className': json['class_name'],
         'coreModels': !exists(json, 'core_models') ? undefined : TeamModelsFromJSON(json['core_models']),
@@ -610,7 +610,7 @@ export function NpcUnitFromJSON(json: any): NpcUnit {
         'trooperDps': !exists(json, 'trooper_dps') ? undefined : json['trooper_dps'],
         'viewerSoulsClass': !exists(json, 'viewer_souls_class') ? undefined : json['viewer_souls_class'],
         'walkSpeed': !exists(json, 'walk_speed') ? undefined : json['walk_speed'],
-        'weaponInfo': !exists(json, 'weapon_info') ? undefined : WeaponInfoFromJSON(json['weapon_info']),
+        'weaponInfo': !exists(json, 'weapon_info') ? undefined : NpcWeaponInfoFromJSON(json['weapon_info']),
     };
 }
 
@@ -627,7 +627,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'backdoor_bullet_resist_modifier': SubclassBulletResistModifierToJSON(value.backdoorBulletResistModifier),
         'barrack_boss_dps': value.barrackBossDps,
         'barrack_guardian_damage_resist_pct': value.barrackGuardianDamageResistPct,
-        'boss_weapon_info': WeaponInfoToJSON(value.bossWeaponInfo),
+        'boss_weapon_info': NpcWeaponInfoToJSON(value.bossWeaponInfo),
         'bound_abilities': value.boundAbilities,
         'class_name': value.className,
         'core_models': TeamModelsToJSON(value.coreModels),
@@ -697,7 +697,7 @@ export function NpcUnitToJSON(value?: NpcUnit): any {
         'trooper_dps': value.trooperDps,
         'viewer_souls_class': value.viewerSoulsClass,
         'walk_speed': value.walkSpeed,
-        'weapon_info': WeaponInfoToJSON(value.weaponInfo),
+        'weapon_info': NpcWeaponInfoToJSON(value.weaponInfo),
     };
 }
 

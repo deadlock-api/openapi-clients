@@ -201,7 +201,7 @@ Class | Method | HTTP request | Description
 *NPCUnitsApi* | [**listNpcUnits**](docs/Api/NPCUnitsApi.md#listnpcunits) | **GET** /v1/assets/npc-units | List NPC Units
 *PatchesApi* | [**bigPatchDays**](docs/Api/PatchesApi.md#bigpatchdays) | **GET** /v1/patches/big-days | Big Days
 *PatchesApi* | [**feed**](docs/Api/PatchesApi.md#feed) | **GET** /v1/patches | Notes
-*PatchesApi* | [**feed_0**](docs/Api/PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
+*PatchesApi* | [**feedV2**](docs/Api/PatchesApi.md#feedv2) | **GET** /v2/patches | Notes
 *PlayersApi* | [**enemyStats**](docs/Api/PlayersApi.md#enemystats) | **GET** /v1/players/{account_id}/enemy-stats | Enemy Stats
 *PlayersApi* | [**matchHistory**](docs/Api/PlayersApi.md#matchhistory) | **GET** /v1/players/{account_id}/match-history | Match History
 *PlayersApi* | [**mateStats**](docs/Api/PlayersApi.md#matestats) | **GET** /v1/players/{account_id}/mate-stats | Mate Stats
@@ -338,6 +338,9 @@ Class | Method | HTTP request | Description
 - [ItemFlowStats](docs/Model/ItemFlowStats.md)
 - [ItemFlowSummary](docs/Model/ItemFlowSummary.md)
 - [ItemGroup](docs/Model/ItemGroup.md)
+- [ItemOneOf](docs/Model/ItemOneOf.md)
+- [ItemOneOf1](docs/Model/ItemOneOf1.md)
+- [ItemOneOf2](docs/Model/ItemOneOf2.md)
 - [ItemPermutationStats](docs/Model/ItemPermutationStats.md)
 - [ItemProperty](docs/Model/ItemProperty.md)
 - [ItemSlotType](docs/Model/ItemSlotType.md)
@@ -375,6 +378,7 @@ Class | Method | HTTP request | Description
 - [NeutralCampKind](docs/Model/NeutralCampKind.md)
 - [NewPlayerMetrics](docs/Model/NewPlayerMetrics.md)
 - [NpcUnit](docs/Model/NpcUnit.md)
+- [NpcWeaponInfo](docs/Model/NpcWeaponInfo.md)
 - [ObjectiveParams](docs/Model/ObjectiveParams.md)
 - [ObjectivePosition](docs/Model/ObjectivePosition.md)
 - [OutcomeToWeights](docs/Model/OutcomeToWeights.md)
@@ -431,6 +435,7 @@ Class | Method | HTTP request | Description
 - [SteamNews](docs/Model/SteamNews.md)
 - [SteamProfile](docs/Model/SteamProfile.md)
 - [StreetBrawl](docs/Model/StreetBrawl.md)
+- [StringOrNumber](docs/Model/StringOrNumber.md)
 - [SubclassBulletResistModifier](docs/Model/SubclassBulletResistModifier.md)
 - [SubclassBulletResistModifierSubclass](docs/Model/SubclassBulletResistModifierSubclass.md)
 - [SubclassEmpoweredModifierLevel](docs/Model/SubclassEmpoweredModifierLevel.md)

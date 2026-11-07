@@ -24,7 +24,6 @@
 package deadlock_api_client.models
 
 import deadlock_api_client.models.ItemProperty
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawCustomCrosshairSettings
 import deadlock_api_client.models.WeaponInfo
 
@@ -36,7 +35,6 @@ import java.io.Serializable
  * @param className
  * @param id
  * @param name
- * @param type
  * @param crosshairCssClass
  * @param customCrosshairSettings
  * @param hero
@@ -61,9 +59,6 @@ data class Weapon (
 
     @Json(name = "name")
     val name: kotlin.String,
-
-    @Json(name = "type")
-    val type: ItemType,
 
     @Json(name = "crosshair_css_class")
     val crosshairCssClass: kotlin.String? = null,

@@ -155,6 +155,9 @@ deadlock_api_client/models/item_flow_node.py
 deadlock_api_client/models/item_flow_stats.py
 deadlock_api_client/models/item_flow_summary.py
 deadlock_api_client/models/item_group.py
+deadlock_api_client/models/item_one_of.py
+deadlock_api_client/models/item_one_of1.py
+deadlock_api_client/models/item_one_of2.py
 deadlock_api_client/models/item_permutation_stats.py
 deadlock_api_client/models/item_property.py
 deadlock_api_client/models/item_slot_type.py
@@ -192,6 +195,7 @@ deadlock_api_client/models/neutral_camp.py
 deadlock_api_client/models/neutral_camp_kind.py
 deadlock_api_client/models/new_player_metrics.py
 deadlock_api_client/models/npc_unit.py
+deadlock_api_client/models/npc_weapon_info.py
 deadlock_api_client/models/objective_params.py
 deadlock_api_client/models/objective_position.py
 deadlock_api_client/models/outcome_to_weights.py
@@ -248,6 +252,7 @@ deadlock_api_client/models/steam_info.py
 deadlock_api_client/models/steam_news.py
 deadlock_api_client/models/steam_profile.py
 deadlock_api_client/models/street_brawl.py
+deadlock_api_client/models/string_or_number.py
 deadlock_api_client/models/subclass_bullet_resist_modifier.py
 deadlock_api_client/models/subclass_bullet_resist_modifier_subclass.py
 deadlock_api_client/models/subclass_empowered_modifier_level.py
@@ -418,6 +423,9 @@ docs/ItemFlowNode.md
 docs/ItemFlowStats.md
 docs/ItemFlowSummary.md
 docs/ItemGroup.md
+docs/ItemOneOf.md
+docs/ItemOneOf1.md
+docs/ItemOneOf2.md
 docs/ItemPermutationStats.md
 docs/ItemProperty.md
 docs/ItemSlotType.md
@@ -462,6 +470,7 @@ docs/NeutralCamp.md
 docs/NeutralCampKind.md
 docs/NewPlayerMetrics.md
 docs/NpcUnit.md
+docs/NpcWeaponInfo.md
 docs/ObjectiveParams.md
 docs/ObjectivePosition.md
 docs/OutcomeToWeights.md
@@ -525,6 +534,7 @@ docs/SteamInfoApi.md
 docs/SteamNews.md
 docs/SteamProfile.md
 docs/StreetBrawl.md
+docs/StringOrNumber.md
 docs/SubclassBulletResistModifier.md
 docs/SubclassBulletResistModifierSubclass.md
 docs/SubclassEmpoweredModifierLevel.md
@@ -700,6 +710,9 @@ test/test_item_flow_node.py
 test/test_item_flow_stats.py
 test/test_item_flow_summary.py
 test/test_item_group.py
+test/test_item_one_of.py
+test/test_item_one_of1.py
+test/test_item_one_of2.py
 test/test_item_permutation_stats.py
 test/test_item_property.py
 test/test_item_slot_type.py
@@ -744,6 +757,7 @@ test/test_neutral_camp_kind.py
 test/test_new_player_metrics.py
 test/test_npc_unit.py
 test/test_npc_units_api.py
+test/test_npc_weapon_info.py
 test/test_objective_params.py
 test/test_objective_position.py
 test/test_outcome_to_weights.py
@@ -807,6 +821,7 @@ test/test_steam_info_api.py
 test/test_steam_news.py
 test/test_steam_profile.py
 test/test_street_brawl.py
+test/test_string_or_number.py
 test/test_subclass_bullet_resist_modifier.py
 test/test_subclass_bullet_resist_modifier_subclass.py
 test/test_subclass_empowered_modifier_level.py

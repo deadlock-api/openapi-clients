@@ -15,9 +15,6 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Ability } from './ability.js';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { AbilityActivation } from './ability-activation.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -39,10 +36,16 @@ import type { CorruptedItemInfo } from './corrupted-item-info.js';
 import type { DependantAbilities } from './dependant-abilities.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemSlotType } from './item-slot-type.js';
+import type { ItemOneOf } from './item-one-of.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ItemType } from './item-type.js';
+import type { ItemOneOf1 } from './item-one-of1.js';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { ItemOneOf2 } from './item-one-of2.js';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { ItemSlotType } from './item-slot-type.js';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RawAbilityUpgrade } from './raw-ability-upgrade.js';
@@ -54,9 +57,6 @@ import type { RawCustomCrosshairSettings } from './raw-custom-crosshair-settings
 import type { RawItemWeaponInfoInner } from './raw-item-weapon-info-inner.js';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Upgrade } from './upgrade.js';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { UpgradeDescription } from './upgrade-description.js';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -64,13 +64,10 @@ import type { UpgradeProperty } from './upgrade-property.js';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { UpgradeTooltipSection } from './upgrade-tooltip-section.js';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Weapon } from './weapon.js';
 
 /**
  * @type Item
  */
-export type Item = Ability | Upgrade | Weapon;
+export type Item = ItemOneOf | ItemOneOf1 | ItemOneOf2;
 
 

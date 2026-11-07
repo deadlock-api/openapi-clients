@@ -20,9 +20,9 @@ Name | Type | Description | Notes
 **provided_property_type** | **str** |  | [optional] 
 **required_upgrade_bits** | **List[str]** | Raw &#x60;ABILITY_UPGRADE_BIT_*&#x60; flags the ability needs for this property to apply (e.g. &#x60;ABILITY_UPGRADE_BIT_TRAINED&#x60;, &#x60;ABILITY_UPGRADE_BIT_4&#x60;). | [optional] 
 **scale_function** | [**RawItemPropertyScaleFunctionSubclass**](RawItemPropertyScaleFunctionSubclass.md) |  | [optional] 
-**street_brawl_value** | **str** |  | [optional] 
+**street_brawl_value** | [**StringOrNumber**](StringOrNumber.md) |  | [optional] 
 **usage_flags** | [**List[StatsUsageFlag]**](StatsUsageFlag.md) |  | [optional] 
-**value** | **str** | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
+**value** | [**StringOrNumber**](StringOrNumber.md) | Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;). | [optional] 
 
 ## Example
 

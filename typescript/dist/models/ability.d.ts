@@ -15,7 +15,6 @@ import type { AbilityType } from './ability-type.js';
 import type { AbilityVideos } from './ability-videos.js';
 import type { DependantAbilities } from './dependant-abilities.js';
 import type { ItemProperty } from './item-property.js';
-import type { ItemType } from './item-type.js';
 import type { RawAbilityUpgrade } from './raw-ability-upgrade.js';
 import type { RawItemWeaponInfoInner } from './raw-item-weapon-info-inner.js';
 export interface Ability {
@@ -24,6 +23,9 @@ export interface Ability {
     'boss_damage_scale'?: number | null;
     'class_name': string;
     'dependant_abilities'?: Array<string> | null;
+    /**
+     * Abilities this one depends on. Entries whose ability has no data are left out.
+     */
     'dependent_abilities'?: {
         [key: string]: DependantAbilities;
     } | null;
@@ -40,7 +42,6 @@ export interface Ability {
     } | null;
     'start_trained'?: boolean | null;
     'tooltip_details'?: AbilityTooltipDetails | null;
-    'type': ItemType;
     'update_time'?: number | null;
     'upgrades'?: Array<RawAbilityUpgrade> | null;
     'videos'?: AbilityVideos | null;

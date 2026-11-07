@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 import type { ItemProperty } from './item-property.js';
-import type { ItemType } from './item-type.js';
 import type { RawCustomCrosshairSettings } from './raw-custom-crosshair-settings.js';
 import type { WeaponInfo } from './weapon-info.js';
 export interface Weapon {
@@ -27,7 +26,6 @@ export interface Weapon {
         [key: string]: ItemProperty;
     } | null;
     'start_trained'?: boolean | null;
-    'type': ItemType;
     'update_time'?: number | null;
     'use_custom_crosshair_settings'?: boolean | null;
     'weapon_info'?: WeaponInfo | null;

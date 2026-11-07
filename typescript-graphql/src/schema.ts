@@ -24,7 +24,6 @@ export interface Ability {
     hero: (Scalars['Int'] | null)
     heroes: (Scalars['Int'][] | null)
     update_time: (Scalars['Int'] | null)
-    type: ItemType
     grant_ammo_on_cast: (Scalars['Boolean'] | null)
     behaviours: (Scalars['String'][] | null)
     description: AbilityDescription
@@ -32,6 +31,7 @@ export interface Ability {
     boss_damage_scale: (Scalars['Float'] | null)
     dependant_abilities: (Scalars['String'][] | null)
     videos: (AbilityVideos | null)
+    type: ItemType
     properties: Scalars['JSON']
     weapon_info: Scalars['JSON']
     tooltip_details: Scalars['JSON']
@@ -871,7 +871,6 @@ export interface Upgrade {
     hero: (Scalars['Int'] | null)
     heroes: (Scalars['Int'][] | null)
     update_time: (Scalars['Int'] | null)
-    type: ItemType
     shop_image: (Scalars['String'] | null)
     shop_image_webp: (Scalars['String'] | null)
     shop_image_small: (Scalars['String'] | null)
@@ -898,6 +897,7 @@ export interface Upgrade {
     disabled_shop_filters: (Scalars['String'][] | null)
     shop_version: (Scalars['Int'] | null)
     disable_item_target: (Scalars['String'] | null)
+    type: ItemType
     weapon_info: Scalars['JSON']
     properties: Scalars['JSON']
     tooltip_sections: Scalars['JSON']
@@ -932,9 +932,9 @@ export interface Weapon {
     hero: (Scalars['Int'] | null)
     heroes: (Scalars['Int'][] | null)
     update_time: (Scalars['Int'] | null)
-    type: ItemType
     crosshair_css_class: (Scalars['String'] | null)
     use_custom_crosshair_settings: (Scalars['Boolean'] | null)
+    type: ItemType
     properties: Scalars['JSON']
     weapon_info: Scalars['JSON']
     custom_crosshair_settings: Scalars['JSON']
@@ -953,7 +953,6 @@ export interface AbilityGenqlSelection{
     hero?: boolean | number
     heroes?: boolean | number
     update_time?: boolean | number
-    type?: boolean | number
     grant_ammo_on_cast?: boolean | number
     behaviours?: boolean | number
     description?: AbilityDescriptionGenqlSelection
@@ -961,6 +960,7 @@ export interface AbilityGenqlSelection{
     boss_damage_scale?: boolean | number
     dependant_abilities?: boolean | number
     videos?: AbilityVideosGenqlSelection
+    type?: boolean | number
     properties?: boolean | number
     weapon_info?: boolean | number
     tooltip_details?: boolean | number
@@ -1858,7 +1858,6 @@ export interface UpgradeGenqlSelection{
     hero?: boolean | number
     heroes?: boolean | number
     update_time?: boolean | number
-    type?: boolean | number
     shop_image?: boolean | number
     shop_image_webp?: boolean | number
     shop_image_small?: boolean | number
@@ -1885,6 +1884,7 @@ export interface UpgradeGenqlSelection{
     disabled_shop_filters?: boolean | number
     shop_version?: boolean | number
     disable_item_target?: boolean | number
+    type?: boolean | number
     weapon_info?: boolean | number
     properties?: boolean | number
     tooltip_sections?: boolean | number
@@ -1922,9 +1922,9 @@ export interface WeaponGenqlSelection{
     hero?: boolean | number
     heroes?: boolean | number
     update_time?: boolean | number
-    type?: boolean | number
     crosshair_css_class?: boolean | number
     use_custom_crosshair_settings?: boolean | number
+    type?: boolean | number
     properties?: boolean | number
     weapon_info?: boolean | number
     custom_crosshair_settings?: boolean | number

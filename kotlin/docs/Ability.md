@@ -8,12 +8,11 @@
 | **description** | [**AbilityDescription**](AbilityDescription.md) |  |  |
 | **id** | **kotlin.Int** |  |  |
 | **name** | **kotlin.String** |  |  |
-| **type** | [**ItemType**](ItemType.md) |  |  |
 | **abilityType** | [**AbilityType**](AbilityType.md) |  |  [optional] |
 | **behaviours** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 | **bossDamageScale** | **kotlin.Double** |  |  [optional] |
 | **dependantAbilities** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
-| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) |  |  [optional] |
+| **dependentAbilities** | [**kotlin.collections.Map&lt;kotlin.String, DependantAbilities&gt;**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. |  [optional] |
 | **grantAmmoOnCast** | **kotlin.Boolean** |  |  [optional] |
 | **hero** | **kotlin.Int** |  |  [optional] |
 | **heroes** | **kotlin.collections.List&lt;kotlin.Int&gt;** |  |  [optional] |

@@ -21,7 +21,7 @@ var _ MappedNullable = &RawAbilityUpgradePropertyUpgrade{}
 
 // RawAbilityUpgradePropertyUpgrade struct for RawAbilityUpgradePropertyUpgrade
 type RawAbilityUpgradePropertyUpgrade struct {
-	Bonus string `json:"bonus"`
+	Bonus StringOrNumber `json:"bonus"`
 	// Corrupted item bonuses only (build 6711+).
 	FixedCorruptedBonus NullableBool `json:"fixed_corrupted_bonus,omitempty"`
 	Name string `json:"name"`
@@ -37,7 +37,7 @@ type _RawAbilityUpgradePropertyUpgrade RawAbilityUpgradePropertyUpgrade
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRawAbilityUpgradePropertyUpgrade(bonus string, name string) *RawAbilityUpgradePropertyUpgrade {
+func NewRawAbilityUpgradePropertyUpgrade(bonus StringOrNumber, name string) *RawAbilityUpgradePropertyUpgrade {
 	this := RawAbilityUpgradePropertyUpgrade{}
 	this.Bonus = bonus
 	this.Name = name
@@ -53,9 +53,9 @@ func NewRawAbilityUpgradePropertyUpgradeWithDefaults() *RawAbilityUpgradePropert
 }
 
 // GetBonus returns the Bonus field value
-func (o *RawAbilityUpgradePropertyUpgrade) GetBonus() string {
+func (o *RawAbilityUpgradePropertyUpgrade) GetBonus() StringOrNumber {
 	if o == nil {
-		var ret string
+		var ret StringOrNumber
 		return ret
 	}
 
@@ -64,7 +64,7 @@ func (o *RawAbilityUpgradePropertyUpgrade) GetBonus() string {
 
 // GetBonusOk returns a tuple with the Bonus field value
 // and a boolean to check if the value has been set.
-func (o *RawAbilityUpgradePropertyUpgrade) GetBonusOk() (*string, bool) {
+func (o *RawAbilityUpgradePropertyUpgrade) GetBonusOk() (*StringOrNumber, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -72,7 +72,7 @@ func (o *RawAbilityUpgradePropertyUpgrade) GetBonusOk() (*string, bool) {
 }
 
 // SetBonus sets field value
-func (o *RawAbilityUpgradePropertyUpgrade) SetBonus(v string) {
+func (o *RawAbilityUpgradePropertyUpgrade) SetBonus(v StringOrNumber) {
 	o.Bonus = v
 }
 

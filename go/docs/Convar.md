@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Default** | **map[string]interface{}** | Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;. | 
+**Default** | **interface{}** | Default value, typed by &#x60;type&#x60;: a bool, number or string, &#x60;[r, g, b, a]&#x60; for &#x60;color&#x60;, and an array of floats for vectors / &#x60;qangle&#x60;. | 
 **Description** | Pointer to **NullableString** | Help text shown by the in-game console. | [optional] 
 **Flags** | **int64** | Raw &#x60;FCVAR_*&#x60; flag bits. | 
 **Type** | [**ConvarType**](ConvarType.md) |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewConvar
 
-`func NewConvar(default_ map[string]interface{}, flags int64, type_ ConvarType, ) *Convar`
+`func NewConvar(default_ interface{}, flags int64, type_ ConvarType, ) *Convar`
 
 NewConvar instantiates a new Convar object
 This constructor will assign default values to properties that have it defined,
@@ -30,24 +30,34 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDefault
 
-`func (o *Convar) GetDefault() map[string]interface{}`
+`func (o *Convar) GetDefault() interface{}`
 
 GetDefault returns the Default field if non-nil, zero value otherwise.
 
 ### GetDefaultOk
 
-`func (o *Convar) GetDefaultOk() (*map[string]interface{}, bool)`
+`func (o *Convar) GetDefaultOk() (*interface{}, bool)`
 
 GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefault
 
-`func (o *Convar) SetDefault(v map[string]interface{})`
+`func (o *Convar) SetDefault(v interface{})`
 
 SetDefault sets Default field to given value.
 
 
+### SetDefaultNil
+
+`func (o *Convar) SetDefaultNil(b bool)`
+
+ SetDefaultNil sets the value for Default to be an explicit nil
+
+### UnsetDefault
+`func (o *Convar) UnsetDefault()`
+
+UnsetDefault ensures that no value is present for Default, not even an explicit nil
 ### GetDescription
 
 `func (o *Convar) GetDescription() string`

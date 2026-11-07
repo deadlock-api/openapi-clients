@@ -8,7 +8,7 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | ------------- | ------------- | ------------- |
 | [**bigPatchDays()**](PatchesApi.md#bigPatchDays) | **GET** /v1/patches/big-days | Big Days |
 | [**feed()**](PatchesApi.md#feed) | **GET** /v1/patches | Notes |
-| [**feed_0()**](PatchesApi.md#feed_0) | **GET** /v2/patches | Notes |
+| [**feedV2()**](PatchesApi.md#feedV2) | **GET** /v2/patches | Notes |
 
 
 ## `bigPatchDays()`
@@ -117,10 +117,10 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `feed_0()`
+## `feedV2()`
 
 ```php
-feed_0(): \OpenAPI\Client\Model\FeedItem[]
+feedV2(): \OpenAPI\Client\Model\FeedItem[]
 ```
 
 Notes
@@ -142,10 +142,10 @@ $apiInstance = new OpenAPI\Client\Api\PatchesApi(
 );
 
 try {
-    $result = $apiInstance->feed_0();
+    $result = $apiInstance->feedV2();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling PatchesApi->feed_0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling PatchesApi->feedV2: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

@@ -33,7 +33,6 @@ Name | Type | Description | Notes
 **Shopable** | **bool** |  | 
 **StartTrained** | Pointer to **NullableBool** |  | [optional] 
 **TooltipSections** | Pointer to [**[]UpgradeTooltipSection**](UpgradeTooltipSection.md) |  | [optional] 
-**Type** | [**ItemType**](ItemType.md) |  | 
 **UpdateTime** | Pointer to **NullableInt64** |  | [optional] 
 **Upgrades** | Pointer to [**[]RawAbilityUpgrade**](RawAbilityUpgrade.md) |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableRawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional] 
@@ -42,7 +41,7 @@ Name | Type | Description | Notes
 
 ### NewUpgrade
 
-`func NewUpgrade(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, type_ ItemType, ) *Upgrade`
+`func NewUpgrade(activation AbilityActivation, className string, id int32, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, name string, shopable bool, ) *Upgrade`
 
 NewUpgrade instantiates a new Upgrade object
 This constructor will assign default values to properties that have it defined,
@@ -952,26 +951,6 @@ HasTooltipSections returns a boolean if a field has been set.
 `func (o *Upgrade) UnsetTooltipSections()`
 
 UnsetTooltipSections ensures that no value is present for TooltipSections, not even an explicit nil
-### GetType
-
-`func (o *Upgrade) GetType() ItemType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Upgrade) GetTypeOk() (*ItemType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Upgrade) SetType(v ItemType)`
-
-SetType sets Type field to given value.
-
-
 ### GetUpdateTime
 
 `func (o *Upgrade) GetUpdateTime() int64`

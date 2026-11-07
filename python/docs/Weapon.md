@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **name** | **str** |  | 
 **properties** | [**Dict[str, ItemProperty]**](ItemProperty.md) |  | [optional] 
 **start_trained** | **bool** |  | [optional] 
-**type** | [**ItemType**](ItemType.md) |  | 
 **update_time** | **int** |  | [optional] 
 **use_custom_crosshair_settings** | **bool** |  | [optional] 
 **weapon_info** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] 

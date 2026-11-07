@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bonus** | **string** |  | 
+**Bonus** | [**StringOrNumber**](StringOrNumber.md) |  | 
 **FixedCorruptedBonus** | Pointer to **NullableBool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **Name** | **string** |  | 
 **RoundCorruptedBonus** | Pointer to **NullableBool** | Corrupted item bonuses only (build 6711+). | [optional] 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewRawAbilityUpgradePropertyUpgrade
 
-`func NewRawAbilityUpgradePropertyUpgrade(bonus string, name string, ) *RawAbilityUpgradePropertyUpgrade`
+`func NewRawAbilityUpgradePropertyUpgrade(bonus StringOrNumber, name string, ) *RawAbilityUpgradePropertyUpgrade`
 
 NewRawAbilityUpgradePropertyUpgrade instantiates a new RawAbilityUpgradePropertyUpgrade object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetBonus
 
-`func (o *RawAbilityUpgradePropertyUpgrade) GetBonus() string`
+`func (o *RawAbilityUpgradePropertyUpgrade) GetBonus() StringOrNumber`
 
 GetBonus returns the Bonus field if non-nil, zero value otherwise.
 
 ### GetBonusOk
 
-`func (o *RawAbilityUpgradePropertyUpgrade) GetBonusOk() (*string, bool)`
+`func (o *RawAbilityUpgradePropertyUpgrade) GetBonusOk() (*StringOrNumber, bool)`
 
 GetBonusOk returns a tuple with the Bonus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBonus
 
-`func (o *RawAbilityUpgradePropertyUpgrade) SetBonus(v string)`
+`func (o *RawAbilityUpgradePropertyUpgrade) SetBonus(v StringOrNumber)`
 
 SetBonus sets Bonus field to given value.
 

@@ -23,6 +23,7 @@
 
 package deadlock_api_client.models
 
+import deadlock_api_client.models.StringOrNumber
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -41,7 +42,7 @@ import java.io.Serializable
 data class RawAbilityUpgradePropertyUpgrade (
 
     @Json(name = "bonus")
-    val bonus: kotlin.String,
+    val bonus: StringOrNumber,
 
     @Json(name = "name")
     val name: kotlin.String,

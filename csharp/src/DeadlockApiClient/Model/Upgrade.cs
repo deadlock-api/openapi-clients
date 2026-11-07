@@ -41,7 +41,6 @@ namespace DeadlockApiClient.Model
         /// <param name="itemTier">itemTier</param>
         /// <param name="name">name</param>
         /// <param name="shopable">shopable</param>
-        /// <param name="type">type</param>
         /// <param name="componentItems">componentItems</param>
         /// <param name="corruptedInfo">Present on upgrades the Broker can corrupt (build 6711+).</param>
         /// <param name="cost">cost</param>
@@ -67,7 +66,7 @@ namespace DeadlockApiClient.Model
         /// <param name="upgrades">upgrades</param>
         /// <param name="weaponInfo">weaponInfo</param>
         [JsonConstructor]
-        public Upgrade(AbilityActivation activation, string className, int id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, ItemType type, Option<List<string>?> componentItems = default, Option<CorruptedItemInfo?> corruptedInfo = default, Option<int?> cost = default, Option<UpgradeDescription?> description = default, Option<string?> disableItemTarget = default, Option<bool?> disabled = default, Option<List<string>?> disabledShopFilters = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<List<string>?> shopFilters = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<long?> shopVersion = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
+        public Upgrade(AbilityActivation activation, string className, int id, bool isActiveItem, ItemSlotType itemSlotType, int itemTier, string name, bool shopable, Option<List<string>?> componentItems = default, Option<CorruptedItemInfo?> corruptedInfo = default, Option<int?> cost = default, Option<UpgradeDescription?> description = default, Option<string?> disableItemTarget = default, Option<bool?> disabled = default, Option<List<string>?> disabledShopFilters = default, Option<int?> hero = default, Option<List<int>?> heroes = default, Option<string?> image = default, Option<string?> imageWebp = default, Option<AbilityImbue?> imbue = default, Option<Dictionary<string, UpgradeProperty>?> properties = default, Option<List<string>?> shopFilters = default, Option<string?> shopImage = default, Option<string?> shopImageSmall = default, Option<string?> shopImageSmallWebp = default, Option<string?> shopImageWebp = default, Option<long?> shopVersion = default, Option<bool?> startTrained = default, Option<List<UpgradeTooltipSection>?> tooltipSections = default, Option<long?> updateTime = default, Option<List<RawAbilityUpgrade>?> upgrades = default, Option<RawItemWeaponInfoInner?> weaponInfo = default)
         {
             Activation = activation;
             ClassName = className;
@@ -77,7 +76,6 @@ namespace DeadlockApiClient.Model
             ItemTier = itemTier;
             Name = name;
             Shopable = shopable;
-            Type = type;
             ComponentItemsOption = componentItems;
             CorruptedInfoOption = corruptedInfo;
             CostOption = cost;
@@ -118,12 +116,6 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonPropertyName("item_slot_type")]
         public ItemSlotType ItemSlotType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [JsonPropertyName("type")]
-        public ItemType Type { get; set; }
 
         /// <summary>
         /// Used to track the state of Imbue
@@ -492,7 +484,6 @@ namespace DeadlockApiClient.Model
             sb.Append("  ItemTier: ").Append(ItemTier).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Shopable: ").Append(Shopable).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ComponentItems: ").Append(ComponentItems).Append("\n");
             sb.Append("  CorruptedInfo: ").Append(CorruptedInfo).Append("\n");
             sb.Append("  Cost: ").Append(Cost).Append("\n");
@@ -596,7 +587,6 @@ namespace DeadlockApiClient.Model
             Option<int?> itemTier = default;
             Option<string?> name = default;
             Option<bool?> shopable = default;
-            Option<ItemType?> type = default;
             Option<List<string>?> componentItems = default;
             Option<CorruptedItemInfo?> corruptedInfo = default;
             Option<int?> cost = default;
@@ -660,9 +650,6 @@ namespace DeadlockApiClient.Model
                             break;
                         case "shopable":
                             shopable = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
-                            break;
-                        case "type":
-                            type = new Option<ItemType?>(JsonSerializer.Deserialize<ItemType?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "component_items":
                             componentItems = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions));
@@ -766,9 +753,6 @@ namespace DeadlockApiClient.Model
             if (!shopable.IsSet)
                 throw new JsonException("Property is required for class Upgrade: shopable.");
 
-            if (!type.IsSet)
-                throw new JsonException("Property is required for class Upgrade: type.");
-
             if (activation.IsSet && activation.Value == null)
                 throw new JsonException("Property is not nullable for class Upgrade: activation.");
 
@@ -793,10 +777,7 @@ namespace DeadlockApiClient.Model
             if (shopable.IsSet && shopable.Value == null)
                 throw new JsonException("Property is not nullable for class Upgrade: shopable.");
 
-            if (type.IsSet && type.Value == null)
-                throw new JsonException("Property is not nullable for class Upgrade: type.");
-
-            return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, type.Value!.Value!, componentItems, corruptedInfo, cost, description, disableItemTarget, disabled, disabledShopFilters, hero, heroes, image, imageWebp, imbue, properties, shopFilters, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, shopVersion, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
+            return new Upgrade(activation.Value!.Value!, className.Value!, id.Value!.Value!, isActiveItem.Value!.Value!, itemSlotType.Value!.Value!, itemTier.Value!.Value!, name.Value!, shopable.Value!.Value!, componentItems, corruptedInfo, cost, description, disableItemTarget, disabled, disabledShopFilters, hero, heroes, image, imageWebp, imbue, properties, shopFilters, shopImage, shopImageSmall, shopImageSmallWebp, shopImageWebp, shopVersion, startTrained, tooltipSections, updateTime, upgrades, weaponInfo);
         }
 
         /// <summary>
@@ -838,9 +819,6 @@ namespace DeadlockApiClient.Model
             writer.WriteString("name", upgrade.Name);
 
             writer.WriteBoolean("shopable", upgrade.Shopable);
-
-            var typeRawValue = ItemTypeValueConverter.ToJsonValue(upgrade.Type);
-            writer.WriteString("type", typeRawValue);
 
             if (upgrade.ComponentItemsOption.IsSet)
                 if (upgrade.ComponentItemsOption.Value != null)

@@ -22,7 +22,7 @@ var _ MappedNullable = &Convar{}
 // Convar struct for Convar
 type Convar struct {
 	// Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
-	Default map[string]interface{} `json:"default"`
+	Default interface{} `json:"default"`
 	// Help text shown by the in-game console.
 	Description NullableString `json:"description,omitempty"`
 	// Raw `FCVAR_*` flag bits.
@@ -36,7 +36,7 @@ type _Convar Convar
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConvar(default_ map[string]interface{}, flags int64, type_ ConvarType) *Convar {
+func NewConvar(default_ interface{}, flags int64, type_ ConvarType) *Convar {
 	this := Convar{}
 	this.Default = default_
 	this.Flags = flags
@@ -53,9 +53,10 @@ func NewConvarWithDefaults() *Convar {
 }
 
 // GetDefault returns the Default field value
-func (o *Convar) GetDefault() map[string]interface{} {
+// If the value is explicit nil, the zero value for interface{} will be returned
+func (o *Convar) GetDefault() interface{} {
 	if o == nil {
-		var ret map[string]interface{}
+		var ret interface{}
 		return ret
 	}
 
@@ -64,15 +65,16 @@ func (o *Convar) GetDefault() map[string]interface{} {
 
 // GetDefaultOk returns a tuple with the Default field value
 // and a boolean to check if the value has been set.
-func (o *Convar) GetDefaultOk() (map[string]interface{}, bool) {
-	if o == nil {
-		return map[string]interface{}{}, false
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Convar) GetDefaultOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.Default) {
+		return nil, false
 	}
-	return o.Default, true
+	return &o.Default, true
 }
 
 // SetDefault sets field value
-func (o *Convar) SetDefault(v map[string]interface{}) {
+func (o *Convar) SetDefault(v interface{}) {
 	o.Default = v
 }
 
@@ -176,7 +178,9 @@ func (o Convar) MarshalJSON() ([]byte, error) {
 
 func (o Convar) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["default"] = o.Default
+	if o.Default != nil {
+		toSerialize["default"] = o.Default
+	}
 	if o.Description.IsSet() {
 		toSerialize["description"] = o.Description.Get()
 	}

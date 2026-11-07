@@ -23,6 +23,7 @@ pub struct Ability {
     pub class_name: String,
     #[serde(rename = "dependant_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub dependant_abilities: Option<Option<Vec<String>>>,
+    /// Abilities this one depends on. Entries whose ability has no data are left out.
     #[serde(rename = "dependent_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub dependent_abilities: Option<Option<std::collections::HashMap<String, models::DependantAbilities>>>,
     #[serde(rename = "description")]
@@ -47,8 +48,6 @@ pub struct Ability {
     pub start_trained: Option<Option<bool>>,
     #[serde(rename = "tooltip_details", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tooltip_details: Option<Option<Box<models::AbilityTooltipDetails>>>,
-    #[serde(rename = "type")]
-    pub r#type: models::ItemType,
     #[serde(rename = "update_time", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub update_time: Option<Option<i64>>,
     #[serde(rename = "upgrades", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -60,7 +59,7 @@ pub struct Ability {
 }
 
 impl Ability {
-    pub fn new(class_name: String, description: models::AbilityDescription, id: u32, name: String, r#type: models::ItemType) -> Ability {
+    pub fn new(class_name: String, description: models::AbilityDescription, id: u32, name: String) -> Ability {
         Ability {
             ability_type: None,
             behaviours: None,
@@ -79,7 +78,6 @@ impl Ability {
             properties: None,
             start_trained: None,
             tooltip_details: None,
-            r#type,
             update_time: None,
             upgrades: None,
             videos: None,

@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **ItemTier** | **int** |  | 
 **Name** | **string** |  | 
 **Shopable** | **bool** |  | 
-**Type** | **ItemType** |  | 
 **ComponentItems** | **List&lt;string&gt;** |  | [optional] 
 **CorruptedInfo** | [**CorruptedItemInfo**](CorruptedItemInfo.md) | Present on upgrades the Broker can corrupt (build 6711+). | [optional] 
 **Cost** | **int** |  | [optional] 

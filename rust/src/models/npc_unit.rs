@@ -31,7 +31,7 @@ pub struct NpcUnit {
     pub barrack_guardian_damage_resist_pct: Option<Option<f64>>,
     /// Secondary weapon the unit uses against bosses (builds 6711+).
     #[serde(rename = "boss_weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub boss_weapon_info: Option<Option<Box<models::WeaponInfo>>>,
+    pub boss_weapon_info: Option<Option<Box<models::NpcWeaponInfo>>>,
     #[serde(rename = "bound_abilities", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bound_abilities: Option<Option<std::collections::HashMap<String, String>>>,
     #[serde(rename = "class_name")]
@@ -182,7 +182,7 @@ pub struct NpcUnit {
     #[serde(rename = "walk_speed", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub walk_speed: Option<Option<f64>>,
     #[serde(rename = "weapon_info", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub weapon_info: Option<Option<Box<models::WeaponInfo>>>,
+    pub weapon_info: Option<Option<Box<models::NpcWeaponInfo>>>,
 }
 
 impl NpcUnit {

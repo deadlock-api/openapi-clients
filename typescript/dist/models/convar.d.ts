@@ -14,7 +14,7 @@ export interface Convar {
     /**
      * Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`.
      */
-    'default': object;
+    'default': any;
     /**
      * Help text shown by the in-game console.
      */

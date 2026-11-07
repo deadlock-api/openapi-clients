@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **backdoor_bullet_resist_modifier** | Option<[**models::SubclassBulletResistModifier**](SubclassBulletResistModifier.md)> |  | [optional]
 **barrack_boss_dps** | Option<**f64**> |  | [optional]
 **barrack_guardian_damage_resist_pct** | Option<**f64**> |  | [optional]
-**boss_weapon_info** | Option<[**models::WeaponInfo**](WeaponInfo.md)> | Secondary weapon the unit uses against bosses (builds 6711+). | [optional]
+**boss_weapon_info** | Option<[**models::NpcWeaponInfo**](NpcWeaponInfo.md)> | Secondary weapon the unit uses against bosses (builds 6711+). | [optional]
 **bound_abilities** | Option<**std::collections::HashMap<String, String>**> |  | [optional]
 **class_name** | **String** |  | 
 **core_models** | Option<[**models::TeamModels**](TeamModels.md)> | The Patron's core models, per team. | [optional]
@@ -82,7 +82,7 @@ Name | Type | Description | Notes
 **trooper_dps** | Option<**f64**> |  | [optional]
 **viewer_souls_class** | Option<**std::collections::HashMap<String, String>**> | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional]
 **walk_speed** | Option<**f64**> |  | [optional]
-**weapon_info** | Option<[**models::WeaponInfo**](WeaponInfo.md)> |  | [optional]
+**weapon_info** | Option<[**models::NpcWeaponInfo**](NpcWeaponInfo.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from deadlock_api_client.models.color import Color
+from deadlock_api_client.models.npc_weapon_info import NpcWeaponInfo
 from deadlock_api_client.models.subclass_bullet_resist_modifier import SubclassBulletResistModifier
 from deadlock_api_client.models.subclass_empowered_modifier_level import SubclassEmpoweredModifierLevel
 from deadlock_api_client.models.subclass_intrinsic_modifiers import SubclassIntrinsicModifiers
@@ -30,7 +31,6 @@ from deadlock_api_client.models.subclass_objective_regen import SubclassObjectiv
 from deadlock_api_client.models.subclass_ranged_armor_modifier import SubclassRangedArmorModifier
 from deadlock_api_client.models.subclass_trooper_damage_reduction import SubclassTrooperDamageReduction
 from deadlock_api_client.models.team_models import TeamModels
-from deadlock_api_client.models.weapon_info import WeaponInfo
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -47,7 +47,7 @@ class NpcUnit(BaseModel):
     backdoor_bullet_resist_modifier: Optional[SubclassBulletResistModifier] = None
     barrack_boss_dps: Optional[Union[StrictFloat, StrictInt]] = None
     barrack_guardian_damage_resist_pct: Optional[Union[StrictFloat, StrictInt]] = None
-    boss_weapon_info: Optional[WeaponInfo] = Field(default=None, description="Secondary weapon the unit uses against bosses (builds 6711+).")
+    boss_weapon_info: Optional[NpcWeaponInfo] = Field(default=None, description="Secondary weapon the unit uses against bosses (builds 6711+).")
     bound_abilities: Optional[Dict[str, StrictStr]] = None
     class_name: StrictStr
     core_models: Optional[TeamModels] = Field(default=None, description="The Patron's core models, per team.")
@@ -117,7 +117,7 @@ class NpcUnit(BaseModel):
     trooper_dps: Optional[Union[StrictFloat, StrictInt]] = None
     viewer_souls_class: Optional[Dict[str, StrictStr]] = Field(default=None, description="Distance threshold (as string key) → soul orb class shown to the viewer.")
     walk_speed: Optional[Union[StrictFloat, StrictInt]] = None
-    weapon_info: Optional[WeaponInfo] = None
+    weapon_info: Optional[NpcWeaponInfo] = None
     __properties: ClassVar[List[str]] = ["acceleration", "attack_t1_boss_max_range", "attack_t3_boss_max_range", "attack_t3_boss_phase2_max_range", "attack_trooper_max_range", "backdoor_bullet_resist_modifier", "barrack_boss_dps", "barrack_guardian_damage_resist_pct", "boss_weapon_info", "bound_abilities", "class_name", "core_models", "effigy_models", "empowered_modifier_level1", "empowered_modifier_level2", "enemy_trooper_damage_reduction", "enemy_trooper_protection_range", "generator_boss_dps", "gold_reward", "gold_reward_bonus_percent_per_minute", "health_bar_color_enemy", "health_bar_color_friend", "health_bar_color_team1", "health_bar_color_team2", "health_bar_color_team_neutral", "id", "image", "image_webp", "intrinsic_modifiers", "laser_dps_max_health", "laser_dps_to_players", "max_health", "max_health_final", "max_health_generator", "melee_attempt_range", "melee_damage", "melee_duration", "melee_hit_range", "models", "name", "near_death_duration", "neutral_abilities", "neutral_damage_growth", "neutral_melee", "neutral_type", "no_shield_laser_dps_to_players", "objective_health_growth_phase1", "objective_health_growth_phase2", "objective_regen", "phase2_health", "player_damage_resist_pct", "player_dps", "ranged_armor_modifier", "run_speed", "sight_range_npcs", "sight_range_players", "spawn_breakables_on_death", "stomp_damage", "stomp_damage_max_health_percent", "stomp_impact_radius", "stun_duration", "t1_boss_damage_resist_pct", "t1_boss_dps", "t1_boss_dpsbase_resist", "t1_boss_dpsmax_resist", "t1_boss_dpsmax_resist_time_in_seconds", "t2_boss_damage_resist_pct", "t2_boss_dps", "t2_boss_dpsbase_resist", "t2_boss_dpsmax_resist", "t2_boss_dpsmax_resist_time_in_seconds", "t3_boss_damage_resist_pct", "t3_boss_dps", "team_models", "trooper_damage_resist_pct", "trooper_dps", "viewer_souls_class", "walk_speed", "weapon_info"]
 
     model_config = ConfigDict(
@@ -622,7 +622,7 @@ class NpcUnit(BaseModel):
             "backdoor_bullet_resist_modifier": SubclassBulletResistModifier.from_dict(obj["backdoor_bullet_resist_modifier"]) if obj.get("backdoor_bullet_resist_modifier") is not None else None,
             "barrack_boss_dps": obj.get("barrack_boss_dps"),
             "barrack_guardian_damage_resist_pct": obj.get("barrack_guardian_damage_resist_pct"),
-            "boss_weapon_info": WeaponInfo.from_dict(obj["boss_weapon_info"]) if obj.get("boss_weapon_info") is not None else None,
+            "boss_weapon_info": NpcWeaponInfo.from_dict(obj["boss_weapon_info"]) if obj.get("boss_weapon_info") is not None else None,
             "bound_abilities": obj.get("bound_abilities"),
             "class_name": obj.get("class_name"),
             "core_models": TeamModels.from_dict(obj["core_models"]) if obj.get("core_models") is not None else None,
@@ -692,7 +692,7 @@ class NpcUnit(BaseModel):
             "trooper_dps": obj.get("trooper_dps"),
             "viewer_souls_class": obj.get("viewer_souls_class"),
             "walk_speed": obj.get("walk_speed"),
-            "weapon_info": WeaponInfo.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None
+            "weapon_info": NpcWeaponInfo.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None
         })
         return _obj
 

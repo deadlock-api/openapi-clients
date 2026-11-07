@@ -12,7 +12,6 @@ type Ability {
   hero: Int
   heroes: [Int!]
   update_time: Int
-  type: ItemType!
   grant_ammo_on_cast: Boolean
   behaviours: [String!]
   description: AbilityDescription!
@@ -20,6 +19,7 @@ type Ability {
   boss_damage_scale: Float
   dependant_abilities: [String!]
   videos: AbilityVideos
+  type: ItemType!
   properties: JSON!
   weapon_info: JSON!
   tooltip_details: JSON!
@@ -1181,7 +1181,6 @@ type Upgrade {
   hero: Int
   heroes: [Int!]
   update_time: Int
-  type: ItemType!
   shop_image: String
   shop_image_webp: String
   shop_image_small: String
@@ -1210,6 +1209,7 @@ type Upgrade {
   disabled_shop_filters: [String!]
   shop_version: Int
   disable_item_target: String
+  type: ItemType!
   weapon_info: JSON!
   properties: JSON!
   tooltip_sections: JSON!
@@ -1241,9 +1241,9 @@ type Weapon {
   hero: Int
   heroes: [Int!]
   update_time: Int
-  type: ItemType!
   crosshair_css_class: String
   use_custom_crosshair_settings: Boolean
+  type: ItemType!
   properties: JSON!
   weapon_info: JSON!
   custom_crosshair_settings: JSON!

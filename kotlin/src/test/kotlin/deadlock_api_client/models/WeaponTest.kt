@@ -28,7 +28,6 @@ import io.kotlintest.specs.ShouldSpec
 
 import deadlock_api_client.models.Weapon
 import deadlock_api_client.models.ItemProperty
-import deadlock_api_client.models.ItemType
 import deadlock_api_client.models.RawCustomCrosshairSettings
 import deadlock_api_client.models.WeaponInfo
 
@@ -53,12 +52,6 @@ class WeaponTest : ShouldSpec() {
         should("test name") {
             // uncomment below to test the property
             //modelInstance.name shouldBe ("TODO")
-        }
-
-        // to test the property `type`
-        should("test type") {
-            // uncomment below to test the property
-            //modelInstance.type shouldBe ("TODO")
         }
 
         // to test the property `crosshairCssClass`

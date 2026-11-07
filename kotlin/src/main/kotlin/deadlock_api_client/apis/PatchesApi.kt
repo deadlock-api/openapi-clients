@@ -212,8 +212,8 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun feed_0() : kotlin.collections.List<FeedItem> {
-        val localVarResponse = feed_0WithHttpInfo()
+    fun feedV2() : kotlin.collections.List<FeedItem> {
+        val localVarResponse = feedV2WithHttpInfo()
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<FeedItem>
@@ -240,8 +240,8 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun feed_0WithHttpInfo() : ApiResponse<kotlin.collections.List<FeedItem>?> {
-        val localVariableConfig = feed_0RequestConfig()
+    fun feedV2WithHttpInfo() : ApiResponse<kotlin.collections.List<FeedItem>?> {
+        val localVariableConfig = feedV2RequestConfig()
 
         return request<Unit, kotlin.collections.List<FeedItem>>(
             localVariableConfig
@@ -249,11 +249,11 @@ open class PatchesApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     }
 
     /**
-     * To obtain the request config of the operation feed_0
+     * To obtain the request config of the operation feedV2
      *
      * @return RequestConfig
      */
-    fun feed_0RequestConfig() : RequestConfig<Unit> {
+    fun feedV2RequestConfig() : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

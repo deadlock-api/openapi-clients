@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **BossDamageScale** | Pointer to **NullableFloat64** |  | [optional] 
 **ClassName** | **string** |  | 
 **DependantAbilities** | Pointer to **[]string** |  | [optional] 
-**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) |  | [optional] 
+**DependentAbilities** | Pointer to [**map[string]DependantAbilities**](DependantAbilities.md) | Abilities this one depends on. Entries whose ability has no data are left out. | [optional] 
 **Description** | [**NullableUpgradeDescription**](UpgradeDescription.md) |  | 
 **GrantAmmoOnCast** | Pointer to **NullableBool** |  | [optional] 
 **Hero** | Pointer to **NullableInt32** |  | [optional] 
@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **Properties** | Pointer to [**map[string]UpgradeProperty**](UpgradeProperty.md) |  | [optional] 
 **StartTrained** | Pointer to **NullableBool** |  | [optional] 
 **TooltipDetails** | Pointer to [**NullableAbilityTooltipDetails**](AbilityTooltipDetails.md) |  | [optional] 
-**Type** | [**ItemType**](ItemType.md) |  | 
 **UpdateTime** | Pointer to **NullableInt64** |  | [optional] 
 **Upgrades** | Pointer to [**[]RawAbilityUpgrade**](RawAbilityUpgrade.md) |  | [optional] 
 **Videos** | Pointer to [**NullableAbilityVideos**](AbilityVideos.md) |  | [optional] 
 **WeaponInfo** | Pointer to [**NullableRawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional] 
+**Type** | **string** |  | 
 **CrosshairCssClass** | Pointer to **NullableString** |  | [optional] 
 **CustomCrosshairSettings** | Pointer to [**NullableRawCustomCrosshairSettings**](RawCustomCrosshairSettings.md) |  | [optional] 
 **UseCustomCrosshairSettings** | Pointer to **NullableBool** |  | [optional] 
@@ -53,7 +53,7 @@ Name | Type | Description | Notes
 
 ### NewItem
 
-`func NewItem(className string, description NullableUpgradeDescription, id int32, name string, type_ ItemType, activation AbilityActivation, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, shopable bool, ) *Item`
+`func NewItem(className string, description NullableUpgradeDescription, id int32, name string, type_ string, activation AbilityActivation, isActiveItem bool, itemSlotType ItemSlotType, itemTier int32, shopable bool, ) *Item`
 
 NewItem instantiates a new Item object
 This constructor will assign default values to properties that have it defined,
@@ -613,26 +613,6 @@ HasTooltipDetails returns a boolean if a field has been set.
 `func (o *Item) UnsetTooltipDetails()`
 
 UnsetTooltipDetails ensures that no value is present for TooltipDetails, not even an explicit nil
-### GetType
-
-`func (o *Item) GetType() ItemType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *Item) GetTypeOk() (*ItemType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *Item) SetType(v ItemType)`
-
-SetType sets Type field to given value.
-
-
 ### GetUpdateTime
 
 `func (o *Item) GetUpdateTime() int64`
@@ -773,6 +753,26 @@ HasWeaponInfo returns a boolean if a field has been set.
 `func (o *Item) UnsetWeaponInfo()`
 
 UnsetWeaponInfo ensures that no value is present for WeaponInfo, not even an explicit nil
+### GetType
+
+`func (o *Item) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *Item) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *Item) SetType(v string)`
+
+SetType sets Type field to given value.
+
+
 ### GetCrosshairCssClass
 
 `func (o *Item) GetCrosshairCssClass() string`

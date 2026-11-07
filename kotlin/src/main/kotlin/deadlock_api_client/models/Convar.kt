@@ -41,7 +41,7 @@ data class Convar (
 
     /* Default value, typed by `type`: a bool, number or string, `[r, g, b, a]` for `color`, and an array of floats for vectors / `qangle`. */
     @Json(name = "default")
-    val default: kotlin.Any,
+    val default: kotlin.Any?,
 
     /* Raw `FCVAR_*` flag bits. */
     @Json(name = "flags")

@@ -34,7 +34,6 @@ Name | Type | Description | Notes
 **shopable** | **boolean** |  | [default to undefined]
 **start_trained** | **boolean** |  | [optional] [default to undefined]
 **tooltip_sections** | [**Array&lt;UpgradeTooltipSection&gt;**](UpgradeTooltipSection.md) |  | [optional] [default to undefined]
-**type** | [**ItemType**](ItemType.md) |  | [default to undefined]
 **update_time** | **number** |  | [optional] [default to undefined]
 **upgrades** | [**Array&lt;RawAbilityUpgrade&gt;**](RawAbilityUpgrade.md) |  | [optional] [default to undefined]
 **weapon_info** | [**RawItemWeaponInfoInner**](RawItemWeaponInfoInner.md) |  | [optional] [default to undefined]
@@ -74,7 +73,6 @@ const instance: Upgrade = {
     shopable,
     start_trained,
     tooltip_sections,
-    type,
     update_time,
     upgrades,
     weapon_info,

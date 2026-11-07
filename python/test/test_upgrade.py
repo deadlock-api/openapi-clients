@@ -46,7 +46,7 @@ class TestUpgrade(unittest.TestCase):
                         ], 
                     property_upgrades = [
                         deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                            bonus = '', 
+                            bonus = null, 
                             fixed_corrupted_bonus = True, 
                             name = '', 
                             round_corrupted_bonus = True, 
@@ -112,13 +112,12 @@ class TestUpgrade(unittest.TestCase):
                             ], 
                         section_type = null, )
                     ],
-                type = 'ability',
                 update_time = 56,
                 upgrades = [
                     deadlock_api_client.models.raw_ability_upgrade.RawAbilityUpgrade(
                         property_upgrades = [
                             deadlock_api_client.models.raw_ability_upgrade_property_upgrade.RawAbilityUpgradePropertyUpgrade(
-                                bonus = '', 
+                                bonus = null, 
                                 fixed_corrupted_bonus = True, 
                                 name = '', 
                                 round_corrupted_bonus = True, 
@@ -139,7 +138,6 @@ class TestUpgrade(unittest.TestCase):
                 item_tier = 0,
                 name = '',
                 shopable = True,
-                type = 'ability',
         )
         """
 

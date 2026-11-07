@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **boss_damage_scale** | Option<**f64**> |  | [optional]
 **class_name** | **String** |  | 
 **dependant_abilities** | Option<**Vec<String>**> |  | [optional]
-**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> |  | [optional]
+**dependent_abilities** | Option<[**std::collections::HashMap<String, models::DependantAbilities>**](DependantAbilities.md)> | Abilities this one depends on. Entries whose ability has no data are left out. | [optional]
 **description** | [**models::AbilityDescription**](AbilityDescription.md) |  | 
 **grant_ammo_on_cast** | Option<**bool**> |  | [optional]
 **hero** | Option<**u32**> |  | [optional]
@@ -21,7 +21,6 @@ Name | Type | Description | Notes
 **properties** | Option<[**std::collections::HashMap<String, models::ItemProperty>**](ItemProperty.md)> |  | [optional]
 **start_trained** | Option<**bool**> |  | [optional]
 **tooltip_details** | Option<[**models::AbilityTooltipDetails**](AbilityTooltipDetails.md)> |  | [optional]
-**r#type** | [**models::ItemType**](ItemType.md) |  | 
 **update_time** | Option<**i64**> |  | [optional]
 **upgrades** | Option<[**Vec<models::RawAbilityUpgrade>**](RawAbilityUpgrade.md)> |  | [optional]
 **videos** | Option<[**models::AbilityVideos**](AbilityVideos.md)> |  | [optional]

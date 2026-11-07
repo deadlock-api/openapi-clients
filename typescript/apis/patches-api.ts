@@ -97,7 +97,7 @@ export const PatchesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        feed_1: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        feedV2: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v2/patches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -161,10 +161,10 @@ export const PatchesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async feed_1(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeedItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.feed_1(options);
+        async feedV2(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeedItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.feedV2(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PatchesApi.feed_1']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PatchesApi.feedV2']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -201,8 +201,8 @@ export const PatchesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        feed_1(options?: RawAxiosRequestConfig): AxiosPromise<Array<FeedItem>> {
-            return localVarFp.feed_1(options).then((request) => request(axios, basePath));
+        feedV2(options?: RawAxiosRequestConfig): AxiosPromise<Array<FeedItem>> {
+            return localVarFp.feedV2(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -238,8 +238,8 @@ export class PatchesApi extends BaseAPI {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public feed_1(options?: RawAxiosRequestConfig) {
-        return PatchesApiFp(this.configuration).feed_1(options).then((request) => request(this.axios, this.basePath));
+    public feedV2(options?: RawAxiosRequestConfig) {
+        return PatchesApiFp(this.configuration).feedV2(options).then((request) => request(this.axios, this.basePath));
     }
 }
 

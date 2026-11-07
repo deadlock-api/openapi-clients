@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Bonus** | **string** |  | 
+**Bonus** | [**StringOrNumber**](StringOrNumber.md) |  | 
 **Name** | **string** |  | 
 **FixedCorruptedBonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 
 **RoundCorruptedBonus** | **bool** | Corrupted item bonuses only (build 6711+). | [optional] 

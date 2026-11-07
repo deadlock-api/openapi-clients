@@ -55,7 +55,7 @@ namespace DeadlockApiClient.Model
         /// <param name="tooltipIsImportant">tooltipIsImportant</param>
         /// <param name="tooltipSection">tooltipSection</param>
         [JsonConstructor]
-        public UpgradeProperty(Option<bool?> canSetTokenOverride = default, Option<string?> conditional = default, Option<string?> cssClass = default, Option<string?> disableValue = default, Option<string?> displayUnits = default, Option<string?> icon = default, Option<string?> label = default, Option<string?> locTokenOverride = default, Option<bool?> negativeAttribute = default, Option<string?> postfix = default, Option<string?> postvalueLabel = default, Option<string?> prefix = default, Option<string?> providedPropertyType = default, Option<List<string>?> requiredUpgradeBits = default, Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default, Option<string?> streetBrawlValue = default, Option<List<StatsUsageFlag>?> usageFlags = default, Option<string?> value = default, Option<bool?> tooltipIsElevated = default, Option<bool?> tooltipIsImportant = default, Option<AbilitySectionType?> tooltipSection = default)
+        public UpgradeProperty(Option<bool?> canSetTokenOverride = default, Option<string?> conditional = default, Option<string?> cssClass = default, Option<string?> disableValue = default, Option<string?> displayUnits = default, Option<string?> icon = default, Option<string?> label = default, Option<string?> locTokenOverride = default, Option<bool?> negativeAttribute = default, Option<string?> postfix = default, Option<string?> postvalueLabel = default, Option<string?> prefix = default, Option<string?> providedPropertyType = default, Option<List<string>?> requiredUpgradeBits = default, Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default, Option<StringOrNumber?> streetBrawlValue = default, Option<List<StatsUsageFlag>?> usageFlags = default, Option<StringOrNumber?> value = default, Option<bool?> tooltipIsElevated = default, Option<bool?> tooltipIsImportant = default, Option<AbilitySectionType?> tooltipSection = default)
         {
             CanSetTokenOverrideOption = canSetTokenOverride;
             ConditionalOption = conditional;
@@ -297,13 +297,13 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> StreetBrawlValueOption { get; private set; }
+        public Option<StringOrNumber?> StreetBrawlValueOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets StreetBrawlValue
         /// </summary>
         [JsonPropertyName("street_brawl_value")]
-        public string? StreetBrawlValue { get { return this.StreetBrawlValueOption.Value; } set { this.StreetBrawlValueOption = new(value); } }
+        public StringOrNumber? StreetBrawlValue { get { return this.StreetBrawlValueOption.Value; } set { this.StreetBrawlValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of UsageFlags
@@ -323,14 +323,14 @@ namespace DeadlockApiClient.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> ValueOption { get; private set; }
+        public Option<StringOrNumber?> ValueOption { get; private set; }
 
         /// <summary>
         /// Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;).
         /// </summary>
         /// <value>Raw JSON value preserves the source distinction between numeric and stringly-typed bonuses (&#x60;\&quot;14.5\&quot;&#x60; vs &#x60;14.5&#x60;).</value>
         [JsonPropertyName("value")]
-        public string? Value { get { return this.ValueOption.Value; } set { this.ValueOption = new(value); } }
+        public StringOrNumber? Value { get { return this.ValueOption.Value; } set { this.ValueOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of TooltipIsElevated
@@ -449,9 +449,9 @@ namespace DeadlockApiClient.Model
             Option<string?> providedPropertyType = default;
             Option<List<string>?> requiredUpgradeBits = default;
             Option<RawItemPropertyScaleFunctionSubclass?> scaleFunction = default;
-            Option<string?> streetBrawlValue = default;
+            Option<StringOrNumber?> streetBrawlValue = default;
             Option<List<StatsUsageFlag>?> usageFlags = default;
-            Option<string?> value = default;
+            Option<StringOrNumber?> value = default;
             Option<bool?> tooltipIsElevated = default;
             Option<bool?> tooltipIsImportant = default;
             Option<AbilitySectionType?> tooltipSection = default;
@@ -517,13 +517,13 @@ namespace DeadlockApiClient.Model
                             scaleFunction = new Option<RawItemPropertyScaleFunctionSubclass?>(JsonSerializer.Deserialize<RawItemPropertyScaleFunctionSubclass>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "street_brawl_value":
-                            streetBrawlValue = new Option<string?>(utf8JsonReader.GetString());
+                            streetBrawlValue = new Option<StringOrNumber?>(JsonSerializer.Deserialize<StringOrNumber>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "usage_flags":
                             usageFlags = new Option<List<StatsUsageFlag>?>(JsonSerializer.Deserialize<List<StatsUsageFlag>>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "value":
-                            value = new Option<string?>(utf8JsonReader.GetString());
+                            value = new Option<StringOrNumber?>(JsonSerializer.Deserialize<StringOrNumber>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "tooltip_is_elevated":
                             tooltipIsElevated = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
@@ -661,10 +661,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("scale_function");
             if (upgradeProperty.StreetBrawlValueOption.IsSet)
                 if (upgradeProperty.StreetBrawlValueOption.Value != null)
-                    writer.WriteString("street_brawl_value", upgradeProperty.StreetBrawlValue);
+                {
+                    writer.WritePropertyName("street_brawl_value");
+                    JsonSerializer.Serialize(writer, upgradeProperty.StreetBrawlValue, jsonSerializerOptions);
+                }
                 else
                     writer.WriteNull("street_brawl_value");
-
             if (upgradeProperty.UsageFlagsOption.IsSet)
                 if (upgradeProperty.UsageFlagsOption.Value != null)
                 {
@@ -675,10 +677,12 @@ namespace DeadlockApiClient.Model
                     writer.WriteNull("usage_flags");
             if (upgradeProperty.ValueOption.IsSet)
                 if (upgradeProperty.ValueOption.Value != null)
-                    writer.WriteString("value", upgradeProperty.Value);
+                {
+                    writer.WritePropertyName("value");
+                    JsonSerializer.Serialize(writer, upgradeProperty.Value, jsonSerializerOptions);
+                }
                 else
                     writer.WriteNull("value");
-
             if (upgradeProperty.TooltipIsElevatedOption.IsSet)
                 if (upgradeProperty.TooltipIsElevatedOption.Value != null)
                     writer.WriteBoolean("tooltip_is_elevated", upgradeProperty.TooltipIsElevatedOption.Value!.Value);

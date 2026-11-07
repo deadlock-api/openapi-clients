@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**big_patch_days**](PatchesApi.md#big_patch_days) | **GET** /v1/patches/big-days | Big Days
 [**feed**](PatchesApi.md#feed) | **GET** /v1/patches | Notes
-[**feed_0**](PatchesApi.md#feed_0) | **GET** /v2/patches | Notes
+[**feed_v2**](PatchesApi.md#feed_v2) | **GET** /v2/patches | Notes
 
 
 
@@ -64,9 +64,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## feed_0
+## feed_v2
 
-> Vec<models::FeedItem> feed_0()
+> Vec<models::FeedItem> feed_v2()
 Notes
 
  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 

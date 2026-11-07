@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **backdoor_bullet_resist_modifier** | [**SubclassBulletResistModifier**](SubclassBulletResistModifier.md) |  | [optional] [default to undefined]
 **barrack_boss_dps** | **number** |  | [optional] [default to undefined]
 **barrack_guardian_damage_resist_pct** | **number** |  | [optional] [default to undefined]
-**boss_weapon_info** | [**WeaponInfo**](WeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] [default to undefined]
+**boss_weapon_info** | [**NpcWeaponInfo**](NpcWeaponInfo.md) | Secondary weapon the unit uses against bosses (builds 6711+). | [optional] [default to undefined]
 **bound_abilities** | **{ [key: string]: string; }** |  | [optional] [default to undefined]
 **class_name** | **string** |  | [default to undefined]
 **core_models** | [**TeamModels**](TeamModels.md) | The Patron\&#39;s core models, per team. | [optional] [default to undefined]
@@ -83,7 +83,7 @@ Name | Type | Description | Notes
 **trooper_dps** | **number** |  | [optional] [default to undefined]
 **viewer_souls_class** | **{ [key: string]: string; }** | Distance threshold (as string key) → soul orb class shown to the viewer. | [optional] [default to undefined]
 **walk_speed** | **number** |  | [optional] [default to undefined]
-**weapon_info** | [**WeaponInfo**](WeaponInfo.md) |  | [optional] [default to undefined]
+**weapon_info** | [**NpcWeaponInfo**](NpcWeaponInfo.md) |  | [optional] [default to undefined]
 
 ## Example
 

@@ -6,7 +6,7 @@ All URIs are relative to *https://api.deadlock-api.com*
 |------------- | ------------- | -------------|
 |[**bigPatchDays**](#bigpatchdays) | **GET** /v1/patches/big-days | Big Days|
 |[**feed**](#feed) | **GET** /v1/patches | Notes|
-|[**feed_0**](#feed_0) | **GET** /v2/patches | Notes|
+|[**feedV2**](#feedv2) | **GET** /v2/patches | Notes|
 
 # **bigPatchDays**
 > Array<string> bigPatchDays()
@@ -97,8 +97,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **feed_0**
-> Array<FeedItem> feed_0()
+# **feedV2**
+> Array<FeedItem> feedV2()
 
  Returns a unified feed combining patch notes from the official Forum changelog and the Steam news feed.  Each entry is tagged with a `source` field (`forum` or `steam`).  - Forum RSS: https://forums.playdeadlock.com/forums/changelog.10/index.rss - Steam News RSS: https://store.steampowered.com/feeds/news/app/1422450/  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 100req/s | | Key | - | | Global | - | 
 
@@ -113,7 +113,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PatchesApi(configuration);
 
-const { status, data } = await apiInstance.feed_0();
+const { status, data } = await apiInstance.feedV2();
 ```
 
 ### Parameters

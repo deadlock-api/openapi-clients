@@ -21,7 +21,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from deadlock_api_client.models.item_property import ItemProperty
-from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.raw_custom_crosshair_settings import RawCustomCrosshairSettings
 from deadlock_api_client.models.weapon_info import WeaponInfo
 from typing import Optional, Set
@@ -43,11 +42,10 @@ class Weapon(BaseModel):
     name: StrictStr
     properties: Optional[Dict[str, ItemProperty]] = None
     start_trained: Optional[StrictBool] = None
-    type: ItemType
     update_time: Optional[StrictInt] = None
     use_custom_crosshair_settings: Optional[StrictBool] = None
     weapon_info: Optional[WeaponInfo] = None
-    __properties: ClassVar[List[str]] = ["class_name", "crosshair_css_class", "custom_crosshair_settings", "hero", "heroes", "id", "image", "image_webp", "name", "properties", "start_trained", "type", "update_time", "use_custom_crosshair_settings", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["class_name", "crosshair_css_class", "custom_crosshair_settings", "hero", "heroes", "id", "image", "image_webp", "name", "properties", "start_trained", "update_time", "use_custom_crosshair_settings", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -183,7 +181,6 @@ class Weapon(BaseModel):
             if obj.get("properties") is not None
             else None,
             "start_trained": obj.get("start_trained"),
-            "type": obj.get("type"),
             "update_time": obj.get("update_time"),
             "use_custom_crosshair_settings": obj.get("use_custom_crosshair_settings"),
             "weapon_info": WeaponInfo.from_dict(obj["weapon_info"]) if obj.get("weapon_info") is not None else None

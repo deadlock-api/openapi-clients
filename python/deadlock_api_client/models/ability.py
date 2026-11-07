@@ -26,7 +26,6 @@ from deadlock_api_client.models.ability_type import AbilityType
 from deadlock_api_client.models.ability_videos import AbilityVideos
 from deadlock_api_client.models.dependant_abilities import DependantAbilities
 from deadlock_api_client.models.item_property import ItemProperty
-from deadlock_api_client.models.item_type import ItemType
 from deadlock_api_client.models.raw_ability_upgrade import RawAbilityUpgrade
 from deadlock_api_client.models.raw_item_weapon_info_inner import RawItemWeaponInfoInner
 from typing import Optional, Set
@@ -42,7 +41,7 @@ class Ability(BaseModel):
     boss_damage_scale: Optional[Union[StrictFloat, StrictInt]] = None
     class_name: StrictStr
     dependant_abilities: Optional[List[StrictStr]] = None
-    dependent_abilities: Optional[Dict[str, DependantAbilities]] = None
+    dependent_abilities: Optional[Dict[str, DependantAbilities]] = Field(default=None, description="Abilities this one depends on. Entries whose ability has no data are left out.")
     description: AbilityDescription
     grant_ammo_on_cast: Optional[StrictBool] = None
     hero: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
@@ -54,12 +53,11 @@ class Ability(BaseModel):
     properties: Optional[Dict[str, ItemProperty]] = None
     start_trained: Optional[StrictBool] = None
     tooltip_details: Optional[AbilityTooltipDetails] = None
-    type: ItemType
     update_time: Optional[StrictInt] = None
     upgrades: Optional[List[RawAbilityUpgrade]] = None
     videos: Optional[AbilityVideos] = None
     weapon_info: Optional[RawItemWeaponInfoInner] = None
-    __properties: ClassVar[List[str]] = ["ability_type", "behaviours", "boss_damage_scale", "class_name", "dependant_abilities", "dependent_abilities", "description", "grant_ammo_on_cast", "hero", "heroes", "id", "image", "image_webp", "name", "properties", "start_trained", "tooltip_details", "type", "update_time", "upgrades", "videos", "weapon_info"]
+    __properties: ClassVar[List[str]] = ["ability_type", "behaviours", "boss_damage_scale", "class_name", "dependant_abilities", "dependent_abilities", "description", "grant_ammo_on_cast", "hero", "heroes", "id", "image", "image_webp", "name", "properties", "start_trained", "tooltip_details", "update_time", "upgrades", "videos", "weapon_info"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -254,7 +252,6 @@ class Ability(BaseModel):
             else None,
             "start_trained": obj.get("start_trained"),
             "tooltip_details": AbilityTooltipDetails.from_dict(obj["tooltip_details"]) if obj.get("tooltip_details") is not None else None,
-            "type": obj.get("type"),
             "update_time": obj.get("update_time"),
             "upgrades": [RawAbilityUpgrade.from_dict(_item) for _item in obj["upgrades"]] if obj.get("upgrades") is not None else None,
             "videos": AbilityVideos.from_dict(obj["videos"]) if obj.get("videos") is not None else None,
