@@ -170,10 +170,22 @@ class AnalyticsApiTest extends TestCase
     /**
      * Test case for heroBuildStats
      *
-     * Hero Build Stats.
+     * Hero Build Stats (one hero).
      *
      */
     public function testHeroBuildStats()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for heroBuildStatsByHeroes
+     *
+     * Hero Build Stats.
+     *
+     */
+    public function testHeroBuildStatsByHeroes()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

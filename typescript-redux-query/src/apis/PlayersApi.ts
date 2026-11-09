@@ -485,7 +485,7 @@ export function playerHeroStats<T>(requestParameters: PlayerHeroStatsRequest, re
 }
 
 /**
- *  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match\'s ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+ *  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match\'s ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
  * Rank
  */
 function rankRaw<T>(requestParameters: RankRequest, requestConfig: runtime.TypedQueryConfig<T, RankResponse> = {}): QueryConfig<T> {
@@ -525,7 +525,7 @@ function rankRaw<T>(requestParameters: RankRequest, requestConfig: runtime.Typed
 }
 
 /**
-*  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match\'s ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+*  Returns the player\'s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match\'s ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player\'s recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 * Rank
 */
 export function rank<T>(requestParameters: RankRequest, requestConfig?: runtime.TypedQueryConfig<T, RankResponse>): QueryConfig<T> {
@@ -533,7 +533,7 @@ export function rank<T>(requestParameters: RankRequest, requestConfig?: runtime.
 }
 
 /**
- * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+ * Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
  * Rank Avg Image
  */
 function rankAvgImageRaw<T>(requestParameters: RankAvgImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -583,7 +583,7 @@ function rankAvgImageRaw<T>(requestParameters: RankAvgImageRequest, requestConfi
 }
 
 /**
-* Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+* Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 * Rank Avg Image
 */
 export function rankAvgImage<T>(requestParameters: RankAvgImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
@@ -591,7 +591,7 @@ export function rankAvgImage<T>(requestParameters: RankAvgImageRequest, requestC
 }
 
 /**
- *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+ *  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
  * Batch Rank
  */
 function rankBatchRaw<T>(requestParameters: RankBatchRequest, requestConfig: runtime.TypedQueryConfig<T, Array<AccountRank>> = {}): QueryConfig<T> {
@@ -637,7 +637,7 @@ function rankBatchRaw<T>(requestParameters: RankBatchRequest, requestConfig: run
 }
 
 /**
-*  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+*  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 * Batch Rank
 */
 export function rankBatch<T>(requestParameters: RankBatchRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<AccountRank>>): QueryConfig<T> {
@@ -735,7 +735,7 @@ export function rankDistribution<T>(requestParameters: RankDistributionRequest, 
 }
 
 /**
- * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
+ * Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
  * Rank Image
  */
 function rankImageRaw<T>(requestParameters: RankImageRequest, requestConfig: runtime.TypedQueryConfig<T, Array<number>> = {}): QueryConfig<T> {
@@ -780,7 +780,7 @@ function rankImageRaw<T>(requestParameters: RankImageRequest, requestConfig: run
 }
 
 /**
-* Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
+* Returns the rank badge image directly (binary), not a URL, with the player\'s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 * Rank Image
 */
 export function rankImage<T>(requestParameters: RankImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {

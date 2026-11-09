@@ -200,7 +200,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -212,7 +212,7 @@ namespace DeadlockApiClient.Api
         /// Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        ///  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -223,7 +223,7 @@ namespace DeadlockApiClient.Api
         /// Rank Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
@@ -236,7 +236,7 @@ namespace DeadlockApiClient.Api
         /// Rank Avg Image
         /// </summary>
         /// <remarks>
-        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -248,7 +248,7 @@ namespace DeadlockApiClient.Api
         /// Batch Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -260,7 +260,7 @@ namespace DeadlockApiClient.Api
         /// Batch Rank
         /// </summary>
         /// <remarks>
-        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+        ///  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -274,7 +274,7 @@ namespace DeadlockApiClient.Api
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791504000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -293,7 +293,7 @@ namespace DeadlockApiClient.Api
         /// <remarks>
         ///  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </remarks>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791504000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -310,7 +310,7 @@ namespace DeadlockApiClient.Api
         /// Rank Image
         /// </summary>
         /// <remarks>
-        /// Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -323,7 +323,7 @@ namespace DeadlockApiClient.Api
         /// Rank Image
         /// </summary>
         /// <remarks>
-        /// Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </remarks>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -2245,7 +2245,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRank(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId);
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2263,7 +2263,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+        /// Rank  Returns the player&#39;s rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match&#39;s ranked interval (&#x60;sub_rank_xp&#x60; in &#x60;/v1/assets/ranked-seasons&#x60;: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player&#39;s recent ranked matches reports a rank, &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; are all &#x60;0&#x60;, which is the &#x60;Obscurus&#x60; (unranked) tier, and &#x60;last_match&#x60; is &#x60;null&#x60;.  &#x60;last_match&#x60; carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
@@ -2522,7 +2522,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankAvgImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds, Option<string> format);
 
         /// <summary>
-        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -2541,7 +2541,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Avg Image Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the &#x60;Obscurus&#x60; image is returned. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma-separated list of account IDs (max 12).</param>
@@ -2810,7 +2810,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankBatch(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, List<int> accountIds);
 
         /// <summary>
-        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2828,7 +2828,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+        /// Batch Rank  Returns the rank of each player at the end of their latest ranked match, the batch form of &#x60;/v1/players/{account_id}/rank&#x60;. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get &#x60;badge&#x60;, &#x60;rank&#x60; and &#x60;subrank&#x60; of &#x60;0&#x60; and a &#x60;null&#x60; &#x60;last_match&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountIds">Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.</param>
@@ -3103,7 +3103,7 @@ namespace DeadlockApiClient.Api
         /// <summary>
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791504000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3130,7 +3130,7 @@ namespace DeadlockApiClient.Api
         /// Rank Distribution  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | - -- - | - -- -- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
-        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791504000)</param>
+        /// <param name="minUnixTimestamp">Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)</param>
         /// <param name="maxUnixTimestamp">Filter matches based on their start time (Unix timestamp). (optional)</param>
         /// <param name="minDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
         /// <param name="maxDurationS">Filter matches based on their duration in seconds (up to 7000s). (optional)</param>
@@ -3414,7 +3414,7 @@ namespace DeadlockApiClient.Api
         partial void OnErrorRankImage(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, int accountId, Option<string> format);
 
         /// <summary>
-        /// Rank Image Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Image Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>
         /// <param name="format">Image format. Defaults to &#x60;png&#x60;. Supported: &#x60;png&#x60;, &#x60;webp&#x60;. (optional)</param>
@@ -3433,7 +3433,7 @@ namespace DeadlockApiClient.Api
         }
 
         /// <summary>
-        /// Rank Image Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.
+        /// Rank Image Returns the rank badge image directly (binary), not a URL, with the player&#39;s I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use &#x60;?format&#x3D;webp&#x60; for WebP.  ### Rate Limits: &gt; Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The players &#x60;SteamID3&#x60;</param>

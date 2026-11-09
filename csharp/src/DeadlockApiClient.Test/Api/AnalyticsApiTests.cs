@@ -294,6 +294,35 @@ namespace DeadlockApiClient.Test.Api
         }
 
         /// <summary>
+        /// Test HeroBuildStatsByHeroes
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task HeroBuildStatsByHeroesAsyncTest()
+        {
+            Client.Option<string?> heroIds = default!;
+            Client.Option<string?> matchMode = default!;
+            Client.Option<string> bucket = default!;
+            Client.Option<long?> minUnixTimestamp = default!;
+            Client.Option<long?> maxUnixTimestamp = default!;
+            Client.Option<long?> minDurationS = default!;
+            Client.Option<long?> maxDurationS = default!;
+            Client.Option<int?> minAverageBadge = default!;
+            Client.Option<int?> maxAverageBadge = default!;
+            Client.Option<long?> minMatchId = default!;
+            Client.Option<long?> maxMatchId = default!;
+            Client.Option<long?> heroBuildId = default!;
+            Client.Option<bool?> includePerformance = default!;
+            Client.Option<long?> minMatches = default!;
+            Client.Option<int?> accountId = default!;
+            Client.Option<List<int>?> accountIds = default!;
+            Client.Option<List<int>?> abilityOrderPrefix = default!;
+            Client.Option<List<int>?> abilityUnlockOrderPrefix = default!;
+            var response = await _instance.HeroBuildStatsByHeroesAsync(heroIds, matchMode, bucket, minUnixTimestamp, maxUnixTimestamp, minDurationS, maxDurationS, minAverageBadge, maxAverageBadge, minMatchId, maxMatchId, heroBuildId, includePerformance, minMatches, accountId, accountIds, abilityOrderPrefix, abilityUnlockOrderPrefix);
+            var model = response.Ok();
+            Assert.IsType<List<HeroBuildStats>>(model);
+        }
+
+        /// <summary>
         /// Test HeroCombStats
         /// </summary>
         [Fact (Skip = "not implemented")]

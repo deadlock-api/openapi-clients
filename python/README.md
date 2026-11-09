@@ -127,7 +127,8 @@ Class | Method | HTTP request | Description
 *AnalyticsApi* | [**build_item_stats**](docs/AnalyticsApi.md#build_item_stats) | **GET** /v1/analytics/build-item-stats | Build Item Stats
 *AnalyticsApi* | [**game_stats**](docs/AnalyticsApi.md#game_stats) | **GET** /v1/analytics/game-stats | Game Stats
 *AnalyticsApi* | [**hero_ban_stats**](docs/AnalyticsApi.md#hero_ban_stats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats
-*AnalyticsApi* | [**hero_build_stats**](docs/AnalyticsApi.md#hero_build_stats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats
+*AnalyticsApi* | [**hero_build_stats**](docs/AnalyticsApi.md#hero_build_stats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats (one hero)
+*AnalyticsApi* | [**hero_build_stats_by_heroes**](docs/AnalyticsApi.md#hero_build_stats_by_heroes) | **GET** /v1/analytics/hero-build-stats | Hero Build Stats
 *AnalyticsApi* | [**hero_comb_stats**](docs/AnalyticsApi.md#hero_comb_stats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats
 *AnalyticsApi* | [**hero_counters_stats**](docs/AnalyticsApi.md#hero_counters_stats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats
 *AnalyticsApi* | [**hero_scoreboard**](docs/AnalyticsApi.md#hero_scoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard

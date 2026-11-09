@@ -80,7 +80,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *AnalyticsApi* | [**buildItemStats**](docs/AnalyticsApi.md#builditemstats) | **GET** /v1/analytics/build-item-stats | Build Item Stats |
 | *AnalyticsApi* | [**gameStats**](docs/AnalyticsApi.md#gamestats) | **GET** /v1/analytics/game-stats | Game Stats |
 | *AnalyticsApi* | [**heroBanStats**](docs/AnalyticsApi.md#herobanstats) | **GET** /v1/analytics/hero-ban-stats | Hero Ban Stats |
-| *AnalyticsApi* | [**heroBuildStats**](docs/AnalyticsApi.md#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats |
+| *AnalyticsApi* | [**heroBuildStats**](docs/AnalyticsApi.md#herobuildstats) | **GET** /v1/analytics/hero-build-stats/{hero_id} | Hero Build Stats (one hero) |
+| *AnalyticsApi* | [**heroBuildStatsByHeroes**](docs/AnalyticsApi.md#herobuildstatsbyheroes) | **GET** /v1/analytics/hero-build-stats | Hero Build Stats |
 | *AnalyticsApi* | [**heroCombStats**](docs/AnalyticsApi.md#herocombstats) | **GET** /v1/analytics/hero-comb-stats | Hero Comb Stats |
 | *AnalyticsApi* | [**heroCountersStats**](docs/AnalyticsApi.md#herocountersstats) | **GET** /v1/analytics/hero-counter-stats | Hero Counter Stats |
 | *AnalyticsApi* | [**heroScoreboard**](docs/AnalyticsApi.md#heroscoreboard) | **GET** /v1/analytics/scoreboards/heroes | Hero Scoreboard |

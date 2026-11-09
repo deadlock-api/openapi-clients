@@ -223,8 +223,8 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      */
     heroBanStats: (matchMode?: string | null, bucket?: HeroBanStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
-     * @summary Hero Build Stats
+     *  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats (one hero)
      * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
@@ -244,9 +244,35 @@ export declare const AnalyticsApiAxiosParamCreator: (configuration?: Configurati
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
      * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     heroBuildStats: (heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats
+     * @param {string | null} [heroIds] Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {HeroBuildStatsByHeroesBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+     * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+     * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
+     * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    heroBuildStatsByHeroes: (heroIds?: string | null, matchMode?: string | null, bucket?: HeroBuildStatsByHeroesBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -855,8 +881,8 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      */
     heroBanStats(matchMode?: string | null, bucket?: HeroBanStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBanStats>>>;
     /**
-     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
-     * @summary Hero Build Stats
+     *  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats (one hero)
      * @param {number} heroId The hero ID to fetch build stats for. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
      * @param {HeroBuildStatsBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
@@ -876,9 +902,35 @@ export declare const AnalyticsApiFp: (configuration?: Configuration) => {
      * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
      * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     heroBuildStats(heroId: number, matchMode?: string | null, bucket?: HeroBuildStatsBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
+    /**
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats
+     * @param {string | null} [heroIds] Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {string | null} [matchMode] Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     * @param {HeroBuildStatsByHeroesBucketEnum} [bucket] Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+     * @param {number | null} [minUnixTimestamp] Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+     * @param {number | null} [maxUnixTimestamp] Filter matches based on their start time (Unix timestamp).
+     * @param {number | null} [minDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [maxDurationS] Filter matches based on their duration in seconds (up to 7000s).
+     * @param {number | null} [minAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [maxAverageBadge] Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     * @param {number | null} [minMatchId] Filter matches based on their ID.
+     * @param {number | null} [maxMatchId] Filter matches based on their ID.
+     * @param {number | null} [heroBuildId] Filter results for a specific hero build.
+     * @param {boolean | null} [includePerformance] Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+     * @param {number | null} [minMatches] The minimum number of matches played for a build to be included in the response.
+     * @param {number | null} [accountId] Filter for matches with a specific player account ID.
+     * @param {Array<number> | null} [accountIds] Comma separated list of account ids to include
+     * @param {Array<number> | null} [abilityOrderPrefix] Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     * @param {Array<number> | null} [abilityUnlockOrderPrefix] Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    heroBuildStatsByHeroes(heroIds?: string | null, matchMode?: string | null, bucket?: HeroBuildStatsByHeroesBucketEnum, minUnixTimestamp?: number | null, maxUnixTimestamp?: number | null, minDurationS?: number | null, maxDurationS?: number | null, minAverageBadge?: number | null, maxAverageBadge?: number | null, minMatchId?: number | null, maxMatchId?: number | null, heroBuildId?: number | null, includePerformance?: boolean | null, minMatches?: number | null, accountId?: number | null, accountIds?: Array<number> | null, abilityOrderPrefix?: Array<number> | null, abilityUnlockOrderPrefix?: Array<number> | null, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HeroBuildStats>>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -1369,13 +1421,22 @@ export declare const AnalyticsApiFactory: (configuration?: Configuration, basePa
      */
     heroBanStats(requestParameters?: AnalyticsApiHeroBanStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBanStats>>;
     /**
-     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
-     * @summary Hero Build Stats
+     *  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats (one hero)
      * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBuildStats>>;
+    /**
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats
+     * @param {AnalyticsApiHeroBuildStatsByHeroesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    heroBuildStatsByHeroes(requestParameters?: AnalyticsApiHeroBuildStatsByHeroesRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HeroBuildStats>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -2057,6 +2118,83 @@ export interface AnalyticsApiHeroBuildStatsRequest {
      * Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
      */
     readonly bucket?: HeroBuildStatsBucketEnum;
+    /**
+     * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
+     */
+    readonly minUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their start time (Unix timestamp).
+     */
+    readonly maxUnixTimestamp?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly minDurationS?: number | null;
+    /**
+     * Filter matches based on their duration in seconds (up to 7000s).
+     */
+    readonly maxDurationS?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly minAverageBadge?: number | null;
+    /**
+     * Filter matches based on the average badge level (tier &#x3D; first digits, subtier &#x3D; last digit) of *both* teams involved. See more: &lt;https://api.deadlock-api.com/v1/assets/ranks&gt;
+     */
+    readonly maxAverageBadge?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly minMatchId?: number | null;
+    /**
+     * Filter matches based on their ID.
+     */
+    readonly maxMatchId?: number | null;
+    /**
+     * Filter results for a specific hero build.
+     */
+    readonly heroBuildId?: number | null;
+    /**
+     * Add the performance totals (kills, souls, damage, healing, accuracy, match length, average badge) to every build. They make the query read about three times as much data, so they are left out unless asked for.
+     */
+    readonly includePerformance?: boolean | null;
+    /**
+     * The minimum number of matches played for a build to be included in the response.
+     */
+    readonly minMatches?: number | null;
+    /**
+     * Filter for matches with a specific player account ID.
+     */
+    readonly accountId?: number | null;
+    /**
+     * Comma separated list of account ids to include
+     */
+    readonly accountIds?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players whose ability upgrade order starts with exactly this sequence (one entry per ability point spent, unlocks included; see &#x60;ability_unlock_order_prefix&#x60; to match only the unlock order). See more: &lt;https://api.deadlock-api.com/v1/analytics/ability-order-stats&gt;
+     */
+    readonly abilityOrderPrefix?: Array<number> | null;
+    /**
+     * Comma separated list of ability ids: only players who unlocked (put their first point into) their abilities in exactly this order, e.g. &#x60;a,b&#x60; for players who unlocked &#x60;a&#x60; first and &#x60;b&#x60; second. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly abilityUnlockOrderPrefix?: Array<number> | null;
+}
+/**
+ * Request parameters for heroBuildStatsByHeroes operation in AnalyticsApi.
+ */
+export interface AnalyticsApiHeroBuildStatsByHeroesRequest {
+    /**
+     * Comma separated list of hero IDs to fetch build stats for. **Default:** all heroes. See more: &lt;https://api.deadlock-api.com/v1/assets/heroes&gt;
+     */
+    readonly heroIds?: string | null;
+    /**
+     * Filter matches based on the match mode. Valid values: &#x60;unranked&#x60;, &#x60;private_lobby&#x60;, &#x60;coop_bot&#x60;, &#x60;ranked&#x60;, &#x60;server_test&#x60;, &#x60;tutorial&#x60;, &#x60;hero_labs&#x60;. **Default:** &#x60;ranked,unranked&#x60;.
+     */
+    readonly matchMode?: string | null;
+    /**
+     * Bucket allows you to group the stats by a specific field. &#x60;min_matches&#x60; applies to each build and bucket.
+     */
+    readonly bucket?: HeroBuildStatsByHeroesBucketEnum;
     /**
      * Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. **Minimum:** March 1, 2026.
      */
@@ -3522,13 +3660,22 @@ export declare class AnalyticsApi extends BaseAPI {
      */
     heroBanStats(requestParameters?: AnalyticsApiHeroBanStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBanStats[], any, {}, any>>;
     /**
-     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
-     * @summary Hero Build Stats
+     *  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats (one hero)
      * @param {AnalyticsApiHeroBuildStatsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      */
     heroBuildStats(requestParameters: AnalyticsApiHeroBuildStatsRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBuildStats[], any, {}, any>>;
+    /**
+     *  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
+     * @summary Hero Build Stats
+     * @param {AnalyticsApiHeroBuildStatsByHeroesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    heroBuildStatsByHeroes(requestParameters?: AnalyticsApiHeroBuildStatsByHeroesRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HeroBuildStats[], any, {}, any>>;
     /**
      *  Retrieves overall statistics for each hero combination.  Results are cached for **1 hour**. The cache key is determined by the specific combination of filter parameters used in the query. Subsequent requests using the exact same filters within this timeframe will receive the cached response.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min |
      * @summary Hero Comb Stats
@@ -3724,6 +3871,14 @@ export declare const HeroBuildStatsBucketEnum: {
     readonly Duration: "duration";
 };
 export type HeroBuildStatsBucketEnum = typeof HeroBuildStatsBucketEnum[keyof typeof HeroBuildStatsBucketEnum];
+export declare const HeroBuildStatsByHeroesBucketEnum: {
+    readonly NoBucket: "no_bucket";
+    readonly AvgBadge: "avg_badge";
+    readonly StartTimeDay: "start_time_day";
+    readonly StartTimeWeek: "start_time_week";
+    readonly Duration: "duration";
+};
+export type HeroBuildStatsByHeroesBucketEnum = typeof HeroBuildStatsByHeroesBucketEnum[keyof typeof HeroBuildStatsByHeroesBucketEnum];
 export declare const HeroCombStatsGameModeEnum: {
     readonly Normal: "normal";
     readonly StreetBrawl: "street_brawl";

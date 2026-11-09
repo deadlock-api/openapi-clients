@@ -495,7 +495,7 @@ pub async fn player_hero_stats(configuration: &configuration::Configuration, par
     }
 }
 
-///  Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match's ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection. 
+///  Returns the player's rank at the end of their latest ranked match, i.e. the rank they entered that match with plus the progress the match awarded. Subranks span the points of the match's ranked interval (`sub_rank_xp` in `/v1/assets/ranked-seasons`: 1000 each in Beta Season 2, the last of a tier 1500), so a single match can move the badge. Eternus subranks are instead percentile cuts Valve recomputes daily, so within Eternus the badge is the one the player entered the match with.  Only ranked matches carry a rank, and it stays unset while the player is in placement games. When none of the player's recent ranked matches reports a rank, `badge`, `rank` and `subrank` are all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.  `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining placement games and demotion protection.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 pub async fn rank(configuration: &configuration::Configuration, params: RankParams) -> Result<models::RankResponse, Error<RankError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/rank", configuration.base_path, account_id=params.account_id);
@@ -530,7 +530,7 @@ pub async fn rank(configuration: &configuration::Configuration, params: RankPara
     }
 }
 
-/// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+/// Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 pub async fn rank_avg_image(configuration: &configuration::Configuration, params: RankAvgImageParams) -> Result<Vec<u32>, Error<RankAvgImageError>> {
 
     let uri_str = format!("{}/v1/players/rank/image", configuration.base_path);
@@ -572,7 +572,7 @@ pub async fn rank_avg_image(configuration: &configuration::Configuration, params
     }
 }
 
-///  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 20req/min | | Key | 100req/min, 2000req/h | | Global | 200req/min | 
+///  Returns the rank of each player at the end of their latest ranked match, the batch form of `/v1/players/{account_id}/rank`. See that endpoint for how the badge is derived.  Every requested account is returned once, in no particular order. Players none of whose recent ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `null` `last_match`. Protected accounts are left out.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 pub async fn rank_batch(configuration: &configuration::Configuration, params: RankBatchParams) -> Result<Vec<models::AccountRank>, Error<RankBatchError>> {
 
     let uri_str = format!("{}/v1/players/rank", configuration.base_path);
@@ -673,7 +673,7 @@ pub async fn rank_distribution(configuration: &configuration::Configuration, par
     }
 }
 
-/// Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
+/// Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.  ### Rate Limits: > Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
 pub async fn rank_image(configuration: &configuration::Configuration, params: RankImageParams) -> Result<Vec<u32>, Error<RankImageError>> {
 
     let uri_str = format!("{}/v1/players/{account_id}/rank/image", configuration.base_path, account_id=params.account_id);

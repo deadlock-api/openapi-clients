@@ -885,6 +885,15 @@ all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.
 `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining
 placement games and demotion protection.
 
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`
@@ -1004,6 +1013,16 @@ func (r ApiRankAvgImageRequest) Execute() ([]int32, *http.Response, error) {
 RankAvgImage Rank Avg Image
 
 Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiRankAvgImageRequest
@@ -1135,11 +1154,13 @@ ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `nu
 Protected accounts are left out.
 
 ### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 20req/min |
-| Key | 100req/min, 2000req/h |
-| Global | 200req/min |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1373,7 +1394,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1791504000
+		var defaultValue int64 = 1791590400
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1476,6 +1497,16 @@ func (r ApiRankImageRequest) Execute() ([]int32, *http.Response, error) {
 RankImage Rank Image
 
 Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
+
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param accountId The players `SteamID3`

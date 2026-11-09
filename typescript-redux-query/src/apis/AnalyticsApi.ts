@@ -260,6 +260,27 @@ export interface HeroBuildStatsRequest {
     abilityUnlockOrderPrefix?: Array<number>;
 }
 
+export interface HeroBuildStatsByHeroesRequest {
+    heroIds?: string;
+    matchMode?: string;
+    bucket?: HeroBuildStatsByHeroesBucketEnum;
+    minUnixTimestamp?: number;
+    maxUnixTimestamp?: number;
+    minDurationS?: number;
+    maxDurationS?: number;
+    minAverageBadge?: number;
+    maxAverageBadge?: number;
+    minMatchId?: number;
+    maxMatchId?: number;
+    heroBuildId?: number;
+    includePerformance?: boolean;
+    minMatches?: number;
+    accountId?: number;
+    accountIds?: Array<number>;
+    abilityOrderPrefix?: Array<number>;
+    abilityUnlockOrderPrefix?: Array<number>;
+}
+
 export interface HeroCombStatsRequest {
     gameMode?: HeroCombStatsGameModeEnum;
     matchMode?: string;
@@ -1624,8 +1645,8 @@ export function heroBanStats<T>(requestParameters: HeroBanStatsRequest, requestC
 }
 
 /**
- *  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
- * Hero Build Stats
+ *  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+ * Hero Build Stats (one hero)
  */
 function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBuildStats>> = {}): QueryConfig<T> {
     if (requestParameters.heroId === null || requestParameters.heroId === undefined) {
@@ -1750,11 +1771,146 @@ function heroBuildStatsRaw<T>(requestParameters: HeroBuildStatsRequest, requestC
 }
 
 /**
-*  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
-* Hero Build Stats
+*  **Deprecated:** use `/v1/analytics/hero-build-stats` with `hero_ids={hero_id}`, which returns the same, or leave `hero_ids` out to get every hero in one request. This route keeps working.  Retrieves performance statistics for hero builds based on historical match data from demo analysis.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+* Hero Build Stats (one hero)
 */
 export function heroBuildStats<T>(requestParameters: HeroBuildStatsRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBuildStats>>): QueryConfig<T> {
     return heroBuildStatsRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+ * Hero Build Stats
+ */
+function heroBuildStatsByHeroesRaw<T>(requestParameters: HeroBuildStatsByHeroesRequest, requestConfig: runtime.TypedQueryConfig<T, Array<HeroBuildStats>> = {}): QueryConfig<T> {
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.heroIds !== undefined) {
+        queryParameters['hero_ids'] = requestParameters.heroIds;
+    }
+
+
+    if (requestParameters.matchMode !== undefined) {
+        queryParameters['match_mode'] = requestParameters.matchMode;
+    }
+
+
+    if (requestParameters.bucket !== undefined) {
+        queryParameters['bucket'] = requestParameters.bucket;
+    }
+
+
+    if (requestParameters.minUnixTimestamp !== undefined) {
+        queryParameters['min_unix_timestamp'] = requestParameters.minUnixTimestamp;
+    }
+
+
+    if (requestParameters.maxUnixTimestamp !== undefined) {
+        queryParameters['max_unix_timestamp'] = requestParameters.maxUnixTimestamp;
+    }
+
+
+    if (requestParameters.minDurationS !== undefined) {
+        queryParameters['min_duration_s'] = requestParameters.minDurationS;
+    }
+
+
+    if (requestParameters.maxDurationS !== undefined) {
+        queryParameters['max_duration_s'] = requestParameters.maxDurationS;
+    }
+
+
+    if (requestParameters.minAverageBadge !== undefined) {
+        queryParameters['min_average_badge'] = requestParameters.minAverageBadge;
+    }
+
+
+    if (requestParameters.maxAverageBadge !== undefined) {
+        queryParameters['max_average_badge'] = requestParameters.maxAverageBadge;
+    }
+
+
+    if (requestParameters.minMatchId !== undefined) {
+        queryParameters['min_match_id'] = requestParameters.minMatchId;
+    }
+
+
+    if (requestParameters.maxMatchId !== undefined) {
+        queryParameters['max_match_id'] = requestParameters.maxMatchId;
+    }
+
+
+    if (requestParameters.heroBuildId !== undefined) {
+        queryParameters['hero_build_id'] = requestParameters.heroBuildId;
+    }
+
+
+    if (requestParameters.includePerformance !== undefined) {
+        queryParameters['include_performance'] = requestParameters.includePerformance;
+    }
+
+
+    if (requestParameters.minMatches !== undefined) {
+        queryParameters['min_matches'] = requestParameters.minMatches;
+    }
+
+
+    if (requestParameters.accountId !== undefined) {
+        queryParameters['account_id'] = requestParameters.accountId;
+    }
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+
+    if (requestParameters.abilityOrderPrefix) {
+        queryParameters['ability_order_prefix'] = requestParameters.abilityOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+
+    if (requestParameters.abilityUnlockOrderPrefix) {
+        queryParameters['ability_unlock_order_prefix'] = requestParameters.abilityUnlockOrderPrefix?.join(runtime.COLLECTION_FORMATS["csv"]);
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/analytics/hero-build-stats`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(HeroBuildStatsFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Retrieves performance statistics for hero builds based on historical match data from demo analysis, for every hero or the heroes in `hero_ids`, in one request.  Only includes builds that exist in the hero builds database.  The `hero_build_id` is the first build the player had selected when the game started. It does not reflect any build changes made during the match.  A request for more than one hero covers at most **31 days** and takes neither `bucket` nor `include_performance`: request those per hero, with a single id in `hero_ids`.  Time ranges are rounded to whole hours. Round `min_unix_timestamp` and `max_unix_timestamp` to the hour yourself and repeated requests are answered from the edge cache, without counting against your rate limit.  Results are cached for **1 hour** based on the combination of query parameters provided.  ### Rate Limits: > The rate limits below are **shared across all analytics endpoints**.  | Type | Limit | | ---- | ----- | | IP | 200req/min | | Key | 400req/min, 2500req/h | | Global | 2000req/min | 
+* Hero Build Stats
+*/
+export function heroBuildStatsByHeroes<T>(requestParameters: HeroBuildStatsByHeroesRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<HeroBuildStats>>): QueryConfig<T> {
+    return heroBuildStatsByHeroesRaw(requestParameters, requestConfig);
 }
 
 /**
@@ -4111,6 +4267,17 @@ export enum HeroBanStatsBucketEnum {
     * @enum {string}
     */
 export enum HeroBuildStatsBucketEnum {
+    NoBucket = 'no_bucket',
+    AvgBadge = 'avg_badge',
+    StartTimeDay = 'start_time_day',
+    StartTimeWeek = 'start_time_week',
+    Duration = 'duration'
+}
+/**
+    * @export
+    * @enum {string}
+    */
+export enum HeroBuildStatsByHeroesBucketEnum {
     NoBucket = 'no_bucket',
     AvgBadge = 'avg_badge',
     StartTimeDay = 'start_time_day',

@@ -426,6 +426,15 @@ all `0`, which is the `Obscurus` (unranked) tier, and `last_match` is `null`.
 `last_match` carries the rank metadata Valve reported on that match, e.g. rank progress, remaining
 placement games and demotion protection.
 
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
 ### Example
 
@@ -497,6 +506,16 @@ No authorization required
 Rank Avg Image
 
 Returns the average rank badge image (binary) for a comma-separated list of account IDs. Accounts without a rank are left out of the average; if none of them has one, the `Obscurus` image is returned. Use `?format=webp` for WebP.
+
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
 ### Example
 
@@ -578,11 +597,13 @@ ranked matches reports a rank get `badge`, `rank` and `subrank` of `0` and a `nu
 Protected accounts are left out.
 
 ### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
 | Type | Limit |
 | ---- | ----- |
-| IP | 20req/min |
-| Key | 100req/min, 2000req/h |
-| Global | 200req/min |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
 
 
 ### Example
@@ -690,7 +711,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.PlayersApi(api_client)
-    min_unix_timestamp = 1791504000 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791504000)
+    min_unix_timestamp = 1791590400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791590400)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -716,7 +737,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791504000]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791590400]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -755,6 +776,16 @@ No authorization required
 Rank Image
 
 Returns the rank badge image directly (binary), not a URL, with the player's I-VI division numeral drawn on it. Players whose recent ranked matches carry no rank, and players still in placement, get the plain tier badge. Use `?format=webp` for WebP.
+
+### Rate Limits:
+> Shared by all rank endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
 
 ### Example
 

@@ -40,9 +40,14 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/analytics/hero-ban-stats?matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}
 Accept: application/json
 
+### Hero Build Stats (one hero)
+## Hero Build Stats (one hero)
+GET https://api.deadlock-api.com/v1/analytics/hero-build-stats/{{hero_id}}?matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroBuildId={{heroBuildId}}&includePerformance={{includePerformance}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}
+Accept: application/json
+
 ### Hero Build Stats
 ## Hero Build Stats
-GET https://api.deadlock-api.com/v1/analytics/hero-build-stats/{{hero_id}}?matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroBuildId={{heroBuildId}}&includePerformance={{includePerformance}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}
+GET https://api.deadlock-api.com/v1/analytics/hero-build-stats?heroIds={{heroIds}}&matchMode={{matchMode}}&bucket={{bucket}}&minUnixTimestamp={{minUnixTimestamp}}&maxUnixTimestamp={{maxUnixTimestamp}}&minDurationS={{minDurationS}}&maxDurationS={{maxDurationS}}&minAverageBadge={{minAverageBadge}}&maxAverageBadge={{maxAverageBadge}}&minMatchId={{minMatchId}}&maxMatchId={{maxMatchId}}&heroBuildId={{heroBuildId}}&includePerformance={{includePerformance}}&minMatches={{minMatches}}&accountId={{accountId}}&accountIds={{accountIds}}&abilityOrderPrefix={{abilityOrderPrefix}}&abilityUnlockOrderPrefix={{abilityUnlockOrderPrefix}}
 Accept: application/json
 
 ### Hero Comb Stats
