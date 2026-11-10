@@ -48,7 +48,9 @@ FetchBuildLive Fetch Live
 Returns a single build. If the build is already in our database it is served from there, otherwise it is
 fetched live from the Deadlock Game Coordinator and stored in the database.
 
-Set `force_refetch=true` to always fetch from the Game Coordinator, e.g. to pick up a newer version.
+Set `force_refetch=true` to fetch from the Game Coordinator even if the build is in our database, e.g. to
+pick up a newer version. A build fetched from the Game Coordinator in the last 10 minutes is returned from that
+fetch instead.
 
 Rate limits only apply when the build is fetched from the Game Coordinator.
 
