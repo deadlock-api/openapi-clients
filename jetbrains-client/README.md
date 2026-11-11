@@ -129,6 +129,8 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**rankBatch**](Apis/PlayersApi.http#rankbatch) | **GET** /v1/players/rank | Batch Rank
 *PlayersApi* | [**rankDistribution**](Apis/PlayersApi.http#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 *PlayersApi* | [**rankImage**](Apis/PlayersApi.http#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+*PlayersApi* | [**region**](Apis/PlayersApi.http#region) | **GET** /v1/players/{account_id}/region | Region
+*PlayersApi* | [**regionBatch**](Apis/PlayersApi.http#regionbatch) | **GET** /v1/players/region | Batch Region
 *RankedSeasonsApi* | [**listRankedSeasons**](Apis/RankedSeasonsApi.http#listrankedseasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksApi* | [**getRank**](Apis/RanksApi.http#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**listRanks**](Apis/RanksApi.http#listranks) | **GET** /v1/assets/ranks | List Ranks

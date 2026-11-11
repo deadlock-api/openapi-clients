@@ -198,9 +198,11 @@ src/models/Patch.ts
 src/models/PatchCategory.ts
 src/models/PatchGuid.ts
 src/models/Pickup.ts
+src/models/PlayerClusterMonth.ts
 src/models/PlayerEntry.ts
 src/models/PlayerMatchHistoryEntry.ts
 src/models/PlayerPerformanceCurvePoint.ts
+src/models/PlayerRegionResponse.ts
 src/models/PlayerStatsMetricsBucket.ts
 src/models/PlayerStatsMetricsResponse.ts
 src/models/Rank.ts

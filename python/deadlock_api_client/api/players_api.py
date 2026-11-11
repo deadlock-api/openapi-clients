@@ -23,6 +23,7 @@ from deadlock_api_client.models.enemy_stats import EnemyStats
 from deadlock_api_client.models.hero_stats import HeroStats
 from deadlock_api_client.models.mate_stats import MateStats
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
+from deadlock_api_client.models.player_region_response import PlayerRegionResponse
 from deadlock_api_client.models.rank_distribution_entry import RankDistributionEntry
 from deadlock_api_client.models.rank_response import RankResponse
 
@@ -3185,6 +3186,544 @@ class PlayersApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/players/{account_id}/rank/image',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def region(
+        self,
+        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PlayerRegionResponse:
+        """Region
+
+         The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_id: The players `SteamID3` (required)
+        :type account_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PlayerRegionResponse",
+            '400': None,
+            '403': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def region_with_http_info(
+        self,
+        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PlayerRegionResponse]:
+        """Region
+
+         The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_id: The players `SteamID3` (required)
+        :type account_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PlayerRegionResponse",
+            '400': None,
+            '403': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def region_without_preload_content(
+        self,
+        account_id: Annotated[int, Field(strict=True, ge=0, description="The players `SteamID3`")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Region
+
+         The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_id: The players `SteamID3` (required)
+        :type account_id: int
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_serialize(
+            account_id=account_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PlayerRegionResponse",
+            '400': None,
+            '403': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _region_serialize(
+        self,
+        account_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params['account_id'] = account_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if not any(key.lower() == 'accept' for key in _header_params):
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/players/{account_id}/region',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def region_batch(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[PlayerRegionResponse]:
+        """Batch Region
+
+         Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[PlayerRegionResponse]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def region_batch_with_http_info(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[PlayerRegionResponse]]:
+        """Batch Region
+
+         Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[PlayerRegionResponse]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def region_batch_without_preload_content(
+        self,
+        account_ids: Annotated[List[Annotated[int, Field(strict=True, ge=0)]], Field(min_length=1, max_length=1000, description="Comma separated list of account ids, in `SteamID3` or `SteamID64` format.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Batch Region
+
+         Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+        :param account_ids: Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (required)
+        :type account_ids: List[int]
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._region_batch_serialize(
+            account_ids=account_ids,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[PlayerRegionResponse]",
+            '400': None,
+            '500': None,
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _region_batch_serialize(
+        self,
+        account_ids,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            'account_ids': 'multi',
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Any] = self.api_client._merge_headers(_headers)
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if account_ids is not None:
+            
+            _query_params.append(('account_ids', account_ids))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if not any(key.lower() == 'accept' for key in _header_params):
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/players/region',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

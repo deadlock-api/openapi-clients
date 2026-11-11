@@ -224,9 +224,11 @@ docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
 docs/Pickup.md
+docs/PlayerClusterMonth.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerRegionResponse.md
 docs/PlayerStatsMetricsBucket.md
 docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
@@ -482,9 +484,11 @@ models/patch-category.ts
 models/patch-guid.ts
 models/patch.ts
 models/pickup.ts
+models/player-cluster-month.ts
 models/player-entry.ts
 models/player-match-history-entry.ts
 models/player-performance-curve-point.ts
+models/player-region-response.ts
 models/player-stats-metrics-bucket.ts
 models/player-stats-metrics-response.ts
 models/rank-distribution-entry.ts

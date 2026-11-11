@@ -231,6 +231,8 @@ Class | Method | HTTP request | Description
 *PlayersApi* | [**rank_batch**](docs/PlayersApi.md#rank_batch) | **GET** /v1/players/rank | Batch Rank
 *PlayersApi* | [**rank_distribution**](docs/PlayersApi.md#rank_distribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 *PlayersApi* | [**rank_image**](docs/PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+*PlayersApi* | [**region**](docs/PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region
+*PlayersApi* | [**region_batch**](docs/PlayersApi.md#region_batch) | **GET** /v1/players/region | Batch Region
 *RankedSeasonsApi* | [**list_ranked_seasons**](docs/RankedSeasonsApi.md#list_ranked_seasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons
 *RanksApi* | [**get_rank**](docs/RanksApi.md#get_rank) | **GET** /v1/assets/ranks/{tier} | Get Rank
 *RanksApi* | [**list_ranks**](docs/RanksApi.md#list_ranks) | **GET** /v1/assets/ranks | List Ranks
@@ -408,9 +410,11 @@ Class | Method | HTTP request | Description
  - [PatchCategory](docs/PatchCategory.md)
  - [PatchGuid](docs/PatchGuid.md)
  - [Pickup](docs/Pickup.md)
+ - [PlayerClusterMonth](docs/PlayerClusterMonth.md)
  - [PlayerEntry](docs/PlayerEntry.md)
  - [PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [PlayerRegionResponse](docs/PlayerRegionResponse.md)
  - [PlayerStatsMetricsBucket](docs/PlayerStatsMetricsBucket.md)
  - [PlayerStatsMetricsResponse](docs/PlayerStatsMetricsResponse.md)
  - [Rank](docs/Rank.md)

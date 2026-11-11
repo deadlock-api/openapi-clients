@@ -175,9 +175,11 @@ from deadlock_api_client.models.patch import Patch
 from deadlock_api_client.models.patch_category import PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid
 from deadlock_api_client.models.pickup import Pickup
+from deadlock_api_client.models.player_cluster_month import PlayerClusterMonth
 from deadlock_api_client.models.player_entry import PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint
+from deadlock_api_client.models.player_region_response import PlayerRegionResponse
 from deadlock_api_client.models.player_stats_metrics_bucket import PlayerStatsMetricsBucket
 from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse
 from deadlock_api_client.models.rank import Rank

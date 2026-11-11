@@ -101,6 +101,12 @@ class PlayersApi
         'rankImage' => [
             'application/json',
         ],
+        'region' => [
+            'application/json',
+        ],
+        'regionBatch' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -2756,7 +2762,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2771,7 +2777,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\RankDistributionEntry[]
      */
-    public function rankDistribution($min_unix_timestamp = 1791590400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistribution($min_unix_timestamp = 1791676800, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         list($response) = $this->rankDistributionWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
         return $response;
@@ -2782,7 +2788,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2797,7 +2803,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\RankDistributionEntry[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function rankDistributionWithHttpInfo($min_unix_timestamp = 1791590400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionWithHttpInfo($min_unix_timestamp = 1791676800, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
 
@@ -2876,7 +2882,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2890,7 +2896,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankDistributionAsync($min_unix_timestamp = 1791590400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionAsync($min_unix_timestamp = 1791676800, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         return $this->rankDistributionAsyncWithHttpInfo($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType)
             ->then(
@@ -2905,7 +2911,7 @@ class PlayersApi
      *
      * Rank Distribution
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2919,7 +2925,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function rankDistributionAsyncWithHttpInfo($min_unix_timestamp = 1791590400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionAsyncWithHttpInfo($min_unix_timestamp = 1791676800, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
         $returnType = '\OpenAPI\Client\Model\RankDistributionEntry[]';
         $request = $this->rankDistributionRequest($min_unix_timestamp, $max_unix_timestamp, $min_duration_s, $max_duration_s, $is_high_skill_range_parties, $is_low_pri_pool, $is_new_player_pool, $min_match_id, $max_match_id, $contentType);
@@ -2971,7 +2977,7 @@ class PlayersApi
     /**
      * Create request for operation 'rankDistribution'
      *
-     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400)
+     * @param  int|null $min_unix_timestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800)
      * @param  int|null $max_unix_timestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param  int|null $min_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param  int|null $max_duration_s Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -2985,7 +2991,7 @@ class PlayersApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function rankDistributionRequest($min_unix_timestamp = 1791590400, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
+    public function rankDistributionRequest($min_unix_timestamp = 1791676800, $max_unix_timestamp = null, $min_duration_s = null, $max_duration_s = null, $is_high_skill_range_parties = null, $is_low_pri_pool = null, $is_new_player_pool = null, $min_match_id = null, $max_match_id = null, string $contentType = self::contentTypes['rankDistribution'][0])
     {
 
 
@@ -3409,6 +3415,578 @@ class PlayersApi
 
         $headers = $this->headerSelector->selectHeaders(
             ['image/png', 'image/webp', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation region
+     *
+     * Region
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['region'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\PlayerRegionResponse
+     */
+    public function region($account_id, string $contentType = self::contentTypes['region'][0])
+    {
+        list($response) = $this->regionWithHttpInfo($account_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation regionWithHttpInfo
+     *
+     * Region
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['region'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\PlayerRegionResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function regionWithHttpInfo($account_id, string $contentType = self::contentTypes['region'][0])
+    {
+        $request = $this->regionRequest($account_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $eResponse = $this->getExceptionResponse($e);
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $eResponse ? $eResponse->getHeaders() : null,
+                    $eResponse ? (string) $eResponse->getBody() : null
+                );
+            } catch (NetworkExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\PlayerRegionResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\PlayerRegionResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\PlayerRegionResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation regionAsync
+     *
+     * Region
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['region'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function regionAsync($account_id, string $contentType = self::contentTypes['region'][0])
+    {
+        return $this->regionAsyncWithHttpInfo($account_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation regionAsyncWithHttpInfo
+     *
+     * Region
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['region'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function regionAsyncWithHttpInfo($account_id, string $contentType = self::contentTypes['region'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\PlayerRegionResponse';
+        $request = $this->regionRequest($account_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $this->getExceptionResponse($exception);
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'region'
+     *
+     * @param  int $account_id The players &#x60;SteamID3&#x60; (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['region'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function regionRequest($account_id, string $contentType = self::contentTypes['region'][0])
+    {
+
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling region'
+            );
+        }
+        if ($account_id < 0) {
+            throw new \InvalidArgumentException('invalid value for "$account_id" when calling PlayersApi.region, must be bigger than or equal to 0.');
+        }
+        
+
+        $resourcePath = '/v1/players/{account_id}/region';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{account_id}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                try {
+                    $httpBody = json_encode($formParams, JSON_THROW_ON_ERROR);
+                } catch (\JsonException $e) {
+                    throw new \InvalidArgumentException('json_encode error: ' . $e->getMessage(), 0, $e);
+                }
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation regionBatch
+     *
+     * Batch Region
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['regionBatch'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\PlayerRegionResponse[]
+     */
+    public function regionBatch($account_ids, string $contentType = self::contentTypes['regionBatch'][0])
+    {
+        list($response) = $this->regionBatchWithHttpInfo($account_ids, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation regionBatchWithHttpInfo
+     *
+     * Batch Region
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['regionBatch'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\PlayerRegionResponse[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function regionBatchWithHttpInfo($account_ids, string $contentType = self::contentTypes['regionBatch'][0])
+    {
+        $request = $this->regionBatchRequest($account_ids, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                $eResponse = $this->getExceptionResponse($e);
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $eResponse ? $eResponse->getHeaders() : null,
+                    $eResponse ? (string) $eResponse->getBody() : null
+                );
+            } catch (NetworkExceptionInterface $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\OpenAPI\Client\Model\PlayerRegionResponse[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\OpenAPI\Client\Model\PlayerRegionResponse[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\PlayerRegionResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation regionBatchAsync
+     *
+     * Batch Region
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['regionBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function regionBatchAsync($account_ids, string $contentType = self::contentTypes['regionBatch'][0])
+    {
+        return $this->regionBatchAsyncWithHttpInfo($account_ids, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation regionBatchAsyncWithHttpInfo
+     *
+     * Batch Region
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['regionBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function regionBatchAsyncWithHttpInfo($account_ids, string $contentType = self::contentTypes['regionBatch'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\PlayerRegionResponse[]';
+        $request = $this->regionBatchRequest($account_ids, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $this->getExceptionResponse($exception);
+                    if ($response === null) {
+                        throw new ApiException(
+                            "[{$exception->getCode()}] {$exception->getMessage()}",
+                            (int) $exception->getCode(),
+                            null,
+                            null
+                        );
+                    }
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'regionBatch'
+     *
+     * @param  int[] $account_ids Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['regionBatch'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function regionBatchRequest($account_ids, string $contentType = self::contentTypes['regionBatch'][0])
+    {
+
+        // verify the required parameter 'account_ids' is set
+        if ($account_ids === null || (is_array($account_ids) && count($account_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_ids when calling regionBatch'
+            );
+        }
+        if (count($account_ids) > 1000) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling PlayersApi.regionBatch, number of items must be less than or equal to 1000.');
+        }
+        if (count($account_ids) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$account_ids" when calling PlayersApi.regionBatch, number of items must be greater than or equal to 1.');
+        }
+        
+
+        $resourcePath = '/v1/players/region';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $account_ids,
+            'account_ids', // param base name
+            'array', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
             $contentType,
             $multipart
         );

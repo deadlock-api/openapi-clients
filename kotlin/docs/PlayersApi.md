@@ -13,6 +13,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**rankBatch**](PlayersApi.md#rankBatch) | **GET** /v1/players/rank | Batch Rank |
 | [**rankDistribution**](PlayersApi.md#rankDistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**rankImage**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| [**region**](PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region |
+| [**regionBatch**](PlayersApi.md#regionBatch) | **GET** /v1/players/region | Batch Region |
 
 
 <a id="enemyStats"></a>
@@ -444,7 +446,7 @@ try {
 ### Parameters
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791590400L] |
+| **minUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791676800L] |
 | **maxUnixTimestamp** | **kotlin.Long**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **minDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **maxDurationS** | **kotlin.Long**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -514,4 +516,96 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
+
+<a id="region"></a>
+# **region**
+> PlayerRegionResponse region(accountId)
+
+Region
+
+ The server region a player plays in, from the game servers of their matches.  Each match&#39;s server cluster comes from its salts, and the cluster&#39;s region and datacenter from the server names in replays. &#x60;region&#x60; is the region with the most matches in the player&#39;s latest month with a known region; &#x60;history&#x60; lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. &#x60;dpkt-frankfurt&#x60; or &#x60;helsinki&#x60; next to &#x60;eu_west&#x60;).  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+try {
+    val result : PlayerRegionResponse = apiInstance.region(accountId)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#region")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#region")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountId** | **kotlin.Int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**PlayerRegionResponse**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a id="regionBatch"></a>
+# **regionBatch**
+> kotlin.collections.List&lt;PlayerRegionResponse&gt; regionBatch(accountIds)
+
+Batch Region
+
+ Returns the server region of each player, the batch form of &#x60;/v1/players/{account_id}/region&#x60;. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a &#x60;null&#x60; &#x60;region&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+### Example
+```kotlin
+// Import classes:
+//import deadlock_api_client.infrastructure.*
+//import deadlock_api_client.models.*
+
+val apiInstance = PlayersApi()
+val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+try {
+    val result : kotlin.collections.List<PlayerRegionResponse> = apiInstance.regionBatch(accountIds)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling PlayersApi#regionBatch")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling PlayersApi#regionBatch")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accountIds** | [**kotlin.collections.List&lt;kotlin.Int&gt;**](kotlin.Int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
+
+### Return type
+
+[**kotlin.collections.List&lt;PlayerRegionResponse&gt;**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 

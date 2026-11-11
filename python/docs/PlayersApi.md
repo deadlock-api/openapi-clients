@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**rank_batch**](PlayersApi.md#rank_batch) | **GET** /v1/players/rank | Batch Rank
 [**rank_distribution**](PlayersApi.md#rank_distribution) | **GET** /v1/players/rank/distribution | Rank Distribution
 [**rank_image**](PlayersApi.md#rank_image) | **GET** /v1/players/{account_id}/rank/image | Rank Image
+[**region**](PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region
+[**region_batch**](PlayersApi.md#region_batch) | **GET** /v1/players/region | Batch Region
 
 
 # **enemy_stats**
@@ -711,7 +713,7 @@ configuration = deadlock_api_client.Configuration(
 with deadlock_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = deadlock_api_client.PlayersApi(api_client)
-    min_unix_timestamp = 1791590400 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791590400)
+    min_unix_timestamp = 1791676800 # int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791676800)
     max_unix_timestamp = 56 # int | Filter matches based on their start time (Unix timestamp). (optional)
     min_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
     max_duration_s = 56 # int | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -737,7 +739,7 @@ with deadlock_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791590400]
+ **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791676800]
  **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] 
  **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
  **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] 
@@ -850,6 +852,181 @@ No authorization required
 **403** | User is protected or endpoint unavailable |  -  |
 **404** | No image available for the rank |  -  |
 **500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **region**
+> PlayerRegionResponse region(account_id)
+
+Region
+
+
+The server region a player plays in, from the game servers of their matches.
+
+Each match's server cluster comes from its salts, and the cluster's region and datacenter from the
+server names in replays. `region` is the region with the most matches in the player's latest month
+with a known region; `history` lists their matches per month and cluster, newest month first, so
+region changes show up month by month.
+
+Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names
+some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).
+
+### Rate Limits:
+> Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.player_region_response import PlayerRegionResponse
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_id = 56 # int | The players `SteamID3`
+
+    try:
+        # Region
+        api_response = api_instance.region(account_id)
+        print("The response of PlayersApi->region:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->region: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **int**| The players &#x60;SteamID3&#x60; | 
+
+### Return type
+
+[**PlayerRegionResponse**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Invalid account ID |  -  |
+**403** | User is protected |  -  |
+**500** | Region lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **region_batch**
+> List[PlayerRegionResponse] region_batch(account_ids)
+
+Batch Region
+
+
+Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`.
+See that endpoint for how the region is derived.
+
+Every requested account is returned once, in no particular order. Players without any match with a
+known region get a `null` `region`. Protected accounts are left out.
+
+### Rate Limits:
+> Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
+
+### Example
+
+
+```python
+import deadlock_api_client
+from deadlock_api_client.models.player_region_response import PlayerRegionResponse
+from deadlock_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.deadlock-api.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = deadlock_api_client.Configuration(
+    host = "https://api.deadlock-api.com"
+)
+
+
+# Enter a context with an instance of the API client
+with deadlock_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = deadlock_api_client.PlayersApi(api_client)
+    account_ids = [56] # List[int] | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+
+    try:
+        # Batch Region
+        api_response = api_instance.region_batch(account_ids)
+        print("The response of PlayersApi->region_batch:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling PlayersApi->region_batch: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_ids** | [**List[int]**](int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
+
+### Return type
+
+[**List[PlayerRegionResponse]**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**400** | Invalid or missing account IDs |  -  |
+**500** | Region lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -201,9 +201,11 @@ api/Model/Patch.php
 api/Model/PatchCategory.php
 api/Model/PatchGuid.php
 api/Model/Pickup.php
+api/Model/PlayerClusterMonth.php
 api/Model/PlayerEntry.php
 api/Model/PlayerMatchHistoryEntry.php
 api/Model/PlayerPerformanceCurvePoint.php
+api/Model/PlayerRegionResponse.php
 api/Model/PlayerStatsMetricsBucket.php
 api/Model/PlayerStatsMetricsResponse.php
 api/Model/Rank.php
@@ -483,9 +485,11 @@ docs/Model/Patch.md
 docs/Model/PatchCategory.md
 docs/Model/PatchGuid.md
 docs/Model/Pickup.md
+docs/Model/PlayerClusterMonth.md
 docs/Model/PlayerEntry.md
 docs/Model/PlayerMatchHistoryEntry.md
 docs/Model/PlayerPerformanceCurvePoint.md
+docs/Model/PlayerRegionResponse.md
 docs/Model/PlayerStatsMetricsBucket.md
 docs/Model/PlayerStatsMetricsResponse.md
 docs/Model/Rank.md
@@ -765,9 +769,11 @@ test/Model/PatchCategoryTest.php
 test/Model/PatchGuidTest.php
 test/Model/PatchTest.php
 test/Model/PickupTest.php
+test/Model/PlayerClusterMonthTest.php
 test/Model/PlayerEntryTest.php
 test/Model/PlayerMatchHistoryEntryTest.php
 test/Model/PlayerPerformanceCurvePointTest.php
+test/Model/PlayerRegionResponseTest.php
 test/Model/PlayerStatsMetricsBucketTest.php
 test/Model/PlayerStatsMetricsResponseTest.php
 test/Model/RankDistributionEntryTest.php

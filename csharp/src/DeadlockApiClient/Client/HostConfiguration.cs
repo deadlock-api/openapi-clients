@@ -218,9 +218,11 @@ namespace DeadlockApiClient.Client
             _jsonOptions.Converters.Add(new PatchCategoryJsonConverter());
             _jsonOptions.Converters.Add(new PatchGuidJsonConverter());
             _jsonOptions.Converters.Add(new PickupJsonConverter());
+            _jsonOptions.Converters.Add(new PlayerClusterMonthJsonConverter());
             _jsonOptions.Converters.Add(new PlayerEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerMatchHistoryEntryJsonConverter());
             _jsonOptions.Converters.Add(new PlayerPerformanceCurvePointJsonConverter());
+            _jsonOptions.Converters.Add(new PlayerRegionResponseJsonConverter());
             _jsonOptions.Converters.Add(new PlayerStatsMetricsBucketJsonConverter());
             _jsonOptions.Converters.Add(new PlayerStatsMetricsResponseJsonConverter());
             _jsonOptions.Converters.Add(new RankJsonConverter());

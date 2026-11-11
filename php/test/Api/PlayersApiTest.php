@@ -178,4 +178,28 @@ class PlayersApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for region
+     *
+     * Region.
+     *
+     */
+    public function testRegion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for regionBatch
+     *
+     * Batch Region.
+     *
+     */
+    public function testRegionBatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

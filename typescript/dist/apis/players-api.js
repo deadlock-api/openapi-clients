@@ -470,6 +470,68 @@ export const PlayersApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         },
+        /**
+         *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Region
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        region: async (accountId, options = {}) => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('region', 'accountId', accountId);
+            const localVarPath = `/v1/players/{account_id}/region`
+                .replace('{account_id}', encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Batch Region
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regionBatch: async (accountIds, options = {}) => {
+            // verify required parameter 'accountIds' is not null or undefined
+            assertParamExists('regionBatch', 'accountIds', accountIds);
+            const localVarPath = `/v1/players/region`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options };
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            if (accountIds) {
+                localVarQueryParameter['account_ids'] = accountIds;
+            }
+            localVarHeaderParameter['Accept'] = 'application/json';
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = { ...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers };
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     };
 };
 /**
@@ -638,6 +700,32 @@ export const PlayersApiFp = function (configuration) {
             const localVarOperationServerBasePath = operationServerMap['PlayersApi.rankImage']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Region
+         * @param {number} accountId The players &#x60;SteamID3&#x60;
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async region(accountId, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.region(accountId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.region']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Batch Region
+         * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async regionBatch(accountIds, options) {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.regionBatch(accountIds, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PlayersApi.regionBatch']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     };
 };
 /**
@@ -736,6 +824,26 @@ export const PlayersApiFactory = function (configuration, basePath, axios) {
         rankImage(requestParameters, options) {
             return localVarFp.rankImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(axios, basePath));
         },
+        /**
+         *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Region
+         * @param {PlayersApiRegionRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        region(requestParameters, options) {
+            return localVarFp.region(requestParameters.accountId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+         * @summary Batch Region
+         * @param {PlayersApiRegionBatchRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        regionBatch(requestParameters, options) {
+            return localVarFp.regionBatch(requestParameters.accountIds, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -831,6 +939,26 @@ export class PlayersApi extends BaseAPI {
      */
     rankImage(requestParameters, options) {
         return PlayersApiFp(this.configuration).rankImage(requestParameters.accountId, requestParameters.format, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Region
+     * @param {PlayersApiRegionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    region(requestParameters, options) {
+        return PlayersApiFp(this.configuration).region(requestParameters.accountId, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Batch Region
+     * @param {PlayersApiRegionBatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regionBatch(requestParameters, options) {
+        return PlayersApiFp(this.configuration).regionBatch(requestParameters.accountIds, options).then((request) => request(this.axios, this.basePath));
     }
 }
 export const EnemyStatsGameModeEnum = {

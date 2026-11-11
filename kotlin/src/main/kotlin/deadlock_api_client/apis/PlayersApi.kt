@@ -32,6 +32,7 @@ import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.PlayerRegionResponse
 import deadlock_api_client.models.RankDistributionEntry
 import deadlock_api_client.models.RankResponse
 
@@ -870,7 +871,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -888,7 +889,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1791590400L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
+    fun rankDistribution(minUnixTimestamp: kotlin.Long? = 1791676800L, maxUnixTimestamp: kotlin.Long? = null, minDurationS: kotlin.Long? = null, maxDurationS: kotlin.Long? = null, isHighSkillRangeParties: kotlin.Boolean? = null, isLowPriPool: kotlin.Boolean? = null, isNewPlayerPool: kotlin.Boolean? = null, minMatchId: kotlin.Long? = null, maxMatchId: kotlin.Long? = null) : kotlin.collections.List<RankDistributionEntry> {
         val localVarResponse = rankDistributionWithHttpInfo(minUnixTimestamp = minUnixTimestamp, maxUnixTimestamp = maxUnixTimestamp, minDurationS = minDurationS, maxDurationS = maxDurationS, isHighSkillRangeParties = isHighSkillRangeParties, isLowPriPool = isLowPriPool, isNewPlayerPool = isNewPlayerPool, minMatchId = minMatchId, maxMatchId = maxMatchId)
 
         return when (localVarResponse.responseType) {
@@ -910,7 +911,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
      * GET /v1/players/rank/distribution
      * Rank Distribution
      *  Counts players by the rank Valve reported at the end of their latest ranked match within the filtered range, i.e. the rank &#x60;/v1/players/{account_id}/rank&#x60; would return for them. Only ranked matches carry a rank, so the filters only ever select ranked matches, and players still in placement games are not counted.  &#x60;/v1/analytics/badge-distribution&#x60; reports the same player counts as &#x60;unique_players&#x60; next to the match counts by average badge; use this endpoint when you only need the players.  ### Rate Limits: | Type | Limit | | ---- | ----- | | IP | 5req/min | | Key | 25req/min | | Global | 50req/min | 
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -936,7 +937,7 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
     /**
      * To obtain the request config of the operation rankDistribution
      *
-     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791590400L)
+     * @param minUnixTimestamp Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional, default to 1791676800L)
      * @param maxUnixTimestamp Filter matches based on their start time (Unix timestamp). (optional)
      * @param minDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
      * @param maxDurationS Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -1083,6 +1084,155 @@ open class PlayersApi(basePath: kotlin.String = defaultBasePath, client: Call.Fa
         return RequestConfig(
             method = RequestMethod.GET,
             path = "/v1/players/{account_id}/rank/image".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/{account_id}/region
+     * Region
+     *  The server region a player plays in, from the game servers of their matches.  Each match&#39;s server cluster comes from its salts, and the cluster&#39;s region and datacenter from the server names in replays. &#x60;region&#x60; is the region with the most matches in the player&#39;s latest month with a known region; &#x60;history&#x60; lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. &#x60;dpkt-frankfurt&#x60; or &#x60;helsinki&#x60; next to &#x60;eu_west&#x60;).  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return PlayerRegionResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun region(accountId: kotlin.Int) : PlayerRegionResponse {
+        val localVarResponse = regionWithHttpInfo(accountId = accountId)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as PlayerRegionResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/{account_id}/region
+     * Region
+     *  The server region a player plays in, from the game servers of their matches.  Each match&#39;s server cluster comes from its salts, and the cluster&#39;s region and datacenter from the server names in replays. &#x60;region&#x60; is the region with the most matches in the player&#39;s latest month with a known region; &#x60;history&#x60; lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. &#x60;dpkt-frankfurt&#x60; or &#x60;helsinki&#x60; next to &#x60;eu_west&#x60;).  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return ApiResponse<PlayerRegionResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun regionWithHttpInfo(accountId: kotlin.Int) : ApiResponse<PlayerRegionResponse?> {
+        val localVariableConfig = regionRequestConfig(accountId = accountId)
+
+        return request<Unit, PlayerRegionResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation region
+     *
+     * @param accountId The players &#x60;SteamID3&#x60;
+     * @return RequestConfig
+     */
+    fun regionRequestConfig(accountId: kotlin.Int) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/{account_id}/region".replace("{"+"account_id"+"}", encodeURIComponent(accountId.toString())),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+            body = localVariableBody
+        )
+    }
+
+    /**
+     * GET /v1/players/region
+     * Batch Region
+     *  Returns the server region of each player, the batch form of &#x60;/v1/players/{account_id}/region&#x60;. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a &#x60;null&#x60; &#x60;region&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+     * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     * @return kotlin.collections.List<PlayerRegionResponse>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun regionBatch(accountIds: kotlin.collections.List<kotlin.Int>) : kotlin.collections.List<PlayerRegionResponse> {
+        val localVarResponse = regionBatchWithHttpInfo(accountIds = accountIds)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as kotlin.collections.List<PlayerRegionResponse>
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * GET /v1/players/region
+     * Batch Region
+     *  Returns the server region of each player, the batch form of &#x60;/v1/players/{account_id}/region&#x60;. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a &#x60;null&#x60; &#x60;region&#x60;. Protected accounts are left out.  ### Rate Limits: &gt; Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+     * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     * @return ApiResponse<kotlin.collections.List<PlayerRegionResponse>?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun regionBatchWithHttpInfo(accountIds: kotlin.collections.List<kotlin.Int>) : ApiResponse<kotlin.collections.List<PlayerRegionResponse>?> {
+        val localVariableConfig = regionBatchRequestConfig(accountIds = accountIds)
+
+        return request<Unit, kotlin.collections.List<PlayerRegionResponse>>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation regionBatch
+     *
+     * @param accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     * @return RequestConfig
+     */
+    fun regionBatchRequestConfig(accountIds: kotlin.collections.List<kotlin.Int>) : RequestConfig<Unit> {
+        val localVariableBody = null
+        val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
+            .apply {
+                put("account_ids", toMultiValue(accountIds.toList(), "multi"))
+            }
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.GET,
+            path = "/v1/players/region",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

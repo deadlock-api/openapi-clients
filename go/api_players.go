@@ -1394,7 +1394,7 @@ func (a *PlayersAPIService) RankDistributionExecute(r ApiRankDistributionRequest
 	if r.minUnixTimestamp != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", r.minUnixTimestamp, "form", "")
 	} else {
-		var defaultValue int64 = 1791590400
+		var defaultValue int64 = 1791676800
 		parameterAddToHeaderOrQuery(localVarQueryParams, "min_unix_timestamp", defaultValue, "form", "")
 		r.minUnixTimestamp = &defaultValue
 	}
@@ -1559,6 +1559,272 @@ func (a *PlayersAPIService) RankImageExecute(r ApiRankImageRequest) ([]int32, *h
 
 	// to determine the Accept header
 	localVarHTTPHeaderAccepts := []string{"image/png", "image/webp"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRegionRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountId int32
+}
+
+func (r ApiRegionRequest) Execute() (*PlayerRegionResponse, *http.Response, error) {
+	return r.ApiService.RegionExecute(r)
+}
+
+/*
+Region Region
+
+
+The server region a player plays in, from the game servers of their matches.
+
+Each match's server cluster comes from its salts, and the cluster's region and datacenter from the
+server names in replays. `region` is the region with the most matches in the player's latest month
+with a known region; `history` lists their matches per month and cluster, newest month first, so
+region changes show up month by month.
+
+Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names
+some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).
+
+### Rate Limits:
+> Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param accountId The players `SteamID3`
+ @return ApiRegionRequest
+*/
+func (a *PlayersAPIService) Region(ctx context.Context, accountId int32) ApiRegionRequest {
+	return ApiRegionRequest{
+		ApiService: a,
+		ctx: ctx,
+		accountId: accountId,
+	}
+}
+
+// Execute executes the request
+//  @return PlayerRegionResponse
+func (a *PlayersAPIService) RegionExecute(r ApiRegionRequest) (*PlayerRegionResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PlayerRegionResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.Region")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/{account_id}/region"
+	localVarPath = strings.Replace(localVarPath, "{"+"account_id"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountId < 0 {
+		return localVarReturnValue, nil, reportError("accountId must be greater than 0")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiRegionBatchRequest struct {
+	ctx context.Context
+	ApiService *PlayersAPIService
+	accountIds *[]int32
+}
+
+// Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+func (r ApiRegionBatchRequest) AccountIds(accountIds []int32) ApiRegionBatchRequest {
+	r.accountIds = &accountIds
+	return r
+}
+
+func (r ApiRegionBatchRequest) Execute() ([]PlayerRegionResponse, *http.Response, error) {
+	return r.ApiService.RegionBatchExecute(r)
+}
+
+/*
+RegionBatch Batch Region
+
+
+Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`.
+See that endpoint for how the region is derived.
+
+Every requested account is returned once, in no particular order. Players without any match with a
+known region get a `null` `region`. Protected accounts are left out.
+
+### Rate Limits:
+> Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+| Type | Limit |
+| ---- | ----- |
+| IP | 10000 accounts/min, 100000 accounts/h |
+| Key | 50000 accounts/min, 500000 accounts/h |
+| Global | 60000 accounts/min |
+
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiRegionBatchRequest
+*/
+func (a *PlayersAPIService) RegionBatch(ctx context.Context) ApiRegionBatchRequest {
+	return ApiRegionBatchRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return []PlayerRegionResponse
+func (a *PlayersAPIService) RegionBatchExecute(r ApiRegionBatchRequest) ([]PlayerRegionResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []PlayerRegionResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayersAPIService.RegionBatch")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/v1/players/region"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.accountIds == nil {
+		return localVarReturnValue, nil, reportError("accountIds is required and must be specified")
+	}
+	if len(*r.accountIds) < 1 {
+		return localVarReturnValue, nil, reportError("accountIds must have at least 1 elements")
+	}
+	if len(*r.accountIds) > 1000 {
+		return localVarReturnValue, nil, reportError("accountIds must have less than 1000 elements")
+	}
+
+	{
+		t := *r.accountIds
+		if reflect.TypeOf(t).Kind() == reflect.Slice {
+			s := reflect.ValueOf(t)
+			for i := 0; i < s.Len(); i++ {
+				parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", s.Index(i).Interface(), "form", "multi")
+			}
+		} else {
+			parameterAddToHeaderOrQuery(localVarQueryParams, "account_ids", t, "form", "multi")
+		}
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)

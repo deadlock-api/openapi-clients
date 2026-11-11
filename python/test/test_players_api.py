@@ -89,6 +89,20 @@ class TestPlayersApi(unittest.TestCase):
         """
         pass
 
+    def test_region(self) -> None:
+        """Test case for region
+
+        Region
+        """
+        pass
+
+    def test_region_batch(self) -> None:
+        """Test case for region_batch
+
+        Batch Region
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

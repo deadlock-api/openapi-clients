@@ -46,3 +46,13 @@ Accept: application/json
 GET https://api.deadlock-api.com/v1/players/{{account_id}}/rank/image?format={{format}}
 Accept: image/png
 Accept: image/webp
+
+### Region
+## Region
+GET https://api.deadlock-api.com/v1/players/{{account_id}}/region
+Accept: application/json
+
+### Batch Region
+## Batch Region
+GET https://api.deadlock-api.com/v1/players/region?accountIds={{accountIds}}
+Accept: application/json

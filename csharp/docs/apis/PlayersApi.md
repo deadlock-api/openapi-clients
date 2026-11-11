@@ -13,6 +13,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | [**RankBatch**](PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
 | [**RankDistribution**](PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**RankImage**](PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| [**Region**](PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region |
+| [**RegionBatch**](PlayersApi.md#regionbatch) | **GET** /v1/players/region | Batch Region |
 
 <a id="enemystats"></a>
 # **EnemyStats**
@@ -331,7 +333,7 @@ Rank Distribution
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791590400] |
+| **minUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791676800] |
 | **maxUnixTimestamp** | **long** | Filter matches based on their start time (Unix timestamp). | [optional]  |
 | **minDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
 | **maxDurationS** | **long** | Filter matches based on their duration in seconds (up to 7000s). | [optional]  |
@@ -402,6 +404,83 @@ No authorization required
 | **403** | User is protected or endpoint unavailable |  -  |
 | **404** | No image available for the rank |  -  |
 | **500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="region"></a>
+# **Region**
+> PlayerRegionResponse Region (int accountId)
+
+Region
+
+ The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountId** | **int** | The players &#x60;SteamID3&#x60; |  |
+
+### Return type
+
+[**PlayerRegionResponse**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid account ID |  -  |
+| **403** | User is protected |  -  |
+| **500** | Region lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+<a id="regionbatch"></a>
+# **RegionBatch**
+> List&lt;PlayerRegionResponse&gt; RegionBatch (List<int> accountIds)
+
+Batch Region
+
+ Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | - -- - | - -- -- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **accountIds** | [**List&lt;int&gt;**](int.md) | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. |  |
+
+### Return type
+
+[**List&lt;PlayerRegionResponse&gt;**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid or missing account IDs |  -  |
+| **500** | Region lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

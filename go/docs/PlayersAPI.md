@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**RankBatch**](PlayersAPI.md#RankBatch) | **Get** /v1/players/rank | Batch Rank
 [**RankDistribution**](PlayersAPI.md#RankDistribution) | **Get** /v1/players/rank/distribution | Rank Distribution
 [**RankImage**](PlayersAPI.md#RankImage) | **Get** /v1/players/{account_id}/rank/image | Rank Image
+[**Region**](PlayersAPI.md#Region) | **Get** /v1/players/{account_id}/region | Region
+[**RegionBatch**](PlayersAPI.md#RegionBatch) | **Get** /v1/players/region | Batch Region
 
 
 
@@ -583,7 +585,7 @@ import (
 )
 
 func main() {
-	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791590400)
+	minUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791676800)
 	maxUnixTimestamp := int64(789) // int64 | Filter matches based on their start time (Unix timestamp). (optional)
 	minDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
 	maxDurationS := int64(789) // int64 | Filter matches based on their duration in seconds (up to 7000s). (optional)
@@ -616,7 +618,7 @@ Other parameters are passed through a pointer to a apiRankDistributionRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1791590400]
+ **minUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [default to 1791676800]
  **maxUnixTimestamp** | **int64** | Filter matches based on their start time (Unix timestamp). | 
  **minDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
  **maxDurationS** | **int64** | Filter matches based on their duration in seconds (up to 7000s). | 
@@ -710,6 +712,142 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: image/png, image/webp
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## Region
+
+> PlayerRegionResponse Region(ctx, accountId).Execute()
+
+Region
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountId := int32(56) // int32 | The players `SteamID3`
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.Region(context.Background(), accountId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.Region``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `Region`: PlayerRegionResponse
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.Region`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**accountId** | **int32** | The players &#x60;SteamID3&#x60; | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRegionRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**PlayerRegionResponse**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RegionBatch
+
+> []PlayerRegionResponse RegionBatch(ctx).AccountIds(accountIds).Execute()
+
+Batch Region
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/deadlock-api/openapi-clients"
+)
+
+func main() {
+	accountIds := []int32{int32(123)} // []int32 | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.PlayersAPI.RegionBatch(context.Background()).AccountIds(accountIds).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `PlayersAPI.RegionBatch``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `RegionBatch`: []PlayerRegionResponse
+	fmt.Fprintf(os.Stdout, "Response from `PlayersAPI.RegionBatch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRegionBatchRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountIds** | **[]int32** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | 
+
+### Return type
+
+[**[]PlayerRegionResponse**](PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

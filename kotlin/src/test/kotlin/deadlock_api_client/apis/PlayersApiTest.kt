@@ -32,6 +32,7 @@ import deadlock_api_client.models.EnemyStats
 import deadlock_api_client.models.HeroStats
 import deadlock_api_client.models.MateStats
 import deadlock_api_client.models.PlayerMatchHistoryEntry
+import deadlock_api_client.models.PlayerRegionResponse
 import deadlock_api_client.models.RankDistributionEntry
 import deadlock_api_client.models.RankResponse
 
@@ -152,6 +153,22 @@ class PlayersApiTest : ShouldSpec() {
             //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
             //val format : kotlin.String = format_example // kotlin.String | Image format. Defaults to `png`. Supported: `png`, `webp`.
             //val result : kotlin.collections.List<kotlin.Int> = apiInstance.rankImage(accountId, format)
+            //result shouldBe ("TODO")
+        }
+
+        // to test region
+        should("test region") {
+            // uncomment below to test region
+            //val accountId : kotlin.Int = 56 // kotlin.Int | The players `SteamID3`
+            //val result : PlayerRegionResponse = apiInstance.region(accountId)
+            //result shouldBe ("TODO")
+        }
+
+        // to test regionBatch
+        should("test regionBatch") {
+            // uncomment below to test regionBatch
+            //val accountIds : kotlin.collections.List<kotlin.Int> =  // kotlin.collections.List<kotlin.Int> | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+            //val result : kotlin.collections.List<PlayerRegionResponse> = apiInstance.regionBatch(accountIds)
             //result shouldBe ("TODO")
         }
 

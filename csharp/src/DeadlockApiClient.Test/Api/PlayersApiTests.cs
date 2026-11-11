@@ -200,5 +200,29 @@ namespace DeadlockApiClient.Test.Api
             var model = response.Ok();
             Assert.IsType<List<int>>(model);
         }
+
+        /// <summary>
+        /// Test Region
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RegionAsyncTest()
+        {
+            int accountId = default!;
+            var response = await _instance.RegionAsync(accountId);
+            var model = response.Ok();
+            Assert.IsType<DeadlockApiClient.Model.PlayerRegionResponse>(model);
+        }
+
+        /// <summary>
+        /// Test RegionBatch
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task RegionBatchAsyncTest()
+        {
+            List<int> accountIds = default!;
+            var response = await _instance.RegionBatchAsync(accountIds);
+            var model = response.Ok();
+            Assert.IsType<List<PlayerRegionResponse>>(model);
+        }
     }
 }

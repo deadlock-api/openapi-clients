@@ -188,9 +188,11 @@ docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
 docs/Pickup.md
+docs/PlayerClusterMonth.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerRegionResponse.md
 docs/PlayerStatsMetricsBucket.md
 docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
@@ -492,9 +494,11 @@ src/main/kotlin/deadlock_api_client/models/Patch.kt
 src/main/kotlin/deadlock_api_client/models/PatchCategory.kt
 src/main/kotlin/deadlock_api_client/models/PatchGuid.kt
 src/main/kotlin/deadlock_api_client/models/Pickup.kt
+src/main/kotlin/deadlock_api_client/models/PlayerClusterMonth.kt
 src/main/kotlin/deadlock_api_client/models/PlayerEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntry.kt
 src/main/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePoint.kt
+src/main/kotlin/deadlock_api_client/models/PlayerRegionResponse.kt
 src/main/kotlin/deadlock_api_client/models/PlayerStatsMetricsBucket.kt
 src/main/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponse.kt
 src/main/kotlin/deadlock_api_client/models/Rank.kt
@@ -772,9 +776,11 @@ src/test/kotlin/deadlock_api_client/models/PatchCategoryTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchGuidTest.kt
 src/test/kotlin/deadlock_api_client/models/PatchTest.kt
 src/test/kotlin/deadlock_api_client/models/PickupTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerClusterMonthTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerMatchHistoryEntryTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerPerformanceCurvePointTest.kt
+src/test/kotlin/deadlock_api_client/models/PlayerRegionResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsBucketTest.kt
 src/test/kotlin/deadlock_api_client/models/PlayerStatsMetricsResponseTest.kt
 src/test/kotlin/deadlock_api_client/models/RankDistributionEntryTest.kt

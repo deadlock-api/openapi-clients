@@ -204,9 +204,11 @@ deadlock_api_client/models/patch.py
 deadlock_api_client/models/patch_category.py
 deadlock_api_client/models/patch_guid.py
 deadlock_api_client/models/pickup.py
+deadlock_api_client/models/player_cluster_month.py
 deadlock_api_client/models/player_entry.py
 deadlock_api_client/models/player_match_history_entry.py
 deadlock_api_client/models/player_performance_curve_point.py
+deadlock_api_client/models/player_region_response.py
 deadlock_api_client/models/player_stats_metrics_bucket.py
 deadlock_api_client/models/player_stats_metrics_response.py
 deadlock_api_client/models/rank.py
@@ -480,9 +482,11 @@ docs/PatchCategory.md
 docs/PatchGuid.md
 docs/PatchesApi.md
 docs/Pickup.md
+docs/PlayerClusterMonth.md
 docs/PlayerEntry.md
 docs/PlayerMatchHistoryEntry.md
 docs/PlayerPerformanceCurvePoint.md
+docs/PlayerRegionResponse.md
 docs/PlayerStatsMetricsBucket.md
 docs/PlayerStatsMetricsResponse.md
 docs/PlayersApi.md
@@ -767,9 +771,11 @@ test/test_patch_category.py
 test/test_patch_guid.py
 test/test_patches_api.py
 test/test_pickup.py
+test/test_player_cluster_month.py
 test/test_player_entry.py
 test/test_player_match_history_entry.py
 test/test_player_performance_curve_point.py
+test/test_player_region_response.py
 test/test_player_stats_metrics_bucket.py
 test/test_player_stats_metrics_response.py
 test/test_players_api.py

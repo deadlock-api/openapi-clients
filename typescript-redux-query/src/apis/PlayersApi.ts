@@ -30,6 +30,9 @@ import {
     PlayerMatchHistoryEntry,
     PlayerMatchHistoryEntryFromJSON,
     PlayerMatchHistoryEntryToJSON,
+    PlayerRegionResponse,
+    PlayerRegionResponseFromJSON,
+    PlayerRegionResponseToJSON,
     RankDistributionEntry,
     RankDistributionEntryFromJSON,
     RankDistributionEntryToJSON,
@@ -115,6 +118,14 @@ export interface RankDistributionRequest {
 export interface RankImageRequest {
     accountId: number;
     format?: RankImageFormatEnum;
+}
+
+export interface RegionRequest {
+    accountId: number;
+}
+
+export interface RegionBatchRequest {
+    accountIds: Array<number>;
 }
 
 
@@ -785,6 +796,108 @@ function rankImageRaw<T>(requestParameters: RankImageRequest, requestConfig: run
 */
 export function rankImage<T>(requestParameters: RankImageRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<number>>): QueryConfig<T> {
     return rankImageRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+ * Region
+ */
+function regionRaw<T>(requestParameters: RegionRequest, requestConfig: runtime.TypedQueryConfig<T, PlayerRegionResponse> = {}): QueryConfig<T> {
+    if (requestParameters.accountId === null || requestParameters.accountId === undefined) {
+        throw new runtime.RequiredError('accountId','Required parameter requestParameters.accountId was null or undefined when calling region.');
+    }
+
+    let queryParameters = null;
+
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/{account_id}/region`.replace('{account_id}', encodeURIComponent(String(requestParameters.accountId))),
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(PlayerRegionResponseFromJSON(body), text);
+    }
+
+    return config;
+}
+
+/**
+*  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+* Region
+*/
+export function region<T>(requestParameters: RegionRequest, requestConfig?: runtime.TypedQueryConfig<T, PlayerRegionResponse>): QueryConfig<T> {
+    return regionRaw(requestParameters, requestConfig);
+}
+
+/**
+ *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+ * Batch Region
+ */
+function regionBatchRaw<T>(requestParameters: RegionBatchRequest, requestConfig: runtime.TypedQueryConfig<T, Array<PlayerRegionResponse>> = {}): QueryConfig<T> {
+    if (requestParameters.accountIds === null || requestParameters.accountIds === undefined) {
+        throw new runtime.RequiredError('accountIds','Required parameter requestParameters.accountIds was null or undefined when calling regionBatch.');
+    }
+
+    let queryParameters = null;
+
+    queryParameters = {};
+
+
+    if (requestParameters.accountIds) {
+        queryParameters['account_ids'] = requestParameters.accountIds;
+    }
+
+    const headerParameters : runtime.HttpHeaders = {};
+
+
+    const { meta = {} } = requestConfig;
+
+    const config: QueryConfig<T> = {
+        url: `${runtime.Configuration.basePath}/v1/players/region`,
+        meta,
+        update: requestConfig.update,
+        queryKey: requestConfig.queryKey,
+        optimisticUpdate: requestConfig.optimisticUpdate,
+        force: requestConfig.force,
+        rollback: requestConfig.rollback,
+        options: {
+            method: 'GET',
+            headers: headerParameters,
+        },
+        body: queryParameters,
+    };
+
+    const { transform: requestTransform } = requestConfig;
+    if (requestTransform) {
+        config.transform = (body: ResponseBody, text: ResponseBody) => requestTransform(body.map(PlayerRegionResponseFromJSON), text);
+    }
+
+    return config;
+}
+
+/**
+*  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+* Batch Region
+*/
+export function regionBatch<T>(requestParameters: RegionBatchRequest, requestConfig?: runtime.TypedQueryConfig<T, Array<PlayerRegionResponse>>): QueryConfig<T> {
+    return regionBatchRaw(requestParameters, requestConfig);
 }
 
 

@@ -17,6 +17,7 @@ import type { EnemyStats } from '../models/index.js';
 import type { HeroStats } from '../models/index.js';
 import type { MateStats } from '../models/index.js';
 import type { PlayerMatchHistoryEntry } from '../models/index.js';
+import type { PlayerRegionResponse } from '../models/index.js';
 import type { RankDistributionEntry } from '../models/index.js';
 import type { RankResponse } from '../models/index.js';
 /**
@@ -138,6 +139,22 @@ export declare const PlayersApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     rankImage: (accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Region
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    region: (accountId: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Batch Region
+     * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regionBatch: (accountIds: Array<number>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * PlayersApi - functional programming interface
@@ -258,6 +275,22 @@ export declare const PlayersApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     rankImage(accountId: number, format?: RankImageFormatEnum, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<number>>>;
+    /**
+     *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Region
+     * @param {number} accountId The players &#x60;SteamID3&#x60;
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    region(accountId: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PlayerRegionResponse>>;
+    /**
+     *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Batch Region
+     * @param {Array<number>} accountIds Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regionBatch(accountIds: Array<number>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PlayerRegionResponse>>>;
 };
 /**
  * PlayersApi - factory interface
@@ -335,6 +368,22 @@ export declare const PlayersApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<number>>;
+    /**
+     *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Region
+     * @param {PlayersApiRegionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    region(requestParameters: PlayersApiRegionRequest, options?: RawAxiosRequestConfig): AxiosPromise<PlayerRegionResponse>;
+    /**
+     *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Batch Region
+     * @param {PlayersApiRegionBatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regionBatch(requestParameters: PlayersApiRegionBatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<PlayerRegionResponse>>;
 };
 /**
  * Request parameters for enemyStats operation in PlayersApi.
@@ -590,6 +639,24 @@ export interface PlayersApiRankImageRequest {
     readonly format?: RankImageFormatEnum;
 }
 /**
+ * Request parameters for region operation in PlayersApi.
+ */
+export interface PlayersApiRegionRequest {
+    /**
+     * The players &#x60;SteamID3&#x60;
+     */
+    readonly accountId: number;
+}
+/**
+ * Request parameters for regionBatch operation in PlayersApi.
+ */
+export interface PlayersApiRegionBatchRequest {
+    /**
+     * Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format.
+     */
+    readonly accountIds: Array<number>;
+}
+/**
  * PlayersApi - object-oriented interface
  */
 export declare class PlayersApi extends BaseAPI {
@@ -665,6 +732,22 @@ export declare class PlayersApi extends BaseAPI {
      * @throws {RequiredError}
      */
     rankImage(requestParameters: PlayersApiRankImageRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<number[], any, {}, any>>;
+    /**
+     *  The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Region
+     * @param {PlayersApiRegionRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    region(requestParameters: PlayersApiRegionRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerRegionResponse, any, {}, any>>;
+    /**
+     *  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+     * @summary Batch Region
+     * @param {PlayersApiRegionBatchRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    regionBatch(requestParameters: PlayersApiRegionBatchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PlayerRegionResponse[], any, {}, any>>;
 }
 export declare const EnemyStatsGameModeEnum: {
     readonly Normal: "normal";

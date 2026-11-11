@@ -13,6 +13,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 |[**rankBatch**](#rankbatch) | **GET** /v1/players/rank | Batch Rank|
 |[**rankDistribution**](#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution|
 |[**rankImage**](#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image|
+|[**region**](#region) | **GET** /v1/players/{account_id}/region | Region|
+|[**regionBatch**](#regionbatch) | **GET** /v1/players/region | Batch Region|
 
 # **enemyStats**
 > Array<EnemyStats> enemyStats()
@@ -507,7 +509,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PlayersApi(configuration);
 
-let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791590400)
+let minUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. (optional) (default to 1791676800)
 let maxUnixTimestamp: number; //Filter matches based on their start time (Unix timestamp). (optional) (default to undefined)
 let minDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
 let maxDurationS: number; //Filter matches based on their duration in seconds (up to 7000s). (optional) (default to undefined)
@@ -534,7 +536,7 @@ const { status, data } = await apiInstance.rankDistribution(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1791590400|
+| **minUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | (optional) defaults to 1791676800|
 | **maxUnixTimestamp** | [**number**] | Filter matches based on their start time (Unix timestamp). | (optional) defaults to undefined|
 | **minDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
 | **maxDurationS** | [**number**] | Filter matches based on their duration in seconds (up to 7000s). | (optional) defaults to undefined|
@@ -623,6 +625,113 @@ No authorization required
 |**403** | User is protected or endpoint unavailable |  -  |
 |**404** | No image available for the rank |  -  |
 |**500** | Rank lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **region**
+> PlayerRegionResponse region()
+
+ The server region a player plays in, from the game servers of their matches.  Each match\'s server cluster comes from its salts, and the cluster\'s region and datacenter from the server names in replays. `region` is the region with the most matches in the player\'s latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+### Example
+
+```typescript
+import {
+    PlayersApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new PlayersApi(configuration);
+
+let accountId: number; //The players `SteamID3` (default to undefined)
+
+const { status, data } = await apiInstance.region(
+    accountId
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | [**number**] | The players &#x60;SteamID3&#x60; | defaults to undefined|
+
+
+### Return type
+
+**PlayerRegionResponse**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Invalid account ID |  -  |
+|**403** | User is protected |  -  |
+|**500** | Region lookup failed |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **regionBatch**
+> Array<PlayerRegionResponse> regionBatch()
+
+ Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+
+### Example
+
+```typescript
+import {
+    PlayersApi,
+    Configuration
+} from 'deadlock_api_client';
+
+const configuration = new Configuration();
+const apiInstance = new PlayersApi(configuration);
+
+let accountIds: Array<number>; //Comma separated list of account ids, in `SteamID3` or `SteamID64` format. (default to undefined)
+
+const { status, data } = await apiInstance.regionBatch(
+    accountIds
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountIds** | **Array&lt;number&gt;** | Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | defaults to undefined|
+
+
+### Return type
+
+**Array<PlayerRegionResponse>**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Invalid or missing account IDs |  -  |
+|**500** | Region lookup failed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

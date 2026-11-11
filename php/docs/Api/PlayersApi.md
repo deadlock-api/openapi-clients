@@ -15,6 +15,8 @@ All URIs are relative to https://api.deadlock-api.com, except if the operation d
 | [**rankBatch()**](PlayersApi.md#rankBatch) | **GET** /v1/players/rank | Batch Rank |
 | [**rankDistribution()**](PlayersApi.md#rankDistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | [**rankImage()**](PlayersApi.md#rankImage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| [**region()**](PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region |
+| [**regionBatch()**](PlayersApi.md#regionBatch) | **GET** /v1/players/region | Batch Region |
 
 
 ## `enemyStats()`
@@ -500,7 +502,7 @@ $apiInstance = new OpenAPI\Client\Api\PlayersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$min_unix_timestamp = 1791590400; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
+$min_unix_timestamp = 1791676800; // int | Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago.
 $max_unix_timestamp = 56; // int | Filter matches based on their start time (Unix timestamp).
 $min_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
 $max_duration_s = 56; // int | Filter matches based on their duration in seconds (up to 7000s).
@@ -522,7 +524,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791590400] |
+| **min_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). **Default:** 30 days ago. | [optional] [default to 1791676800] |
 | **max_unix_timestamp** | **int**| Filter matches based on their start time (Unix timestamp). | [optional] |
 | **min_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
 | **max_duration_s** | **int**| Filter matches based on their duration in seconds (up to 7000s). | [optional] |
@@ -602,6 +604,118 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: `image/png`, `image/webp`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `region()`
+
+```php
+region($account_id): \OpenAPI\Client\Model\PlayerRegionResponse
+```
+
+Region
+
+The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_id = 56; // int | The players `SteamID3`
+
+try {
+    $result = $apiInstance->region($account_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->region: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_id** | **int**| The players &#x60;SteamID3&#x60; | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PlayerRegionResponse**](../Model/PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `regionBatch()`
+
+```php
+regionBatch($account_ids): \OpenAPI\Client\Model\PlayerRegionResponse[]
+```
+
+Batch Region
+
+Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min |
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new OpenAPI\Client\Api\PlayersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$account_ids = array(56); // int[] | Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+
+try {
+    $result = $apiInstance->regionBatch($account_ids);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PlayersApi->regionBatch: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **account_ids** | [**int[]**](../Model/int.md)| Comma separated list of account ids, in &#x60;SteamID3&#x60; or &#x60;SteamID64&#x60; format. | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\PlayerRegionResponse[]**](../Model/PlayerRegionResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

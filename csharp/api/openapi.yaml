@@ -200,7 +200,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -530,7 +530,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -864,7 +864,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -1192,7 +1192,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -1358,7 +1358,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -1548,7 +1548,7 @@ paths:
         name: min_last_updated_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -1647,7 +1647,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -1924,7 +1924,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -2100,7 +2100,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -2369,7 +2369,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -2621,7 +2621,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -2925,7 +2925,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -3218,7 +3218,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -3566,7 +3566,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -3724,7 +3724,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -4025,7 +4025,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -4398,7 +4398,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -4752,7 +4752,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -5166,7 +5166,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -5474,7 +5474,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -5760,7 +5760,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -6061,7 +6061,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -6373,7 +6373,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -6748,7 +6748,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -12858,7 +12858,7 @@ paths:
         name: min_unix_timestamp
         required: false
         schema:
-          default: 1791590400
+          default: 1791676800
           format: int64
           nullable: true
           type: integer
@@ -13032,6 +13032,59 @@ paths:
         "500":
           description: Rank lookup failed
       summary: Rank Avg Image
+      tags:
+      - Players
+  /v1/players/region:
+    get:
+      description: |2
+
+        Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`.
+        See that endpoint for how the region is derived.
+
+        Every requested account is returned once, in no particular order. Players without any match with a
+        known region get a `null` `region`. Protected accounts are left out.
+
+        ### Rate Limits:
+        > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 10000 accounts/min, 100000 accounts/h |
+        | Key | 50000 accounts/min, 500000 accounts/h |
+        | Global | 60000 accounts/min |
+      operationId: region_batch
+      parameters:
+      - description: "Comma separated list of account ids, in `SteamID3` or `SteamID64`\
+          \ format."
+        explode: true
+        in: query
+        name: account_ids
+        required: true
+        schema:
+          items:
+            format: int32
+            minimum: 0
+            type: integer
+          maxItems: 1000
+          minItems: 1
+          type: array
+          default: null
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: "#/components/schemas/PlayerRegionResponse"
+                type: array
+                default: null
+          description: OK
+        "400":
+          description: Invalid or missing account IDs
+        "500":
+          description: Region lookup failed
+      summary: Batch Region
       tags:
       - Players
   /v1/players/steam:
@@ -13734,6 +13787,56 @@ paths:
         "500":
           description: Rank lookup failed
       summary: Rank Image
+      tags:
+      - Players
+  /v1/players/{account_id}/region:
+    get:
+      description: |2
+
+        The server region a player plays in, from the game servers of their matches.
+
+        Each match's server cluster comes from its salts, and the cluster's region and datacenter from the
+        server names in replays. `region` is the region with the most matches in the player's latest month
+        with a known region; `history` lists their matches per month and cluster, newest month first, so
+        region changes show up month by month.
+
+        Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names
+        some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).
+
+        ### Rate Limits:
+        > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.
+
+        | Type | Limit |
+        | ---- | ----- |
+        | IP | 10000 accounts/min, 100000 accounts/h |
+        | Key | 50000 accounts/min, 500000 accounts/h |
+        | Global | 60000 accounts/min |
+      operationId: region
+      parameters:
+      - description: The players `SteamID3`
+        explode: false
+        in: path
+        name: account_id
+        required: true
+        schema:
+          format: int32
+          minimum: 0
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlayerRegionResponse"
+          description: OK
+        "400":
+          description: Invalid account ID
+        "403":
+          description: User is protected
+        "500":
+          description: Region lookup failed
+      summary: Region
       tags:
       - Players
   /v1/sql:
@@ -21985,6 +22088,45 @@ components:
           format: double
           nullable: true
           type: number
+    PlayerClusterMonth:
+      example:
+        cluster_id: 0
+        datacenter: datacenter
+        matches: 0
+        month: 0
+        region: region
+      properties:
+        cluster_id:
+          description: The server cluster the matches were played on.
+          format: int32
+          minimum: 0
+          type: integer
+        datacenter:
+          description: |-
+            Datacenter(s) of the cluster's servers, e.g. `fra2`; comma-separated if the cluster spans
+            several. `null` if the cluster has not been seen in a replay yet.
+          nullable: true
+          type: string
+        matches:
+          description: Number of the player's matches on this cluster in this month.
+          format: int64
+          minimum: 0
+          type: integer
+        month:
+          description: Unix timestamp of the first day of the month (UTC).
+          format: int32
+          minimum: 0
+          type: integer
+        region:
+          description: |-
+            Region of the cluster's servers, e.g. `eu_west` or `us_north_central`. `null` if the
+            cluster has not been seen in a replay yet.
+          nullable: true
+          type: string
+      required:
+      - cluster_id
+      - matches
+      - month
     PlayerEntry:
       example:
         account_id: 0
@@ -22690,6 +22832,48 @@ components:
       - samples
       - self_damage_avg
       - self_damage_std
+    PlayerRegionResponse:
+      example:
+        account_id: 0
+        history:
+        - cluster_id: 0
+          datacenter: datacenter
+          matches: 0
+          month: 0
+          region: region
+        - cluster_id: 0
+          datacenter: datacenter
+          matches: 0
+          month: 0
+          region: region
+        region: region
+        region_month: 0
+      properties:
+        account_id:
+          format: int32
+          minimum: 0
+          type: integer
+        history:
+          description: "Matches per month and server cluster, newest month first."
+          items:
+            $ref: "#/components/schemas/PlayerClusterMonth"
+          type: array
+          default: null
+        region:
+          description: |-
+            The region the player played most matches in during their latest month with a known
+            region. `null` if none of their matches has a known region.
+          nullable: true
+          type: string
+        region_month:
+          description: Unix timestamp of the month `region` was taken from.
+          format: int32
+          minimum: 0
+          nullable: true
+          type: integer
+      required:
+      - account_id
+      - history
     PlayerStatsMetrics:
       additionalProperties:
         $ref: "#/components/schemas/MetricValues"

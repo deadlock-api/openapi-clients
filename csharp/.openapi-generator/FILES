@@ -197,9 +197,11 @@ docs/models/Patch.md
 docs/models/PatchCategory.md
 docs/models/PatchGuid.md
 docs/models/Pickup.md
+docs/models/PlayerClusterMonth.md
 docs/models/PlayerEntry.md
 docs/models/PlayerMatchHistoryEntry.md
 docs/models/PlayerPerformanceCurvePoint.md
+docs/models/PlayerRegionResponse.md
 docs/models/PlayerStatsMetricsBucket.md
 docs/models/PlayerStatsMetricsResponse.md
 docs/models/Rank.md
@@ -482,9 +484,11 @@ src/DeadlockApiClient.Test/Model/PatchCategoryTests.cs
 src/DeadlockApiClient.Test/Model/PatchGuidTests.cs
 src/DeadlockApiClient.Test/Model/PatchTests.cs
 src/DeadlockApiClient.Test/Model/PickupTests.cs
+src/DeadlockApiClient.Test/Model/PlayerClusterMonthTests.cs
 src/DeadlockApiClient.Test/Model/PlayerEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerMatchHistoryEntryTests.cs
 src/DeadlockApiClient.Test/Model/PlayerPerformanceCurvePointTests.cs
+src/DeadlockApiClient.Test/Model/PlayerRegionResponseTests.cs
 src/DeadlockApiClient.Test/Model/PlayerStatsMetricsBucketTests.cs
 src/DeadlockApiClient.Test/Model/PlayerStatsMetricsResponseTests.cs
 src/DeadlockApiClient.Test/Model/RankDistributionEntryTests.cs
@@ -787,9 +791,11 @@ src/DeadlockApiClient/Model/Patch.cs
 src/DeadlockApiClient/Model/PatchCategory.cs
 src/DeadlockApiClient/Model/PatchGuid.cs
 src/DeadlockApiClient/Model/Pickup.cs
+src/DeadlockApiClient/Model/PlayerClusterMonth.cs
 src/DeadlockApiClient/Model/PlayerEntry.cs
 src/DeadlockApiClient/Model/PlayerMatchHistoryEntry.cs
 src/DeadlockApiClient/Model/PlayerPerformanceCurvePoint.cs
+src/DeadlockApiClient/Model/PlayerRegionResponse.cs
 src/DeadlockApiClient/Model/PlayerStatsMetricsBucket.cs
 src/DeadlockApiClient/Model/PlayerStatsMetricsResponse.cs
 src/DeadlockApiClient/Model/Rank.cs

@@ -184,6 +184,8 @@ All URIs are relative to *https://api.deadlock-api.com*
 | *PlayersApi* | [**rankBatch**](docs/PlayersApi.md#rankbatch) | **GET** /v1/players/rank | Batch Rank |
 | *PlayersApi* | [**rankDistribution**](docs/PlayersApi.md#rankdistribution) | **GET** /v1/players/rank/distribution | Rank Distribution |
 | *PlayersApi* | [**rankImage**](docs/PlayersApi.md#rankimage) | **GET** /v1/players/{account_id}/rank/image | Rank Image |
+| *PlayersApi* | [**region**](docs/PlayersApi.md#region) | **GET** /v1/players/{account_id}/region | Region |
+| *PlayersApi* | [**regionBatch**](docs/PlayersApi.md#regionbatch) | **GET** /v1/players/region | Batch Region |
 | *RankedSeasonsApi* | [**listRankedSeasons**](docs/RankedSeasonsApi.md#listrankedseasons) | **GET** /v1/assets/ranked-seasons | List Ranked Seasons |
 | *RanksApi* | [**getRank**](docs/RanksApi.md#getrank) | **GET** /v1/assets/ranks/{tier} | Get Rank |
 | *RanksApi* | [**listRanks**](docs/RanksApi.md#listranks) | **GET** /v1/assets/ranks | List Ranks |
@@ -362,9 +364,11 @@ All URIs are relative to *https://api.deadlock-api.com*
  - [deadlock_api_client.models.PatchCategory](docs/PatchCategory.md)
  - [deadlock_api_client.models.PatchGuid](docs/PatchGuid.md)
  - [deadlock_api_client.models.Pickup](docs/Pickup.md)
+ - [deadlock_api_client.models.PlayerClusterMonth](docs/PlayerClusterMonth.md)
  - [deadlock_api_client.models.PlayerEntry](docs/PlayerEntry.md)
  - [deadlock_api_client.models.PlayerMatchHistoryEntry](docs/PlayerMatchHistoryEntry.md)
  - [deadlock_api_client.models.PlayerPerformanceCurvePoint](docs/PlayerPerformanceCurvePoint.md)
+ - [deadlock_api_client.models.PlayerRegionResponse](docs/PlayerRegionResponse.md)
  - [deadlock_api_client.models.PlayerStatsMetricsBucket](docs/PlayerStatsMetricsBucket.md)
  - [deadlock_api_client.models.PlayerStatsMetricsResponse](docs/PlayerStatsMetricsResponse.md)
  - [deadlock_api_client.models.Rank](docs/Rank.md)

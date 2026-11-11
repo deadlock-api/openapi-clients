@@ -163,6 +163,20 @@ pub struct RankImageParams {
     pub format: Option<String>
 }
 
+/// struct for passing parameters to the method [`region`]
+#[derive(Clone, Debug)]
+pub struct RegionParams {
+    /// The players `SteamID3`
+    pub account_id: u32
+}
+
+/// struct for passing parameters to the method [`region_batch`]
+#[derive(Clone, Debug)]
+pub struct RegionBatchParams {
+    /// Comma separated list of account ids, in `SteamID3` or `SteamID64` format.
+    pub account_ids: Vec<u32>
+}
+
 
 /// struct for typed errors of method [`enemy_stats`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -247,6 +261,25 @@ pub enum RankImageError {
     Status400(),
     Status403(),
     Status404(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`region`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RegionError {
+    Status400(),
+    Status403(),
+    Status500(),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`region_batch`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum RegionBatchError {
+    Status400(),
     Status500(),
     UnknownValue(serde_json::Value),
 }
@@ -707,6 +740,80 @@ pub async fn rank_image(configuration: &configuration::Configuration, params: Ra
     } else {
         let content = resp.text().await?;
         let entity: Option<RankImageError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  The server region a player plays in, from the game servers of their matches.  Each match's server cluster comes from its salts, and the cluster's region and datacenter from the server names in replays. `region` is the region with the most matches in the player's latest month with a known region; `history` lists their matches per month and cluster, newest month first, so region changes show up month by month.  Only matches with known salts count. Clusters not yet seen in a replay have no region. Valve names some partner-hosted servers separately (e.g. `dpkt-frankfurt` or `helsinki` next to `eu_west`).  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+pub async fn region(configuration: &configuration::Configuration, params: RegionParams) -> Result<models::PlayerRegionResponse, Error<RegionError>> {
+
+    let uri_str = format!("{}/v1/players/{account_id}/region", configuration.base_path, account_id=params.account_id);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `models::PlayerRegionResponse`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `models::PlayerRegionResponse`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RegionError> = serde_json::from_str(&content).ok();
+        Err(Error::ResponseError(ResponseContent { status, content, entity }))
+    }
+}
+
+///  Returns the server region of each player, the batch form of `/v1/players/{account_id}/region`. See that endpoint for how the region is derived.  Every requested account is returned once, in no particular order. Players without any match with a known region get a `null` `region`. Protected accounts are left out.  ### Rate Limits: > Shared by both region endpoints. Each requested account counts as one, so a batch of 100 accounts uses as much as 100 single lookups.  | Type | Limit | | ---- | ----- | | IP | 10000 accounts/min, 100000 accounts/h | | Key | 50000 accounts/min, 500000 accounts/h | | Global | 60000 accounts/min | 
+pub async fn region_batch(configuration: &configuration::Configuration, params: RegionBatchParams) -> Result<Vec<models::PlayerRegionResponse>, Error<RegionBatchError>> {
+
+    let uri_str = format!("{}/v1/players/region", configuration.base_path);
+    let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
+
+    req_builder = match "multi" {
+        "multi" => req_builder.query(&params.account_ids.into_iter().map(|p| ("account_ids".to_owned(), p.to_string())).collect::<Vec<(std::string::String, std::string::String)>>()),
+        _ => req_builder.query(&[("account_ids", &params.account_ids.into_iter().map(|p| p.to_string()).collect::<Vec<String>>().join(",").to_string())]),
+    };
+    if let Some(ref user_agent) = configuration.user_agent {
+        req_builder = req_builder.header(reqwest::header::USER_AGENT, user_agent.clone());
+    }
+
+    let req = req_builder.build()?;
+    let resp = configuration.client.execute(req).await?;
+
+    let status = resp.status();
+    let content_type = resp
+        .headers()
+        .get("content-type")
+        .and_then(|v| v.to_str().ok())
+        .unwrap_or("application/octet-stream");
+    let content_type = super::ContentType::from(content_type);
+
+    if !status.is_client_error() && !status.is_server_error() {
+        let content = resp.text().await?;
+        match content_type {
+            ContentType::Json => serde_json::from_str(&content).map_err(Error::from),
+            ContentType::Text => return Err(Error::from(serde_json::Error::custom("Received `text/plain` content type response that cannot be converted to `Vec&lt;models::PlayerRegionResponse&gt;`"))),
+            ContentType::Unsupported(unknown_type) => return Err(Error::from(serde_json::Error::custom(format!("Received `{unknown_type}` content type response that cannot be converted to `Vec&lt;models::PlayerRegionResponse&gt;`")))),
+        }
+    } else {
+        let content = resp.text().await?;
+        let entity: Option<RegionBatchError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }

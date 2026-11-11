@@ -220,9 +220,11 @@ __all__ = [
     "PatchCategory",
     "PatchGuid",
     "Pickup",
+    "PlayerClusterMonth",
     "PlayerEntry",
     "PlayerMatchHistoryEntry",
     "PlayerPerformanceCurvePoint",
+    "PlayerRegionResponse",
     "PlayerStatsMetricsBucket",
     "PlayerStatsMetricsResponse",
     "Rank",
@@ -516,9 +518,11 @@ from deadlock_api_client.models.patch import Patch as Patch
 from deadlock_api_client.models.patch_category import PatchCategory as PatchCategory
 from deadlock_api_client.models.patch_guid import PatchGuid as PatchGuid
 from deadlock_api_client.models.pickup import Pickup as Pickup
+from deadlock_api_client.models.player_cluster_month import PlayerClusterMonth as PlayerClusterMonth
 from deadlock_api_client.models.player_entry import PlayerEntry as PlayerEntry
 from deadlock_api_client.models.player_match_history_entry import PlayerMatchHistoryEntry as PlayerMatchHistoryEntry
 from deadlock_api_client.models.player_performance_curve_point import PlayerPerformanceCurvePoint as PlayerPerformanceCurvePoint
+from deadlock_api_client.models.player_region_response import PlayerRegionResponse as PlayerRegionResponse
 from deadlock_api_client.models.player_stats_metrics_bucket import PlayerStatsMetricsBucket as PlayerStatsMetricsBucket
 from deadlock_api_client.models.player_stats_metrics_response import PlayerStatsMetricsResponse as PlayerStatsMetricsResponse
 from deadlock_api_client.models.rank import Rank as Rank
